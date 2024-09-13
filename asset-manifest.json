@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/poly-canyon-website/static/css/main.e6c13ad2.css",
+    "main.js": "/poly-canyon-website/static/js/main.121a5d61.js",
+    "static/js/453.21968249.chunk.js": "/poly-canyon-website/static/js/453.21968249.chunk.js",
+    "static/media/appleGIF.gif": "/poly-canyon-website/static/media/appleGIF.5ff51faac8dc4e6f232f.gif",
+    "static/media/androidGIF.gif": "/poly-canyon-website/static/media/androidGIF.ab84bed5238ddb2d4721.gif",
+    "static/media/app360.jpg": "/poly-canyon-website/static/media/app360.cd799465840a2554f277.jpg",
+    "index.html": "/poly-canyon-website/index.html",
+    "main.e6c13ad2.css.map": "/poly-canyon-website/static/css/main.e6c13ad2.css.map",
+    "main.121a5d61.js.map": "/poly-canyon-website/static/js/main.121a5d61.js.map",
+    "453.21968249.chunk.js.map": "/poly-canyon-website/static/js/453.21968249.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.121a5d61.js"
+  ]
+}
