@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { isIOS, isAndroid } from 'react-device-detect';
-import { FaApple, FaAndroid, FaArrowUp } from 'react-icons/fa';
+import { FaApple, FaAndroid } from 'react-icons/fa';
 import app360 from './assets/app360.jpg';
 
 import {
@@ -96,7 +96,7 @@ const DownloadPage = () => {
           onKeyPress={(e) => e.key === 'Enter' && toggleDevice()}
           tabIndex={0}
           role="button"
-          aria-label={`Switch to ${deviceType === 'ios' ? 'Android' : 'iOS'}`}
+          aria-label={`Switch the download button to ${deviceType === 'ios' ? 'Android' : 'iOS'}`}
         >
           Switch to {deviceType === 'ios' ? 'Android' : 'iOS'}
         </SwitchText>
@@ -105,7 +105,6 @@ const DownloadPage = () => {
         <FooterText>© 2024 Poly Canyon App. All rights reserved.</FooterText>
         <FooterText>Cal Poly, San Luis Obispo</FooterText>
       </Footer>
-      {/* Remove ScrollToTopButton component */}
     </PageContainer>
   );
 };
