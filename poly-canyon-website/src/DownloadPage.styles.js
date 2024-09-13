@@ -17,7 +17,7 @@ export const PageContainer = styled.div`
   align-items: center;
   padding: 40px 20px;
   min-height: 100vh;
-  background-color: #f8f9fa;
+  background-color: #ffffff;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 `;
 
@@ -69,8 +69,6 @@ export const GifContainer = styled.div`
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  border-radius: 24px;
   animation: ${fadeIn} 0.5s ease-out;
 `;
 

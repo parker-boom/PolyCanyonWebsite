@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 // Update the import paths to match the correct location of your GIF files
-import appleEx from './assets/appleEx.gif';
-import androidEx from './assets/androidEx.gif';
-
+import appleGIF from './assets/appleGIF.gif';
+import androidGIF from './assets/androidGIF.gif';
+  
 const GifImage = styled.img`
   height: 100%;
   width: auto;
@@ -12,7 +12,7 @@ const GifImage = styled.img`
 `;
 
 const LazyGif = ({ deviceType }) => {
-  const gifSrc = deviceType === 'ios' ? appleEx : androidEx;
+  const gifSrc = deviceType === 'ios' ? appleGIF : androidGIF;
   return <GifImage src={gifSrc} alt={`${deviceType} app preview`} />;
 };
 
