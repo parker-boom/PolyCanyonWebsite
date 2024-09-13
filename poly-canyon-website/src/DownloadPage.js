@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { isMobile, isIOS, isAndroid } from 'react-device-detect';
+import { isIOS, isAndroid } from 'react-device-detect';
 import { FaApple, FaAndroid, FaArrowUp } from 'react-icons/fa';
 import LazyGif from './LazyGif';
 import app360 from './assets/app360.jpg';
