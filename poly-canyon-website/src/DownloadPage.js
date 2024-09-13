@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { isIOS, isAndroid } from 'react-device-detect';
 import { FaApple, FaAndroid, FaArrowUp } from 'react-icons/fa';
-import LazyGif from './LazyGif';
 import app360 from './assets/app360.jpg';
 
 import {
@@ -15,12 +14,14 @@ import {
   SwitchText,
   Footer,
   FooterText,
-  ScrollToTopButton,
+  // Remove ScrollToTopButton import
 } from './DownloadPage.styles';
+
+const LazyGif = lazy(() => import('./LazyGif'));
 
 const DownloadPage = () => {
   const [deviceType, setDeviceType] = useState('unknown');
-  const [showScrollButton, setShowScrollButton] = useState(false);
+  // Remove showScrollButton state
 
   useEffect(() => {
     if (isIOS) {
@@ -31,12 +32,7 @@ const DownloadPage = () => {
       setDeviceType('desktop');
     }
 
-    const handleScroll = () => {
-      setShowScrollButton(window.pageYOffset > 300);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    // Remove scroll event listener
   }, []);
 
   const toggleDevice = () => {
@@ -55,9 +51,7 @@ const DownloadPage = () => {
     return deviceType === 'ios' ? <FaApple /> : <FaAndroid />;
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  // Remove scrollToTop function
 
   return (
     <PageContainer>
@@ -82,14 +76,17 @@ const DownloadPage = () => {
       </IconContainer>
       <Title>Poly Canyon</Title>
       <Subtitle>Explore an interactive map and discover the fascinating structures and their rich history</Subtitle>
-      <GifContainer>
-        <LazyGif deviceType={deviceType} />
-      </GifContainer>
+      <Suspense fallback={<div>Loading preview...</div>}>
+        <GifContainer>
+          <LazyGif deviceType={deviceType} />
+        </GifContainer>
+      </Suspense>
+
       <DownloadButton 
         href={getStoreLink()} 
         target="_blank" 
         rel="noopener noreferrer"
-        aria-label={`Download for ${deviceType === 'ios' ? 'iOS' : 'Android'}`}
+        aria-label={`Download button for ${deviceType === 'ios' ? 'iOS' : 'Android'}`}
       >
         {getStoreIcon()} Download for {deviceType === 'ios' ? 'iOS' : 'Android'}
       </DownloadButton>
@@ -108,13 +105,7 @@ const DownloadPage = () => {
         <FooterText>© 2024 Poly Canyon App. All rights reserved.</FooterText>
         <FooterText>Cal Poly, San Luis Obispo</FooterText>
       </Footer>
-      <ScrollToTopButton 
-        onClick={scrollToTop} 
-        visible={showScrollButton}
-        aria-label="Scroll to top"
-      >
-        <FaArrowUp />
-      </ScrollToTopButton>
+      {/* Remove ScrollToTopButton component */}
     </PageContainer>
   );
 };

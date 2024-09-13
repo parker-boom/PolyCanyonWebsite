@@ -13,7 +13,8 @@ const GifImage = styled.img`
 
 const LazyGif = ({ deviceType }) => {
   const gifSrc = deviceType === 'ios' ? appleGIF : androidGIF;
-  return <GifImage src={gifSrc} alt={`${deviceType} app preview`} />;
+  return <GifImage src={gifSrc} alt={`${deviceType} app preview showing interactive map`} />;
 };
+
 
 export default LazyGif;

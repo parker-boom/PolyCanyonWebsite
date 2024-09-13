@@ -35,7 +35,7 @@ export const IconContainer = styled.div`
   transition: transform 0.3s ease;
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.1) rotate(5deg);
   }
 `;
 
@@ -80,8 +80,8 @@ export const DownloadButton = styled.a`
   text-decoration: none;
   font-weight: bold;
   font-size: 20px;
-  margin-bottom: 10px; // Reduced margin-bottom
-  transition: all 0.3s ease;
+  margin-bottom: 10px; 
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -89,9 +89,14 @@ export const DownloadButton = styled.a`
   animation: ${fadeIn} 0.5s ease-out;
 
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
     background: linear-gradient(to bottom, #3a7434, #2c5636);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 
   svg {
@@ -106,34 +111,18 @@ export const DeviceSwitchContainer = styled.div`
   animation: ${fadeIn} 0.5s ease-out;
 `;
 
-export const ScrollToTopButton = styled.button`
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #376d31;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  font-size: 24px;
-  cursor: pointer;
-  opacity: ${({ visible }) => (visible ? '1' : '0')};
-  transition: opacity 0.3s ease;
-
-  &:hover {
-    background-color: #295033;
-  }
-`;
-
 export const SwitchText = styled.span`
   color: #4CAF50;
   text-decoration: underline;
   cursor: pointer;
   font-size: 16px;
 
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+
   &:hover {
     color: #45a049;
+    text-decoration: none;
+    border-bottom: 1px solid #45a049;
   }
 `;
 
