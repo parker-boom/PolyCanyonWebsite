@@ -57,7 +57,7 @@ const DownloadPage = () => {
     <PageContainer>
       <head>
         <title>Download Poly Canyon App</title>
-        <meta name="description" content="Explore Poly Canyon with our interactive app. Download now for iOS and Android." />
+        <meta name="description" content="Explore, learn, and track your journey through the canyon's architectural wonders" />
         <meta name="keywords" content="Poly Canyon, Cal Poly, interactive map, architecture, student projects" />
         <html lang="en" />
       </head>

@@ -56,7 +56,7 @@ export const Subtitle = styled.h2`
   margin-top: 0; // Removed top margin
   margin-bottom: 30px;
   text-align: center;
-  max-width: 80%;
+  max-width: 88%;
   line-height: 1.4;
 `;
 
