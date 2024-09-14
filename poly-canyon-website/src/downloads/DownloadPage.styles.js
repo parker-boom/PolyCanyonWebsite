@@ -1,5 +1,10 @@
+// DownloadPage.styles.js
+// This file contains styled components for the DownloadPage component,
+// defining the layout and appearance of various elements.
+
 import styled, { keyframes } from 'styled-components';
 
+// Keyframes for animations
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -11,6 +16,7 @@ const glowAnimation = keyframes`
   100% { box-shadow: 0 0 5px rgba(55, 109, 49, 0.5); }
 `;
 
+// Styled components for the download page
 export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -35,7 +41,7 @@ export const IconContainer = styled.div`
   transition: transform 0.3s ease;
 
   &:hover {
-    transform: scale(1.1) rotate(5deg);
+    transform: scale(1.1) rotate(5deg); // Scale and rotate on hover
   }
 `;
 
@@ -89,18 +95,18 @@ export const DownloadButton = styled.a`
   animation: ${fadeIn} 0.5s ease-out;
 
   &:hover {
-    transform: translateY(-2px) scale(1.02);
+    transform: translateY(-2px) scale(1.02); // Hover effect
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
     background: linear-gradient(to bottom, #3a7434, #2c5636);
   }
 
   &:active {
-    transform: translateY(0);
+    transform: translateY(0); // Active state effect
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 
   svg {
-    font-size: 28px;
+    font-size: 28px; // Icon size
   }
 `;
 
@@ -120,9 +126,9 @@ export const SwitchText = styled.span`
   transition: color 0.3s ease, text-decoration 0.3s ease;
 
   &:hover {
-    color: #45a049;
+    color: #45a049; // Hover color change
     text-decoration: none;
-    border-bottom: 1px solid #45a049;
+    border-bottom: 1px solid #45a049; // Underline effect on hover
   }
 `;
 
@@ -137,5 +143,5 @@ export const Footer = styled.footer`
 export const FooterText = styled.p`
   color: #777;
   font-size: 16px;
-  margin: 8px 0;
+  margin: 8px 0; // Footer text margin
 `;

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import DownloadPage from './DownloadPage';
+import DownloadPage from './downloads/DownloadPage';
 
 
 
