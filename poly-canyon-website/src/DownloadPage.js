@@ -75,7 +75,7 @@ const DownloadPage = () => {
         />
       </IconContainer>
       <Title>Poly Canyon</Title>
-      <Subtitle>Explore an interactive map and discover the fascinating structures and their rich history</Subtitle>
+      <Subtitle>Explore, learn, and track your journey through the canyon's architectural wonders</Subtitle>
       <Suspense fallback={<div>Loading preview...</div>}>
         <GifContainer>
           <LazyGif deviceType={deviceType} />
