@@ -1,7 +1,7 @@
 // SupportPage.styles.js
 // Styled-components for the Support Page with requested UI adjustments.
 
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 // Define a color palette for consistency
 const colors = {
