@@ -10,7 +10,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/support" element={<SupportPage />} />
-        <Route path="/" element={<DownloadPage />} />
+        <Route path="/download" element={<DownloadPage />} />
+        <Route path="/" element={<DownloadPage />} /> 
       </Routes>
     </Router>
   );
