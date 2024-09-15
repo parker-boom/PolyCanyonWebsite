@@ -17,7 +17,6 @@ import {
   Footer,
   FooterText,
 } from './SupportPage.styles';
-import { FaBook } from 'react-icons/fa'; // Importing book icon
 
 const SupportPage = () => {
   return (
