@@ -75,7 +75,7 @@ export const LearnMoreButton = styled(Link)`
   text-decoration: none;
   font-weight: bold;
   font-size: 18px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   transition: background-color 0.3s ease, transform 0.3s ease;
   display: inline-block;
 
@@ -136,7 +136,7 @@ export const DownloadButton = styled.a`
 export const DeviceSwitchContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 10px; // Removed margin-top
+  margin-bottom: 10px; 
   animation: ${fadeIn} 0.5s ease-out;
 `;
 
@@ -145,6 +145,8 @@ export const SwitchText = styled.span`
   text-decoration: underline;
   cursor: pointer;
   font-size: 16px;
+  margin-bottom: 20px; 
+  
 
   transition: color 0.3s ease, text-decoration 0.3s ease;
 

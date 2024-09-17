@@ -2,7 +2,7 @@
 // This component renders the download page for the Poly Canyon app, 
 // detecting the user's device type and providing appropriate download links.
 
-import React, { useState, useEffect, Suspense, lazy } from 'react';
+import React, { useState, useEffect, Suspense, lazy, useRef } from 'react';
 import { isIOS, isAndroid } from 'react-device-detect';
 import { FaApple, FaAndroid } from 'react-icons/fa';
 import app360 from '../assets/app360.jpg';
@@ -24,6 +24,7 @@ const LazyGif = lazy(() => import('./LazyGif')); // Lazy load the GIF component
 
 const DownloadPage = () => {
   const [deviceType, setDeviceType] = useState('unknown'); // State to track device type
+  const downloadButtonRef = useRef(null); // Create a ref for the download button
 
   useEffect(() => {
     // Determine device type on component mount
@@ -53,6 +54,11 @@ const DownloadPage = () => {
     return deviceType === 'ios' ? <FaApple /> : <FaAndroid />;
   };
 
+  const jumpToDownload = () => {
+    // Scroll to the download button
+    downloadButtonRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <PageContainer>
       {/* Meta tags for SEO */}
@@ -79,6 +85,12 @@ const DownloadPage = () => {
       <Title>Poly Canyon</Title>
       <Subtitle>Explore, learn, and track your journey through the canyon's architectural wonders</Subtitle>
       <LearnMoreButton to="/info">Learn More &gt;</LearnMoreButton>
+      
+      {/* Jump to download text */}
+      <SwitchText onClick={jumpToDownload} onKeyPress={(e) => e.key === 'Enter' && jumpToDownload()} tabIndex={0} role="button" aria-label="Jump to download">
+        Go to download
+      </SwitchText>
+
       <Suspense fallback={<div>Loading preview...</div>}>
         {/* Lazy loaded GIF based on device type */}
         <GifContainer>
@@ -88,6 +100,7 @@ const DownloadPage = () => {
 
       {/* Download button */}
       <DownloadButton 
+        ref={downloadButtonRef} // Attach the ref here
         href={getStoreLink()} 
         target="_blank" 
         rel="noopener noreferrer"
