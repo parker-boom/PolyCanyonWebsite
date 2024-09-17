@@ -161,7 +161,7 @@ const InfoPage = () => {
           New to the area? The best way to reach Poly Canyon is by using AllTrails for initial directions. Once you arrive, switch to the Poly Canyon app for an enhanced exploration experience.
         </p>
         <ButtonContainer>
-        <AllTrailsButton href="https://www.google.com" target="_blank" rel="noopener noreferrer">
+        <AllTrailsButton href="https://www.alltrails.com/trail/us/california/architecture-graveyard-hike-private-property?sh=rvw6ps" target="_blank" rel="noopener noreferrer">
           All Trails &gt;
         </AllTrailsButton>
         </ButtonContainer>
