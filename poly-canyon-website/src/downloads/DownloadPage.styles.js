@@ -3,6 +3,7 @@
 // defining the layout and appearance of various elements.
 
 import styled, { keyframes } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 // Keyframes for animations
 const fadeIn = keyframes`
@@ -64,6 +65,28 @@ export const Subtitle = styled.h2`
   text-align: center;
   max-width: 88%;
   line-height: 1.4;
+`;
+
+export const LearnMoreButton = styled(Link)`
+  background: #4CAF50;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+
+  &:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
 `;
 
 export const GifContainer = styled.div`

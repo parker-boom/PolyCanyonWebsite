@@ -17,6 +17,7 @@ import {
   SwitchText,
   Footer,
   FooterText,
+  LearnMoreButton, 
 } from './DownloadPage.styles';
 
 const LazyGif = lazy(() => import('./LazyGif')); // Lazy load the GIF component
@@ -77,6 +78,7 @@ const DownloadPage = () => {
       </IconContainer>
       <Title>Poly Canyon</Title>
       <Subtitle>Explore, learn, and track your journey through the canyon's architectural wonders</Subtitle>
+      <LearnMoreButton to="/info">Learn More &gt;</LearnMoreButton>
       <Suspense fallback={<div>Loading preview...</div>}>
         {/* Lazy loaded GIF based on device type */}
         <GifContainer>
