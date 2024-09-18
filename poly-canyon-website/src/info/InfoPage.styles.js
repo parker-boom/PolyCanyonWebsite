@@ -174,19 +174,39 @@ export const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  gap: 10px; // Add gap between buttons
 `;
 
-export const AllTrailsButton = styled.a`
-  display: inline-block;
-  background-color: #376d31;
+export const MapButton = styled.a`
+  display: inline-flex;
+  align-items: center;
   color: white;
   padding: 10px 20px;
   border-radius: 20px;
   text-decoration: none;
   transition: background-color 0.3s;
 
+  svg {
+    margin-right: 5px;
+  }
+`;
+
+export const AllTrailsButton = styled(MapButton)`
+  background-color: #00008B; // Dark blue color
   &:hover {
-    background-color: #2c5a28;
+    background-color: #000080;
+  }
+`;
+
+export const GoogleMapsButton = styled(MapButton)`
+  background-color: #4285F4;
+
+  &:hover {
+    background-color: #3367D6;
+  }
+
+  svg {
+    margin-right: 5px;
   }
 `;
 
@@ -217,4 +237,41 @@ export const FooterText = styled.p`
   color: #777;
   font-size: 14px;
   margin: 5px 0;
+`;
+
+export const VisitTipsTitle = styled.h3`
+  font-size: 22px;
+  color: #376d31;
+  margin: 20px 0 10px; // Adjusted margin for spacing
+  text-align: center;
+  margin-top: 40px; // Increased top margin for more spacing
+`;
+
+export const DownloadCTA = styled(Link)`
+  display: inline-block;
+  background-color: #376d31;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    background-color: #2c5a28;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
 `;
