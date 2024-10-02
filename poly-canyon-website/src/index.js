@@ -12,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/support" element={<SupportPage />} />
         <Route path="/download" element={<DownloadPage />} />
+        <Route path="/entrance" element={<DownloadPage />} />
         <Route path="/info" element={<InfoPage />} /> 
         <Route path="/" element={<DownloadPage />} /> 
       </Routes>
