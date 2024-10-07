@@ -22,7 +22,7 @@ import {
 
 const LazyGif = lazy(() => import('./LazyGif')); // Lazy load the GIF component
 
-const DownloadPage = () => {
+const DownloadPageMobile = () => {
   const [deviceType, setDeviceType] = useState('unknown'); // State to track device type
   const downloadButtonRef = useRef(null); // Create a ref for the download button
 
@@ -129,4 +129,4 @@ const DownloadPage = () => {
   );
 };
 
-export default DownloadPage;
+export default DownloadPageMobile;
