@@ -5,6 +5,9 @@
 import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
 import { FaDownload, FaInfoCircle, FaBuilding } from 'react-icons/fa';
+import { FaBars } from 'react-icons/fa';
+
+
 
 // Keyframes for animations
 const fadeIn = keyframes`
@@ -33,7 +36,8 @@ export const IconContainer = styled.div`
   width: 180px;
   height: 180px;
   border-radius: 36px;
-  margin-bottom: 15px;
+  margin-top: 25px;
+  margin-bottom: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -376,4 +380,99 @@ export const RoundedContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+// Mobile Banner Styles (keeping the same color scheme and rounding)
+export const BannerMobile = styled.div`
+  width: 100%;
+  background-color: #b6e5b6;  // Keep the same green color
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0 0 20px 20px;  // Match the rounded effect
+`;
+
+// Menu Icon (left side)
+export const MenuIcon = styled.div`
+  font-size: 28px;
+  color: #3c6b38;
+  cursor: pointer;
+  padding: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+`;
+
+// Poly Canyon Title (center)
+export const PolyCanyonTitle = styled.h1`
+  font-size: 40px;  // Larger font size
+  font-weight: 700;
+  color: #3c6b38;
+  text-shadow: 0 2px 4px rgba(253, 208, 76, 0.5);
+  text-align: center;
+  margin: 0;
+`;
+
+
+// Poly Canyon Logo (right side)
+export const Logo = styled.img`
+  height: 48px;
+  width: 48px;
+  border-radius: 10px;
+  margin-right: 10px;
+`;
+
+// Popup Container (for navigation)
+export const PopupContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);  // Dim background
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+`;
+
+// Popup Content (rounded for links)
+export const PopupContent = styled.div`
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+  width: 80%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+`;
+
+// Popup Close Button
+export const PopupCloseButton = styled.button`
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+`;
+
+// Navigation Links in the Popup (with icons)
+export const PopupNavLink = styled.a`
+  text-decoration: none;
+  color: #4CAF50;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;  // Space between icon and text
+  transition: color 0.3s;
+
+  &:hover {
+    color: #45a049;
+  }
 `;
