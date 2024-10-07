@@ -1,6 +1,6 @@
 # Poly Canyon Website
 
-![Poly Canyon Logo](path/to/your/image.png)
+![Poly Canyon Logo](src/assets/app360.jpg)
 
 ## Overview
 
