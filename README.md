@@ -7,7 +7,7 @@
 The Poly Canyon Website is a React-based application that provides users with various resources and information. The application is structured with multiple pages, each serving a specific purpose, and utilizes React Router for navigation.
 
 ## Pages
-unnessesary page
+
 ### Support Page
 
 - **Path**: `/support`
