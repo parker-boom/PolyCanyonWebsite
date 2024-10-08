@@ -8,8 +8,8 @@ import { useMediaQuery } from 'react-responsive';
 import './index.css';
 import DownloadPageMobile from './downloads/DownloadPageMobile';
 import DownloadPageWeb from './downloads/DownloadPageWeb';
-import SupportPage from './support/SupportPage';
 import InfoPage from './info/InfoPage';
+import StructuresPage from './structures/Structures.js';
 
 function App() {
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
@@ -17,10 +17,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/support" element={<SupportPage />} />
         <Route path="/download" element={isMobile ? <DownloadPageMobile /> : <DownloadPageWeb />} />
         <Route path="/info" element={<InfoPage />} />
         <Route path="/" element={isMobile ? <DownloadPageMobile /> : <DownloadPageWeb />} />
+        <Route path="/structures" element={<StructuresPage />} />
       </Routes>
     </Router>
   );

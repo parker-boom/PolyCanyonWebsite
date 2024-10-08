@@ -1,45 +1,52 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { RoundedContainer } from '../downloads/DownloadPage.styles';
 
 export const PageContainer = styled.div`
-  max-width: 1024px;
-  margin: 0 auto;
-  padding: 20px;
+  margin: 0;
+  padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
-  background-color: #f8f8f8;
+  background-color: #ffffff;
+`;
+
+export const ContentContainer = styled.div`
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 24px; // Increased from 20px
+`;
+
+export const InfoRoundedContainer = styled(RoundedContainer)`
+  margin-bottom: 36px; // Increased from 30px
+  padding: 24px; // Added horizontal padding
 `;
 
 export const Header = styled.header`
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 36px; // Increased from 30px
 `;
 
 export const Title = styled.h1`
-  font-size: 32px;
+  font-size: 38.4px; // Increased by 1.2
   color: #376d31;
   margin-bottom: 0px;
 `;
 
 export const Subtitle = styled.h2`
-  font-size: 20px;
+  font-size: 24px; // Increased by 1.2
   color: #555;
   font-weight: normal;
   margin-top: 0;
 `;
 
-export const Section = styled.section`
-  background-color: #ffffff;
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 30px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+export const Section = styled(InfoRoundedContainer)`
+  font-size: 19.2px; // Increased by 1.2
 `;
 
 export const SectionTitle = styled.h2`
-  font-size: 26px;
+  font-size: 31.2px; // Increased by 1.2
   color: #376d31;
-  margin: 0 0 20px 0;
+  margin: 0 0 24px 0; // Increased bottom margin
   text-align: center;
   font-weight: bold;
 `;
@@ -61,16 +68,16 @@ export const CarouselImage = styled.img`
 `;
 
 export const CarouselTitle = styled.h3`
-  font-size: 20px;
-  margin-top: 10px;
+  font-size: 24px; // Increased by 1.2
+  margin-top: 12px; // Increased by 1.2
   margin-bottom: 0px;
 `;
 
 export const CarouselDescription = styled.p`
-  font-size: 16px;
+  font-size: 19.2px; // Increased by 1.2
   color: #555;
-  margin-top: 5px; // Add a small top margin
-  margin-bottom: 0; // Remove bottom margin
+  margin-top: 6px; // Increased by 1.2
+  margin-bottom: 0;
 `;
 
 export const CarouselButton = styled.button`
@@ -235,16 +242,16 @@ export const Footer = styled.footer`
 
 export const FooterText = styled.p`
   color: #777;
-  font-size: 14px;
-  margin: 5px 0;
+  font-size: 16.8px; // Increased by 1.2
+  margin: 6px 0; // Increased by 1.2
 `;
 
 export const VisitTipsTitle = styled.h3`
-  font-size: 22px;
+  font-size: 26.4px; // Increased by 1.2
   color: #376d31;
-  margin: 20px 0 10px; // Adjusted margin for spacing
+  margin: 24px 0 12px; // Increased by 1.2
   text-align: center;
-  margin-top: 40px; // Increased top margin for more spacing
+  margin-top: 48px; // Increased by 1.2
 `;
 
 export const DownloadCTA = styled(Link)`

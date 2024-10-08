@@ -5,35 +5,44 @@
 // TO DO: Remove the white background from GIFs and add shadow
 // TO DO: Add links in the bottom description to support pages and info page.
 
+// LIBRARY IMPORTS
 import React from 'react';
-import { FaApple, FaAndroid, FaArrowRight, FaDownload, FaInfoCircle, FaBuilding, FaQuestionCircle } from 'react-icons/fa';
+import { FaApple, FaAndroid, FaArrowRight, FaDownload, FaInfoCircle, FaBuilding } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
+
+// STYLE IMPORTS
 import {
   Banner,
+  BannerContent,
+  BannerIcon,
   BannerText,
-  Icon,
-  DownloadNowText,
+  NavLinks,
+  NavLink,
+  Footer,
+  FooterText,
+  LeftSection,
+  RightSection,
+} from '../Navigation';
+
+import {
   WebDescription,
   WebLearnMoreButton,
   SplitContainer,
   Column,
-  Footer,
-  FooterText,
-  PageContainer, 
   PlatformTitle,
   WebDownloadButton,
+  PageContainer,
   RoundedContainer,
-  BannerContent,
-  BannerIcon,
-  NavLinks,
-  NavLink,
-  IconContainer,
-  LeftSection,
-  RightSection,
+  DownloadNowText,
 } from './DownloadPage.styles';
+
+// ASSET IMPORTS
 import appleGIF from '../assets/appleGIF.gif';
 import androidGIF from '../assets/androidGIF.gif';
 import app360 from '../assets/app360.jpg';
+
+
+
 
 const DownloadPageWeb = () => {
   const location = useLocation();
@@ -55,9 +64,6 @@ const DownloadPageWeb = () => {
               </NavLink>
               <NavLink to="/structures" $isActive={location.pathname === '/structures'}>
                 <FaBuilding /> Structures
-              </NavLink>
-              <NavLink to="/support" $isActive={location.pathname === '/support'}>
-                <FaQuestionCircle /> Support
               </NavLink>
             </NavLinks>
           </LeftSection>
