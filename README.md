@@ -8,11 +8,6 @@ The Poly Canyon Website is a React-based application that provides users with va
 
 ## Pages
 
-### Support Page
-
-- **Path**: `/support`
-- **Description**: Provides assistance and bug reporting related to the Poly Canyon App.
-
 ### Download Page
 
 - **Path**: `/download` and `/entrance`
