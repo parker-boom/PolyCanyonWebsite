@@ -1,30 +1,12 @@
 // DownloadPageWeb.js
 // This component renders the download page for web users.
 
-// TO DO: Add the ability to switch between virtual tour and physical tour modes, updating the GIFS and info. 
-// TO DO: Remove the white background from GIFs and add shadow
-// TO DO: Add links in the bottom description to support pages and info page.
-
 // LIBRARY IMPORTS
 import React from 'react';
-import { FaApple, FaAndroid, FaArrowRight, FaDownload, FaInfo, FaBuilding } from 'react-icons/fa';
-import { useLocation } from 'react-router-dom';
+import { FaApple, FaAndroid, FaArrowRight } from 'react-icons/fa';
 import LazyGif from './LazyGif';
 
 // STYLE IMPORTS
-import {
-  Banner,
-  BannerContent,
-  BannerIcon,
-  BannerText,
-  NavLinks,
-  NavLink,
-  Footer,
-  FooterText,
-  LeftSection,
-  RightSection,
-} from '../Navigation';
-
 import {
   WebDescription,
   WebLearnMoreButton,
@@ -38,40 +20,9 @@ import {
   GifContainerWeb,
 } from './DownloadPage.styles';
 
-// ASSET IMPORTS
-import app360 from '../assets/app360.jpg';
-
 const DownloadPageWeb = () => {
-  const location = useLocation();
-
   return (
     <PageContainer>
-      {/* Banner moved to the top */}
-      <Banner>
-        <BannerContent>
-          {/* Left Section: Title and Nav Links */}
-          <LeftSection>
-            <BannerText>Poly Canyon</BannerText>
-            <NavLinks>
-              <NavLink to="/download" $isActive={location.pathname === '/download'}>
-                <FaDownload /> Download
-              </NavLink>
-              <NavLink to="/info" $isActive={location.pathname === '/info'}>
-                <FaInfo /> Info
-              </NavLink>
-              <NavLink to="/structures" $isActive={location.pathname === '/structures'}>
-                <FaBuilding /> Structures
-              </NavLink>
-            </NavLinks>
-          </LeftSection>
-          
-          {/* Right Section: App Icon */}
-          <RightSection>
-            <BannerIcon src={app360} alt="Poly Canyon Logo" />
-          </RightSection>
-        </BannerContent>
-      </Banner>
-
 
       {/* Download Call-to-Action Section */}
       <RoundedContainer>
@@ -123,12 +74,6 @@ const DownloadPageWeb = () => {
           If you are interested in detailed information on all structures or looking for support with the app download or function, please navigate to those pages.
         </WebDescription>
       </RoundedContainer>
-
-      {/* Footer */}
-      <Footer>
-        <FooterText>© 2024 Poly Canyon App. All rights reserved.</FooterText>
-        <FooterText>Cal Poly, San Luis Obispo</FooterText>
-      </Footer>
     </PageContainer>
   );
 };
