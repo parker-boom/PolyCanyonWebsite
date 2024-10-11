@@ -120,6 +120,76 @@ export const CarouselButton = styled.button`
   }
 `;
 
+export const PickerContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+`;
+
+export const PickerTab = styled.button`
+  background-color: ${props => props.active ? '#376d31' : '#f0f0f0'};
+  color: ${props => props.active ? '#ffffff' : '#333'};
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  font-size: 18px;
+
+  &:hover {
+    background-color: ${props => props.active ? '#2c5a28' : '#e0e0e0'};
+  }
+`;
+
+export const SubSection = styled.div`
+  margin-bottom: 24px;
+`;
+
+export const ImageSlideshow = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 10px;
+  margin-bottom: 20px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+export const InfographicPlaceholder = styled.div`
+  width: 30%;
+  height: 150px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #777;
+  font-size: 18px;
+`;
+
+export const PictureSlideshow = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 10px;
+  margin-top: 20px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+export const CalloutBox = styled.div`
+  background-color: #f9f9f9;
+  border-left: 5px solid #376d31;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 36px;
+`;
+
 export const ModeSelector = styled.div`
   display: flex;
   justify-content: center;
@@ -135,6 +205,7 @@ export const ModeButton = styled.button`
   border-radius: 20px;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
+  font-size: 18px;
 
   &:hover {
     background-color: ${props => props.active ? '#2c5a28' : '#e0e0e0'};
@@ -189,81 +260,18 @@ export const VisitTips = styled.ul`
   padding: 0;
 `;
 
-export const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  gap: 10px; // Add gap between buttons
-`;
-
-export const MapButton = styled.a`
-  display: inline-flex;
-  align-items: center;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 20px;
-  text-decoration: none;
-  transition: background-color 0.3s;
-
-  svg {
-    margin-right: 5px;
-  }
-`;
-
-export const AllTrailsButton = styled(MapButton)`
-  background-color: #00008B; // Dark blue color
-  &:hover {
-    background-color: #000080;
-  }
-`;
-
-export const GoogleMapsButton = styled(MapButton)`
-  background-color: #4285F4;
-
-  &:hover {
-    background-color: #3367D6;
-  }
-
-  svg {
-    margin-right: 5px;
-  }
-`;
-
-export const CTAButton = styled(Link)`
-  display: inline-block;
-  background-color: #376d31;
-  color: white;
-  padding: 15px 30px;
-  border: none;
-  border-radius: 5px;
-  font-size: 18px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  text-decoration: none;
-  text-align: center;
-
-  &:hover {
-    background-color: #2c5a28;
-  }
-`;
-
-export const Footer = styled.footer`
-  text-align: center;
-  margin-top: 30px;
-`;
-
-export const FooterText = styled.p`
-  color: #777;
-  font-size: 16.8px; // Increased by 1.2
-  margin: 6px 0; // Increased by 1.2
-`;
-
 export const VisitTipsTitle = styled.h3`
   font-size: 26.4px; // Increased by 1.2
   color: #376d31;
   margin: 24px 0 12px; // Increased by 1.2
   text-align: center;
-  margin-top: 48px; // Increased by 1.2
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px; // Add gap between buttons
 `;
 
 export const DownloadCTA = styled(Link)`
@@ -294,3 +302,40 @@ export const DownloadCTA = styled(Link)`
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 `;
+
+
+export const MapButton = styled.a`
+  display: inline-flex;
+  align-items: center;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+
+  svg {
+    margin-right: 5px;
+  }
+`;
+
+
+export const AllTrailsButton = styled(MapButton)`
+  background-color: #00008B; // Dark blue color
+  &:hover {
+    background-color: #000080;
+  }
+`;
+
+export const GoogleMapsButton = styled(MapButton)`
+  background-color: #4285F4;
+
+  &:hover {
+    background-color: #3367D6;
+  }
+
+  svg {
+    margin-right: 5px;
+  }
+`;
+
+
