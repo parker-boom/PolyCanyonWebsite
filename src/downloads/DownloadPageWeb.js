@@ -7,8 +7,9 @@
 
 // LIBRARY IMPORTS
 import React from 'react';
-import { FaApple, FaAndroid, FaArrowRight, FaDownload, FaInfoCircle, FaBuilding } from 'react-icons/fa';
+import { FaApple, FaAndroid, FaArrowRight, FaDownload, FaInfo, FaBuilding } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
+import LazyGif from './LazyGif';
 
 // STYLE IMPORTS
 import {
@@ -34,15 +35,11 @@ import {
   PageContainer,
   RoundedContainer,
   DownloadNowText,
+  GifContainerWeb,
 } from './DownloadPage.styles';
 
 // ASSET IMPORTS
-import appleGIF from '../assets/appleGIF.gif';
-import androidGIF from '../assets/androidGIF.gif';
 import app360 from '../assets/app360.jpg';
-
-
-
 
 const DownloadPageWeb = () => {
   const location = useLocation();
@@ -60,7 +57,7 @@ const DownloadPageWeb = () => {
                 <FaDownload /> Download
               </NavLink>
               <NavLink to="/info" $isActive={location.pathname === '/info'}>
-                <FaInfoCircle /> Info
+                <FaInfo /> Info
               </NavLink>
               <NavLink to="/structures" $isActive={location.pathname === '/structures'}>
                 <FaBuilding /> Structures
@@ -91,11 +88,9 @@ const DownloadPageWeb = () => {
           {/* iOS Column */}
           <Column>
             <PlatformTitle>iOS <FaApple /></PlatformTitle>
-            <img 
-              src={appleGIF} 
-              alt="iOS App Preview" 
-              style={{ width: '64%', borderRadius: '10px' }} 
-            />
+            <GifContainerWeb height={600}>
+              <LazyGif deviceType="ios" />
+            </GifContainerWeb>
             <WebDownloadButton
               href="https://apps.apple.com/us/app/poly-canyon/id6499063781"
               target="_blank"
@@ -109,11 +104,9 @@ const DownloadPageWeb = () => {
           {/* Android Column */}
           <Column>
             <PlatformTitle>Android <FaAndroid /></PlatformTitle>
-            <img 
-              src={androidGIF} 
-              alt="Android App Preview" 
-              style={{ width: '64%', borderRadius: '10px' }}  
-            />
+            <GifContainerWeb height={600}>
+              <LazyGif deviceType="android" />
+            </GifContainerWeb>
             <WebDownloadButton
               href="https://play.google.com/store/apps/details?id=com.polycanyon&pcampaignid=web_share"
               target="_blank"

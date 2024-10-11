@@ -103,6 +103,15 @@ export const GifContainer = styled.div`
   animation: ${fadeIn} 0.5s ease-out;
 `;
 
+export const GifContainerWeb = styled.div`
+  height: ${props => props.height}px;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+`;
+
 export const DownloadButton = styled.a`
   background: linear-gradient(to bottom, #376d31, #295033);
   color: white;
@@ -269,7 +278,6 @@ export const SplitContainer = styled.div`
   padding: 0;
 `;
 
-// Add this new styled component
 export const RoundedContainer = styled.div`
   background-color: #f5f5f5;
   border-radius: 20px;
@@ -281,100 +289,4 @@ export const RoundedContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-
-// Popup Content (rounded for links)
-export const PopupContent = styled.div`
-  background-color: white;
-  border-radius: 20px;
-  padding: 20px;
-  width: 80%;
-  max-width: 300px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
-  position: relative;
-`;
-
-// Popup Close Button
-export const PopupCloseButton = styled.button`
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  font-size: 24px;
-  color: #333;
-  cursor: pointer;
-  padding: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: color 0.3s ease;
-
-  &:hover {
-    color: #4CAF50;
-  }
-`;
-
-// Update PopupTitle
-export const PopupTitle = styled.h2`
-  font-size: 28px;
-  font-weight: 700;
-  color: #333;
-  margin: 10px 0 20px;
-  text-align: center;
-`;
-
-// Update PopupNavLink
-export const PopupNavLink = styled(Link)`
-  text-decoration: none;
-  color: #4CAF50;
-  font-size: 18px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  transition: all 0.3s ease;
-  padding: 12px;
-  border-radius: 10px;
-  width: 100%;
-
-  &:hover {
-    background-color: #f0f0f0;
-    color: #45a049;
-  }
-
-  ${({ $isActive }) => $isActive && `
-    background-color: #e8f5e9;
-    color: #2e7d32;
-    position: relative;
-
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 5px;
-      left: 10px;
-      right: 10px;
-      height: 2px;
-      background-color: #2e7d32;
-    }
-  `}
-`;
-
-// Update NavLinkContainer
-export const NavLinkContainer = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-`;
-
-export const ContentContainer = styled.div`
-  max-width: 1024px;
-  margin: 0 auto;
-  padding: 24px;
 `;

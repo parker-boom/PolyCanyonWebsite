@@ -3,11 +3,23 @@ import { Link } from 'react-router-dom';
 import { RoundedContainer } from '../downloads/DownloadPage.styles';
 
 export const PageContainer = styled.div`
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
   padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
   background-color: #ffffff;
+  overflow-x: hidden;
+
+  > * {
+    width: 100%;
+  }
+
+  > *:not(:first-child) {
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+  }
 `;
 
 export const ContentContainer = styled.div`

@@ -12,11 +12,12 @@ const fadeIn = keyframes`
 export const BannerMobile = styled.div`
   width: 100%;
   background-color: #b6e5b6;
-  padding: 15px;
+  padding: 15px 0; // Changed to vertical padding only
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-radius: 0 0 20px 20px;
+  box-sizing: border-box; // Ensure padding is included in width calculation
 `;
 
 // Menu Icon (left side)
@@ -24,8 +25,7 @@ export const MenuIcon = styled.div`
   font-size: 28px;
   color: #3c6b38;
   cursor: pointer;
-  padding: 10px;
-  margin-left: 10px;
+  padding: 10px 15px; // Added horizontal padding
   margin-top: 10px;
 `;
 
@@ -44,7 +44,7 @@ export const Logo = styled.img`
   height: 48px;
   width: 48px;
   border-radius: 10px;
-  margin-right: 10px;
+  margin-right: 15px; // Changed from 10px to 15px
 `;
 
 // Popup Container (for navigation)
