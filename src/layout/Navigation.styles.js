@@ -12,12 +12,12 @@ const fadeIn = keyframes`
 export const BannerMobile = styled.div`
   width: 100%;
   background-color: #b6e5b6;
-  padding: 15px 0; // Changed to vertical padding only
+  padding: 15px 0; 
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-radius: 0 0 20px 20px;
-  box-sizing: border-box; // Ensure padding is included in width calculation
+  box-sizing: border-box; 
 `;
 
 // Menu Icon (left side)

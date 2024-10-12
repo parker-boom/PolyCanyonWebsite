@@ -8,6 +8,7 @@ import {
   ComingSoonText,
   ConstructionIcon,
 } from './Structures.styles';
+import PhotoGrid from '../info/PhotoGrid';
 
 const Structures = () => {
   return (
@@ -21,6 +22,7 @@ const Structures = () => {
           <ComingSoonText>
             Full information on structures coming soon!
           </ComingSoonText>
+          <PhotoGrid />
         </ComingSoonContainer>
       </ContentContainer>
     </PageContainer>
