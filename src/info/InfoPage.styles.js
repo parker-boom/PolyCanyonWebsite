@@ -31,7 +31,7 @@ export const RoundedContainer = styled.div`
 
 export const Section = styled(RoundedContainer)`
   margin-bottom: 24px; 
-  padding: 20px 10px;
+  padding: 20px 20px;
 `;
 
 export const TitleSection = styled(RoundedContainer)`
@@ -236,16 +236,25 @@ export const ModeButton = styled.button`
 export const ModeContent = styled.div`
   animation: ${fadeIn} 0.3s ease-in-out;
   text-align: center;
+  width: 100%;
+  margin: 20px auto 0;
+`;
+
+export const ModeInfoBox = styled.div`
+  background-color: #f5f5f5;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
   max-width: 600px;
   margin: 0 auto;
-  margin-top: 10px;
 `;
 
 export const ModeTitle = styled.h3`
   font-size: 26.4px;
   color: #376d31;
-  margin: 24px 0 12px;
-`;  
+  margin: 0 0 15px;
+`;
 
 export const FeatureList = styled.ul`
   list-style-type: none;
@@ -460,20 +469,29 @@ export const MoreInfoToggle = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: none;
-  border: none;
+  background-color: #f0f0f0;
+  border: 2px solid #376d31;
+  border-radius: 25px;
   color: #376d31;
   font-size: 18px;
+  font-weight: bold;
   cursor: pointer;
-  margin: 20px 0;
-  transition: color 0.3s ease;
+  margin: 20px auto;
+  padding: 12px 24px;
+  transition: all 0.3s ease;
 
   &:hover {
-    color: #2c5a28;
+    background-color: #376d31;
+    color: #ffffff;
   }
 
   svg {
     margin-left: 8px;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover svg {
+    transform: translateY(3px);
   }
 `;
 
@@ -482,38 +500,66 @@ export const MoreInfoContent = styled.div`
   margin-top: 20px;
 `;
 
-export const ImprovedPicker = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 30px 0;
-  gap: 20px;
-`;
-
-export const PickerButton = styled.button`
+// New styled component for the container
+export const MoreInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${props => props.active ? '#376d31' : '#f5f5f5'};
-  color: ${props => props.active ? '#ffffff' : '#333333'};
+`;
+
+export const ImprovedPicker = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 30px 0;
+  border-bottom: 2px solid #e0e0e0;
+`;
+
+export const PickerButton = styled.button`
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: ${props => props.active ? '#376d31' : '#333333'};
   border: none;
-  border-radius: 12px;
   padding: 15px;
   cursor: pointer;
   transition: all 0.3s ease;
-  width: 80px;
-  height: 80px;
+  font-size: 18px;
+  font-weight: ${props => props.active ? 'bold' : 'normal'};
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #376d31;
+    transform: scaleX(${props => props.active ? 1 : 0});
+    transition: transform 0.3s ease;
+  }
 
   &:hover {
-    background-color: ${props => props.active ? '#2c5a28' : '#e0e0e0'};
+    color: #376d31;
   }
 
   svg {
-    font-size: 28px;
-    margin-bottom: 8px;
+    font-size: 24px;
+    margin-right: 8px;
   }
+`;
 
-  span {
-    font-size: 12px;
-    font-weight: ${props => props.active ? 'bold' : 'normal'};
-  }
+export const PickerContent = styled.div`
+  margin-top: 20px;
+  animation: ${fadeIn} 0.3s ease-in-out;
+`;
+
+export const PickerTitle = styled.h3`
+  font-size: 24px;
+  color: #376d31;
+  margin-bottom: 15px;
+  text-align: center;
 `;
