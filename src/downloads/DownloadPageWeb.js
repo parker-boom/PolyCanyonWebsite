@@ -3,34 +3,37 @@
 
 // LIBRARY IMPORTS
 import React from 'react';
-import { FaApple, FaAndroid, FaArrowRight } from 'react-icons/fa';
+import { FaApple, FaAndroid, FaArrowRight, FaDownload } from 'react-icons/fa';
 import LazyGif from './LazyGif';
 
 // STYLE IMPORTS
 import {
   WebDescription,
-  WebLearnMoreButton,
+  LearnMoreButton,
   SplitContainer,
   Column,
-  PlatformTitle,
-  WebDownloadButton,
   PageContainer,
   RoundedContainer,
-  DownloadNowText,
+  Title,
   GifContainerWeb,
+  DownloadButtonWrapper,
+  DownloadButtonIcon,
+  DownloadButtonText,
+  DownloadButtonSubtext,
 } from './DownloadPage.styles';
 
 const DownloadPageWeb = () => {
   return (
     <PageContainer>
-
       {/* Download Call-to-Action Section */}
       <RoundedContainer>
-        <DownloadNowText>Download Today!</DownloadNowText>
+        <Title>Download Today!</Title>
         <WebDescription>
           The Poly Canyon app is available on both iOS and Android, and can be downloaded for free on either platform.
         </WebDescription>
-        <WebLearnMoreButton to="/info">Learn more   <FaArrowRight /></WebLearnMoreButton>
+        <LearnMoreButton to="/info">
+          Learn more <FaArrowRight />
+        </LearnMoreButton>
       </RoundedContainer>
       
       {/* Download Split Section */}
@@ -38,40 +41,52 @@ const DownloadPageWeb = () => {
         <SplitContainer>
           {/* iOS Column */}
           <Column>
-            <PlatformTitle>iOS <FaApple /></PlatformTitle>
             <GifContainerWeb height={600}>
               <LazyGif deviceType="ios" />
             </GifContainerWeb>
-            <WebDownloadButton
+            <DownloadButtonWrapper
               href="https://apps.apple.com/us/app/poly-canyon/id6499063781"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Download button for iOS"
             >
-              Download
-            </WebDownloadButton>
+              <DownloadButtonIcon>
+                <FaApple className="default-icon" />
+                <FaDownload className="hover-icon" />
+              </DownloadButtonIcon>
+              <div>
+                <DownloadButtonText>Download</DownloadButtonText>
+                <DownloadButtonSubtext>App Store</DownloadButtonSubtext>
+              </div>
+            </DownloadButtonWrapper>
           </Column>
 
           {/* Android Column */}
           <Column>
-            <PlatformTitle>Android <FaAndroid /></PlatformTitle>
             <GifContainerWeb height={600}>
               <LazyGif deviceType="android" />
             </GifContainerWeb>
-            <WebDownloadButton
+            <DownloadButtonWrapper
               href="https://play.google.com/store/apps/details?id=com.polycanyon&pcampaignid=web_share"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Download button for Android"
             >
-              Download
-            </WebDownloadButton>
+              <DownloadButtonIcon>
+                <FaAndroid className="default-icon" />
+                <FaDownload className="hover-icon" />
+              </DownloadButtonIcon>
+              <div>
+                <DownloadButtonText>Download</DownloadButtonText>
+                <DownloadButtonSubtext>Google Play</DownloadButtonSubtext>
+              </div>
+            </DownloadButtonWrapper>
           </Column>
         </SplitContainer>
 
         {/* Bottom Section */}
         <WebDescription>
-          If you are interested in detailed information on all structures or looking for support with the app download or function, please navigate to those pages.
+          If you are interested in detailed information on all structures or more information on the physical area, please navigate to those pages.
         </WebDescription>
       </RoundedContainer>
     </PageContainer>

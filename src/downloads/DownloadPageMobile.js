@@ -15,7 +15,7 @@ import {
   Title,
   RoundedContainer,
   WebDescription,
-  WebLearnMoreButton,
+  LearnMoreButton,
 } from './DownloadPage.styles';
 
 const LazyGif = lazy(() => import('./LazyGif'));
@@ -48,14 +48,15 @@ const DownloadPageMobile = () => {
 
   return (
     <PageContainer>
-
       {/* Download Description Widget */}
-      <RoundedContainer style={{ padding: '0px 10px' }}>
+      <RoundedContainer>
         <Title>Download Now!</Title>
         <WebDescription>
           Explore, learn, and track your journey through the canyon's architectural wonders
         </WebDescription>
-        <WebLearnMoreButton style={{ marginBottom: '15px' }} to="/info">Learn More <FaArrowRight /></WebLearnMoreButton>
+        <LearnMoreButton to="/info">
+          Learn More <FaArrowRight />
+        </LearnMoreButton>
       </RoundedContainer>
 
       {/* GIF */}
@@ -86,7 +87,6 @@ const DownloadPageMobile = () => {
           Switch to {deviceType === 'ios' ? 'Android' : 'iOS'}
         </SwitchText>
       </DeviceSwitchContainer>
-
     </PageContainer>
   );
 };

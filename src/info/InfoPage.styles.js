@@ -634,3 +634,98 @@ export const CTAButtonIcon = styled.span`
     transform: translateX(3px);
   }
 `;
+
+// New styles for GoogleMapsRoute component
+
+export const MapContainer = styled.div`
+  background-color: #f5f5f5;
+  border-radius: 20px;
+  padding: 5px;
+  margin-top: 10px;
+  width: 100%;
+  max-width: 1200px;
+  align-items: center;
+`;
+
+
+export const StatBox = styled.div`
+  background-color: #e8efe8;
+  border-radius: 10px;
+  padding: 10px 15px;
+  flex: 1;
+  margin: 0 5px;
+  text-align: center;
+
+  h4 {
+    margin: 0;
+    color: #376d31;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  p {
+    margin: 5px 0 0;
+    font-size: 20px;
+    font-weight: normal;
+    color: #555;
+  }
+`;
+
+
+export const DirectionsContainer = styled.div`
+  background-color: #e8efe8;
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin-top: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+
+export const ArrowButton = styled.button`
+  background-color: ${props => props.disabled ? '#cccccc' : '#376d31'};
+  border: none;
+  color: #ffffff;
+  font-size: 20px;
+  cursor: ${props => props.disabled ? 'default' : 'pointer'};
+  padding: 10px;
+  margin: 0 10px;
+  border-radius: 50%;
+  transition: background-color 0.3s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: ${props => props.disabled ? 0.5 : 1};
+
+  &:hover {
+    background-color: ${props => props.disabled ? '#cccccc' : '#2c5a28'};
+    transform: ${props => props.disabled ? 'none' : 'scale(1.1)'};
+  }
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+export const StepContent = styled.div`
+  flex: 1;
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+`;
+
+export const StepNumber = styled.div`
+  font-size: 36px;
+  font-weight: 1000;
+  color: #376d31;
+  margin-right: 20px;
+`;
+
+export const StepText = styled.div`
+  font-size: 22px;
+  color: #555;
+  flex: 1;
+`;
