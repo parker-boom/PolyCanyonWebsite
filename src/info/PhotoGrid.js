@@ -1,6 +1,6 @@
 // src/info/PhotoGrid.js
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 // Import horizontal images (a1-a12)
@@ -30,11 +30,15 @@ import b7 from '../assets/structures/b7.jpg';
 const horizontalImages = [a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12];
 const verticalImages = [b1, b2, b3, b4, b5, b6, b7];
 
-// Fade-in animation
-const fadeIn = keyframes`
-  from { opacity: 0; }
-  to { opacity: 1; }
-`;
+// Fisher-Yates Shuffle Algorithm
+const shuffleArray = (array) => {
+  const arr = array.slice(); // Create a copy
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+};
 
 // Styled Components
 const PhotoGridWrapper = styled.div`
@@ -51,53 +55,62 @@ const PhotoGridWrapper = styled.div`
   background-color: #f5f5f5;
 `;
 
-const GridItem = styled.div`
+// Container for each grid item to handle positioning
+const GridItemContainer = styled.div`
   position: relative;
   overflow: hidden;
   border-radius: 15px;
-  animation: ${fadeIn} 1s ease-in-out;
 `;
 
+// Styled component for images with transition
 const GridImage = styled.img`
+  position: absolute;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  opacity: ${(props) => (props.isVisible ? 1 : 0)};
+  transform: ${(props) => (props.isVisible ? 'scale(1)' : 'scale(1.05)')};
+  z-index: ${(props) => (props.isVisible ? 2 : 1)};
 `;
 
 const PhotoGrid = () => {
   const [gridItems, setGridItems] = useState([]);
+  const [sequence, setSequence] = useState([]);
+  const sequenceRef = useRef([]); // To keep track of the current sequence
+  const sequenceIndexRef = useRef(0); // To track current position in sequence
+  const timeoutRef = useRef(null);
+  const delayToggleRef = useRef(true); // To alternate between 2s and 1s
 
-  const getRandomImage = (orientation, usedImages) => {
+  // Function to get a random image based on orientation, excluding used images
+  const getRandomImage = useCallback((orientation, usedImages) => {
     const images = orientation === 'horizontal' ? horizontalImages : verticalImages;
-    const availableImages = images.filter(img => !usedImages.includes(img));
+    const availableImages = images.filter((img) => !usedImages.includes(img));
     if (availableImages.length === 0) {
+      // Reset usedImages if all images have been used
       return images[Math.floor(Math.random() * images.length)];
     }
     const randomImage = availableImages[Math.floor(Math.random() * availableImages.length)];
     return randomImage;
-  };
+  }, []);
 
+  // Initialize grid items and sequence on mount
   useEffect(() => {
-    // Updated grid structure based on your specifications
+    // Define grid structure
     const gridStructure = [
-      // Row 1 (updated)
+      // Define your grid structure as per original code
       { id: 1, type: 'horizontal', cols: 6, rows: 3, x: 1, y: 1 },
       { id: 2, type: 'vertical', cols: 3, rows: 3, x: 7, y: 1 },
-      { id: 3, type: 'vertical', cols: 3, rows: 6, x: 10, y: 1 }, // Changed to vertical
-
-      // Row 2 (adjusted)
+      { id: 3, type: 'vertical', cols: 3, rows: 6, x: 10, y: 1 },
       { id: 6, type: 'vertical', cols: 3, rows: 6, x: 1, y: 4 },
-      { id: 5, type: 'square', cols: 6, rows: 3, x: 4, y: 4 },   // Made wider to fill space
-      // Removed the image on the far right (id:4)
-
-      // Row 3 (adjusted)
+      { id: 5, type: 'square', cols: 6, rows: 3, x: 4, y: 4 },
       { id: 7, type: 'horizontal', cols: 4, rows: 3, x: 4, y: 7 },
       { id: 8, type: 'square', cols: 5, rows: 3, x: 8, y: 7 },
     ];
 
     const usedImages = [];
 
-    const initialGridItems = gridStructure.map(item => {
+    const initialGridItems = gridStructure.map((item) => {
       let image;
       if (item.type === 'square') {
         // Use any horizontal image for square slots
@@ -109,7 +122,8 @@ const PhotoGrid = () => {
 
       return {
         key: item.id,
-        image: image,
+        currentImage: image,
+        previousImage: null,
         type: item.type,
         cols: item.cols,
         rows: item.rows,
@@ -120,42 +134,93 @@ const PhotoGrid = () => {
 
     setGridItems(initialGridItems);
 
-    // Set up intervals for image rotation
-    const intervals = initialGridItems.map((item, index) => {
-      const intervalTime = Math.random() * 5000 + 5000; // 5 to 10 seconds
-      return setInterval(() => {
-        setGridItems(prevItems => {
-          const newItems = [...prevItems];
-          const orientation = item.type === 'square' ? 'horizontal' : item.type;
-          const newImage = getRandomImage(orientation, newItems.map(i => i.image));
+    // Generate randomized sequence of slot indices (0-6)
+    const randomizedSequence = shuffleArray([...Array(initialGridItems.length).keys()]);
+    setSequence(randomizedSequence);
+    sequenceRef.current = randomizedSequence;
+  }, [getRandomImage]);
 
-          newItems[index] = {
-            ...newItems[index],
-            image: newImage,
-          };
+  // Function to update image in a specific slot
+  const updateImage = useCallback((slotIndex) => {
+    setGridItems((prevItems) => {
+      const newItems = [...prevItems];
+      const item = newItems[slotIndex];
+      const usedImages = newItems
+        .map((i, idx) => (idx !== slotIndex ? i.currentImage : null))
+        .filter((img) => img !== null);
+      const orientation = item.type === 'square' ? 'horizontal' : item.type;
+      const newImage = getRandomImage(orientation, usedImages);
 
-          return newItems;
-        });
-      }, intervalTime);
+      // Set previousImage to currentImage and update currentImage
+      newItems[slotIndex] = {
+        ...item,
+        previousImage: item.currentImage,
+        currentImage: newImage,
+      };
+
+      return newItems;
     });
+  }, [getRandomImage]);
 
-    // Cleanup intervals on unmount
-    return () => intervals.forEach(interval => clearInterval(interval));
-  }, []);
+  // Controlled sequence loop
+  useEffect(() => {
+    if (sequence.length === 0) return;
+
+    const runSequence = () => {
+      const currentIndex = sequenceIndexRef.current % sequenceRef.current.length;
+      const slotToChange = sequenceRef.current[currentIndex];
+
+      updateImage(slotToChange);
+
+      sequenceIndexRef.current += 1;
+
+      // Determine next delay
+      const nextDelay = delayToggleRef.current ? 2000 : 1000; // 2s or 1s
+      delayToggleRef.current = !delayToggleRef.current; // Toggle for next step
+
+      timeoutRef.current = setTimeout(runSequence, nextDelay);
+    };
+
+    // Start the sequence
+    timeoutRef.current = setTimeout(runSequence, 2000); // Initial delay
+
+    // Cleanup on unmount
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, [sequence, updateImage]);
 
   return (
     <PhotoGridWrapper>
-      {gridItems.map((item) => (
-        <GridItem
+      {gridItems.map((item, index) => (
+        <GridItemContainer
           key={item.key}
           style={{
             gridColumn: `${item.x} / span ${item.cols}`,
             gridRow: `${item.y} / span ${item.rows}`,
           }}
         >
+          {/* Previous Image */}
+          {item.previousImage && (
+            <GridImage
+              src={item.previousImage}
+              alt={`Previous Grid Image ${item.key}`}
+              isVisible={false}
+              style={{
+                aspectRatio:
+                  item.type === 'horizontal'
+                    ? '16 / 9'
+                    : item.type === 'vertical'
+                    ? '9 / 16'
+                    : '1 / 1',
+              }}
+            />
+          )}
+          {/* Current Image */}
           <GridImage
-            src={item.image}
+            src={item.currentImage}
             alt={`Grid Image ${item.key}`}
+            isVisible={true}
             style={{
               aspectRatio:
                 item.type === 'horizontal'
@@ -165,7 +230,7 @@ const PhotoGrid = () => {
                   : '1 / 1',
             }}
           />
-        </GridItem>
+        </GridItemContainer>
       ))}
     </PhotoGridWrapper>
   );

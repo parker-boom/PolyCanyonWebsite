@@ -48,8 +48,13 @@ import {
   PickerContent,
   PickerTitle,
   ModeInfoBox,
+  CTAButtonWrapper,
+  CTAButton,
+  CTAButtonText,
+  CTAButtonIcon,
 } from './InfoPage.styles';
 import PhotoGrid from './PhotoGrid';
+import GoogleMapsRoute from './GoogleMapsRoute';
 
 import geodesicDome from '../assets/structures/a1.jpg';
 import shellHouse from '../assets/structures/a2.jpg';
@@ -275,19 +280,23 @@ const InfoPage = () => {
 
 
 
-          <ButtonContainer>
-            <DownloadCTA to="/download">
-              {currentMode === 'adventure' ? 'Start Your Adventure' : 'Explore Virtually'}
-              <FaChevronRight style={{ marginLeft: '10px', fontSize: '0.8em' }} />
-            </DownloadCTA>
-          </ButtonContainer>
+          <CTAButtonWrapper>
+            <CTAButton to="/download">
+              <CTAButtonText>
+                {currentMode === 'adventure' ? 'Start Your Adventure' : 'Explore Virtually'}
+              </CTAButtonText>
+              <CTAButtonIcon>
+                <FaChevronRight />
+              </CTAButtonIcon>
+            </CTAButton>
+          </CTAButtonWrapper>
 
           </ModeInfoBox>
-          </ModeContent>
 
           <Text>
             The app is an educational tool to help you learn more about this truly one-of-a-kind place. Whether you're walking through the canyon or exploring virtually, the app will help you appreciate the structures and their stories.
           </Text>
+          </ModeContent>
         </Section>
 
         {/* Getting There Section */}
@@ -296,11 +305,7 @@ const InfoPage = () => {
           <Text>
             Poly Canyon is accessible via Poly Canyon Road. Use the interactive map below or follow the step-by-step directions to reach the canyon. For more detailed directions, visit our All Trails and Google Maps links.
           </Text>
-          {/* Map Placeholder */}
-          <div style={{ width: '100%', height: '300px', backgroundColor: '#f0f0f0', marginBottom: '20px' }}>
-            {/* Future implementation of embedded map */}
-            Map Placeholder
-          </div>
+          <GoogleMapsRoute />
           <Text>
             Whether you prefer hiking, biking, or running, there are various routes to reach Poly Canyon. Popular trails include AllTrails and Google Maps routes tailored for different modes of transportation.
           </Text>

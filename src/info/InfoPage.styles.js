@@ -563,3 +563,74 @@ export const PickerTitle = styled.h3`
   margin-bottom: 15px;
   text-align: center;
 `;
+
+export const CTAButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+`;
+
+export const CTAButton = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #376d31;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(55, 109, 49, 0.2);
+  overflow: hidden;
+  position: relative;
+
+  &:hover {
+    background-color: #2c5a28;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(55, 109, 49, 0.3);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ffce33, #ff7e33, #ff338a, #3393ff);
+    z-index: -1;
+    filter: blur(10px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+`;
+
+export const CTAButtonText = styled.span`
+  z-index: 1;
+  margin-right: 10px;
+`;
+
+export const CTAButtonIcon = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+
+  ${CTAButton}:hover & {
+    transform: translateX(3px);
+  }
+`;
