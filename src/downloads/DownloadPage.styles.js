@@ -172,17 +172,6 @@ export const DownloadButton = styled.a`
   }
 `;
 
-export const WebDownloadButton = styled(DownloadButton)`
-  justify-content: center;
-  padding: 15px 30px;
-  font-size: 18px;
-  margin-top: 20px;
-
-  svg {
-    display: none;  // Hide the icon
-  }
-`;
-
 export const DeviceSwitchContainer = styled.div`
   display: flex;
   align-items: center;
@@ -268,7 +257,7 @@ export const DownloadNowText = styled.h2`
 
 export const WebDescription = styled(Description)`
   margin: 0;
-  padding-top: 8px;
+  padding-top: 20px;
   font-size: 1.65em;
   text-align: center;
   max-width: 90%;
@@ -355,7 +344,7 @@ export const DownloadButtonWrapper = styled.a`
   border-radius: 50px;
   font-weight: bold;
   font-size: 18px;
-  margin-top: 20px;
+  margin-top: 10px;
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px rgba(55, 109, 49, 0.1);
   border: 2px solid #376d31;
