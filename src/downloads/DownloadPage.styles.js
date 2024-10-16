@@ -24,10 +24,12 @@ export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0; // Remove top padding
+  padding: 0 15px; // Add horizontal padding
   width: 100%;
+  max-width: 100%;
   margin: 0 auto;
   background-color: #ffffff;
+  box-sizing: border-box; // Ensure padding is included in width calculation
 `;
 
 export const IconContainer = styled.div`
@@ -50,13 +52,11 @@ export const IconContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 52px;
-  font-weight: 700;
-  color: #333;
-  margin-top: 20px;
-  margin-bottom: 15px;
-  text-align: center;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 48px;
+  font-weight: 1000;
+  color: #376d31;
+  margin-top: 10px;
+  margin-bottom: 0px;
 `;
 
 export const Subtitle = styled.h2`
@@ -70,24 +70,52 @@ export const Subtitle = styled.h2`
 `;
 
 export const LearnMoreButton = styled(Link)`
-  background: #4CAF50;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #376d31;
   color: white;
-  padding: 12px 24px;
-  border-radius: 25px;
   text-decoration: none;
-  font-weight: bold;
+  border-radius: 50px;
+  padding: 12px 24px;
   font-size: 18px;
-  margin-bottom: 10px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  display: inline-block;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(55, 109, 49, 0.2);
+  overflow: hidden;
+  position: relative;
+  margin-top: 20px;
 
   &:hover {
-    background: #45a049;
+    background-color: #2c5a28;
     transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(55, 109, 49, 0.3);
   }
 
   &:active {
     transform: translateY(0);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ffce33, #ff7e33, #ff338a, #3393ff);
+    z-index: -1;
+    filter: blur(10px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+
+  svg {
+    margin-left: 8px;
   }
 `;
 
@@ -141,17 +169,6 @@ export const DownloadButton = styled.a`
 
   svg {
     font-size: 28px; // Icon size
-  }
-`;
-
-export const WebDownloadButton = styled(DownloadButton)`
-  justify-content: center;
-  padding: 15px 30px;
-  font-size: 18px;
-  margin-top: 20px;
-
-  svg {
-    display: none;  // Hide the icon
   }
 `;
 
@@ -240,7 +257,7 @@ export const DownloadNowText = styled.h2`
 
 export const WebDescription = styled(Description)`
   margin: 0;
-  padding-top: 8px;
+  padding-top: 20px;
   font-size: 1.65em;
   text-align: center;
   max-width: 90%;
@@ -282,11 +299,119 @@ export const RoundedContainer = styled.div`
   background-color: #f5f5f5;
   border-radius: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px 5px;
-  margin: 20px 0;
-  width: 95%;
+  padding: 20px;
+  margin: 20px auto;
+  width: 100%; // Changed from 90% to 100%
   max-width: 1200px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box; // Ensure padding is included in width calculation
+`;
+
+export const PlatformBadge = styled.div`
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  color: #376d31;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(55, 109, 49, 0.1);
+  transition: all 0.3s ease;
+  border: 2px solid #376d31;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(55, 109, 49, 0.2);
+  }
+
+  svg {
+    margin-right: 10px;
+    font-size: 28px;
+  }
+`;
+
+export const DownloadButtonWrapper = styled.a`
+  display: flex;
+  align-items: center;
+  background: #376d31;
+  color: white;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(55, 109, 49, 0.1);
+  border: 2px solid #376d31;
+
+  &:hover {
+    background: white;
+    color: #376d31;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(55, 109, 49, 0.2);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+`;
+
+export const DownloadButtonIcon = styled.div`
+  color: white;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  transition: all 0.3s ease;
+
+  ${DownloadButtonWrapper}:hover & {
+    color: #376d31;
+  }
+
+  .default-icon, .hover-icon {
+    position: absolute;
+    transition: opacity 0.3s ease;
+  }
+
+  .default-icon {
+    opacity: 1;
+  }
+
+  .hover-icon {
+    opacity: 0;
+  }
+
+  ${DownloadButtonWrapper}:hover & .default-icon {
+    opacity: 0;
+  }
+
+  ${DownloadButtonWrapper}:hover & .hover-icon {
+    opacity: 1;
+  }
+
+  svg {
+    font-size: 34px;
+  }
+`;
+
+export const DownloadButtonText = styled.span`
+  display: block;
+  text-align: left;
+  font-size: 20px;
+  line-height: 1.2;
+`;
+
+export const DownloadButtonSubtext = styled.span`
+  display: block;
+  text-align: left;
+  font-size: 16px;
+  font-weight: normal;
+  opacity: 0.8;
 `;

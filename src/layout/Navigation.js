@@ -40,12 +40,16 @@ const Navigation = () => {
     { to: "/structures", icon: <FaBuilding />, text: "Structures" }
   ];
 
+  const isLinkActive = (path) => {
+    return location.pathname === path || (location.pathname === '/' && path === '/download');
+  };
+
   const renderNavLinks = (LinkComponent, extraProps = {}) => (
     navLinks.map(({ to, icon, text }) => (
-      <LinkComponent 
-        key={to} 
-        to={to} 
-        $isActive={location.pathname === to}
+      <LinkComponent
+        key={to}
+        to={to}
+        $isActive={isLinkActive(to)}
         {...extraProps}
       >
         {icon} {text}
