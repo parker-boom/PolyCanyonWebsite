@@ -1,7 +1,7 @@
 // src/info/PhotoGrid.js
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 // Import horizontal images (a1-a12)
 import a1 from '../assets/structures/a1.jpg';
@@ -211,8 +211,8 @@ const PhotoGrid = () => {
                   item.type === 'horizontal'
                     ? '16 / 9'
                     : item.type === 'vertical'
-                    ? '9 / 16'
-                    : '1 / 1',
+                      ? '9 / 16'
+                      : '1 / 1',
               }}
             />
           )}
@@ -226,8 +226,8 @@ const PhotoGrid = () => {
                 item.type === 'horizontal'
                   ? '16 / 9'
                   : item.type === 'vertical'
-                  ? '9 / 16'
-                  : '1 / 1',
+                    ? '9 / 16'
+                    : '1 / 1',
             }}
           />
         </GridItemContainer>
