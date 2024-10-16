@@ -1,36 +1,21 @@
 import React, { useState } from 'react';
-import { FaApple, FaAndroid, FaChevronLeft, FaChevronRight, FaMapMarkerAlt, FaWalking, FaSearch, FaHistory, FaGlobeAmericas, FaRunning, FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import { FaChevronRight, FaMapMarkerAlt, FaWalking, FaSearch, FaHistory, FaGlobeAmericas, FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import {
   PageContainer,
-  ContentContainer,
   Header,
   Title,
   Subtitle,
   Section,
   SectionTitle,
   CarouselContainer,
-  CarouselSlide,
   CarouselImage,
-  CarouselTitle,
-  CarouselDescription,
-  CarouselButton,
-  PickerContainer,
-  PickerTab,
-  SubSection,
-  ImageSlideshow,
-  InfographicPlaceholder,
-  PictureSlideshow,
-  CalloutBox,
   ModeSelector,
   ModeButton,
   FeatureList,
   FeatureItem,
-  DownloadSection,
-  DownloadButton,
   VisitTips,
   VisitTipsTitle,
   ButtonContainer,
-  DownloadCTA,
   AllTrailsButton,
   GoogleMapsButton,
   GlobalStyle,
@@ -70,8 +55,7 @@ import {
 import PhotoGrid from './PhotoGrid';
 import GoogleMapsRoute from './GoogleMapsRoute';
 
-import shellHouse from '../assets/structures/a2.jpg';
-import greenHouse from '../assets/structures/a3.jpg';
+
 import appPreview from '../assets/appPreview.png';
 
 import bladeRedesign from '../assets/pchistory/bladeRedesign.png';
@@ -82,24 +66,6 @@ import bridgeGroup from '../assets/pchistory/bridgeGroup.jpg';
 import modHouseConstruction from '../assets/pchistory/modHouseConstruction.jpg';
 import geodesicDome from '../assets/pchistory/geodesicDome.jpg';
 import fratessaTower from '../assets/pchistory/fratessaTowerb4.jpg';
-
-
-// Placeholder images for General Information
-const overviewImages = [
-  geodesicDome,
-  shellHouse,
-  greenHouse,
-  // Add more images as needed
-];
-
-
-// Placeholder images for Current Status and Activities (Design Village)
-const designVillageImages = [
-  geodesicDome,
-  shellHouse,
-  greenHouse,
-  // Add more images as needed
-];
 
 
 const historicalImages = [
