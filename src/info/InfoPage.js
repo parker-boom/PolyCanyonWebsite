@@ -305,9 +305,9 @@ const InfoPage = () => {
         <Text style={{ textAlign: 'left' }}>
           Poly Canyon is a 9-acre outdoor space where Cal Poly students have been building experimental structures since 1963. Just a mile from campus, it's home to over 30 unique architectural projects.
           <br /><br />
-          hese aren't just display pieces. Each structure was designed and built by students testing new ideas. Some projects succeeded brilliantly, others showed why certain ideas stayed theoretical.
+          These aren't just display pieces. Each structure was designed and built by students testing new ideas. Some projects succeeded brilliantly, others showed why certain ideas stayed theoretical.
           <br /><br />
-          The canyon is open to visitors during daylight hours. Whether you're interested in architecture, looking for a different kind of hike, or just want to experience what makes Cal Poly unique, it's worth checking out.
+          Whether you're interested in architecture, looking for a different kind of hike, or just want to experience what makes Cal Poly unique, it's worth checking out.
         </Text>
         <PhotoGrid />
 
