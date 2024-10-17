@@ -57,6 +57,7 @@ export const Title = styled.h1`
   color: #376d31;
   margin-top: 10px;
   margin-bottom: 0px;
+  text-align: center;
 `;
 
 export const Subtitle = styled.h2`

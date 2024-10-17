@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { GoogleMap, DirectionsRenderer, useLoadScript } from '@react-google-maps/api';
-import { 
-  MapContainer, 
+import {
+  MapContainer,
   StatBox,
   DirectionsContainer,
   ArrowButton,
   StepContent,
   StepNumber,
-  StepText
+  StepText,
+  ArrowButtonContainer
 } from './InfoPage.styles';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
@@ -37,7 +38,8 @@ const mapStyles = [
 const GoogleMapsRoute = () => {
   const [directionsResponse, setDirectionsResponse] = useState(null);
   const [routeDetails, setRouteDetails] = useState(null);
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   const steps = [
     "Park in the H-4f parking lot or start on campus",
@@ -46,15 +48,15 @@ const GoogleMapsRoute = () => {
   ];
 
   const nextStep = () => {
-    setCurrentStep((prev) => Math.min(prev + 1, steps.length));
+    setCurrentStep((prev) => Math.min(prev + 1, steps.length - 1));
   };
 
   const prevStep = () => {
-    setCurrentStep((prev) => Math.max(prev - 1, 1));
+    setCurrentStep((prev) => Math.max(prev - 1, 0));
   };
 
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: 'AIzaSyCEvglk19fQ-rB26NTPE9VYMS-JrW7vDrM', 
+    googleMapsApiKey: 'AIzaSyCEvglk19fQ-rB26NTPE9VYMS-JrW7vDrM',
   });
 
   useEffect(() => {
@@ -82,6 +84,15 @@ const GoogleMapsRoute = () => {
     );
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   if (loadError) return <div>Error loading maps</div>;
   if (!isLoaded) return <div>Loading Maps...</div>;
 
@@ -97,7 +108,7 @@ const GoogleMapsRoute = () => {
           {directionsResponse && <DirectionsRenderer directions={directionsResponse} />}
         </GoogleMap>
       </MapContainer>
-      {routeDetails && (
+      {!isMobile && routeDetails && (
         <DirectionsContainer>
           <StatBox>
             <h4>Total Distance</h4>
@@ -111,16 +122,35 @@ const GoogleMapsRoute = () => {
       )}
 
       <DirectionsContainer>
-        <ArrowButton onClick={prevStep} disabled={currentStep === 1}>
-          <FaArrowLeft />
-        </ArrowButton>
-        <StepContent>
-          <StepNumber>{currentStep}</StepNumber>
-          <StepText>{steps[currentStep - 1]}</StepText>
-        </StepContent>
-        <ArrowButton onClick={nextStep} disabled={currentStep === steps.length}>
-          <FaArrowRight />
-        </ArrowButton>
+        {isMobile ? (
+          <>
+            <StepContent>
+              <StepText>{steps[currentStep]}</StepText>
+            </StepContent>
+            <ArrowButtonContainer>
+              <ArrowButton onClick={prevStep} disabled={currentStep === 0}>
+                <FaArrowLeft />
+              </ArrowButton>
+              <StepNumber>{currentStep + 1}</StepNumber>
+              <ArrowButton onClick={nextStep} disabled={currentStep === steps.length - 1}>
+                <FaArrowRight />
+              </ArrowButton>
+            </ArrowButtonContainer>
+          </>
+        ) : (
+          <>
+            <ArrowButton onClick={prevStep} disabled={currentStep === 0}>
+              <FaArrowLeft />
+            </ArrowButton>
+            <StepContent>
+              <StepNumber>{currentStep + 1}</StepNumber>
+              <StepText>{steps[currentStep]}</StepText>
+            </StepContent>
+            <ArrowButton onClick={nextStep} disabled={currentStep === steps.length - 1}>
+              <FaArrowRight />
+            </ArrowButton>
+          </>
+        )}
       </DirectionsContainer>
     </>
   );

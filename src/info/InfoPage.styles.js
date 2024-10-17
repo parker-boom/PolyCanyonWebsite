@@ -13,25 +13,26 @@ export const PageContainer = styled.div`
   margin: 0 auto;
   padding: 5px 15px;
   background-color: #ffffff;
+  box-sizing: border-box; // Add this line
 `;
-
 
 export const RoundedContainer = styled.div`
   background-color: #f5f5f5;
   border-radius: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px 5px;
+  padding: 20px;
   margin: 20px 0;
-  width: 95%;
-  max-width: 1200px;
+  width: 100%; // Change from 95% to 100%
+  max-width: 100%; // Change from 1200px to 100%
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box; // Add this line
 `;
 
 export const Section = styled(RoundedContainer)`
-  margin-bottom: 24px; 
-  padding: 20px 20px;
+  margin-bottom: 24px;
+  // Remove the padding override, as it's now consistent with RoundedContainer
 `;
 
 export const TitleSection = styled(RoundedContainer)`
@@ -70,18 +71,13 @@ export const SectionTitle = styled.h2`
 
 export const CarouselContainer = styled.div`
   position: relative;
-  width: 1920px;
-  height: 1080px;
+  width: 100%;
+  max-width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; // 16:9 aspect ratio
   margin-top: 10px;
   overflow: hidden;
   border-radius: 20px;
-
-
-  @media (max-width: 1920px) {
-    width: 100%;
-    height: 0;
-    padding-bottom: 56.25%; // 16:9 aspect ratio
-  }
 `;
 
 export const CarouselSlide = styled.div`
@@ -244,6 +240,12 @@ export const ModeInfoBox = styled.div`
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
+  box-sizing: border-box; // Add this line
+
+  @media (max-width: 768px) {
+    padding: 15px;
+    width: 100%;
+  }
 `;
 
 export const ModeTitle = styled.h3`
@@ -302,21 +304,30 @@ export const VisitTips = styled.ul`
 `;
 
 export const VisitTipsTitle = styled.h3`
-  font-size: 26.4px; // Increased by 1.2
+  font-size: 30.5px; 
+  font-weight: 800;
   color: #376d31;
-  margin: 24px 0 12px; // Increased by 1.2
+  margin-top: 40px;
+  margin-bottom: 10px;
   text-align: center;
 `;
 
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 20px;
-  gap: 10px; 
+  margin-top: 30px;
+  gap: 20px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
 `;
 
 export const Text = styled.p`
   font-size: 19.2px;
+  text-align: center;
 `;
 
 export const DownloadCTA = styled(Link)`
@@ -348,36 +359,53 @@ export const DownloadCTA = styled(Link)`
   }
 `;
 
-export const MapButton = styled.a`
+const BaseButton = styled.a`
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   color: white;
-  padding: 10px 20px;
-  border-radius: 20px;
   text-decoration: none;
-  transition: background-color 0.3s;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: auto;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  }
 
   svg {
-    margin-right: 5px;
+    margin-right: 10px;
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    padding: 10px 20px;
+    width: 100%;
+    max-width: 250px;
+    justify-content: center; // Center content on mobile
   }
 `;
 
-export const AllTrailsButton = styled(MapButton)`
-  background-color: #00008B; // Dark blue color
+export const AllTrailsButton = styled(BaseButton)`
+  background-color: #428a13;
+  
   &:hover {
-    background-color: #000080;
+    background-color: #367010;
   }
 `;
 
-export const GoogleMapsButton = styled(MapButton)`
+export const GoogleMapsButton = styled(BaseButton)`
   background-color: #4285F4;
 
   &:hover {
     background-color: #3367D6;
-  }
-
-  svg {
-    margin-right: 5px;
   }
 `;
 
@@ -407,9 +435,6 @@ export const RecommendedText = styled.span`
   margin-right: 5px;
 `;
 
-// src/info/InfoPage.styles.js
-
-// ... existing styled-components
 
 // Keyframes for fade animations
 export const pgFadeIn = keyframes`
@@ -642,6 +667,11 @@ export const MapContainer = styled.div`
   width: 100%;
   max-width: 1200px;
   align-items: center;
+  box-sizing: border-box; // Add this line
+
+  @media (max-width: 768px) {
+    padding: 5px;
+  }
 `;
 
 
@@ -656,8 +686,61 @@ export const DirectionsContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 15px;
+  }
 `;
 
+export const StepContent = styled.div`
+  flex: 1;
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    margin: 0;
+    width: 100%;
+  }
+`;
+
+export const StepText = styled.div`
+  font-size: 22px;
+  color: #555;
+  flex: 1;
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+`;
+
+export const StepNumber = styled.div`
+  font-size: 36px;
+  font-weight: 1000;
+  color: #376d31;
+  margin-right: 20px;
+
+  @media (max-width: 768px) {
+    font-size: 48px;
+    margin: 0 20px;
+  }
+`;
+
+export const ArrowButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    justify-content: center;
+    margin-top: 15px;
+  }
+`;
 
 export const ArrowButton = styled.button`
   background-color: ${props => props.disabled ? '#cccccc' : '#376d31'};
@@ -682,26 +765,10 @@ export const ArrowButton = styled.button`
   &:focus {
     outline: none;
   }
-`;
 
-export const StepContent = styled.div`
-  flex: 1;
-  display: flex;
-  align-items: center;
-  margin: 0 15px;
-`;
-
-export const StepNumber = styled.div`
-  font-size: 36px;
-  font-weight: 1000;
-  color: #376d31;
-  margin-right: 20px;
-`;
-
-export const StepText = styled.div`
-  font-size: 22px;
-  color: #555;
-  flex: 1;
+  @media (max-width: 768px) {
+    margin: 0 15px;
+  }
 `;
 
 // Add a new container for the infographic and text
@@ -924,3 +991,16 @@ export const StatBox = styled.div`
     }
   }
 `;
+
+// Add this new component for the stats container
+export const StatsContainer = styled.div`
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  overflow-x: auto; // Allow horizontal scrolling if content overflows
+
+  @media (max-width: 768px) {
+    font-size: 14px; // Reduce font size on mobile
+  }
+`;
+
