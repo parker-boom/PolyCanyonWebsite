@@ -1,3 +1,10 @@
+/**
+ * Main App Component
+ * Purpose: Manages routing and layout for the Poly Canyon app. Provides a responsive navigation structure with separate pages for downloading the app, viewing info, and exploring structures.
+ * Key Features: Responsive routing (mobile vs. web view), centralized navigation, dynamic footer, and page switching using react-router-dom.
+ * Dependencies: react-responsive for media queries, react-router-dom for routing, styled-components for layout, and ReactDOM for rendering.
+ */
+
 /*
 Imports
 */
@@ -10,7 +17,7 @@ import { useMediaQuery } from 'react-responsive';
 import styled from 'styled-components';
 
 // Components across all views
-import './index.css'
+import './index.css';
 import Navigation from './layout/Navigation';
 import { Footer, FooterText } from './layout/Navigation.styles';
 
@@ -19,7 +26,6 @@ import DownloadPageMobile from './downloads/DownloadPageMobile';
 import DownloadPageWeb from './downloads/DownloadPageWeb';
 import InfoPage from './info/InfoPage';
 import StructuresPage from './structures/Structures.js';
-
 
 /*
 Styles
@@ -34,7 +40,6 @@ const Content = styled.main`
   flex: 1;
 `;
 
-
 /*
 Components & Render
 */
@@ -44,16 +49,21 @@ function App() {
   return (
     <Router>
       <AppContainer>
-
-         {/* Navigation Banner */}
+        {/* Navigation Banner */}
         <Navigation />
 
         {/* Pages*/}
         <Content>
           <Routes>
-            <Route path="/download" element={isMobile ? <DownloadPageMobile /> : <DownloadPageWeb />} />
+            <Route
+              path="/download"
+              element={isMobile ? <DownloadPageMobile /> : <DownloadPageWeb />}
+            />
             <Route path="/info" element={<InfoPage />} />
-            <Route path="/" element={isMobile ? <DownloadPageMobile /> : <DownloadPageWeb />} />
+            <Route
+              path="/"
+              element={isMobile ? <DownloadPageMobile /> : <DownloadPageWeb />}
+            />
             <Route path="/structures" element={<StructuresPage />} />
           </Routes>
         </Content>
@@ -63,7 +73,6 @@ function App() {
           <FooterText>© 2024 Poly Canyon App. All rights reserved.</FooterText>
           <FooterText>Cal Poly, San Luis Obispo</FooterText>
         </Footer>
-
       </AppContainer>
     </Router>
   );

@@ -1,3 +1,13 @@
+/**
+ * Component: Navigation
+ * Purpose: Provides a responsive navigation bar for both mobile and web versions of the Poly Canyon app.
+ * Key Features: Mobile pop-up menu, dynamic page links with icons (Download, Info, Structures), highlights the active page based on URL.
+ * Dependencies: react-responsive for media queries, react-router-dom for navigation, react-icons for icons, styled-components for styling.
+ */
+
+
+
+
 /*
 Imports
 */
@@ -133,5 +143,5 @@ const Navigation = () => {
   );
 };
 
-// Used in all views 
+// Used in Index.js (shared among all pages)
 export default Navigation;

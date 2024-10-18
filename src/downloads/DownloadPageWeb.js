@@ -1,3 +1,13 @@
+/**
+ * Component: DownloadPageWeb
+ * Purpose: Web version of the download page. Displays app details and provides separate download buttons for iOS and Android.
+ * Key Features: Side-by-side layout for iOS and Android previews, LazyGif component for device-specific app previews, links to App Store and Google Play.
+ * Dependencies: react-icons for download and device icons, LazyGif for animated app previews, and styled-components for layout and design.
+ */
+
+
+
+
 /*
 Imports
 */
@@ -100,5 +110,5 @@ const DownloadPageWeb = () => {
   );
 };
 
-// Export for use
+// Used in Index.js (Web Only)
 export default DownloadPageWeb;

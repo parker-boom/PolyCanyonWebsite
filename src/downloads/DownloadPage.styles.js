@@ -1,3 +1,13 @@
+/**
+ * Styles for the Download Page components.
+ * Provides layout and design for the page elements including buttons, containers, and animations.
+ * Animations: fadeIn keyframe for smooth transitions.
+ * Purpose: Centralized styling for both web and mobile download pages using styled-components.
+ */
+
+
+
+
 /*
 Imports
 */

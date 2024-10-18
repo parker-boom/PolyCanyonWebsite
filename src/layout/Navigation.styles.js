@@ -1,3 +1,13 @@
+/**
+ * Styles for Navigation Component
+ * Purpose: Defines the styles for the navigation bar, including mobile and web-specific layouts, pop-up menu for mobile, and link interactions.
+ * Key Elements: BannerMobile, Banner, PopupContainer, NavLinks, and responsive design for mobile and desktop views.
+ * Dependencies: styled-components for modular and responsive styling.
+ */
+
+
+
+
 /*
 Imports
 */

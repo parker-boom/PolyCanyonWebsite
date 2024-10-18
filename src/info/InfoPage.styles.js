@@ -1,3 +1,13 @@
+/**
+ * Styles for InfoPage Components
+ * Purpose: Centralized styling for the InfoPage, including sections for history, geology, app information, and Google Maps directions.
+ * Key Elements: Rounded containers, typography, animations, and responsive layouts for different sections and components.
+ * Dependencies: styled-components for modular and reusable styling.
+ */
+
+
+
+
 /* 
 Imports
  */

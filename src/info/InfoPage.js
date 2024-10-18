@@ -1,10 +1,26 @@
+/**
+ * Component: InfoPage
+ * Purpose: Provides detailed information about Poly Canyon, including its history, geology, and access to the Poly Canyon app.
+ * Key Features: Interactive image carousel, Google Maps route integration, virtual tour/adventure mode switching, and dynamic loading of more information sections.
+ * Dependencies: react-icons for icons, GoogleMapsRoute and PhotoGrid components for map and image functionalities, styled-components for layout and design.
+ */
+
 /*
 IMPORTS
 */
 
-// Libraries 
+// Libraries
 import React, { useState, useRef, useEffect } from 'react';
-import { FaChevronRight, FaMapMarkerAlt, FaWalking, FaSearch, FaHistory, FaGlobeAmericas, FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import {
+  FaChevronRight,
+  FaMapMarkerAlt,
+  FaWalking,
+  FaSearch,
+  FaHistory,
+  FaGlobeAmericas,
+  FaChevronDown,
+  FaChevronUp,
+} from 'react-icons/fa';
 
 // Styles
 import {
@@ -21,8 +37,7 @@ import {
   Title,
   Subtitle,
 
-
-  // More Info 
+  // More Info
   MoreInfoContainer,
   MoreInfoToggle,
   MoreInfoContent,
@@ -30,7 +45,7 @@ import {
   PickerButton,
   PickerContent,
   PickerTitle,
- 
+
   // More Info: History
   StatBox,
   CarouselContainer,
@@ -72,8 +87,7 @@ import {
   AllTrailsButton,
   GoogleMapsButton,
   VisitTipsTitle,
-  VisitTips
-
+  VisitTips,
 } from './InfoPage.styles';
 
 // Separate components
@@ -93,8 +107,6 @@ import modHouseConstruction from '../assets/pchistory/modHouseConstruction.jpg';
 import geodesicDome from '../assets/pchistory/geodesicDome.jpg';
 import fratessaTower from '../assets/pchistory/fratessaTowerb4.jpg';
 
-
-
 /*
 CONSTANTS
 */
@@ -104,49 +116,48 @@ const historicalImages = [
   {
     src: entryArch,
     alt: 'Entry Arch',
-    caption: 'The canyon entrance, built with local serpentinite rock.'
+    caption: 'The canyon entrance, built with local serpentinite rock.',
   },
   {
     src: shellHouseConstruct,
     alt: 'Shell House Under Construction',
-    caption: 'Building the Shell House with cables and sprayed concrete.'
+    caption: 'Building the Shell House with cables and sprayed concrete.',
   },
   {
     src: bridgeGroup,
     alt: 'Bridge House Group Photo',
-    caption: 'Students on the Bridge House, one of the first Cor-ten steel structures.'
+    caption:
+      'Students on the Bridge House, one of the first Cor-ten steel structures.',
   },
   {
     src: bladeRedesign,
     alt: 'Blade Structure Redesign',
-    caption: 'Award-winning 2006 redesign using post-tensioning techniques.'
+    caption: 'Award-winning 2006 redesign using post-tensioning techniques.',
   },
   {
     src: modHouseConstruction,
     alt: 'Modular House Construction',
-    caption: 'Construction of the experimental Modular House frame.'
+    caption: 'Construction of the experimental Modular House frame.',
   },
   {
     src: geodesicDome,
     alt: 'Geodesic Dome Construction',
-    caption: 'Students building the West Coast\'s first geodesic dome.'
+    caption: "Students building the West Coast's first geodesic dome.",
   },
   {
     src: fratessaTower,
     alt: 'Fratessa Tower (Old Version)',
-    caption: 'Original water-supported observation tower, since replaced.'
+    caption: 'Original water-supported observation tower, since replaced.',
   },
   {
     src: designVillage,
     alt: 'Design Village Competition',
-    caption: 'Annual competition where students build temporary shelters.'
+    caption: 'Annual competition where students build temporary shelters.',
   },
 ];
 
-
 // Rendered component
 const InfoPage = () => {
-
   // Variables for state
   const [currentPicker, setCurrentPicker] = useState('history');
   const [currentMode, setCurrentMode] = useState('adventure');
@@ -186,33 +197,43 @@ const InfoPage = () => {
 
   // Navigate to next image (historical section)
   const handleNextImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % historicalImages.length);
+    setCurrentImageIndex(
+      (prevIndex) => (prevIndex + 1) % historicalImages.length
+    );
   };
 
   // Navigate to previous image (historical section)
   const handlePrevImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      (prevIndex - 1 + historicalImages.length) % historicalImages.length
+    setCurrentImageIndex(
+      (prevIndex) =>
+        (prevIndex - 1 + historicalImages.length) % historicalImages.length
     );
   };
 
-
-  // Components for the more info section 
+  // Components for the more info section
   const pickerContent = {
-
     // HISTORY
     history: {
-      title: "A Rich Legacy",
+      title: 'A Rich Legacy',
       content: (
         <>
           {/* Introductory text */}
           <Text>
-            Since the 1960s, the area has been a testing ground for experimental architecture and engineering. Students come here to turn their boldest designs into reality.
+            Since the 1960s, the area has been a testing ground for experimental
+            architecture and engineering. Students come here to turn their
+            boldest designs into reality.
           </Text>
 
           {/* Statistics Section - Web Only*/}
           {window.innerWidth > 768 && (
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px', flexWrap: 'wrap' }}>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                marginTop: '20px',
+                flexWrap: 'wrap',
+              }}
+            >
               <StatBox>
                 <h4>Established</h4>
                 <p>1963</p>
@@ -248,18 +269,32 @@ const InfoPage = () => {
                   position: 'absolute',
                   top: 0,
                   left: 0,
-                  opacity: isTransitioning ? 1 : 0
+                  opacity: isTransitioning ? 1 : 0,
                 }}
               />
             </CarouselImageContainer>
-            <ArrowButtonImage onClick={handlePrevImage} disabled={isTransitioning}>&lt;</ArrowButtonImage>
-            <ArrowButtonImage onClick={handleNextImage} disabled={isTransitioning}>&gt;</ArrowButtonImage>
+            <ArrowButtonImage
+              onClick={handlePrevImage}
+              disabled={isTransitioning}
+            >
+              &lt;
+            </ArrowButtonImage>
+            <ArrowButtonImage
+              onClick={handleNextImage}
+              disabled={isTransitioning}
+            >
+              &gt;
+            </ArrowButtonImage>
           </CarouselContainer>
 
           {/* Caption with Title */}
           <CarouselCaption>
-            <CaptionTitle>{historicalImages[currentImageIndex].alt}</CaptionTitle>
-            <CaptionText>{historicalImages[currentImageIndex].caption}</CaptionText>
+            <CaptionTitle>
+              {historicalImages[currentImageIndex].alt}
+            </CaptionTitle>
+            <CaptionText>
+              {historicalImages[currentImageIndex].caption}
+            </CaptionText>
           </CarouselCaption>
         </>
       ),
@@ -267,15 +302,23 @@ const InfoPage = () => {
 
     // GEOLOGY
     geology: {
-      title: "A Landscape Shaped by Time",
+      title: 'A Landscape Shaped by Time',
       content: (
         <>
           {/* Geology overview */}
           <Text>
-            The canyon's landscape is shaped by tectonic forces, serpentine springs, and varied soil types. This intricate interplay provides fertile ground for architectural and ecological study.
+            The canyon's landscape is shaped by tectonic forces, serpentine
+            springs, and varied soil types. This intricate interplay provides
+            fertile ground for architectural and ecological study.
           </Text>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '20px' }}>
-
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '20px',
+              marginTop: '20px',
+            }}
+          >
             {/* Infographic 1 - Tectonic */}
             <ResponsiveRow>
               <InfographicContainer>
@@ -285,7 +328,10 @@ const InfoPage = () => {
                 <InfoTextBox>
                   <GreenTitle>Tectonic Forces</GreenTitle>
                   <InfoText>
-                    The canyon's geological features are the result of tectonic activity. The Pacific and North American Plates' movements have created formations like the Franciscan Formation and serpentine outcrops.
+                    The canyon's geological features are the result of tectonic
+                    activity. The Pacific and North American Plates' movements
+                    have created formations like the Franciscan Formation and
+                    serpentine outcrops.
                   </InfoText>
                 </InfoTextBox>
               </InfographicContainer>
@@ -300,7 +346,9 @@ const InfoPage = () => {
                 <InfoTextBox>
                   <GreenTitle>Serpentine Springs</GreenTitle>
                   <InfoText>
-                    Unique springs form where water flows through serpentine rocks. These springs provide essential water to local ecosystems, creating a distinct ecological character.
+                    Unique springs form where water flows through serpentine
+                    rocks. These springs provide essential water to local
+                    ecosystems, creating a distinct ecological character.
                   </InfoText>
                 </InfoTextBox>
               </InfographicContainer>
@@ -315,7 +363,9 @@ const InfoPage = () => {
                 <InfoTextBox>
                   <GreenTitle>Diverse Soil</GreenTitle>
                   <InfoText>
-                    The canyon's soils range from stable Class I soils to more challenging Class V soils, influencing vegetation growth and ecological diversity.
+                    The canyon's soils range from stable Class I soils to more
+                    challenging Class V soils, influencing vegetation growth and
+                    ecological diversity.
                   </InfoText>
                 </InfoTextBox>
               </InfographicContainer>
@@ -350,11 +400,19 @@ const InfoPage = () => {
 
         {/* Poly Canyon Overview */}
         <Text style={{ textAlign: 'left' }}>
-          Poly Canyon is a 9-acre outdoor space where Cal Poly students have been building experimental structures since 1963. Just a mile from campus, it's home to over 30 unique architectural projects.
-          <br /><br />
-          These aren't just display pieces. Each structure was designed and built by students testing new ideas. Some projects succeeded brilliantly, others showed why certain ideas stayed theoretical.
-          <br /><br />
-          Whether you're interested in architecture, looking for a different kind of hike, or just want to experience what makes Cal Poly unique, it's worth checking out.
+          Poly Canyon is a 9-acre outdoor space where Cal Poly students have
+          been building experimental structures since 1963. Just a mile from
+          campus, it's home to over 30 unique architectural projects.
+          <br />
+          <br />
+          These aren't just display pieces. Each structure was designed and
+          built by students testing new ideas. Some projects succeeded
+          brilliantly, others showed why certain ideas stayed theoretical.
+          <br />
+          <br />
+          Whether you're interested in architecture, looking for a different
+          kind of hike, or just want to experience what makes Cal Poly unique,
+          it's worth checking out.
         </Text>
         <PhotoGrid />
 
@@ -369,7 +427,6 @@ const InfoPage = () => {
 
           {isMoreInfoOpen && (
             <MoreInfoContent>
-
               {/* Pikcer Between MoreInfo Subsections */}
               <ImprovedPicker>
                 <PickerButton
@@ -393,7 +450,10 @@ const InfoPage = () => {
                 {pickerContent[currentPicker].content}
               </PickerContent>
 
-              <MoreInfoToggle onClick={toggleMoreInfo} style={{ marginTop: '30px' }}>
+              <MoreInfoToggle
+                onClick={toggleMoreInfo}
+                style={{ marginTop: '30px' }}
+              >
                 Show Less
                 <FaChevronUp />
               </MoreInfoToggle>
@@ -408,10 +468,17 @@ const InfoPage = () => {
       <Section>
         <SectionTitle>What is the Poly Canyon App?</SectionTitle>
 
-        <img src={appPreview} alt="Poly Canyon App Preview" loading="lazy" style={{ width: '60%', height: 'auto', borderRadius: '10px' }} />
+        <img
+          src={appPreview}
+          alt="Poly Canyon App Preview"
+          loading="lazy"
+          style={{ width: '60%', height: 'auto', borderRadius: '10px' }}
+        />
 
         <Text>
-          Your personal guide to exploring these architectural wonders. Find your way around with interactive maps, uncover the stories behind each structure, and track your progress as you discover the area.
+          Your personal guide to exploring these architectural wonders. Find
+          your way around with interactive maps, uncover the stories behind each
+          structure, and track your progress as you discover the area.
         </Text>
 
         {/* Switch between adventure/virtual tour */}
@@ -433,15 +500,17 @@ const InfoPage = () => {
         {/* Mode specific information */}
         <ModeContent mode={currentMode}>
           <ModeInfoBox>
-
-            
             {currentMode === 'adventure' ? (
               <>
                 {/* Adventure Mode */}
                 <ModeTitle>🧭 Adventure Mode</ModeTitle>
                 <FeatureList>
-                  <FeatureItem>🗺️ Interactive map for easy navigation</FeatureItem>
-                  <FeatureItem>✅ Automatic tracking of visited structures</FeatureItem>
+                  <FeatureItem>
+                    🗺️ Interactive map for easy navigation
+                  </FeatureItem>
+                  <FeatureItem>
+                    ✅ Automatic tracking of visited structures
+                  </FeatureItem>
                   <FeatureItem>📚 In-depth historical insights</FeatureItem>
                 </FeatureList>
                 <RecommendedFor>
@@ -450,39 +519,46 @@ const InfoPage = () => {
                 </RecommendedFor>
               </>
             ) : (
-
-                <>
-                  {/* Virtual Tour Mode */ }
-                  <ModeTitle>🖥️ Virtual Tour Mode</ModeTitle>
-                  <FeatureList>
-                    <FeatureItem>🏞️ Virtual walkthrough of the canyon</FeatureItem>
-                    <FeatureItem>⭐ Decide which structures are your favorite</FeatureItem>
-                    <FeatureItem>📝 Learn about structures even from afar</FeatureItem>
-                  </FeatureList>
-                  <RecommendedFor>
-                    <RecommendedText>Recommended For:</RecommendedText>
-                    Remote enthusiasts
-                  </RecommendedFor>
-                </>
-              )}
-
+              <>
+                {/* Virtual Tour Mode */}
+                <ModeTitle>🖥️ Virtual Tour Mode</ModeTitle>
+                <FeatureList>
+                  <FeatureItem>
+                    🏞️ Virtual walkthrough of the canyon
+                  </FeatureItem>
+                  <FeatureItem>
+                    ⭐ Decide which structures are your favorite
+                  </FeatureItem>
+                  <FeatureItem>
+                    📝 Learn about structures even from afar
+                  </FeatureItem>
+                </FeatureList>
+                <RecommendedFor>
+                  <RecommendedText>Recommended For:</RecommendedText>
+                  Remote enthusiasts
+                </RecommendedFor>
+              </>
+            )}
 
             {/* Download Button*/}
             <CTAButtonWrapper>
               <CTAButton to="/download">
                 <CTAButtonText>
-                  {currentMode === 'adventure' ? 'Start Your Adventure' : 'Explore Virtually'}
+                  {currentMode === 'adventure'
+                    ? 'Start Your Adventure'
+                    : 'Explore Virtually'}
                 </CTAButtonText>
                 <CTAButtonIcon>
                   <FaChevronRight />
                 </CTAButtonIcon>
               </CTAButton>
             </CTAButtonWrapper>
-
           </ModeInfoBox>
 
           <Text>
-            Whether you're on-site or browsing from home, dive deeper into the stories and innovations that make this place special. Download now to start your exploration.
+            Whether you're on-site or browsing from home, dive deeper into the
+            stories and innovations that make this place special. Download now
+            to start your exploration.
           </Text>
         </ModeContent>
       </Section>
@@ -493,24 +569,33 @@ const InfoPage = () => {
       <Section>
         <SectionTitle>How do I get there?</SectionTitle>
         <Text>
-          Access the area by walking along Poly Canyon Road on campus. The interactive map below shows the route, or use AllTrails and Google Maps for detailed directions.
+          Access the area by walking along Poly Canyon Road on campus. The
+          interactive map below shows the route, or use AllTrails and Google
+          Maps for detailed directions.
         </Text>
         <MapContainer>
-
           {/* Google Maps - Separate Component */}
           <GoogleMapsRoute />
-
         </MapContainer>
         <Text>
-          Choose your path - hike, bike, or run. The trail is well-marked and takes about 20 minutes to walk from campus.
+          Choose your path - hike, bike, or run. The trail is well-marked and
+          takes about 20 minutes to walk from campus.
         </Text>
 
         {/* AllTrails & GMaps Links*/}
         <ButtonContainer>
-          <AllTrailsButton href="https://www.alltrails.com/trail/us/california/architecture-graveyard-hike-private-property?sh=rvw6ps" target="_blank" rel="noopener noreferrer">
+          <AllTrailsButton
+            href="https://www.alltrails.com/trail/us/california/architecture-graveyard-hike-private-property?sh=rvw6ps"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaWalking /> All Trails
           </AllTrailsButton>
-          <GoogleMapsButton href="https://maps.app.goo.gl/H8Dq6Y5x1E6pQJzk9" target="_blank" rel="noopener noreferrer">
+          <GoogleMapsButton
+            href="https://maps.app.goo.gl/H8Dq6Y5x1E6pQJzk9"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaMapMarkerAlt /> Google Maps
           </GoogleMapsButton>
         </ButtonContainer>
@@ -518,14 +603,21 @@ const InfoPage = () => {
         {/* Visiting Tips */}
         <VisitTipsTitle>Before You Go:</VisitTipsTitle>
         <VisitTips>
-          <FeatureItem>🌞 Visit during daylight hours for the best experience</FeatureItem>
-          <FeatureItem>🏞️ Watch for wildlife and horses - keep your distance and respect their space</FeatureItem>
-          <FeatureItem>👟 Bring water and wear hiking shoes - the terrain can be uneven</FeatureItem>
+          <FeatureItem>
+            🌞 Visit during daylight hours for the best experience
+          </FeatureItem>
+          <FeatureItem>
+            🏞️ Watch for wildlife and horses - keep your distance and respect
+            their space
+          </FeatureItem>
+          <FeatureItem>
+            👟 Bring water and wear hiking shoes - the terrain can be uneven
+          </FeatureItem>
         </VisitTips>
       </Section>
     </PageContainer>
   );
 };
 
-// Export for render
+// Used in Index.js
 export default InfoPage;

@@ -1,3 +1,13 @@
+/**
+ * Component: PhotoGrid
+ * Purpose: Displays a randomized grid of images showcasing Poly Canyon structures, with alternating transitions between images using a custom timing sequence.
+ * Key Features: Utilizes a shuffle algorithm for randomized image display, supports different image orientations (horizontal, vertical, square).
+ * Dependencies: styled-components for grid layout, assets for images of Poly Canyon structures.
+ */
+
+
+
+
 /*
 Imports
 */
@@ -220,5 +230,5 @@ const PhotoGrid = () => {
   );
 };
 
-// Export to use in InfoPage
+// Used in Index.js
 export default PhotoGrid;

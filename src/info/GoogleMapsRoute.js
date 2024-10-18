@@ -1,3 +1,13 @@
+/**
+ * Component: GoogleMapsRoute
+ * Purpose: Displays a Google Map route and step-by-step walking directions for navigating through Poly Canyon. 
+ * Key Features: Fetches walking directions from Google Maps API, renders route details, and provides step-by-step navigation for both web and mobile views.
+ * Dependencies: @react-google-maps/api for Google Maps integration, styled-components for UI styling.
+ */
+
+
+
+
 /*
 Imports
 */
@@ -75,8 +85,9 @@ const GoogleMapsRoute = () => {
   };
 
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: 'AIzaSyCEvglk19fQ-rB26NTPE9VYMS-JrW7vDrM',
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
   });
+  
 
   useEffect(() => {
     if (isLoaded) {
@@ -186,5 +197,5 @@ const GoogleMapsRoute = () => {
   );
 };
 
-// Used in InfoPage
+// Used in InfoPage.js
 export default GoogleMapsRoute;

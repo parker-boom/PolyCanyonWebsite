@@ -1,3 +1,13 @@
+/**
+ * Component: DownloadPageMobile
+ * Purpose: Mobile version of the download page. Displays app information and a download button based on the user's device (iOS or Android).
+ * Key Features: Device detection, GIF preview, device-specific download button (App Store or Google Play), and switch between iOS and Android options.
+ * Dependencies: React hooks (useState, useEffect), LazyGif component for displaying app previews, react-icons for device icons.
+ */
+
+
+
+
 /*
 Imports
 */
@@ -103,4 +113,5 @@ const DownloadPageMobile = () => {
   );
 };
 
+// // Used in Index.js (Mobile only)
 export default DownloadPageMobile;

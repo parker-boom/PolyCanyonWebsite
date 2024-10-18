@@ -1,3 +1,13 @@
+/**
+ * Component: LazyGif
+ * Purpose: Displays a GIF preview of the app based on the device type (iOS or Android).
+ * Key Features: Renders a device-specific GIF, supports lazy loading for performance.
+ * Dependencies: styled-components for styling, gif files (appleGIF and androidGIF) for app previews.
+ */
+
+
+
+
 /*
 Imports
 */
