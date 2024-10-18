@@ -5,17 +5,14 @@
  * Dependencies: React hooks (useState, useEffect), LazyGif component for displaying app previews, react-icons for device icons.
  */
 
-
-
-
 /*
 Imports
 */
 
-// Libraries 
+// Libraries
 import React, { useState, useEffect, Suspense, useRef } from 'react';
 import { isIOS, isAndroid } from 'react-device-detect';
-import { FaApple, FaAndroid, FaArrowRight } from 'react-icons/fa'; 
+import { FaApple, FaAndroid, FaArrowRight } from 'react-icons/fa';
 
 // Styles
 import {
@@ -27,18 +24,16 @@ import {
   GifContainer,
   DownloadButton,
   DeviceSwitchContainer,
-  SwitchText
+  SwitchText,
 } from './DownloadPage.styles';
 
 // Component
 import LazyGif from './LazyGif.js';
 
-
 /*
 Components & Render
-*/ 
+*/
 const DownloadPageMobile = () => {
-
   // State variables
   const [deviceType, setDeviceType] = useState('unknown');
   const downloadButtonRef = useRef(null);
@@ -53,7 +48,7 @@ const DownloadPageMobile = () => {
   }, []);
 
   const toggleDevice = () => {
-    setDeviceType(prevType => (prevType === 'ios' ? 'android' : 'ios'));
+    setDeviceType((prevType) => (prevType === 'ios' ? 'android' : 'ios'));
   };
 
   // Change link based on device
@@ -69,12 +64,12 @@ const DownloadPageMobile = () => {
 
   return (
     <PageContainer>
-
       {/* Download Description Widget */}
       <RoundedContainer>
         <Title>Download Now!</Title>
         <WebDescription>
-          Explore, learn, and track your journey through the canyon's architectural wonders
+          Explore, learn, and track your journey through the canyon&apos;s
+          architectural wonders
         </WebDescription>
         <LearnMoreButton to="/info">
           Learn More <FaArrowRight />
@@ -89,18 +84,18 @@ const DownloadPageMobile = () => {
       </Suspense>
 
       {/* Download Button */}
-      <DownloadButton 
+      <DownloadButton
         ref={downloadButtonRef}
-        href={getStoreLink()} 
-        target="_blank" 
+        href={getStoreLink()}
+        target="_blank"
         rel="noopener noreferrer"
         aria-label={`Download button for ${deviceType === 'ios' ? 'iOS' : 'Android'}`}
       >
         {getStoreIcon()} Download for {deviceType === 'ios' ? 'iOS' : 'Android'}
       </DownloadButton>
       <DeviceSwitchContainer>
-        <SwitchText 
-          onClick={toggleDevice} 
+        <SwitchText
+          onClick={toggleDevice}
           onKeyPress={(e) => e.key === 'Enter' && toggleDevice()}
           tabIndex={0}
           role="button"

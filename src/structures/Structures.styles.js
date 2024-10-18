@@ -2,12 +2,10 @@
  * Work in progress...
  */
 
-
 /*
 Imports
 */
 import styled from 'styled-components';
-
 
 /*
 Styles

@@ -6,14 +6,19 @@ import prettierPlugin from 'eslint-plugin-prettier';
 
 export default [
   { files: ['**/*.{js,mjs,cjs,jsx}'] },
-  { languageOptions: { globals: globals.browser } },
+  { languageOptions: { globals: { ...globals.browser, process: 'readonly' } } },
   pluginJs.configs.recommended,
   pluginReact.configs.flat.recommended,
   prettierConfig,
   {
-    plugins: { prettier: prettierPlugin },
+    plugins: { prettier: prettierPlugin, react: pluginReact },
     rules: {
-      'prettier/prettier': 'error',
+      'prettier/prettier': ['error', { endOfLine: 'auto' }],
+    },
+    settings: {
+      react: {
+        version: 'detect',
+      },
     },
   },
 ];

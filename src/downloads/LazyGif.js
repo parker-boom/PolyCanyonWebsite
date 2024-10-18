@@ -5,15 +5,13 @@
  * Dependencies: styled-components for styling, gif files (appleGIF and androidGIF) for app previews.
  */
 
-
-
-
 /*
 Imports
 */
 
 // Libraries
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 // Photos
@@ -22,7 +20,7 @@ import androidGIF from '../assets/androidGIF.gif';
 
 // Gif Styles
 const GifImage = styled.img`
-  height: 100%; 
+  height: 100%;
   width: auto;
   object-fit: contain;
   border-radius: 10px;
@@ -34,7 +32,16 @@ Component and Render
 const LazyGif = ({ deviceType }) => {
   // Determine the GIF source based on device type
   const gifSrc = deviceType === 'ios' ? appleGIF : androidGIF;
-  return <GifImage src={gifSrc} alt={`${deviceType} app preview showing interactive map`} />;
+  return (
+    <GifImage
+      src={gifSrc}
+      alt={`${deviceType} app preview showing interactive map`}
+    />
+  );
+};
+
+LazyGif.propTypes = {
+  deviceType: PropTypes.oneOf(['ios', 'android']).isRequired,
 };
 
 // Exports

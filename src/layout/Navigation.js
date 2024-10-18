@@ -5,22 +5,24 @@
  * Dependencies: react-responsive for media queries, react-router-dom for navigation, react-icons for icons, styled-components for styling.
  */
 
-
-
-
 /*
 Imports
 */
 
-// Libraries 
+// Libraries
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
-import { FaBars, FaTimes, FaDownload, FaInfo, FaBuilding } from 'react-icons/fa';
+import {
+  FaBars,
+  FaTimes,
+  FaDownload,
+  FaInfo,
+  FaBuilding,
+} from 'react-icons/fa';
 
 // Styles
 import {
-
   // Mobile
   BannerMobile,
   MenuIcon,
@@ -41,20 +43,16 @@ import {
   BannerText,
   NavLinks,
   NavLink,
-  BannerIcon
-
-
+  BannerIcon,
 } from './Navigation.styles';
 
 // Logo
 import app360 from '../assets/app360.jpg';
 
-
 /*
 Components & Render
 */
 const Navigation = () => {
-
   // State variables
   const [isPopupOpen, setPopupOpen] = useState(false);
   const location = useLocation();
@@ -67,18 +65,21 @@ const Navigation = () => {
 
   // Change to other pages
   const navLinks = [
-    { to: "/download", icon: <FaDownload />, text: "Download" },
-    { to: "/info", icon: <FaInfo />, text: "Info" },
-    { to: "/structures", icon: <FaBuilding />, text: "Structures" }
+    { to: '/download', icon: <FaDownload />, text: 'Download' },
+    { to: '/info', icon: <FaInfo />, text: 'Info' },
+    { to: '/structures', icon: <FaBuilding />, text: 'Structures' },
   ];
 
   // Underline current page
   const isLinkActive = (path) => {
-    return location.pathname === path || (location.pathname === '/' && path === '/download');
+    return (
+      location.pathname === path ||
+      (location.pathname === '/' && path === '/download')
+    );
   };
 
   // Links to other pages
-  const renderNavLinks = (LinkComponent, extraProps = {}) => (
+  const renderNavLinks = (LinkComponent, extraProps = {}) =>
     navLinks.map(({ to, icon, text }) => (
       <LinkComponent
         key={to}
@@ -88,22 +89,18 @@ const Navigation = () => {
       >
         {icon} {text}
       </LinkComponent>
-    ))
-  );
+    ));
 
   // Mobile banner + pop-up for switching pages
   if (isMobile) {
     return (
       <>
-
         {/* Banner */}
         <BannerMobile>
           <MenuIcon onClick={togglePopup}>
             <FaBars />
           </MenuIcon>
-          <PolyCanyonTitle>
-            Poly Canyon
-          </PolyCanyonTitle>
+          <PolyCanyonTitle>Poly Canyon</PolyCanyonTitle>
           <Logo src={app360} alt="Poly Canyon Logo" />
         </BannerMobile>
 
@@ -131,9 +128,7 @@ const Navigation = () => {
       <BannerContent>
         <LeftSection>
           <BannerText>Poly Canyon</BannerText>
-          <NavLinks>
-            {renderNavLinks(NavLink)}
-          </NavLinks>
+          <NavLinks>{renderNavLinks(NavLink)}</NavLinks>
         </LeftSection>
         <RightSection>
           <BannerIcon src={app360} alt="Poly Canyon Logo" />

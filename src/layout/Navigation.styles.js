@@ -5,9 +5,6 @@
  * Dependencies: styled-components for modular and responsive styling.
  */
 
-
-
-
 /*
 Imports
 */
@@ -26,19 +23,19 @@ Mobile Elements
 export const BannerMobile = styled.div`
   width: 100%;
   background-color: #b6e5b6;
-  padding: 15px 0; 
+  padding: 15px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-radius: 0 0 20px 20px;
-  box-sizing: border-box; 
+  box-sizing: border-box;
 `;
 
 export const MenuIcon = styled.div`
   font-size: 28px;
   color: #3c6b38;
   cursor: pointer;
-  padding: 10px 15px; 
+  padding: 10px 15px;
   margin-top: 10px;
 `;
 
@@ -55,7 +52,7 @@ export const Logo = styled.img`
   height: 48px;
   width: 48px;
   border-radius: 10px;
-  margin-right: 15px; 
+  margin-right: 15px;
 `;
 
 export const PopupContainer = styled.div`
@@ -100,7 +97,7 @@ export const PopupCloseButton = styled.button`
   transition: color 0.3s ease;
 
   &:hover {
-    color: #4CAF50;
+    color: #4caf50;
   }
 `;
 
@@ -114,7 +111,7 @@ export const PopupTitle = styled.h2`
 
 export const PopupNavLink = styled(Link)`
   text-decoration: none;
-  color: #4CAF50;
+  color: #4caf50;
   font-size: 18px;
   font-weight: bold;
   display: flex;
@@ -131,7 +128,9 @@ export const PopupNavLink = styled(Link)`
     color: #45a049;
   }
 
-  ${({ $isActive }) => $isActive && `
+  ${({ $isActive }) =>
+    $isActive &&
+    `
     background-color: #e8f5e9;
     color: #2e7d32;
     position: relative;
@@ -156,7 +155,6 @@ export const NavLinkContainer = styled.div`
   gap: 10px;
 `;
 
-
 /*
 Web Banner
 */
@@ -180,7 +178,7 @@ export const BannerContent = styled.div`
 
 export const LeftSection = styled.div`
   display: flex;
-  align-items: flex-end; 
+  align-items: flex-end;
 `;
 
 export const RightSection = styled.div`
@@ -189,14 +187,13 @@ export const RightSection = styled.div`
   align-items: center;
 `;
 
-
 export const BannerText = styled.h1`
   font-size: 36px;
   font-weight: 700;
   color: #3c6b38;
   margin: 0;
   text-shadow: 0 2px 4px rgba(253, 208, 76, 0.5);
-  line-height: 1; 
+  line-height: 1;
 `;
 
 export const NavLinks = styled.div`
@@ -230,7 +227,9 @@ export const NavLink = styled(Link)`
     width: 100%;
   }
 
-  ${({ $isActive }) => $isActive && `
+  ${({ $isActive }) =>
+    $isActive &&
+    `
     &:after {
       width: 100%;
     }
@@ -243,7 +242,6 @@ export const BannerIcon = styled.img`
   object-fit: cover;
   border-radius: 10px;
 `;
-
 
 /*
 Footer Elements
@@ -261,4 +259,3 @@ export const FooterText = styled.p`
   font-size: 16px;
   margin: 8px 0; // Footer text margin
 `;
-

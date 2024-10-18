@@ -16,7 +16,7 @@ The Poly Canyon Website is a React-based application that provides users with va
 ### Info Page
 
 - **Path**: `/info`
-- **Description**: Offers detailed information about the Poly Canyon physical space and  app.
+- **Description**: Offers detailed information about the Poly Canyon physical space and app.
 
 ### Home Page
 

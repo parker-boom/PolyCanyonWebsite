@@ -5,9 +5,6 @@
  * Dependencies: styled-components for modular and reusable styling.
  */
 
-
-
-
 /* 
 Imports
  */
@@ -19,8 +16,6 @@ const fadeIn = keyframes`
   from { opacity: 0; }
   to { opacity: 1; }
 `;
-
-
 
 /* 
 Global Styles
@@ -66,10 +61,10 @@ export const Section = styled(RoundedContainer)`
 `;
 
 export const SectionTitle = styled.h2`
-  font-size: 36px; 
+  font-size: 36px;
   font-weight: 850;
   color: #376d31;
-  margin: 0 0 14px 0; 
+  margin: 0 0 14px 0;
   text-align: center;
 `;
 
@@ -78,12 +73,11 @@ export const Text = styled.p`
   text-align: center;
 `;
 
-
 /* 
 Title
  */
 export const TitleSection = styled(RoundedContainer)`
-  margin-bottom: 24px; 
+  margin-bottom: 24px;
   padding: 0px 20px;
 `;
 
@@ -93,7 +87,7 @@ export const Header = styled.header`
 `;
 
 export const Title = styled.h1`
-  font-size: 48px; 
+  font-size: 48px;
   font-weight: 1000;
   color: #376d31;
   margin-top: 10px;
@@ -107,7 +101,6 @@ export const Subtitle = styled.h2`
   margin-top: 5px;
   margin-bottom: 0;
 `;
-
 
 /* 
 MoreInfo Section
@@ -167,13 +160,13 @@ export const PickerButton = styled.button`
   align-items: center;
   justify-content: center;
   background-color: transparent;
-  color: ${props => props.active ? '#376d31' : '#333333'};
+  color: ${(props) => (props.active ? '#376d31' : '#333333')};
   border: none;
   padding: 15px;
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 18px;
-  font-weight: ${props => props.active ? 'bold' : 'normal'};
+  font-weight: ${(props) => (props.active ? 'bold' : 'normal')};
   position: relative;
 
   &::after {
@@ -184,7 +177,7 @@ export const PickerButton = styled.button`
     width: 100%;
     height: 2px;
     background-color: #376d31;
-    transform: scaleX(${props => props.active ? 1 : 0});
+    transform: scaleX(${(props) => (props.active ? 1 : 0)});
     transition: transform 0.3s ease;
   }
 
@@ -211,7 +204,6 @@ export const PickerTitle = styled.h3`
   text-align: center;
 `;
 
-
 /*
 More Info: History Section
 */
@@ -225,7 +217,9 @@ export const StatBox = styled.div`
   width: 200px;
   flex: 1;
   min-width: 150px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 
   &:hover {
     transform: translateY(-5px);
@@ -279,7 +273,7 @@ export const BackgroundImage = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url(${props => props.src});
+  background-image: url(${(props) => props.src});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -317,7 +311,9 @@ export const ArrowButtonImage = styled.button`
   transform: translateY(-50%);
   cursor: pointer;
   z-index: 3;
-  transition: background-color 0.3s, transform 0.3s;
+  transition:
+    background-color 0.3s,
+    transform 0.3s;
   width: clamp(40px, 6vw, 80px); // Responsive width
   height: clamp(40px, 6vw, 80px); // Responsive height
   display: flex;
@@ -368,7 +364,6 @@ export const CaptionText = styled.p`
   font-size: 18px;
   margin: 0;
 `;
-
 
 /*
 More Info: Geology Section
@@ -454,7 +449,6 @@ export const InfoText = styled.p`
   }
 `;
 
-
 /*
 App Section 
 */
@@ -465,26 +459,28 @@ export const ModeSelector = styled.div`
 `;
 
 export const ModeButton = styled.button`
-  background-color: ${props => props.active ? '#376d31' : '#f0f0f0'};
-  color: ${props => props.active ? '#ffffff' : '#333'};
+  background-color: ${(props) => (props.active ? '#376d31' : '#f0f0f0')};
+  color: ${(props) => (props.active ? '#ffffff' : '#333')};
   border: none;
   padding: 10px 20px;
   margin: 0 5px;
   border-radius: 20px;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
   font-size: 18px;
   display: flex;
   align-items: center;
 
   &:hover {
-    background-color: ${props => props.active ? '#2c5a28' : '#e0e0e0'};
+    background-color: ${(props) => (props.active ? '#2c5a28' : '#e0e0e0')};
   }
 
   svg {
     margin-right: 8px;
     font-size: 20px;
-    color: ${props => props.active ? '#ffce33' : '#777'};
+    color: ${(props) => (props.active ? '#ffce33' : '#777')};
   }
 `;
 
@@ -674,22 +670,22 @@ const BaseButton = styled.a`
 
 export const AllTrailsButton = styled(BaseButton)`
   background-color: #428a13;
-  
+
   &:hover {
     background-color: #367010;
   }
 `;
 
 export const GoogleMapsButton = styled(BaseButton)`
-  background-color: #4285F4;
+  background-color: #4285f4;
 
   &:hover {
-    background-color: #3367D6;
+    background-color: #3367d6;
   }
 `;
 
 export const VisitTipsTitle = styled.h3`
-  font-size: 30.5px; 
+  font-size: 30.5px;
   font-weight: 800;
   color: #376d31;
   margin-top: 40px;
@@ -701,8 +697,6 @@ export const VisitTips = styled.ul`
   list-style-type: none;
   padding: 0;
 `;
-
-
 
 /*
 STANDALONE COMPONENTS
@@ -736,12 +730,13 @@ export const GridImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  transition:
+    opacity 1s ease-in-out,
+    transform 1s ease-in-out;
   opacity: ${(props) => (props.isVisible ? 1 : 0)};
   transform: ${(props) => (props.isVisible ? 'scale(1)' : 'scale(1.05)')};
   z-index: ${(props) => (props.isVisible ? 2 : 1)};
 `;
-
 
 /*
 Google Maps
@@ -781,23 +776,25 @@ export const DirectionsContainer = styled.div`
 `;
 
 export const ArrowButton = styled.button`
-  background-color: ${props => props.disabled ? '#cccccc' : '#376d31'};
+  background-color: ${(props) => (props.disabled ? '#cccccc' : '#376d31')};
   border: none;
   color: #ffffff;
   font-size: 20px;
-  cursor: ${props => props.disabled ? 'default' : 'pointer'};
+  cursor: ${(props) => (props.disabled ? 'default' : 'pointer')};
   padding: 10px;
   margin: 0 10px;
   border-radius: 50%;
-  transition: background-color 0.3s, transform 0.2s;
+  transition:
+    background-color 0.3s,
+    transform 0.2s;
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: ${props => props.disabled ? 0.5 : 1};
+  opacity: ${(props) => (props.disabled ? 0.5 : 1)};
 
   &:hover {
-    background-color: ${props => props.disabled ? '#cccccc' : '#2c5a28'};
-    transform: ${props => props.disabled ? 'none' : 'scale(1.1)'};
+    background-color: ${(props) => (props.disabled ? '#cccccc' : '#2c5a28')};
+    transform: ${(props) => (props.disabled ? 'none' : 'scale(1.1)')};
   }
 
   &:focus {

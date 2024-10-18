@@ -2,9 +2,6 @@
  * Work in progress...
  */
 
-
-
-
 /*
 Imports
 */
@@ -22,7 +19,6 @@ import {
   ComingSoonText,
   ConstructionIcon,
 } from './Structures.styles';
-
 
 /*
 Components & Renders

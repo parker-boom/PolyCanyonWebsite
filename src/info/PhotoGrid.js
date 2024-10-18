@@ -5,9 +5,6 @@
  * Dependencies: styled-components for grid layout, assets for images of Poly Canyon structures.
  */
 
-
-
-
 /*
 Imports
 */
@@ -42,9 +39,8 @@ import b7 from '../assets/structures/b7.jpg';
 import {
   PhotoGridWrapper,
   GridItemContainer,
-  GridImage
+  GridImage,
 } from './InfoPage.styles';
-
 
 /*
 Constants
@@ -64,7 +60,6 @@ const shuffleArray = (array) => {
   return arr;
 };
 
-
 /*
 Components & Render
 */
@@ -78,13 +73,15 @@ const PhotoGrid = () => {
 
   // Function to get a random image based on orientation, excluding used images
   const getRandomImage = useCallback((orientation, usedImages) => {
-    const images = orientation === 'horizontal' ? horizontalImages : verticalImages;
+    const images =
+      orientation === 'horizontal' ? horizontalImages : verticalImages;
     const availableImages = images.filter((img) => !usedImages.includes(img));
     if (availableImages.length === 0) {
       // Reset usedImages if all images have been used
       return images[Math.floor(Math.random() * images.length)];
     }
-    const randomImage = availableImages[Math.floor(Math.random() * availableImages.length)];
+    const randomImage =
+      availableImages[Math.floor(Math.random() * availableImages.length)];
     return randomImage;
   }, []);
 
@@ -129,39 +126,45 @@ const PhotoGrid = () => {
     setGridItems(initialGridItems);
 
     // Generate randomized sequence of slot indices (0-6)
-    const randomizedSequence = shuffleArray([...Array(initialGridItems.length).keys()]);
+    const randomizedSequence = shuffleArray([
+      ...Array(initialGridItems.length).keys(),
+    ]);
     setSequence(randomizedSequence);
     sequenceRef.current = randomizedSequence;
   }, [getRandomImage]);
 
   // Function to update image in a specific slot
-  const updateImage = useCallback((slotIndex) => {
-    setGridItems((prevItems) => {
-      const newItems = [...prevItems];
-      const item = newItems[slotIndex];
-      const usedImages = newItems
-        .map((i, idx) => (idx !== slotIndex ? i.currentImage : null))
-        .filter((img) => img !== null);
-      const orientation = item.type === 'square' ? 'horizontal' : item.type;
-      const newImage = getRandomImage(orientation, usedImages);
+  const updateImage = useCallback(
+    (slotIndex) => {
+      setGridItems((prevItems) => {
+        const newItems = [...prevItems];
+        const item = newItems[slotIndex];
+        const usedImages = newItems
+          .map((i, idx) => (idx !== slotIndex ? i.currentImage : null))
+          .filter((img) => img !== null);
+        const orientation = item.type === 'square' ? 'horizontal' : item.type;
+        const newImage = getRandomImage(orientation, usedImages);
 
-      // Set previousImage to currentImage and update currentImage
-      newItems[slotIndex] = {
-        ...item,
-        previousImage: item.currentImage,
-        currentImage: newImage,
-      };
+        // Set previousImage to currentImage and update currentImage
+        newItems[slotIndex] = {
+          ...item,
+          previousImage: item.currentImage,
+          currentImage: newImage,
+        };
 
-      return newItems;
-    });
-  }, [getRandomImage]);
+        return newItems;
+      });
+    },
+    [getRandomImage]
+  );
 
   // Controlled sequence loop
   useEffect(() => {
     if (sequence.length === 0) return;
 
     const runSequence = () => {
-      const currentIndex = sequenceIndexRef.current % sequenceRef.current.length;
+      const currentIndex =
+        sequenceIndexRef.current % sequenceRef.current.length;
       const slotToChange = sequenceRef.current[currentIndex];
 
       updateImage(slotToChange);
@@ -186,7 +189,7 @@ const PhotoGrid = () => {
 
   return (
     <PhotoGridWrapper>
-      {gridItems.map((item, index) => (
+      {gridItems.map((item) => (
         <GridItemContainer
           key={item.key}
           style={{

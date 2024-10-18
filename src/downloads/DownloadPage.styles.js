@@ -5,15 +5,11 @@
  * Purpose: Centralized styling for both web and mobile download pages using styled-components.
  */
 
-
-
-
 /*
 Imports
 */
 import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
-
 
 /*
 Keyframes
@@ -22,7 +18,6 @@ const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 `;
-
 
 /*
 Styles
@@ -64,16 +59,14 @@ export const Title = styled.h1`
   text-align: center;
 `;
 
-
 export const Description = styled.p`
-  font-size: 27px;  
+  font-size: 27px;
   color: #555;
   text-align: center;
   margin: 15px 0;
   line-height: 1.5;
   max-width: 90%;
 `;
-
 
 export const WebDescription = styled(Description)`
   margin: 0;
@@ -153,8 +146,11 @@ export const DownloadButton = styled.a`
   text-decoration: none;
   font-weight: bold;
   font-size: 20px;
-  margin-bottom: 10px; 
-  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 10px;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -177,35 +173,34 @@ export const DownloadButton = styled.a`
   }
 `;
 
-
 /*
 Mobile
 */
 export const DeviceSwitchContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
   animation: ${fadeIn} 0.5s ease-out;
 `;
 
 export const SwitchText = styled.span`
-  color: #4CAF50;
+  color: #4caf50;
   text-decoration: underline;
   cursor: pointer;
   font-size: 16px;
-  margin-bottom: 20px; 
-  margin-top: 10px; 
-  
+  margin-bottom: 20px;
+  margin-top: 10px;
 
-  transition: color 0.3s ease, text-decoration 0.3s ease;
+  transition:
+    color 0.3s ease,
+    text-decoration 0.3s ease;
 
   &:hover {
-    color: #45a049; 
+    color: #45a049;
     text-decoration: none;
-    border-bottom: 1px solid #45a049; 
+    border-bottom: 1px solid #45a049;
   }
 `;
-
 
 /*
 Web
@@ -220,23 +215,22 @@ export const SplitContainer = styled.div`
 `;
 
 export const Column = styled.div`
-  flex: 0 1 40%;  
+  flex: 0 1 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 10px 10px; 
+  padding: 10px 10px;
 `;
 
 export const GifContainerWeb = styled.div`
-  height: ${props => props.height}px;
+  height: ${(props) => props.height}px;
   width: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
 `;
-
 
 export const DownloadButtonWrapper = styled.a`
   display: flex;
@@ -279,7 +273,8 @@ export const DownloadButtonIcon = styled.div`
     color: #376d31;
   }
 
-  .default-icon, .hover-icon {
+  .default-icon,
+  .hover-icon {
     position: absolute;
     transition: opacity 0.3s ease;
   }

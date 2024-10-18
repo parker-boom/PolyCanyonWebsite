@@ -307,9 +307,9 @@ const InfoPage = () => {
         <>
           {/* Geology overview */}
           <Text>
-            The canyon's landscape is shaped by tectonic forces, serpentine
-            springs, and varied soil types. This intricate interplay provides
-            fertile ground for architectural and ecological study.
+            The canyon&apos;ss landscape is shaped by tectonic forces,
+            serpentine springs, and varied soil types. This intricate interplay
+            provides fertile ground for architectural and ecological study.
           </Text>
           <div
             style={{
@@ -328,10 +328,10 @@ const InfoPage = () => {
                 <InfoTextBox>
                   <GreenTitle>Tectonic Forces</GreenTitle>
                   <InfoText>
-                    The canyon's geological features are the result of tectonic
-                    activity. The Pacific and North American Plates' movements
-                    have created formations like the Franciscan Formation and
-                    serpentine outcrops.
+                    The canyon&apos;s geological features are the result of
+                    tectonic activity. The Pacific and North American
+                    Plates&apos; movements have created formations like the
+                    Franciscan Formation and serpentine outcrops.
                   </InfoText>
                 </InfoTextBox>
               </InfographicContainer>
@@ -363,9 +363,9 @@ const InfoPage = () => {
                 <InfoTextBox>
                   <GreenTitle>Diverse Soil</GreenTitle>
                   <InfoText>
-                    The canyon's soils range from stable Class I soils to more
-                    challenging Class V soils, influencing vegetation growth and
-                    ecological diversity.
+                    The canyon&apos;s soils range from stable Class I soils to
+                    more challenging Class V soils, influencing vegetation
+                    growth and ecological diversity.
                   </InfoText>
                 </InfoTextBox>
               </InfographicContainer>
@@ -385,7 +385,7 @@ const InfoPage = () => {
         <TitleSection>
           <Header>
             <Title>Discover The Canyon!</Title>
-            <Subtitle>An Architect's Playground</Subtitle>
+            <Subtitle>An Architect&apos;s Playground</Subtitle>
           </Header>
         </TitleSection>
       )}
@@ -402,17 +402,17 @@ const InfoPage = () => {
         <Text style={{ textAlign: 'left' }}>
           Poly Canyon is a 9-acre outdoor space where Cal Poly students have
           been building experimental structures since 1963. Just a mile from
-          campus, it's home to over 30 unique architectural projects.
+          campus, it&apos;s home to over 30 unique architectural projects.
           <br />
           <br />
-          These aren't just display pieces. Each structure was designed and
+          These aren&apos;t just display pieces. Each structure was designed and
           built by students testing new ideas. Some projects succeeded
           brilliantly, others showed why certain ideas stayed theoretical.
           <br />
           <br />
-          Whether you're interested in architecture, looking for a different
-          kind of hike, or just want to experience what makes Cal Poly unique,
-          it's worth checking out.
+          Whether you&apos;re interested in architecture, looking for a
+          different kind of hike, or just want to experience what makes Cal Poly
+          unique, it&apos;s worth checking out.
         </Text>
         <PhotoGrid />
 
@@ -556,9 +556,9 @@ const InfoPage = () => {
           </ModeInfoBox>
 
           <Text>
-            Whether you're on-site or browsing from home, dive deeper into the
-            stories and innovations that make this place special. Download now
-            to start your exploration.
+            Whether you&apos;re on-site or browsing from home, dive deeper into
+            the stories and innovations that make this place special. Download
+            now to start your exploration.
           </Text>
         </ModeContent>
       </Section>

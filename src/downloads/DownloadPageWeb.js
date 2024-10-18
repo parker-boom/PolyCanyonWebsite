@@ -5,9 +5,6 @@
  * Dependencies: react-icons for download and device icons, LazyGif for animated app previews, and styled-components for layout and design.
  */
 
-
-
-
 /*
 Imports
 */
@@ -33,29 +30,27 @@ import {
   DownloadButtonSubtext,
 } from './DownloadPage.styles';
 
-
 /* 
 Components & Render
 */
 const DownloadPageWeb = () => {
   return (
     <PageContainer>
-
       {/* Title Section */}
       <RoundedContainer>
         <Title>Download Today!</Title>
         <WebDescription>
-          The Poly Canyon app is available on both iOS and Android, and can be downloaded for free on either platform.
+          The Poly Canyon app is available on both iOS and Android, and can be
+          downloaded for free on either platform.
         </WebDescription>
         <LearnMoreButton to="/info">
           Learn more <FaArrowRight />
         </LearnMoreButton>
       </RoundedContainer>
-      
+
       {/* Download Split Section */}
       <RoundedContainer>
         <SplitContainer>
-
           {/* iOS Column */}
           <Column>
             <GifContainerWeb height={600}>
@@ -103,7 +98,8 @@ const DownloadPageWeb = () => {
 
         {/* Bottom Section */}
         <WebDescription>
-          If you are interested in detailed information on all structures or more information on the physical area, please navigate to those pages.
+          If you are interested in detailed information on all structures or
+          more information on the physical area, please navigate to those pages.
         </WebDescription>
       </RoundedContainer>
     </PageContainer>

@@ -1,12 +1,9 @@
 /**
  * Component: GoogleMapsRoute
- * Purpose: Displays a Google Map route and step-by-step walking directions for navigating through Poly Canyon. 
+ * Purpose: Displays a Google Map route and step-by-step walking directions for navigating through Poly Canyon.
  * Key Features: Fetches walking directions from Google Maps API, renders route details, and provides step-by-step navigation for both web and mobile views.
  * Dependencies: @react-google-maps/api for Google Maps integration, styled-components for UI styling.
  */
-
-
-
 
 /*
 Imports
@@ -14,7 +11,11 @@ Imports
 
 // Libraries
 import React, { useState, useEffect } from 'react';
-import { GoogleMap, DirectionsRenderer, useLoadScript } from '@react-google-maps/api';
+import {
+  GoogleMap,
+  DirectionsRenderer,
+  useLoadScript,
+} from '@react-google-maps/api';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 // Styles
@@ -26,9 +27,8 @@ import {
   ArrowButtonContainer,
   StepContent,
   StepNumber,
-  StepText
+  StepText,
 } from './InfoPage.styles';
-
 
 /*
 Constants
@@ -37,31 +37,29 @@ const mapStyles = [
   {
     featureType: 'all',
     elementType: 'geometry.fill',
-    stylers: [{ color: '#e8efe8' }]
+    stylers: [{ color: '#e8efe8' }],
   },
   {
     featureType: 'all',
     elementType: 'labels.text.fill',
-    stylers: [{ color: '#376d31' }]
+    stylers: [{ color: '#376d31' }],
   },
   {
     featureType: 'road',
     elementType: 'geometry',
-    stylers: [{ color: '#ffffff' }]
+    stylers: [{ color: '#ffffff' }],
   },
   {
     featureType: 'landscape.man_made',
     elementType: 'geometry',
-    stylers: [{ color: '#f0f0f0' }]
-  }
+    stylers: [{ color: '#f0f0f0' }],
+  },
 ];
-
 
 /*
 Components & Render 
 */
 const GoogleMapsRoute = () => {
-
   // State variables
   const [directionsResponse, setDirectionsResponse] = useState(null);
   const [routeDetails, setRouteDetails] = useState(null);
@@ -70,12 +68,12 @@ const GoogleMapsRoute = () => {
 
   // Steps text
   const steps = [
-    "Park in the H-4f parking lot or start on campus",
-    "Walk to Poly Canyon Road until you see the yellow gate",
-    "Continue on the path until you see the entry arch",
+    'Park in the H-4f parking lot or start on campus',
+    'Walk to Poly Canyon Road until you see the yellow gate',
+    'Continue on the path until you see the entry arch',
   ];
 
-  // Step functions 
+  // Step functions
   const nextStep = () => {
     setCurrentStep((prev) => Math.min(prev + 1, steps.length - 1));
   };
@@ -87,7 +85,6 @@ const GoogleMapsRoute = () => {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
   });
-  
 
   useEffect(() => {
     if (isLoaded) {
@@ -134,10 +131,20 @@ const GoogleMapsRoute = () => {
         <GoogleMap
           center={{ lat: 35.308, lng: -120.655 }}
           zoom={14}
-          mapContainerStyle={{ width: '100%', height: '400px', borderRadius: '15px' }}
-          options={{ styles: mapStyles, disableDefaultUI: true, mapTypeControl: false }}
+          mapContainerStyle={{
+            width: '100%',
+            height: '400px',
+            borderRadius: '15px',
+          }}
+          options={{
+            styles: mapStyles,
+            disableDefaultUI: true,
+            mapTypeControl: false,
+          }}
         >
-          {directionsResponse && <DirectionsRenderer directions={directionsResponse} />}
+          {directionsResponse && (
+            <DirectionsRenderer directions={directionsResponse} />
+          )}
         </GoogleMap>
       </MapContainer>
 
@@ -157,11 +164,8 @@ const GoogleMapsRoute = () => {
 
       {/* Step-by-step Directions */}
       <DirectionsContainer>
-
-        
         {isMobile ? (
           <>
-
             {/* Mobile Implementation*/}
             <StepContent>
               <StepText>{steps[currentStep]}</StepText>
@@ -171,15 +175,17 @@ const GoogleMapsRoute = () => {
                 <FaArrowLeft />
               </ArrowButton>
               <StepNumber>{currentStep + 1}</StepNumber>
-              <ArrowButton onClick={nextStep} disabled={currentStep === steps.length - 1}>
+              <ArrowButton
+                onClick={nextStep}
+                disabled={currentStep === steps.length - 1}
+              >
                 <FaArrowRight />
               </ArrowButton>
             </ArrowButtonContainer>
           </>
-        ) : ( 
+        ) : (
           <>
-
-            {/* Web Implementation */} 
+            {/* Web Implementation */}
             <ArrowButton onClick={prevStep} disabled={currentStep === 0}>
               <FaArrowLeft />
             </ArrowButton>
@@ -187,7 +193,10 @@ const GoogleMapsRoute = () => {
               <StepNumber>{currentStep + 1}</StepNumber>
               <StepText>{steps[currentStep]}</StepText>
             </StepContent>
-            <ArrowButton onClick={nextStep} disabled={currentStep === steps.length - 1}>
+            <ArrowButton
+              onClick={nextStep}
+              disabled={currentStep === steps.length - 1}
+            >
               <FaArrowRight />
             </ArrowButton>
           </>
