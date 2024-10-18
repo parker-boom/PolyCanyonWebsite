@@ -1,65 +1,90 @@
+/*
+IMPORTS
+*/
+
+// Libaries 
 import React, { useState, useRef, useEffect } from 'react';
 import { FaChevronRight, FaMapMarkerAlt, FaWalking, FaSearch, FaHistory, FaGlobeAmericas, FaChevronDown, FaChevronUp } from 'react-icons/fa';
+
+// Styles
 import {
+  // Global styles
   PageContainer,
+  GlobalStyle,
+
+  // Title (Web Only)
+  TitleSection,
   Header,
   Title,
   Subtitle,
+
+  // Sections
   Section,
   SectionTitle,
-  CarouselContainer,
-  CarouselImage,
-  ModeSelector,
-  ModeButton,
-  FeatureList,
-  FeatureItem,
-  VisitTips,
-  VisitTipsTitle,
-  ButtonContainer,
-  AllTrailsButton,
-  GoogleMapsButton,
-  GlobalStyle,
-  ModeContent,
-  RecommendedFor,
-  RecommendedText,
-  TitleSection,
   Text,
-  ModeTitle,
+
+  // More Info 
+  MoreInfoContainer,
   MoreInfoToggle,
   MoreInfoContent,
   ImprovedPicker,
   PickerButton,
-  MoreInfoContainer,
   PickerContent,
   PickerTitle,
+
+  // More Info: History
+  StatBox,
+  CarouselContainer,
+  BackgroundImage,
+  CarouselImageContainer,
+  CarouselImage,
+  ArrowButtonImage,
+  CarouselCaption,
+  CaptionTitle,
+  CaptionText,
+
+  // More Info: Geology
+  ResponsiveRow,
+  InfographicContainer,
+  InfographicIcon,
+  InfographicSquare,
+  InfoTextBox,
+  GreenTitle,
+  InfoText,
+
+  // App Section
+  ModeSelector,
+  ModeButton,
+  ModeContent,
   ModeInfoBox,
+  ModeTitle,
+  FeatureList,
+  FeatureItem,
+  RecommendedFor,
+  RecommendedText,
   CTAButtonWrapper,
   CTAButton,
   CTAButtonText,
   CTAButtonIcon,
-  InfographicIcon,
-  GreenTitle,
-  ResponsiveRow,
-  InfographicSquare,
-  InfoTextBox,
-  InfographicContainer,
-  InfoText,
-  StatBox,
-  ArrowButtonImage,
-  CarouselCaption,
-  CarouselImageContainer,
-  BackgroundImage,
-  CaptionTitle,
-  CaptionText,
+
+  // Directions Section
   MapContainer,
+  ButtonContainer,
+  AllTrailsButton,
+  GoogleMapsButton,
+  VisitTipsTitle,
+  VisitTips
 
 } from './InfoPage.styles';
+
+// Seperate components
 import PhotoGrid from './PhotoGrid';
 import GoogleMapsRoute from './GoogleMapsRoute';
 
-
+// App screenshot
 import appPreview from '../assets/appPreview.png';
 
+// Histroical images - imports
 import bladeRedesign from '../assets/pchistory/bladeRedesign.png';
 import designVillage from '../assets/pchistory/designVillage.webp';
 import entryArch from '../assets/pchistory/entryArch.jpg';
@@ -70,6 +95,12 @@ import geodesicDome from '../assets/pchistory/geodesicDome.jpg';
 import fratessaTower from '../assets/pchistory/fratessaTowerb4.jpg';
 
 
+
+/*
+CONSTANTS
+*/
+
+// Historical image titles & descriptions
 const historicalImages = [
   {
     src: entryArch,
@@ -114,8 +145,10 @@ const historicalImages = [
 ];
 
 
+// Rendered component
 const InfoPage = () => {
 
+  // Variables for state
   const [currentPicker, setCurrentPicker] = useState('history');
   const [currentMode, setCurrentMode] = useState('adventure');
   const [isMoreInfoOpen, setIsMoreInfoOpen] = useState(false);
@@ -124,20 +157,25 @@ const InfoPage = () => {
   const [isTransitioning] = useState(false);
   const moreInfoButtonRef = useRef(null);
   const moreInfoContainerRef = useRef(null);
+  const [hasInteracted, setHasInteracted] = useState(false);
 
+  // Change adventure/virtual mode
   const handleModeChange = (mode) => {
     setCurrentMode(mode);
   };
 
+  // Open MoreInfo Section
   const toggleMoreInfo = () => {
     setIsMoreInfoOpen(!isMoreInfoOpen);
+    setHasInteracted(true);
   };
 
+  // Close MoreInfo (& scroll up)
   useEffect(() => {
-    if (!isMoreInfoOpen && moreInfoContainerRef.current) {
+    if (!isMoreInfoOpen && hasInteracted && moreInfoContainerRef.current) {
       moreInfoContainerRef.current.scrollIntoView({ behavior: 'smooth' });
     }
-  }, [isMoreInfoOpen]);
+  }, [isMoreInfoOpen, hasInteracted]);
 
   // Preload images
   useEffect(() => {
@@ -147,12 +185,12 @@ const InfoPage = () => {
     });
   }, []);
 
-  // Function to handle navigating to the next image
+  // Navigate to next image (historical section)
   const handleNextImage = () => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % historicalImages.length);
   };
 
-  // Function to handle navigating to the previous image
+  // Navigate to previous image (historical section)
   const handlePrevImage = () => {
     setCurrentImageIndex((prevIndex) =>
       (prevIndex - 1 + historicalImages.length) % historicalImages.length
@@ -160,7 +198,10 @@ const InfoPage = () => {
   };
 
 
+  // Components for the more info section 
   const pickerContent = {
+
+    // HISTORY
     history: {
       title: "A Rich Legacy",
       content: (
@@ -170,7 +211,7 @@ const InfoPage = () => {
             Since the 1960s, the area has been a testing ground for experimental architecture and engineering. Students come here to turn their boldest designs into reality.
           </Text>
 
-          {/* Statistics Section */}
+          {/* Statistics Section - Web Only*/}
           {window.innerWidth > 768 && (
             <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px', flexWrap: 'wrap' }}>
               <StatBox>
@@ -192,7 +233,7 @@ const InfoPage = () => {
             </div>
           )}
 
-          {/* Image Carousel */}
+          {/* Image Carousel - Historical Images*/}
           <CarouselContainer>
             <BackgroundImage src={historicalImages[currentImageIndex].src} />
             <CarouselImageContainer>
@@ -224,15 +265,19 @@ const InfoPage = () => {
         </>
       ),
     },
+
+    // GEOLOGY
     geology: {
       title: "A Landscape Shaped by Time",
       content: (
         <>
+          {/* Geology overview */}
           <Text>
             The canyon's landscape is shaped by tectonic forces, serpentine springs, and varied soil types. This intricate interplay provides fertile ground for architectural and ecological study.
           </Text>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '20px' }}>
-            {/* Infographic 1 */}
+
+            {/* Infographic 1 - Tectonic */}
             <ResponsiveRow>
               <InfographicContainer>
                 <InfographicSquare>
@@ -247,7 +292,7 @@ const InfoPage = () => {
               </InfographicContainer>
             </ResponsiveRow>
 
-            {/* Infographic 2 */}
+            {/* Infographic 2 - Water */}
             <ResponsiveRow>
               <InfographicContainer>
                 <InfographicSquare>
@@ -262,7 +307,7 @@ const InfoPage = () => {
               </InfographicContainer>
             </ResponsiveRow>
 
-            {/* Infographic 3 */}
+            {/* Infographic 3 - Soils */}
             <ResponsiveRow>
               <InfographicContainer>
                 <InfographicSquare>
@@ -296,12 +341,15 @@ const InfoPage = () => {
         </TitleSection>
       )}
 
-      {/* General Information Section */}
+      {/*
+      General Information Section 
+      */}
       <Section>
         <SectionTitle>What is Poly Canyon?</SectionTitle>
 
         {/* ADD A ROTATING QUOTE BOARD ANSWERING QUESTION ABOVE */}
 
+        {/* Poly Canyon Overview */}
         <Text style={{ textAlign: 'left' }}>
           Poly Canyon is a 9-acre outdoor space where Cal Poly students have been building experimental structures since 1963. Just a mile from campus, it's home to over 30 unique architectural projects.
           <br /><br />
@@ -311,6 +359,7 @@ const InfoPage = () => {
         </Text>
         <PhotoGrid />
 
+        {/* More Info Section (implementation above) */}
         <MoreInfoContainer ref={moreInfoContainerRef}>
           {!isMoreInfoOpen && (
             <MoreInfoToggle onClick={toggleMoreInfo} ref={moreInfoButtonRef}>
@@ -321,6 +370,8 @@ const InfoPage = () => {
 
           {isMoreInfoOpen && (
             <MoreInfoContent>
+
+              {/* Pikcer Between MoreInfo Subsections */}
               <ImprovedPicker>
                 <PickerButton
                   active={currentPicker === 'history'}
@@ -352,7 +403,9 @@ const InfoPage = () => {
         </MoreInfoContainer>
       </Section>
 
-      {/* Poly Canyon App Section */}
+      {/* 
+      Poly Canyon App Section
+      */}
       <Section>
         <SectionTitle>What is the Poly Canyon App?</SectionTitle>
 
@@ -362,6 +415,7 @@ const InfoPage = () => {
           Your personal guide to exploring these architectural wonders. Find your way around with interactive maps, uncover the stories behind each structure, and track your progress as you discover the area.
         </Text>
 
+        {/* Switch between adventure/virtual tour */}
         <ModeSelector>
           <ModeButton
             active={currentMode === 'adventure'}
@@ -377,8 +431,11 @@ const InfoPage = () => {
           </ModeButton>
         </ModeSelector>
 
+        {/* Mode specific information */}
         <ModeContent mode={currentMode}>
           <ModeInfoBox>
+
+            {/* Adventure Mode */}
             {currentMode === 'adventure' ? (
               <>
                 <ModeTitle>🧭 Adventure Mode</ModeTitle>
@@ -392,23 +449,25 @@ const InfoPage = () => {
                   On-site explorers
                 </RecommendedFor>
               </>
-            ) : (
-              <>
-                <ModeTitle>🖥️ Virtual Tour Mode</ModeTitle>
-                <FeatureList>
-                  <FeatureItem>🏞️ Virtual walkthrough of the canyon</FeatureItem>
-                  <FeatureItem>⭐ Decide which structures are your favorite</FeatureItem>
-                  <FeatureItem>📝 Learn about structures even from afar</FeatureItem>
-                </FeatureList>
-                <RecommendedFor>
-                  <RecommendedText>Recommended For:</RecommendedText>
-                  Remote enthusiasts
-                </RecommendedFor>
-              </>
-            )}
+            ) :
+
+              {/* Virtual Tour Mode */ }(
+                <>
+                  <ModeTitle>🖥️ Virtual Tour Mode</ModeTitle>
+                  <FeatureList>
+                    <FeatureItem>🏞️ Virtual walkthrough of the canyon</FeatureItem>
+                    <FeatureItem>⭐ Decide which structures are your favorite</FeatureItem>
+                    <FeatureItem>📝 Learn about structures even from afar</FeatureItem>
+                  </FeatureList>
+                  <RecommendedFor>
+                    <RecommendedText>Recommended For:</RecommendedText>
+                    Remote enthusiasts
+                  </RecommendedFor>
+                </>
+              )}
 
 
-
+            {/* Download Button*/}
             <CTAButtonWrapper>
               <CTAButton to="/download">
                 <CTAButtonText>
@@ -428,18 +487,25 @@ const InfoPage = () => {
         </ModeContent>
       </Section>
 
-      {/* Getting There Section */}
+      {/* 
+      Getting There Section
+       */}
       <Section>
         <SectionTitle>How do I get there?</SectionTitle>
         <Text>
           Access the area by walking along Poly Canyon Road on campus. The interactive map below shows the route, or use AllTrails and Google Maps for detailed directions.
         </Text>
         <MapContainer>
+
+          {/* Google Maps - Seperate Component */}
           <GoogleMapsRoute />
+
         </MapContainer>
         <Text>
           Choose your path - hike, bike, or run. The trail is well-marked and takes about 20 minutes to walk from campus.
         </Text>
+
+        {/* AllTrails & GMaps Links*/}
         <ButtonContainer>
           <AllTrailsButton href="https://www.alltrails.com/trail/us/california/architecture-graveyard-hike-private-property?sh=rvw6ps" target="_blank" rel="noopener noreferrer">
             <FaWalking /> All Trails
@@ -448,6 +514,8 @@ const InfoPage = () => {
             <FaMapMarkerAlt /> Google Maps
           </GoogleMapsButton>
         </ButtonContainer>
+
+        {/* Visiting Tips */}
         <VisitTipsTitle>Before You Go:</VisitTipsTitle>
         <VisitTips>
           <FeatureItem>🌞 Visit during daylight hours for the best experience</FeatureItem>
@@ -459,4 +527,5 @@ const InfoPage = () => {
   );
 };
 
+// Export for render
 export default InfoPage;

@@ -1,3 +1,4 @@
+// Imports
 import styled, { createGlobalStyle, keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -6,6 +7,8 @@ const fadeIn = keyframes`
   to { opacity: 1; }
 `;
 
+
+/* Global Styles */
 export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -14,6 +17,17 @@ export const PageContainer = styled.div`
   padding: 5px 15px;
   background-color: #ffffff;
   box-sizing: border-box; // Add this line
+`;
+
+export const GlobalStyle = createGlobalStyle`
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 15px rgba(55, 109, 49, 0.5);
+    }
+    to {
+      box-shadow: 0 0 25px rgba(55, 109, 49, 0.8);
+    }
+  }
 `;
 
 export const RoundedContainer = styled.div`
@@ -30,10 +44,9 @@ export const RoundedContainer = styled.div`
   box-sizing: border-box; // Add this line
 `;
 
-export const Section = styled(RoundedContainer)`
-  margin-bottom: 24px;
-  // Remove the padding override, as it's now consistent with RoundedContainer
-`;
+
+/* Titles */
+
 
 export const TitleSection = styled(RoundedContainer)`
   margin-bottom: 24px; 
@@ -61,11 +74,22 @@ export const Subtitle = styled.h2`
   margin-bottom: 0;
 `;
 
+export const Section = styled(RoundedContainer)`
+  margin-bottom: 24px;
+  // Remove the padding override, as it's now consistent with RoundedContainer
+`;
+
 export const SectionTitle = styled.h2`
   font-size: 36px; 
   font-weight: 850;
   color: #376d31;
   margin: 0 0 14px 0; 
+  text-align: center;
+`;
+
+
+export const Text = styled.p`
+  font-size: 19.2px;
   text-align: center;
 `;
 
@@ -325,10 +349,6 @@ export const ButtonContainer = styled.div`
   }
 `;
 
-export const Text = styled.p`
-  font-size: 19.2px;
-  text-align: center;
-`;
 
 export const DownloadCTA = styled(Link)`
   display: inline-block;
@@ -409,16 +429,7 @@ export const GoogleMapsButton = styled(BaseButton)`
   }
 `;
 
-export const GlobalStyle = createGlobalStyle`
-  @keyframes glow {
-    from {
-      box-shadow: 0 0 15px rgba(55, 109, 49, 0.5);
-    }
-    to {
-      box-shadow: 0 0 25px rgba(55, 109, 49, 0.8);
-    }
-  }
-`;
+
 
 export const RecommendedFor = styled.div`
   font-size: 19.2px;
