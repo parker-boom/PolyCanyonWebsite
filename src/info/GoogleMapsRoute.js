@@ -1,17 +1,28 @@
+/*
+Imports
+*/
+
+// Libraries
 import React, { useState, useEffect } from 'react';
 import { GoogleMap, DirectionsRenderer, useLoadScript } from '@react-google-maps/api';
-import {
-  MapContainer,
-  StatBox,
-  DirectionsContainer,
-  ArrowButton,
-  StepContent,
-  StepNumber,
-  StepText,
-  ArrowButtonContainer
-} from './InfoPage.styles';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
+// Styles
+import {
+  StatBox,
+  MapContainer,
+  DirectionsContainer,
+  ArrowButton,
+  ArrowButtonContainer,
+  StepContent,
+  StepNumber,
+  StepText
+} from './InfoPage.styles';
+
+
+/*
+Constants
+*/
 const mapStyles = [
   {
     featureType: 'all',
@@ -35,18 +46,26 @@ const mapStyles = [
   }
 ];
 
+
+/*
+Components & Render 
+*/
 const GoogleMapsRoute = () => {
+
+  // State variables
   const [directionsResponse, setDirectionsResponse] = useState(null);
   const [routeDetails, setRouteDetails] = useState(null);
   const [currentStep, setCurrentStep] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
+  // Steps text
   const steps = [
     "Park in the H-4f parking lot or start on campus",
     "Walk to Poly Canyon Road until you see the yellow gate",
     "Continue on the path until you see the entry arch",
   ];
 
+  // Step functions 
   const nextStep = () => {
     setCurrentStep((prev) => Math.min(prev + 1, steps.length - 1));
   };
@@ -65,6 +84,7 @@ const GoogleMapsRoute = () => {
     }
   }, [isLoaded]);
 
+  // Get route from API
   const fetchDirections = () => {
     const directionsService = new window.google.maps.DirectionsService();
     directionsService.route(
@@ -98,6 +118,7 @@ const GoogleMapsRoute = () => {
 
   return (
     <>
+      {/* Google Maps Route Overview */}
       <MapContainer>
         <GoogleMap
           center={{ lat: 35.308, lng: -120.655 }}
@@ -108,6 +129,8 @@ const GoogleMapsRoute = () => {
           {directionsResponse && <DirectionsRenderer directions={directionsResponse} />}
         </GoogleMap>
       </MapContainer>
+
+      {/* Route Stats */}
       {!isMobile && routeDetails && (
         <DirectionsContainer>
           <StatBox>
@@ -121,9 +144,14 @@ const GoogleMapsRoute = () => {
         </DirectionsContainer>
       )}
 
+      {/* Step-by-step Directions */}
       <DirectionsContainer>
+
+        
         {isMobile ? (
           <>
+
+            {/* Mobile Implementation*/}
             <StepContent>
               <StepText>{steps[currentStep]}</StepText>
             </StepContent>
@@ -137,8 +165,10 @@ const GoogleMapsRoute = () => {
               </ArrowButton>
             </ArrowButtonContainer>
           </>
-        ) : (
+        ) : ( 
           <>
+
+            {/* Web Implementation */} 
             <ArrowButton onClick={prevStep} disabled={currentStep === 0}>
               <FaArrowLeft />
             </ArrowButton>
@@ -156,4 +186,5 @@ const GoogleMapsRoute = () => {
   );
 };
 
+// Used in InfoPage
 export default GoogleMapsRoute;

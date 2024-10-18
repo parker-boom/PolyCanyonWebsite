@@ -2,7 +2,7 @@
 IMPORTS
 */
 
-// Libaries 
+// Libraries 
 import React, { useState, useRef, useEffect } from 'react';
 import { FaChevronRight, FaMapMarkerAlt, FaWalking, FaSearch, FaHistory, FaGlobeAmericas, FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
@@ -11,6 +11,9 @@ import {
   // Global styles
   PageContainer,
   GlobalStyle,
+  Section,
+  SectionTitle,
+  Text,
 
   // Title (Web Only)
   TitleSection,
@@ -18,10 +21,6 @@ import {
   Title,
   Subtitle,
 
-  // Sections
-  Section,
-  SectionTitle,
-  Text,
 
   // More Info 
   MoreInfoContainer,
@@ -31,7 +30,7 @@ import {
   PickerButton,
   PickerContent,
   PickerTitle,
-
+ 
   // More Info: History
   StatBox,
   CarouselContainer,
@@ -77,14 +76,14 @@ import {
 
 } from './InfoPage.styles';
 
-// Seperate components
+// Separate components
 import PhotoGrid from './PhotoGrid';
 import GoogleMapsRoute from './GoogleMapsRoute';
 
 // App screenshot
 import appPreview from '../assets/appPreview.png';
 
-// Histroical images - imports
+// Historical images - imports
 import bladeRedesign from '../assets/pchistory/bladeRedesign.png';
 import designVillage from '../assets/pchistory/designVillage.webp';
 import entryArch from '../assets/pchistory/entryArch.jpg';
@@ -435,9 +434,10 @@ const InfoPage = () => {
         <ModeContent mode={currentMode}>
           <ModeInfoBox>
 
-            {/* Adventure Mode */}
+            
             {currentMode === 'adventure' ? (
               <>
+                {/* Adventure Mode */}
                 <ModeTitle>🧭 Adventure Mode</ModeTitle>
                 <FeatureList>
                   <FeatureItem>🗺️ Interactive map for easy navigation</FeatureItem>
@@ -449,10 +449,10 @@ const InfoPage = () => {
                   On-site explorers
                 </RecommendedFor>
               </>
-            ) :
+            ) : (
 
-              {/* Virtual Tour Mode */ }(
                 <>
+                  {/* Virtual Tour Mode */ }
                   <ModeTitle>🖥️ Virtual Tour Mode</ModeTitle>
                   <FeatureList>
                     <FeatureItem>🏞️ Virtual walkthrough of the canyon</FeatureItem>
@@ -497,7 +497,7 @@ const InfoPage = () => {
         </Text>
         <MapContainer>
 
-          {/* Google Maps - Seperate Component */}
+          {/* Google Maps - Separate Component */}
           <GoogleMapsRoute />
 
         </MapContainer>

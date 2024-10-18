@@ -1,20 +1,21 @@
-// DownloadPageWeb.js
-// This component renders the download page for web users.
+/*
+Imports
+*/
 
-// LIBRARY IMPORTS
+// Libraries
 import React from 'react';
 import { FaApple, FaAndroid, FaArrowRight, FaDownload } from 'react-icons/fa';
 import LazyGif from './LazyGif';
 
-// STYLE IMPORTS
+// Styles
 import {
+  PageContainer,
+  RoundedContainer,
+  Title,
   WebDescription,
   LearnMoreButton,
   SplitContainer,
   Column,
-  PageContainer,
-  RoundedContainer,
-  Title,
   GifContainerWeb,
   DownloadButtonWrapper,
   DownloadButtonIcon,
@@ -22,10 +23,15 @@ import {
   DownloadButtonSubtext,
 } from './DownloadPage.styles';
 
+
+/* 
+Components & Render
+*/
 const DownloadPageWeb = () => {
   return (
     <PageContainer>
-      {/* Download Call-to-Action Section */}
+
+      {/* Title Section */}
       <RoundedContainer>
         <Title>Download Today!</Title>
         <WebDescription>
@@ -39,6 +45,7 @@ const DownloadPageWeb = () => {
       {/* Download Split Section */}
       <RoundedContainer>
         <SplitContainer>
+
           {/* iOS Column */}
           <Column>
             <GifContainerWeb height={600}>
@@ -93,4 +100,5 @@ const DownloadPageWeb = () => {
   );
 };
 
+// Export for use
 export default DownloadPageWeb;

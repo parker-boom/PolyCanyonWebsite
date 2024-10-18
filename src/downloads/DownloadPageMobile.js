@@ -1,29 +1,39 @@
-// DownloadPageMobile.js
-// This component renders the download page for the Poly Canyon app on mobile devices, 
-// detecting the user's device type and providing appropriate download links.
+/*
+Imports
+*/
 
-import React, { useState, useEffect, Suspense, lazy, useRef } from 'react';
+// Libraries 
+import React, { useState, useEffect, Suspense, useRef } from 'react';
 import { isIOS, isAndroid } from 'react-device-detect';
 import { FaApple, FaAndroid, FaArrowRight } from 'react-icons/fa'; 
 
+// Styles
 import {
-  DownloadButton,
-  DeviceSwitchContainer,
-  SwitchText,
-  GifContainer,
   PageContainer,
-  Title,
   RoundedContainer,
+  Title,
   WebDescription,
   LearnMoreButton,
+  GifContainer,
+  DownloadButton,
+  DeviceSwitchContainer,
+  SwitchText
 } from './DownloadPage.styles';
 
-const LazyGif = lazy(() => import('./LazyGif'));
+// Component
+import LazyGif from './LazyGif.js';
 
+
+/*
+Components & Render
+*/ 
 const DownloadPageMobile = () => {
+
+  // State variables
   const [deviceType, setDeviceType] = useState('unknown');
   const downloadButtonRef = useRef(null);
 
+  // Change GIF based on device
   useEffect(() => {
     if (isIOS) {
       setDeviceType('ios');
@@ -36,6 +46,7 @@ const DownloadPageMobile = () => {
     setDeviceType(prevType => (prevType === 'ios' ? 'android' : 'ios'));
   };
 
+  // Change link based on device
   const getStoreLink = () => {
     return deviceType === 'ios'
       ? 'https://apps.apple.com/us/app/poly-canyon/id6499063781'
@@ -48,6 +59,7 @@ const DownloadPageMobile = () => {
 
   return (
     <PageContainer>
+
       {/* Download Description Widget */}
       <RoundedContainer>
         <Title>Download Now!</Title>

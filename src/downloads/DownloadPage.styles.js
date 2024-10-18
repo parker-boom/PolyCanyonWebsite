@@ -1,25 +1,24 @@
-// DownloadPage.styles.js
-// This file contains styled components for the DownloadPage component,
-// defining the layout and appearance of various elements.
-
-// IMPORTS
+/*
+Imports
+*/
 import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
 
 
-// Keyframes for animations
+/*
+Keyframes
+*/
 const fadeIn = keyframes`
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 `;
 
-const glowAnimation = keyframes`
-  0% { box-shadow: 0 0 5px rgba(55, 109, 49, 0.5); }
-  50% { box-shadow: 0 0 20px rgba(55, 109, 49, 0.8); }
-  100% { box-shadow: 0 0 5px rgba(55, 109, 49, 0.5); }
-`;
 
-// Styled components for the download page
+/*
+Styles
+*/
+
+// Shared Styles
 export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -29,26 +28,21 @@ export const PageContainer = styled.div`
   max-width: 100%;
   margin: 0 auto;
   background-color: #ffffff;
-  box-sizing: border-box; // Ensure padding is included in width calculation
+  box-sizing: border-box;
 `;
 
-export const IconContainer = styled.div`
-  width: 180px;
-  height: 180px;
-  border-radius: 36px;
-  margin-top: 25px;
-  margin-bottom: 0px;
+export const RoundedContainer = styled.div`
+  background-color: #f5f5f5;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px auto;
+  width: 100%; // Changed from 90% to 100%
+  max-width: 1200px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  overflow: hidden;
-  animation: ${glowAnimation} 3s ease-in-out infinite, ${fadeIn} 0.5s ease-out;
-  background-color: transparent;
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: scale(1.1) rotate(5deg); // Scale and rotate on hover
-  }
+  box-sizing: border-box; // Ensure padding is included in width calculation
 `;
 
 export const Title = styled.h1`
@@ -60,14 +54,23 @@ export const Title = styled.h1`
   text-align: center;
 `;
 
-export const Subtitle = styled.h2`
-  font-size: 22px;
+
+export const Description = styled.p`
+  font-size: 27px;  
   color: #555;
-  margin-top: 0; // Removed top margin
-  margin-bottom: 30px;
   text-align: center;
-  max-width: 88%;
-  line-height: 1.4;
+  margin: 15px 0;
+  line-height: 1.5;
+  max-width: 90%;
+`;
+
+
+export const WebDescription = styled(Description)`
+  margin: 0;
+  padding-top: 20px;
+  font-size: 1.65em;
+  text-align: center;
+  max-width: 90%;
 `;
 
 export const LearnMoreButton = styled(Link)`
@@ -132,15 +135,6 @@ export const GifContainer = styled.div`
   animation: ${fadeIn} 0.5s ease-out;
 `;
 
-export const GifContainerWeb = styled.div`
-  height: ${props => props.height}px;
-  width: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-`;
-
 export const DownloadButton = styled.a`
   background: linear-gradient(to bottom, #376d31, #295033);
   color: white;
@@ -173,6 +167,10 @@ export const DownloadButton = styled.a`
   }
 `;
 
+
+/*
+Mobile
+*/
 export const DeviceSwitchContainer = styled.div`
   display: flex;
   align-items: center;
@@ -192,101 +190,16 @@ export const SwitchText = styled.span`
   transition: color 0.3s ease, text-decoration 0.3s ease;
 
   &:hover {
-    color: #45a049; // Hover color change
+    color: #45a049; 
     text-decoration: none;
-    border-bottom: 1px solid #45a049; // Underline effect on hover
+    border-bottom: 1px solid #45a049; 
   }
 `;
 
 
-
-export const Description = styled.p`
-  font-size: 27px;  // Increased from 18px to 27px (50% increase)
-  color: #555;
-  text-align: center;
-  margin: 15px 0;
-  line-height: 1.5;
-  max-width: 90%;
-`;
-
-// Download Section Split
-export const DownloadSection = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: flex-start;
-  width: 100%;
-  padding: 40px 0;
-  gap: 40px;
-`;
-
-export const PlatformSection = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-`;
-
-export const PlatformTitle = styled.h2`
-  font-size: 2.5em;
-  font-weight: 600;
-  margin-bottom: 20px;
-  color: #fff;
-  display: inline-block;
-  padding: 10px 20px;
-  border-radius: 15px;
-  background: linear-gradient(135deg, #4CAF50, #45a049);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-`;
-
-export const Divider = styled.div`
-  width: 2px;  // Increased from 1px to 2px
-  height: auto;
-  background-color: #000;
-  margin: 0;  // Removed margin
-`;
-
-export const DownloadNowText = styled.h2`
-  font-size: 2.5em;
-  font-weight: 700;
-  color: #333;
-  margin: 0;
-  padding-top: 10px;
-  text-align: center;
-`;
-
-export const WebDescription = styled(Description)`
-  margin: 0;
-  padding-top: 20px;
-  font-size: 1.65em;
-  text-align: center;
-  max-width: 90%;
-`;
-
-export const WebLearnMoreButton = styled(LearnMoreButton)`
-  font-size: 0.9em;
-  padding: 10px 20px;
-  margin: 0;
-  margin-top: 10px;
-  display: block;
-  width: fit-content;
-`;
-
-export const Icon = styled.img`
-  height: 60px;
-  object-fit: contain;
-`;
-
-export const Column = styled.div`
-  flex: 0 1 40%;  // Changed from flex: 1 to flex: 0 1 40%
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 10px 10px;  // Reduced horizontal padding
-`;
-
+/*
+Web
+*/
 export const SplitContainer = styled.div`
   display: flex;
   width: 100%;
@@ -296,44 +209,24 @@ export const SplitContainer = styled.div`
   padding: 0;
 `;
 
-export const RoundedContainer = styled.div`
-  background-color: #f5f5f5;
-  border-radius: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin: 20px auto;
-  width: 100%; // Changed from 90% to 100%
-  max-width: 1200px;
+export const Column = styled.div`
+  flex: 0 1 40%;  
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-sizing: border-box; // Ensure padding is included in width calculation
+  text-align: center;
+  padding: 10px 10px; 
 `;
 
-export const PlatformBadge = styled.div`
+export const GifContainerWeb = styled.div`
+  height: ${props => props.height}px;
+  width: auto;
   display: flex;
+  justify-content: center;
   align-items: center;
-  background-color: #f5f5f5;
-  color: #376d31;
-  padding: 10px 20px;
-  border-radius: 50px;
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 6px rgba(55, 109, 49, 0.1);
-  transition: all 0.3s ease;
-  border: 2px solid #376d31;
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(55, 109, 49, 0.2);
-  }
-
-  svg {
-    margin-right: 10px;
-    font-size: 28px;
-  }
+  overflow: hidden;
 `;
+
 
 export const DownloadButtonWrapper = styled.a`
   display: flex;

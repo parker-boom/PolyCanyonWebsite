@@ -1,9 +1,11 @@
-// src/info/PhotoGrid.js
+/*
+Imports
+*/
 
+// Libraries
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import styled from 'styled-components';
 
-// Import horizontal images (a1-a12)
+// Horizontal images (a1-a12)
 import a1 from '../assets/structures/a1.jpg';
 import a2 from '../assets/structures/a2.jpg';
 import a3 from '../assets/structures/a3.jpg';
@@ -17,7 +19,7 @@ import a10 from '../assets/structures/a10.jpg';
 import a11 from '../assets/structures/a11.jpg';
 import a12 from '../assets/structures/a12.jpg';
 
-// Import vertical images (b1-b7)
+// Vertical images (b1-b7)
 import b1 from '../assets/structures/b1.jpg';
 import b2 from '../assets/structures/b2.jpg';
 import b3 from '../assets/structures/b3.jpg';
@@ -26,13 +28,25 @@ import b5 from '../assets/structures/b5.jpg';
 import b6 from '../assets/structures/b6.jpg';
 import b7 from '../assets/structures/b7.jpg';
 
+// Styles
+import {
+  PhotoGridWrapper,
+  GridItemContainer,
+  GridImage
+} from './InfoPage.styles';
+
+
+/*
+Constants
+*/
+
 // Arrays of images
 const horizontalImages = [a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12];
 const verticalImages = [b1, b2, b3, b4, b5, b6, b7];
 
 // Fisher-Yates Shuffle Algorithm
 const shuffleArray = (array) => {
-  const arr = array.slice(); // Create a copy
+  const arr = array.slice();
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [arr[i], arr[j]] = [arr[j], arr[i]];
@@ -40,40 +54,10 @@ const shuffleArray = (array) => {
   return arr;
 };
 
-// Styled Components
-const PhotoGridWrapper = styled.div`
-  width: 100%;
-  max-width: 1920px;
-  aspect-ratio: 16 / 9;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(9, 1fr);
-  gap: 10px;
-  padding: 20px;
-  border-radius: 20px;
-  overflow: hidden;
-  background-color: #f5f5f5;
-`;
 
-// Container for each grid item to handle positioning
-const GridItemContainer = styled.div`
-  position: relative;
-  overflow: hidden;
-  border-radius: 15px;
-`;
-
-// Styled component for images with transition
-const GridImage = styled.img`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-  opacity: ${(props) => (props.isVisible ? 1 : 0)};
-  transform: ${(props) => (props.isVisible ? 'scale(1)' : 'scale(1.05)')};
-  z-index: ${(props) => (props.isVisible ? 2 : 1)};
-`;
-
+/*
+Components & Render
+*/
 const PhotoGrid = () => {
   const [gridItems, setGridItems] = useState([]);
   const [sequence, setSequence] = useState([]);
@@ -236,4 +220,5 @@ const PhotoGrid = () => {
   );
 };
 
+// Export to use in InfoPage
 export default PhotoGrid;

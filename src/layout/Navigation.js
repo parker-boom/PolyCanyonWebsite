@@ -1,16 +1,17 @@
+/*
+Imports
+*/
+
+// Libraries 
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import { FaBars, FaTimes, FaDownload, FaInfo, FaBuilding } from 'react-icons/fa';
+
+// Styles
 import {
-  Banner,
-  BannerContent,
-  BannerIcon,
-  BannerText,
-  NavLinks,
-  NavLink,
-  LeftSection,
-  RightSection,
+
+  // Mobile
   BannerMobile,
   MenuIcon,
   PolyCanyonTitle,
@@ -18,32 +19,55 @@ import {
   PopupContainer,
   PopupContent,
   PopupCloseButton,
-  PopupNavLink,
   PopupTitle,
-  NavLinkContainer
+  PopupNavLink,
+  NavLinkContainer,
+
+  // Web
+  Banner,
+  BannerContent,
+  LeftSection,
+  RightSection,
+  BannerText,
+  NavLinks,
+  NavLink,
+  BannerIcon
+
+
 } from './Navigation.styles';
 
+// Logo
 import app360 from '../assets/app360.jpg';
 
+
+/*
+Components & Render
+*/
 const Navigation = () => {
+
+  // State variables
   const [isPopupOpen, setPopupOpen] = useState(false);
   const location = useLocation();
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
+  // Open Mobile Pop-Up
   const togglePopup = () => {
     setPopupOpen(!isPopupOpen);
   };
 
+  // Change to other pages
   const navLinks = [
     { to: "/download", icon: <FaDownload />, text: "Download" },
     { to: "/info", icon: <FaInfo />, text: "Info" },
     { to: "/structures", icon: <FaBuilding />, text: "Structures" }
   ];
 
+  // Underline current page
   const isLinkActive = (path) => {
     return location.pathname === path || (location.pathname === '/' && path === '/download');
   };
 
+  // Links to other pages
   const renderNavLinks = (LinkComponent, extraProps = {}) => (
     navLinks.map(({ to, icon, text }) => (
       <LinkComponent
@@ -57,9 +81,12 @@ const Navigation = () => {
     ))
   );
 
+  // Mobile banner + pop-up for switching pages
   if (isMobile) {
     return (
       <>
+
+        {/* Banner */}
         <BannerMobile>
           <MenuIcon onClick={togglePopup}>
             <FaBars />
@@ -70,6 +97,7 @@ const Navigation = () => {
           <Logo src={app360} alt="Poly Canyon Logo" />
         </BannerMobile>
 
+        {/* PopUp */}
         {isPopupOpen && (
           <PopupContainer onClick={togglePopup}>
             <PopupContent onClick={(e) => e.stopPropagation()}>
@@ -87,6 +115,7 @@ const Navigation = () => {
     );
   }
 
+  // Web Banner
   return (
     <Banner>
       <BannerContent>
@@ -104,4 +133,5 @@ const Navigation = () => {
   );
 };
 
+// Used in all views 
 export default Navigation;
