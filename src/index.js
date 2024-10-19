@@ -60,11 +60,13 @@ function App() {
               element={isMobile ? <DownloadPageMobile /> : <DownloadPageWeb />}
             />
             <Route path="/info" element={<InfoPage />} />
+            <Route path="/structures" element={<StructuresPage />} />
+
+            {/* Catch-all route */}
             <Route
-              path="/"
+              path="*"
               element={isMobile ? <DownloadPageMobile /> : <DownloadPageWeb />}
             />
-            <Route path="/structures" element={<StructuresPage />} />
           </Routes>
         </Content>
 
