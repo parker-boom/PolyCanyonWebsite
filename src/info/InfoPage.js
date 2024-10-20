@@ -1,3 +1,7 @@
+/*
+IDEA: Add live weather API or other live information in this section
+*/
+
 /**
  * Component: InfoPage
  * Purpose: Provides detailed information about Poly Canyon, including its history, geology, and access to the Poly Canyon app.
