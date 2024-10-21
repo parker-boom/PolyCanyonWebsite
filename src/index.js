@@ -20,6 +20,7 @@ import {
 } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import { HelmetProvider } from 'react-helmet-async';
+import styled from 'styled-components';
 
 import './index.css';
 import Navigation from './layout/Navigation';

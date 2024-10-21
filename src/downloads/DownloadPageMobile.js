@@ -13,7 +13,7 @@ Imports
 import React, { useState, useEffect, Suspense, useRef } from 'react';
 import { isIOS, isAndroid } from 'react-device-detect';
 import { FaApple, FaAndroid, FaArrowRight } from 'react-icons/fa';
-import { HelmetProvider } from 'react-helmet-async';
+import { Helmet } from 'react-helmet-async';
 
 // Styles
 import {
