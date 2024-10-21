@@ -12,7 +12,12 @@ Imports
 // Libraries
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import styled from 'styled-components';
 
@@ -49,28 +54,18 @@ function App() {
   return (
     <Router>
       <AppContainer>
-        {/* Navigation Banner */}
         <Navigation />
-
-        {/* Pages*/}
         <Content>
           <Routes>
+            <Route path="/info" element={<InfoPage />} />
+            <Route path="/structures" element={<StructuresPage />} />
             <Route
               path="/download"
               element={isMobile ? <DownloadPageMobile /> : <DownloadPageWeb />}
             />
-            <Route path="/info" element={<InfoPage />} />
-            <Route path="/structures" element={<StructuresPage />} />
-
-            {/* Catch-all route */}
-            <Route
-              path="*"
-              element={isMobile ? <DownloadPageMobile /> : <DownloadPageWeb />}
-            />
+            <Route path="*" element={<Navigate to="/download" replace />} />
           </Routes>
         </Content>
-
-        {/* Footer */}
         <Footer>
           <FooterText>© 2024 Poly Canyon App. All rights reserved.</FooterText>
           <FooterText>Cal Poly, San Luis Obispo</FooterText>
