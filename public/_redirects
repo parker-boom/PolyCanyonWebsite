@@ -1,7 +1,7 @@
-# Serve static HTML files for crawlers
-/info        /info.html        200!
-/download    /download.html    200!
-/structures  /structures.html  200!
+# Serve static HTML files for crawlers and bots
+/info        /info.html        200!    User-Agent=^(Googlebot|Bingbot|Slurp|DuckDuckBot|Baiduspider|YandexBot|Sogou|Exabot|facebookexternalhit|Twitterbot|LinkedInBot|WhatsApp)
+/download    /download.html    200!    User-Agent=^(Googlebot|Bingbot|Slurp|DuckDuckBot|Baiduspider|YandexBot|Sogou|Exabot|facebookexternalhit|Twitterbot|LinkedInBot|WhatsApp)
+/structures  /structures.html  200!    User-Agent=^(Googlebot|Bingbot|Slurp|DuckDuckBot|Baiduspider|YandexBot|Sogou|Exabot|facebookexternalhit|Twitterbot|LinkedInBot|WhatsApp)
 
 # Serve the React app for all other requests
 /*    /index.html   200
