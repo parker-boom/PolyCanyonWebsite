@@ -1,6 +1,7 @@
-# Serve /info and /structures normally
+# Serve index.html for /info, /download, and /structures
 /info        /index.html   200
+/download    /index.html   200
 /structures  /index.html   200
 
-# Catch-all: Serve the React app for any unmatched paths
-/*           /index.html   200
+# Serve the React app for all other requests
+/*    /index.html   200
