@@ -230,33 +230,31 @@ const InfoPage = () => {
           </Text>
 
           {/* Statistics Section - Web Only*/}
-          {window.innerWidth > 768 && (
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                marginTop: '20px',
-                flexWrap: 'wrap',
-              }}
-            >
-              <StatBox>
-                <h4>Established</h4>
-                <p>1963</p>
-              </StatBox>
-              <StatBox>
-                <h4>Structures</h4>
-                <p>30+</p>
-              </StatBox>
-              <StatBox>
-                <h4>Acreage</h4>
-                <p>9 acres</p>
-              </StatBox>
-              <StatBox>
-                <h4>Key Event</h4>
-                <p>Design Village</p>
-              </StatBox>
-            </div>
-          )}
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              marginTop: '20px',
+              flexWrap: 'wrap',
+            }}
+          >
+            <StatBox>
+              <h4>Established</h4>
+              <p>1963</p>
+            </StatBox>
+            <StatBox>
+              <h4>Structures</h4>
+              <p>30+</p>
+            </StatBox>
+            <StatBox>
+              <h4>Acreage</h4>
+              <p>9 acres</p>
+            </StatBox>
+            <StatBox>
+              <h4>Key Event</h4>
+              <p>Design Village</p>
+            </StatBox>
+          </div>
 
           {/* Image Carousel - Historical Images*/}
           <CarouselContainer>
@@ -420,14 +418,13 @@ const InfoPage = () => {
         <GlobalStyle />
 
         {/* Title Section */}
-        {window.innerWidth > 768 && (
-          <TitleSection>
-            <Header>
-              <Title>Discover The Canyon!</Title>
-              <Subtitle>An Architect&apos;s Playground</Subtitle>
-            </Header>
-          </TitleSection>
-        )}
+
+        <TitleSection>
+          <Header>
+            <Title>Discover The Canyon!</Title>
+            <Subtitle>An Architect&apos;s Playground</Subtitle>
+          </Header>
+        </TitleSection>
 
         {/*
       General Information Section 

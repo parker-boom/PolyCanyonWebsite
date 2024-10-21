@@ -8,7 +8,7 @@
 /*
 Imports
 */
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const fadeIn = keyframes`
@@ -223,17 +223,13 @@ export const NavLink = styled(Link)`
     transition: width 0.3s ease;
   }
 
-  &:hover:after {
-    width: 100%;
-  }
-
-  ${({ $isActive }) =>
-    $isActive &&
-    `
-    &:after {
-      width: 100%;
-    }
-  `}
+  ${({ $isUnderlined }) =>
+    $isUnderlined &&
+    css`
+      &:after {
+        width: 100%;
+      }
+    `}
 `;
 
 export const BannerIcon = styled.img`

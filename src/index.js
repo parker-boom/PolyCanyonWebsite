@@ -29,7 +29,8 @@ import { Footer, FooterText } from './layout/Navigation.styles';
 // Pages
 import DownloadPageMobile from './downloads/DownloadPageMobile';
 import DownloadPageWeb from './downloads/DownloadPageWeb';
-import InfoPage from './info/InfoPage';
+import InfoPageMobile from './info/InfoPageMobile';
+import InfoPageWeb from './info/InfoPageWeb';
 import StructuresPage from './structures/Structures';
 
 const AppContainer = styled.div`
@@ -53,7 +54,10 @@ function App() {
           <Content>
             <Routes>
               {/* Define your routes */}
-              <Route path="/info" element={<InfoPage />} />
+              <Route
+                path="/info"
+                element={isMobile ? <InfoPageMobile /> : <InfoPageWeb />}
+              />
               <Route path="/structures" element={<StructuresPage />} />
               <Route
                 path="/download"

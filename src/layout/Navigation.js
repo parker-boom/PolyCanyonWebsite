@@ -10,7 +10,7 @@ Imports
 */
 
 // Libraries
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import {
@@ -57,6 +57,14 @@ const Navigation = () => {
   const [isPopupOpen, setPopupOpen] = useState(false);
   const location = useLocation();
   const isMobile = useMediaQuery({ maxWidth: 768 });
+  const [hoveredLink, setHoveredLink] = useState(null);
+  const [activeLink, setActiveLink] = useState(null);
+
+  useEffect(() => {
+    const currentPath =
+      location.pathname === '/' ? '/download' : location.pathname;
+    setActiveLink(currentPath);
+  }, [location]);
 
   // Open Mobile Pop-Up
   const togglePopup = () => {
@@ -70,12 +78,12 @@ const Navigation = () => {
     { to: '/structures', icon: <FaBuilding />, text: 'Structures' },
   ];
 
-  // Underline current page
-  const isLinkActive = (path) => {
-    return (
-      location.pathname === path ||
-      (location.pathname === '/' && path === '/download')
-    );
+  const handleMouseEnter = (to) => {
+    setHoveredLink(to);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredLink(null);
   };
 
   // Links to other pages
@@ -84,7 +92,12 @@ const Navigation = () => {
       <LinkComponent
         key={to}
         to={to}
-        $isActive={isLinkActive(to)}
+        $isActive={to === activeLink}
+        $isUnderlined={
+          (to === activeLink && hoveredLink === null) || to === hoveredLink
+        }
+        onMouseEnter={() => handleMouseEnter(to)}
+        onMouseLeave={handleMouseLeave}
         {...extraProps}
       >
         {icon} {text}
