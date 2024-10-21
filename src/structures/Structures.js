@@ -27,20 +27,6 @@ Components & Renders
 const Structures = () => {
   return (
     <>
-      <PageContainer>
-        <ContentContainer>
-          <ComingSoonContainer>
-            <ConstructionIcon>
-              <FaHardHat />
-            </ConstructionIcon>
-            <ComingSoonTitle>Under Construction</ComingSoonTitle>
-            <ComingSoonText>
-              Full information on structures coming soon!
-            </ComingSoonText>
-          </ComingSoonContainer>
-        </ContentContainer>
-      </PageContainer>
-
       {/* Meta Data */}
       <Helmet>
         <title>Explore the Poly Canyon Structures</title>
@@ -74,7 +60,20 @@ const Structures = () => {
           content="https://polycanyon.com/sharePNG/twitstructures.png"
         />
       </Helmet>
-      <div>Structures Page Content</div>
+
+      <PageContainer>
+        <ContentContainer>
+          <ComingSoonContainer>
+            <ConstructionIcon>
+              <FaHardHat />
+            </ConstructionIcon>
+            <ComingSoonTitle>Under Construction</ComingSoonTitle>
+            <ComingSoonText>
+              Full information on structures coming soon!
+            </ComingSoonText>
+          </ComingSoonContainer>
+        </ContentContainer>
+      </PageContainer>
     </>
   );
 };

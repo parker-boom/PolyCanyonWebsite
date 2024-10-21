@@ -383,6 +383,39 @@ const InfoPage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Discover the Poly Canyon Architectural Area</title>
+        <meta
+          name="description"
+          content="Uncover the details of this outdoor architectural space and see how the app enhances your visit with an interactive experience."
+        />
+        <meta
+          property="og:title"
+          content="Discover the Poly Canyon Architectural Area"
+        />
+        <meta
+          property="og:description"
+          content="Uncover the details of this outdoor architectural space and see how the app enhances your visit with an interactive experience."
+        />
+        <meta
+          property="og:image"
+          content="https://polycanyon.com/sharePNG/oginfo.png"
+        />
+        <meta property="og:url" content="https://polycanyon.com/info" />
+        <meta
+          name="twitter:title"
+          content="Discover the Poly Canyon Architectural Area"
+        />
+        <meta
+          name="twitter:description"
+          content="Uncover the details of this outdoor architectural space and see how the app enhances your visit with an interactive experience."
+        />
+        <meta
+          name="twitter:image"
+          content="https://polycanyon.com/sharePNG/twitinfo.png"
+        />
+      </Helmet>
+
       <PageContainer>
         <GlobalStyle />
 
@@ -624,40 +657,6 @@ const InfoPage = () => {
           </VisitTips>
         </Section>
       </PageContainer>
-
-      <Helmet>
-        <title>Discover the Poly Canyon Architectural Area</title>
-        <meta
-          name="description"
-          content="Uncover the details of this outdoor architectural space and see how the app enhances your visit with an interactive experience."
-        />
-        <meta
-          property="og:title"
-          content="Discover the Poly Canyon Architectural Area"
-        />
-        <meta
-          property="og:description"
-          content="Uncover the details of this outdoor architectural space and see how the app enhances your visit with an interactive experience."
-        />
-        <meta
-          property="og:image"
-          content="https://polycanyon.com/sharePNG/oginfo.png"
-        />
-        <meta property="og:url" content="https://polycanyon.com/info" />
-        <meta
-          name="twitter:title"
-          content="Discover the Poly Canyon Architectural Area"
-        />
-        <meta
-          name="twitter:description"
-          content="Uncover the details of this outdoor architectural space and see how the app enhances your visit with an interactive experience."
-        />
-        <meta
-          name="twitter:image"
-          content="https://polycanyon.com/sharePNG/twitinfo.png"
-        />
-      </Helmet>
-      <div>Info Page Content</div>
     </>
   );
 };
