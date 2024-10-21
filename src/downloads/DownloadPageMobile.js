@@ -1,29 +1,44 @@
-// DownloadPageMobile.js
-// This component renders the download page for the Poly Canyon app on mobile devices, 
-// detecting the user's device type and providing appropriate download links.
+/**
+ * Component: DownloadPageMobile
+ * Purpose: Mobile version of the download page. Displays app information and a download button based on the user's device (iOS or Android).
+ * Key Features: Device detection, GIF preview, device-specific download button (App Store or Google Play), and switch between iOS and Android options.
+ * Dependencies: React hooks (useState, useEffect), LazyGif component for displaying app previews, react-icons for device icons.
+ */
 
-import React, { useState, useEffect, Suspense, lazy, useRef } from 'react';
+/*
+Imports
+*/
+
+// Libraries
+import React, { useState, useEffect, Suspense, useRef } from 'react';
 import { isIOS, isAndroid } from 'react-device-detect';
-import { FaApple, FaAndroid, FaArrowRight } from 'react-icons/fa'; 
+import { FaApple, FaAndroid, FaArrowRight } from 'react-icons/fa';
 
+// Styles
 import {
+  PageContainer,
+  RoundedContainer,
+  Title,
+  WebDescription,
+  LearnMoreButton,
+  GifContainer,
   DownloadButton,
   DeviceSwitchContainer,
   SwitchText,
-  GifContainer,
-  PageContainer,
-  Title,
-  RoundedContainer,
-  WebDescription,
-  LearnMoreButton,
 } from './DownloadPage.styles';
 
-const LazyGif = lazy(() => import('./LazyGif'));
+// Component
+import LazyGif from './LazyGif.js';
 
+/*
+Components & Render
+*/
 const DownloadPageMobile = () => {
+  // State variables
   const [deviceType, setDeviceType] = useState('unknown');
   const downloadButtonRef = useRef(null);
 
+  // Change GIF based on device
   useEffect(() => {
     if (isIOS) {
       setDeviceType('ios');
@@ -33,9 +48,10 @@ const DownloadPageMobile = () => {
   }, []);
 
   const toggleDevice = () => {
-    setDeviceType(prevType => (prevType === 'ios' ? 'android' : 'ios'));
+    setDeviceType((prevType) => (prevType === 'ios' ? 'android' : 'ios'));
   };
 
+  // Change link based on device
   const getStoreLink = () => {
     return deviceType === 'ios'
       ? 'https://apps.apple.com/us/app/poly-canyon/id6499063781'
@@ -52,7 +68,8 @@ const DownloadPageMobile = () => {
       <RoundedContainer>
         <Title>Download Now!</Title>
         <WebDescription>
-          Explore, learn, and track your journey through the canyon's architectural wonders
+          Explore, learn, and track your journey through the canyon&apos;s
+          architectural wonders
         </WebDescription>
         <LearnMoreButton to="/info">
           Learn More <FaArrowRight />
@@ -67,18 +84,18 @@ const DownloadPageMobile = () => {
       </Suspense>
 
       {/* Download Button */}
-      <DownloadButton 
+      <DownloadButton
         ref={downloadButtonRef}
-        href={getStoreLink()} 
-        target="_blank" 
+        href={getStoreLink()}
+        target="_blank"
         rel="noopener noreferrer"
         aria-label={`Download button for ${deviceType === 'ios' ? 'iOS' : 'Android'}`}
       >
         {getStoreIcon()} Download for {deviceType === 'ios' ? 'iOS' : 'Android'}
       </DownloadButton>
       <DeviceSwitchContainer>
-        <SwitchText 
-          onClick={toggleDevice} 
+        <SwitchText
+          onClick={toggleDevice}
           onKeyPress={(e) => e.key === 'Enter' && toggleDevice()}
           tabIndex={0}
           role="button"
@@ -91,4 +108,5 @@ const DownloadPageMobile = () => {
   );
 };
 
+// // Used in Index.js (Mobile only)
 export default DownloadPageMobile;

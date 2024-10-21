@@ -1,5 +1,16 @@
+/**
+ * Work in progress...
+ */
+
+/*
+Imports
+*/
+
+// Libraries
 import React from 'react';
 import { FaHardHat } from 'react-icons/fa';
+
+// Styles
 import {
   PageContainer,
   ContentContainer,
@@ -9,6 +20,9 @@ import {
   ConstructionIcon,
 } from './Structures.styles';
 
+/*
+Components & Renders
+*/
 const Structures = () => {
   return (
     <PageContainer>
@@ -27,4 +41,5 @@ const Structures = () => {
   );
 };
 
+// Used in Index.js
 export default Structures;

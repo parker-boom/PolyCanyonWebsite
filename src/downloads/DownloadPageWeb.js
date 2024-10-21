@@ -1,20 +1,28 @@
-// DownloadPageWeb.js
-// This component renders the download page for web users.
+/**
+ * Component: DownloadPageWeb
+ * Purpose: Web version of the download page. Displays app details and provides separate download buttons for iOS and Android.
+ * Key Features: Side-by-side layout for iOS and Android previews, LazyGif component for device-specific app previews, links to App Store and Google Play.
+ * Dependencies: react-icons for download and device icons, LazyGif for animated app previews, and styled-components for layout and design.
+ */
 
-// LIBRARY IMPORTS
+/*
+Imports
+*/
+
+// Libraries
 import React from 'react';
 import { FaApple, FaAndroid, FaArrowRight, FaDownload } from 'react-icons/fa';
 import LazyGif from './LazyGif';
 
-// STYLE IMPORTS
+// Styles
 import {
+  PageContainer,
+  RoundedContainer,
+  Title,
   WebDescription,
   LearnMoreButton,
   SplitContainer,
   Column,
-  PageContainer,
-  RoundedContainer,
-  Title,
   GifContainerWeb,
   DownloadButtonWrapper,
   DownloadButtonIcon,
@@ -22,20 +30,24 @@ import {
   DownloadButtonSubtext,
 } from './DownloadPage.styles';
 
+/* 
+Components & Render
+*/
 const DownloadPageWeb = () => {
   return (
     <PageContainer>
-      {/* Download Call-to-Action Section */}
+      {/* Title Section */}
       <RoundedContainer>
         <Title>Download Today!</Title>
         <WebDescription>
-          The Poly Canyon app is available on both iOS and Android, and can be downloaded for free on either platform.
+          The Poly Canyon app is available on both iOS and Android, and can be
+          downloaded for free on either platform.
         </WebDescription>
         <LearnMoreButton to="/info">
           Learn more <FaArrowRight />
         </LearnMoreButton>
       </RoundedContainer>
-      
+
       {/* Download Split Section */}
       <RoundedContainer>
         <SplitContainer>
@@ -86,11 +98,13 @@ const DownloadPageWeb = () => {
 
         {/* Bottom Section */}
         <WebDescription>
-          If you are interested in detailed information on all structures or more information on the physical area, please navigate to those pages.
+          If you are interested in detailed information on all structures or
+          more information on the physical area, please navigate to those pages.
         </WebDescription>
       </RoundedContainer>
     </PageContainer>
   );
 };
 
+// Used in Index.js (Web Only)
 export default DownloadPageWeb;

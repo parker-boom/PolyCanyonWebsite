@@ -1,21 +1,35 @@
-// Importing libraries
+/**
+ * Main App Component
+ * Purpose: Manages routing and layout for the Poly Canyon app. Provides a responsive navigation structure with separate pages for downloading the app, viewing info, and exploring structures.
+ * Key Features: Responsive routing (mobile vs. web view), centralized navigation, dynamic footer, and page switching using react-router-dom.
+ * Dependencies: react-responsive for media queries, react-router-dom for routing, styled-components for layout, and ReactDOM for rendering.
+ */
+
+/*
+Imports
+*/
+
+// Libraries
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import styled from 'styled-components';
 
-// Importing components
+// Components across all views
+import './index.css';
 import Navigation from './layout/Navigation';
 import { Footer, FooterText } from './layout/Navigation.styles';
 
-// Importing pages
-import './index.css';
+// Pages
 import DownloadPageMobile from './downloads/DownloadPageMobile';
 import DownloadPageWeb from './downloads/DownloadPageWeb';
 import InfoPage from './info/InfoPage';
 import StructuresPage from './structures/Structures.js';
 
+/*
+Styles
+*/
 const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -26,21 +40,37 @@ const Content = styled.main`
   flex: 1;
 `;
 
+/*
+Components & Render
+*/
 function App() {
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
 
   return (
     <Router>
       <AppContainer>
+        {/* Navigation Banner */}
         <Navigation />
+
+        {/* Pages*/}
         <Content>
           <Routes>
-            <Route path="/download" element={isMobile ? <DownloadPageMobile /> : <DownloadPageWeb />} />
+            <Route
+              path="/download"
+              element={isMobile ? <DownloadPageMobile /> : <DownloadPageWeb />}
+            />
             <Route path="/info" element={<InfoPage />} />
-            <Route path="/" element={isMobile ? <DownloadPageMobile /> : <DownloadPageWeb />} />
             <Route path="/structures" element={<StructuresPage />} />
+
+            {/* Catch-all route */}
+            <Route
+              path="*"
+              element={isMobile ? <DownloadPageMobile /> : <DownloadPageWeb />}
+            />
           </Routes>
         </Content>
+
+        {/* Footer */}
         <Footer>
           <FooterText>© 2024 Poly Canyon App. All rights reserved.</FooterText>
           <FooterText>Cal Poly, San Luis Obispo</FooterText>

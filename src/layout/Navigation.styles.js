@@ -1,3 +1,13 @@
+/**
+ * Styles for Navigation Component
+ * Purpose: Defines the styles for the navigation bar, including mobile and web-specific layouts, pop-up menu for mobile, and link interactions.
+ * Key Elements: BannerMobile, Banner, PopupContainer, NavLinks, and responsive design for mobile and desktop views.
+ * Dependencies: styled-components for modular and responsive styling.
+ */
+
+/*
+Imports
+*/
 import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -6,30 +16,29 @@ const fadeIn = keyframes`
   to { opacity: 1; }
 `;
 
-// ** MOBILE ELEMENTS ** //
+/*
+Mobile Elements
+*/
 
-// Mobile Banner Styles (keeping the same color scheme and rounding)
 export const BannerMobile = styled.div`
   width: 100%;
   background-color: #b6e5b6;
-  padding: 15px 0; 
+  padding: 15px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-radius: 0 0 20px 20px;
-  box-sizing: border-box; 
+  box-sizing: border-box;
 `;
 
-// Menu Icon (left side)
 export const MenuIcon = styled.div`
   font-size: 28px;
   color: #3c6b38;
   cursor: pointer;
-  padding: 10px 15px; // Added horizontal padding
+  padding: 10px 15px;
   margin-top: 10px;
 `;
 
-// Poly Canyon Title (center)
 export const PolyCanyonTitle = styled.h1`
   font-size: 40px;
   font-weight: 700;
@@ -39,15 +48,13 @@ export const PolyCanyonTitle = styled.h1`
   margin: 0;
 `;
 
-// Poly Canyon Logo (right side)
 export const Logo = styled.img`
   height: 48px;
   width: 48px;
   border-radius: 10px;
-  margin-right: 15px; // Changed from 10px to 15px
+  margin-right: 15px;
 `;
 
-// Popup Container (for navigation)
 export const PopupContainer = styled.div`
   position: fixed;
   top: 0;
@@ -61,7 +68,6 @@ export const PopupContainer = styled.div`
   z-index: 999;
 `;
 
-// Popup Content (rounded for links)
 export const PopupContent = styled.div`
   background-color: white;
   border-radius: 20px;
@@ -75,7 +81,6 @@ export const PopupContent = styled.div`
   position: relative;
 `;
 
-// Popup Close Button
 export const PopupCloseButton = styled.button`
   position: absolute;
   top: 10px;
@@ -92,11 +97,10 @@ export const PopupCloseButton = styled.button`
   transition: color 0.3s ease;
 
   &:hover {
-    color: #4CAF50;
+    color: #4caf50;
   }
 `;
 
-// Popup Title
 export const PopupTitle = styled.h2`
   font-size: 28px;
   font-weight: 700;
@@ -105,10 +109,9 @@ export const PopupTitle = styled.h2`
   text-align: center;
 `;
 
-// Navigation Links in the Popup (with icons)
 export const PopupNavLink = styled(Link)`
   text-decoration: none;
-  color: #4CAF50;
+  color: #4caf50;
   font-size: 18px;
   font-weight: bold;
   display: flex;
@@ -125,7 +128,9 @@ export const PopupNavLink = styled(Link)`
     color: #45a049;
   }
 
-  ${({ $isActive }) => $isActive && `
+  ${({ $isActive }) =>
+    $isActive &&
+    `
     background-color: #e8f5e9;
     color: #2e7d32;
     position: relative;
@@ -142,7 +147,6 @@ export const PopupNavLink = styled(Link)`
   `}
 `;
 
-// NavLinkContainer
 export const NavLinkContainer = styled.div`
   width: 100%;
   display: flex;
@@ -151,9 +155,9 @@ export const NavLinkContainer = styled.div`
   gap: 10px;
 `;
 
-// ** WEB ELEMENTS ** //
-
-// Banner
+/*
+Web Banner
+*/
 export const Banner = styled.div`
   width: 100%;
   background-color: #b6e5b6;
@@ -172,10 +176,15 @@ export const BannerContent = styled.div`
   padding: 0 30px;
 `;
 
-// Add these new styles for improved control
 export const LeftSection = styled.div`
   display: flex;
-  align-items: flex-end; /* Align the bottom of all items */
+  align-items: flex-end;
+`;
+
+export const RightSection = styled.div`
+  margin-left: auto;
+  display: flex;
+  align-items: center;
 `;
 
 export const BannerText = styled.h1`
@@ -184,13 +193,7 @@ export const BannerText = styled.h1`
   color: #3c6b38;
   margin: 0;
   text-shadow: 0 2px 4px rgba(253, 208, 76, 0.5);
-  line-height: 1; /* Prevent extra height from line spacing */
-`;
-
-export const RightSection = styled.div`
-  margin-left: auto;
-  display: flex;
-  align-items: center;
+  line-height: 1;
 `;
 
 export const NavLinks = styled.div`
@@ -224,7 +227,9 @@ export const NavLink = styled(Link)`
     width: 100%;
   }
 
-  ${({ $isActive }) => $isActive && `
+  ${({ $isActive }) =>
+    $isActive &&
+    `
     &:after {
       width: 100%;
     }
@@ -238,7 +243,9 @@ export const BannerIcon = styled.img`
   border-radius: 10px;
 `;
 
-// ** SHARED ELEMENTS ** //
+/*
+Footer Elements
+*/
 export const Footer = styled.footer`
   margin-top: auto;
   padding-top: 30px;
@@ -252,4 +259,3 @@ export const FooterText = styled.p`
   font-size: 16px;
   margin: 8px 0; // Footer text margin
 `;
-
