@@ -1,6 +1,7 @@
-# Serve /info and /structures normally
-/info        /index.html   200
-/structures  /index.html   200
+# Serve /info, /download, and /structures without redirecting for OpenGraph
+/info        /info.html        200
+/download    /download.html    200
+/structures  /structures.html  200
 
 # Catch-all: Serve the React app for any unmatched paths
-/*           /index.html   200
+/*           /index.html       200
