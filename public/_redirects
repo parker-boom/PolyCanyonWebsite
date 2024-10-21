@@ -1,12 +1,6 @@
-# Serve the React app for non-bot traffic
+# Serve /info and /structures normally
 /info        /index.html   200
-/download    /index.html   200
 /structures  /index.html   200
 
-# Serve static HTML files only for crawlers and bots
-/info        /info.html        200!    User-Agent=^(Googlebot|Bingbot|Slurp|DuckDuckBot|Baiduspider|YandexBot|Sogou|Exabot|facebookexternalhit|Twitterbot|LinkedInBot|WhatsApp)
-/download    /download.html    200!    User-Agent=^(Googlebot|Bingbot|Slurp|DuckDuckBot|Baiduspider|YandexBot|Sogou|Exabot|facebookexternalhit|Twitterbot|LinkedInBot|WhatsApp)
-/structures  /structures.html  200!    User-Agent=^(Googlebot|Bingbot|Slurp|DuckDuckBot|Baiduspider|YandexBot|Sogou|Exabot|facebookexternalhit|Twitterbot|LinkedInBot|WhatsApp)
-
-# Fallback to serve the React app for any other routes
-/*    /index.html   200
+# Catch-all: Serve the React app for any unmatched paths
+/*           /index.html   200
