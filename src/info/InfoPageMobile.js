@@ -1,5 +1,16 @@
 /*
-IDEA: Add live weather API or other live information in this section
+
+Components to fix:
+0. Main section: Paragraph1 > PhotoGrid > Paragraph 2/3
+1. Make photo grid vertical/sqaure -> more than just turning it
+2. Make history image carousel vertical
+3. Fix icons and in general, geology squares
+4. Scale up app screenshots slightly
+5. App Mode Picker: Get rid of word Mode
+6. Fix app mode bullet points 
+7. Recommend for / info: on two different lines
+8. Touch up step by step directions/map (need to be wider)
+
 */
 
 /**

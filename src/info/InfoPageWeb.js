@@ -1,4 +1,13 @@
 /*
+Components to fix:
+1. Move body paragraphs to surround photogrid
+2. Reduce padding/margins on geology 
+3. Scale up bullets in the mode picker
+4. Scale up tips to visit, add live API?
+
+*/
+
+/*
 IDEA: Add live weather API or other live information in this section
 */
 
