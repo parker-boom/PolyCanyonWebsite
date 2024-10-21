@@ -46,29 +46,35 @@ function App() {
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
 
   return (
-    <Router>
-      <AppContainer>
-        <Navigation />
-        <Content>
-          <Routes>
-            {/* Define your routes */}
-            <Route path="/info" element={<InfoPage />} />
-            <Route path="/structures" element={<StructuresPage />} />
-            <Route
-              path="/download"
-              element={isMobile ? <DownloadPageMobile /> : <DownloadPageWeb />}
-            />
+    <HelmetProvider>
+      <Router>
+        <AppContainer>
+          <Navigation />
+          <Content>
+            <Routes>
+              {/* Define your routes */}
+              <Route path="/info" element={<InfoPage />} />
+              <Route path="/structures" element={<StructuresPage />} />
+              <Route
+                path="/download"
+                element={
+                  isMobile ? <DownloadPageMobile /> : <DownloadPageWeb />
+                }
+              />
 
-            {/* Redirect any other route to /download */}
-            <Route path="*" element={<Navigate to="/download" replace />} />
-          </Routes>
-        </Content>
-        <Footer>
-          <FooterText>© 2024 Poly Canyon App. All rights reserved.</FooterText>
-          <FooterText>Cal Poly, San Luis Obispo</FooterText>
-        </Footer>
-      </AppContainer>
-    </Router>
+              {/* Redirect any other route to /download */}
+              <Route path="*" element={<Navigate to="/download" replace />} />
+            </Routes>
+          </Content>
+          <Footer>
+            <FooterText>
+              © 2024 Poly Canyon App. All rights reserved.
+            </FooterText>
+            <FooterText>Cal Poly, San Luis Obispo</FooterText>
+          </Footer>
+        </AppContainer>
+      </Router>
+    </HelmetProvider>
   );
 }
 
