@@ -76,7 +76,6 @@ export const Subtitle = styled.h2`
 
 export const Section = styled(RoundedContainer)`
   margin-bottom: 24px;
-  // Remove the padding override, as it's now consistent with RoundedContainer
 `;
 
 export const SectionTitle = styled.h2`
