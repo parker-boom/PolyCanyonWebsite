@@ -13,6 +13,7 @@ Imports
 import React, { useState, useEffect, Suspense, useRef } from 'react';
 import { isIOS, isAndroid } from 'react-device-detect';
 import { FaApple, FaAndroid, FaArrowRight } from 'react-icons/fa';
+import { HelmetProvider } from 'react-helmet-async';
 
 // Styles
 import {
@@ -63,48 +64,80 @@ const DownloadPageMobile = () => {
   };
 
   return (
-    <PageContainer>
-      {/* Download Description Widget */}
-      <RoundedContainer>
-        <Title>Download Now!</Title>
-        <WebDescription>
-          Explore, learn, and track your journey through the canyon&apos;s
-          architectural wonders
-        </WebDescription>
-        <LearnMoreButton to="/info">
-          Learn More <FaArrowRight />
-        </LearnMoreButton>
-      </RoundedContainer>
+    <>
+      <PageContainer>
+        {/* Download Description Widget */}
+        <RoundedContainer>
+          <Title>Download Now!</Title>
+          <WebDescription>
+            Explore, learn, and track your journey through the canyon&apos;s
+            architectural wonders
+          </WebDescription>
+          <LearnMoreButton to="/info">
+            Learn More <FaArrowRight />
+          </LearnMoreButton>
+        </RoundedContainer>
 
-      {/* GIF */}
-      <Suspense fallback={<div>Loading preview...</div>}>
-        <GifContainer>
-          <LazyGif deviceType={deviceType} />
-        </GifContainer>
-      </Suspense>
+        {/* GIF */}
+        <Suspense fallback={<div>Loading preview...</div>}>
+          <GifContainer>
+            <LazyGif deviceType={deviceType} />
+          </GifContainer>
+        </Suspense>
 
-      {/* Download Button */}
-      <DownloadButton
-        ref={downloadButtonRef}
-        href={getStoreLink()}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={`Download button for ${deviceType === 'ios' ? 'iOS' : 'Android'}`}
-      >
-        {getStoreIcon()} Download for {deviceType === 'ios' ? 'iOS' : 'Android'}
-      </DownloadButton>
-      <DeviceSwitchContainer>
-        <SwitchText
-          onClick={toggleDevice}
-          onKeyPress={(e) => e.key === 'Enter' && toggleDevice()}
-          tabIndex={0}
-          role="button"
-          aria-label={`Switch the download button to ${deviceType === 'ios' ? 'Android' : 'iOS'}`}
+        {/* Download Button */}
+        <DownloadButton
+          ref={downloadButtonRef}
+          href={getStoreLink()}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Download button for ${deviceType === 'ios' ? 'iOS' : 'Android'}`}
         >
-          Switch to {deviceType === 'ios' ? 'Android' : 'iOS'}
-        </SwitchText>
-      </DeviceSwitchContainer>
-    </PageContainer>
+          {getStoreIcon()} Download for{' '}
+          {deviceType === 'ios' ? 'iOS' : 'Android'}
+        </DownloadButton>
+        <DeviceSwitchContainer>
+          <SwitchText
+            onClick={toggleDevice}
+            onKeyPress={(e) => e.key === 'Enter' && toggleDevice()}
+            tabIndex={0}
+            role="button"
+            aria-label={`Switch the download button to ${deviceType === 'ios' ? 'Android' : 'iOS'}`}
+          >
+            Switch to {deviceType === 'ios' ? 'Android' : 'iOS'}
+          </SwitchText>
+        </DeviceSwitchContainer>
+      </PageContainer>
+
+      {/* Meta Data */}
+      <Helmet>
+        <title>Download the Poly Canyon App</title>
+        <meta
+          name="description"
+          content="Explore the unique student-built structures and projects from anywhere. Experience the area through the app, available for iOS and Android."
+        />
+        <meta property="og:title" content="Download the Poly Canyon App" />
+        <meta
+          property="og:description"
+          content="Explore the unique student-built structures and projects from anywhere. Experience the area through the app, available for iOS and Android."
+        />
+        <meta
+          property="og:image"
+          content="https://polycanyon.com/sharePNG/ogdownload.png"
+        />
+        <meta property="og:url" content="https://polycanyon.com/download" />
+        <meta name="twitter:title" content="Download the Poly Canyon App" />
+        <meta
+          name="twitter:description"
+          content="Explore the unique student-built structures and projects from anywhere. Experience the area through the app, available for iOS and Android."
+        />
+        <meta
+          name="twitter:image"
+          content="https://polycanyon.com/sharePNG/twitdownload.png"
+        />
+      </Helmet>
+      <div>Download Page Content</div>
+    </>
   );
 };
 

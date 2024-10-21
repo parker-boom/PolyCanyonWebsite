@@ -35,74 +35,106 @@ Components & Render
 */
 const DownloadPageWeb = () => {
   return (
-    <PageContainer>
-      {/* Title Section */}
-      <RoundedContainer>
-        <Title>Download Today!</Title>
-        <WebDescription>
-          The Poly Canyon app is available on both iOS and Android, and can be
-          downloaded for free on either platform.
-        </WebDescription>
-        <LearnMoreButton to="/info">
-          Learn more <FaArrowRight />
-        </LearnMoreButton>
-      </RoundedContainer>
+    <>
+      <PageContainer>
+        {/* Title Section */}
+        <RoundedContainer>
+          <Title>Download Today!</Title>
+          <WebDescription>
+            The Poly Canyon app is available on both iOS and Android, and can be
+            downloaded for free on either platform.
+          </WebDescription>
+          <LearnMoreButton to="/info">
+            Learn more <FaArrowRight />
+          </LearnMoreButton>
+        </RoundedContainer>
 
-      {/* Download Split Section */}
-      <RoundedContainer>
-        <SplitContainer>
-          {/* iOS Column */}
-          <Column>
-            <GifContainerWeb height={600}>
-              <LazyGif deviceType="ios" />
-            </GifContainerWeb>
-            <DownloadButtonWrapper
-              href="https://apps.apple.com/us/app/poly-canyon/id6499063781"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Download button for iOS"
-            >
-              <DownloadButtonIcon>
-                <FaApple className="default-icon" />
-                <FaDownload className="hover-icon" />
-              </DownloadButtonIcon>
-              <div>
-                <DownloadButtonText>Download</DownloadButtonText>
-                <DownloadButtonSubtext>App Store</DownloadButtonSubtext>
-              </div>
-            </DownloadButtonWrapper>
-          </Column>
+        {/* Download Split Section */}
+        <RoundedContainer>
+          <SplitContainer>
+            {/* iOS Column */}
+            <Column>
+              <GifContainerWeb height={600}>
+                <LazyGif deviceType="ios" />
+              </GifContainerWeb>
+              <DownloadButtonWrapper
+                href="https://apps.apple.com/us/app/poly-canyon/id6499063781"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Download button for iOS"
+              >
+                <DownloadButtonIcon>
+                  <FaApple className="default-icon" />
+                  <FaDownload className="hover-icon" />
+                </DownloadButtonIcon>
+                <div>
+                  <DownloadButtonText>Download</DownloadButtonText>
+                  <DownloadButtonSubtext>App Store</DownloadButtonSubtext>
+                </div>
+              </DownloadButtonWrapper>
+            </Column>
 
-          {/* Android Column */}
-          <Column>
-            <GifContainerWeb height={600}>
-              <LazyGif deviceType="android" />
-            </GifContainerWeb>
-            <DownloadButtonWrapper
-              href="https://play.google.com/store/apps/details?id=com.polycanyon&pcampaignid=web_share"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Download button for Android"
-            >
-              <DownloadButtonIcon>
-                <FaAndroid className="default-icon" />
-                <FaDownload className="hover-icon" />
-              </DownloadButtonIcon>
-              <div>
-                <DownloadButtonText>Download</DownloadButtonText>
-                <DownloadButtonSubtext>Google Play</DownloadButtonSubtext>
-              </div>
-            </DownloadButtonWrapper>
-          </Column>
-        </SplitContainer>
+            {/* Android Column */}
+            <Column>
+              <GifContainerWeb height={600}>
+                <LazyGif deviceType="android" />
+              </GifContainerWeb>
+              <DownloadButtonWrapper
+                href="https://play.google.com/store/apps/details?id=com.polycanyon&pcampaignid=web_share"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Download button for Android"
+              >
+                <DownloadButtonIcon>
+                  <FaAndroid className="default-icon" />
+                  <FaDownload className="hover-icon" />
+                </DownloadButtonIcon>
+                <div>
+                  <DownloadButtonText>Download</DownloadButtonText>
+                  <DownloadButtonSubtext>Google Play</DownloadButtonSubtext>
+                </div>
+              </DownloadButtonWrapper>
+            </Column>
+          </SplitContainer>
 
-        {/* Bottom Section */}
-        <WebDescription>
-          If you are interested in detailed information on all structures or
-          more information on the physical area, please navigate to those pages. 
-        </WebDescription>
-      </RoundedContainer>
-    </PageContainer>
+          {/* Bottom Section */}
+          <WebDescription>
+            If you are interested in detailed information on all structures or
+            more information on the physical area, please navigate to those
+            pages.
+          </WebDescription>
+        </RoundedContainer>
+      </PageContainer>
+
+      {/* Meta Data */}
+      <Helmet>
+        <title>Download the Poly Canyon App</title>
+        <meta
+          name="description"
+          content="Explore the unique student-built structures and projects from anywhere. Experience the area through the app, available for iOS and Android."
+        />
+        <meta property="og:title" content="Download the Poly Canyon App" />
+        <meta
+          property="og:description"
+          content="Explore the unique student-built structures and projects from anywhere. Experience the area through the app, available for iOS and Android."
+        />
+        <meta
+          property="og:image"
+          content="https://polycanyon.com/sharePNG/ogdownload.png"
+        />
+        <meta property="og:url" content="https://polycanyon.com/download" />
+        <meta name="twitter:title" content="Download the Poly Canyon App" />
+        <meta
+          name="twitter:description"
+          content="Explore the unique student-built structures and projects from anywhere. Experience the area through the app, available for iOS and Android."
+        />
+        <meta
+          name="twitter:image"
+          content="https://polycanyon.com/sharePNG/twitdownload.png"
+        />
+      </Helmet>
+      <div>Download Page Content</div>
+    </>
   );
 };
 

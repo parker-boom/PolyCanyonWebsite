@@ -15,6 +15,7 @@ IMPORTS
 
 // Libraries
 import React, { useState, useRef, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import {
   FaChevronRight,
   FaMapMarkerAlt,
@@ -381,245 +382,283 @@ const InfoPage = () => {
   };
 
   return (
-    <PageContainer>
-      <GlobalStyle />
+    <>
+      <PageContainer>
+        <GlobalStyle />
 
-      {/* Title Section */}
-      {window.innerWidth > 768 && (
-        <TitleSection>
-          <Header>
-            <Title>Discover The Canyon!</Title>
-            <Subtitle>An Architect&apos;s Playground</Subtitle>
-          </Header>
-        </TitleSection>
-      )}
+        {/* Title Section */}
+        {window.innerWidth > 768 && (
+          <TitleSection>
+            <Header>
+              <Title>Discover The Canyon!</Title>
+              <Subtitle>An Architect&apos;s Playground</Subtitle>
+            </Header>
+          </TitleSection>
+        )}
 
-      {/*
+        {/*
       General Information Section 
       */}
-      <Section>
-        <SectionTitle>What is Poly Canyon?</SectionTitle>
+        <Section>
+          <SectionTitle>What is Poly Canyon?</SectionTitle>
 
-        {/* ADD A ROTATING QUOTE BOARD ANSWERING QUESTION ABOVE */}
+          {/* ADD A ROTATING QUOTE BOARD ANSWERING QUESTION ABOVE */}
 
-        {/* Poly Canyon Overview */}
-        <Text style={{ textAlign: 'left' }}>
-          Poly Canyon is a 9-acre outdoor space where Cal Poly students have
-          been building experimental structures since 1963. Just a mile from
-          campus, it&apos;s home to over 30 unique architectural projects.
-          <br />
-          <br />
-          These aren&apos;t just display pieces. Each structure was designed and
-          built by students testing new ideas. Some projects succeeded
-          brilliantly, others showed why certain ideas stayed theoretical.
-          <br />
-          <br />
-          Whether you&apos;re interested in architecture, looking for a
-          different kind of hike, or just want to experience what makes Cal Poly
-          unique, it&apos;s worth checking out.
-        </Text>
-        <PhotoGrid />
+          {/* Poly Canyon Overview */}
+          <Text style={{ textAlign: 'left' }}>
+            Poly Canyon is a 9-acre outdoor space where Cal Poly students have
+            been building experimental structures since 1963. Just a mile from
+            campus, it&apos;s home to over 30 unique architectural projects.
+            <br />
+            <br />
+            These aren&apos;t just display pieces. Each structure was designed
+            and built by students testing new ideas. Some projects succeeded
+            brilliantly, others showed why certain ideas stayed theoretical.
+            <br />
+            <br />
+            Whether you&apos;re interested in architecture, looking for a
+            different kind of hike, or just want to experience what makes Cal
+            Poly unique, it&apos;s worth checking out.
+          </Text>
+          <PhotoGrid />
 
-        {/* More Info Section (implementation above) */}
-        <MoreInfoContainer ref={moreInfoContainerRef}>
-          {!isMoreInfoOpen && (
-            <MoreInfoToggle onClick={toggleMoreInfo} ref={moreInfoButtonRef}>
-              Learn More
-              <FaChevronDown />
-            </MoreInfoToggle>
-          )}
-
-          {isMoreInfoOpen && (
-            <MoreInfoContent>
-              {/* Pikcer Between MoreInfo Subsections */}
-              <ImprovedPicker>
-                <PickerButton
-                  active={currentPicker === 'history'}
-                  onClick={() => setCurrentPicker('history')}
-                >
-                  <FaHistory />
-                  History
-                </PickerButton>
-                <PickerButton
-                  active={currentPicker === 'geology'}
-                  onClick={() => setCurrentPicker('geology')}
-                >
-                  <FaGlobeAmericas />
-                  Geology
-                </PickerButton>
-              </ImprovedPicker>
-
-              <PickerContent>
-                <PickerTitle>{pickerContent[currentPicker].title}</PickerTitle>
-                {pickerContent[currentPicker].content}
-              </PickerContent>
-
-              <MoreInfoToggle
-                onClick={toggleMoreInfo}
-                style={{ marginTop: '30px' }}
-              >
-                Show Less
-                <FaChevronUp />
+          {/* More Info Section (implementation above) */}
+          <MoreInfoContainer ref={moreInfoContainerRef}>
+            {!isMoreInfoOpen && (
+              <MoreInfoToggle onClick={toggleMoreInfo} ref={moreInfoButtonRef}>
+                Learn More
+                <FaChevronDown />
               </MoreInfoToggle>
-            </MoreInfoContent>
-          )}
-        </MoreInfoContainer>
-      </Section>
-
-      {/* 
-      Poly Canyon App Section
-      */}
-      <Section>
-        <SectionTitle>What is the Poly Canyon App?</SectionTitle>
-
-        <img
-          src={appPreview}
-          alt="Poly Canyon App Preview"
-          loading="lazy"
-          style={{ width: '60%', height: 'auto', borderRadius: '10px' }}
-        />
-
-        <Text>
-          Your personal guide to exploring these architectural wonders. Find
-          your way around with interactive maps, uncover the stories behind each
-          structure, and track your progress as you discover the area.
-        </Text>
-
-        {/* Switch between adventure/virtual tour */}
-        <ModeSelector>
-          <ModeButton
-            active={currentMode === 'adventure'}
-            onClick={() => handleModeChange('adventure')}
-          >
-            <FaWalking /> Adventure Mode
-          </ModeButton>
-          <ModeButton
-            active={currentMode === 'virtual'}
-            onClick={() => handleModeChange('virtual')}
-          >
-            <FaSearch /> Virtual Tour Mode
-          </ModeButton>
-        </ModeSelector>
-
-        {/* Mode specific information */}
-        <ModeContent mode={currentMode}>
-          <ModeInfoBox>
-            {currentMode === 'adventure' ? (
-              <>
-                {/* Adventure Mode */}
-                <ModeTitle>🧭 Adventure Mode</ModeTitle>
-                <FeatureList>
-                  <FeatureItem>
-                    🗺️ Interactive map for easy navigation
-                  </FeatureItem>
-                  <FeatureItem>
-                    ✅ Automatic tracking of visited structures
-                  </FeatureItem>
-                  <FeatureItem>📚 In-depth historical insights</FeatureItem>
-                </FeatureList>
-                <RecommendedFor>
-                  <RecommendedText>Recommended For:</RecommendedText>
-                  On-site explorers
-                </RecommendedFor>
-              </>
-            ) : (
-              <>
-                {/* Virtual Tour Mode */}
-                <ModeTitle>🖥️ Virtual Tour Mode</ModeTitle>
-                <FeatureList>
-                  <FeatureItem>
-                    🏞️ Virtual walkthrough of the canyon
-                  </FeatureItem>
-                  <FeatureItem>
-                    ⭐ Decide which structures are your favorite
-                  </FeatureItem>
-                  <FeatureItem>
-                    📝 Learn about structures even from afar
-                  </FeatureItem>
-                </FeatureList>
-                <RecommendedFor>
-                  <RecommendedText>Recommended For:</RecommendedText>
-                  Remote enthusiasts
-                </RecommendedFor>
-              </>
             )}
 
-            {/* Download Button*/}
-            <CTAButtonWrapper>
-              <CTAButton to="/download">
-                <CTAButtonText>
-                  {currentMode === 'adventure'
-                    ? 'Start Your Adventure'
-                    : 'Explore Virtually'}
-                </CTAButtonText>
-                <CTAButtonIcon>
-                  <FaChevronRight />
-                </CTAButtonIcon>
-              </CTAButton>
-            </CTAButtonWrapper>
-          </ModeInfoBox>
+            {isMoreInfoOpen && (
+              <MoreInfoContent>
+                {/* Pikcer Between MoreInfo Subsections */}
+                <ImprovedPicker>
+                  <PickerButton
+                    active={currentPicker === 'history'}
+                    onClick={() => setCurrentPicker('history')}
+                  >
+                    <FaHistory />
+                    History
+                  </PickerButton>
+                  <PickerButton
+                    active={currentPicker === 'geology'}
+                    onClick={() => setCurrentPicker('geology')}
+                  >
+                    <FaGlobeAmericas />
+                    Geology
+                  </PickerButton>
+                </ImprovedPicker>
+
+                <PickerContent>
+                  <PickerTitle>
+                    {pickerContent[currentPicker].title}
+                  </PickerTitle>
+                  {pickerContent[currentPicker].content}
+                </PickerContent>
+
+                <MoreInfoToggle
+                  onClick={toggleMoreInfo}
+                  style={{ marginTop: '30px' }}
+                >
+                  Show Less
+                  <FaChevronUp />
+                </MoreInfoToggle>
+              </MoreInfoContent>
+            )}
+          </MoreInfoContainer>
+        </Section>
+
+        {/* 
+      Poly Canyon App Section
+      */}
+        <Section>
+          <SectionTitle>What is the Poly Canyon App?</SectionTitle>
+
+          <img
+            src={appPreview}
+            alt="Poly Canyon App Preview"
+            loading="lazy"
+            style={{ width: '60%', height: 'auto', borderRadius: '10px' }}
+          />
 
           <Text>
-            Whether you&apos;re on-site or browsing from home, dive deeper into
-            the stories and innovations that make this place special. Download
-            now to start your exploration.
+            Your personal guide to exploring these architectural wonders. Find
+            your way around with interactive maps, uncover the stories behind
+            each structure, and track your progress as you discover the area.
           </Text>
-        </ModeContent>
-      </Section>
 
-      {/* 
+          {/* Switch between adventure/virtual tour */}
+          <ModeSelector>
+            <ModeButton
+              active={currentMode === 'adventure'}
+              onClick={() => handleModeChange('adventure')}
+            >
+              <FaWalking /> Adventure Mode
+            </ModeButton>
+            <ModeButton
+              active={currentMode === 'virtual'}
+              onClick={() => handleModeChange('virtual')}
+            >
+              <FaSearch /> Virtual Tour Mode
+            </ModeButton>
+          </ModeSelector>
+
+          {/* Mode specific information */}
+          <ModeContent mode={currentMode}>
+            <ModeInfoBox>
+              {currentMode === 'adventure' ? (
+                <>
+                  {/* Adventure Mode */}
+                  <ModeTitle>🧭 Adventure Mode</ModeTitle>
+                  <FeatureList>
+                    <FeatureItem>
+                      🗺️ Interactive map for easy navigation
+                    </FeatureItem>
+                    <FeatureItem>
+                      ✅ Automatic tracking of visited structures
+                    </FeatureItem>
+                    <FeatureItem>📚 In-depth historical insights</FeatureItem>
+                  </FeatureList>
+                  <RecommendedFor>
+                    <RecommendedText>Recommended For:</RecommendedText>
+                    On-site explorers
+                  </RecommendedFor>
+                </>
+              ) : (
+                <>
+                  {/* Virtual Tour Mode */}
+                  <ModeTitle>🖥️ Virtual Tour Mode</ModeTitle>
+                  <FeatureList>
+                    <FeatureItem>
+                      🏞️ Virtual walkthrough of the canyon
+                    </FeatureItem>
+                    <FeatureItem>
+                      ⭐ Decide which structures are your favorite
+                    </FeatureItem>
+                    <FeatureItem>
+                      📝 Learn about structures even from afar
+                    </FeatureItem>
+                  </FeatureList>
+                  <RecommendedFor>
+                    <RecommendedText>Recommended For:</RecommendedText>
+                    Remote enthusiasts
+                  </RecommendedFor>
+                </>
+              )}
+
+              {/* Download Button*/}
+              <CTAButtonWrapper>
+                <CTAButton to="/download">
+                  <CTAButtonText>
+                    {currentMode === 'adventure'
+                      ? 'Start Your Adventure'
+                      : 'Explore Virtually'}
+                  </CTAButtonText>
+                  <CTAButtonIcon>
+                    <FaChevronRight />
+                  </CTAButtonIcon>
+                </CTAButton>
+              </CTAButtonWrapper>
+            </ModeInfoBox>
+
+            <Text>
+              Whether you&apos;re on-site or browsing from home, dive deeper
+              into the stories and innovations that make this place special.
+              Download now to start your exploration.
+            </Text>
+          </ModeContent>
+        </Section>
+
+        {/* 
       Getting There Section
        */}
-      <Section>
-        <SectionTitle>How do I get there?</SectionTitle>
-        <Text>
-          Access the area by walking along Poly Canyon Road on campus. The
-          interactive map below shows the route, or use AllTrails and Google
-          Maps for detailed directions.
-        </Text>
-        <MapContainer>
-          {/* Google Maps - Separate Component */}
-          <GoogleMapsRoute />
-        </MapContainer>
-        <Text>
-          Choose your path - hike, bike, or run. The trail is well-marked and
-          takes about 20 minutes to walk from campus.
-        </Text>
+        <Section>
+          <SectionTitle>How do I get there?</SectionTitle>
+          <Text>
+            Access the area by walking along Poly Canyon Road on campus. The
+            interactive map below shows the route, or use AllTrails and Google
+            Maps for detailed directions.
+          </Text>
+          <MapContainer>
+            {/* Google Maps - Separate Component */}
+            <GoogleMapsRoute />
+          </MapContainer>
+          <Text>
+            Choose your path - hike, bike, or run. The trail is well-marked and
+            takes about 20 minutes to walk from campus.
+          </Text>
 
-        {/* AllTrails & GMaps Links*/}
-        <ButtonContainer>
-          <AllTrailsButton
-            href="https://www.alltrails.com/trail/us/california/architecture-graveyard-hike-private-property?sh=rvw6ps"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaWalking /> All Trails
-          </AllTrailsButton>
-          <GoogleMapsButton
-            href="https://maps.app.goo.gl/H8Dq6Y5x1E6pQJzk9"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaMapMarkerAlt /> Google Maps
-          </GoogleMapsButton>
-        </ButtonContainer>
+          {/* AllTrails & GMaps Links*/}
+          <ButtonContainer>
+            <AllTrailsButton
+              href="https://www.alltrails.com/trail/us/california/architecture-graveyard-hike-private-property?sh=rvw6ps"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaWalking /> All Trails
+            </AllTrailsButton>
+            <GoogleMapsButton
+              href="https://maps.app.goo.gl/H8Dq6Y5x1E6pQJzk9"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaMapMarkerAlt /> Google Maps
+            </GoogleMapsButton>
+          </ButtonContainer>
 
-        {/* Visiting Tips */}
-        <VisitTipsTitle>Before You Go:</VisitTipsTitle>
-        <VisitTips>
-          <FeatureItem>
-            🌞 Visit during daylight hours for the best experience
-          </FeatureItem>
-          <FeatureItem>
-            🏞️ Watch for wildlife and horses - keep your distance and respect
-            their space
-          </FeatureItem>
-          <FeatureItem>
-            👟 Bring water and wear hiking shoes - the terrain can be uneven
-          </FeatureItem>
-        </VisitTips>
-      </Section>
-    </PageContainer>
+          {/* Visiting Tips */}
+          <VisitTipsTitle>Before You Go:</VisitTipsTitle>
+          <VisitTips>
+            <FeatureItem>
+              🌞 Visit during daylight hours for the best experience
+            </FeatureItem>
+            <FeatureItem>
+              🏞️ Watch for wildlife and horses - keep your distance and respect
+              their space
+            </FeatureItem>
+            <FeatureItem>
+              👟 Bring water and wear hiking shoes - the terrain can be uneven
+            </FeatureItem>
+          </VisitTips>
+        </Section>
+      </PageContainer>
+
+      <Helmet>
+        <title>Discover the Poly Canyon Architectural Area</title>
+        <meta
+          name="description"
+          content="Uncover the details of this outdoor architectural space and see how the app enhances your visit with an interactive experience."
+        />
+        <meta
+          property="og:title"
+          content="Discover the Poly Canyon Architectural Area"
+        />
+        <meta
+          property="og:description"
+          content="Uncover the details of this outdoor architectural space and see how the app enhances your visit with an interactive experience."
+        />
+        <meta
+          property="og:image"
+          content="https://polycanyon.com/sharePNG/oginfo.png"
+        />
+        <meta property="og:url" content="https://polycanyon.com/info" />
+        <meta
+          name="twitter:title"
+          content="Discover the Poly Canyon Architectural Area"
+        />
+        <meta
+          name="twitter:description"
+          content="Uncover the details of this outdoor architectural space and see how the app enhances your visit with an interactive experience."
+        />
+        <meta
+          name="twitter:image"
+          content="https://polycanyon.com/sharePNG/twitinfo.png"
+        />
+      </Helmet>
+      <div>Info Page Content</div>
+    </>
   );
 };
 

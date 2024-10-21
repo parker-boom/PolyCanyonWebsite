@@ -1,5 +1,9 @@
-/info        /info
-/structures  /structures
-/            /download
-/*           /index.html   200
+# Serve /info and /structures normally
+/info        /index.html   200
+/structures  /index.html   200
 
+# Redirect all other paths to /download
+/*           /download     302
+
+# Catch-all: Serve the React app for any unmatched paths
+/*           /index.html   200

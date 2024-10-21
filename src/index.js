@@ -19,9 +19,8 @@ import {
   Navigate,
 } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
-import styled from 'styled-components';
+import { HelmetProvider } from 'react-helmet-async';
 
-// Components across all views
 import './index.css';
 import Navigation from './layout/Navigation';
 import { Footer, FooterText } from './layout/Navigation.styles';
@@ -30,11 +29,8 @@ import { Footer, FooterText } from './layout/Navigation.styles';
 import DownloadPageMobile from './downloads/DownloadPageMobile';
 import DownloadPageWeb from './downloads/DownloadPageWeb';
 import InfoPage from './info/InfoPage';
-import StructuresPage from './structures/Structures.js';
+import StructuresPage from './structures/Structures';
 
-/*
-Styles
-*/
 const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -45,9 +41,6 @@ const Content = styled.main`
   flex: 1;
 `;
 
-/*
-Components & Render
-*/
 function App() {
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
 
@@ -57,12 +50,15 @@ function App() {
         <Navigation />
         <Content>
           <Routes>
+            {/* Define your routes */}
             <Route path="/info" element={<InfoPage />} />
             <Route path="/structures" element={<StructuresPage />} />
             <Route
               path="/download"
               element={isMobile ? <DownloadPageMobile /> : <DownloadPageWeb />}
             />
+
+            {/* Redirect any other route to /download */}
             <Route path="*" element={<Navigate to="/download" replace />} />
           </Routes>
         </Content>
@@ -75,9 +71,12 @@ function App() {
   );
 }
 
+// Wrap your app with HelmetProvider to manage dynamic metadata
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <HelmetProvider>
+      <App />
+    </HelmetProvider>
   </React.StrictMode>
 );
