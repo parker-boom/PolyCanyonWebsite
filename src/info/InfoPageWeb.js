@@ -121,43 +121,50 @@ const historicalImages = [
   {
     src: entryArch,
     alt: 'Entry Arch',
-    caption: 'The canyon entrance, built with local serpentinite rock.',
+    caption:
+      'The iconic canyon entrance, built using locally quarried serpentinite rock. This gateway marks the transition from campus to experimental ground.',
   },
   {
     src: shellHouseConstruct,
     alt: 'Shell House Under Construction',
-    caption: 'Building the Shell House with cables and sprayed concrete.',
+    caption:
+      'Construction of the Shell House, a pioneering structure using tensioned cables and sprayed concrete to create its distinctive curved form. This technique allowed students to explore thin-shell construction methods.',
   },
   {
     src: bridgeGroup,
     alt: 'Bridge House Group Photo',
     caption:
-      'Students on the Bridge House, one of the first Cor-ten steel structures.',
+      'Students gathered at the Bridge House, one of the first structures to use Cor-ten steel in architectural applications. This weathering steel naturally develops a protective rust layer, eliminating the need for painting.',
   },
   {
     src: bladeRedesign,
     alt: 'Blade Structure Redesign',
-    caption: 'Award-winning 2006 redesign using post-tensioning techniques.',
+    caption:
+      'The 2006 redesign of the Blade Structure showcased advanced post-tensioning techniques. This project won recognition for its innovative approach to preserving and upgrading an existing experimental structure.',
   },
   {
     src: modHouseConstruction,
     alt: 'Modular House Construction',
-    caption: 'Construction of the experimental Modular House frame.',
+    caption:
+      'Students assembling the experimental Modular House frame. This project explored flexible living spaces and efficient construction methods through a system of interchangeable components.',
   },
   {
     src: geodesicDome,
     alt: 'Geodesic Dome Construction',
-    caption: "Students building the West Coast's first geodesic dome.",
+    caption:
+      "Student team constructing the West Coast's first geodesic dome, demonstrating Buckminster Fuller's principles of efficient structural design through geometric forms.",
   },
   {
     src: fratessaTower,
     alt: 'Fratessa Tower (Old Version)',
-    caption: 'Original water-supported observation tower, since replaced.',
+    caption:
+      'The original Fratessa Tower utilized an unusual water-supported observation platform. Though later replaced, it demonstrated creative approaches to structural stability.',
   },
   {
     src: designVillage,
     alt: 'Design Village Competition',
-    caption: 'Annual competition where students build temporary shelters.',
+    caption:
+      'The annual Design Village competition transforms the canyon into a temporary architectural laboratory where students build and inhabit experimental shelters for a weekend.',
   },
 ];
 
@@ -224,9 +231,21 @@ const InfoPage = () => {
         <>
           {/* Introductory text */}
           <Text>
-            Since the 1960s, the area has been a testing ground for experimental
-            architecture and engineering. Students come here to turn their
-            boldest designs into reality.
+            Since the 1960s, this unique outdoor laboratory has been shaping the
+            future of architecture and engineering. It all began when founding
+            Dean George Hasslein negotiated with Cal Poly president Robert
+            Kennedy to secure this 9-acre plot for student experimentation. What
+            started as an ambitious idea has grown into one of the most
+            distinctive architectural teaching spaces in the country, featured
+            in National Geographic and the Discovery Channel.
+            <br />
+            <br />
+            Over decades, students have pushed the boundaries of design and
+            construction here, testing everything from innovative materials to
+            experimental building techniques. Each structure tells a story of
+            learning through doing - some have stood the test of time, while
+            others have evolved or been replaced, all contributing to the
+            canyon&apos;s living legacy of hands-on education.
           </Text>
 
           {/* Statistics Section - Web Only*/}
@@ -310,9 +329,10 @@ const InfoPage = () => {
         <>
           {/* Geology overview */}
           <Text>
-            The canyon&apos;ss landscape is shaped by tectonic forces,
-            serpentine springs, and varied soil types. This intricate interplay
-            provides fertile ground for architectural and ecological study.
+            The canyon&apos;s landscape tells a dramatic geological story shaped
+            by the collision of tectonic forces, unique water features, and
+            diverse soil types. This complex terrain provides both challenges
+            and opportunities for architectural innovation.
           </Text>
           <div
             style={{
@@ -331,10 +351,12 @@ const InfoPage = () => {
                 <InfoTextBox>
                   <GreenTitle>Tectonic Forces</GreenTitle>
                   <InfoText>
-                    The canyon&apos;s geological features are the result of
-                    tectonic activity. The Pacific and North American
-                    Plates&apos; movements have created formations like the
-                    Franciscan Formation and serpentine outcrops.
+                    The area sits at the intersection of the Pacific and North
+                    American Plates, whose movement created the parallel ridges
+                    and valleys of the Santa Lucia Mountains. The canyon itself
+                    contains the unique Franciscan Formation - a complex mixture
+                    of fragmented rock and sediment that gives the area its
+                    distinctive character.
                   </InfoText>
                 </InfoTextBox>
               </InfographicContainer>
@@ -349,9 +371,11 @@ const InfoPage = () => {
                 <InfoTextBox>
                   <GreenTitle>Serpentine Springs</GreenTitle>
                   <InfoText>
-                    Unique springs form where water flows through serpentine
-                    rocks. These springs provide essential water to local
-                    ecosystems, creating a distinct ecological character.
+                    Where serpentine rock meets other formations, natural
+                    springs emerge, creating a vital water source that has
+                    supported life here for centuries. These springs once served
+                    the original San Luis Obispo Mission community and continue
+                    to influence the canyon&apos;s ecosystem today.
                   </InfoText>
                 </InfoTextBox>
               </InfographicContainer>
@@ -366,9 +390,12 @@ const InfoPage = () => {
                 <InfoTextBox>
                   <GreenTitle>Diverse Soil</GreenTitle>
                   <InfoText>
-                    The canyon&apos;s soils range from stable Class I soils to
-                    more challenging Class V soils, influencing vegetation
-                    growth and ecological diversity.
+                    The canyon&apos;s soils range from stable Class I to
+                    challenging Class V, with unique varieties like Los Osos
+                    soils (featuring a heavy clay sublayer) and Diablo soils
+                    (known for extreme shrink-swell properties). This variety of
+                    soil conditions creates an ideal testing ground for
+                    different foundation and construction techniques.
                   </InfoText>
                 </InfoTextBox>
               </InfographicContainer>
@@ -436,21 +463,38 @@ const InfoPage = () => {
 
           {/* Poly Canyon Overview */}
           <Text style={{ textAlign: 'left' }}>
-            Poly Canyon is a 9-acre outdoor space where Cal Poly students have
-            been building experimental structures since 1963. Just a mile from
-            campus, it&apos;s home to over 30 unique architectural projects.
+            Poly Canyon is a 9-acre outdoor laboratory where Cal Poly students
+            have been building experimental structures since 1963. Just a mile
+            from campus, it&apos;s home to over 30 unique architectural
+            projects, ranging from innovative housing models to experimental
+            bridges. The canyon sits within one of California&apos;s most
+            complex geological regions, where volcanic basalt meets serpentine
+            rock, creating a challenging and dynamic building environment.
             <br />
             <br />
             These aren&apos;t just display pieces. Each structure was designed
-            and built by students testing new ideas. Some projects succeeded
-            brilliantly, others showed why certain ideas stayed theoretical.
-            <br />
-            <br />
-            Whether you&apos;re interested in architecture, looking for a
-            different kind of hike, or just want to experience what makes Cal
-            Poly unique, it&apos;s worth checking out.
+            and built by students testing new ideas in real-world conditions.
+            The projects showcase everything from sustainable design principles
+            to experimental construction techniques, with some using innovative
+            materials like post-tensioned steel and sprayed concrete. Some
+            projects succeeded brilliantly, while others showed why certain
+            ideas stayed theoretical – both outcomes equally valuable for
+            learning.
           </Text>
           <PhotoGrid />
+
+          <Text style={{ textAlign: 'left' }}>
+            Whether you&apos;re interested in architecture, looking for a
+            different kind of hike, or just want to experience what makes Cal
+            Poly unique, it&apos;s worth checking out. The canyon represents one
+            of the most tangible examples of the &quot;Learn by Doing&quot;
+            philosophy, and it&apos;s one of the few places in the world where
+            students can design, build, and test full-scale architectural
+            projects. As an added bonus, you&apos;ll find yourself in one of the
+            campus&apos;s most scenic areas, where native grasslands (part of
+            just 5% remaining in California) meet oak woodlands and
+            chaparral-covered slopes.
+          </Text>
 
           {/* More Info Section (implementation above) */}
           <MoreInfoContainer ref={moreInfoContainerRef}>
@@ -517,6 +561,10 @@ const InfoPage = () => {
             Your personal guide to exploring these architectural wonders. Find
             your way around with interactive maps, uncover the stories behind
             each structure, and track your progress as you discover the area.
+            The app transforms a simple walk through the canyon into an
+            immersive educational experience, combining historical photos,
+            architectural insights, and location-aware features to bring each
+            structure&apos;s story to life.
           </Text>
 
           {/* Switch between adventure/virtual tour */}
@@ -544,12 +592,15 @@ const InfoPage = () => {
                   <ModeTitle>🧭 Adventure Mode</ModeTitle>
                   <FeatureList>
                     <FeatureItem>
-                      🗺️ Interactive map for easy navigation
+                      🗺️ Interactive detailed map with real-time location
+                      tracking
                     </FeatureItem>
                     <FeatureItem>
-                      ✅ Automatic tracking of visited structures
+                      ✅ Tracking of visited structures with progress indicators
                     </FeatureItem>
-                    <FeatureItem>📚 In-depth historical insights</FeatureItem>
+                    <FeatureItem>
+                      📚 Access deep information and the historical narratives
+                    </FeatureItem>
                   </FeatureList>
                   <RecommendedFor>
                     <RecommendedText>Recommended For:</RecommendedText>
@@ -562,13 +613,13 @@ const InfoPage = () => {
                   <ModeTitle>🖥️ Virtual Tour Mode</ModeTitle>
                   <FeatureList>
                     <FeatureItem>
-                      🏞️ Virtual walkthrough of the canyon
+                      🏞️ Virtual walkthrough of the canyon to explore
                     </FeatureItem>
                     <FeatureItem>
-                      ⭐ Decide which structures are your favorite
+                      ⭐ Decide which structures are your favorites
                     </FeatureItem>
                     <FeatureItem>
-                      📝 Learn about structures even from afar
+                      📝 Learn the history of the structures even from afar
                     </FeatureItem>
                   </FeatureList>
                   <RecommendedFor>
@@ -595,8 +646,13 @@ const InfoPage = () => {
 
             <Text>
               Whether you&apos;re on-site or browsing from home, dive deeper
-              into the stories and innovations that make this place special.
-              Download now to start your exploration.
+              into the stories and innovations that make this place special. The
+              app enhances both physical and virtual visits - providing
+              real-time navigation and structure recognition for on-site
+              explorers, while offering a virtual tour and detailed structure
+              information for remote visitors. Every feature is designed to make
+              the canyon&apos;s rich architectural history accessible, no matter
+              how you choose to explore. Download now to start your exploration.
             </Text>
           </ModeContent>
         </Section>
@@ -617,7 +673,13 @@ const InfoPage = () => {
           </MapContainer>
           <Text>
             Choose your path - hike, bike, or run. The trail is well-marked and
-            takes about 20 minutes to walk from campus.
+            takes about 20 minutes to walk from campus. The wide, gently sloping
+            road makes it perfect for mountain biking, while runners enjoy the
+            moderate incline for training. During the day, you&apos;ll be
+            treated to sweeping views of rolling hills and coastal mountains,
+            while clear nights offer excellent stargazing opportunities away
+            from city lights. It&apos;s equally rewarding as a quick
+            architectural tour or a longer nature expedition.
           </Text>
 
           {/* AllTrails & GMaps Links*/}
@@ -642,14 +704,25 @@ const InfoPage = () => {
           <VisitTipsTitle>Before You Go:</VisitTipsTitle>
           <VisitTips>
             <FeatureItem>
-              🌞 Visit during daylight hours for the best experience
+              🌞 Visit during daylight hours for the best experience -
+              structures are most photogenic in morning or late afternoon light
             </FeatureItem>
             <FeatureItem>
               🏞️ Watch for wildlife and horses - keep your distance and respect
-              their space
+              their space. You might spot deer, hawks, and various native bird
+              species
             </FeatureItem>
             <FeatureItem>
-              👟 Bring water and wear hiking shoes - the terrain can be uneven
+              👟 Bring water and wear hiking shoes - the terrain can be uneven,
+              especially when exploring around structures
+            </FeatureItem>
+            <FeatureItem>
+              🌡️ Check the weather before you go - the canyon can get hot during
+              summer afternoons and muddy after rain
+            </FeatureItem>
+            <FeatureItem>
+              📱 Download the app before your visit - cell service can be spotty
+              in some areas of the canyon
             </FeatureItem>
           </VisitTips>
         </Section>

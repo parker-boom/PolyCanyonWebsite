@@ -23,11 +23,11 @@ Global Styles
 export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 1024px;
+  max-width: 1224px;
   margin: 0 auto;
   padding: 5px 15px;
   background-color: #ffffff;
-  box-sizing: border-box; // Add this line
+  box-sizing: border-box;
 `;
 
 export const GlobalStyle = createGlobalStyle`
