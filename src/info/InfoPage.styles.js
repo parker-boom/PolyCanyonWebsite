@@ -747,7 +747,7 @@ export const MapContainer = styled.div`
   background-color: #f5f5f5;
   border-radius: 20px;
   padding: 5px;
-  margin-top: 10px;
+  margin-top: 0px;
   width: 100%;
   max-width: 1200px;
   align-items: center;
@@ -853,4 +853,173 @@ export const StepNumber = styled.div`
     font-size: 48px;
     margin: 0 20px;
   }
+`;
+
+/*
+MOBILE SPECIFIC STYLING
+*/
+
+// Styles for mobile history section
+// New styles for vertical carousel with background image behind horizontal images
+export const MobileCarouselContainer = styled.div`
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 0;
+  padding-bottom: 137.77%; // 9:16 aspect ratio for vertical images
+  margin-top: 10px;
+  overflow: hidden;
+  border-radius: 20px;
+`;
+
+export const MobileBackgroundImage = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(${(props) => props.src});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(10px);
+  opacity: 0.5;
+`;
+
+export const MobileCarouselImageContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const MobileCarouselImage = styled.img`
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+`;
+
+// New mobile styles for arrow buttons positioned at the bottom
+export const MobileArrowButtonImage = styled.button`
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  font-size: clamp(24px, 4vw, 48px); // Responsive font size
+  font-weight: bold;
+  color: #376d31;
+  padding: clamp(5px, 1vw, 10px); // Responsive padding
+  border-radius: 50%;
+  position: absolute;
+  bottom: 10px; // Positioning at the bottom
+  cursor: pointer;
+  z-index: 3;
+  transition:
+    background-color 0.3s,
+    transform 0.3s;
+  width: clamp(40px, 6vw, 80px); // Responsive width
+  height: clamp(40px, 6vw, 80px); // Responsive height
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 1);
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(1);
+  }
+
+  &:first-of-type {
+    left: 10px; // Left arrow positioning
+  }
+
+  &:last-of-type {
+    right: 10px; // Right arrow positioning
+  }
+`;
+
+// Styles for mobile geology section
+export const MobileGeologyContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 0 8px;
+`;
+
+export const MobileGeologyCard = styled.div`
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+`;
+
+export const GeologyIcon = styled.div`
+  font-size: 32px;
+  min-width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+`;
+
+export const GeologyContent = styled.div`
+  flex: 1;
+`;
+
+export const GeologyTitle = styled.h4`
+  color: #376d31;
+  font-size: 18px;
+  margin: 0 0 4px 0;
+  font-weight: 700;
+`;
+
+export const GeologyText = styled.p`
+  font-size: 14px;
+  margin: 0;
+  color: #555;
+  line-height: 1.4;
+`;
+
+// Styles for mobile app section
+export const MobileFeatureList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 20px 0;
+  text-align: center;
+`;
+
+export const MobileFeatureText = styled.p`
+  font-size: 20px;
+  margin: 0;
+  color: #333;
+  line-height: 1.4;
+`;
+
+export const RecommendedDescription = styled.div`
+  font-size: 18px;
+  color: #333;
+  margin-top: 8px;
+`;
+
+// Style for mobile photo grid
+export const PhotoGridMobileWrapper = styled.div`
+  width: 100%;
+  aspect-ratio: 9 / 16; /* Adjust this to be between 1 / 1 and 9 / 16 */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* We'll use 3 columns */
+  grid-template-rows: repeat(6, 1fr); /* And 6 rows to match the aspect ratio */
+  gap: 5px;
+  padding: 10px 0;
+  box-sizing: border-box;
 `;
