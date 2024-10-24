@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { FaChevronRight } from 'react-icons/fa';
 import {
   HomeContainer,
   MainHeading,
@@ -54,6 +55,7 @@ const Home = () => {
                 Discover the significance of this unique architectural
                 playground
               </CardSubtitle>
+              <FaChevronRight className="arrow-icon" />
             </CardContent>
           </ActionCard>
 
@@ -67,6 +69,7 @@ const Home = () => {
                 Enhance your visit with real time navigation and detailed
                 information
               </CardSubtitle>
+              <FaChevronRight className="arrow-icon" />
             </CardContent>
           </ActionCard>
 
@@ -76,8 +79,10 @@ const Home = () => {
             <CardContent>
               <CardTitle>Research Structures</CardTitle>
               <CardSubtitle>
-                Explore detailed information about specific student creations
+                Dive into comprehensive details about unique architectural
+                projects
               </CardSubtitle>
+              <FaChevronRight className="arrow-icon" />
             </CardContent>
           </ActionCard>
         </ActionContainer>

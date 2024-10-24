@@ -27,7 +27,8 @@ import Navigation from './layout/Navigation';
 import { Footer, FooterText } from './layout/Navigation.styles';
 
 // Pages
-import Home from './home/home';
+import HomeWeb from './home/homeWeb';
+import HomeMobile from './home/homeMobile';
 import DownloadPageMobile from './downloads/DownloadPageMobile';
 import DownloadPageWeb from './downloads/DownloadPageWeb';
 import InfoPageMobile from './info/InfoPageMobile';
@@ -59,8 +60,11 @@ function App() {
 
           <Content>
             <Routes>
-              {/* Home route */}
-              <Route path="/" element={<Home />} />
+              {/* Home route with mobile/web conditional rendering */}
+              <Route
+                path="/"
+                element={isMobile ? <HomeMobile /> : <HomeWeb />}
+              />
 
               {/* Other routes */}
               <Route

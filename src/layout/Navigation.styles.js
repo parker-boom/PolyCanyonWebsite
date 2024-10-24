@@ -46,6 +46,12 @@ export const PolyCanyonTitle = styled.h1`
   text-shadow: 0 2px 4px rgba(253, 208, 76, 0.5);
   text-align: center;
   margin: 0;
+  cursor: pointer;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #2a4c28;
+  }
 `;
 
 export const Logo = styled.img`
@@ -53,6 +59,12 @@ export const Logo = styled.img`
   width: 48px;
   border-radius: 10px;
   margin-right: 15px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 export const PopupContainer = styled.div`
@@ -194,6 +206,12 @@ export const BannerText = styled.h1`
   margin: 0;
   text-shadow: 0 2px 4px rgba(253, 208, 76, 0.5);
   line-height: 1;
+  cursor: pointer;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #2a4c28;
+  }
 `;
 
 export const NavLinks = styled.div`
@@ -237,6 +255,12 @@ export const BannerIcon = styled.img`
   width: 48px;
   object-fit: cover;
   border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 /*

@@ -11,7 +11,7 @@ Imports
 
 // Libraries
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import {
   FaBars,
@@ -59,6 +59,7 @@ const Navigation = () => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const [hoveredLink, setHoveredLink] = useState(null);
   const [activeLink, setActiveLink] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const currentPath =
@@ -113,8 +114,14 @@ const Navigation = () => {
           <MenuIcon onClick={togglePopup}>
             <FaBars />
           </MenuIcon>
-          <PolyCanyonTitle>Poly Canyon</PolyCanyonTitle>
-          <Logo src={app360} alt="Poly Canyon Logo" />
+          <PolyCanyonTitle onClick={() => navigate('/')}>
+            Poly Canyon
+          </PolyCanyonTitle>
+          <Logo
+            src={app360}
+            alt="Poly Canyon Logo"
+            onClick={() => navigate('/')}
+          />
         </BannerMobile>
 
         {/* PopUp */}
@@ -140,11 +147,15 @@ const Navigation = () => {
     <Banner>
       <BannerContent>
         <LeftSection>
-          <BannerText>Poly Canyon</BannerText>
+          <BannerText onClick={() => navigate('/')}>Poly Canyon</BannerText>
           <NavLinks>{renderNavLinks(NavLink)}</NavLinks>
         </LeftSection>
         <RightSection>
-          <BannerIcon src={app360} alt="Poly Canyon Logo" />
+          <BannerIcon
+            src={app360}
+            alt="Poly Canyon Logo"
+            onClick={() => navigate('/')}
+          />
         </RightSection>
       </BannerContent>
     </Banner>
