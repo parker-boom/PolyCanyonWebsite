@@ -41,23 +41,24 @@ export const GlobalStyle = createGlobalStyle`
   }
 `;
 
+// The base rounded container style that most sections inherit from
 export const RoundedContainer = styled.div`
   background-color: #f5f5f5;
-  border-radius: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 20px; // This creates the rounded corners
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); // Subtle shadow for depth
   padding: 20px;
   margin: 20px 0;
-  width: 100%; // Change from 95% to 100%
-  max-width: 100%; // Change from 1200px to 100%
+  width: 100%;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-sizing: border-box; // Add this line
+  box-sizing: border-box;
 `;
 
+// Each main section inherits these rounded rectangle properties
 export const Section = styled(RoundedContainer)`
   margin-bottom: 24px;
-  // Remove the padding override, as it's now consistent with RoundedContainer
 `;
 
 export const SectionTitle = styled.h2`
