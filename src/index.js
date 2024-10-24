@@ -27,6 +27,7 @@ import Navigation from './layout/Navigation';
 import { Footer, FooterText } from './layout/Navigation.styles';
 
 // Pages
+import Home from './home/home';
 import DownloadPageMobile from './downloads/DownloadPageMobile';
 import DownloadPageWeb from './downloads/DownloadPageWeb';
 import InfoPageMobile from './info/InfoPageMobile';
@@ -50,10 +51,18 @@ function App() {
     <HelmetProvider>
       <Router>
         <AppContainer>
-          <Navigation />
+          {/* Only show Navigation on non-home routes */}
+          <Routes>
+            <Route path="/" element={null} />
+            <Route path="*" element={<Navigation />} />
+          </Routes>
+
           <Content>
             <Routes>
-              {/* Define your routes */}
+              {/* Home route */}
+              <Route path="/" element={<Home />} />
+
+              {/* Other routes */}
               <Route
                 path="/info"
                 element={isMobile ? <InfoPageMobile /> : <InfoPageWeb />}
@@ -66,16 +75,26 @@ function App() {
                 }
               />
 
-              {/* Redirect any other route to /download */}
-              <Route path="*" element={<Navigate to="/download" replace />} />
+              {/* Redirect any unmatched route to home */}
+              <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </Content>
-          <Footer>
-            <FooterText>
-              © 2024 Poly Canyon App. All rights reserved.
-            </FooterText>
-            <FooterText>Cal Poly, San Luis Obispo</FooterText>
-          </Footer>
+
+          {/* Only show Footer on non-home routes */}
+          <Routes>
+            <Route path="/" element={null} />
+            <Route
+              path="*"
+              element={
+                <Footer>
+                  <FooterText>
+                    © 2024 Poly Canyon App. All rights reserved.
+                  </FooterText>
+                  <FooterText>Cal Poly, San Luis Obispo</FooterText>
+                </Footer>
+              }
+            />
+          </Routes>
         </AppContainer>
       </Router>
     </HelmetProvider>
