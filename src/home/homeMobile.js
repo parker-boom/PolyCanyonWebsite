@@ -45,9 +45,7 @@ const HomeMobile = () => {
   return (
     <>
       <Helmet>
-        <title>
-          Poly Canyon - Explore Cal Poly&apos;s Architectural Playground
-        </title>
+        <title>Poly Canyon Home</title>
         <meta
           name="description"
           content="Discover Poly Canyon's unique architectural structures through our interactive app, educational resources, and detailed research materials."

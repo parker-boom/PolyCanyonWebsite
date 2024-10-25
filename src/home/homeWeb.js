@@ -26,12 +26,14 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>
-          Poly Canyon - Explore Cal Poly&apos;s Architectural Playground
-        </title>
+        <title>Poly Canyon Home</title>
         <meta
           name="description"
           content="Discover Poly Canyon's unique architectural structures through our interactive app, educational resources, and detailed research materials."
+        />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
       </Helmet>
 
