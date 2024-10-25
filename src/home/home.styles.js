@@ -18,58 +18,17 @@ export const HomeContainer = styled.div`
   }
 `;
 
-// Add a welcome section
+// Update the WelcomeSection to include the divider
 export const WelcomeSection = styled.div`
   text-align: center;
   margin-bottom: 40px;
-
-  @media (max-width: 768px) {
-    margin-bottom: 24px;
-    padding: 0 16px;
-  }
-`;
-
-export const Subtitle = styled.h2`
-  font-size: 20px;
-  color: #666;
-  font-weight: 400;
-  margin: 0;
-  margin-top: 10px;
-
-  @media (max-width: 768px) {
-    font-size: 16px;
-    margin-top: 8px;
-    padding: 0 20px;
-  }
-`;
-
-// Enhance the main heading
-export const MainHeading = styled.h1`
-  text-align: center;
-  margin-bottom: 16px;
-  padding: 0;
-
-  .title {
-    display: block;
-    font-size: 36px;
-    color: #376d31;
-    font-weight: 800;
-    margin-bottom: 4px;
-  }
-
-  .subtitle {
-    display: block;
-    font-size: 28px;
-    color: #666;
-    font-weight: 600;
-    margin-bottom: 16px;
-  }
+  position: relative;
 
   .animated-divider {
-    width: 60px;
+    width: 180px; // Increased width for web
     height: 3px;
     background: #376d31;
-    margin: 0 auto;
+    margin: 24px auto 0; // Added margin-top to place below subtitle
     position: relative;
     overflow: hidden;
 
@@ -96,6 +55,37 @@ export const MainHeading = styled.h1`
     100% {
       left: 100%;
     }
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 24px;
+    padding: 0 16px;
+  }
+`;
+
+export const MainHeading = styled.h1`
+  font-size: 48px;
+  font-weight: 1000;
+  color: #376d31;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 36px;
+  }
+`;
+
+export const Subtitle = styled.h2`
+  font-size: 30px;
+  font-weight: 500;
+  color: #555;
+  margin-top: 5px;
+  margin-bottom: 0;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
   }
 `;
 

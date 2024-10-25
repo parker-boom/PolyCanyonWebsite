@@ -41,6 +41,7 @@ const Home = () => {
           <Subtitle>
             Your gateway to Cal Poly&apos;s unique architectural laboratory
           </Subtitle>
+          <div className="animated-divider" />
         </WelcomeSection>
 
         <ActionContainer>
