@@ -464,8 +464,8 @@ const InfoPage = () => {
               width: '60%',
               height: 'auto',
               borderRadius: '10px',
-              minWidth: '350px', // This sets a minimum width in pixels
-              minHeight: 'auto', // Keeps the aspect ratio intact with height set to 'auto'
+              minWidth: '350px',
+              minHeight: 'auto',
             }}
           />
 

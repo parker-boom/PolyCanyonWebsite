@@ -75,6 +75,8 @@ export const SectionTitle = styled.h2`
 export const Text = styled.p`
   font-size: 19.2px;
   text-align: center;
+  margin-top: 15px;
+  margin-bottom: 10px;
 `;
 
 /* 

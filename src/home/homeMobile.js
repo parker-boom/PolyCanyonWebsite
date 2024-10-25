@@ -62,8 +62,8 @@ const HomeMobile = () => {
         <HeaderImageMobile src={pcWide} alt="Poly Canyon Overview" />
         <WelcomeSection>
           <MainHeading>
-            <span className="title">Poly Canyon</span>
-            <span className="subtitle">Choose your adventure</span>
+            <span className="mobile-title">Poly Canyon</span>
+            <span className="mobile-subtitle">Choose your adventure</span>
             <div className="animated-divider" />
           </MainHeading>
         </WelcomeSection>

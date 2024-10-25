@@ -71,8 +71,41 @@ export const MainHeading = styled.h1`
   margin-bottom: 0px;
   text-align: center;
 
+  .mobile-title {
+    display: none;
+  }
+
+  .mobile-subtitle {
+    display: none;
+  }
+
   @media (max-width: 768px) {
-    font-size: 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin: 16px 0;
+
+    .mobile-title {
+      display: block;
+      font-size: 42px;
+      font-weight: 800;
+      color: #376d31;
+      line-height: 1.1;
+    }
+
+    .mobile-subtitle {
+      display: block;
+      font-size: 24px;
+      font-weight: 400;
+      color: #333;
+      line-height: 1.2;
+    }
+
+    .animated-divider {
+      width: 140px;
+      margin-top: 16px;
+    }
   }
 `;
 
