@@ -57,23 +57,22 @@ import {
   PickerTitle,
 
   // More Info: History
-  CarouselContainer,
-  BackgroundImage,
-  CarouselImageContainer,
-  CarouselImage,
-  ArrowButtonImage,
+  MobileCarouselImageContainer,
+  MobileCarouselContainer,
+  MobileCarouselImage,
+  MobileBackgroundImage,
+  MobileArrowButtonImage,
   CarouselCaption,
   CaptionTitle,
   CaptionText,
 
   // More Info: Geology
-  ResponsiveRow,
-  InfographicContainer,
-  InfographicIcon,
-  InfographicSquare,
-  InfoTextBox,
-  GreenTitle,
-  InfoText,
+  MobileGeologyContainer,
+  MobileGeologyCard,
+  GeologyContent,
+  GeologyTitle,
+  GeologyText,
+  GeologyIcon,
 
   // App Section
   ModeSelector,
@@ -81,10 +80,12 @@ import {
   ModeContent,
   ModeInfoBox,
   ModeTitle,
-  FeatureList,
+  MobileFeatureList,
+  MobileFeatureText,
   FeatureItem,
   RecommendedFor,
   RecommendedText,
+  RecommendedDescription,
   CTAButtonWrapper,
   CTAButton,
   CTAButtonText,
@@ -100,7 +101,7 @@ import {
 } from './InfoPage.styles';
 
 // Separate components
-import PhotoGrid from './PhotoGrid';
+import PhotoGridMobile from './PhotoGridMobile';
 import GoogleMapsRoute from './GoogleMapsRoute';
 
 // App screenshot
@@ -233,16 +234,18 @@ const InfoPage = () => {
             boldest designs into reality.
           </Text>
 
-          {/* Image Carousel - Historical Images*/}
-          <CarouselContainer>
-            <BackgroundImage src={historicalImages[currentImageIndex].src} />
-            <CarouselImageContainer>
-              <CarouselImage
+          {/* Mobile Carousel for Historical Images with Arrow Buttons */}
+          <MobileCarouselContainer>
+            <MobileBackgroundImage
+              src={historicalImages[currentImageIndex].src}
+            />
+            <MobileCarouselImageContainer>
+              <MobileCarouselImage
                 src={historicalImages[currentImageIndex].src}
                 alt={historicalImages[currentImageIndex].alt}
                 style={{ opacity: isTransitioning ? 0 : 1 }}
               />
-              <CarouselImage
+              <MobileCarouselImage
                 src={historicalImages[nextImageIndex].src}
                 alt={historicalImages[nextImageIndex].alt}
                 style={{
@@ -252,20 +255,22 @@ const InfoPage = () => {
                   opacity: isTransitioning ? 1 : 0,
                 }}
               />
-            </CarouselImageContainer>
-            <ArrowButtonImage
+            </MobileCarouselImageContainer>
+
+            {/* Bottom-positioned Arrow Buttons */}
+            <MobileArrowButtonImage
               onClick={handlePrevImage}
               disabled={isTransitioning}
             >
               &lt;
-            </ArrowButtonImage>
-            <ArrowButtonImage
+            </MobileArrowButtonImage>
+            <MobileArrowButtonImage
               onClick={handleNextImage}
               disabled={isTransitioning}
             >
               &gt;
-            </ArrowButtonImage>
-          </CarouselContainer>
+            </MobileArrowButtonImage>
+          </MobileCarouselContainer>
 
           {/* Caption with Title */}
           <CarouselCaption>
@@ -282,75 +287,52 @@ const InfoPage = () => {
 
     // GEOLOGY
     geology: {
-      title: 'A Landscape Shaped by Time',
+      title: 'Unique Landscape',
       content: (
         <>
-          {/* Geology overview */}
           <Text>
-            The canyon&apos;ss landscape is shaped by tectonic forces,
-            serpentine springs, and varied soil types. This intricate interplay
-            provides fertile ground for architectural and ecological study.
+            The canyon&apos;s unique landscape was shaped over millions of
+            years, creating a perfect natural laboratory for architecture and
+            ecology.
           </Text>
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '20px',
-              marginTop: '20px',
-            }}
-          >
-            {/* Infographic 1 - Tectonic */}
-            <ResponsiveRow>
-              <InfographicContainer>
-                <InfographicSquare>
-                  <InfographicIcon>🌍</InfographicIcon>
-                </InfographicSquare>
-                <InfoTextBox>
-                  <GreenTitle>Tectonic Forces</GreenTitle>
-                  <InfoText>
-                    The canyon&apos;s geological features are the result of
-                    tectonic activity. The Pacific and North American
-                    Plates&apos; movements have created formations like the
-                    Franciscan Formation and serpentine outcrops.
-                  </InfoText>
-                </InfoTextBox>
-              </InfographicContainer>
-            </ResponsiveRow>
 
-            {/* Infographic 2 - Water */}
-            <ResponsiveRow>
-              <InfographicContainer>
-                <InfographicSquare>
-                  <InfographicIcon>💧</InfographicIcon>
-                </InfographicSquare>
-                <InfoTextBox>
-                  <GreenTitle>Serpentine Springs</GreenTitle>
-                  <InfoText>
-                    Unique springs form where water flows through serpentine
-                    rocks. These springs provide essential water to local
-                    ecosystems, creating a distinct ecological character.
-                  </InfoText>
-                </InfoTextBox>
-              </InfographicContainer>
-            </ResponsiveRow>
+          <MobileGeologyContainer>
+            {/* Tectonic Forces */}
+            <MobileGeologyCard>
+              <GeologyIcon>🌍</GeologyIcon>
+              <GeologyContent>
+                <GeologyTitle>Moving Earth</GeologyTitle>
+                <GeologyText>
+                  Two massive tectonic plates meet here, creating unique rock
+                  formations perfect for testing architectural designs.
+                </GeologyText>
+              </GeologyContent>
+            </MobileGeologyCard>
 
-            {/* Infographic 3 - Soils */}
-            <ResponsiveRow>
-              <InfographicContainer>
-                <InfographicSquare>
-                  <InfographicIcon>🌱</InfographicIcon>
-                </InfographicSquare>
-                <InfoTextBox>
-                  <GreenTitle>Diverse Soil</GreenTitle>
-                  <InfoText>
-                    The canyon&apos;s soils range from stable Class I soils to
-                    more challenging Class V soils, influencing vegetation
-                    growth and ecological diversity.
-                  </InfoText>
-                </InfoTextBox>
-              </InfographicContainer>
-            </ResponsiveRow>
-          </div>
+            {/* Springs */}
+            <MobileGeologyCard>
+              <GeologyIcon>💧</GeologyIcon>
+              <GeologyContent>
+                <GeologyTitle>Natural Springs</GeologyTitle>
+                <GeologyText>
+                  Underground springs emerge through special green rocks,
+                  creating micro-environments throughout the canyon.
+                </GeologyText>
+              </GeologyContent>
+            </MobileGeologyCard>
+
+            {/* Soil */}
+            <MobileGeologyCard>
+              <GeologyIcon>🌱</GeologyIcon>
+              <GeologyContent>
+                <GeologyTitle>Rich Soil</GeologyTitle>
+                <GeologyText>
+                  Different soil types across the canyon support diverse plant
+                  life and provide varied building conditions.
+                </GeologyText>
+              </GeologyContent>
+            </MobileGeologyCard>
+          </MobileGeologyContainer>
         </>
       ),
     },
@@ -412,13 +394,13 @@ const InfoPage = () => {
             These aren&apos;t just display pieces. Each structure was designed
             and built by students testing new ideas. Some projects succeeded
             brilliantly, others showed why certain ideas stayed theoretical.
-            <br />
-            <br />
+          </Text>
+          <PhotoGridMobile />
+          <Text>
             Whether you&apos;re interested in architecture, looking for a
             different kind of hike, or just want to experience what makes Cal
             Poly unique, it&apos;s worth checking out.
           </Text>
-          <PhotoGrid />
 
           {/* More Info Section (implementation above) */}
           <MoreInfoContainer ref={moreInfoContainerRef}>
@@ -478,7 +460,13 @@ const InfoPage = () => {
             src={appPreview}
             alt="Poly Canyon App Preview"
             loading="lazy"
-            style={{ width: '60%', height: 'auto', borderRadius: '10px' }}
+            style={{
+              width: '60%',
+              height: 'auto',
+              borderRadius: '10px',
+              minWidth: '350px', // This sets a minimum width in pixels
+              minHeight: 'auto', // Keeps the aspect ratio intact with height set to 'auto'
+            }}
           />
 
           <Text>
@@ -487,19 +475,26 @@ const InfoPage = () => {
             each structure, and track your progress as you discover the area.
           </Text>
 
+          {/* New subtitle explaining the two modes - much shorter */}
+          <Text
+            style={{ fontSize: '16px', color: '#666', marginBottom: '10px' }}
+          >
+            The app supports two main modes of exploration.
+          </Text>
+
           {/* Switch between adventure/virtual tour */}
           <ModeSelector>
             <ModeButton
               active={currentMode === 'adventure'}
               onClick={() => handleModeChange('adventure')}
             >
-              <FaWalking /> Adventure Mode
+              <FaWalking /> Adventure
             </ModeButton>
             <ModeButton
               active={currentMode === 'virtual'}
               onClick={() => handleModeChange('virtual')}
             >
-              <FaSearch /> Virtual Tour Mode
+              <FaSearch /> Virtual
             </ModeButton>
           </ModeSelector>
 
@@ -508,40 +503,40 @@ const InfoPage = () => {
             <ModeInfoBox>
               {currentMode === 'adventure' ? (
                 <>
-                  {/* Adventure Mode */}
-                  <ModeTitle>🧭 Adventure Mode</ModeTitle>
-                  <FeatureList>
-                    <FeatureItem>
-                      🗺️ Interactive map for easy navigation
-                    </FeatureItem>
-                    <FeatureItem>
-                      ✅ Automatic tracking of visited structures
-                    </FeatureItem>
-                    <FeatureItem>📚 In-depth historical insights</FeatureItem>
-                  </FeatureList>
+                  <ModeTitle>🧭 Adventure</ModeTitle>
+                  <MobileFeatureList>
+                    <MobileFeatureText>
+                      🗺️ Interactive Map Navigation
+                    </MobileFeatureText>
+                    <MobileFeatureText>
+                      ✅ Track Your Progress
+                    </MobileFeatureText>
+                    <MobileFeatureText>
+                      📚 Learn Structures Histories
+                    </MobileFeatureText>
+                  </MobileFeatureList>
                   <RecommendedFor>
                     <RecommendedText>Recommended For:</RecommendedText>
-                    On-site explorers
+                    <RecommendedDescription>
+                      On-site explorers
+                    </RecommendedDescription>
                   </RecommendedFor>
                 </>
               ) : (
                 <>
-                  {/* Virtual Tour Mode */}
-                  <ModeTitle>🖥️ Virtual Tour Mode</ModeTitle>
-                  <FeatureList>
-                    <FeatureItem>
-                      🏞️ Virtual walkthrough of the canyon
-                    </FeatureItem>
-                    <FeatureItem>
-                      ⭐ Decide which structures are your favorite
-                    </FeatureItem>
-                    <FeatureItem>
-                      📝 Learn about structures even from afar
-                    </FeatureItem>
-                  </FeatureList>
+                  <ModeTitle>🖥️ Virtual Tour</ModeTitle>
+                  <MobileFeatureList>
+                    <MobileFeatureText>🏞️ Explore From Home</MobileFeatureText>
+                    <MobileFeatureText>
+                      ⭐ Rate Favorite Structures
+                    </MobileFeatureText>
+                    <MobileFeatureText>📱 Learn from afar</MobileFeatureText>
+                  </MobileFeatureList>
                   <RecommendedFor>
                     <RecommendedText>Recommended For:</RecommendedText>
-                    Remote enthusiasts
+                    <RecommendedDescription>
+                      Remote enthusiasts
+                    </RecommendedDescription>
                   </RecommendedFor>
                 </>
               )}
@@ -560,12 +555,6 @@ const InfoPage = () => {
                 </CTAButton>
               </CTAButtonWrapper>
             </ModeInfoBox>
-
-            <Text>
-              Whether you&apos;re on-site or browsing from home, dive deeper
-              into the stories and innovations that make this place special.
-              Download now to start your exploration.
-            </Text>
           </ModeContent>
         </Section>
 
@@ -576,8 +565,7 @@ const InfoPage = () => {
           <SectionTitle>How do I get there?</SectionTitle>
           <Text>
             Access the area by walking along Poly Canyon Road on campus. The
-            interactive map below shows the route, or use AllTrails and Google
-            Maps for detailed directions.
+            interactive map below shows the route.
           </Text>
           <MapContainer>
             {/* Google Maps - Separate Component */}

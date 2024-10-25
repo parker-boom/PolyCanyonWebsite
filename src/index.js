@@ -17,16 +17,20 @@ import {
   Route,
   Routes,
   Navigate,
+  useLocation,
 } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import { HelmetProvider } from 'react-helmet-async';
 import styled from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 import './index.css';
 import Navigation from './layout/Navigation';
 import { Footer, FooterText } from './layout/Navigation.styles';
 
 // Pages
+import HomeWeb from './home/homeWeb';
+import HomeMobile from './home/homeMobile';
 import DownloadPageMobile from './downloads/DownloadPageMobile';
 import DownloadPageWeb from './downloads/DownloadPageWeb';
 import InfoPageMobile from './info/InfoPageMobile';
@@ -41,53 +45,106 @@ const AppContainer = styled.div`
 
 const Content = styled.main`
   flex: 1;
+  margin-top: ${(props) =>
+    props.path === '/' ? '0' : '80px'}; // No margin for home page
 `;
 
-function App() {
+// Separate component to use useLocation hook
+function AppContent() {
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+  const location = useLocation();
 
+  return (
+    <AppContainer>
+      <Routes>
+        <Route path="/" element={null} />
+        <Route path="*" element={<Navigation />} />
+      </Routes>
+
+      <Content path={location.pathname}>
+        <Routes>
+          {/* Home route with mobile/web conditional rendering */}
+          <Route path="/" element={isMobile ? <HomeMobile /> : <HomeWeb />} />
+
+          {/* Other routes */}
+          <Route
+            path="/info"
+            element={isMobile ? <InfoPageMobile /> : <InfoPageWeb />}
+          />
+          <Route path="/structures" element={<StructuresPage />} />
+          <Route
+            path="/download"
+            element={isMobile ? <DownloadPageMobile /> : <DownloadPageWeb />}
+          />
+
+          {/* Redirect any unmatched route to home */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </Content>
+
+      {/* Only show Footer on non-home routes */}
+      <Routes>
+        <Route path="/" element={null} />
+        <Route
+          path="*"
+          element={
+            <Footer>
+              <FooterText>
+                © 2024 Poly Canyon App. All rights reserved.
+              </FooterText>
+              <FooterText>Cal Poly, San Luis Obispo</FooterText>
+            </Footer>
+          }
+        />
+      </Routes>
+    </AppContainer>
+  );
+}
+
+// Main App component
+function App() {
   return (
     <HelmetProvider>
       <Router>
-        <AppContainer>
-          <Navigation />
-          <Content>
-            <Routes>
-              {/* Define your routes */}
-              <Route
-                path="/info"
-                element={isMobile ? <InfoPageMobile /> : <InfoPageWeb />}
-              />
-              <Route path="/structures" element={<StructuresPage />} />
-              <Route
-                path="/download"
-                element={
-                  isMobile ? <DownloadPageMobile /> : <DownloadPageWeb />
-                }
-              />
-
-              {/* Redirect any other route to /download */}
-              <Route path="*" element={<Navigate to="/download" replace />} />
-            </Routes>
-          </Content>
-          <Footer>
-            <FooterText>
-              © 2024 Poly Canyon App. All rights reserved.
-            </FooterText>
-            <FooterText>Cal Poly, San Luis Obispo</FooterText>
-          </Footer>
-        </AppContainer>
+        <AppContent />
       </Router>
     </HelmetProvider>
   );
 }
 
-// Wrap your app with HelmetProvider to manage dynamic metadata
+const GlobalStyle = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body, #root {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #ffffff;
+    min-height: 100%;
+    width: 100%;
+    position: relative;
+  }
+`;
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <HelmetProvider>
-      <App />
-    </HelmetProvider>
+    <GlobalStyle />
+    <App />
   </React.StrictMode>
 );

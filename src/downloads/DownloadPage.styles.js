@@ -28,12 +28,16 @@ export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 15px; // Add horizontal padding
+  padding: 0 15px;
   width: 100%;
-  max-width: 100%;
+  max-width: 1024px;
   margin: 0 auto;
   background-color: #ffffff;
   box-sizing: border-box;
+
+  @media (min-width: 1324px) {
+    padding: 0 50px;
+  }
 `;
 
 export const RoundedContainer = styled.div`
@@ -42,12 +46,12 @@ export const RoundedContainer = styled.div`
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
   margin: 20px auto;
-  width: 100%; // Changed from 90% to 100%
-  max-width: 1200px;
+  width: 100%;
+  max-width: 1024px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-sizing: border-box; // Ensure padding is included in width calculation
+  box-sizing: border-box;
 `;
 
 export const Title = styled.h1`

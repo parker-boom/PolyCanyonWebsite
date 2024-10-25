@@ -16,143 +16,184 @@ const fadeIn = keyframes`
   to { opacity: 1; }
 `;
 
+const slideDown = keyframes`
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+`;
+
 /*
 Mobile Elements
 */
 
 export const BannerMobile = styled.div`
   width: 100%;
-  background-color: #b6e5b6;
-  padding: 15px 0;
+  background-color: #e8efe8;
+  padding: 12px 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 0 0 20px 20px;
+  border-radius: 0 0 25px 25px;
+  box-shadow: 0 4px 20px rgba(55, 109, 49, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
   box-sizing: border-box;
 `;
 
 export const MenuIcon = styled.div`
-  font-size: 28px;
-  color: #3c6b38;
+  font-size: 24px;
+  color: #376d31;
   cursor: pointer;
-  padding: 10px 15px;
-  margin-top: 10px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  background-color: rgba(55, 109, 49, 0.05);
+
+  &:hover {
+    background-color: rgba(55, 109, 49, 0.1);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
 `;
 
 export const PolyCanyonTitle = styled.h1`
-  font-size: 40px;
-  font-weight: 700;
-  color: #3c6b38;
-  text-shadow: 0 2px 4px rgba(253, 208, 76, 0.5);
-  text-align: center;
+  font-size: 28px;
+  font-weight: 850;
+  background: linear-gradient(135deg, #376d31 0%, #428a13 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: -0.5px;
+
+  &:hover {
+    filter: brightness(1.1);
+  }
 `;
 
 export const Logo = styled.img`
-  height: 48px;
-  width: 48px;
-  border-radius: 10px;
-  margin-right: 15px;
+  height: 40px;
+  width: 40px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(55, 109, 49, 0.15);
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(55, 109, 49, 0.2);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
 `;
 
 export const PopupContainer = styled.div`
   position: fixed;
-  top: 0;
+  top: 0; // Ensure it starts from the very top
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
   display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
+  flex-direction: column; // Change to column layout
+  z-index: 1001;
+  animation: ${fadeIn} 0.2s ease-out;
 `;
 
 export const PopupContent = styled.div`
-  background-color: white;
-  border-radius: 20px;
-  padding: 20px;
-  width: 80%;
-  max-width: 300px;
+  background-color: #ffffff;
+  width: 100%;
+  border-radius: 0 0 25px 25px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  align-items: center;
-  position: relative;
+  animation: ${slideDown} 0.3s ease-out;
+  box-sizing: border-box;
 `;
 
-export const PopupCloseButton = styled.button`
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  font-size: 24px;
-  color: #333;
-  cursor: pointer;
-  padding: 5px;
+export const PopupHeader = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
-  transition: color 0.3s ease;
-
-  &:hover {
-    color: #4caf50;
-  }
+  justify-content: space-between;
+  padding: 15px 25px 15px; // Add padding-top to account for banner height
 `;
 
 export const PopupTitle = styled.h2`
-  font-size: 28px;
-  font-weight: 700;
-  color: #333;
-  margin: 10px 0 20px;
-  text-align: center;
+  font-size: 24px;
+  font-weight: 850;
+  color: #376d31;
+  margin: 0;
+`;
+
+export const PopupCloseButton = styled.button`
+  background: none;
+  border: none;
+  color: #376d31;
+  font-size: 24px;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+
+  &:active {
+    transform: scale(0.9);
+  }
+`;
+
+export const NavLinkContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding: 0 25px 25px; // Move padding here
 `;
 
 export const PopupNavLink = styled(Link)`
   text-decoration: none;
-  color: #4caf50;
-  font-size: 18px;
-  font-weight: bold;
+  padding: 16px 10px;
+  border-radius: 15px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
-  transition: all 0.3s ease;
-  padding: 12px;
-  border-radius: 10px;
-  width: 100%;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333333;
+  transition: all 0.2s ease;
+  background: ${(props) => (props.$isActive ? '#e8efe8' : '#f5f5f5')};
+  text-align: center;
 
-  &:hover {
-    background-color: #f0f0f0;
-    color: #45a049;
+  svg {
+    font-size: 24px;
+    color: #376d31;
+    margin-bottom: 2px;
   }
 
   ${({ $isActive }) =>
     $isActive &&
-    `
-    background-color: #e8f5e9;
-    color: #2e7d32;
-    position: relative;
+    css`
+      color: #376d31;
+      box-shadow: inset 0 -3px 0 #376d31;
+    `}
 
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 5px;
-      left: 10px;
-      right: 10px;
-      height: 2px;
-      background-color: #2e7d32;
-    }
-  `}
-`;
-
-export const NavLinkContainer = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+  &:active {
+    transform: scale(0.95);
+  }
 `;
 
 /*
@@ -160,12 +201,21 @@ Web Banner
 */
 export const Banner = styled.div`
   width: 100%;
-  background-color: #b6e5b6;
-  padding: 15px 0;
+  background-color: #e8efe8;
+  padding: 12px 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 0 0 20px 20px;
+  border-radius: 0 0 25px 25px;
+  box-shadow: 0 4px 20px rgba(55, 109, 49, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transform: translateY(
+    ${(props) => (props.$isAtTop ? '0' : props.$isVisible ? '0' : '-100%')}
+  );
+  transition: transform 0.3s ease;
 `;
 
 export const BannerContent = styled.div`
@@ -173,12 +223,15 @@ export const BannerContent = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  max-width: 1200px;
   padding: 0 30px;
+  position: relative;
 `;
 
 export const LeftSection = styled.div`
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  gap: 40px;
 `;
 
 export const RightSection = styled.div`
@@ -188,55 +241,81 @@ export const RightSection = styled.div`
 `;
 
 export const BannerText = styled.h1`
-  font-size: 36px;
-  font-weight: 700;
-  color: #3c6b38;
+  font-size: 32px;
+  font-weight: 850;
+  background: linear-gradient(135deg, #376d31 0%, #428a13 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin: 0;
-  text-shadow: 0 2px 4px rgba(253, 208, 76, 0.5);
-  line-height: 1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: -0.5px;
+
+  &:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.1);
+  }
 `;
 
 export const NavLinks = styled.div`
   display: flex;
-  gap: 20px;
-  margin-left: 30px;
+  gap: 30px;
+  margin-left: 10px;
 `;
 
 export const NavLink = styled(Link)`
   position: relative;
-  color: #000;
+  color: #333333;
   text-decoration: none;
-  font-size: 16px;
-  font-weight: 500;
-  padding: 5px 10px;
-  border-radius: 5px;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 12px;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 
-  &:after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #3c6b38;
-    transition: width 0.3s ease;
+  svg {
+    font-size: 16px;
+    color: #376d31;
   }
 
-  ${({ $isUnderlined }) =>
-    $isUnderlined &&
+  &:hover {
+    background-color: rgba(55, 109, 49, 0.05);
+    color: #376d31;
+  }
+
+  ${({ $isActive }) =>
+    $isActive &&
     css`
+      color: #376d31;
+
       &:after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
         width: 100%;
+        height: 3px;
+        background: linear-gradient(to right, #376d31, #428a13);
+        border-radius: 3px;
       }
     `}
 `;
 
 export const BannerIcon = styled.img`
-  height: 48px;
-  width: 48px;
-  object-fit: cover;
-  border-radius: 10px;
+  height: 42px;
+  width: 42px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(55, 109, 49, 0.15);
+
+  &:hover {
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 0 4px 12px rgba(55, 109, 49, 0.2);
+  }
 `;
 
 /*
@@ -254,4 +333,8 @@ export const FooterText = styled.p`
   color: #777;
   font-size: 16px;
   margin: 8px 0; // Footer text margin
+`;
+
+export const PageWrapper = styled.div`
+  padding-top: 70px; // Always add padding since banner is always fixed
 `;
