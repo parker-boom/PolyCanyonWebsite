@@ -18,9 +18,9 @@ import {
   StatLabel,
 } from './home.styles';
 
-import download from '../assets/home/SquareDownload.jpg';
-import info from '../assets/home/SquareInfo.jpg';
-import structures from '../assets/home/SquareStructures.jpg';
+import download from '../assets/home/Download.jpg';
+import info from '../assets/home/Info.jpg';
+import structures from '../assets/home/Structures.jpg';
 
 const Home = () => {
   return (
