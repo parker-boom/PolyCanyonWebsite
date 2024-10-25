@@ -9,7 +9,7 @@ export const HomeContainer = styled.div`
   max-width: 1224px;
   margin: 0 auto;
   padding: 40px 20px;
-  min-height: 100vh;
+  height: 100%; // Changed from min-height: 100vh
   background-color: #ffffff;
 
   @media (max-width: 768px) {
@@ -45,32 +45,56 @@ export const Subtitle = styled.h2`
 
 // Enhance the main heading
 export const MainHeading = styled.h1`
-  font-size: 48px;
-  color: #376d31;
   text-align: center;
-  margin-bottom: 20px;
-  font-weight: 800;
-  position: relative;
+  margin-bottom: 16px;
+  padding: 0;
 
-  &::after {
-    content: '';
+  .title {
     display: block;
-    width: 100px;
-    height: 4px;
-    background: #376d31;
-    margin: 20px auto 0;
-    border-radius: 2px;
+    font-size: 36px;
+    color: #376d31;
+    font-weight: 800;
+    margin-bottom: 4px;
   }
 
-  @media (max-width: 768px) {
-    font-size: 32px;
+  .subtitle {
+    display: block;
+    font-size: 28px;
+    color: #666;
+    font-weight: 600;
     margin-bottom: 16px;
-    padding: 0 10px;
+  }
+
+  .animated-divider {
+    width: 60px;
+    height: 3px;
+    background: #376d31;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
 
     &::after {
-      width: 80px;
-      height: 3px;
-      margin: 16px auto 0;
+      content: '';
+      position: absolute;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.8),
+        transparent
+      );
+      animation: shine 2s linear infinite;
+    }
+  }
+
+  @keyframes shine {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 100%;
     }
   }
 `;
@@ -454,25 +478,22 @@ export const CardImageSquare = styled.div`
 export const CardListMobile = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   width: 100%;
-  padding: 0 20px;
-  margin-top: 24px;
-
-  @media (min-width: 769px) {
-    display: none;
-  }
+  padding: 0 12px;
+  margin-top: 0; // Removed margin-top since MainHeading handles spacing
 `;
 
 export const ListCardMobile = styled(Link)`
   display: flex;
   background: white;
-  border-radius: 16px;
+  border-radius: 20px;
   overflow: hidden;
   text-decoration: none;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   position: relative;
   transition: transform 0.2s ease;
+  height: 120px; // Reduced from 140px
 
   &::before {
     content: '';
@@ -491,8 +512,8 @@ export const ListCardMobile = styled(Link)`
 `;
 
 export const CardImageSquareMobile = styled.div`
-  width: 120px;
-  height: 120px;
+  width: 120px; // Reduced from 140px
+  height: 120px; // Reduced from 140px
   flex-shrink: 0;
   background-image: url(${(props) => props.src});
   background-size: cover;
@@ -514,25 +535,26 @@ export const CardContentMobile = styled.div`
     top: 50%;
     transform: translateY(-50%);
     color: #376d31;
-    opacity: 0.6;
-    font-size: 14px;
+    opacity: 0.7;
+    font-size: 18px;
   }
 `;
 
 export const CardTitleMobile = styled.h2`
-  font-size: 18px;
+  font-size: 22px;
   color: #376d31;
-  margin: 0 0 4px 0;
-  font-weight: 700;
-  padding-right: 24px;
+  margin: 0;
+  font-weight: 800;
+  padding-right: 32px;
+  line-height: 1.2;
 `;
 
 export const CardSubtitleMobile = styled.p`
-  font-size: 14px;
+  font-size: 16px;
   color: #666;
   margin: 0;
-  line-height: 1.4;
-  padding-right: 24px;
+  line-height: 1.3;
+  padding-right: 32px;
 `;
 
 export const PopularTagMobile = styled.div`
@@ -551,10 +573,12 @@ export const PopularTagMobile = styled.div`
 // Add this with the other mobile-specific styles
 
 export const HeaderImageMobile = styled.img`
-  width: calc(100% - 40px);
-  height: auto;
+  width: calc(100% - 32px); // Slightly reduced side margins
+  height: 25vh; // Dynamic height based on viewport
+  min-height: 150px; // Minimum height to maintain visibility
+  max-height: 200px; // Maximum height to prevent oversizing
   border-radius: 16px;
-  margin: 0 20px 5px;
+  margin: 0 16px 16px; // Reduced margins
   object-fit: cover;
-  aspect-ratio: 16/9;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 `;

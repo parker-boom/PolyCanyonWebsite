@@ -29,6 +29,7 @@ import {
   PolyCanyonTitle,
   Logo,
   PopupContainer,
+  PopupHeader,
   PopupContent,
   PopupCloseButton,
   PopupTitle,
@@ -55,11 +56,56 @@ Components & Render
 const Navigation = () => {
   // State variables
   const [isPopupOpen, setPopupOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const location = useLocation();
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const [hoveredLink, setHoveredLink] = useState(null);
   const [activeLink, setActiveLink] = useState(null);
   const navigate = useNavigate();
+  const [isAtTop, setIsAtTop] = useState(true);
+
+  // Add scroll handler
+  useEffect(() => {
+    let timeoutId;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Update isAtTop state
+      setIsAtTop(currentScrollY === 0);
+
+      // Only handle visibility changes when not at top
+      if (!isAtTop) {
+        // Show navbar when scrolling up
+        if (currentScrollY < lastScrollY) {
+          setIsVisible(true);
+        }
+        // Hide navbar when scrolling down
+        else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+          setIsVisible(false);
+        }
+
+        // Hide after 2 seconds of no scrolling, unless at top of page
+        timeoutId = setTimeout(() => {
+          if (currentScrollY > 100) {
+            setIsVisible(false);
+          }
+        }, 2000);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+    };
+  }, [lastScrollY, isAtTop]);
 
   useEffect(() => {
     const currentPath =
@@ -128,10 +174,12 @@ const Navigation = () => {
         {isPopupOpen && (
           <PopupContainer onClick={togglePopup}>
             <PopupContent onClick={(e) => e.stopPropagation()}>
-              <PopupCloseButton onClick={togglePopup}>
-                <FaTimes />
-              </PopupCloseButton>
-              <PopupTitle>Switch Pages</PopupTitle>
+              <PopupHeader>
+                <PopupTitle>Navigation</PopupTitle>
+                <PopupCloseButton onClick={togglePopup}>
+                  <FaTimes />
+                </PopupCloseButton>
+              </PopupHeader>
               <NavLinkContainer>
                 {renderNavLinks(PopupNavLink, { onClick: togglePopup })}
               </NavLinkContainer>
@@ -144,11 +192,17 @@ const Navigation = () => {
 
   // Web Banner
   return (
-    <Banner>
+    <Banner $isVisible={isVisible} $isAtTop={isAtTop}>
       <BannerContent>
         <LeftSection>
           <BannerText onClick={() => navigate('/')}>Poly Canyon</BannerText>
-          <NavLinks>{renderNavLinks(NavLink)}</NavLinks>
+          <NavLinks>
+            {navLinks.map(({ to, icon, text }) => (
+              <NavLink key={to} to={to} $isActive={to === activeLink}>
+                {icon} {text}
+              </NavLink>
+            ))}
+          </NavLinks>
         </LeftSection>
         <RightSection>
           <BannerIcon

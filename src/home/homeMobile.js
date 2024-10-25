@@ -5,45 +5,38 @@ import {
   HomeContainer,
   MainHeading,
   WelcomeSection,
-  Subtitle,
   CardListMobile,
   ListCardMobile,
   CardImageSquareMobile,
   CardContentMobile,
   CardTitleMobile,
-  CardSubtitleMobile,
-  PopularTagMobile,
   HeaderImageMobile,
 } from './home.styles';
 
-import placeholderApp from '../assets/Download.jpg';
-import placeholderLearn from '../assets/Info.jpg';
-import placeholderResearch from '../assets/Structures.jpg';
+import download from '../assets/home/SquareDownload.jpg';
+import info from '../assets/home/SquareInfo.jpg';
+import structures from '../assets/home/SquareStructures.jpg';
 import pcWide from './pcWide.jpg';
 
 const CARDS = [
   {
     id: 0,
     to: '/download',
-    image: placeholderApp,
+    image: download,
     title: 'Download the App',
-    subtitle: 'Enhance your visit with real time navigation',
-    isPopular: true,
   },
   {
     id: 1,
     to: '/info',
-    image: placeholderLearn,
+    image: info,
     title: 'Learn About the Canyon',
-    subtitle: 'Discover this unique architectural playground',
     color: 'rgba(245, 235, 166, 0.2)',
   },
   {
     id: 2,
     to: '/structures',
-    image: placeholderResearch,
+    image: structures,
     title: 'Research Structures',
-    subtitle: 'Explore architectural projects in detail',
     color: 'rgba(207, 190, 155, 0.2)',
   },
 ];
@@ -59,26 +52,28 @@ const HomeMobile = () => {
           name="description"
           content="Discover Poly Canyon's unique architectural structures through our interactive app, educational resources, and detailed research materials."
         />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
       </Helmet>
 
       <HomeContainer>
         <HeaderImageMobile src={pcWide} alt="Poly Canyon Overview" />
         <WelcomeSection>
-          <MainHeading>How would you like to explore Poly Canyon?</MainHeading>
-          <Subtitle>
-            Your gateway to appreciating Cal Poly&apos;s unique student-built
-            architectural laboratory
-          </Subtitle>
+          <MainHeading>
+            <span className="title">Poly Canyon</span>
+            <span className="subtitle">Choose your adventure</span>
+            <div className="animated-divider" />
+          </MainHeading>
         </WelcomeSection>
 
         <CardListMobile>
           {CARDS.map((card) => (
             <ListCardMobile key={card.id} to={card.to} color={card.color}>
-              {card.isPopular && <PopularTagMobile>Popular</PopularTagMobile>}
               <CardImageSquareMobile src={card.image} />
               <CardContentMobile>
                 <CardTitleMobile>{card.title}</CardTitleMobile>
-                <CardSubtitleMobile>{card.subtitle}</CardSubtitleMobile>
                 <FaChevronRight className="arrow-icon" />
               </CardContentMobile>
             </ListCardMobile>

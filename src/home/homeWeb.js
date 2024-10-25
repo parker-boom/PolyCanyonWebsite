@@ -10,7 +10,6 @@ import {
   CardContent,
   CardTitle,
   CardSubtitle,
-  PopularTag,
   WelcomeSection,
   Subtitle,
   StatsContainer,
@@ -19,10 +18,9 @@ import {
   StatLabel,
 } from './home.styles';
 
-// Placeholder images - replace these with actual images later
-import placeholderApp from '../assets/Download.jpg';
-import placeholderLearn from '../assets/Info.jpg';
-import placeholderResearch from '../assets/Structures.jpg';
+import download from '../assets/home/SquareDownload.jpg';
+import info from '../assets/home/SquareInfo.jpg';
+import structures from '../assets/home/SquareStructures.jpg';
 
 const Home = () => {
   return (
@@ -48,7 +46,7 @@ const Home = () => {
         <ActionContainer>
           {/* Learn Card */}
           <ActionCard to="/info">
-            <CardImage src={placeholderLearn} />
+            <CardImage src={info} />
             <CardContent>
               <CardTitle>Learn About the Canyon</CardTitle>
               <CardSubtitle>
@@ -61,8 +59,7 @@ const Home = () => {
 
           {/* Download Card */}
           <ActionCard to="/download">
-            <PopularTag>Popular</PopularTag>
-            <CardImage src={placeholderApp} />
+            <CardImage src={download} />
             <CardContent>
               <CardTitle>Download the App</CardTitle>
               <CardSubtitle>
@@ -75,7 +72,7 @@ const Home = () => {
 
           {/* Research Card */}
           <ActionCard to="/structures">
-            <CardImage src={placeholderResearch} />
+            <CardImage src={structures} />
             <CardContent>
               <CardTitle>Research Structures</CardTitle>
               <CardSubtitle>
