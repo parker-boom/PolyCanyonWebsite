@@ -4,6 +4,7 @@ import {
   FaTimes,
   FaChevronLeft,
   FaChevronRight,
+  FaCamera,
   FaNewspaper,
   FaBook,
   FaGlobe,
@@ -120,6 +121,7 @@ const StructureInfo = () => {
                 </S.ImageContainer>
 
                 <S.ImageDescription>
+                  <FaCamera />
                   <p>{structure.images[currentImageIndex].description}</p>
                 </S.ImageDescription>
               </S.DescriptionContainer>
@@ -237,17 +239,19 @@ const StructureInfo = () => {
 
           {/* Resources */}
           <S.LinksSection>
-            {structure.links.map((link, index) => (
-              <S.LinkButton
-                key={index}
-                href={link.URL}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {getLinkIcon(link.title)}
-                {link.title}
-              </S.LinkButton>
-            ))}
+            <S.LinkButtonContainer>
+              {structure.links.map((link, index) => (
+                <S.LinkButton
+                  key={index}
+                  href={link.URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {getLinkIcon(link.title)}
+                  {link.title}
+                </S.LinkButton>
+              ))}
+            </S.LinkButtonContainer>
           </S.LinksSection>
         </S.ContentContainer>
       </S.CenteredWrapper>

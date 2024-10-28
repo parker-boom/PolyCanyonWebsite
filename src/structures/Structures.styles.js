@@ -587,7 +587,7 @@ export const CenteredWrapper = styled.div`
 // Header stays the same size - add box-sizing
 export const HeaderContainer = styled.div`
   width: 100%;
-  background: white;
+  background: #f8f9f8;
   border-radius: 24px;
   padding: 24px;
   margin-bottom: 15px;
@@ -595,49 +595,39 @@ export const HeaderContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box; // Add this
+  box-shadow: 0 4px 24px rgba(55, 109, 49, 0.08);
+  box-sizing: border-box;
+  border: 1px solid rgba(55, 109, 49, 0.08);
 `;
 
-// Content container - add box-sizing and min-width
+// Update ContentContainer - keep hover effect, no scrollbar
 export const ContentContainer = styled.div`
   flex: 1;
   width: 100%;
-  min-width: 0; // Add this to prevent flex items from overflowing
-  background: white;
+  min-width: 0;
+  background: #f8f9f8;
   border-radius: 24px;
   padding: 24px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 24px rgba(55, 109, 49, 0.08);
   display: flex;
   flex-direction: column;
   gap: 24px;
   overflow-y: auto;
-  box-sizing: border-box; // Add this
+  box-sizing: border-box;
+  transition: all 0.3s ease;
 
-  // Enable smooth scrolling
-  scrollbar-width: thin;
-  scrollbar-color: rgba(55, 109, 49, 0.3) transparent;
-
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   &::-webkit-scrollbar {
-    width: 8px;
+    display: none;
   }
 
-  &::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: rgba(55, 109, 49, 0.3);
-    border-radius: 4px;
-    border: 2px solid transparent;
-  }
-
-  &:hover::-webkit-scrollbar-thumb {
-    background-color: rgba(55, 109, 49, 0.5);
+  &:hover {
+    box-shadow: 0 6px 28px rgba(0, 0, 0, 0.15);
   }
 `;
 
-// Update header elements
+// Update header elements to have consistent heights
 export const StructureNumberBubble = styled.div`
   background: linear-gradient(135deg, #376d31, #2c5526);
   color: white;
@@ -657,26 +647,33 @@ export const StructureNumberBubble = styled.div`
 
 export const StructureTitleInfo = styled.div`
   flex-grow: 1;
-  font-size: 32px;
-  font-weight: 600;
+  font-size: 36px;
+  font-weight: 700;
   color: #376d31;
   text-align: center;
-  padding: 8px 24px;
+  height: 64px;
   background: rgba(55, 109, 49, 0.08);
-  border-radius: 16px;
+  border-radius: 32px;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 32px;
+  box-sizing: border-box;
+  border: 2px solid rgba(189, 139, 19, 0.3); // Made the gold border slightly more visible
 
   &:hover {
     background: rgba(55, 109, 49, 0.12);
     transform: translateY(-1px);
+    border-color: rgba(189, 139, 19, 0.4); // Slightly more visible on hover
   }
 `;
 
 export const CloseButton = styled.button`
   background: none;
   border: none;
-  width: 48px;
-  height: 48px;
+  width: 64px; // Increased from 48px
+  height: 64px; // Increased from 48px
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -687,7 +684,7 @@ export const CloseButton = styled.button`
   flex-shrink: 0;
 
   svg {
-    font-size: 24px;
+    font-size: 32px; // Increased from 24px
     transition: transform 0.2s ease;
   }
 
@@ -721,11 +718,10 @@ export const LeftSection = styled.div`
   flex: 3;
   display: flex;
   flex-direction: column;
-  gap: 24px;
   min-width: 0;
 `;
 
-// Update InfoCardsSection to match LeftSection height using flex
+// Update InfoCardsSection - keep hover effect, no scrollbar
 export const InfoCardsSection = styled.div`
   flex: 2;
   display: flex;
@@ -738,43 +734,36 @@ export const InfoCardsSection = styled.div`
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
   min-width: 0;
   box-sizing: border-box;
+  transition: all 0.3s ease;
 
   // Make it match height and enable scrolling
-  height: 0; // Force it to not grow beyond parent
-  min-height: 100%; // Match parent height
+  height: 0;
+  min-height: 100%;
   overflow-y: auto;
 
-  // Enable smooth scrolling
-  scrollbar-width: thin;
-  scrollbar-color: rgba(55, 109, 49, 0.3) transparent;
-
+  // Hide scrollbar completely
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   &::-webkit-scrollbar {
-    width: 8px;
+    display: none;
   }
 
-  &::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: rgba(55, 109, 49, 0.3);
-    border-radius: 4px;
-    border: 2px solid transparent;
-  }
-
-  &:hover::-webkit-scrollbar-thumb {
-    background-color: rgba(55, 109, 49, 0.5);
+  &:hover {
+    background: rgba(55, 109, 49, 0.06);
+    box-shadow:
+      inset 0 2px 4px rgba(0, 0, 0, 0.08),
+      0 0 0 2px rgba(55, 109, 49, 0.1);
   }
 `;
 
 // Update DescriptionContainer to remove hover effect
 export const DescriptionContainer = styled.div`
-  background: white;
+  background: #ffffff;
   border-radius: 16px;
   padding: 20px;
   margin-bottom: 24px;
   border: 1px solid rgba(55, 109, 49, 0.08);
-  box-shadow: 0 4px 12px rgba(55, 109, 49, 0.05);
+  box-shadow: 0 2px 12px rgba(55, 109, 49, 0.06);
 
   &:last-child {
     margin-bottom: 0;
@@ -828,18 +817,38 @@ export const ToggleDescriptionButton = styled.button`
 // Update LinksSection to be below the columns
 export const LinksSection = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 16px;
   width: 100%;
   padding-top: 24px;
   border-top: 1px solid rgba(55, 109, 49, 0.1);
+  position: relative;
+
+  &::before {
+    content: 'Resources';
+    position: absolute;
+    top: -10px;
+    left: 24px;
+    background: #f8f9f8;
+    padding: 0 12px;
+    color: #376d31;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+`;
+
+export const LinkButtonContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
 `;
 
 // Update ImageContainer to remove margin since it's now inside DescriptionContainer
 export const ImageContainer = styled.div`
   position: relative;
   width: 100%;
-  padding-top: 56.25%; // 16:9 aspect ratio
+  padding-top: 56.25%;
   background: #f5f5f5;
   border-radius: 16px;
   overflow: hidden;
@@ -904,28 +913,26 @@ export const StyledImage = styled.img`
 
 // Update ImageDescription to have proper spacing inside the container
 export const ImageDescription = styled.div`
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(55, 109, 49, 0.05);
   padding: 16px;
   border-radius: 12px;
-  margin-top: 16px;
+  margin-top: 12px;
+  border: 1px solid rgba(55, 109, 49, 0.1);
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
 
   p {
     margin: 0;
-    font-size: 15px;
+    font-size: 16px;
     color: #333;
-    font-weight: 500;
+    line-height: 1.6;
     flex: 1;
   }
 
-  &::before {
-    content: '📸';
+  svg {
     font-size: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    color: #376d31;
     flex-shrink: 0;
   }
 `;
