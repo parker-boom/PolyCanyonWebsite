@@ -537,3 +537,424 @@ export const StructuresContainer = styled(RoundedContainer)`
   margin-bottom: 24px;
   padding: 20px;
 `;
+
+/* Structure Info page styles */
+// New styles for StructureInfo component
+
+export const SectionTitleInfo = styled.h3`
+  font-size: 20px;
+  font-weight: 600;
+  color: #376d31;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &::before {
+    content: '';
+    width: 4px;
+    height: 20px;
+    background: #376d31;
+    border-radius: 2px;
+    opacity: 0.6;
+  }
+`;
+
+export const InfoPageWrapper = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #f5f5f5;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  overflow-y: auto;
+  gap: 24px;
+`;
+
+// Base container style for both header and content containers
+const BaseContainer = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  background: white;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.1),
+    0 2px 8px rgba(0, 0, 0, 0.05);
+`;
+
+// Header container
+export const HeaderContainer = styled(BaseContainer)`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+`;
+
+// Content container
+export const ContentContainer = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  background: white;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.1),
+    0 2px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+`;
+
+// Update header elements
+export const StructureNumberBubble = styled.div`
+  background: linear-gradient(135deg, #376d31, #2c5526);
+  color: white;
+  font-size: 32px;
+  font-weight: 700;
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 4px 12px rgba(55, 109, 49, 0.2),
+    0 2px 4px rgba(55, 109, 49, 0.1);
+  flex-shrink: 0;
+`;
+
+export const StructureTitleInfo = styled.div`
+  flex-grow: 1;
+  font-size: 32px;
+  font-weight: 600;
+  color: #376d31;
+  text-align: center;
+  padding: 8px 24px;
+  background: rgba(55, 109, 49, 0.08);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(55, 109, 49, 0.12);
+    transform: translateY(-1px);
+  }
+`;
+
+export const CloseButton = styled.button`
+  background: none;
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #666;
+  flex-shrink: 0;
+
+  svg {
+    font-size: 24px;
+    transition: transform 0.2s ease;
+  }
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: #333;
+    transform: rotate(90deg);
+
+    svg {
+      transform: scale(1.1);
+    }
+  }
+
+  &:active {
+    transform: rotate(90deg) scale(0.95);
+  }
+`;
+
+// Update MainContent to be more flexible
+export const MainContent = styled.div`
+  display: flex;
+  gap: 40px;
+  margin-bottom: 24px;
+  align-items: flex-start;
+`;
+
+// Replace ImageSection with LeftSection
+export const LeftSection = styled.div`
+  flex: 3; /* Equivalent to 60% */
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+`;
+
+// Update DescriptionContainer to remove hover effect
+export const DescriptionContainer = styled.div`
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 24px;
+  border: 1px solid rgba(55, 109, 49, 0.08);
+  box-shadow: 0 4px 12px rgba(55, 109, 49, 0.05);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+`;
+
+export const DescriptionText = styled.div`
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+
+  /* Style for the main description */
+  > p:first-child {
+    margin-top: 0;
+  }
+
+  /* Style for the extended description */
+  > p:last-child {
+    margin-top: 16px;
+    margin-bottom: 0;
+    display: ${(props) => (props.expanded ? 'block' : 'none')};
+  }
+`;
+
+export const ToggleDescriptionButton = styled.button`
+  background: rgba(55, 109, 49, 0.08);
+  border: none;
+  color: #376d31;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  margin-top: 16px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  &:hover {
+    background: rgba(55, 109, 49, 0.12);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+`;
+
+// Update InfoCardsSection to handle dynamic height
+export const InfoCardsSection = styled.div`
+  flex: 2; /* Equivalent to 40% */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: rgba(55, 109, 49, 0.03);
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(55, 109, 49, 0.08);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  overflow-y: auto; /* Enables vertical scrolling */
+
+  /* Optional: Customize scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(55, 109, 49, 0.3) transparent;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(55, 109, 49, 0.3);
+    border-radius: 4px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(55, 109, 49, 0.5);
+  }
+
+  /* Prevent InfoCardsSection from expanding beyond its flex-basis */
+  min-height: 0;
+`;
+
+// Update LinksSection to be below the columns
+export const LinksSection = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  width: 100%;
+  padding-top: 24px;
+  border-top: 1px solid rgba(55, 109, 49, 0.1);
+`;
+
+// Update ImageContainer to remove margin since it's now inside DescriptionContainer
+export const ImageContainer = styled.div`
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; // 16:9 aspect ratio
+  background: #f5f5f5;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+`;
+
+// Update ImageControls to position arrows over the image
+export const ImageControls = styled.div`
+  position: absolute;
+  bottom: 16px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+  pointer-events: none; // This ensures clicks pass through to the buttons
+`;
+
+// Update ArrowButton for the new positioning
+export const ArrowButton = styled.button`
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #376d31;
+  pointer-events: auto; // Re-enable pointer events for the button
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+  svg {
+    font-size: 18px;
+    transition: transform 0.2s ease;
+  }
+
+  &:hover {
+    background: white;
+    transform: scale(1.1);
+
+    svg {
+      transform: scale(1.1);
+    }
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+`;
+
+export const StyledImage = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+
+// Update ImageDescription to have proper spacing inside the container
+export const ImageDescription = styled.div`
+  background: rgba(255, 255, 255, 0.5);
+  padding: 16px;
+  border-radius: 12px;
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  p {
+    margin: 0;
+    font-size: 15px;
+    color: #333;
+    font-weight: 500;
+    flex: 1;
+  }
+
+  &::before {
+    content: '📸';
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+`;
+
+export const InfoCard = styled.div`
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+`;
+
+export const InfoCardHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+`;
+
+export const InfoCardEmoji = styled.span`
+  font-size: 24px;
+`;
+
+export const InfoCardTitle = styled.h3`
+  margin: 0;
+  font-size: 16px;
+  color: #376d31;
+  font-weight: 600;
+`;
+
+export const InfoCardContent = styled.div`
+  color: #333;
+  font-size: 15px;
+  line-height: 1.5;
+`;
+
+export const LinkButton = styled.a`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  padding: 12px 20px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #376d31;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(55, 109, 49, 0.15);
+    background: rgba(55, 109, 49, 0.05);
+  }
+
+  svg {
+    font-size: 20px;
+  }
+`;

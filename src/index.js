@@ -31,7 +31,8 @@ import DownloadPageMobile from './downloads/DownloadPageMobile';
 import DownloadPageWeb from './downloads/DownloadPageWeb';
 import InfoPageMobile from './info/InfoPageMobile';
 import InfoPageWeb from './info/InfoPageWeb';
-import StructuresPage from './structures/Structures';
+import StructuresList from './structures/StructureList';
+import StructureInfo from './structures/StructureInfo';
 
 const AppContainer = styled.div`
   display: flex;
@@ -43,44 +44,61 @@ const Content = styled.main`
   flex: 1;
 `;
 
-function App() {
+const App = () => {
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
 
   return (
     <HelmetProvider>
       <Router>
         <AppContainer>
-          <Navigation />
-          <Content>
-            <Routes>
-              {/* Define your routes */}
-              <Route
-                path="/info"
-                element={isMobile ? <InfoPageMobile /> : <InfoPageWeb />}
-              />
-              <Route path="/structures" element={<StructuresPage />} />
-              <Route
-                path="/download"
-                element={
-                  isMobile ? <DownloadPageMobile /> : <DownloadPageWeb />
-                }
-              />
-
-              {/* Redirect any other route to /download */}
-              <Route path="*" element={<Navigate to="/download" replace />} />
-            </Routes>
-          </Content>
-          <Footer>
-            <FooterText>
-              © 2024 Poly Canyon App. All rights reserved.
-            </FooterText>
-            <FooterText>Cal Poly, San Luis Obispo</FooterText>
-          </Footer>
+          {/* Conditionally render Navigation based on route */}
+          <Routes>
+            <Route path="/structure/info" element={<StructureInfo />} />
+            <Route
+              path="*"
+              element={
+                <>
+                  <Navigation />
+                  <Content>
+                    <Routes>
+                      <Route
+                        path="/info"
+                        element={
+                          isMobile ? <InfoPageMobile /> : <InfoPageWeb />
+                        }
+                      />
+                      <Route path="/structures" element={<StructuresList />} />
+                      <Route
+                        path="/download"
+                        element={
+                          isMobile ? (
+                            <DownloadPageMobile />
+                          ) : (
+                            <DownloadPageWeb />
+                          )
+                        }
+                      />
+                      <Route
+                        path="*"
+                        element={<Navigate to="/download" replace />}
+                      />
+                    </Routes>
+                  </Content>
+                  <Footer>
+                    <FooterText>
+                      © 2024 Poly Canyon App. All rights reserved.
+                    </FooterText>
+                    <FooterText>Cal Poly, San Luis Obispo</FooterText>
+                  </Footer>
+                </>
+              }
+            />
+          </Routes>
         </AppContainer>
       </Router>
     </HelmetProvider>
   );
-}
+};
 
 // Wrap your app with HelmetProvider to manage dynamic metadata
 const root = ReactDOM.createRoot(document.getElementById('root'));

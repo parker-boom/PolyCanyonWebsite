@@ -20,13 +20,16 @@ import {
 //import { RiSparklingFill } from 'react-icons/ri'; (uncomment later when AI feature ready)
 
 // Data
-import structuresData from './structuresBasic.json';
+import structuresData from './structureList.json';
 
 // Styles
 import * as S from './Structures.styles';
 
 // Add this import near the top with other imports
 import { structureImages } from './structureImages';
+
+// Add this import
+import { useNavigate } from 'react-router-dom';
 
 /*
 Components & Renders
@@ -106,6 +109,14 @@ const Structures = () => {
       ...prev,
       [section]: !prev[section],
     }));
+  };
+
+  // Add this near other useState declarations
+  const navigate = useNavigate();
+
+  // Add this function
+  const handleStructureClick = (structureNumber) => {
+    navigate('/structure/info', { state: { structureNumber } });
   };
 
   return (
@@ -270,7 +281,10 @@ const Structures = () => {
                     (s) => s.number === structureNumber
                   );
                   return (
-                    <S.StructureCard key={structure.number}>
+                    <S.StructureCard
+                      key={structure.number}
+                      onClick={() => handleStructureClick(structure.number)}
+                    >
                       <S.StructureImage
                         src={structureImages[structure.image_key]}
                         alt={structure.title}

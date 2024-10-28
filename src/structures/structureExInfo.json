@@ -1,0 +1,106 @@
+{
+  "structure": {
+    "name": "Blade",
+    "year": "1963 / 2003",
+    "department": ["Architectural Engineering"],
+    "advisor_builders": [
+      {
+        "name": "Steve Gilmore",
+        "role": ["Original Builder"]
+      },
+      {
+        "name": "Mark Haselton",
+        "role": ["Original Builder"]
+      },
+      {
+        "name": "Dan McMann",
+        "role": ["Original Builder"]
+      },
+      {
+        "name": "Ken Minor",
+        "role": ["Original Builder"]
+      },
+      {
+        "name": "Ben Green",
+        "role": ["Rebuilder"]
+      },
+      {
+        "name": "Robert Pacheco",
+        "role": ["Rebuilder"]
+      },
+      {
+        "name": "Elley Arinez",
+        "role": ["Rebuilder"]
+      },
+      {
+        "name": "Susan Smilanich",
+        "role": ["Rebuilder"]
+      },
+      {
+        "name": "Jeff Messana",
+        "role": ["Rebuilder"]
+      },
+      {
+        "name": "Jon Voorhies",
+        "role": ["Rebuilder"]
+      },
+      {
+        "name": "Nick Watry",
+        "role": ["Advisor", "Architectural Engineering Professor"]
+      }
+    ],
+    "description": "This structure collapsed once but was rebuilt decades later—proving that at Poly Canyon, students get second chances to make first-rate architecture! Originally testing pioneering post-tensioning methods, this structure collapsed due to design flaws but was rebuilt by a new team of students, including some original builders. Updated with features like catenary arches to meet new building codes, it won an Award of Excellence. The project embodies Cal Poly's 'learn by doing' spirit and showcases the evolution of architectural education through hands-on experience.",
+    "extended_description": "First constructed in 1963, Poly Canyon’s Blade Structure is the oldest structure originally built in the canyon. It was completed by students testing post-tensioning methods. After deteriorating over time, it was reconstructed in 2003 by a new group of students, with guidance from some original builders. The redesigned structure incorporated catenary arches and won an Award of Excellence. This project highlights Cal Poly's hands-on approach to education.\n\nThe Blade structure has gone by many names over its sixty-year existence, including the petal structure, the Cal Poly memorial, 'earth forms,' the concrete flower, and a sculptural study in pre-stressed concrete. Originally constructed in 1963 by students Steve Gilmore, Mark Haselton, Dan McMann, and Ken Minor, this structure tested newly-discovered post-tensioning methods. After a few decades in the canyon, the 'petals' deteriorated and collapsed. Nearly forty years after completion, the blade structure was rebuilt by students and Professor Nick Watry, as well as three of the students who worked on the original structure. Some of the original fractured petals still remain around the new structure today as a reminder of the original design.\n\nIn 2003, students Ben Green, Robert Pacheco, Elley Arinez, Susan Smilanich, Jeff Messana and Jon Voorhies, along with Architectural Engineering Professor Nick Watry, began the redesign of the Blade Structure. Three of the alums who worked on the original project, including Steve Gilmore, Mark Haselton, and Ken Minor, returned to help with the reconstruction. Using more accurate post-tensioning information and new materials, the group revised the earlier calculations, and the redesigned structure won an Award of Excellence in 2006.",
+    "status": "Active",
+    "style": "Post-tensioned concrete",
+    "tags": ["post-tensioning", "catenary arch", "award-winning", "rebuild"],
+    "location": {
+      "latitude": 35.314271,
+      "longitude": -120.652194
+    },
+    "number": 3,
+    "images": [
+      {
+        "type": "main",
+        "orientation": true,
+        "path": "/historicalImages/M-3.jpg",
+        "description": "Current image of the Blade structure, rebuilt with catenary arches."
+      },
+      {
+        "type": "closeup",
+        "orientation": true,
+        "path": "/historicalImages/C-3.jpg",
+        "description": "Close up of the current blade structure, a bit of grafitti showing."
+      },
+      {
+        "type": "historical",
+        "orientation": true,
+        "path": "/historicalImages/BladeRedesign.png",
+        "description": "Rebuilding of the Blade structure in 2003 with Nick Watry and the student team."
+      },
+      {
+        "type": "historical",
+        "orientation": true,
+        "path": "/historicalImages/OriginalBladePeople.png",
+        "description": "People sitting on the original blade structure, in the 1970s."
+      }
+    ],
+    "links": [
+      {
+        "linkType": "Article",
+        "URL": "https://google.com",
+        "title": "Mustang News Article"
+      },
+      {
+        "linkType": "Thesis",
+        "URL": "https://csu-calpoly.primo.exlibrisgroup.com/discovery/fulldisplay?context=L&vid=01CALS_PSU:01CALS_PSU&search_scope=Everything&tab=Everything&docid=alma991001009959702920",
+        "title": "Original Thesis Blade Structure"
+      },
+      {
+        "linkType": "Article",
+        "URL": "https://polycanyon.calpoly.edu/history/blade-structure",
+        "title": "CAED Website"
+      }
+    ]
+  }
+}
