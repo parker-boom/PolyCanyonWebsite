@@ -560,6 +560,7 @@ export const SectionTitleInfo = styled.h3`
   }
 `;
 
+// The outer fixed container
 export const InfoPageWrapper = styled.div`
   position: fixed;
   top: 0;
@@ -568,47 +569,72 @@ export const InfoPageWrapper = styled.div`
   bottom: 0;
   background: #f5f5f5;
   z-index: 1000;
+  padding: 15px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 24px;
-  overflow-y: auto;
-  gap: 24px;
+  justify-content: center;
 `;
 
-// Base container style for both header and content containers
-const BaseContainer = styled.div`
+// Single wrapper for all content - add box-sizing
+export const CenteredWrapper = styled.div`
   width: 100%;
   max-width: 1200px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box; // Add this
+`;
+
+// Header stays the same size - add box-sizing
+export const HeaderContainer = styled.div`
+  width: 100%;
   background: white;
   border-radius: 24px;
   padding: 24px;
-  box-shadow:
-    0 4px 24px rgba(0, 0, 0, 0.1),
-    0 2px 8px rgba(0, 0, 0, 0.05);
-`;
-
-// Header container
-export const HeaderContainer = styled(BaseContainer)`
+  margin-bottom: 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box; // Add this
 `;
 
-// Content container
+// Content container - add box-sizing and min-width
 export const ContentContainer = styled.div`
+  flex: 1;
   width: 100%;
-  max-width: 1200px;
+  min-width: 0; // Add this to prevent flex items from overflowing
   background: white;
   border-radius: 24px;
   padding: 24px;
-  box-shadow:
-    0 4px 24px rgba(0, 0, 0, 0.1),
-    0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   gap: 24px;
+  overflow-y: auto;
+  box-sizing: border-box; // Add this
+
+  // Enable smooth scrolling
+  scrollbar-width: thin;
+  scrollbar-color: rgba(55, 109, 49, 0.3) transparent;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(55, 109, 49, 0.3);
+    border-radius: 4px;
+    border: 2px solid transparent;
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(55, 109, 49, 0.5);
+  }
 `;
 
 // Update header elements
@@ -680,20 +706,65 @@ export const CloseButton = styled.button`
   }
 `;
 
-// Update MainContent to be more flexible
+// Update MainContent to maintain flex layout
 export const MainContent = styled.div`
   display: flex;
   gap: 40px;
   margin-bottom: 24px;
-  align-items: flex-start;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 `;
 
-// Replace ImageSection with LeftSection
+// Update LeftSection to be the height reference
 export const LeftSection = styled.div`
-  flex: 3; /* Equivalent to 60% */
+  flex: 3;
   display: flex;
   flex-direction: column;
   gap: 24px;
+  min-width: 0;
+`;
+
+// Update InfoCardsSection to match LeftSection height using flex
+export const InfoCardsSection = styled.div`
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: rgba(55, 109, 49, 0.03);
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(55, 109, 49, 0.08);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  min-width: 0;
+  box-sizing: border-box;
+
+  // Make it match height and enable scrolling
+  height: 0; // Force it to not grow beyond parent
+  min-height: 100%; // Match parent height
+  overflow-y: auto;
+
+  // Enable smooth scrolling
+  scrollbar-width: thin;
+  scrollbar-color: rgba(55, 109, 49, 0.3) transparent;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(55, 109, 49, 0.3);
+    border-radius: 4px;
+    border: 2px solid transparent;
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(55, 109, 49, 0.5);
+  }
 `;
 
 // Update DescriptionContainer to remove hover effect
@@ -752,46 +823,6 @@ export const ToggleDescriptionButton = styled.button`
   &:active {
     transform: translateY(0);
   }
-`;
-
-// Update InfoCardsSection to handle dynamic height
-export const InfoCardsSection = styled.div`
-  flex: 2; /* Equivalent to 40% */
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  background: rgba(55, 109, 49, 0.03);
-  padding: 20px;
-  border-radius: 16px;
-  border: 1px solid rgba(55, 109, 49, 0.08);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
-  overflow-y: auto; /* Enables vertical scrolling */
-
-  /* Optional: Customize scrollbar */
-  scrollbar-width: thin;
-  scrollbar-color: rgba(55, 109, 49, 0.3) transparent;
-
-  &::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: rgba(55, 109, 49, 0.3);
-    border-radius: 4px;
-    border: 2px solid transparent;
-    background-clip: padding-box;
-  }
-
-  &::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(55, 109, 49, 0.5);
-  }
-
-  /* Prevent InfoCardsSection from expanding beyond its flex-basis */
-  min-height: 0;
 `;
 
 // Update LinksSection to be below the columns
