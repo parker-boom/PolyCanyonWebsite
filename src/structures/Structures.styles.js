@@ -643,6 +643,21 @@ export const StructureNumberBubble = styled.div`
     0 4px 12px rgba(55, 109, 49, 0.2),
     0 2px 4px rgba(55, 109, 49, 0.1);
   flex-shrink: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  ${(props) =>
+    props.isOpen &&
+    `
+    transform: scale(1.1);
+    background: #2c5526;
+  `}
+
+  &:hover {
+    transform: ${(props) => (props.isOpen ? 'scale(1.1)' : 'scale(1.05)')};
+    background: ${(props) =>
+      props.isOpen ? '#2c5526' : 'linear-gradient(135deg, #376d31, #2c5526)'};
+  }
 `;
 
 export const StructureTitleInfo = styled.div`
@@ -666,6 +681,70 @@ export const StructureTitleInfo = styled.div`
     background: rgba(55, 109, 49, 0.12);
     transform: translateY(-1px);
     border-color: rgba(189, 139, 19, 0.4); // Slightly more visible on hover
+  }
+  cursor: pointer;
+  position: relative;
+  padding-right: 48px;
+
+  ${(props) =>
+    props.isOpen &&
+    `
+    background: rgba(55, 109, 49, 0.15);
+  `}
+`;
+
+export const TitleIcon = styled.span`
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%)
+    rotate(${(props) => (props.isOpen ? '180deg' : '0deg')});
+  transition: all 0.3s ease;
+`;
+
+export const StructureListOverlay = styled.div`
+  position: absolute;
+  top: 120px;
+  left: 24px;
+  right: 24px;
+  max-height: calc(100% - 180px);
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  z-index: 100;
+`;
+
+export const StructureList = styled.div`
+  max-height: 100%;
+  overflow-y: auto;
+  padding: 16px;
+`;
+
+export const StructureListItem = styled.div`
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+
+  span {
+    font-weight: 600;
+    color: #376d31;
+    min-width: 32px;
+  }
+
+  ${(props) =>
+    props.isSelected &&
+    `
+    background: rgba(55, 109, 49, 0.1);
+    font-weight: 500;
+  `}
+
+  &:hover {
+    background: rgba(55, 109, 49, 0.05);
   }
 `;
 

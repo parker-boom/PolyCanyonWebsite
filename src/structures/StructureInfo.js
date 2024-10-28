@@ -1,3 +1,18 @@
+/*
+TO DO
+Header:
+1. Add it so there's buttons to go forward and backward through structures
+2. Make the drop down list more elegant, match the width of the title container, and be scrollable
+3. Get rid of drop down button icon on title
+4. Add hover states to number icon: default: shows dropdown icon; \\ if open: show close icon. 
+---
+Images:
+1. Scale images correctly, make sure vertically fits, background image horizontally fills
+---
+Quick Facts:
+1. Location card should use coordinates to display google maps pin 
+*/
+
 // StructureInfo.jsx
 import React, { useState } from 'react';
 import {
@@ -8,11 +23,13 @@ import {
   FaNewspaper,
   FaBook,
   FaGlobe,
+  FaChevronDown,
 } from 'react-icons/fa';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 // Data
 import structureData from './structureExInfo.json';
+import structureList from './structureList.json';
 
 // Styles
 import * as S from './Structures.styles';
@@ -36,6 +53,7 @@ const StructureInfo = () => {
   const location = useLocation();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [descriptionExpanded, setDescriptionExpanded] = useState(false);
+  const [isListOpen, setIsListOpen] = useState(false);
 
   // Function to handle closing
   const handleClose = () => {
@@ -43,8 +61,39 @@ const StructureInfo = () => {
   };
 
   // Get structure data based on structureNumber
-  const structureNumber = location.state?.structureNumber || 3; // Default to 3 if no number passed
-  const structure = structureData.structure; // Update this to use the structureNumber as needed
+  const structureNumber = location.state?.structureNumber || 3;
+  const structure = structureData.structures.find(
+    (s) => s.number === structureNumber
+  );
+
+  // If no structure is found, show a message
+  if (!structure) {
+    return (
+      <S.InfoPageWrapper>
+        <S.CenteredWrapper>
+          <S.HeaderContainer>
+            <S.StructureNumberBubble>{structureNumber}</S.StructureNumberBubble>
+            <S.StructureTitleInfo>Structure Not Found</S.StructureTitleInfo>
+            <S.CloseButton onClick={handleClose}>
+              <FaTimes />
+            </S.CloseButton>
+          </S.HeaderContainer>
+
+          <S.ContentContainer>
+            <S.MainContent>
+              <S.DescriptionContainer>
+                <S.SectionTitleInfo>Notice</S.SectionTitleInfo>
+                <S.DescriptionText>
+                  Detailed information for structure #{structureNumber} is not
+                  yet available.
+                </S.DescriptionText>
+              </S.DescriptionContainer>
+            </S.MainContent>
+          </S.ContentContainer>
+        </S.CenteredWrapper>
+      </S.InfoPageWrapper>
+    );
+  }
 
   const handlePrevImage = () => {
     setCurrentImageIndex((prevIndex) =>
@@ -88,16 +137,51 @@ const StructureInfo = () => {
     return imageMap[relativePath] || '';
   };
 
+  const handleStructureSelect = (number) => {
+    navigate('/structure/info', { state: { structureNumber: number } });
+    setIsListOpen(false);
+  };
+
   return (
     <S.InfoPageWrapper>
       <S.CenteredWrapper>
         <S.HeaderContainer>
-          <S.StructureNumberBubble>{structure.number}</S.StructureNumberBubble>
-          <S.StructureTitleInfo>{structure.name}</S.StructureTitleInfo>
+          <S.StructureNumberBubble
+            onClick={() => setIsListOpen(!isListOpen)}
+            isOpen={isListOpen}
+          >
+            {isListOpen ? <FaTimes /> : structure.number}
+          </S.StructureNumberBubble>
+          <S.StructureTitleInfo
+            onClick={() => setIsListOpen(!isListOpen)}
+            isOpen={isListOpen}
+          >
+            {structure.name}
+            <S.TitleIcon isOpen={isListOpen}>
+              <FaChevronDown />
+            </S.TitleIcon>
+          </S.StructureTitleInfo>
           <S.CloseButton onClick={handleClose}>
             <FaTimes />
           </S.CloseButton>
         </S.HeaderContainer>
+
+        {isListOpen && (
+          <S.StructureListOverlay>
+            <S.StructureList>
+              {structureList.map((item) => (
+                <S.StructureListItem
+                  key={item.number}
+                  onClick={() => handleStructureSelect(item.number)}
+                  isSelected={item.number === structure.number}
+                >
+                  <span>{item.number}</span>
+                  {item.title}
+                </S.StructureListItem>
+              ))}
+            </S.StructureList>
+          </S.StructureListOverlay>
+        )}
 
         <S.ContentContainer>
           <S.MainContent>
@@ -141,6 +225,7 @@ const StructureInfo = () => {
             {/* Right section that matches height and scrolls if needed */}
             <S.InfoCardsSection>
               <S.SectionTitleInfo>Quick Facts</S.SectionTitleInfo>
+
               {structure.year && (
                 <S.InfoCard>
                   <S.InfoCardHeader>
@@ -151,7 +236,7 @@ const StructureInfo = () => {
                 </S.InfoCard>
               )}
 
-              {structure.department && (
+              {structure.department?.length > 0 && (
                 <S.InfoCard>
                   <S.InfoCardHeader>
                     <S.InfoCardEmoji>
@@ -221,19 +306,20 @@ const StructureInfo = () => {
                 </S.InfoCard>
               )}
 
-              {structure.location && (
-                <S.InfoCard>
-                  <S.InfoCardHeader>
-                    <S.InfoCardEmoji>
-                      {getInfoEmoji('location')}
-                    </S.InfoCardEmoji>
-                    <S.InfoCardTitle>Location</S.InfoCardTitle>
-                  </S.InfoCardHeader>
-                  <S.InfoCardContent>
-                    {`${structure.location.latitude}, ${structure.location.longitude}`}
-                  </S.InfoCardContent>
-                </S.InfoCard>
-              )}
+              {structure.location?.latitude &&
+                structure.location?.longitude && (
+                  <S.InfoCard>
+                    <S.InfoCardHeader>
+                      <S.InfoCardEmoji>
+                        {getInfoEmoji('location')}
+                      </S.InfoCardEmoji>
+                      <S.InfoCardTitle>Location</S.InfoCardTitle>
+                    </S.InfoCardHeader>
+                    <S.InfoCardContent>
+                      {`${structure.location.latitude}, ${structure.location.longitude}`}
+                    </S.InfoCardContent>
+                  </S.InfoCard>
+                )}
             </S.InfoCardsSection>
           </S.MainContent>
 
