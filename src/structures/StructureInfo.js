@@ -1,11 +1,4 @@
 /*
-TO DO
-Header:
-1. Add it so there's buttons to go forward and backward through structures
-2. Make the drop down list more elegant, match the width of the title container, and be scrollable
-3. Get rid of drop down button icon on title
-4. Add hover states to number icon: default: shows dropdown icon; \\ if open: show close icon. 
----
 Images:
 1. Scale images correctly, make sure vertically fits, background image horizontally fills
 ---
@@ -24,6 +17,11 @@ import {
   FaBook,
   FaGlobe,
   FaChevronDown,
+  FaArrowLeft,
+  FaArrowRight,
+  FaCaretDown,
+  FaChevronUp,
+  FaExchangeAlt,
 } from 'react-icons/fa';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -40,6 +38,8 @@ import C3 from './historicalImages/C-3.jpg';
 import BladeRedesign from './historicalImages/BladeRedesign.png';
 import OriginalBladePeople from './historicalImages/OriginalBladePeople.png';
 
+import { structureImages } from './structureImages';
+
 // Create an image map
 const imageMap = {
   '/historicalImages/M-3.jpg': M3,
@@ -54,6 +54,8 @@ const StructureInfo = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [descriptionExpanded, setDescriptionExpanded] = useState(false);
   const [isListOpen, setIsListOpen] = useState(false);
+  const [showDropdownIcon, setShowDropdownIcon] = useState(false);
+  const [showList, setShowList] = useState(false);
 
   // Function to handle closing
   const handleClose = () => {
@@ -139,7 +141,48 @@ const StructureInfo = () => {
 
   const handleStructureSelect = (number) => {
     navigate('/structure/info', { state: { structureNumber: number } });
-    setIsListOpen(false);
+    setShowList(false);
+  };
+
+  const handlePrevStructure = () => {
+    const currentIndex = structureList.findIndex(
+      (s) => s.number === structureNumber
+    );
+    const prevIndex =
+      currentIndex > 0 ? currentIndex - 1 : structureList.length - 1;
+    navigate('/structure/info', {
+      state: { structureNumber: structureList[prevIndex].number },
+    });
+  };
+
+  const handleNextStructure = () => {
+    const currentIndex = structureList.findIndex(
+      (s) => s.number === structureNumber
+    );
+    const nextIndex =
+      currentIndex < structureList.length - 1 ? currentIndex + 1 : 0;
+    navigate('/structure/info', {
+      state: { structureNumber: structureList[nextIndex].number },
+    });
+  };
+
+  // Add these helper functions
+  const getPrevStructureNumber = () => {
+    const currentIndex = structureList.findIndex(
+      (s) => s.number === structureNumber
+    );
+    const prevIndex =
+      currentIndex > 0 ? currentIndex - 1 : structureList.length - 1;
+    return structureList[prevIndex].number;
+  };
+
+  const getNextStructureNumber = () => {
+    const currentIndex = structureList.findIndex(
+      (s) => s.number === structureNumber
+    );
+    const nextIndex =
+      currentIndex < structureList.length - 1 ? currentIndex + 1 : 0;
+    return structureList[nextIndex].number;
   };
 
   return (
@@ -147,198 +190,240 @@ const StructureInfo = () => {
       <S.CenteredWrapper>
         <S.HeaderContainer>
           <S.StructureNumberBubble
-            onClick={() => setIsListOpen(!isListOpen)}
-            isOpen={isListOpen}
+            onClick={() => setShowList(!showList)}
+            isOpen={showList}
+            onMouseEnter={() => !showList && setShowDropdownIcon(true)}
+            onMouseLeave={() => !showList && setShowDropdownIcon(false)}
           >
-            {isListOpen ? <FaTimes /> : structure.number}
+            {showList ? (
+              <FaChevronUp />
+            ) : showDropdownIcon ? (
+              <FaExchangeAlt />
+            ) : (
+              structure.number
+            )}
           </S.StructureNumberBubble>
-          <S.StructureTitleInfo
-            onClick={() => setIsListOpen(!isListOpen)}
-            isOpen={isListOpen}
-          >
-            {structure.name}
-            <S.TitleIcon isOpen={isListOpen}>
-              <FaChevronDown />
-            </S.TitleIcon>
-          </S.StructureTitleInfo>
+
+          <S.TitleWrapper>
+            <S.NavigationOverlay side="left" onClick={handlePrevStructure}>
+              <S.NavigationNumber>
+                {getPrevStructureNumber()}
+              </S.NavigationNumber>
+              <FaArrowLeft />
+            </S.NavigationOverlay>
+
+            <S.StructureTitleInfo
+              onClick={() => setShowList(!showList)}
+              isOpen={showList}
+            >
+              {showList ? 'Choose Another Structure' : structure.name}
+            </S.StructureTitleInfo>
+
+            <S.NavigationOverlay side="right" onClick={handleNextStructure}>
+              <S.NavigationNumber>
+                {getNextStructureNumber()}
+              </S.NavigationNumber>
+              <FaArrowRight />
+            </S.NavigationOverlay>
+          </S.TitleWrapper>
+
           <S.CloseButton onClick={handleClose}>
             <FaTimes />
           </S.CloseButton>
         </S.HeaderContainer>
 
-        {isListOpen && (
-          <S.StructureListOverlay>
-            <S.StructureList>
-              {structureList.map((item) => (
-                <S.StructureListItem
-                  key={item.number}
-                  onClick={() => handleStructureSelect(item.number)}
-                  isSelected={item.number === structure.number}
-                >
-                  <span>{item.number}</span>
-                  {item.title}
-                </S.StructureListItem>
-              ))}
-            </S.StructureList>
-          </S.StructureListOverlay>
-        )}
-
         <S.ContentContainer>
-          <S.MainContent>
-            {/* Left section with natural height */}
-            <S.LeftSection>
-              <S.DescriptionContainer>
-                <S.SectionTitleInfo>Images</S.SectionTitleInfo>
-                <S.ImageContainer>
-                  <S.StyledImage
-                    src={getImagePath(structure.images[currentImageIndex].path)}
-                    alt={structure.images[currentImageIndex].description}
-                  />
-                  <S.ImageControls>
-                    <S.ArrowButton onClick={handlePrevImage}>
-                      <FaChevronLeft />
-                    </S.ArrowButton>
-                    <S.ArrowButton onClick={handleNextImage}>
-                      <FaChevronRight />
-                    </S.ArrowButton>
-                  </S.ImageControls>
-                </S.ImageContainer>
+          {showList ? (
+            <S.StructureListView>
+              <S.StructuresListGrid>
+                {structureList.map((item) => (
+                  <S.StructureListCard
+                    key={item.number}
+                    onClick={() => handleStructureSelect(item.number)}
+                    isSelected={item.number === structure.number}
+                  >
+                    <S.StructureImage
+                      src={structureImages[item.image_key]}
+                      alt={item.title}
+                    />
+                    <S.StructureListInfo>
+                      <S.StructureListNumber>
+                        {item.number}
+                      </S.StructureListNumber>
+                      <S.StructureListTitle>{item.title}</S.StructureListTitle>
+                    </S.StructureListInfo>
+                  </S.StructureListCard>
+                ))}
+              </S.StructuresListGrid>
+            </S.StructureListView>
+          ) : (
+            <>
+              <S.MainContent>
+                <S.LeftSection>
+                  <S.DescriptionContainer>
+                    <S.SectionTitleInfo>Images</S.SectionTitleInfo>
+                    <S.ImageContainer>
+                      <S.StyledImage
+                        src={getImagePath(
+                          structure.images[currentImageIndex].path
+                        )}
+                        alt={structure.images[currentImageIndex].description}
+                      />
+                      <S.ImageControls>
+                        <S.ArrowButton onClick={handlePrevImage}>
+                          <FaChevronLeft />
+                        </S.ArrowButton>
+                        <S.ArrowButton onClick={handleNextImage}>
+                          <FaChevronRight />
+                        </S.ArrowButton>
+                      </S.ImageControls>
+                    </S.ImageContainer>
 
-                <S.ImageDescription>
-                  <FaCamera />
-                  <p>{structure.images[currentImageIndex].description}</p>
-                </S.ImageDescription>
-              </S.DescriptionContainer>
+                    <S.ImageDescription>
+                      <FaCamera />
+                      <p>{structure.images[currentImageIndex].description}</p>
+                    </S.ImageDescription>
+                  </S.DescriptionContainer>
 
-              <S.DescriptionContainer>
-                <S.SectionTitleInfo>Description</S.SectionTitleInfo>
-                <S.DescriptionText expanded={descriptionExpanded}>
-                  <p>{structure.description}</p>
-                  <p>{structure.extended_description}</p>
-                </S.DescriptionText>
-                <S.ToggleDescriptionButton onClick={toggleDescription}>
-                  {descriptionExpanded ? 'Show Less Info' : 'Show More Info'}
-                </S.ToggleDescriptionButton>
-              </S.DescriptionContainer>
-            </S.LeftSection>
+                  <S.DescriptionContainer>
+                    <S.SectionTitleInfo>Description</S.SectionTitleInfo>
+                    <S.DescriptionText expanded={descriptionExpanded}>
+                      <p>{structure.description}</p>
+                      <p>{structure.extended_description}</p>
+                    </S.DescriptionText>
+                    <S.ToggleDescriptionButton onClick={toggleDescription}>
+                      {descriptionExpanded
+                        ? 'Show Less Info'
+                        : 'Show More Info'}
+                    </S.ToggleDescriptionButton>
+                  </S.DescriptionContainer>
+                </S.LeftSection>
 
-            {/* Right section that matches height and scrolls if needed */}
-            <S.InfoCardsSection>
-              <S.SectionTitleInfo>Quick Facts</S.SectionTitleInfo>
+                <S.InfoCardsSection>
+                  <S.SectionTitleInfo>Quick Facts</S.SectionTitleInfo>
 
-              {structure.year && (
-                <S.InfoCard>
-                  <S.InfoCardHeader>
-                    <S.InfoCardEmoji>{getInfoEmoji('year')}</S.InfoCardEmoji>
-                    <S.InfoCardTitle>Year</S.InfoCardTitle>
-                  </S.InfoCardHeader>
-                  <S.InfoCardContent>{structure.year}</S.InfoCardContent>
-                </S.InfoCard>
-              )}
+                  {structure.year && (
+                    <S.InfoCard>
+                      <S.InfoCardHeader>
+                        <S.InfoCardEmoji>
+                          {getInfoEmoji('year')}
+                        </S.InfoCardEmoji>
+                        <S.InfoCardTitle>Year</S.InfoCardTitle>
+                      </S.InfoCardHeader>
+                      <S.InfoCardContent>{structure.year}</S.InfoCardContent>
+                    </S.InfoCard>
+                  )}
 
-              {structure.department?.length > 0 && (
-                <S.InfoCard>
-                  <S.InfoCardHeader>
-                    <S.InfoCardEmoji>
-                      {getInfoEmoji('department')}
-                    </S.InfoCardEmoji>
-                    <S.InfoCardTitle>Department</S.InfoCardTitle>
-                  </S.InfoCardHeader>
-                  <S.InfoCardContent>
-                    {structure.department.join(', ')}
-                  </S.InfoCardContent>
-                </S.InfoCard>
-              )}
+                  {structure.department?.length > 0 && (
+                    <S.InfoCard>
+                      <S.InfoCardHeader>
+                        <S.InfoCardEmoji>
+                          {getInfoEmoji('department')}
+                        </S.InfoCardEmoji>
+                        <S.InfoCardTitle>Department</S.InfoCardTitle>
+                      </S.InfoCardHeader>
+                      <S.InfoCardContent>
+                        {structure.department.join(', ')}
+                      </S.InfoCardContent>
+                    </S.InfoCard>
+                  )}
 
-              {structure.advisor_builders?.some((person) =>
-                person.role.includes('Advisor')
-              ) && (
-                <S.InfoCard>
-                  <S.InfoCardHeader>
-                    <S.InfoCardEmoji>{getInfoEmoji('advisor')}</S.InfoCardEmoji>
-                    <S.InfoCardTitle>Advisors</S.InfoCardTitle>
-                  </S.InfoCardHeader>
-                  <S.InfoCardContent>
-                    {structure.advisor_builders
-                      .filter((person) => person.role.includes('Advisor'))
-                      .map((person) => person.name)
-                      .join(', ')}
-                  </S.InfoCardContent>
-                </S.InfoCard>
-              )}
+                  {structure.advisor_builders?.some((person) =>
+                    person.role.includes('Advisor')
+                  ) && (
+                    <S.InfoCard>
+                      <S.InfoCardHeader>
+                        <S.InfoCardEmoji>
+                          {getInfoEmoji('advisor')}
+                        </S.InfoCardEmoji>
+                        <S.InfoCardTitle>Advisors</S.InfoCardTitle>
+                      </S.InfoCardHeader>
+                      <S.InfoCardContent>
+                        {structure.advisor_builders
+                          .filter((person) => person.role.includes('Advisor'))
+                          .map((person) => person.name)
+                          .join(', ')}
+                      </S.InfoCardContent>
+                    </S.InfoCard>
+                  )}
 
-              {structure.advisor_builders?.some(
-                (person) => !person.role.includes('Advisor')
-              ) && (
-                <S.InfoCard>
-                  <S.InfoCardHeader>
-                    <S.InfoCardEmoji>
-                      {getInfoEmoji('builders')}
-                    </S.InfoCardEmoji>
-                    <S.InfoCardTitle>Builders</S.InfoCardTitle>
-                  </S.InfoCardHeader>
-                  <S.InfoCardContent>
-                    {structure.advisor_builders
-                      .filter((person) => !person.role.includes('Advisor'))
-                      .map((person) => person.name)
-                      .join(', ')}
-                  </S.InfoCardContent>
-                </S.InfoCard>
-              )}
+                  {structure.advisor_builders?.some(
+                    (person) => !person.role.includes('Advisor')
+                  ) && (
+                    <S.InfoCard>
+                      <S.InfoCardHeader>
+                        <S.InfoCardEmoji>
+                          {getInfoEmoji('builders')}
+                        </S.InfoCardEmoji>
+                        <S.InfoCardTitle>Builders</S.InfoCardTitle>
+                      </S.InfoCardHeader>
+                      <S.InfoCardContent>
+                        {structure.advisor_builders
+                          .filter((person) => !person.role.includes('Advisor'))
+                          .map((person) => person.name)
+                          .join(', ')}
+                      </S.InfoCardContent>
+                    </S.InfoCard>
+                  )}
 
-              {structure.status && (
-                <S.InfoCard>
-                  <S.InfoCardHeader>
-                    <S.InfoCardEmoji>{getInfoEmoji('status')}</S.InfoCardEmoji>
-                    <S.InfoCardTitle>Status</S.InfoCardTitle>
-                  </S.InfoCardHeader>
-                  <S.InfoCardContent>{structure.status}</S.InfoCardContent>
-                </S.InfoCard>
-              )}
+                  {structure.status && (
+                    <S.InfoCard>
+                      <S.InfoCardHeader>
+                        <S.InfoCardEmoji>
+                          {getInfoEmoji('status')}
+                        </S.InfoCardEmoji>
+                        <S.InfoCardTitle>Status</S.InfoCardTitle>
+                      </S.InfoCardHeader>
+                      <S.InfoCardContent>{structure.status}</S.InfoCardContent>
+                    </S.InfoCard>
+                  )}
 
-              {structure.style && (
-                <S.InfoCard>
-                  <S.InfoCardHeader>
-                    <S.InfoCardEmoji>{getInfoEmoji('style')}</S.InfoCardEmoji>
-                    <S.InfoCardTitle>Style</S.InfoCardTitle>
-                  </S.InfoCardHeader>
-                  <S.InfoCardContent>{structure.style}</S.InfoCardContent>
-                </S.InfoCard>
-              )}
+                  {structure.style && (
+                    <S.InfoCard>
+                      <S.InfoCardHeader>
+                        <S.InfoCardEmoji>
+                          {getInfoEmoji('style')}
+                        </S.InfoCardEmoji>
+                        <S.InfoCardTitle>Style</S.InfoCardTitle>
+                      </S.InfoCardHeader>
+                      <S.InfoCardContent>{structure.style}</S.InfoCardContent>
+                    </S.InfoCard>
+                  )}
 
-              {structure.location?.latitude &&
-                structure.location?.longitude && (
-                  <S.InfoCard>
-                    <S.InfoCardHeader>
-                      <S.InfoCardEmoji>
-                        {getInfoEmoji('location')}
-                      </S.InfoCardEmoji>
-                      <S.InfoCardTitle>Location</S.InfoCardTitle>
-                    </S.InfoCardHeader>
-                    <S.InfoCardContent>
-                      {`${structure.location.latitude}, ${structure.location.longitude}`}
-                    </S.InfoCardContent>
-                  </S.InfoCard>
-                )}
-            </S.InfoCardsSection>
-          </S.MainContent>
+                  {structure.location?.latitude &&
+                    structure.location?.longitude && (
+                      <S.InfoCard>
+                        <S.InfoCardHeader>
+                          <S.InfoCardEmoji>
+                            {getInfoEmoji('location')}
+                          </S.InfoCardEmoji>
+                          <S.InfoCardTitle>Location</S.InfoCardTitle>
+                        </S.InfoCardHeader>
+                        <S.InfoCardContent>
+                          {`${structure.location.latitude}, ${structure.location.longitude}`}
+                        </S.InfoCardContent>
+                      </S.InfoCard>
+                    )}
+                </S.InfoCardsSection>
+              </S.MainContent>
 
-          {/* Resources */}
-          <S.LinksSection>
-            <S.LinkButtonContainer>
-              {structure.links.map((link, index) => (
-                <S.LinkButton
-                  key={index}
-                  href={link.URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {getLinkIcon(link.title)}
-                  {link.title}
-                </S.LinkButton>
-              ))}
-            </S.LinkButtonContainer>
-          </S.LinksSection>
+              <S.LinksSection>
+                <S.LinkButtonContainer>
+                  {structure.links.map((link, index) => (
+                    <S.LinkButton
+                      key={index}
+                      href={link.URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {getLinkIcon(link.title)}
+                      {link.title}
+                    </S.LinkButton>
+                  ))}
+                </S.LinkButtonContainer>
+              </S.LinksSection>
+            </>
+          )}
         </S.ContentContainer>
       </S.CenteredWrapper>
     </S.InfoPageWrapper>

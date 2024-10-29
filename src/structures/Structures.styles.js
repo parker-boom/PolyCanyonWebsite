@@ -658,6 +658,10 @@ export const StructureNumberBubble = styled.div`
     background: ${(props) =>
       props.isOpen ? '#2c5526' : 'linear-gradient(135deg, #376d31, #2c5526)'};
   }
+
+  svg {
+    font-size: 24px; // Adjust icon size if needed
+  }
 `;
 
 export const StructureTitleInfo = styled.div`
@@ -666,25 +670,13 @@ export const StructureTitleInfo = styled.div`
   font-weight: 700;
   color: #376d31;
   text-align: center;
-  height: 64px;
-  background: rgba(55, 109, 49, 0.08);
-  border-radius: 32px;
-  transition: all 0.3s ease;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 32px;
-  box-sizing: border-box;
-  border: 2px solid rgba(189, 139, 19, 0.3); // Made the gold border slightly more visible
-
-  &:hover {
-    background: rgba(55, 109, 49, 0.12);
-    transform: translateY(-1px);
-    border-color: rgba(189, 139, 19, 0.4); // Slightly more visible on hover
-  }
+  padding: 0 80px;
   cursor: pointer;
-  position: relative;
-  padding-right: 48px;
+  transition: all 0.3s ease;
 
   ${(props) =>
     props.isOpen &&
@@ -705,20 +697,39 @@ export const TitleIcon = styled.span`
 export const StructureListOverlay = styled.div`
   position: absolute;
   top: 120px;
-  left: 24px;
-  right: 24px;
-  max-height: calc(100% - 180px);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 800px;
   background: white;
   border-radius: 16px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   z-index: 100;
+  transition: all 0.3s ease;
 `;
 
 export const StructureList = styled.div`
-  max-height: 100%;
+  max-height: 300px; // Set a max height to enable scrolling
   overflow-y: auto;
   padding: 16px;
+  scrollbar-width: thin;
+  scrollbar-color: #376d31 #f1f1f1;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #376d31;
+    border-radius: 4px;
+  }
 `;
 
 export const StructureListItem = styled.div`
@@ -729,19 +740,16 @@ export const StructureListItem = styled.div`
   cursor: pointer;
   transition: all 0.2s ease;
   border-radius: 8px;
+  background: ${(props) =>
+    props.isSelected ? 'rgba(55, 109, 49, 0.1)' : 'transparent'};
+  font-weight: ${(props) => (props.isSelected ? '500' : '400')};
+  color: #333;
 
   span {
     font-weight: 600;
     color: #376d31;
     min-width: 32px;
   }
-
-  ${(props) =>
-    props.isSelected &&
-    `
-    background: rgba(55, 109, 49, 0.1);
-    font-weight: 500;
-  `}
 
   &:hover {
     background: rgba(55, 109, 49, 0.05);
@@ -1074,4 +1082,212 @@ export const LinkButton = styled.a`
   svg {
     font-size: 20px;
   }
+`;
+
+export const NavigationButton = styled.button`
+  background: none;
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #376d31;
+  font-size: 24px;
+  font-weight: 700;
+
+  &:hover {
+    background: rgba(55, 109, 49, 0.15);
+    color: #2c5526;
+  }
+
+  svg {
+    font-size: 20px;
+    transition: opacity 0.2s ease;
+  }
+
+  &:hover svg {
+    opacity: 0;
+  }
+`;
+
+export const TitleContainer = styled.div`
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(55, 109, 49, 0.08);
+  border-radius: 32px;
+  padding: 0 8px;
+  border: 2px solid rgba(189, 139, 19, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(55, 109, 49, 0.12);
+    transform: translateY(-1px);
+    border-color: rgba(189, 139, 19, 0.4);
+  }
+`;
+
+export const TitleWrapper = styled.div`
+  position: relative;
+  flex-grow: 1;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  border-radius: 32px;
+  background: rgba(55, 109, 49, 0.08);
+  border: 2px solid rgba(189, 139, 19, 0.3);
+  overflow: hidden;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(55, 109, 49, 0.12);
+    transform: translateY(-1px);
+    border-color: rgba(189, 139, 19, 0.4);
+  }
+`;
+
+export const NavigationOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  ${(props) => props.side}: 0;
+  height: 100%;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #376d31;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: linear-gradient(
+    ${(props) => (props.side === 'left' ? '90deg' : '-90deg')},
+    rgba(55, 109, 49, 0.15) 0%,
+    transparent 100%
+  );
+  opacity: 0.5;
+
+  svg {
+    position: absolute;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    ${(props) => props.side}: 24px;
+    opacity: 0.7;
+  }
+
+  &:hover {
+    opacity: 1;
+    background: rgba(55, 109, 49, 0.15);
+
+    svg {
+      opacity: 0;
+      transform: translateX(
+        ${(props) => (props.side === 'left' ? '-20px' : '20px')}
+      );
+    }
+
+    span {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+`;
+
+export const NavigationNumber = styled.span`
+  font-size: 28px;
+  font-weight: 700;
+  color: #376d31;
+  opacity: 0;
+  transform: translateX(
+    ${(props) => (props.side === 'left' ? '20px' : '-20px')}
+  );
+  transition: all 0.3s ease;
+`;
+
+export const StructureListView = styled.div`
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  padding: 24px;
+  animation: flipIn 0.4s ease-out;
+
+  @keyframes flipIn {
+    from {
+      transform: rotateX(90deg);
+      opacity: 0;
+    }
+    to {
+      transform: rotateX(0);
+      opacity: 1;
+    }
+  }
+
+  scrollbar-width: thin;
+  scrollbar-color: #376d31 #f1f1f1;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #376d31;
+    border-radius: 4px;
+  }
+`;
+
+export const StructuresListGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  width: 100%;
+`;
+
+export const StructureListCard = styled.div`
+  display: flex;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid ${(props) => (props.isSelected ? '#376d31' : 'transparent')};
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(55, 109, 49, 0.15);
+  }
+
+  img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+  }
+`;
+
+export const StructureListInfo = styled.div`
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+export const StructureListNumber = styled.div`
+  font-size: 24px;
+  font-weight: 700;
+  color: #376d31;
+`;
+
+export const StructureListTitle = styled.div`
+  font-size: 18px;
+  color: #333;
+  margin-top: 4px;
 `;
