@@ -18,6 +18,31 @@ export const PageContainer = styled.div`
   box-sizing: border-box;
 `;
 
+export const ContentContainer = styled.div`
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  background: white;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow:
+    0 8px 32px rgba(189, 139, 19, 0.2),
+    0 4px 8px rgba(189, 139, 19, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(189, 139, 19, 0.1);
+  overflow: hidden;
+
+  &:hover {
+    box-shadow:
+      0 12px 48px rgba(189, 139, 19, 0.25),
+      0 4px 24px rgba(189, 139, 19, 0.15);
+  }
+`;
+
 export const Title = styled.h1`
   font-size: 48px;
   font-weight: 800;
@@ -554,9 +579,9 @@ export const SectionTitleInfo = styled.h3`
     content: '';
     width: 4px;
     height: 20px;
-    background: #376d31;
+    background: linear-gradient(to bottom, #376d31, rgba(189, 139, 19, 0.5));
     border-radius: 2px;
-    opacity: 0.6;
+    opacity: 0.8;
   }
 `;
 
@@ -567,11 +592,12 @@ export const InfoPageWrapper = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background: #f5f5f5;
+  background: #f0f4f8;
   z-index: 1000;
   padding: 15px;
   display: flex;
   justify-content: center;
+  overflow: hidden;
 `;
 
 // Single wrapper for all content - add box-sizing
@@ -581,365 +607,36 @@ export const CenteredWrapper = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box; // Add this
-`;
-
-// Header stays the same size - add box-sizing
-export const HeaderContainer = styled.div`
-  width: 100%;
-  background: #f8f9f8;
-  border-radius: 24px;
-  padding: 24px;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  box-shadow: 0 4px 24px rgba(55, 109, 49, 0.08);
   box-sizing: border-box;
-  border: 1px solid rgba(55, 109, 49, 0.08);
 `;
 
-// Update ContentContainer - keep hover effect, no scrollbar
-export const ContentContainer = styled.div`
-  flex: 1;
-  width: 100%;
-  min-width: 0;
-  background: #f8f9f8;
-  border-radius: 24px;
-  padding: 24px;
-  box-shadow: 0 4px 24px rgba(55, 109, 49, 0.08);
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  overflow-y: auto;
-  box-sizing: border-box;
-  transition: all 0.3s ease;
-
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-
-  &:hover {
-    box-shadow: 0 6px 28px rgba(0, 0, 0, 0.15);
-  }
-`;
-
-// Update header elements to have consistent heights
-export const StructureNumberBubble = styled.div`
-  background: linear-gradient(135deg, #376d31, #2c5526);
-  color: white;
-  font-size: 32px;
-  font-weight: 700;
-  border-radius: 50%;
-  width: 64px;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow:
-    0 4px 12px rgba(55, 109, 49, 0.2),
-    0 2px 4px rgba(55, 109, 49, 0.1);
-  flex-shrink: 0;
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-  ${(props) =>
-    props.isOpen &&
-    `
-    transform: scale(1.1);
-    background: #2c5526;
-  `}
-
-  &:hover {
-    transform: ${(props) => (props.isOpen ? 'scale(1.1)' : 'scale(1.05)')};
-    background: ${(props) =>
-      props.isOpen ? '#2c5526' : 'linear-gradient(135deg, #376d31, #2c5526)'};
-  }
-
-  svg {
-    font-size: 24px; // Adjust icon size if needed
-  }
-`;
-
-export const StructureTitleInfo = styled.div`
-  flex-grow: 1;
-  font-size: 36px;
-  font-weight: 700;
-  color: #376d31;
-  text-align: center;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 80px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-  ${(props) =>
-    props.isOpen &&
-    `
-    background: rgba(55, 109, 49, 0.15);
-  `}
-`;
-
-export const TitleIcon = styled.span`
+// Add subtle texture
+export const BackgroundImage = styled.img`
   position: absolute;
-  right: 16px;
-  top: 50%;
-  transform: translateY(-50%)
-    rotate(${(props) => (props.isOpen ? '180deg' : '0deg')});
-  transition: all 0.3s ease;
-`;
-
-export const StructureListOverlay = styled.div`
-  position: absolute;
-  top: 120px;
+  top: 0;
   left: 0;
-  right: 0;
-  margin: 0 auto;
   width: 100%;
-  max-width: 800px;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
-  z-index: 100;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(20px);
+  transform: scale(1.1); // Prevent blur edges from showing
+  opacity: 0.8;
   transition: all 0.3s ease;
 `;
 
-export const StructureList = styled.div`
-  max-height: 300px; // Set a max height to enable scrolling
-  overflow-y: auto;
-  padding: 16px;
-  scrollbar-width: thin;
-  scrollbar-color: #376d31 #f1f1f1;
-
-  &::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 4px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: #376d31;
-    border-radius: 4px;
-  }
-`;
-
-export const StructureListItem = styled.div`
-  padding: 12px 16px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  border-radius: 8px;
-  background: ${(props) =>
-    props.isSelected ? 'rgba(55, 109, 49, 0.1)' : 'transparent'};
-  font-weight: ${(props) => (props.isSelected ? '500' : '400')};
-  color: #333;
-
-  span {
-    font-weight: 600;
-    color: #376d31;
-    min-width: 32px;
-  }
-
-  &:hover {
-    background: rgba(55, 109, 49, 0.05);
-  }
-`;
-
-export const CloseButton = styled.button`
-  background: none;
-  border: none;
-  width: 64px; // Increased from 48px
-  height: 64px; // Increased from 48px
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  color: #666;
-  flex-shrink: 0;
-
-  svg {
-    font-size: 32px; // Increased from 24px
-    transition: transform 0.2s ease;
-  }
-
-  &:hover {
-    background: rgba(0, 0, 0, 0.05);
-    color: #333;
-    transform: rotate(90deg);
-
-    svg {
-      transform: scale(1.1);
-    }
-  }
-
-  &:active {
-    transform: rotate(90deg) scale(0.95);
-  }
-`;
-
-// Update MainContent to maintain flex layout
-export const MainContent = styled.div`
-  display: flex;
-  gap: 40px;
-  margin-bottom: 24px;
-  width: 100%;
-  min-width: 0;
-  box-sizing: border-box;
-`;
-
-// Update LeftSection to be the height reference
-export const LeftSection = styled.div`
-  flex: 3;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-`;
-
-// Update InfoCardsSection - keep hover effect, no scrollbar
-export const InfoCardsSection = styled.div`
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  background: rgba(55, 109, 49, 0.03);
-  padding: 20px;
-  border-radius: 16px;
-  border: 1px solid rgba(55, 109, 49, 0.08);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
-  min-width: 0;
-  box-sizing: border-box;
-  transition: all 0.3s ease;
-
-  // Make it match height and enable scrolling
-  height: 0;
-  min-height: 100%;
-  overflow-y: auto;
-
-  // Hide scrollbar completely
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-
-  &:hover {
-    background: rgba(55, 109, 49, 0.06);
-    box-shadow:
-      inset 0 2px 4px rgba(0, 0, 0, 0.08),
-      0 0 0 2px rgba(55, 109, 49, 0.1);
-  }
-`;
-
-// Update DescriptionContainer to remove hover effect
-export const DescriptionContainer = styled.div`
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 20px;
-  margin-bottom: 24px;
-  border: 1px solid rgba(55, 109, 49, 0.08);
-  box-shadow: 0 2px 12px rgba(55, 109, 49, 0.06);
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-`;
-
-export const DescriptionText = styled.div`
-  font-size: 16px;
-  line-height: 1.6;
-  color: #333;
-
-  /* Style for the main description */
-  > p:first-child {
-    margin-top: 0;
-  }
-
-  /* Style for the extended description */
-  > p:last-child {
-    margin-top: 16px;
-    margin-bottom: 0;
-    display: ${(props) => (props.expanded ? 'block' : 'none')};
-  }
-`;
-
-export const ToggleDescriptionButton = styled.button`
-  background: rgba(55, 109, 49, 0.08);
-  border: none;
-  color: #376d31;
-  font-weight: 600;
-  cursor: pointer;
-  padding: 8px 16px;
-  border-radius: 8px;
-  transition: all 0.2s ease;
-  margin-top: 16px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-
-  &:hover {
-    background: rgba(55, 109, 49, 0.12);
-    transform: translateY(-1px);
-  }
-
-  &:active {
-    transform: translateY(0);
-  }
-`;
-
-// Update LinksSection to be below the columns
-export const LinksSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  width: 100%;
-  padding-top: 24px;
-  border-top: 1px solid rgba(55, 109, 49, 0.1);
-  position: relative;
-
-  &::before {
-    content: 'Resources';
-    position: absolute;
-    top: -10px;
-    left: 24px;
-    background: #f8f9f8;
-    padding: 0 12px;
-    color: #376d31;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-  }
-`;
-
-export const LinkButtonContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-`;
-
-// Update ImageContainer to remove margin since it's now inside DescriptionContainer
-export const ImageContainer = styled.div`
-  position: relative;
-  width: 100%;
-  padding-top: 56.25%;
-  background: #f5f5f5;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+// Update StyledImage for foreground with 1.25x scaling
+export const StyledImage = styled.img`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.25); // Added scale(1.25)
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  z-index: 1;
+  transition: all 0.3s ease; // Added for smooth transitions
 `;
 
 // Update ImageControls to position arrows over the image
@@ -952,6 +649,7 @@ export const ImageControls = styled.div`
   justify-content: space-between;
   padding: 0 16px;
   pointer-events: none; // This ensures clicks pass through to the buttons
+  z-index: 2; // Add this to ensure it's above both images
 `;
 
 // Update ArrowButton for the new positioning
@@ -969,6 +667,8 @@ export const ArrowButton = styled.button`
   color: #376d31;
   pointer-events: auto; // Re-enable pointer events for the button
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 2; // Add this to match ImageControls
+  position: relative; // Add this to establish a new stacking context
 
   svg {
     font-size: 18px;
@@ -989,16 +689,6 @@ export const ArrowButton = styled.button`
   }
 `;
 
-export const StyledImage = styled.img`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`;
-
-// Update ImageDescription to have proper spacing inside the container
 export const ImageDescription = styled.div`
   background: rgba(55, 109, 49, 0.05);
   padding: 16px;
@@ -1029,7 +719,22 @@ export const InfoCard = styled.div`
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.04),
+    0 1px 2px rgba(0, 0, 0, 0.02);
+  transition: all 0.2s ease;
+  border-left: 3px solid #376d31;
+  background: linear-gradient(to right, rgba(55, 109, 49, 0.03), transparent);
+
+  &:hover {
+    transform: translateY(-1px);
+    border-left-color: rgba(189, 139, 19, 0.5);
+    background: linear-gradient(
+      to right,
+      rgba(189, 139, 19, 0.03),
+      transparent
+    );
+  }
 
   &:last-child {
     margin-bottom: 0;
@@ -1064,23 +769,27 @@ export const LinkButton = styled.a`
   display: flex;
   align-items: center;
   gap: 8px;
-  background: white;
+  background: linear-gradient(135deg, #376d31, #2c5526);
+  color: white;
+  border: 1px solid rgba(189, 139, 19, 0.3);
   padding: 12px 20px;
   border-radius: 12px;
   text-decoration: none;
-  color: #376d31;
   font-weight: 500;
   transition: all 0.2s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(55, 109, 49, 0.15);
-    background: rgba(55, 109, 49, 0.05);
+    box-shadow:
+      0 4px 12px rgba(55, 109, 49, 0.15),
+      0 0 0 2px rgba(189, 139, 19, 0.1);
+    background: linear-gradient(135deg, #2c5526, #1e3a1a);
+    border-color: rgba(189, 139, 19, 0.5);
   }
 
   svg {
-    font-size: 20px;
+    color: rgba(255, 255, 255, 0.9);
   }
 `;
 
@@ -1209,7 +918,7 @@ export const NavigationNumber = styled.span`
 `;
 
 export const StructureListView = styled.div`
-  width: 100%;
+  width: 95%;
   height: 100%;
   overflow-y: auto;
   padding: 24px;
@@ -1226,28 +935,20 @@ export const StructureListView = styled.div`
     }
   }
 
-  scrollbar-width: thin;
-  scrollbar-color: #376d31 #f1f1f1;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 
   &::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 4px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: #376d31;
-    border-radius: 4px;
+    display: none;
   }
 `;
 
 export const StructuresListGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 330px));
   gap: 20px;
+  justify-content: center;
   width: 100%;
 `;
 
@@ -1267,9 +968,10 @@ export const StructureListCard = styled.div`
   }
 
   img {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     object-fit: cover;
+    flex-shrink: 0;
   }
 `;
 
@@ -1290,4 +992,274 @@ export const StructureListTitle = styled.div`
   font-size: 18px;
   color: #333;
   margin-top: 4px;
+`;
+
+export const MainContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+export const LeftSection = styled.div`
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+`;
+
+export const InfoCardsSection = styled.div`
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: rgba(0, 0, 0, 0.02);
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+  min-width: 0;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  height: 0;
+  min-height: 100%;
+  overflow-y: auto;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.03);
+    box-shadow:
+      inset 0 2px 4px rgba(0, 0, 0, 0.03),
+      0 0 0 1px rgba(0, 0, 0, 0.08);
+  }
+`;
+
+export const DescriptionContainer = styled.div`
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 4px 16px rgba(55, 109, 49, 0.1),
+    0 2px 4px rgba(55, 109, 49, 0.08);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+`;
+
+export const DescriptionText = styled.div`
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+
+  /* Style for the main description */
+  > p:first-child {
+    margin-top: 0;
+  }
+
+  /* Style for the extended description */
+  > p:last-child {
+    margin-top: 16px;
+    margin-bottom: 0;
+    display: ${(props) => (props.expanded ? 'block' : 'none')};
+  }
+`;
+
+export const ToggleDescriptionButton = styled.button`
+  background: rgba(55, 109, 49, 0.08);
+  border: none;
+  color: #376d31;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  margin-top: 16px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  &:hover {
+    background: rgba(55, 109, 49, 0.12);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+`;
+
+export const LinksSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  padding-top: 24px;
+  border-top: 1px solid rgba(189, 139, 19, 0.15);
+  position: relative;
+  margin-top: 24px;
+
+  &::before {
+    content: 'Resources';
+    position: absolute;
+    top: -10px;
+    left: 24px;
+    background: white;
+    padding: 0 12px;
+    color: #376d31;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+`;
+
+export const LinkButtonContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  width: 100%;
+`;
+
+export const ImageContainer = styled.div`
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; // 16:9 aspect ratio
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow:
+    0 4px 16px rgba(55, 109, 49, 0.1),
+    0 2px 4px rgba(55, 109, 49, 0.08);
+`;
+
+export const HeaderContainer = styled.div`
+  width: 100%;
+  background: linear-gradient(to right, #ffffff, #f8f9fa);
+  border-radius: 24px;
+  padding: 24px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  box-shadow:
+    0 4px 24px rgba(189, 139, 19, 0.15),
+    0 1px 2px rgba(189, 139, 19, 0.1);
+  box-sizing: border-box;
+  border: 1px solid rgba(189, 139, 19, 0.1);
+  border-bottom: 3px solid rgba(189, 139, 19, 0.15);
+`;
+
+export const StructureNumberBubble = styled.div`
+  background: linear-gradient(135deg, #376d31, #2c5526);
+  color: white;
+  font-size: 32px;
+  font-weight: 700;
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 4px 12px rgba(55, 109, 49, 0.15),
+    0 1px 2px rgba(55, 109, 49, 0.1);
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(189, 139, 19, 0.3);
+
+  &:hover {
+    transform: ${(props) => (props.isOpen ? 'scale(1.1)' : 'scale(1.05)')};
+    background: linear-gradient(135deg, #2c5526, #1e3a1a);
+    border-color: rgba(189, 139, 19, 0.5);
+    box-shadow:
+      0 4px 12px rgba(55, 109, 49, 0.2),
+      0 0 0 2px rgba(189, 139, 19, 0.1);
+  }
+`;
+
+export const StructureTitleInfo = styled.div`
+  flex-grow: 1;
+  font-size: 36px;
+  font-weight: 700;
+  color: #376d31;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 80px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  ${(props) =>
+    props.isOpen &&
+    `
+    background: rgba(55, 109, 49, 0.15);
+  `}
+`;
+
+export const CloseButton = styled.button`
+  background: linear-gradient(135deg, #376d31, #2c5526);
+  border: 2px solid rgba(189, 139, 19, 0.3);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  flex-shrink: 0;
+  box-shadow:
+    0 4px 12px rgba(55, 109, 49, 0.15),
+    0 1px 2px rgba(55, 109, 49, 0.1);
+
+  svg {
+    font-size: 32px;
+    transition: all 0.2s ease;
+  }
+
+  &:hover {
+    background: linear-gradient(135deg, #2c5526, #1e3a1a);
+    border-color: rgba(189, 139, 19, 0.5);
+    transform: rotate(90deg) scale(1.1);
+    box-shadow:
+      0 4px 12px rgba(55, 109, 49, 0.2),
+      0 0 0 2px rgba(189, 139, 19, 0.1);
+
+    svg {
+      transform: scale(0.9);
+    }
+  }
+
+  &:active {
+    transform: rotate(90deg) scale(0.95);
+  }
+`;
+
+export const ColumnsContainer = styled.div`
+  display: flex;
+  gap: 40px;
+  width: 100%;
+  min-width: 0;
 `;

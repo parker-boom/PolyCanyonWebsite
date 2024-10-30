@@ -7,7 +7,7 @@ Quick Facts:
 */
 
 // StructureInfo.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   FaTimes,
   FaChevronLeft,
@@ -16,10 +16,8 @@ import {
   FaNewspaper,
   FaBook,
   FaGlobe,
-  FaChevronDown,
   FaArrowLeft,
   FaArrowRight,
-  FaCaretDown,
   FaChevronUp,
   FaExchangeAlt,
 } from 'react-icons/fa';
@@ -28,45 +26,122 @@ import { useNavigate, useLocation } from 'react-router-dom';
 // Data
 import structureData from './structureExInfo.json';
 import structureList from './structureList.json';
+import { StructureLocationMap } from '../info/GoogleMapsRoute';
 
 // Styles
 import * as S from './Structures.styles';
 
-// Import images directly
-import M3 from './historicalImages/M-3.jpg';
-import C3 from './historicalImages/C-3.jpg';
+// Import structureImages for the list view
+import { structureImages } from './structureImages';
+
+// Import all main and closeup images
+import M1 from './images/M-1.jpg';
+import M2 from './images/M-2.jpg';
+import M3 from './images/M-3.jpg';
+import M4 from './images/M-4.jpg';
+import M5 from './images/M-5.jpg';
+import M6 from './images/M-6.jpg';
+
+import C1 from './images/C-1.jpg';
+import C2 from './images/C-2.jpg';
+import C3 from './images/C-3.jpg';
+import C4 from './images/C-4.jpg';
+import C5 from './images/C-5.jpg';
+import C6 from './images/C-6.jpg';
+
+// Historical images for Structure 3
+import HistM3 from './historicalImages/M-3.jpg';
+import HistC3 from './historicalImages/C-3.jpg';
 import BladeRedesign from './historicalImages/BladeRedesign.png';
 import OriginalBladePeople from './historicalImages/OriginalBladePeople.png';
 
-import { structureImages } from './structureImages';
-
-// Create an image map
+// Create a comprehensive image map
 const imageMap = {
-  '/historicalImages/M-3.jpg': M3,
-  '/historicalImages/C-3.jpg': C3,
+  // Standard images (M/C pairs)
+  '/images/M-1': M1,
+  '/images/C-1': C1,
+  '/images/M-2': M2,
+  '/images/C-2': C2,
+  '/images/M-3': M3,
+  '/images/C-3': C3,
+  '/images/M-4': M4,
+  '/images/C-4': C4,
+  '/images/M-5': M5,
+  '/images/C-5': C5,
+  '/images/M-6': M6,
+  '/images/C-6': C6,
+
+  // Special case: Structure 3 historical images
+  '/historicalImages/M-3.jpg': HistM3,
+  '/historicalImages/C-3.jpg': HistC3,
   '/historicalImages/BladeRedesign.png': BladeRedesign,
   '/historicalImages/OriginalBladePeople.png': OriginalBladePeople,
+};
+
+// Update the getImagePath function to handle both formats
+const getImagePath = (relativePath) => {
+  // Handle paths that already include the extension
+  if (relativePath.includes('.')) {
+    return imageMap[relativePath];
+  }
+  // Handle paths that need the extension added
+  return imageMap[`${relativePath}.jpg`] || imageMap[relativePath];
+};
+
+// Add new helper function for image loading
+const createImageLoader = (src) => {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = reject;
+    img.src = src;
+  });
 };
 
 const StructureInfo = () => {
   const navigate = useNavigate();
   const location = useLocation();
+
+  // Get structure data first
+  const structureNumber = location.state?.structureNumber || 3;
+  const structure = structureData.structures.find(
+    (s) => s.number === structureNumber
+  );
+
+  // Then declare states
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [descriptionExpanded, setDescriptionExpanded] = useState(false);
-  const [isListOpen, setIsListOpen] = useState(false);
   const [showDropdownIcon, setShowDropdownIcon] = useState(false);
   const [showList, setShowList] = useState(false);
+  const [imageAspectRatio, setImageAspectRatio] = useState(null);
+
+  // Reset currentImageIndex when structure changes
+  useEffect(() => {
+    setCurrentImageIndex(0);
+  }, [structureNumber]);
+
+  // Now useEffect can safely access structure
+  useEffect(() => {
+    const loadImage = async () => {
+      if (structure?.images?.[currentImageIndex]?.path) {
+        try {
+          const img = await createImageLoader(
+            getImagePath(structure.images[currentImageIndex].path)
+          );
+          setImageAspectRatio(img.width / img.height);
+        } catch (error) {
+          console.error('Error loading image:', error);
+        }
+      }
+    };
+
+    loadImage();
+  }, [currentImageIndex, structure]);
 
   // Function to handle closing
   const handleClose = () => {
     navigate('/structures');
   };
-
-  // Get structure data based on structureNumber
-  const structureNumber = location.state?.structureNumber || 3;
-  const structure = structureData.structures.find(
-    (s) => s.number === structureNumber
-  );
 
   // If no structure is found, show a message
   if (!structure) {
@@ -134,11 +209,6 @@ const StructureInfo = () => {
     return emojiMap[type] || '📌';
   };
 
-  // Function to get image path
-  const getImagePath = (relativePath) => {
-    return imageMap[relativePath] || '';
-  };
-
   const handleStructureSelect = (number) => {
     navigate('/structure/info', { state: { structureNumber: number } });
     setShowList(false);
@@ -184,6 +254,11 @@ const StructureInfo = () => {
       currentIndex < structureList.length - 1 ? currentIndex + 1 : 0;
     return structureList[nextIndex].number;
   };
+
+  // Add safety checks in the render section
+  const currentImage = structure?.images?.[currentImageIndex];
+  const imagePath = currentImage?.path;
+  const imageDescription = currentImage?.description;
 
   return (
     <S.InfoPageWrapper>
@@ -257,31 +332,54 @@ const StructureInfo = () => {
               </S.StructuresListGrid>
             </S.StructureListView>
           ) : (
-            <>
-              <S.MainContent>
+            <S.MainContent>
+              <S.ColumnsContainer>
                 <S.LeftSection>
                   <S.DescriptionContainer>
                     <S.SectionTitleInfo>Images</S.SectionTitleInfo>
                     <S.ImageContainer>
-                      <S.StyledImage
-                        src={getImagePath(
-                          structure.images[currentImageIndex].path
-                        )}
-                        alt={structure.images[currentImageIndex].description}
-                      />
-                      <S.ImageControls>
-                        <S.ArrowButton onClick={handlePrevImage}>
-                          <FaChevronLeft />
-                        </S.ArrowButton>
-                        <S.ArrowButton onClick={handleNextImage}>
-                          <FaChevronRight />
-                        </S.ArrowButton>
-                      </S.ImageControls>
+                      {imagePath && (
+                        <>
+                          <S.BackgroundImage
+                            src={getImagePath(imagePath)}
+                            alt=""
+                            loading="lazy"
+                            style={{
+                              objectPosition:
+                                imageAspectRatio < 16 / 9
+                                  ? '50% 50%'
+                                  : '50% 50%',
+                            }}
+                          />
+
+                          <S.StyledImage
+                            src={getImagePath(imagePath)}
+                            alt={imageDescription}
+                            style={{
+                              width:
+                                imageAspectRatio < 16 / 9 ? 'auto' : '100%',
+                              height:
+                                imageAspectRatio < 16 / 9 ? '100%' : 'auto',
+                            }}
+                          />
+                        </>
+                      )}
+
+                      {structure?.images?.length > 1 && (
+                        <S.ImageControls>
+                          <S.ArrowButton onClick={handlePrevImage}>
+                            <FaChevronLeft />
+                          </S.ArrowButton>
+                          <S.ArrowButton onClick={handleNextImage}>
+                            <FaChevronRight />
+                          </S.ArrowButton>
+                        </S.ImageControls>
+                      )}
                     </S.ImageContainer>
 
                     <S.ImageDescription>
                       <FaCamera />
-                      <p>{structure.images[currentImageIndex].description}</p>
+                      <p>{imageDescription}</p>
                     </S.ImageDescription>
                   </S.DescriptionContainer>
 
@@ -399,13 +497,14 @@ const StructureInfo = () => {
                           </S.InfoCardEmoji>
                           <S.InfoCardTitle>Location</S.InfoCardTitle>
                         </S.InfoCardHeader>
-                        <S.InfoCardContent>
-                          {`${structure.location.latitude}, ${structure.location.longitude}`}
-                        </S.InfoCardContent>
+                        <StructureLocationMap
+                          latitude={structure.location.latitude}
+                          longitude={structure.location.longitude}
+                        />
                       </S.InfoCard>
                     )}
                 </S.InfoCardsSection>
-              </S.MainContent>
+              </S.ColumnsContainer>
 
               <S.LinksSection>
                 <S.LinkButtonContainer>
@@ -422,7 +521,7 @@ const StructureInfo = () => {
                   ))}
                 </S.LinkButtonContainer>
               </S.LinksSection>
-            </>
+            </S.MainContent>
           )}
         </S.ContentContainer>
       </S.CenteredWrapper>

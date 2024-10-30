@@ -15,8 +15,10 @@ import {
   GoogleMap,
   DirectionsRenderer,
   useLoadScript,
+  MarkerF,
 } from '@react-google-maps/api';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 
 // Styles
 import {
@@ -204,6 +206,61 @@ const GoogleMapsRoute = () => {
       </DirectionsContainer>
     </>
   );
+};
+
+// Update the StructureLocationMap component
+export const StructureLocationMap = ({ latitude, longitude }) => {
+  const { isLoaded, loadError } = useLoadScript({
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    libraries: ['places'],
+  });
+
+  if (loadError) return <div>Error loading maps</div>;
+  if (!isLoaded) return <div>Loading Maps...</div>;
+
+  const center = { lat: latitude, lng: longitude };
+
+  const handleMarkerClick = () => {
+    window.open(
+      `https://www.google.com/maps?q=${latitude},${longitude}`,
+      '_blank'
+    );
+  };
+
+  return (
+    <MapContainer style={{ height: '200px', marginTop: '0' }}>
+      <GoogleMap
+        center={center}
+        zoom={18}
+        mapContainerStyle={{
+          width: '100%',
+          height: '100%',
+          borderRadius: '10px',
+        }}
+        options={{
+          styles: mapStyles,
+          disableDefaultUI: true,
+          mapTypeControl: false,
+          zoomControl: false,
+          streetViewControl: false,
+          clickableIcons: false,
+          gestureHandling: 'cooperative',
+        }}
+      >
+        <MarkerF
+          position={center}
+          onClick={handleMarkerClick}
+          title="Click to open in Google Maps"
+        />
+      </GoogleMap>
+    </MapContainer>
+  );
+};
+
+// Add PropTypes
+StructureLocationMap.propTypes = {
+  latitude: PropTypes.number.isRequired,
+  longitude: PropTypes.number.isRequired,
 };
 
 // Used in InfoPage.js
