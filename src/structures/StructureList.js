@@ -16,6 +16,9 @@ import {
   FaSortAmountUp,
   FaExchangeAlt,
   FaArrowRight,
+  FaSort,
+  FaCalendarAlt,
+  FaMapMarkerAlt,
 } from 'react-icons/fa';
 //import { RiSparklingFill } from 'react-icons/ri'; (uncomment later when AI feature ready)
 
@@ -131,7 +134,11 @@ const Structures = () => {
 
       <S.PageContainer>
         <S.SearchContainer>
-          <S.Title>Learn About the Structures</S.Title>
+          <S.TitleContainer>
+            <S.TitleTop>The Stories of</S.TitleTop>
+            <S.TitleBottom>The Structures</S.TitleBottom>
+            <S.TitleTagline>A Legacy of Student Innovation</S.TitleTagline>
+          </S.TitleContainer>
 
           <S.SearchSection>
             <S.SearchIcon>
@@ -144,135 +151,79 @@ const Structures = () => {
               onChange={(e) => setSearchQuery(e.target.value)}
             />
           </S.SearchSection>
-
-          <S.FilterSortContainer>
-            {/* Uncomment when filtering feature is ready
-            <S.ControlGroup>
-              <S.FilterButton onClick={() => setFilterOpen(!filterOpen)}>
-                <FaFilter />
-                <span>{currentFilter}</span>
-                <FaChevronDown />
-              </S.FilterButton>
-              {filterOpen && (
-                <S.DropdownMenu>
-                  <S.DropdownItem
-                    onClick={() => {
-                      setCurrentFilter('All Departments');
-                      setFilterOpen(false);
-                    }}
-                    selected={currentFilter === 'All Departments'}
-                  >
-                    All Departments
-                  </S.DropdownItem>
-                  <S.DropdownItem
-                    onClick={() => {
-                      setCurrentFilter('ArchE');
-                      setFilterOpen(false);
-                    }}
-                    selected={currentFilter === 'ArchE'}
-                  >
-                    ArchE
-                  </S.DropdownItem>
-                  <S.DropdownItem
-                    onClick={() => {
-                      setCurrentFilter('Architecture');
-                      setFilterOpen(false);
-                    }}
-                    selected={currentFilter === 'Architecture'}
-                  >
-                    Architecture
-                  </S.DropdownItem>
-                  <S.DropdownItem
-                    onClick={() => {
-                      setCurrentFilter('Civil Engineering');
-                      setFilterOpen(false);
-                    }}
-                    selected={currentFilter === 'Civil Engineering'}
-                  >
-                    Civil Engineering
-                  </S.DropdownItem>
-                  <S.DropdownItem
-                    onClick={() => {
-                      setCurrentFilter('Landscaping');
-                      setFilterOpen(false);
-                    }}
-                    selected={currentFilter === 'Landscaping'}
-                  >
-                    Landscaping
-                  </S.DropdownItem>
-                </S.DropdownMenu>
-              )}
-            </S.ControlGroup>
-            */}
-
-            <S.ControlGroup>
-              <S.SortButton
-                onClick={() => setSortOpen(!sortOpen)}
-                ascending={sortAscending}
-              >
-                <div
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    toggleSortDirection();
-                  }}
-                >
-                  {sortAscending ? <FaSortAmountUp /> : <FaSortAmountDown />}
-                </div>
-                <span>{currentSort}</span>
-                <FaChevronDown />
-              </S.SortButton>
-              {sortOpen && (
-                <S.DropdownMenu>
-                  <S.DropdownItem
-                    onClick={() => {
-                      setCurrentSort('Number');
-                      setSortOpen(false);
-                    }}
-                    selected={currentSort === 'Number'}
-                  >
-                    Number
-                  </S.DropdownItem>
-                  <S.DropdownItem
-                    onClick={() => {
-                      setCurrentSort('Year');
-                      setSortOpen(false);
-                    }}
-                    selected={currentSort === 'Year'}
-                  >
-                    Year
-                  </S.DropdownItem>
-                  <S.DropdownItem
-                    onClick={() => {
-                      setCurrentSort('Location');
-                      setSortOpen(false);
-                    }}
-                    selected={currentSort === 'Location'}
-                  >
-                    Location
-                  </S.DropdownItem>
-                  <S.SortDirectionToggle
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      toggleSortDirection();
-                      setSortOpen(false);
-                    }}
-                  >
-                    <span>{sortAscending ? 'Ascending' : 'Descending'}</span>
-                    <FaExchangeAlt />
-                  </S.SortDirectionToggle>
-                </S.DropdownMenu>
-              )}
-            </S.ControlGroup>
-          </S.FilterSortContainer>
         </S.SearchContainer>
 
         <S.StructuresContainer>
           <S.SectionContainer>
-            <S.SectionHeader onClick={() => toggleSection('active')}>
-              <S.SectionTitle>Active Structures</S.SectionTitle>
-              <S.SectionToggle isOpen={sectionsOpen.active}>
-                <FaChevronDown />
-              </S.SectionToggle>
+            <S.SectionHeader>
+              <S.SectionTitleContainer onClick={() => toggleSection('active')}>
+                <S.SectionTitle>Active Structures</S.SectionTitle>
+                <S.SectionToggle isOpen={sectionsOpen.active}>
+                  <FaChevronDown />
+                </S.SectionToggle>
+              </S.SectionTitleContainer>
+
+              <S.ControlGroup>
+                <S.SortButton
+                  onClick={() => setSortOpen(!sortOpen)}
+                  ascending={sortAscending}
+                >
+                  <S.DirectionToggle
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleSortDirection();
+                    }}
+                  >
+                    {sortAscending ? <FaSortAmountUp /> : <FaSortAmountDown />}
+                  </S.DirectionToggle>
+                  <span>{currentSort}</span>
+                  <FaChevronDown />
+                </S.SortButton>
+                {sortOpen && (
+                  <S.EnhancedDropdownMenu>
+                    <S.DropdownItem
+                      onClick={() => {
+                        setCurrentSort('Number');
+                        setSortOpen(false);
+                      }}
+                      selected={currentSort === 'Number'}
+                    >
+                      <FaSort />
+                      Number
+                    </S.DropdownItem>
+                    <S.DropdownItem
+                      onClick={() => {
+                        setCurrentSort('Year');
+                        setSortOpen(false);
+                      }}
+                      selected={currentSort === 'Year'}
+                    >
+                      <FaCalendarAlt />
+                      Year
+                    </S.DropdownItem>
+                    <S.DropdownItem
+                      onClick={() => {
+                        setCurrentSort('Location');
+                        setSortOpen(false);
+                      }}
+                      selected={currentSort === 'Location'}
+                    >
+                      <FaMapMarkerAlt />
+                      Location
+                    </S.DropdownItem>
+                    <S.SortDirectionToggle
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleSortDirection();
+                        setSortOpen(false);
+                      }}
+                    >
+                      <span>{sortAscending ? 'Ascending' : 'Descending'}</span>
+                      <FaExchangeAlt />
+                    </S.SortDirectionToggle>
+                  </S.EnhancedDropdownMenu>
+                )}
+              </S.ControlGroup>
             </S.SectionHeader>
             {sectionsOpen.active && (
               <S.StructuresGrid>

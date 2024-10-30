@@ -43,12 +43,126 @@ export const ContentContainer = styled.div`
   }
 `;
 
-export const Title = styled.h1`
-  font-size: 48px;
-  font-weight: 800;
-  color: #376d31;
+export const TitleContainer = styled.div`
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 40px;
+  line-height: 1.1;
+  position: relative;
+  padding: 20px 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(189, 139, 19, 0.5),
+      transparent
+    );
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 180px;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(189, 139, 19, 0.5),
+      transparent
+    );
+  }
+`;
+
+export const TitleTop = styled.div`
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 400;
+  font-style: italic;
+  color: #376d31;
+  margin: 0;
+  opacity: 0.9;
+  letter-spacing: 0.5px;
+  transform: translateY(12px);
+`;
+
+export const TitleBottom = styled.h1`
+  font-size: 68px;
+  font-weight: 800;
+  color: rgba(189, 139, 19, 0.9);
+  margin: 0;
+  letter-spacing: -1.5px;
+  line-height: 1;
+  background: linear-gradient(
+    135deg,
+    rgba(189, 139, 19, 1),
+    rgba(189, 139, 19, 0.85)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow:
+    0 2px 4px rgba(189, 139, 19, 0.1),
+    0 0 1px rgba(189, 139, 19, 0.1);
+  position: relative;
+  padding: 0 24px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 140%;
+    height: 110%;
+    background: radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.8) 0%,
+      transparent 70%
+    );
+    z-index: -1;
+    opacity: 0.5;
+  }
+`;
+
+export const TitleTagline = styled.div`
+  font-size: 18px;
+  font-weight: 500;
+  color: #376d31;
+  margin-top: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.8;
+  position: relative;
+  display: inline-block;
+  padding: 0 12px;
+
+  &::before,
+  &::after {
+    content: '•';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(189, 139, 19, 0.6);
+    font-size: 14px;
+  }
+
+  &::before {
+    left: -8px;
+  }
+
+  &::after {
+    right: -8px;
+  }
 `;
 
 export const SearchSection = styled.div`
@@ -58,135 +172,67 @@ export const SearchSection = styled.div`
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
-  gap: 16px;
+  background: white;
+  border-radius: 16px;
+  padding: 8px;
+  box-shadow:
+    0 4px 16px rgba(55, 109, 49, 0.08),
+    0 2px 4px rgba(55, 109, 49, 0.05);
+  border: 2px solid rgba(189, 139, 19, 0.15);
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: rgba(189, 139, 19, 0.25);
+    box-shadow:
+      0 8px 24px rgba(55, 109, 49, 0.12),
+      0 2px 8px rgba(55, 109, 49, 0.08);
+    transform: translateY(-1px);
+  }
 `;
 
 export const SearchInput = styled.input`
   width: 100%;
-  height: 54px;
-  padding: 0 60px;
+  height: 48px;
+  padding: 0 16px;
   font-size: 18px;
-  border: 2px solid rgba(55, 109, 49, 0.15);
-  border-radius: 16px;
+  border: none;
   outline: none;
-  transition: all 0.3s ease;
-  background-color: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(8px);
-
-  &:focus {
-    border-color: #376d31;
-    box-shadow:
-      0 0 0 4px rgba(55, 109, 49, 0.1),
-      0 8px 24px rgba(55, 109, 49, 0.12);
-    background-color: #ffffff;
-    transform: translateY(-1px);
-  }
+  background: transparent;
+  color: #376d31;
 
   &::placeholder {
-    color: #888;
-    font-weight: 400;
+    color: rgba(55, 109, 49, 0.5);
   }
 `;
 
 export const SearchIcon = styled.div`
-  position: absolute;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
+  margin-left: 16px;
   color: #376d31;
   font-size: 20px;
-  pointer-events: none;
   opacity: 0.7;
   transition: all 0.3s ease;
+  flex-shrink: 0;
 
   ${SearchInput}:focus + & {
     opacity: 1;
-    transform: translateY(-50%) scale(1.1);
-  }
-`;
-
-export const AIButton = styled.button`
-  width: 48px;
-  height: 48px;
-  margin-left: 16px;
-  flex-shrink: 0;
-  background-color: #f5f5f5;
-  border: 2px solid #e0e0e0;
-  border-radius: 50%;
-  color: #376d31;
-  font-size: 20px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-
-  svg {
-    transition: all 0.3s ease;
-  }
-
-  &:hover {
-    background-color: #376d31;
-    border-color: #376d31;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(55, 109, 49, 0.2);
-
-    svg {
-      color: #ffffff;
-      transform: rotate(15deg) scale(1.2);
-      animation: sparkle 1.5s infinite;
-    }
-
-    &::before {
-      opacity: 1;
-    }
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, #ffce33, #ff7e33, #ff338a, #3393ff);
-    z-index: -1;
-    filter: blur(10px);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  @keyframes sparkle {
-    0% {
-      transform: rotate(15deg) scale(1.2);
-    }
-    50% {
-      transform: rotate(-15deg) scale(1.3);
-    }
-    100% {
-      transform: rotate(15deg) scale(1.2);
-    }
-  }
-
-  &:active {
-    transform: translateY(0);
+    transform: scale(1.1);
   }
 `;
 
 export const FilterSortContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   gap: 16px;
-  margin: 24px 0 8px;
-  padding: 0 12px;
+  margin: 8px 0;
+  padding: 0 24px;
 `;
 
 export const ControlGroup = styled.div`
-  margin-top: 16px;
   position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
 `;
 
 const BaseButton = styled.button`
@@ -252,22 +298,28 @@ export const FilterButton = styled(BaseButton)`
 `;
 
 export const SortButton = styled(BaseButton)`
-  div:first-child {
-    cursor: pointer;
-    padding: 4px;
-    border-radius: 6px;
-    transition: all 0.2s ease;
+  padding: 8px 20px 8px 12px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(55, 109, 49, 0.15);
+  font-size: 15px;
+  color: #444;
+  min-width: 180px;
+  height: 48px;
+  backdrop-filter: blur(8px);
+  gap: 8px;
+  margin: auto 0;
 
-    &:hover {
-      background-color: rgba(55, 109, 49, 0.1);
-      transform: scale(1.1);
-    }
-
-    svg {
-      color: #376d31;
-      transform: ${(props) => (props.ascending ? 'scaleY(1)' : 'scaleY(-1)')};
-    }
+  &:hover {
+    background: white;
+    border-color: rgba(55, 109, 49, 0.3);
+    transform: translateY(-1px);
   }
+`;
+
+export const SortLabel = styled.span`
+  font-size: 16px;
+  font-weight: 600;
+  color: #376d31;
 `;
 
 export const DropdownMenu = styled.div`
@@ -294,48 +346,73 @@ export const DropdownMenu = styled.div`
   }
 `;
 
+export const EnhancedDropdownMenu = styled(DropdownMenu)`
+  background: white;
+  border-radius: 12px;
+  box-shadow:
+    0 12px 24px rgba(55, 109, 49, 0.12),
+    0 4px 8px rgba(55, 109, 49, 0.08);
+  border: 1px solid rgba(55, 109, 49, 0.1);
+  overflow: hidden;
+  min-width: 200px;
+  padding: 8px;
+  right: 0;
+  left: auto;
+
+  /* Add subtle animation */
+  transform-origin: top right;
+  animation: dropdownAppear 0.2s ease-out;
+
+  @keyframes dropdownAppear {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+`;
+
 export const DropdownItem = styled.button`
   width: 100%;
-  padding: 12px 20px;
+  padding: 12px 16px;
   border: none;
-  background: none;
-  text-align: left;
+  background: ${(props) =>
+    props.selected ? 'rgba(55, 109, 49, 0.08)' : 'transparent'};
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.2s ease;
-  color: #333;
-  font-size: 16px;
   display: flex;
   align-items: center;
-  position: relative;
+  gap: 12px;
+  color: ${(props) => (props.selected ? '#376d31' : '#555')};
+  font-weight: ${(props) => (props.selected ? '600' : '500')};
+  font-size: 15px;
+  transition: all 0.2s ease;
 
-  &::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: #376d31;
-    position: absolute;
-    left: 8px;
-    opacity: ${(props) => (props.selected ? 1 : 0)};
-    transition: opacity 0.2s ease;
+  svg {
+    font-size: 16px;
+    color: ${(props) => (props.selected ? '#376d31' : '#666')};
+    opacity: ${(props) => (props.selected ? 1 : 0.8)};
+    transition: all 0.2s ease;
   }
 
   &:hover {
-    background: #f5f5f5;
+    background: rgba(55, 109, 49, 0.05);
     color: #376d31;
-  }
 
-  &:not(:last-child) {
-    border-bottom: 1px solid #e0e0e0;
+    svg {
+      color: #376d31;
+      opacity: 1;
+      transform: scale(1.1);
+    }
   }
+`;
 
-  ${(props) =>
-    props.selected &&
-    `
-    color: #376d31;
-    font-weight: 500;
-    padding-left: 24px;
-  `}
+export const ItemIcon = styled.span`
+  font-size: 18px;
+  opacity: 0.8;
 `;
 
 export const SectionContainer = styled.div`
@@ -348,18 +425,15 @@ export const SectionContainer = styled.div`
 `;
 
 export const SectionHeader = styled.div`
-  display: inline-flex; // Changed from flex to inline-flex
+  display: flex;
   align-items: center;
-  gap: 12px;
-  cursor: pointer;
-  padding: 4px 8px; // Added horizontal padding
-  margin-bottom: 12px;
-  border-radius: 4px;
-  transition: background-color 0.2s ease;
-
-  &:hover {
-    background-color: rgba(55, 109, 49, 0.05);
-  }
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: white;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(55, 109, 49, 0.08);
+  border: 1px solid rgba(55, 109, 49, 0.1);
 `;
 
 export const SectionTitle = styled.h2`
@@ -405,28 +479,37 @@ export const StructuresGrid = styled.div`
   }
 `;
 
+export const StructureNumber = styled.div`
+  font-size: 52px;
+  font-weight: 800;
+  color: #376d31;
+  margin-bottom: 8px;
+  line-height: 1;
+  text-shadow: 2px 2px 0 rgba(55, 109, 49, 0.1);
+`;
+
 export const StructureCard = styled.div`
   display: flex;
   background: white;
   border-radius: 24px;
   overflow: hidden;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    border-color 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(55, 109, 49, 0.1);
+  transition: all 0.3s ease;
+  box-shadow:
+    0 4px 16px rgba(55, 109, 49, 0.1),
+    0 2px 4px rgba(55, 109, 49, 0.08);
+  border: 2px solid transparent;
   cursor: pointer;
   position: relative;
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(55, 109, 49, 0.15);
-    border-color: rgba(55, 109, 49, 0.2);
+    border-color: rgba(189, 139, 19, 0.3);
+    box-shadow:
+      0 12px 32px rgba(55, 109, 49, 0.15),
+      0 4px 8px rgba(55, 109, 49, 0.1);
 
-    .chevron-icon {
-      opacity: 1;
-      transform: translate(0, 0) rotate(-45deg);
+    ${StructureNumber} {
+      color: rgba(189, 139, 19, 0.8);
     }
   }
 `;
@@ -449,15 +532,6 @@ export const StructureInfo = styled.div`
     rgba(55, 109, 49, 0.03),
     transparent 50%
   );
-`;
-
-export const StructureNumber = styled.div`
-  font-size: 52px;
-  font-weight: 800;
-  color: #376d31;
-  margin-bottom: 8px;
-  line-height: 1;
-  text-shadow: 2px 2px 0 rgba(55, 109, 49, 0.1);
 `;
 
 export const StructureTitle = styled.h2`
@@ -489,8 +563,8 @@ export const StructureTitle = styled.h2`
 export const ChevronIcon = styled.div`
   position: absolute;
   right: 16px;
-  top: 16px;
-  transform: translate(8px, -8px) rotate(-45deg);
+  top: 50%;
+  transform: translateY(-50%);
   color: #376d31;
   opacity: 0;
   transition: all 0.3s ease;
@@ -502,21 +576,26 @@ export const ChevronIcon = styled.div`
   background: white;
   border-radius: 50%;
   box-shadow: 0 2px 8px rgba(55, 109, 49, 0.15);
+
+  ${StructureCard}:hover & {
+    opacity: 1;
+  }
 `;
 
 export const SortDirectionToggle = styled.button`
   width: 100%;
-  padding: 12px 20px;
+  padding: 12px 16px;
   border: none;
-  background: #f5f5f5;
+  background: transparent;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 4px; // Reduced from 8px
-  border-top: 2px solid #e8e8e8; // Changed from 1px and lightened color
+  margin-top: 8px;
+  border-top: 1px solid rgba(55, 109, 49, 0.1);
   transition: all 0.2s ease;
-  color: #376d31;
+  color: #555;
+  font-size: 15px;
   font-weight: 500;
 
   svg {
@@ -526,7 +605,8 @@ export const SortDirectionToggle = styled.button`
   }
 
   &:hover {
-    background: #e8e8e8;
+    background: rgba(55, 109, 49, 0.05);
+    color: #376d31;
 
     svg {
       transform: rotate(180deg);
@@ -538,8 +618,6 @@ export const SortDirectionToggle = styled.button`
 export const RoundedContainer = styled.div`
   background-color: #f5f5f5;
   border-radius: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  margin: 20px 0;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -549,18 +627,20 @@ export const RoundedContainer = styled.div`
 
 // Create new containers for the search section and structures section
 export const SearchContainer = styled(RoundedContainer)`
+  margin-top: 18px;
   margin-bottom: 24px;
   padding: 24px;
-  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  background: #f5f5f5;
   border: 1px solid rgba(55, 109, 49, 0.1);
-  box-shadow:
-    0 4px 24px rgba(55, 109, 49, 0.07),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 8px rgba(55, 109, 49, 0.08);
 `;
 
 export const StructuresContainer = styled(RoundedContainer)`
   margin-bottom: 24px;
   padding: 20px;
+  background: #f5f5f5;
+  border: 1px solid rgba(55, 109, 49, 0.1);
+  box-shadow: 0 2px 8px rgba(55, 109, 49, 0.08);
 `;
 
 /* Structure Info page styles */
@@ -823,25 +903,6 @@ export const NavigationButton = styled.button`
   }
 `;
 
-export const TitleContainer = styled.div`
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(55, 109, 49, 0.08);
-  border-radius: 32px;
-  padding: 0 8px;
-  border: 2px solid rgba(189, 139, 19, 0.3);
-  transition: all 0.3s ease;
-  cursor: pointer;
-
-  &:hover {
-    background: rgba(55, 109, 49, 0.12);
-    transform: translateY(-1px);
-    border-color: rgba(189, 139, 19, 0.4);
-  }
-`;
-
 export const TitleWrapper = styled.div`
   position: relative;
   flex-grow: 1;
@@ -853,11 +914,13 @@ export const TitleWrapper = styled.div`
   border: 2px solid rgba(189, 139, 19, 0.3);
   overflow: hidden;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(189, 139, 19, 0.1);
 
   &:hover {
     background: rgba(55, 109, 49, 0.12);
     transform: translateY(-1px);
     border-color: rgba(189, 139, 19, 0.4);
+    box-shadow: 0 8px 24px rgba(189, 139, 19, 0.15);
   }
 `;
 
@@ -1165,6 +1228,23 @@ export const HeaderContainer = styled.div`
   box-sizing: border-box;
   border: 1px solid rgba(189, 139, 19, 0.1);
   border-bottom: 3px solid rgba(189, 139, 19, 0.15);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(189, 139, 19, 0.5),
+      transparent
+    );
+  }
 `;
 
 export const StructureNumberBubble = styled.div`
@@ -1198,9 +1278,8 @@ export const StructureNumberBubble = styled.div`
 
 export const StructureTitleInfo = styled.div`
   flex-grow: 1;
-  font-size: 36px;
-  font-weight: 700;
-  color: #376d31;
+  font-size: 42px;
+  font-weight: 800;
   text-align: center;
   height: 100%;
   display: flex;
@@ -1209,12 +1288,42 @@ export const StructureTitleInfo = styled.div`
   padding: 0 80px;
   cursor: pointer;
   transition: all 0.3s ease;
+  background: linear-gradient(
+    135deg,
+    rgba(189, 139, 19, 1),
+    rgba(189, 139, 19, 0.85)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 4px rgba(189, 139, 19, 0.1);
+  letter-spacing: -0.5px;
 
   ${(props) =>
     props.isOpen &&
     `
-    background: rgba(55, 109, 49, 0.15);
+    background: linear-gradient(135deg, rgba(189, 139, 19, 0.9), rgba(189, 139, 19, 0.75));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   `}
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 140%;
+    height: 110%;
+    background: radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.8) 0%,
+      transparent 70%
+    );
+    z-index: -1;
+    opacity: 0.5;
+  }
 `;
 
 export const CloseButton = styled.button`
@@ -1262,4 +1371,47 @@ export const ColumnsContainer = styled.div`
   gap: 40px;
   width: 100%;
   min-width: 0;
+`;
+
+export const SectionTitleContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(55, 109, 49, 0.05);
+  }
+
+  &:active {
+    background: rgba(55, 109, 49, 0.08);
+  }
+`;
+
+export const DirectionToggle = styled.div`
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  background: rgba(55, 109, 49, 0.05);
+  margin-right: 4px;
+
+  svg {
+    font-size: 16px;
+    color: #376d31;
+  }
+
+  &:hover {
+    background: rgba(55, 109, 49, 0.1);
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
 `;

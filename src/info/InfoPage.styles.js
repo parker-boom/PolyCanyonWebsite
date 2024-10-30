@@ -753,7 +753,6 @@ export const MapContainer = styled.div`
   max-width: 1200px;
   align-items: center;
   box-sizing: border-box; // Add this line
-  height: ${(props) => props.height || '400px'}; // Add height prop
 
   @media (max-width: 768px) {
     padding: 5px;
@@ -854,25 +853,5 @@ export const StepNumber = styled.div`
   @media (max-width: 768px) {
     font-size: 48px;
     margin: 0 20px;
-  }
-`;
-
-// Update InfoCard to handle the map better
-export const InfoCard = styled.div`
-  // ... existing styles ...
-
-  // Add specific styling for when the card contains a map
-  ${MapContainer} {
-    margin: 10px 0 0 0;
-    width: 100%;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-
-    &:hover {
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-      transform: translateY(-2px);
-    }
   }
 `;
