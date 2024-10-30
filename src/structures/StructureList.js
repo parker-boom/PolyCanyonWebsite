@@ -7,7 +7,7 @@ Imports
 */
 
 // Libraries
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import {
   FaSearch,
@@ -22,14 +22,11 @@ import {
 } from 'react-icons/fa';
 //import { RiSparklingFill } from 'react-icons/ri'; (uncomment later when AI feature ready)
 
-// Data
-import structuresData from './structureList.json';
-
 // Styles
-import * as S from './Structures.styles';
+import * as S from './Structures.styles.js';
 
 // Add this import near the top with other imports
-import { structureImages } from './structureImages';
+import { mainImages } from './structureImages.js';
 
 // Add this import
 import { useNavigate } from 'react-router-dom';
@@ -38,11 +35,11 @@ import { useNavigate } from 'react-router-dom';
 Components & Renders
 */
 const Structures = () => {
+  const [structures, setStructures] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   const [searchQuery, setSearchQuery] = useState('');
-  /* Uncomment when filtering feature is ready
-  const [filterOpen, setFilterOpen] = useState(false);
-  const [currentFilter, setCurrentFilter] = useState('All Departments');
-  */
   const [sortOpen, setSortOpen] = useState(false);
   const [currentSort, setCurrentSort] = useState('Number');
   const [sortAscending, setSortAscending] = useState(true);
@@ -52,28 +49,49 @@ const Structures = () => {
     planned: true,
   });
 
-  // Numbered list, by structure number
-  const numberList = structuresData.map((structure) => structure.number);
+  useEffect(() => {
+    const fetchStructures = async () => {
+      try {
+        console.log('Fetching structures from API...');
+        const response = await fetch(
+          'http://localhost:5000/api/structures/list'
+        );
+        console.log('API Response status:', response.status);
 
-  // Year list, by structure year
-  /*
-  IF INFO CHANGES, UPDATE 
-  */
+        if (!response.ok) {
+          throw new Error('Failed to fetch structures');
+        }
+
+        const data = await response.json();
+        console.log('Received data:', data);
+
+        setStructures(data);
+        setLoading(false);
+      } catch (error) {
+        console.error('Fetch error:', error);
+        setError(error.message);
+        setLoading(false);
+      }
+    };
+
+    fetchStructures();
+  }, []);
+
+  const numberList = structures.map((structure) => structure.number);
+
   const yearList = [
     7, 3, 12, 16, 11, 9, 2, 26, 24, 29, 1, 14, 15, 10, 19, 25, 28, 8, 13, 17, 6,
     20, 21, 22, 5, 18, 4, 23, 27, 30,
   ];
 
-  // Location list, by structure location (North to South)
-  /*
-  IF INFO CHANGES, UPDATE 
-  */
   const locationList = [
     17, 16, 18, 15, 19, 13, 14, 20, 21, 12, 11, 22, 23, 10, 24, 25, 9, 26, 8,
     27, 7, 28, 6, 5, 29, 4, 30, 3, 2, 1,
   ];
 
   const getSortedStructures = () => {
+    if (!structures.length) return [];
+
     let sortedList;
 
     switch (currentSort) {
@@ -92,7 +110,7 @@ const Structures = () => {
 
     if (searchQuery) {
       sortedList = sortedList.filter((number) => {
-        const structure = structuresData.find((s) => s.number === number);
+        const structure = structures.find((s) => s.number === number);
         return (
           structure.number.toString().includes(searchQuery.toLowerCase()) ||
           structure.title.toLowerCase().includes(searchQuery.toLowerCase())
@@ -114,13 +132,19 @@ const Structures = () => {
     }));
   };
 
-  // Add this near other useState declarations
   const navigate = useNavigate();
 
-  // Add this function
   const handleStructureClick = (structureNumber) => {
     navigate('/structure/info', { state: { structureNumber } });
   };
+
+  if (loading) {
+    return <div>Loading structures...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   return (
     <>
@@ -228,7 +252,7 @@ const Structures = () => {
             {sectionsOpen.active && (
               <S.StructuresGrid>
                 {getSortedStructures().map((structureNumber) => {
-                  const structure = structuresData.find(
+                  const structure = structures.find(
                     (s) => s.number === structureNumber
                   );
                   return (
@@ -237,7 +261,7 @@ const Structures = () => {
                       onClick={() => handleStructureClick(structure.number)}
                     >
                       <S.StructureImage
-                        src={structureImages[structure.image_key]}
+                        src={mainImages[structure.image_key]}
                         alt={structure.title}
                         onError={(e) => {
                           e.target.src =

@@ -23,112 +23,99 @@ import {
 } from 'react-icons/fa';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-// Data
-import structureData from './structureExInfo.json';
-import structureList from './structureList.json';
-import { StructureLocationMap } from '../info/GoogleMapsRoute';
+// Remove structureData import as we'll fetch it
+import structureList from './data/structureList.json';
+import { StructureLocationMap } from '../info/GoogleMapsRoute.js';
 
 // Styles
-import * as S from './Structures.styles';
+import * as S from './Structures.styles.js';
 
 // Import structureImages for the list view
-import { structureImages } from './structureImages';
-
-// Import all main and closeup images
-import M1 from './images/M-1.jpg';
-import M2 from './images/M-2.jpg';
-import M3 from './images/M-3.jpg';
-import M4 from './images/M-4.jpg';
-import M5 from './images/M-5.jpg';
-import M6 from './images/M-6.jpg';
-
-import C1 from './images/C-1.jpg';
-import C2 from './images/C-2.jpg';
-import C3 from './images/C-3.jpg';
-import C4 from './images/C-4.jpg';
-import C5 from './images/C-5.jpg';
-import C6 from './images/C-6.jpg';
-
-// Historical images for Structure 3
-import HistM3 from './historicalImages/M-3.jpg';
-import HistC3 from './historicalImages/C-3.jpg';
-import BladeRedesign from './historicalImages/BladeRedesign.png';
-import OriginalBladePeople from './historicalImages/OriginalBladePeople.png';
-
-// Create a comprehensive image map
-const imageMap = {
-  // Standard images (M/C pairs)
-  '/images/M-1': M1,
-  '/images/C-1': C1,
-  '/images/M-2': M2,
-  '/images/C-2': C2,
-  '/images/M-3': M3,
-  '/images/C-3': C3,
-  '/images/M-4': M4,
-  '/images/C-4': C4,
-  '/images/M-5': M5,
-  '/images/C-5': C5,
-  '/images/M-6': M6,
-  '/images/C-6': C6,
-
-  // Special case: Structure 3 historical images
-  '/historicalImages/M-3.jpg': HistM3,
-  '/historicalImages/C-3.jpg': HistC3,
-  '/historicalImages/BladeRedesign.png': BladeRedesign,
-  '/historicalImages/OriginalBladePeople.png': OriginalBladePeople,
-};
+import { mainImages, closeUpImages } from './structureImages.js';
 
 // Update the getImagePath function to handle both formats
-const getImagePath = (relativePath) => {
-  // Handle paths that already include the extension
-  if (relativePath.includes('.')) {
-    return imageMap[relativePath];
-  }
-  // Handle paths that need the extension added
-  return imageMap[`${relativePath}.jpg`] || imageMap[relativePath];
-};
+const getImagePath = (imagePath) => {
+  // Extract the image key (e.g., "M-1" or "C-1") from the path
+  const imageKey = imagePath.split('/').pop();
 
-// Add new helper function for image loading
-const createImageLoader = (src) => {
-  return new Promise((resolve, reject) => {
-    const img = new Image();
-    img.onload = () => resolve(img);
-    img.onerror = reject;
-    img.src = src;
-  });
+  // Check if it's a main image or closeup image
+  if (imageKey.startsWith('M-')) {
+    return mainImages[imageKey];
+  } else if (imageKey.startsWith('C-')) {
+    return closeUpImages[imageKey];
+  }
+
+  console.warn(`Image not found for path: ${imagePath}`);
+  return null;
 };
 
 const StructureInfo = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Get structure data first
-  const structureNumber = location.state?.structureNumber || 3;
-  const structure = structureData.structures.find(
-    (s) => s.number === structureNumber
-  );
+  // Add new state for structure data
+  const [structure, setStructure] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // Then declare states
+  // Get structure number from location state
+  const structureNumber = location.state?.structureNumber || 3;
+
+  // Then declare other states
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [descriptionExpanded, setDescriptionExpanded] = useState(false);
   const [showDropdownIcon, setShowDropdownIcon] = useState(false);
   const [showList, setShowList] = useState(false);
   const [imageAspectRatio, setImageAspectRatio] = useState(null);
 
+  // Fetch structure data when component mounts or structureNumber changes
+  useEffect(() => {
+    const fetchStructure = async () => {
+      try {
+        console.log(`Fetching structure #${structureNumber}...`);
+        const response = await fetch(
+          `http://localhost:5000/api/structures/info/${structureNumber}`
+        );
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch structure');
+        }
+
+        const data = await response.json();
+        console.log('Received structure data:', data);
+        setStructure(data);
+        setLoading(false);
+      } catch (error) {
+        console.error('Fetch error:', error);
+        setError(error.message);
+        setLoading(false);
+      }
+    };
+
+    fetchStructure();
+  }, [structureNumber]);
+
   // Reset currentImageIndex when structure changes
   useEffect(() => {
     setCurrentImageIndex(0);
   }, [structureNumber]);
 
-  // Now useEffect can safely access structure
+  // Image aspect ratio effect
   useEffect(() => {
     const loadImage = async () => {
       if (structure?.images?.[currentImageIndex]?.path) {
         try {
-          const img = await createImageLoader(
-            getImagePath(structure.images[currentImageIndex].path)
+          const img = new Image();
+          const imagePath = getImagePath(
+            structure.images[currentImageIndex].path
           );
-          setImageAspectRatio(img.width / img.height);
+
+          if (imagePath) {
+            img.src = imagePath;
+            img.onload = () => {
+              setImageAspectRatio(img.width / img.height);
+            };
+          }
         } catch (error) {
           console.error('Error loading image:', error);
         }
@@ -138,10 +125,15 @@ const StructureInfo = () => {
     loadImage();
   }, [currentImageIndex, structure]);
 
-  // Function to handle closing
-  const handleClose = () => {
-    navigate('/structures');
-  };
+  // Loading state
+  if (loading) {
+    return <div>Loading structure information...</div>;
+  }
+
+  // Error state
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   // If no structure is found, show a message
   if (!structure) {
@@ -151,7 +143,7 @@ const StructureInfo = () => {
           <S.HeaderContainer>
             <S.StructureNumberBubble>{structureNumber}</S.StructureNumberBubble>
             <S.StructureTitleInfo>Structure Not Found</S.StructureTitleInfo>
-            <S.CloseButton onClick={handleClose}>
+            <S.CloseButton onClick={() => navigate('/structures')}>
               <FaTimes />
             </S.CloseButton>
           </S.HeaderContainer>
@@ -302,7 +294,7 @@ const StructureInfo = () => {
             </S.NavigationOverlay>
           </S.TitleWrapper>
 
-          <S.CloseButton onClick={handleClose}>
+          <S.CloseButton onClick={() => navigate('/structures')}>
             <FaTimes />
           </S.CloseButton>
         </S.HeaderContainer>
@@ -318,7 +310,7 @@ const StructureInfo = () => {
                     isSelected={item.number === structure.number}
                   >
                     <S.StructureImage
-                      src={structureImages[item.image_key]}
+                      src={mainImages[item.image_key]}
                       alt={item.title}
                     />
                     <S.StructureListInfo>
@@ -338,10 +330,12 @@ const StructureInfo = () => {
                   <S.DescriptionContainer>
                     <S.SectionTitleInfo>Images</S.SectionTitleInfo>
                     <S.ImageContainer>
-                      {imagePath && (
+                      {structure?.images?.[currentImageIndex]?.path && (
                         <>
                           <S.BackgroundImage
-                            src={getImagePath(imagePath)}
+                            src={getImagePath(
+                              structure.images[currentImageIndex].path
+                            )}
                             alt=""
                             loading="lazy"
                             style={{
@@ -353,8 +347,12 @@ const StructureInfo = () => {
                           />
 
                           <S.StyledImage
-                            src={getImagePath(imagePath)}
-                            alt={imageDescription}
+                            src={getImagePath(
+                              structure.images[currentImageIndex].path
+                            )}
+                            alt={
+                              structure.images[currentImageIndex].description
+                            }
                             style={{
                               width:
                                 imageAspectRatio < 16 / 9 ? 'auto' : '100%',

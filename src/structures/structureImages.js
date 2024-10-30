@@ -1,3 +1,8 @@
+/*
+IMPORTS
+*/
+
+// Main images
 import M1 from './images/M-1.jpg';
 import M2 from './images/M-2.jpg';
 import M3 from './images/M-3.jpg';
@@ -29,7 +34,44 @@ import M28 from './images/M-28.jpg';
 import M29 from './images/M-29.jpg';
 import M30 from './images/M-30.jpg';
 
-export const structureImages = {
+// Closeup images
+import C1 from './images/C-1.jpg';
+import C2 from './images/C-2.jpg';
+import C3 from './images/C-3.jpg';
+import C4 from './images/C-4.jpg';
+import C5 from './images/C-5.jpg';
+import C6 from './images/C-6.jpg';
+import C7 from './images/C-7.jpg';
+import C8 from './images/C-8.jpg';
+import C9 from './images/C-9.jpg';
+import C10 from './images/C-10.jpg';
+import C11 from './images/C-11.jpg';
+import C12 from './images/C-12.jpg';
+import C13 from './images/C-13.jpg';
+import C14 from './images/C-14.jpg';
+import C15 from './images/C-15.jpg';
+import C16 from './images/C-16.jpg';
+import C17 from './images/C-17.jpg';
+import C18 from './images/C-18.jpg';
+import C19 from './images/C-19.jpg';
+import C20 from './images/C-20.jpg';
+import C21 from './images/C-21.jpg';
+import C22 from './images/C-22.jpg';
+import C23 from './images/C-23.jpg';
+import C24 from './images/C-24.jpg';
+import C25 from './images/C-25.jpg';
+import C26 from './images/C-26.jpg';
+import C27 from './images/C-27.jpg';
+import C28 from './images/C-28.jpg';
+import C29 from './images/C-29.jpg';
+import C30 from './images/C-30.jpg';
+
+/*
+EXPORTS
+*/
+
+// Main images
+export const mainImages = {
   'M-1': M1,
   'M-2': M2,
   'M-3': M3,
@@ -60,4 +102,38 @@ export const structureImages = {
   'M-28': M28,
   'M-29': M29,
   'M-30': M30,
+};
+
+// Closeup images
+export const closeUpImages = {
+  'C-1': C1,
+  'C-2': C2,
+  'C-3': C3,
+  'C-4': C4,
+  'C-5': C5,
+  'C-6': C6,
+  'C-7': C7,
+  'C-8': C8,
+  'C-9': C9,
+  'C-10': C10,
+  'C-11': C11,
+  'C-12': C12,
+  'C-13': C13,
+  'C-14': C14,
+  'C-15': C15,
+  'C-16': C16,
+  'C-17': C17,
+  'C-18': C18,
+  'C-19': C19,
+  'C-20': C20,
+  'C-21': C21,
+  'C-22': C22,
+  'C-23': C23,
+  'C-24': C24,
+  'C-25': C25,
+  'C-26': C26,
+  'C-27': C27,
+  'C-28': C28,
+  'C-29': C29,
+  'C-30': C30,
 };

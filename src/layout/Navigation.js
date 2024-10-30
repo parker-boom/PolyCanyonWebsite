@@ -44,7 +44,7 @@ import {
   NavLinks,
   NavLink,
   BannerIcon,
-} from './Navigation.styles';
+} from './Navigation.styles.js';
 
 // Logo
 import app360 from '../assets/app360.jpg';

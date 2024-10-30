@@ -23,16 +23,16 @@ import { HelmetProvider } from 'react-helmet-async';
 import styled from 'styled-components';
 
 import './index.css';
-import Navigation from './layout/Navigation';
-import { Footer, FooterText } from './layout/Navigation.styles';
+import Navigation from './layout/Navigation.js';
+import { Footer, FooterText } from './layout/Navigation.styles.js';
 
 // Pages
-import DownloadPageMobile from './downloads/DownloadPageMobile';
-import DownloadPageWeb from './downloads/DownloadPageWeb';
-import InfoPageMobile from './info/InfoPageMobile';
-import InfoPageWeb from './info/InfoPageWeb';
-import StructuresList from './structures/StructureList';
-import StructureInfo from './structures/StructureInfo';
+import DownloadPageMobile from './downloads/DownloadPageMobile.js';
+import DownloadPageWeb from './downloads/DownloadPageWeb.js';
+import InfoPageMobile from './info/InfoPageMobile.js';
+import InfoPageWeb from './info/InfoPageWeb.js';
+import StructuresList from './structures/StructureList.js';
+import StructureInfo from './structures/StructureInfo.js';
 
 const AppContainer = styled.div`
   display: flex;

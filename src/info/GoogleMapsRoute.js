@@ -30,7 +30,7 @@ import {
   StepContent,
   StepNumber,
   StepText,
-} from './InfoPage.styles';
+} from './InfoPage.styles.js';
 
 /*
 Constants

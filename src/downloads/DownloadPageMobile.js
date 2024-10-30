@@ -26,7 +26,7 @@ import {
   DownloadButton,
   DeviceSwitchContainer,
   SwitchText,
-} from './DownloadPage.styles';
+} from './DownloadPage.styles.js';
 
 // Component
 import LazyGif from './LazyGif.js';

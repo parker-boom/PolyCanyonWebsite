@@ -2,151 +2,181 @@
   {
     "number": 1,
     "title": "Entry Arch",
-    "image_key": "M-1"
+    "image_key": "M-1",
+    "url": "entryArch"
   },
   {
     "number": 2,
     "title": "Techite Bridge",
-    "image_key": "M-2"
+    "image_key": "M-2",
+    "url": "techiteBridge"
   },
   {
     "number": 3,
     "title": "Blade",
-    "image_key": "M-3"
+    "image_key": "M-3",
+    "url": "blade"
   },
   {
     "number": 4,
     "title": "Spire Array",
-    "image_key": "M-4"
+    "image_key": "M-4",
+    "url": "spireArray"
   },
   {
     "number": 5,
     "title": "Palm Tree",
-    "image_key": "M-5"
+    "image_key": "M-5",
+    "url": "palmTree"
   },
   {
     "number": 6,
     "title": "Tensile",
-    "image_key": "M-6"
+    "image_key": "M-6",
+    "url": "tensile"
   },
   {
     "number": 7,
     "title": "Geodesic Dome",
-    "image_key": "M-7"
+    "image_key": "M-7",
+    "url": "geodesicDome"
   },
   {
     "number": 8,
     "title": "Cantilever Deck",
-    "image_key": "M-8"
+    "image_key": "M-8",
+    "url": "cantileverDeck"
   },
   {
     "number": 9,
     "title": "Earth Restrooms",
-    "image_key": "M-9"
+    "image_key": "M-9",
+    "url": "restrooms"
   },
   {
     "number": 10,
     "title": "Underground House",
-    "image_key": "M-10"
+    "image_key": "M-10",
+    "url": "undergroundHouse"
   },
   {
     "number": 11,
     "title": "Sun Dial",
-    "image_key": "M-11"
+    "image_key": "M-11",
+    "url": "sunDial"
   },
   {
     "number": 12,
     "title": "Gunite Bridge",
-    "image_key": "M-12"
+    "image_key": "M-12",
+    "url": "guniteBridge"
   },
   {
     "number": 13,
     "title": "Timber Truss",
-    "image_key": "M-13"
+    "image_key": "M-13",
+    "url": "timberTruss"
   },
   {
     "number": 14,
     "title": "Stick Structure",
-    "image_key": "M-14"
+    "image_key": "M-14",
+    "url": "stickStructure"
   },
   {
     "number": 15,
     "title": "Pyramid",
-    "image_key": "M-15"
+    "image_key": "M-15",
+    "url": "pyramid"
   },
   {
     "number": 16,
     "title": "Bridge House",
-    "image_key": "M-16"
+    "image_key": "M-16",
+    "url": "bridgeHouse"
   },
   {
     "number": 17,
     "title": "Water Tanks",
-    "image_key": "M-17"
+    "image_key": "M-17",
+    "url": "waterTanks"
   },
   {
     "number": 18,
     "title": "Observation Deck",
-    "image_key": "M-18"
+    "image_key": "M-18",
+    "url": "observationDeck"
   },
   {
     "number": 19,
     "title": "Poly Pavilion",
-    "image_key": "M-19"
+    "image_key": "M-19",
+    "url": "polyPavilion"
   },
   {
     "number": 20,
     "title": "Serenity Wall",
-    "image_key": "M-20"
+    "image_key": "M-20",
+    "url": "serenityWall"
   },
   {
     "number": 21,
     "title": "Hay Bale Arch",
-    "image_key": "M-21"
+    "image_key": "M-21",
+    "url": "hayBaleArch"
   },
   {
     "number": 22,
     "title": "Fratessa Tower",
-    "image_key": "M-22"
+    "image_key": "M-22",
+    "url": "fratessaTower"
   },
   {
     "number": 23,
     "title": "Tensegrity",
-    "image_key": "M-23"
+    "image_key": "M-23",
+    "url": "tensegrity"
   },
   {
     "number": 24,
     "title": "Shell House",
-    "image_key": "M-24"
+    "image_key": "M-24",
+    "url": "shellHouse"
   },
   {
     "number": 25,
     "title": "Green House",
-    "image_key": "M-25"
+    "image_key": "M-25",
+    "url": "greenHouse"
   },
   {
     "number": 26,
     "title": "Modular House",
-    "image_key": "M-26"
+    "image_key": "M-26",
+    "url": "modularHouse"
   },
   {
     "number": 27,
     "title": "Centering Center",
-    "image_key": "M-27"
+    "image_key": "M-27",
+    "url": "centeringCenter"
   },
   {
     "number": 28,
     "title": "Pole Building",
-    "image_key": "M-28"
+    "image_key": "M-28",
+    "url": "poleBuilding"
   },
   {
     "number": 29,
     "title": "BBQ Pit",
-    "image_key": "M-29"
+    "image_key": "M-29",
+    "url": "bbqPit"
   },
   {
     "number": 30,
     "title": "Moment Monument",
-    "image_key": "M-30"
+    "image_key": "M-30",
+    "url": "momentMonument"
   }
 ]

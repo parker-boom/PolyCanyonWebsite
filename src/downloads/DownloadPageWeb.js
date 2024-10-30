@@ -12,7 +12,7 @@ Imports
 // Libraries
 import React from 'react';
 import { FaApple, FaAndroid, FaArrowRight, FaDownload } from 'react-icons/fa';
-import LazyGif from './LazyGif';
+import LazyGif from './LazyGif.js';
 import { Helmet } from 'react-helmet-async';
 
 // Styles
@@ -29,7 +29,7 @@ import {
   DownloadButtonIcon,
   DownloadButtonText,
   DownloadButtonSubtext,
-} from './DownloadPage.styles';
+} from './DownloadPage.styles.js';
 
 /* 
 Components & Render
