@@ -236,9 +236,6 @@ const StructureInfo = () => {
   };
 
   const currentImage = structure?.images?.[currentImageIndex];
-  const currentImagePath = currentImage?.path
-    ? getImagePath(currentImage.path)
-    : null;
   const imageDescription = currentImage?.description;
 
   return (
