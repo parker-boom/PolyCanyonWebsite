@@ -25,8 +25,8 @@ import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 
 import './index.css';
-import Navigation from './layout/Navigation';
-import { Footer, FooterText } from './layout/Navigation.styles';
+import Navigation from './layout/Navigation.js';
+import { Footer, FooterText } from './layout/Navigation.styles.js';
 
 // Pages
 import HomeWeb from './home/homeWeb';
@@ -36,6 +36,12 @@ import DownloadPageWeb from './downloads/DownloadPageWeb';
 import InfoPageMobile from './info/InfoPageMobile';
 import InfoPageWeb from './info/InfoPageWeb';
 import StructuresPage from './structures/Structures';
+import DownloadPageMobile from './downloads/DownloadPageMobile.js';
+import DownloadPageWeb from './downloads/DownloadPageWeb.js';
+import InfoPageMobile from './info/InfoPageMobile.js';
+import InfoPageWeb from './info/InfoPageWeb.js';
+import StructuresList from './structures/StructureList.js';
+import StructureInfo from './structures/StructureInfo.js';
 
 const AppContainer = styled.div`
   display: flex;
@@ -51,6 +57,7 @@ const Content = styled.main`
 
 // Separate component to use useLocation hook
 function AppContent() {
+const App = () => {
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
   const location = useLocation();
 
@@ -107,10 +114,57 @@ function App() {
     <HelmetProvider>
       <Router>
         <AppContent />
+    <HelmetProvider>
+      <Router>
+        <AppContainer>
+          {/* Conditionally render Navigation based on route */}
+          <Routes>
+            <Route path="/structure/info" element={<StructureInfo />} />
+            <Route
+              path="*"
+              element={
+                <>
+                  <Navigation />
+                  <Content>
+                    <Routes>
+                      <Route
+                        path="/info"
+                        element={
+                          isMobile ? <InfoPageMobile /> : <InfoPageWeb />
+                        }
+                      />
+                      <Route path="/structures" element={<StructuresList />} />
+                      <Route
+                        path="/download"
+                        element={
+                          isMobile ? (
+                            <DownloadPageMobile />
+                          ) : (
+                            <DownloadPageWeb />
+                          )
+                        }
+                      />
+                      <Route
+                        path="*"
+                        element={<Navigate to="/download" replace />}
+                      />
+                    </Routes>
+                  </Content>
+                  <Footer>
+                    <FooterText>
+                      © 2024 Poly Canyon App. All rights reserved.
+                    </FooterText>
+                    <FooterText>Cal Poly, San Luis Obispo</FooterText>
+                  </Footer>
+                </>
+              }
+            />
+          </Routes>
+        </AppContainer>
       </Router>
     </HelmetProvider>
   );
-}
+};
 
 const GlobalStyle = createGlobalStyle`
   * {

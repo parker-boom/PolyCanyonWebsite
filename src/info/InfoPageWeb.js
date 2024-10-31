@@ -102,11 +102,11 @@ import {
   GoogleMapsButton,
   VisitTipsTitle,
   VisitTips,
-} from './InfoPage.styles';
+} from './InfoPage.styles.js';
 
 // Separate components
-import PhotoGrid from './PhotoGrid';
-import GoogleMapsRoute from './GoogleMapsRoute';
+import PhotoGrid from './PhotoGrid.js';
+import GoogleMapsRoute from './GoogleMapsRoute.js';
 
 // App screenshot
 import appPreview from '../assets/appPreview.png';
