@@ -23,15 +23,14 @@ import {
 } from 'react-icons/fa';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-// Remove structureData import as we'll fetch it
-import structureList from './data/structureList.json';
 import { StructureLocationMap } from '../info/GoogleMapsRoute.js';
 
 // Styles
 import * as S from './Structures.styles.js';
 
 // Import structureImages for the list view
-import { mainImages, closeUpImages } from './structureImages.js';
+import { mainImages, closeUpImages } from './images/structureImages.js';
+import { getStructuresList, getStructureInfo } from './data/structuresData.js';
 
 // Update the getImagePath function to handle both formats
 const getImagePath = (imagePath) => {
@@ -53,54 +52,46 @@ const StructureInfo = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Add new state for structure data
   const [structure, setStructure] = useState(null);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Get structure number from location state
   const structureNumber = location.state?.structureNumber || 3;
 
-  // Then declare other states
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [descriptionExpanded, setDescriptionExpanded] = useState(false);
   const [showDropdownIcon, setShowDropdownIcon] = useState(false);
   const [showList, setShowList] = useState(false);
   const [imageAspectRatio, setImageAspectRatio] = useState(null);
 
-  // Fetch structure data when component mounts or structureNumber changes
+  const [structuresList, setStructuresList] = useState([]);
+
   useEffect(() => {
-    const fetchStructure = async () => {
-      try {
-        console.log(`Fetching structure #${structureNumber}...`);
-        const response = await fetch(
-          `http://localhost:5000/api/structures/info/${structureNumber}`
-        );
+    try {
+      const list = getStructuresList();
+      setStructuresList(list);
+    } catch (error) {
+      console.error('Error loading structures list:', error);
+    }
+  }, []);
 
-        if (!response.ok) {
-          throw new Error('Failed to fetch structure');
-        }
-
-        const data = await response.json();
-        console.log('Received structure data:', data);
-        setStructure(data);
-        setLoading(false);
-      } catch (error) {
-        console.error('Fetch error:', error);
-        setError(error.message);
-        setLoading(false);
+  useEffect(() => {
+    try {
+      const structureData = getStructureInfo(structureNumber);
+      if (structureData) {
+        setStructure(structureData);
+      } else {
+        setError('Structure not found');
       }
-    };
-
-    fetchStructure();
+    } catch (error) {
+      console.error('Error loading structure:', error);
+      setError(error.message);
+    }
   }, [structureNumber]);
 
-  // Reset currentImageIndex when structure changes
   useEffect(() => {
     setCurrentImageIndex(0);
   }, [structureNumber]);
 
-  // Image aspect ratio effect
   useEffect(() => {
     const loadImage = async () => {
       if (structure?.images?.[currentImageIndex]?.path) {
@@ -125,17 +116,10 @@ const StructureInfo = () => {
     loadImage();
   }, [currentImageIndex, structure]);
 
-  // Loading state
-  if (loading) {
-    return <div>Loading structure information...</div>;
-  }
-
-  // Error state
   if (error) {
     return <div>Error: {error}</div>;
   }
 
-  // If no structure is found, show a message
   if (!structure) {
     return (
       <S.InfoPageWrapper>
@@ -147,7 +131,6 @@ const StructureInfo = () => {
               <FaTimes />
             </S.CloseButton>
           </S.HeaderContainer>
-
           <S.ContentContainer>
             <S.MainContent>
               <S.DescriptionContainer>
@@ -180,14 +163,12 @@ const StructureInfo = () => {
     setDescriptionExpanded(!descriptionExpanded);
   };
 
-  // Helper function to get link icon
   const getLinkIcon = (title) => {
     if (title.toLowerCase().includes('article')) return <FaNewspaper />;
     if (title.toLowerCase().includes('thesis')) return <FaBook />;
     return <FaGlobe />;
   };
 
-  // Helper function to get emoji for info cards
   const getInfoEmoji = (type) => {
     const emojiMap = {
       year: '📅',
@@ -207,49 +188,57 @@ const StructureInfo = () => {
   };
 
   const handlePrevStructure = () => {
-    const currentIndex = structureList.findIndex(
+    if (!structuresList.length) return;
+
+    const currentIndex = structuresList.findIndex(
       (s) => s.number === structureNumber
     );
     const prevIndex =
-      currentIndex > 0 ? currentIndex - 1 : structureList.length - 1;
+      currentIndex > 0 ? currentIndex - 1 : structuresList.length - 1;
     navigate('/structure/info', {
-      state: { structureNumber: structureList[prevIndex].number },
+      state: { structureNumber: structuresList[prevIndex].number },
     });
   };
 
   const handleNextStructure = () => {
-    const currentIndex = structureList.findIndex(
+    if (!structuresList.length) return;
+
+    const currentIndex = structuresList.findIndex(
       (s) => s.number === structureNumber
     );
     const nextIndex =
-      currentIndex < structureList.length - 1 ? currentIndex + 1 : 0;
+      currentIndex < structuresList.length - 1 ? currentIndex + 1 : 0;
     navigate('/structure/info', {
-      state: { structureNumber: structureList[nextIndex].number },
+      state: { structureNumber: structuresList[nextIndex].number },
     });
   };
 
-  // Add these helper functions
   const getPrevStructureNumber = () => {
-    const currentIndex = structureList.findIndex(
+    if (!structuresList.length) return null;
+
+    const currentIndex = structuresList.findIndex(
       (s) => s.number === structureNumber
     );
     const prevIndex =
-      currentIndex > 0 ? currentIndex - 1 : structureList.length - 1;
-    return structureList[prevIndex].number;
+      currentIndex > 0 ? currentIndex - 1 : structuresList.length - 1;
+    return structuresList[prevIndex].number;
   };
 
   const getNextStructureNumber = () => {
-    const currentIndex = structureList.findIndex(
+    if (!structuresList.length) return null;
+
+    const currentIndex = structuresList.findIndex(
       (s) => s.number === structureNumber
     );
     const nextIndex =
-      currentIndex < structureList.length - 1 ? currentIndex + 1 : 0;
-    return structureList[nextIndex].number;
+      currentIndex < structuresList.length - 1 ? currentIndex + 1 : 0;
+    return structuresList[nextIndex].number;
   };
 
-  // Add safety checks in the render section
   const currentImage = structure?.images?.[currentImageIndex];
-  const imagePath = currentImage?.path;
+  const currentImagePath = currentImage?.path
+    ? getImagePath(currentImage.path)
+    : null;
   const imageDescription = currentImage?.description;
 
   return (
@@ -303,7 +292,7 @@ const StructureInfo = () => {
           {showList ? (
             <S.StructureListView>
               <S.StructuresListGrid>
-                {structureList.map((item) => (
+                {structuresList.map((item) => (
                   <S.StructureListCard
                     key={item.number}
                     onClick={() => handleStructureSelect(item.number)}

@@ -26,17 +26,19 @@ import {
 import * as S from './Structures.styles.js';
 
 // Add this import near the top with other imports
-import { mainImages } from './structureImages.js';
+import { mainImages } from './images/structureImages.js';
 
 // Add this import
 import { useNavigate } from 'react-router-dom';
+
+// Update the import path
+import { getStructuresList } from './data/structuresData.js';
 
 /*
 Components & Renders
 */
 const Structures = () => {
   const [structures, setStructures] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const [searchQuery, setSearchQuery] = useState('');
@@ -50,31 +52,13 @@ const Structures = () => {
   });
 
   useEffect(() => {
-    const fetchStructures = async () => {
-      try {
-        console.log('Fetching structures from API...');
-        const response = await fetch(
-          'http://localhost:5000/api/structures/list'
-        );
-        console.log('API Response status:', response.status);
-
-        if (!response.ok) {
-          throw new Error('Failed to fetch structures');
-        }
-
-        const data = await response.json();
-        console.log('Received data:', data);
-
-        setStructures(data);
-        setLoading(false);
-      } catch (error) {
-        console.error('Fetch error:', error);
-        setError(error.message);
-        setLoading(false);
-      }
-    };
-
-    fetchStructures();
+    try {
+      const structuresList = getStructuresList();
+      setStructures(structuresList);
+    } catch (error) {
+      console.error('Error loading structures:', error);
+      setError(error.message);
+    }
   }, []);
 
   const numberList = structures.map((structure) => structure.number);
@@ -137,10 +121,6 @@ const Structures = () => {
   const handleStructureClick = (structureNumber) => {
     navigate('/structure/info', { state: { structureNumber } });
   };
-
-  if (loading) {
-    return <div>Loading structures...</div>;
-  }
 
   if (error) {
     return <div>Error: {error}</div>;
