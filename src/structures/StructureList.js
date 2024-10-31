@@ -12,13 +12,13 @@ import { Helmet } from 'react-helmet-async';
 import {
   FaSearch,
   FaChevronDown,
-  FaSortAmountDown,
-  FaSortAmountUp,
-  FaExchangeAlt,
+  //FaSortAmountDown,
+  //FaSortAmountUp,
+  //FaExchangeAlt,
   FaArrowRight,
-  FaSort,
-  FaCalendarAlt,
-  FaMapMarkerAlt,
+  //FaSort,
+  //FaCalendarAlt,
+  //FaMapMarkerAlt,
 } from 'react-icons/fa';
 //import { RiSparklingFill } from 'react-icons/ri'; (uncomment later when AI feature ready)
 
@@ -42,14 +42,16 @@ const Structures = () => {
   const [error, setError] = useState(null);
 
   const [searchQuery, setSearchQuery] = useState('');
-  const [sortOpen, setSortOpen] = useState(false);
-  const [currentSort, setCurrentSort] = useState('Number');
-  const [sortAscending, setSortAscending] = useState(true);
+  //const [sortOpen, setSortOpen] = useState(false);
+  //const [currentSort, setCurrentSort] = useState('Number');
+  //const [sortAscending, setSortAscending] = useState(true);
   const [sectionsOpen, setSectionsOpen] = useState({
     active: true,
     ghost: true,
     planned: true,
   });
+
+  //const [dropdownPosition, setDropdownPosition] = useState({ top: 0, left: 0 });
 
   useEffect(() => {
     try {
@@ -61,8 +63,12 @@ const Structures = () => {
     }
   }, []);
 
+  const getSortedStructures = () => {
+    return numberList;
+  };
   const numberList = structures.map((structure) => structure.number);
 
+  /*
   const yearList = [
     7, 3, 12, 16, 11, 9, 2, 26, 24, 29, 1, 14, 15, 10, 19, 25, 28, 8, 13, 17, 6,
     20, 21, 22, 5, 18, 4, 23, 27, 30,
@@ -105,9 +111,19 @@ const Structures = () => {
     return sortAscending ? sortedList : sortedList.reverse();
   };
 
+
   const toggleSortDirection = () => {
     setSortAscending(!sortAscending);
   };
+
+  const handleSortClick = (event) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    setDropdownPosition({
+      top: rect.bottom + window.scrollY,
+      left: rect.left + window.scrollX,
+    });
+    setSortOpen(true);
+  }; */
 
   const toggleSection = (section) => {
     setSectionsOpen((prev) => ({
@@ -167,9 +183,10 @@ const Structures = () => {
                 </S.SectionToggle>
               </S.SectionTitleContainer>
 
+              {/*
               <S.ControlGroup>
                 <S.SortButton
-                  onClick={() => setSortOpen(!sortOpen)}
+                  onClick={handleSortClick}
                   ascending={sortAscending}
                 >
                   <S.DirectionToggle
@@ -184,7 +201,10 @@ const Structures = () => {
                   <FaChevronDown />
                 </S.SortButton>
                 {sortOpen && (
-                  <S.EnhancedDropdownMenu>
+                  <S.EnhancedDropdownMenu
+                    top={dropdownPosition.top}
+                    left={dropdownPosition.left}
+                  >
                     <S.DropdownItem
                       onClick={() => {
                         setCurrentSort('Number');
@@ -228,6 +248,7 @@ const Structures = () => {
                   </S.EnhancedDropdownMenu>
                 )}
               </S.ControlGroup>
+              */}
             </S.SectionHeader>
             {sectionsOpen.active && (
               <S.StructuresGrid>

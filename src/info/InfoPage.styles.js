@@ -64,7 +64,7 @@ export const RoundedContainer = styled.div`
 
 // Each main section inherits these rounded rectangle properties
 export const Section = styled(RoundedContainer)`
-  margin-bottom: 24px;
+  margin-bottom: 15px;
 `;
 
 export const SectionTitle = styled.h2`
@@ -78,8 +78,8 @@ export const SectionTitle = styled.h2`
 export const Text = styled.p`
   font-size: 19.2px;
   text-align: center;
-  margin-top: 15px;
-  margin-bottom: 10px;
+  margin-top: 25px;
+  margin-bottom: 15px;
 `;
 
 /* 
@@ -92,7 +92,8 @@ export const TitleSection = styled.div`
   box-shadow:
     0 4px 20px rgba(189, 139, 19, 0.25),
     0 2px 8px rgba(55, 109, 49, 0.1);
-  margin-bottom: 24px;
+  margin-bottom: 15px;
+  margin-top: 5px;
   padding: 25px 20px;
   box-sizing: border-box;
   position: relative;
@@ -187,7 +188,7 @@ export const MoreInfoToggle = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f0f0f0;
+  background-color: rgba(189, 139, 19, 0.15);
   border: 2px solid #376d31;
   border-radius: 25px;
   color: #376d31;
@@ -197,10 +198,10 @@ export const MoreInfoToggle = styled.button`
   margin: 20px auto;
   padding: 12px 24px;
   transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
 
   &:hover {
-    background-color: #376d31;
-    color: #ffffff;
+    background-color: rgba(189, 139, 19, 0.25);
   }
 
   svg {
@@ -280,10 +281,10 @@ export const PickerTitle = styled.h3`
 More Info: History Section
 */
 export const StatBox = styled.div`
-  background-color: rgba(189, 139, 19, 0.05);
+  background-color: rgba(189, 139, 19, 0.15);
   border-radius: 15px;
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(189, 139, 19, 0.2);
   margin: 10px;
   text-align: center;
   width: 200px;
@@ -292,10 +293,12 @@ export const StatBox = styled.div`
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(189, 139, 19, 0.1);
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 8px rgba(189, 139, 19, 0.25);
   }
 
   h4 {
@@ -411,18 +414,20 @@ export const ArrowButtonImage = styled.button`
 `;
 
 export const CarouselCaption = styled.div`
-  background-color: rgba(189, 139, 19, 0.05);
+  background-color: rgba(189, 139, 19, 0.15);
   border-radius: 20px;
   padding: 20px;
   margin: 20px auto 0;
   max-width: 80%;
   text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(189, 139, 19, 0.2);
   color: #555;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(189, 139, 19, 0.1);
 `;
 
 export const CaptionTitle = styled.h3`
@@ -456,12 +461,14 @@ export const InfographicContainer = styled.div`
   grid-template-columns: 150px 1fr;
   grid-template-rows: auto;
   gap: 20px;
-  background-color: rgba(189, 139, 19, 0.05);
+  background-color: rgba(189, 139, 19, 0.15);
   border-radius: 10px;
   overflow: hidden;
   padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(189, 139, 19, 0.2);
   width: 100%;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(189, 139, 19, 0.1);
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -531,7 +538,8 @@ export const ModeSelector = styled.div`
 `;
 
 export const ModeButton = styled.button`
-  background-color: ${(props) => (props.active ? '#376d31' : '#f0f0f0')};
+  background-color: ${(props) =>
+    props.active ? '#376d31' : 'rgba(189, 139, 19, 0.15)'};
   color: ${(props) => (props.active ? '#ffffff' : '#333')};
   border: none;
   padding: 10px 20px;
@@ -544,9 +552,12 @@ export const ModeButton = styled.button`
   font-size: 18px;
   display: flex;
   align-items: center;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(189, 139, 19, 0.1);
 
   &:hover {
-    background-color: ${(props) => (props.active ? '#2c5a28' : '#e0e0e0')};
+    background-color: ${(props) =>
+      props.active ? '#2c5a28' : 'rgba(189, 139, 19, 0.25)'};
   }
 
   svg {
@@ -564,14 +575,16 @@ export const ModeContent = styled.div`
 `;
 
 export const ModeInfoBox = styled.div`
-  background-color: rgba(189, 139, 19, 0.05);
+  background-color: rgba(189, 139, 19, 0.15);
   border-radius: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(189, 139, 19, 0.2);
   padding: 20px;
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
   box-sizing: border-box;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(189, 139, 19, 0.1);
 
   @media (max-width: 768px) {
     padding: 15px;
@@ -816,7 +829,7 @@ Google Maps
 // Uses StatBox above
 
 export const MapContainer = styled.div`
-  background-color: rgba(189, 139, 19, 0.05);
+  background-color: rgba(189, 139, 19, 0.15);
   border-radius: 20px;
   padding: 5px;
   margin-top: 0px;
@@ -824,10 +837,12 @@ export const MapContainer = styled.div`
   max-width: 1200px;
   align-items: center;
   box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba(189, 139, 19, 0.2);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(189, 139, 19, 0.1);
 `;
 
 export const DirectionsContainer = styled.div`
-  background-color: rgba(189, 139, 19, 0.05);
   border-radius: 10px;
   padding: 15px 20px;
   margin-top: 10px;
@@ -836,6 +851,11 @@ export const DirectionsContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 15px 10px;
+  }
 `;
 
 export const ArrowButton = styled.button`
@@ -845,7 +865,6 @@ export const ArrowButton = styled.button`
   font-size: 20px;
   cursor: ${(props) => (props.disabled ? 'default' : 'pointer')};
   padding: 10px;
-  margin: 0 10px;
   border-radius: 50%;
   transition:
     background-color 0.3s,
@@ -854,6 +873,8 @@ export const ArrowButton = styled.button`
   align-items: center;
   justify-content: center;
   opacity: ${(props) => (props.disabled ? 0.5 : 1)};
+  width: 40px;
+  height: 40px;
 
   &:hover {
     background-color: ${(props) => (props.disabled ? '#cccccc' : '#2c5a28')};
@@ -863,20 +884,28 @@ export const ArrowButton = styled.button`
   &:focus {
     outline: none;
   }
-
-  @media (max-width: 768px) {
-    margin: 0 15px;
-  }
 `;
 
 export const ArrowButtonContainer = styled.div`
   display: flex;
   align-items: center;
+  gap: 10px;
+
+  @media (min-width: 769px) {
+    flex: 0 0 auto;
+    width: 40px;
+    &:first-child {
+      margin-right: 20px;
+    }
+    &:last-child {
+      margin-left: 20px;
+    }
+  }
 
   @media (max-width: 768px) {
-    width: 100%;
-    justify-content: center;
     margin-top: 15px;
+    justify-content: center;
+    width: 100%;
   }
 `;
 
@@ -884,24 +913,14 @@ export const StepContent = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
-  margin: 0 15px;
+  justify-content: center;
+  gap: 15px;
+  padding: 0 20px;
 
   @media (max-width: 768px) {
     flex-direction: column;
-    margin: 0;
-    width: 100%;
-  }
-`;
-
-export const StepText = styled.div`
-  font-size: 22px;
-  color: #555;
-  flex: 1;
-
-  @media (max-width: 768px) {
-    font-size: 18px;
     text-align: center;
-    margin-bottom: 15px;
+    padding: 0;
     width: 100%;
   }
 `;
@@ -910,11 +929,21 @@ export const StepNumber = styled.div`
   font-size: 36px;
   font-weight: 1000;
   color: #376d31;
-  margin-right: 20px;
 
   @media (max-width: 768px) {
-    font-size: 48px;
-    margin: 0 20px;
+    margin-bottom: 5px;
+  }
+`;
+
+export const StepText = styled.div`
+  font-size: 22px;
+  color: #555;
+  flex: 1;
+  text-align: left;
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+    text-align: center;
   }
 `;
 
@@ -1019,10 +1048,12 @@ export const MobileGeologyContainer = styled.div`
 export const MobileGeologyCard = styled.div`
   display: flex;
   align-items: center;
-  background: white;
+  background-color: rgba(189, 139, 19, 0.15);
   border-radius: 12px;
   padding: 12px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 4px rgba(189, 139, 19, 0.2);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(189, 139, 19, 0.1);
 `;
 
 export const GeologyIcon = styled.div`
@@ -1049,7 +1080,7 @@ export const GeologyTitle = styled.h4`
 export const GeologyText = styled.p`
   font-size: 14px;
   margin: 0;
-  color: #555;
+  color: #333;
   line-height: 1.4;
 `;
 

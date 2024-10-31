@@ -22,7 +22,6 @@ import PropTypes from 'prop-types';
 
 // Styles
 import {
-  StatBox,
   MapContainer,
   DirectionsContainer,
   ArrowButton,
@@ -100,48 +99,76 @@ const GoogleMapsRoute = () => {
 
   return (
     <>
-      <MapContainer>
-        <GoogleMap
-          center={{ lat: 35.308, lng: -120.655 }}
-          zoom={14}
-          mapContainerStyle={{
-            width: '100%',
-            height: '400px',
-            borderRadius: '15px',
-          }}
-          options={{
-            styles: mapStyles,
-            disableDefaultUI: true,
-            mapTypeControl: false,
-          }}
-        >
-          {directionsResponse && (
-            <DirectionsRenderer directions={directionsResponse} />
-          )}
-        </GoogleMap>
-      </MapContainer>
+      <GoogleMap
+        center={{ lat: 35.308, lng: -120.655 }}
+        zoom={14}
+        mapContainerStyle={{
+          width: '100%',
+          height: '400px',
+          borderRadius: '15px',
+        }}
+        options={{
+          styles: mapStyles,
+          disableDefaultUI: true,
+          mapTypeControl: false,
+        }}
+      >
+        {directionsResponse && (
+          <DirectionsRenderer directions={directionsResponse} />
+        )}
+      </GoogleMap>
 
       <DirectionsContainer>
+        {/* Left arrow for web view */}
+        {!isMobile && (
+          <ArrowButtonContainer>
+            <ArrowButton
+              onClick={() => setCurrentStep(Math.max(0, currentStep - 1))}
+              disabled={currentStep === 0}
+            >
+              <FaArrowLeft />
+            </ArrowButton>
+          </ArrowButtonContainer>
+        )}
+
         <StepContent>
           <StepNumber>{currentStep + 1}</StepNumber>
           <StepText>{steps[currentStep]}</StepText>
         </StepContent>
-        <ArrowButtonContainer>
-          <ArrowButton
-            onClick={() => setCurrentStep(Math.max(0, currentStep - 1))}
-            disabled={currentStep === 0}
-          >
-            <FaArrowLeft />
-          </ArrowButton>
-          <ArrowButton
-            onClick={() =>
-              setCurrentStep(Math.min(steps.length - 1, currentStep + 1))
-            }
-            disabled={currentStep === steps.length - 1}
-          >
-            <FaArrowRight />
-          </ArrowButton>
-        </ArrowButtonContainer>
+
+        {/* Right arrow for web view */}
+        {!isMobile && (
+          <ArrowButtonContainer>
+            <ArrowButton
+              onClick={() =>
+                setCurrentStep(Math.min(steps.length - 1, currentStep + 1))
+              }
+              disabled={currentStep === steps.length - 1}
+            >
+              <FaArrowRight />
+            </ArrowButton>
+          </ArrowButtonContainer>
+        )}
+
+        {/* Both arrows for mobile view */}
+        {isMobile && (
+          <ArrowButtonContainer>
+            <ArrowButton
+              onClick={() => setCurrentStep(Math.max(0, currentStep - 1))}
+              disabled={currentStep === 0}
+            >
+              <FaArrowLeft />
+            </ArrowButton>
+            <ArrowButton
+              onClick={() =>
+                setCurrentStep(Math.min(steps.length - 1, currentStep + 1))
+              }
+              disabled={currentStep === steps.length - 1}
+            >
+              <FaArrowRight />
+            </ArrowButton>
+          </ArrowButtonContainer>
+        )}
       </DirectionsContainer>
     </>
   );

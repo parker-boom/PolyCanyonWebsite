@@ -47,7 +47,7 @@ export const RoundedContainer = styled.div`
     0 4px 20px rgba(189, 139, 19, 0.25),
     0 2px 8px rgba(55, 109, 49, 0.1);
   padding: 20px;
-  margin: 20px auto;
+  margin: 10px auto;
   width: 100%;
   max-width: 1024px;
   display: flex;

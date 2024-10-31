@@ -22,24 +22,23 @@ export const ContentContainer = styled.div`
   flex: 1;
   width: 100%;
   min-width: 0;
-  background-color: #e8efe8;
+  background-color: #ffffff;
   border-radius: 24px;
   padding: 24px;
   box-shadow:
     0 4px 20px rgba(189, 139, 19, 0.25),
-    0 2px 8px rgba(55, 109, 49, 0.1);
+    0 2px 8px rgba(189, 139, 19, 0.1);
   display: flex;
   flex-direction: column;
   gap: 24px;
   box-sizing: border-box;
   transition: all 0.3s ease;
-  border: 1px solid rgba(189, 139, 19, 0.1);
   overflow: hidden;
 
   &:hover {
     box-shadow:
       0 8px 24px rgba(189, 139, 19, 0.3),
-      0 4px 8px rgba(55, 109, 49, 0.15);
+      0 4px 8px rgba(189, 139, 19, 0.15);
   }
 `;
 
@@ -89,7 +88,7 @@ export const TitleTop = styled.div`
   font-weight: 400;
   font-style: italic;
   color: #376d31;
-  margin: 0;
+  margin-bottom: 10px;
   opacity: 0.9;
   letter-spacing: 0.5px;
   transform: translateY(12px);
@@ -174,19 +173,28 @@ export const SearchSection = styled.div`
   margin: 0 auto;
   background: white;
   border-radius: 16px;
-  padding: 8px;
+  padding: 12px;
   box-shadow:
-    0 4px 16px rgba(55, 109, 49, 0.08),
-    0 2px 4px rgba(55, 109, 49, 0.05);
-  border: 2px solid rgba(189, 139, 19, 0.15);
+    0 4px 16px rgba(189, 139, 19, 0.15),
+    0 2px 4px rgba(189, 139, 19, 0.1);
+  border: 2px solid rgba(189, 139, 19, 0.25);
   transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
 
   &:hover {
-    border-color: rgba(189, 139, 19, 0.25);
     box-shadow:
-      0 8px 24px rgba(55, 109, 49, 0.12),
-      0 2px 8px rgba(55, 109, 49, 0.08);
-    transform: translateY(-1px);
+      0 8px 24px rgba(189, 139, 19, 0.2),
+      0 4px 8px rgba(189, 139, 19, 0.15);
+    border-color: rgba(189, 139, 19, 0.4);
+    transform: translateY(-2px);
+  }
+
+  &:focus-within {
+    border-color: #376d31;
+    box-shadow:
+      0 8px 24px rgba(55, 109, 49, 0.15),
+      0 4px 8px rgba(55, 109, 49, 0.1),
+      0 0 0 2px rgba(55, 109, 49, 0.1);
   }
 `;
 
@@ -198,24 +206,43 @@ export const SearchInput = styled.input`
   border: none;
   outline: none;
   background: transparent;
-  color: #376d31;
+  color: #333;
+  font-weight: 500;
+  letter-spacing: 0.3px;
 
   &::placeholder {
-    color: rgba(55, 109, 49, 0.5);
+    color: rgba(189, 139, 19, 0.5);
+    font-weight: 400;
+  }
+
+  &:focus::placeholder {
+    color: rgba(55, 109, 49, 0.4);
   }
 `;
 
 export const SearchIcon = styled.div`
-  margin-left: 16px;
-  color: #376d31;
+  margin: 0 16px;
+  color: rgba(189, 139, 19, 0.6);
   font-size: 20px;
-  opacity: 0.7;
   transition: all 0.3s ease;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(189, 139, 19, 0.1);
 
-  ${SearchInput}:focus + & {
-    opacity: 1;
+  ${SearchSection}:focus-within & {
+    color: #376d31;
     transform: scale(1.1);
+    background: rgba(55, 109, 49, 0.1);
+  }
+
+  ${SearchSection}:hover & {
+    color: rgba(189, 139, 19, 0.8);
+    background: rgba(189, 139, 19, 0.15);
   }
 `;
 
@@ -233,6 +260,7 @@ export const ControlGroup = styled.div`
   display: flex;
   align-items: center;
   height: 100%;
+  z-index: 9999;
 `;
 
 const BaseButton = styled.button`
@@ -275,8 +303,34 @@ const BaseButton = styled.button`
 `;
 
 export const FilterButton = styled(BaseButton)`
+  background: linear-gradient(135deg, #376d31, #2c5526);
+  border: 2px solid rgba(189, 139, 19, 0.3);
+  color: white;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 2px 4px rgba(55, 109, 49, 0.15);
+
+  svg {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  &:hover {
+    background: linear-gradient(135deg, #2c5526, #1e3a1a);
+    transform: translateY(-2px);
+    border-color: rgba(189, 139, 19, 0.5);
+    box-shadow:
+      0 8px 24px rgba(55, 109, 49, 0.2),
+      0 4px 8px rgba(55, 109, 49, 0.15);
+
+    svg {
+      color: white;
+      transform: scale(1.1);
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
 
   &::after {
     content: '';
@@ -285,7 +339,7 @@ export const FilterButton = styled(BaseButton)`
     left: -2px;
     right: -2px;
     bottom: -2px;
-    background: linear-gradient(135deg, rgba(55, 109, 49, 0.2), transparent);
+    background: linear-gradient(135deg, rgba(189, 139, 19, 0.3), transparent);
     opacity: 0;
     transition: opacity 0.3s ease;
     border-radius: inherit;
@@ -299,20 +353,55 @@ export const FilterButton = styled(BaseButton)`
 
 export const SortButton = styled(BaseButton)`
   padding: 8px 20px 8px 12px;
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(55, 109, 49, 0.15);
+  background: linear-gradient(135deg, #376d31, #2c5526);
+  border: 2px solid rgba(189, 139, 19, 0.3);
   font-size: 15px;
-  color: #444;
+  color: white;
   min-width: 180px;
   height: 48px;
   backdrop-filter: blur(8px);
   gap: 8px;
   margin: auto 0;
+  position: relative;
+  z-index: 2;
+  class: 'sort-button';
+
+  svg {
+    color: white !important;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+  }
 
   &:hover {
-    background: white;
-    border-color: rgba(55, 109, 49, 0.3);
-    transform: translateY(-1px);
+    background: linear-gradient(135deg, #2c5526, #1e3a1a);
+    border-color: rgba(189, 139, 19, 0.5);
+    transform: translateY(-2px);
+    box-shadow:
+      0 8px 24px rgba(55, 109, 49, 0.2),
+      0 4px 8px rgba(55, 109, 49, 0.15);
+
+    svg {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, rgba(189, 139, 19, 0.3), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: inherit;
+    z-index: -1;
+  }
+
+  &:hover::after {
+    opacity: 1;
   }
 `;
 
@@ -347,19 +436,20 @@ export const DropdownMenu = styled.div`
 `;
 
 export const EnhancedDropdownMenu = styled(DropdownMenu)`
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
   background: white;
   border-radius: 12px;
   box-shadow:
     0 12px 24px rgba(55, 109, 49, 0.12),
     0 4px 8px rgba(55, 109, 49, 0.08);
-  border: 1px solid rgba(55, 109, 49, 0.1);
-  overflow: hidden;
+  border: 1px solid rgba(189, 139, 19, 0.2);
   min-width: 200px;
   padding: 8px;
-  right: 0;
-  left: auto;
+  z-index: 9999;
 
-  /* Add subtle animation */
   transform-origin: top right;
   animation: dropdownAppear 0.2s ease-out;
 
@@ -380,7 +470,7 @@ export const DropdownItem = styled.button`
   padding: 12px 16px;
   border: none;
   background: ${(props) =>
-    props.selected ? 'rgba(55, 109, 49, 0.08)' : 'transparent'};
+    props.selected ? 'rgba(189, 139, 19, 0.15)' : 'transparent'};
   border-radius: 8px;
   cursor: pointer;
   display: flex;
@@ -399,7 +489,7 @@ export const DropdownItem = styled.button`
   }
 
   &:hover {
-    background: rgba(55, 109, 49, 0.05);
+    background: rgba(189, 139, 19, 0.1);
     color: #376d31;
 
     svg {
@@ -429,11 +519,21 @@ export const SectionHeader = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 16px 24px;
-  background: white;
+  background: rgba(189, 139, 19, 0.15);
   border-radius: 16px;
   margin-bottom: 24px;
-  box-shadow: 0 2px 8px rgba(55, 109, 49, 0.08);
-  border: 1px solid rgba(55, 109, 49, 0.1);
+  box-shadow: 0 2px 4px rgba(189, 139, 19, 0.2);
+  border: 2px solid rgba(55, 109, 49, 0.3);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(189, 139, 19, 0.18);
+    border-color: rgba(55, 109, 49, 0.4);
+    box-shadow:
+      0 4px 8px rgba(189, 139, 19, 0.25),
+      0 2px 4px rgba(55, 109, 49, 0.15);
+  }
 `;
 
 export const SectionTitle = styled.h2`
@@ -473,6 +573,8 @@ export const StructuresGrid = styled.div`
   grid-template-columns: repeat(2, 1fr);
   gap: 32px;
   padding: 16px;
+  position: relative;
+  z-index: 1;
 
   @media (max-width: 1200px) {
     grid-template-columns: 1fr;
@@ -592,7 +694,7 @@ export const SortDirectionToggle = styled.button`
   align-items: center;
   justify-content: space-between;
   margin-top: 8px;
-  border-top: 1px solid rgba(55, 109, 49, 0.1);
+  border-top: 1px solid rgba(189, 139, 19, 0.2);
   transition: all 0.2s ease;
   color: #555;
   font-size: 15px;
@@ -605,7 +707,7 @@ export const SortDirectionToggle = styled.button`
   }
 
   &:hover {
-    background: rgba(55, 109, 49, 0.05);
+    background: rgba(189, 139, 19, 0.1);
     color: #376d31;
 
     svg {
@@ -630,11 +732,10 @@ export const RoundedContainer = styled.div`
 
 // Create new containers for the search section and structures section
 export const SearchContainer = styled(RoundedContainer)`
-  margin-top: 18px;
+  margin-top: 8px;
   margin-bottom: 24px;
   padding: 24px;
   background-color: #e8efe8;
-  border: 1px solid rgba(55, 109, 49, 0.1);
   box-shadow:
     0 4px 20px rgba(189, 139, 19, 0.25),
     0 2px 8px rgba(55, 109, 49, 0.1);
@@ -644,7 +745,6 @@ export const StructuresContainer = styled(RoundedContainer)`
   margin-bottom: 24px;
   padding: 20px;
   background-color: #e8efe8;
-  border: 1px solid rgba(55, 109, 49, 0.1);
   box-shadow:
     0 4px 20px rgba(189, 139, 19, 0.25),
     0 2px 8px rgba(55, 109, 49, 0.1);

@@ -35,7 +35,8 @@ import DownloadPageMobile from './downloads/DownloadPageMobile.js';
 import DownloadPageWeb from './downloads/DownloadPageWeb.js';
 import InfoPageMobile from './info/InfoPageMobile.js';
 import InfoPageWeb from './info/InfoPageWeb.js';
-import StructuresList from './structures/StructureList.js';
+import StructureList from './structures/StructureList.js';
+import StructureListMobile from './structures/StructureListMobile.js';
 import StructureInfo from './structures/StructureInfo.js';
 
 const AppContainer = styled.div`
@@ -97,7 +98,10 @@ function App() {
             path="/info"
             element={isMobile ? <InfoPageMobile /> : <InfoPageWeb />}
           />
-          <Route path="/structures" element={<StructuresList />} />
+          <Route
+            path="/structures"
+            element={isMobile ? <StructureListMobile /> : <StructureList />}
+          />
           <Route path="/structure/info" element={<StructureInfo />} />
           <Route
             path="/download"

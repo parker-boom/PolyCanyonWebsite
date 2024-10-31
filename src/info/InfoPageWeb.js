@@ -573,9 +573,9 @@ const InfoPage = () => {
             your way around with interactive maps, uncover the stories behind
             each structure, and track your progress as you discover the area.
             The app transforms a simple walk through the canyon into an
-            immersive educational experience, combining historical photos,
-            architectural insights, and location-aware features to bring each
-            structure&apos;s story to life.
+            educational experience, combining historical photos, architectural
+            insights, and location-aware features to bring each structure&apos;s
+            story to life.
           </Text>
 
           {/* Switch between adventure/virtual tour */}

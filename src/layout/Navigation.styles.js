@@ -257,8 +257,8 @@ export const BannerContent = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: 1400px; // Increased from 1200px
-  padding: 0 40px; // Increased from 30px for better spacing at larger widths
+  max-width: 1200px;
+  padding: 0 40px;
   position: relative;
 `;
 

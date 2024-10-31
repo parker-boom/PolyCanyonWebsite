@@ -1,9 +1,6 @@
 /*
-Images:
-1. Scale images correctly, make sure vertically fits, background image horizontally fills
----
-Quick Facts:
-1. Location card should use coordinates to display google maps pin 
+TO DO:
+1. Fix routing based on the url, of the data inside of the JSON files
 */
 
 // StructureInfo.jsx
