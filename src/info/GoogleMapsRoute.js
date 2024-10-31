@@ -64,9 +64,8 @@ Components & Render
 const GoogleMapsRoute = () => {
   // State variables
   const [directionsResponse, setDirectionsResponse] = useState(null);
-  const [routeDetails, setRouteDetails] = useState(null);
   const [currentStep, setCurrentStep] = useState(0);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isMobile] = useState(window.innerWidth <= 768);
 
   // Steps text
   const steps = [
@@ -75,60 +74,32 @@ const GoogleMapsRoute = () => {
     'Continue on the path until you see the entry arch',
   ];
 
-  // Step functions
-  const nextStep = () => {
-    setCurrentStep((prev) => Math.min(prev + 1, steps.length - 1));
-  };
-
-  const prevStep = () => {
-    setCurrentStep((prev) => Math.max(prev - 1, 0));
-  };
-
-  const { isLoaded, loadError } = useLoadScript({
+  const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
   });
 
   useEffect(() => {
     if (isLoaded) {
-      fetchDirections();
+      const directionsService = new window.google.maps.DirectionsService();
+      directionsService.route(
+        {
+          origin: { lat: 35.30302, lng: -120.65913 },
+          destination: { lat: 35.31344, lng: -120.65192 },
+          travelMode: window.google.maps.TravelMode.WALKING,
+        },
+        (result, status) => {
+          if (status === 'OK') {
+            setDirectionsResponse(result);
+          }
+        }
+      );
     }
   }, [isLoaded]);
 
-  // Get route from API
-  const fetchDirections = () => {
-    const directionsService = new window.google.maps.DirectionsService();
-    directionsService.route(
-      {
-        origin: { lat: 35.30302, lng: -120.65913 },
-        destination: { lat: 35.31344, lng: -120.65192 },
-        travelMode: window.google.maps.TravelMode.WALKING,
-      },
-      (result, status) => {
-        if (status === window.google.maps.DirectionsStatus.OK) {
-          setDirectionsResponse(result);
-          setRouteDetails(result.routes[0].legs[0]);
-        } else {
-          console.error(`Error fetching directions ${result}`);
-        }
-      }
-    );
-  };
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  if (loadError) return <div>Error loading maps</div>;
-  if (!isLoaded) return <div>Loading Maps...</div>;
+  if (!isLoaded) return <div>Loading...</div>;
 
   return (
     <>
-      {/* Google Maps Route Overview */}
       <MapContainer>
         <GoogleMap
           center={{ lat: 35.308, lng: -120.655 }}
@@ -150,59 +121,27 @@ const GoogleMapsRoute = () => {
         </GoogleMap>
       </MapContainer>
 
-      {/* Route Stats */}
-      {!isMobile && routeDetails && (
-        <DirectionsContainer>
-          <StatBox>
-            <h4>Total Distance</h4>
-            <p>{routeDetails.distance.text}</p>
-          </StatBox>
-          <StatBox>
-            <h4>Estimated Duration</h4>
-            <p>{routeDetails.duration.text}</p>
-          </StatBox>
-        </DirectionsContainer>
-      )}
-
-      {/* Step-by-step Directions */}
       <DirectionsContainer>
-        {isMobile ? (
-          <>
-            {/* Mobile Implementation*/}
-            <StepContent>
-              <StepText>{steps[currentStep]}</StepText>
-            </StepContent>
-            <ArrowButtonContainer>
-              <ArrowButton onClick={prevStep} disabled={currentStep === 0}>
-                <FaArrowLeft />
-              </ArrowButton>
-              <StepNumber>{currentStep + 1}</StepNumber>
-              <ArrowButton
-                onClick={nextStep}
-                disabled={currentStep === steps.length - 1}
-              >
-                <FaArrowRight />
-              </ArrowButton>
-            </ArrowButtonContainer>
-          </>
-        ) : (
-          <>
-            {/* Web Implementation */}
-            <ArrowButton onClick={prevStep} disabled={currentStep === 0}>
-              <FaArrowLeft />
-            </ArrowButton>
-            <StepContent>
-              <StepNumber>{currentStep + 1}</StepNumber>
-              <StepText>{steps[currentStep]}</StepText>
-            </StepContent>
-            <ArrowButton
-              onClick={nextStep}
-              disabled={currentStep === steps.length - 1}
-            >
-              <FaArrowRight />
-            </ArrowButton>
-          </>
-        )}
+        <StepContent>
+          <StepNumber>{currentStep + 1}</StepNumber>
+          <StepText>{steps[currentStep]}</StepText>
+        </StepContent>
+        <ArrowButtonContainer>
+          <ArrowButton
+            onClick={() => setCurrentStep(Math.max(0, currentStep - 1))}
+            disabled={currentStep === 0}
+          >
+            <FaArrowLeft />
+          </ArrowButton>
+          <ArrowButton
+            onClick={() =>
+              setCurrentStep(Math.min(steps.length - 1, currentStep + 1))
+            }
+            disabled={currentStep === steps.length - 1}
+          >
+            <FaArrowRight />
+          </ArrowButton>
+        </ArrowButtonContainer>
       </DirectionsContainer>
     </>
   );
@@ -210,25 +149,16 @@ const GoogleMapsRoute = () => {
 
 // Update the StructureLocationMap component
 export const StructureLocationMap = ({ latitude, longitude }) => {
-  const { isLoaded, loadError } = useLoadScript({
+  const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
-    libraries: ['places'],
   });
 
-  if (loadError) return <div>Error loading maps</div>;
-  if (!isLoaded) return <div>Loading Maps...</div>;
+  if (!isLoaded) return <div>Loading...</div>;
 
   const center = { lat: latitude, lng: longitude };
 
-  const handleMarkerClick = () => {
-    window.open(
-      `https://www.google.com/maps?q=${latitude},${longitude}`,
-      '_blank'
-    );
-  };
-
   return (
-    <MapContainer style={{ height: '200px', marginTop: '0' }}>
+    <MapContainer style={{ height: '200px' }}>
       <GoogleMap
         center={center}
         zoom={18}
@@ -244,13 +174,16 @@ export const StructureLocationMap = ({ latitude, longitude }) => {
           zoomControl: false,
           streetViewControl: false,
           clickableIcons: false,
-          gestureHandling: 'cooperative',
         }}
       >
         <MarkerF
           position={center}
-          onClick={handleMarkerClick}
-          title="Click to open in Google Maps"
+          onClick={() =>
+            window.open(
+              `https://www.google.com/maps?q=${latitude},${longitude}`,
+              '_blank'
+            )
+          }
         />
       </GoogleMap>
     </MapContainer>

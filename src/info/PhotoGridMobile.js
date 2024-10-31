@@ -40,7 +40,7 @@ import {
   PhotoGridMobileWrapper,
   GridItemContainer,
   GridImage,
-} from './InfoPage.styles';
+} from './InfoPage.styles.js';
 
 /*
 Constants

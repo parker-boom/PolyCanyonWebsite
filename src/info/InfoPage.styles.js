@@ -47,9 +47,11 @@ export const GlobalStyle = createGlobalStyle`
 
 // The base rounded container style that most sections inherit from
 export const RoundedContainer = styled.div`
-  background-color: #f5f5f5;
-  border-radius: 20px; // This creates the rounded corners
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); // Subtle shadow for depth
+  background-color: #e8efe8;
+  border-radius: 20px;
+  box-shadow:
+    0 4px 20px rgba(189, 139, 19, 0.25),
+    0 2px 8px rgba(55, 109, 49, 0.1);
   padding: 20px;
   margin: 20px 0;
   width: 100%;
@@ -83,30 +85,93 @@ export const Text = styled.p`
 /* 
 Title
  */
-export const TitleSection = styled(RoundedContainer)`
+export const TitleSection = styled.div`
+  width: 100%;
+  background-color: #e8efe8;
+  border-radius: 20px;
+  box-shadow:
+    0 4px 20px rgba(189, 139, 19, 0.25),
+    0 2px 8px rgba(55, 109, 49, 0.1);
   margin-bottom: 24px;
-  padding: 0px 20px;
+  padding: 25px 20px;
+  box-sizing: border-box;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(189, 139, 19, 0.5),
+      transparent
+    );
+  }
+
+  &::before {
+    top: 12px;
+  }
+
+  &::after {
+    bottom: 12px;
+    width: 180px;
+  }
 `;
 
 export const Header = styled.header`
   text-align: center;
-  margin-bottom: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+`;
+
+export const Subtitle = styled.div`
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-style: italic;
+  color: #376d31;
+  margin: 0;
 `;
 
 export const Title = styled.h1`
-  font-size: 48px;
-  font-weight: 1000;
-  color: #376d31;
-  margin-top: 10px;
-  margin-bottom: 0px;
+  font-size: 68px;
+  font-weight: 800;
+  color: rgb(189, 139, 19);
+  margin: 0 0 16px;
+  line-height: 1;
 `;
 
-export const Subtitle = styled.h2`
-  font-size: 30px;
+export const TitleTagline = styled.div`
+  font-size: 18px;
   font-weight: 500;
-  color: #555;
-  margin-top: 5px;
-  margin-bottom: 0;
+  color: #376d31;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  position: relative;
+  padding: 0 24px;
+
+  &::before,
+  &::after {
+    content: '•';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(189, 139, 19, 0.6);
+  }
+
+  &::before {
+    left: 0;
+  }
+
+  &::after {
+    right: 0;
+  }
 `;
 
 /* 
@@ -215,10 +280,10 @@ export const PickerTitle = styled.h3`
 More Info: History Section
 */
 export const StatBox = styled.div`
-  background-color: #ffffff;
+  background-color: rgba(189, 139, 19, 0.05);
   border-radius: 15px;
   padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 10px;
   text-align: center;
   width: 200px;
@@ -229,8 +294,8 @@ export const StatBox = styled.div`
     box-shadow 0.3s ease;
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   }
 
   h4 {
@@ -346,13 +411,13 @@ export const ArrowButtonImage = styled.button`
 `;
 
 export const CarouselCaption = styled.div`
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(189, 139, 19, 0.05);
   border-radius: 20px;
   padding: 20px;
   margin: 20px auto 0;
   max-width: 80%;
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   color: #555;
   display: flex;
   flex-direction: column;
@@ -391,11 +456,11 @@ export const InfographicContainer = styled.div`
   grid-template-columns: 150px 1fr;
   grid-template-rows: auto;
   gap: 20px;
-  background-color: #f5f5f5;
+  background-color: rgba(189, 139, 19, 0.05);
   border-radius: 10px;
   overflow: hidden;
   padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 100%;
 
   @media (max-width: 768px) {
@@ -499,14 +564,14 @@ export const ModeContent = styled.div`
 `;
 
 export const ModeInfoBox = styled.div`
-  background-color: #f5f5f5;
+  background-color: rgba(189, 139, 19, 0.05);
   border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
-  box-sizing: border-box; // Add this line
+  box-sizing: border-box;
 
   @media (max-width: 768px) {
     padding: 15px;
@@ -541,7 +606,7 @@ export const FeatureItem = styled.li`
 
 export const RecommendedFor = styled.div`
   font-size: 19.2px;
-  background-color: #f0f0f0;
+  background-color: rgba(189, 139, 19, 0.15);
   border-radius: 10px;
   padding: 10px 15px;
   margin-top: 15px;
@@ -723,7 +788,7 @@ export const PhotoGridWrapper = styled.div`
   padding: 20px;
   border-radius: 20px;
   overflow: hidden;
-  background-color: #f5f5f5;
+  background-color: #e8efe8;
 `;
 
 export const GridItemContainer = styled.div`
@@ -751,22 +816,18 @@ Google Maps
 // Uses StatBox above
 
 export const MapContainer = styled.div`
-  background-color: #f5f5f5;
+  background-color: rgba(189, 139, 19, 0.05);
   border-radius: 20px;
   padding: 5px;
   margin-top: 0px;
   width: 100%;
   max-width: 1200px;
   align-items: center;
-  box-sizing: border-box; // Add this line
-
-  @media (max-width: 768px) {
-    padding: 5px;
-  }
+  box-sizing: border-box;
 `;
 
 export const DirectionsContainer = styled.div`
-  background-color: #e8efe8;
+  background-color: rgba(189, 139, 19, 0.05);
   border-radius: 10px;
   padding: 15px 20px;
   margin-top: 10px;
@@ -775,11 +836,6 @@ export const DirectionsContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    padding: 15px;
-  }
 `;
 
 export const ArrowButton = styled.button`

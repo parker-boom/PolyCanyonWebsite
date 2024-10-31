@@ -40,7 +40,6 @@ import {
   Banner,
   BannerContent,
   LeftSection,
-  RightSection,
   BannerText,
   NavLinks,
   NavLink,
@@ -195,7 +194,14 @@ const Navigation = () => {
     <Banner $isVisible={isVisible} $isAtTop={isAtTop}>
       <BannerContent>
         <LeftSection>
-          <BannerText onClick={() => navigate('/')}>Poly Canyon</BannerText>
+          <div>
+            <BannerIcon
+              src={app360}
+              alt="Poly Canyon Logo"
+              onClick={() => navigate('/')}
+            />
+            <BannerText onClick={() => navigate('/')}>Poly Canyon</BannerText>
+          </div>
           <NavLinks>
             {navLinks.map(({ to, icon, text }) => (
               <NavLink key={to} to={to} $isActive={to === activeLink}>
@@ -204,13 +210,6 @@ const Navigation = () => {
             ))}
           </NavLinks>
         </LeftSection>
-        <RightSection>
-          <BannerIcon
-            src={app360}
-            alt="Poly Canyon Logo"
-            onClick={() => navigate('/')}
-          />
-        </RightSection>
       </BannerContent>
     </Banner>
   );

@@ -19,13 +19,17 @@ import { Helmet } from 'react-helmet-async';
 import {
   PageContainer,
   RoundedContainer,
-  Title,
   WebDescription,
   LearnMoreButton,
   GifContainer,
   DownloadButton,
   DeviceSwitchContainer,
   SwitchText,
+  Header,
+  Subtitle,
+  MainTitle,
+  TitleTagline,
+  Divider,
 } from './DownloadPage.styles.js';
 
 // Component
@@ -96,10 +100,16 @@ const DownloadPageMobile = () => {
       <PageContainer>
         {/* Download Description Widget */}
         <RoundedContainer>
-          <Title>Download Now!</Title>
+          <Header>
+            <Subtitle>Ready to</Subtitle>
+            <MainTitle>Download</MainTitle>
+            <TitleTagline>Your Canyon Guide Awaits</TitleTagline>
+          </Header>
+
+          <Divider />
+
           <WebDescription>
-            Explore, learn, and track your journey through the canyon&apos;s
-            architectural wonders
+            Explore, learn, and track your journey
           </WebDescription>
           <LearnMoreButton to="/info">
             Learn More <FaArrowRight />

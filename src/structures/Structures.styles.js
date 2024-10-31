@@ -22,12 +22,12 @@ export const ContentContainer = styled.div`
   flex: 1;
   width: 100%;
   min-width: 0;
-  background: white;
+  background-color: #e8efe8;
   border-radius: 24px;
   padding: 24px;
   box-shadow:
-    0 8px 32px rgba(189, 139, 19, 0.2),
-    0 4px 8px rgba(189, 139, 19, 0.1);
+    0 4px 20px rgba(189, 139, 19, 0.25),
+    0 2px 8px rgba(55, 109, 49, 0.1);
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -38,8 +38,8 @@ export const ContentContainer = styled.div`
 
   &:hover {
     box-shadow:
-      0 12px 48px rgba(189, 139, 19, 0.25),
-      0 4px 24px rgba(189, 139, 19, 0.15);
+      0 8px 24px rgba(189, 139, 19, 0.3),
+      0 4px 8px rgba(55, 109, 49, 0.15);
   }
 `;
 
@@ -616,8 +616,11 @@ export const SortDirectionToggle = styled.button`
 
 // First, add the base RoundedContainer style
 export const RoundedContainer = styled.div`
-  background-color: #f5f5f5;
+  background-color: #e8efe8;
   border-radius: 20px;
+  box-shadow:
+    0 4px 20px rgba(189, 139, 19, 0.25),
+    0 2px 8px rgba(55, 109, 49, 0.1);
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -630,17 +633,21 @@ export const SearchContainer = styled(RoundedContainer)`
   margin-top: 18px;
   margin-bottom: 24px;
   padding: 24px;
-  background: #f5f5f5;
+  background-color: #e8efe8;
   border: 1px solid rgba(55, 109, 49, 0.1);
-  box-shadow: 0 2px 8px rgba(55, 109, 49, 0.08);
+  box-shadow:
+    0 4px 20px rgba(189, 139, 19, 0.25),
+    0 2px 8px rgba(55, 109, 49, 0.1);
 `;
 
 export const StructuresContainer = styled(RoundedContainer)`
   margin-bottom: 24px;
   padding: 20px;
-  background: #f5f5f5;
+  background-color: #e8efe8;
   border: 1px solid rgba(55, 109, 49, 0.1);
-  box-shadow: 0 2px 8px rgba(55, 109, 49, 0.08);
+  box-shadow:
+    0 4px 20px rgba(189, 139, 19, 0.25),
+    0 2px 8px rgba(55, 109, 49, 0.1);
 `;
 
 /* Structure Info page styles */

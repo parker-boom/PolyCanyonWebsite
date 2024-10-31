@@ -50,6 +50,7 @@ import {
   Header,
   Title,
   Subtitle,
+  TitleTagline,
 
   // More Info
   MoreInfoContainer,
@@ -457,8 +458,9 @@ const InfoPage = () => {
 
         <TitleSection>
           <Header>
-            <Title>Discover The Canyon!</Title>
-            <Subtitle>An Architect&apos;s Playground</Subtitle>
+            <Subtitle>Welcome to</Subtitle>
+            <Title>Poly Canyon</Title>
+            <TitleTagline>A Living Laboratory of Design</TitleTagline>
           </Header>
         </TitleSection>
 

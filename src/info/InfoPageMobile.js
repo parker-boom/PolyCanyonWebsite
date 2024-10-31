@@ -101,7 +101,7 @@ import {
 } from './InfoPage.styles.js';
 
 // Separate components
-import PhotoGrid from './PhotoGrid.js';
+import PhotoGridMobile from './PhotoGridMobile.js';
 import GoogleMapsRoute from './GoogleMapsRoute.js';
 
 // App screenshot

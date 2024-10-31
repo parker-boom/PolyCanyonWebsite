@@ -41,9 +41,11 @@ export const PageContainer = styled.div`
 `;
 
 export const RoundedContainer = styled.div`
-  background-color: #f5f5f5;
+  background-color: #e8efe8;
   border-radius: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 4px 20px rgba(189, 139, 19, 0.25),
+    0 2px 8px rgba(55, 109, 49, 0.1);
   padding: 20px;
   margin: 20px auto;
   width: 100%;
@@ -317,4 +319,111 @@ export const DownloadButtonSubtext = styled.span`
   font-size: 16px;
   font-weight: normal;
   opacity: 0.8;
+`;
+
+// Add these new styles after the imports and before existing styles
+export const TitleSection = styled.div`
+  width: 100%;
+  background-color: #e8efe8;
+  border-radius: 20px;
+  box-shadow:
+    0 4px 20px rgba(189, 139, 19, 0.25),
+    0 2px 8px rgba(55, 109, 49, 0.1);
+  margin-bottom: 24px;
+  padding: 25px 20px;
+  box-sizing: border-box;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(189, 139, 19, 0.5),
+      transparent
+    );
+  }
+
+  &::before {
+    top: 12px;
+  }
+
+  &::after {
+    bottom: 12px;
+    width: 180px;
+  }
+`;
+
+export const Header = styled.header`
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+`;
+
+export const Subtitle = styled.div`
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-style: italic;
+  color: #376d31;
+  margin: 0;
+`;
+
+export const MainTitle = styled.h1`
+  font-size: 68px;
+  font-weight: 800;
+  color: rgb(189, 139, 19);
+  margin: 0 0 6px;
+  line-height: 1;
+
+  @media (max-width: 768px) {
+    font-size: 52px;
+  }
+`;
+
+export const TitleTagline = styled.div`
+  font-size: 18px;
+  font-weight: 500;
+  color: #376d31;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  position: relative;
+  padding: 0 24px;
+
+  &::before,
+  &::after {
+    content: '•';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(189, 139, 19, 0.6);
+  }
+
+  &::before {
+    left: 0;
+  }
+
+  &::after {
+    right: 0;
+  }
+`;
+
+// Add this new style
+export const Divider = styled.div`
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(189, 139, 19, 0.3),
+    transparent
+  );
+  margin: 10px 0;
 `;

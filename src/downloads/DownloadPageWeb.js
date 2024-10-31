@@ -19,7 +19,11 @@ import { Helmet } from 'react-helmet-async';
 import {
   PageContainer,
   RoundedContainer,
-  Title,
+  TitleSection,
+  Header,
+  Subtitle,
+  MainTitle,
+  TitleTagline,
   WebDescription,
   LearnMoreButton,
   SplitContainer,
@@ -29,6 +33,7 @@ import {
   DownloadButtonIcon,
   DownloadButtonText,
   DownloadButtonSubtext,
+  Divider,
 } from './DownloadPage.styles.js';
 
 /* 
@@ -68,7 +73,14 @@ const DownloadPageWeb = () => {
       <PageContainer>
         {/* Title Section */}
         <RoundedContainer>
-          <Title>Download Today!</Title>
+          <Header>
+            <Subtitle>Ready to</Subtitle>
+            <MainTitle>Download</MainTitle>
+            <TitleTagline>Your Canyon Guide Awaits</TitleTagline>
+          </Header>
+
+          <Divider />
+
           <WebDescription>
             The Poly Canyon app is available on both iOS and Android, and can be
             downloaded for free on either platform.

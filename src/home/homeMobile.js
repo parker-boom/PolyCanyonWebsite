@@ -11,7 +11,7 @@ import {
   CardContentMobile,
   CardTitleMobile,
   HeaderImageMobile,
-} from './home.styles';
+} from './home.styles.js';
 
 import download from '../assets/home/SquareDownload.jpg';
 import info from '../assets/home/SquareInfo.jpg';

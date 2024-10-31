@@ -16,7 +16,7 @@ import {
   StatItem,
   StatNumber,
   StatLabel,
-} from './home.styles';
+} from './home.styles.js';
 
 import download from '../assets/home/Download.jpg';
 import info from '../assets/home/Info.jpg';

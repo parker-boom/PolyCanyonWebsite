@@ -37,7 +37,9 @@ export const BannerMobile = styled.div`
   justify-content: space-between;
   align-items: center;
   border-radius: 0 0 25px 25px;
-  box-shadow: 0 4px 20px rgba(55, 109, 49, 0.3);
+  box-shadow:
+    0 4px 20px rgba(189, 139, 19, 0.25),
+    0 2px 8px rgba(55, 109, 49, 0.1);
   position: fixed;
   top: 0;
   left: 0;
@@ -60,6 +62,7 @@ export const MenuIcon = styled.div`
 
   &:hover {
     background-color: rgba(55, 109, 49, 0.1);
+    box-shadow: 0 0 0 1px rgba(189, 139, 19, 0.1);
   }
 
   &:active {
@@ -69,17 +72,24 @@ export const MenuIcon = styled.div`
 
 export const PolyCanyonTitle = styled.h1`
   font-size: 28px;
-  font-weight: 850;
-  background: linear-gradient(135deg, #376d31 0%, #428a13 100%);
+  font-weight: 900;
+  background: linear-gradient(
+    135deg,
+    rgba(189, 139, 19, 1) 0%,
+    rgba(212, 169, 65, 1) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0;
   cursor: pointer;
   transition: all 0.3s ease;
   letter-spacing: -0.5px;
+  text-shadow: 0 2px 4px rgba(189, 139, 19, 0.1);
 
   &:hover {
     filter: brightness(1.1);
+    transform: translateY(-1px);
+    text-shadow: 0 4px 8px rgba(189, 139, 19, 0.2);
   }
 `;
 
@@ -123,6 +133,10 @@ export const PopupContent = styled.div`
   flex-direction: column;
   animation: ${slideDown} 0.3s ease-out;
   box-sizing: border-box;
+  box-shadow:
+    0 4px 20px rgba(189, 139, 19, 0.15),
+    0 2px 8px rgba(189, 139, 19, 0.1);
+  border-bottom: 2px solid rgba(189, 139, 19, 0.1);
 `;
 
 export const PopupHeader = styled.div`
@@ -135,8 +149,15 @@ export const PopupHeader = styled.div`
 export const PopupTitle = styled.h2`
   font-size: 24px;
   font-weight: 850;
-  color: #376d31;
+  background: linear-gradient(
+    135deg,
+    rgba(189, 139, 19, 1) 0%,
+    rgba(212, 169, 65, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin: 0;
+  text-shadow: 0 2px 4px rgba(189, 139, 19, 0.1);
 `;
 
 export const PopupCloseButton = styled.button`
@@ -188,11 +209,22 @@ export const PopupNavLink = styled(Link)`
     $isActive &&
     css`
       color: #376d31;
-      box-shadow: inset 0 -3px 0 #376d31;
+      background: #e8efe8;
+      box-shadow:
+        0 2px 8px rgba(189, 139, 19, 0.15),
+        0 1px 2px rgba(189, 139, 19, 0.1);
+      border: 1px solid rgba(189, 139, 19, 0.1);
     `}
 
   &:active {
     transform: scale(0.95);
+  }
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow:
+      0 4px 12px rgba(189, 139, 19, 0.1),
+      0 2px 4px rgba(189, 139, 19, 0.05);
   }
 `;
 
@@ -207,7 +239,9 @@ export const Banner = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 0 0 25px 25px;
-  box-shadow: 0 4px 20px rgba(55, 109, 49, 0.3);
+  box-shadow:
+    0 4px 20px rgba(189, 139, 19, 0.25),
+    0 2px 8px rgba(55, 109, 49, 0.1);
   position: fixed;
   top: 0;
   left: 0;
@@ -231,7 +265,20 @@ export const BannerContent = styled.div`
 export const LeftSection = styled.div`
   display: flex;
   align-items: center;
-  gap: 40px;
+
+  // First child group (logo + title)
+  > div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 20px; // Increased gap between logo and title
+    margin-right: 48px; // Increased margin before nav links
+
+    &:hover {
+      > * {
+        transform: translateY(-1px);
+      }
+    }
+  }
 `;
 
 export const RightSection = styled.div`
@@ -242,18 +289,24 @@ export const RightSection = styled.div`
 
 export const BannerText = styled.h1`
   font-size: 32px;
-  font-weight: 850;
-  background: linear-gradient(135deg, #376d31 0%, #428a13 100%);
+  font-weight: 900;
+  background: linear-gradient(
+    135deg,
+    rgba(189, 139, 19, 1) 0%,
+    rgba(212, 169, 65, 1) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0;
   cursor: pointer;
   transition: all 0.3s ease;
   letter-spacing: -0.5px;
+  text-shadow: 0 2px 4px rgba(189, 139, 19, 0.1);
 
   &:hover {
     transform: translateY(-1px);
     filter: brightness(1.1);
+    text-shadow: 0 4px 8px rgba(189, 139, 19, 0.2);
   }
 `;
 
@@ -283,7 +336,7 @@ export const NavLink = styled(Link)`
 
   &:hover {
     background-color: rgba(55, 109, 49, 0.05);
-    color: #376d31;
+    box-shadow: 0 0 0 1px rgba(189, 139, 19, 0.1);
   }
 
   ${({ $isActive }) =>
@@ -298,23 +351,29 @@ export const NavLink = styled(Link)`
         left: 0;
         width: 100%;
         height: 3px;
-        background: linear-gradient(to right, #376d31, #428a13);
+        background: #376d31;
+        box-shadow: 0 1px 2px rgba(189, 139, 19, 0.1);
         border-radius: 3px;
       }
     `}
 `;
 
 export const BannerIcon = styled.img`
-  height: 42px;
-  width: 42px;
+  height: 44px; // Slightly increased
+  width: 44px; // Slightly increased
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(55, 109, 49, 0.15);
+  box-shadow:
+    0 2px 8px rgba(55, 109, 49, 0.15),
+    0 1px 2px rgba(189, 139, 19, 0.1);
+  border: 2px solid rgba(189, 139, 19, 0.1);
 
   &:hover {
     transform: translateY(-1px) scale(1.02);
-    box-shadow: 0 4px 12px rgba(55, 109, 49, 0.2);
+    box-shadow:
+      0 4px 12px rgba(55, 109, 49, 0.2),
+      0 2px 4px rgba(189, 139, 19, 0.15);
   }
 `;
 
