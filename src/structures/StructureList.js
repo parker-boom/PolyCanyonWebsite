@@ -1,5 +1,8 @@
 /**
- * Work in progress...
+ * Need to:
+ * 1. Re-enable sorting and filtering
+ * 2. Add meta-data
+ * 3. Ghost/Planned sections in the future (data first)
  */
 
 /*
@@ -8,6 +11,7 @@ Imports
 
 // Libraries
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import {
   FaSearch,
@@ -25,13 +29,8 @@ import {
 // Styles
 import * as S from './Structures.styles.js';
 
-// Add this import near the top with other imports
+// Data & Images
 import { mainImages } from './images/structureImages.js';
-
-// Add this import
-import { useNavigate } from 'react-router-dom';
-
-// Update the import path
 import { getStructuresList } from './data/structuresData.js';
 
 /*
@@ -53,6 +52,7 @@ const Structures = () => {
 
   //const [dropdownPosition, setDropdownPosition] = useState({ top: 0, left: 0 });
 
+  // Load structures list
   useEffect(() => {
     try {
       const structuresList = getStructuresList();
@@ -63,6 +63,7 @@ const Structures = () => {
     }
   }, []);
 
+  // Get sorted structures (disabled for now)
   const getSortedStructures = () => {
     if (!structures.length) return [];
 
@@ -75,9 +76,13 @@ const Structures = () => {
       );
     });
   };
+
+  // Default list is just numerical
   const numberList = structures.map((structure) => structure.number);
 
   /*
+  DISABLED SORTING FEATURE FOR NOW
+
   const yearList = [
     7, 3, 12, 16, 11, 9, 2, 26, 24, 29, 1, 14, 15, 10, 19, 25, 28, 8, 13, 17, 6,
     20, 21, 22, 5, 18, 4, 23, 27, 30,
@@ -134,6 +139,7 @@ const Structures = () => {
     setSortOpen(true);
   }; */
 
+  // Toggle section visibility (active, ghost, planned)
   const toggleSection = (section) => {
     setSectionsOpen((prev) => ({
       ...prev,
@@ -141,18 +147,21 @@ const Structures = () => {
     }));
   };
 
+  // Navigate to structure info page
   const navigate = useNavigate();
 
-  const handleStructureClick = (structureNumber) => {
-    navigate('/structure/info', { state: { structureNumber } });
+  const handleStructureClick = (structure) => {
+    navigate(`/structures/${structure.url}`);
   };
 
+  // Error handling
   if (error) {
     return <div>Error: {error}</div>;
   }
 
   return (
     <>
+      {/* Helmet - Meta data */}
       <Helmet>
         <title>Learn About the Structures</title>
         <meta
@@ -162,6 +171,7 @@ const Structures = () => {
       </Helmet>
 
       <S.PageContainer>
+        {/* Search Container */}
         <S.SearchContainer>
           <S.TitleContainer>
             <S.TitleTop>The Stories of</S.TitleTop>
@@ -182,6 +192,7 @@ const Structures = () => {
           </S.SearchSection>
         </S.SearchContainer>
 
+        {/* Active Structures Toggle */}
         <S.StructuresContainer>
           <S.SectionContainer>
             <S.SectionHeader>
@@ -192,7 +203,7 @@ const Structures = () => {
                 </S.SectionToggle>
               </S.SectionTitleContainer>
 
-              {/*
+              {/* SORTING DISABLED FOR NOW
               <S.ControlGroup>
                 <S.SortButton
                   onClick={handleSortClick}
@@ -258,6 +269,8 @@ const Structures = () => {
                 )}
               </S.ControlGroup>
               */}
+
+              {/* Active Structures List */}
             </S.SectionHeader>
             {sectionsOpen.active && (
               <S.StructuresGrid>
@@ -268,7 +281,7 @@ const Structures = () => {
                   return (
                     <S.StructureCard
                       key={structure.number}
-                      onClick={() => handleStructureClick(structure.number)}
+                      onClick={() => handleStructureClick(structure)}
                     >
                       <S.StructureImage
                         src={mainImages[structure.image_key]}

@@ -97,7 +97,6 @@ export const TitleTop = styled.div`
 export const TitleBottom = styled.h1`
   font-size: 68px;
   font-weight: 800;
-  color: rgba(189, 139, 19, 0.9);
   margin: 0;
   letter-spacing: -1.5px;
   line-height: 1;
@@ -109,11 +108,27 @@ export const TitleBottom = styled.h1`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow:
-    0 2px 4px rgba(189, 139, 19, 0.1),
-    0 0 1px rgba(189, 139, 19, 0.1);
   position: relative;
   padding: 0 24px;
+  animation: titleGlow 3s ease-in-out infinite;
+
+  @keyframes titleGlow {
+    0%,
+    100% {
+      text-shadow:
+        0 0 1px rgba(189, 139, 19, 0.2),
+        0 0 2px rgba(189, 139, 19, 0.2),
+        0 0 3px rgba(189, 139, 19, 0.2);
+      filter: brightness(1);
+    }
+    50% {
+      text-shadow:
+        0 0 2px rgba(189, 139, 19, 0.3),
+        0 0 4px rgba(189, 139, 19, 0.3),
+        0 0 6px rgba(189, 139, 19, 0.3);
+      filter: brightness(1.1);
+    }
+  }
 
   &::before {
     content: '';
@@ -123,13 +138,20 @@ export const TitleBottom = styled.h1`
     transform: translate(-50%, -50%);
     width: 140%;
     height: 110%;
-    background: radial-gradient(
-      circle at center,
-      rgba(255, 255, 255, 0.8) 0%,
-      transparent 70%
-    );
+    background: none;
     z-index: -1;
     opacity: 0.5;
+    animation: glowPulse 3s ease-in-out infinite;
+  }
+
+  @keyframes glowPulse {
+    0%,
+    100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 0.7;
+    }
   }
 `;
 

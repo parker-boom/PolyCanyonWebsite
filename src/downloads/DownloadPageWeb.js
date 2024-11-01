@@ -139,9 +139,8 @@ const DownloadPageWeb = () => {
 
           {/* Bottom Section */}
           <WebDescription>
-            If you are interested in detailed information on all structures or
-            more information on the physical area, please navigate to those
-            pages.
+            If you are interested in detailed information on structures or more
+            information on the physical area, please navigate to those pages.
           </WebDescription>
         </RoundedContainer>
       </PageContainer>

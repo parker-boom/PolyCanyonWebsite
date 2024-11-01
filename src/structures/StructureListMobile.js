@@ -1,6 +1,16 @@
+/*
+Imports
+*/
+
+// Libraries
 import React from 'react';
 import styled from 'styled-components';
 import { FaMobileAlt, FaDesktop } from 'react-icons/fa';
+
+/*
+Styles
+!Only bc fake implementation rn!
+*/
 
 const Container = styled.div`
   display: flex;
@@ -63,6 +73,9 @@ const Highlight = styled.span`
   font-weight: 600;
 `;
 
+/*
+Components & Renders
+*/
 const StructureListMobile = () => {
   return (
     <Container>
@@ -82,4 +95,5 @@ const StructureListMobile = () => {
   );
 };
 
+// Export to use in index.js
 export default StructureListMobile;

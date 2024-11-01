@@ -85,12 +85,11 @@ function App() {
 
   return (
     <AppContainer>
-      {/* Conditionally render Navigation based on route */}
       {location.pathname !== '/' && <Navigation />}
 
       <Content path={location.pathname}>
         <Routes>
-          {/* Home route with mobile/web conditional rendering */}
+          {/* Home route */}
           <Route path="/" element={isMobile ? <HomeMobile /> : <HomeWeb />} />
 
           {/* Main routes */}
@@ -98,11 +97,15 @@ function App() {
             path="/info"
             element={isMobile ? <InfoPageMobile /> : <InfoPageWeb />}
           />
+
+          {/* Structures routes */}
           <Route
             path="/structures"
             element={isMobile ? <StructureListMobile /> : <StructureList />}
           />
-          <Route path="/structure/info" element={<StructureInfo />} />
+          <Route path="/structures/:structureUrl" element={<StructureInfo />} />
+
+          {/* Download route */}
           <Route
             path="/download"
             element={isMobile ? <DownloadPageMobile /> : <DownloadPageWeb />}
@@ -113,7 +116,6 @@ function App() {
         </Routes>
       </Content>
 
-      {/* Only show Footer on non-home routes */}
       {location.pathname !== '/' && (
         <Footer>
           <FooterText>© 2024 Poly Canyon App. All rights reserved.</FooterText>

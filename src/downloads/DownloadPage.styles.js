@@ -399,9 +399,36 @@ export const Subtitle = styled.div`
 export const MainTitle = styled.h1`
   font-size: 68px;
   font-weight: 800;
-  color: rgb(189, 139, 19);
   margin: 0 0 6px;
   line-height: 1;
+  background: linear-gradient(
+    135deg,
+    rgba(189, 139, 19, 1),
+    rgba(189, 139, 19, 0.85)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  animation: titleGlow 3s ease-in-out infinite;
+
+  @keyframes titleGlow {
+    0%,
+    100% {
+      text-shadow:
+        0 0 1px rgba(189, 139, 19, 0.2),
+        0 0 2px rgba(189, 139, 19, 0.2),
+        0 0 3px rgba(189, 139, 19, 0.2);
+      filter: brightness(1);
+    }
+    50% {
+      text-shadow:
+        0 0 2px rgba(189, 139, 19, 0.3),
+        0 0 4px rgba(189, 139, 19, 0.3),
+        0 0 6px rgba(189, 139, 19, 0.3);
+      filter: brightness(1.1);
+    }
+  }
 
   @media (max-width: 768px) {
     font-size: 52px;

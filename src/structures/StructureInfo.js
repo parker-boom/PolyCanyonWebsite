@@ -1,9 +1,15 @@
 /*
-TO DO:
-1. Fix routing based on the url, of the data inside of the JSON files
+NOTES: All current URLS with google.com are hidden, so keep these as placeholders, that's fine. 
+
+FUTURE
+1. List of names in the JSON, first name: main, other names: Quick facts AKA section
+2. Add sharing feature
+3. Advisor logic (currently just shows as builders)
 */
 
-// StructureInfo.jsx
+/*
+Imports
+*/
 import React, { useState, useEffect } from 'react';
 import {
   FaTimes,
@@ -18,23 +24,22 @@ import {
   FaChevronUp,
   FaExchangeAlt,
 } from 'react-icons/fa';
-import { useNavigate, useLocation } from 'react-router-dom';
-
-import { StructureLocationMap } from '../info/GoogleMapsRoute.js';
+import { useNavigate, useParams } from 'react-router-dom';
 
 // Styles
 import * as S from './Structures.styles.js';
 
-// Import structureImages for the list view
+// Components, images, and data
+import { StructureLocationMap } from '../info/GoogleMapsRoute.js';
 import { mainImages, closeUpImages } from './images/structureImages.js';
 import { getStructuresList, getStructureInfo } from './data/structuresData.js';
 
-// Update the getImagePath function to handle both formats
+// Image path helper function
 const getImagePath = (imagePath) => {
-  // Extract the image key (e.g., "M-1" or "C-1") from the path
+  // Extract the image key
   const imageKey = imagePath.split('/').pop();
 
-  // Check if it's a main image or closeup image
+  // Check if it's a main image or closeup image [only these for now]
   if (imageKey.startsWith('M-')) {
     return mainImages[imageKey];
   } else if (imageKey.startsWith('C-')) {
@@ -46,21 +51,21 @@ const getImagePath = (imagePath) => {
 };
 
 const StructureInfo = () => {
+  // Navigate
   const navigate = useNavigate();
-  const location = useLocation();
+  const { structureUrl } = useParams();
 
+  // States
   const [structure, setStructure] = useState(null);
-
-  const structureNumber = location.state?.structureNumber || 3;
-
+  const [structureNumber, setStructureNumber] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [descriptionExpanded, setDescriptionExpanded] = useState(false);
   const [showDropdownIcon, setShowDropdownIcon] = useState(false);
   const [showList, setShowList] = useState(false);
   const [imageAspectRatio, setImageAspectRatio] = useState(null);
-
   const [structuresList, setStructuresList] = useState([]);
 
+  // Load structures list (from JSON)
   useEffect(() => {
     try {
       const list = getStructuresList();
@@ -70,19 +75,29 @@ const StructureInfo = () => {
     }
   }, []);
 
+  // Load structure data and set structure number (from JSON)
   useEffect(() => {
     try {
-      const structureData = getStructureInfo(structureNumber);
-      setStructure(structureData);
+      const list = getStructuresList();
+      const foundStructure = list.find((s) => s.url === structureUrl);
+      if (foundStructure) {
+        setStructureNumber(foundStructure.number);
+        const structureData = getStructureInfo(foundStructure.number);
+        setStructure(structureData);
+      }
     } catch (error) {
       console.error('Error loading structure:', error);
     }
-  }, [structureNumber]);
+  }, [structureUrl]);
 
+  // Reset image index when structure changes
   useEffect(() => {
-    setCurrentImageIndex(0);
+    if (structureNumber) {
+      setCurrentImageIndex(0);
+    }
   }, [structureNumber]);
 
+  // Load image & determine aspect ratio
   useEffect(() => {
     const loadImage = async () => {
       if (structure?.images?.[currentImageIndex]?.path) {
@@ -107,28 +122,33 @@ const StructureInfo = () => {
     loadImage();
   }, [currentImageIndex, structure]);
 
+  // Go back 1 image in carousel
   const handlePrevImage = () => {
     setCurrentImageIndex((prevIndex) =>
       prevIndex === 0 ? structure.images.length - 1 : prevIndex - 1
     );
   };
 
+  // Go forward 1 image in carousel
   const handleNextImage = () => {
     setCurrentImageIndex((prevIndex) =>
       prevIndex === structure.images.length - 1 ? 0 : prevIndex + 1
     );
   };
 
+  // Toggle description expanded/normal
   const toggleDescription = () => {
     setDescriptionExpanded(!descriptionExpanded);
   };
 
+  // Get link icon based on title
   const getLinkIcon = (title) => {
     if (title.toLowerCase().includes('article')) return <FaNewspaper />;
     if (title.toLowerCase().includes('thesis')) return <FaBook />;
     return <FaGlobe />;
   };
 
+  // Emojis
   const getInfoEmoji = (type) => {
     const emojiMap = {
       year: '📅',
@@ -142,37 +162,35 @@ const StructureInfo = () => {
     return emojiMap[type] || '📌';
   };
 
-  const handleStructureSelect = (number) => {
-    navigate('/structure/info', { state: { structureNumber: number } });
+  // Update URL when structure changes
+  const handleStructureSelect = (structure) => {
+    navigate(`/structures/${structure.url}`);
     setShowList(false);
   };
 
+  // Go back 1 structure in list
   const handlePrevStructure = () => {
     if (!structuresList.length) return;
-
     const currentIndex = structuresList.findIndex(
-      (s) => s.number === structureNumber
+      (s) => s.url === structureUrl
     );
     const prevIndex =
       currentIndex > 0 ? currentIndex - 1 : structuresList.length - 1;
-    navigate('/structure/info', {
-      state: { structureNumber: structuresList[prevIndex].number },
-    });
+    navigate(`/structures/${structuresList[prevIndex].url}`);
   };
 
+  // Go forward 1 structure in list
   const handleNextStructure = () => {
     if (!structuresList.length) return;
-
     const currentIndex = structuresList.findIndex(
-      (s) => s.number === structureNumber
+      (s) => s.url === structureUrl
     );
     const nextIndex =
       currentIndex < structuresList.length - 1 ? currentIndex + 1 : 0;
-    navigate('/structure/info', {
-      state: { structureNumber: structuresList[nextIndex].number },
-    });
+    navigate(`/structures/${structuresList[nextIndex].url}`);
   };
 
+  // Get previous structure number in list
   const getPrevStructureNumber = () => {
     if (!structuresList.length) return null;
 
@@ -184,6 +202,7 @@ const StructureInfo = () => {
     return structuresList[prevIndex].number;
   };
 
+  // Get next structure number in list
   const getNextStructureNumber = () => {
     if (!structuresList.length) return null;
 
@@ -195,15 +214,22 @@ const StructureInfo = () => {
     return structuresList[nextIndex].number;
   };
 
+  // Get the current image and description
   const currentImage = structure?.images?.[currentImageIndex];
   const imageDescription = currentImage?.description;
 
-  if (!structure) {
+  // Get valid links (AKA don't show placeholder links)
+  const getValidLinks = () => {
+    if (!structure.links) return [];
+    return structure.links.filter((link) => link.URL !== 'https://google.com');
+  };
+
+  // Loading state - needed to give time for data to load
+  if (!structure || !structureNumber) {
     return (
       <S.InfoPageWrapper>
         <S.CenteredWrapper>
           <S.HeaderContainer>
-            <S.StructureNumberBubble>{structureNumber}</S.StructureNumberBubble>
             <S.StructureTitleInfo>Loading...</S.StructureTitleInfo>
             <S.CloseButton onClick={() => navigate('/structures')}>
               <FaTimes />
@@ -214,9 +240,11 @@ const StructureInfo = () => {
     );
   }
 
+  // Render the structure info page
   return (
     <S.InfoPageWrapper>
       <S.CenteredWrapper>
+        {/* Header Content: Number, Title, Close*/}
         <S.HeaderContainer>
           <S.StructureNumberBubble
             onClick={() => setShowList(!showList)}
@@ -261,14 +289,16 @@ const StructureInfo = () => {
           </S.CloseButton>
         </S.HeaderContainer>
 
+        {/* Content Container: List of structures or Structure Info Content */}
         <S.ContentContainer>
+          {/* List of structures for changing */}
           {showList ? (
             <S.StructureListView>
               <S.StructuresListGrid>
                 {structuresList.map((item) => (
                   <S.StructureListCard
                     key={item.number}
-                    onClick={() => handleStructureSelect(item.number)}
+                    onClick={() => handleStructureSelect(item)}
                     isSelected={item.number === structure.number}
                   >
                     <S.StructureImage
@@ -287,10 +317,13 @@ const StructureInfo = () => {
             </S.StructureListView>
           ) : (
             <S.MainContent>
+              {/* Main Content: Image / Description on left | Quick Facts on right */}
               <S.ColumnsContainer>
                 <S.LeftSection>
                   <S.DescriptionContainer>
                     <S.SectionTitleInfo>Images</S.SectionTitleInfo>
+
+                    {/* Image Container: Carousel & Scaling based on aspect ratio */}
                     <S.ImageContainer>
                       {structure?.images?.[currentImageIndex]?.path && (
                         <>
@@ -343,6 +376,7 @@ const StructureInfo = () => {
                     </S.ImageDescription>
                   </S.DescriptionContainer>
 
+                  {/* Description Container: Description & Toggle extended Button */}
                   <S.DescriptionContainer>
                     <S.SectionTitleInfo>Description</S.SectionTitleInfo>
                     <S.DescriptionText expanded={descriptionExpanded}>
@@ -357,9 +391,11 @@ const StructureInfo = () => {
                   </S.DescriptionContainer>
                 </S.LeftSection>
 
+                {/* Info Cards Section: Quick Facts, scrollable, matches height of image/description */}
                 <S.InfoCardsSection>
                   <S.SectionTitleInfo>Quick Facts</S.SectionTitleInfo>
 
+                  {/* Year Card */}
                   {structure.year && (
                     <S.InfoCard>
                       <S.InfoCardHeader>
@@ -372,6 +408,9 @@ const StructureInfo = () => {
                     </S.InfoCard>
                   )}
 
+                  {/* NEED: ALSO KNOWS AS / OTHER NAMES CARD : will pull from list of names in JSON, non-0 index*/}
+
+                  {/* Department Card */}
                   {structure.department?.length > 0 && (
                     <S.InfoCard>
                       <S.InfoCardHeader>
@@ -386,6 +425,7 @@ const StructureInfo = () => {
                     </S.InfoCard>
                   )}
 
+                  {/* Advisor Card : !DOESNT WORK BECAUSE ADVISORS ARE JUST BUILDERS RN */}
                   {structure.advisor_builders?.some((person) =>
                     person.role.includes('Advisor')
                   ) && (
@@ -405,6 +445,7 @@ const StructureInfo = () => {
                     </S.InfoCard>
                   )}
 
+                  {/* Builders Card */}
                   {structure.advisor_builders?.some(
                     (person) => !person.role.includes('Advisor')
                   ) && (
@@ -424,6 +465,7 @@ const StructureInfo = () => {
                     </S.InfoCard>
                   )}
 
+                  {/* Status Card */}
                   {structure.status && (
                     <S.InfoCard>
                       <S.InfoCardHeader>
@@ -436,6 +478,7 @@ const StructureInfo = () => {
                     </S.InfoCard>
                   )}
 
+                  {/* Style Card : MAY CHANGE TO TAGS?*/}
                   {structure.style && (
                     <S.InfoCard>
                       <S.InfoCardHeader>
@@ -448,6 +491,7 @@ const StructureInfo = () => {
                     </S.InfoCard>
                   )}
 
+                  {/* Location Card */}
                   {structure.location?.latitude &&
                     structure.location?.longitude && (
                       <S.InfoCard>
@@ -457,6 +501,7 @@ const StructureInfo = () => {
                           </S.InfoCardEmoji>
                           <S.InfoCardTitle>Location</S.InfoCardTitle>
                         </S.InfoCardHeader>
+                        {/* Google Maps Connection */}
                         <StructureLocationMap
                           latitude={structure.location.latitude}
                           longitude={structure.location.longitude}
@@ -466,21 +511,24 @@ const StructureInfo = () => {
                 </S.InfoCardsSection>
               </S.ColumnsContainer>
 
-              <S.LinksSection>
-                <S.LinkButtonContainer>
-                  {structure.links.map((link, index) => (
-                    <S.LinkButton
-                      key={index}
-                      href={link.URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {getLinkIcon(link.title)}
-                      {link.title}
-                    </S.LinkButton>
-                  ))}
-                </S.LinkButtonContainer>
-              </S.LinksSection>
+              {/* Links Section (only shows if there are valid links) */}
+              {getValidLinks().length > 0 && (
+                <S.LinksSection>
+                  <S.LinkButtonContainer>
+                    {getValidLinks().map((link, index) => (
+                      <S.LinkButton
+                        key={index}
+                        href={link.URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {getLinkIcon(link.title)}
+                        {link.title}
+                      </S.LinkButton>
+                    ))}
+                  </S.LinkButtonContainer>
+                </S.LinksSection>
+              )}
             </S.MainContent>
           )}
         </S.ContentContainer>

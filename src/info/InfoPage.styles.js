@@ -143,9 +143,71 @@ export const Subtitle = styled.div`
 export const Title = styled.h1`
   font-size: 68px;
   font-weight: 800;
-  color: rgb(189, 139, 19);
-  margin: 0 0 16px;
+  margin: 0 0 20px;
   line-height: 1;
+  color: rgb(189, 139, 19);
+  position: relative;
+  z-index: 1;
+  animation: titlePulse 3s ease-in-out infinite;
+
+  /* Create glowing effect with multiple layers */
+  &::before {
+    content: 'Poly Canyon';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      rgba(189, 139, 19, 1),
+      rgba(189, 139, 19, 0.85)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    z-index: 2;
+  }
+
+  /* Add glow layer behind text */
+  &::after {
+    content: '';
+    position: absolute;
+    left: -10%;
+    top: -50%;
+    width: 120%;
+    height: 200%;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(189, 139, 19, 0.15),
+      transparent 70%
+    );
+    z-index: -1;
+    opacity: 0;
+    animation: glowPulse 3s ease-in-out infinite;
+  }
+
+  @keyframes titlePulse {
+    0%,
+    100% {
+      filter: brightness(1);
+    }
+    50% {
+      filter: brightness(1.1);
+    }
+  }
+
+  @keyframes glowPulse {
+    0%,
+    100% {
+      opacity: 0.5;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+  }
 `;
 
 export const TitleTagline = styled.div`
@@ -156,6 +218,8 @@ export const TitleTagline = styled.div`
   text-transform: uppercase;
   position: relative;
   padding: 0 24px;
+  margin-top: -8px;
+  z-index: 0;
 
   &::before,
   &::after {
