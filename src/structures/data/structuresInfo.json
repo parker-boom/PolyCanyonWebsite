@@ -1,0 +1,1390 @@
+[
+  {
+    "_id": "6722b48799b26f2c000bb484",
+    "number": 1,
+    "url": "entryArch",
+    "name": "Entry Arch",
+    "year": "1976",
+    "department": [],
+    "advisor_builders": [
+      { "name": "Paul Miller", "role": ["Builder"] },
+      { "name": "Lynn Noah", "role": ["Builder"] },
+      { "name": "Greg Lomax", "role": ["Builder"] },
+      { "name": "Andrew Low", "role": ["Builder"] },
+      { "name": "Gwin Stumbaugh", "role": ["Builder"] }
+    ],
+    "description": "The Entry Arch serves as both a practical entrance and a symbolic gateway into Poly Canyon's experimental landscape. Constructed with a steel frame overlaid with serpentinite rock, it adds a geological twist with a stone that naturally contains asbestos. Nearby, terracotta faces of the student builders are embedded in a stone wall, watching over visitors.",
+    "extended_description": "These terracotta faces add a personal touch to the entrance, blending technical innovation with human artistry. The design embodies the collaborative spirit of Cal Poly students. The use of serpentinite rock showcases innovative material use and highlights the students' ability to incorporate unique geological elements into their work. The Entry Arch stands as a testament to the creativity and craftsmanship of its builders. It remains a significant landmark welcoming visitors into the rich tapestry of architectural experimentation within Poly Canyon.",
+    "status": "",
+    "style": "",
+    "tags": [],
+    "location": {},
+    "images": [
+      {
+        "type": "main",
+        "orientation": true,
+        "path": "/images/M-1",
+        "description": "Main image of the Entry Arch."
+      },
+      {
+        "type": "closeup",
+        "orientation": true,
+        "path": "/images/C-1",
+        "description": "Close-up image of the Entry Arch."
+      }
+    ],
+    "links": [
+      {
+        "linkType": "Article",
+        "URL": "https://google.com",
+        "title": "CAED Website"
+      },
+      {
+        "linkType": "Thesis",
+        "URL": "https://google.com",
+        "title": "Original Thesis"
+      }
+    ]
+  },
+  {
+    "_id": "6722b48799b26f2c000bb485",
+    "number": 2,
+    "url": "techiteBridge",
+    "name": "Techite Bridge",
+    "year": "1973",
+    "department": [],
+    "advisor_builders": [
+      { "name": "Robert Purdy", "role": ["Builder"] },
+      { "name": "Robert Mac Luan", "role": ["Builder"] },
+      { "name": "Merilee Amy", "role": ["Builder"] }
+    ],
+    "description": "The Techite Bridge is the only Poly Canyon structure built entirely by Construction Engineering students, highlighting their hands-on expertise. Constructed from fiber-reinforced plastic mortar, it showcases innovative use of lightweight yet high-strength materials. The bridge exemplifies how students can bridge gaps in more ways than one.",
+    "extended_description": "As a testament to interdisciplinary collaboration, the Techite Bridge stands out for its creative application of construction techniques. The use of fiber-reinforced plastic mortar not only demonstrates technical skill but also innovation in material science. This lightweight yet durable bridge reflects the students' ability to think outside the box. It remains a symbol of student-driven experimentation in construction. The structure continues to inspire future generations of engineers and architects at Cal Poly.",
+    "status": "",
+    "style": "",
+    "tags": [],
+    "location": {},
+    "images": [
+      {
+        "type": "main",
+        "orientation": true,
+        "path": "/images/M-2",
+        "description": "Main image of the Techite Bridge."
+      },
+      {
+        "type": "closeup",
+        "orientation": true,
+        "path": "/images/C-2",
+        "description": "Close-up image of the Techite Bridge."
+      }
+    ],
+    "links": [
+      {
+        "linkType": "Article",
+        "URL": "https://google.com",
+        "title": "CAED Website"
+      },
+      {
+        "linkType": "Thesis",
+        "URL": "https://google.com",
+        "title": "Original Thesis"
+      }
+    ]
+  },
+  {
+    "_id": "6722b48799b26f2c000bb486",
+    "number": 3,
+    "url": "blade",
+    "name": "Blade",
+    "year": "1963 / 2003",
+    "department": [],
+    "advisor_builders": [
+      { "name": "Steve Gilmore", "role": ["Builder"] },
+      { "name": "Mark Haselton", "role": ["Builder"] },
+      { "name": "Dan McMann", "role": ["Builder"] },
+      { "name": "Ken Minor", "role": ["Builder"] }
+    ],
+    "description": "The Blade structure collapsed once but was rebuilt decades later, proving that at Poly Canyon, students get second chances to make first-rate architecture. Originally testing pioneering post-tensioning methods, it faced design flaws but was reconstructed by a new team, including some original builders.",
+    "extended_description": "Updated with features like catenary arches to meet new building codes, the Blade won an Award of Excellence. The project embodies Cal Poly's 'learn by doing' spirit and showcases the evolution of architectural education through hands-on experience. Its reconstruction demonstrates perseverance and the value of learning from past mistakes. The structure now stands as a symbol of innovation and resilience. It continues to inspire students to push the boundaries of architectural design.",
+    "status": "",
+    "style": "",
+    "tags": [],
+    "location": {},
+    "images": [
+      {
+        "type": "main",
+        "orientation": true,
+        "path": "/images/M-3",
+        "description": "Main image of the Blade."
+      },
+      {
+        "type": "closeup",
+        "orientation": true,
+        "path": "/images/C-3",
+        "description": "Close-up image of the Blade."
+      }
+    ],
+    "links": [
+      {
+        "linkType": "Article",
+        "URL": "https://google.com",
+        "title": "CAED Website"
+      },
+      {
+        "linkType": "Thesis",
+        "URL": "https://google.com",
+        "title": "Original Thesis"
+      }
+    ]
+  },
+  {
+    "_id": "6722b48799b26f2c000bb487",
+    "number": 4,
+    "url": "spireArray",
+    "name": "Spire Array",
+    "year": "2020",
+    "department": [],
+    "advisor_builders": [
+      { "name": "Professor Dale Clifford", "role": ["Builder"] },
+      { "name": "Design Build Team", "role": ["Builder"] }
+    ],
+    "description": "Wild horses are often spotted near the Spire Array—did you see any today? This striking wooden structure explores minimalist construction methods using simple materials, resembling teepee-like forms.",
+    "extended_description": "Created to investigate efficient building techniques, the geometric design allows natural light to filter through, offering a dynamic play of shadow and space. The project exemplifies how basic materials can be transformed into complex, visually intriguing structures through innovative design. It serves as a testament to the creativity and resourcefulness of students. The Spire Array adds a unique aesthetic to the Poly Canyon landscape. It encourages visitors to reflect on the possibilities of minimalist architecture.",
+    "status": "",
+    "style": "",
+    "tags": [],
+    "location": {},
+    "images": [
+      {
+        "type": "main",
+        "orientation": true,
+        "path": "/images/M-4",
+        "description": "Main image of the Spire Array."
+      },
+      {
+        "type": "closeup",
+        "orientation": true,
+        "path": "/images/C-4",
+        "description": "Close-up image of the Spire Array."
+      }
+    ],
+    "links": [
+      {
+        "linkType": "Article",
+        "URL": "https://google.com",
+        "title": "CAED Website"
+      },
+      {
+        "linkType": "Thesis",
+        "URL": "https://google.com",
+        "title": "Original Thesis"
+      }
+    ]
+  },
+  {
+    "_id": "6722b48799b26f2c000bb488",
+    "number": 5,
+    "url": "palmTree",
+    "name": "Palm Tree",
+    "year": "xxxx",
+    "department": [],
+    "advisor_builders": [{ "name": "iii", "role": ["Builder"] }],
+    "description": "The Palm Tree was originally designed to rotate with changing temperatures due to the differing expansion rates of its metals. This unique structure features a tall central pole crowned by an assembly of dissimilar metals.",
+    "extended_description": "The innovative design aimed to exploit the differing thermal expansion and contraction rates of the metals to generate rotation. Standing isolated against the rugged landscape, the structure's minimalist appearance contrasts with the complexity of its engineering intent. It serves as a physical representation of the interplay between art and science. The Palm Tree invites observers to consider the effects of environmental factors on structural design. Despite its simplicity, it embodies a sophisticated engineering concept.",
+    "status": "",
+    "style": "",
+    "tags": [],
+    "location": {},
+    "images": [
+      {
+        "type": "main",
+        "orientation": true,
+        "path": "/images/M-5",
+        "description": "Main image of the Palm Tree."
+      },
+      {
+        "type": "closeup",
+        "orientation": true,
+        "path": "/images/C-5",
+        "description": "Close-up image of the Palm Tree."
+      }
+    ],
+    "links": [
+      {
+        "linkType": "Article",
+        "URL": "https://google.com",
+        "title": "CAED Website"
+      },
+      {
+        "linkType": "Thesis",
+        "URL": "https://google.com",
+        "title": "Original Thesis"
+      }
+    ]
+  },
+  {
+    "_id": "6722b48799b26f2c000bb489",
+    "number": 6,
+    "url": "tensile",
+    "name": "Tensile",
+    "year": "2002",
+    "department": [],
+    "advisor_builders": [
+      { "name": "Kiren Kelly-Sneed", "role": ["Builder"] },
+      { "name": "Theresa Zaro", "role": ["Builder"] },
+      { "name": "Royce Chow", "role": ["Builder"] },
+      { "name": "Abe Lynn", "role": ["Builder"] },
+      { "name": "Michael Lucas", "role": ["Builder"] },
+      { "name": "Walt Tryon", "role": ["Builder"] },
+      { "name": "Richard Zweifel", "role": ["Builder"] }
+    ],
+    "description": "One student loved the Tensile structure so much, they got married under it—a testament to its beauty and community spirit. Showcasing structural elegance, it is held up by twelve footings interconnected underground.",
+    "extended_description": "Utilizing tension cables and fabric, the structure provides much-needed shade during events like Design Village. The fact that a student chose this spot for their wedding adds a personal dimension, highlighting how architecture can foster community and create meaningful spaces beyond their functional purpose. The Tensile structure exemplifies the harmonious blend of form and function. It continues to be a focal point for gatherings and events. The design inspires visitors to appreciate the possibilities of tensile architecture.",
+    "status": "",
+    "style": "",
+    "tags": [],
+    "location": {},
+    "images": [
+      {
+        "type": "main",
+        "orientation": true,
+        "path": "/images/M-6",
+        "description": "Main image of the Tensile."
+      },
+      {
+        "type": "closeup",
+        "orientation": true,
+        "path": "/images/C-6",
+        "description": "Close-up image of the Tensile."
+      }
+    ],
+    "links": [
+      {
+        "linkType": "Article",
+        "URL": "https://google.com",
+        "title": "CAED Website"
+      },
+      {
+        "linkType": "Thesis",
+        "URL": "https://google.com",
+        "title": "Original Thesis"
+      }
+    ]
+  },
+  {
+    "_id": "6722b48799b26f2c000bb48a",
+    "number": 7,
+    "url": "geodesicDome",
+    "name": "Geodesic Dome",
+    "year": "1963",
+    "department": [],
+    "advisor_builders": [
+      { "name": "Richard Neill", "role": ["Builder"] },
+      { "name": "William Roth", "role": ["Builder"] },
+      { "name": "Donald Mills", "role": ["Builder"] },
+      { "name": "Samuel Peterson", "role": ["Builder"] },
+      { "name": "Don Trunklage", "role": ["Builder"] }
+    ],
+    "description": "Inspired by Buckminster Fuller, the Geodesic Dome was originally built from surplus materials and offers stellar acoustics—it's even been used as a sound stage. This iconic dome showcases the strength and efficiency of triangular components.",
+    "extended_description": "Made from lightweight surplus materials, it was initially an entrance to the architecture building before finding its home in Poly Canyon. Renowned for its excellent acoustics, the dome continues to serve as a functional space for events, bridging historical innovation with modern utility. The structure embodies the pioneering spirit of architectural experimentation. Its design has influenced countless students and architects. The Geodesic Dome remains a symbol of ingenuity and timeless design principles.",
+    "status": "",
+    "style": "",
+    "tags": [],
+    "location": {},
+    "images": [
+      {
+        "type": "main",
+        "orientation": true,
+        "path": "/images/M-7",
+        "description": "Main image of the Geodesic Dome."
+      },
+      {
+        "type": "closeup",
+        "orientation": true,
+        "path": "/images/C-7",
+        "description": "Close-up image of the Geodesic Dome."
+      }
+    ],
+    "links": [
+      {
+        "linkType": "Article",
+        "URL": "https://google.com",
+        "title": "CAED Website"
+      },
+      {
+        "linkType": "Thesis",
+        "URL": "https://google.com",
+        "title": "Original Thesis"
+      }
+    ]
+  },
+  {
+    "_id": "6722b48799b26f2c000bb48b",
+    "number": 8,
+    "url": "cantileverDeck",
+    "name": "Cantilever Deck",
+    "year": "1990",
+    "department": [],
+    "advisor_builders": [
+      { "name": "Rowan Hernandez", "role": ["Builder"] },
+      { "name": "Kim Throndson", "role": ["Builder"] },
+      { "name": "John Morrena", "role": ["Builder"] },
+      { "name": "Lee Benson", "role": ["Builder"] }
+    ],
+    "description": "The Cantilever Deck appears to float in mid-air, thanks to two students who defied gravity with cables and creativity. Constructed by ambitious architecture students, it exemplifies the principles of cantilever construction.",
+    "extended_description": "Suspended entirely by cables with no direct ground support, it showcases the perfect balance of tension and compression forces. This minimalist design is a real-world application of structural precision, highlighting how innovative engineering can create the illusion of a floating platform amid the natural landscape. The deck provides a unique space for contemplation and observation. It challenges conventional architectural norms. The Cantilever Deck continues to inspire awe and curiosity among visitors.",
+    "status": "",
+    "style": "",
+    "tags": [],
+    "location": {},
+    "images": [
+      {
+        "type": "main",
+        "orientation": true,
+        "path": "/images/M-8",
+        "description": "Main image of the Cantilever Deck."
+      },
+      {
+        "type": "closeup",
+        "orientation": true,
+        "path": "/images/C-8",
+        "description": "Close-up image of the Cantilever Deck."
+      }
+    ],
+    "links": [
+      {
+        "linkType": "Article",
+        "URL": "https://google.com",
+        "title": "CAED Website"
+      },
+      {
+        "linkType": "Thesis",
+        "URL": "https://google.com",
+        "title": "Original Thesis"
+      }
+    ]
+  },
+  {
+    "_id": "6722b48799b26f2c000bb48c",
+    "number": 9,
+    "url": "restrooms",
+    "name": "Earth Restrooms",
+    "year": "1972",
+    "department": [],
+    "advisor_builders": [
+      { "name": "Glen Jackson", "role": ["Builder"] },
+      { "name": "Robert Del Bianco", "role": ["Builder"] },
+      { "name": "Ralph Nafzgar", "role": ["Builder"] }
+    ],
+    "description": "These restrooms were shaped by dirt! Students used earth mounds as molds, then dug them out to reveal the curvy concrete roof. Ingeniously using earth mounds as natural formwork, they seamlessly blend with the landscape.",
+    "extended_description": "After the concrete cured, the soil was excavated to reveal a structure that embodies efficient use of materials and environmental integration. Serving as essential infrastructure before other facilities were available, this project highlights the innovative spirit of students merging architecture with nature. The Earth-Formed Restrooms demonstrate sustainable building practices. They serve as an educational example of alternative construction methods. The design continues to intrigue and educate visitors about eco-friendly architecture.",
+    "status": "",
+    "style": "",
+    "tags": [],
+    "location": {},
+    "images": [
+      {
+        "type": "main",
+        "orientation": true,
+        "path": "/images/M-9",
+        "description": "Main image of the Earth-Formed Restrooms."
+      },
+      {
+        "type": "closeup",
+        "orientation": true,
+        "path": "/images/C-9",
+        "description": "Close-up image of the Earth-Formed Restrooms."
+      }
+    ],
+    "links": [
+      {
+        "linkType": "Article",
+        "URL": "https://google.com",
+        "title": "CAED Website"
+      },
+      {
+        "linkType": "Thesis",
+        "URL": "https://google.com",
+        "title": "Original Thesis"
+      }
+    ]
+  },
+  {
+    "_id": "6722b48799b26f2c000bb48d",
+    "number": 10,
+    "url": "undergroundHouse",
+    "name": "Underground House",
+    "year": "1982",
+    "department": [],
+    "advisor_builders": [
+      { "name": "Carl C Barrett", "role": ["Builder"] },
+      { "name": "Robert S Cocores", "role": ["Builder"] },
+      { "name": "Allyn W Mcfarlin", "role": ["Builder"] },
+      { "name": "John M Provato", "role": ["Builder"] },
+      { "name": "Jesse P Wedemeyer", "role": ["Builder"] },
+      { "name": "Wayne Christian", "role": ["Builder"] },
+      { "name": "Pat Dennison", "role": ["Builder"] },
+      { "name": "Fred Kozono", "role": ["Builder"] },
+      { "name": "Mark McIntire", "role": ["Builder"] },
+      { "name": "Chris Sterios", "role": ["Builder"] },
+      { "name": "Craig Wilson", "role": ["Builder"] },
+      { "name": "Mark V Zeolla", "role": ["Builder"] }
+    ],
+    "description": "Designed to be invisible, the Underground House was supposed to be fully underground with only skylights showing—but leaks brought it back to the surface. An ambitious venture into subterranean architecture, it was intended to be completely submerged.",
+    "extended_description": "Significant issues with leaking led to it being partially unearthed. Despite the challenges, it has served as housing for caretakers, providing practical lessons in the complexities of underground construction and the importance of adapting designs to environmental constraints. The structure highlights the innovative yet practical aspects of architectural design. It stands as a learning monument to the challenges of waterproofing and subterranean living. The Underground House continues to intrigue those interested in alternative housing solutions.",
+    "status": "",
+    "style": "",
+    "tags": [],
+    "location": {},
+    "images": [
+      {
+        "type": "main",
+        "orientation": true,
+        "path": "/images/M-10",
+        "description": "Main image of the Underground House."
+      },
+      {
+        "type": "closeup",
+        "orientation": true,
+        "path": "/images/C-10",
+        "description": "Close-up image of the Underground House."
+      }
+    ],
+    "links": [
+      {
+        "linkType": "Article",
+        "URL": "https://google.com",
+        "title": "CAED Website"
+      },
+      {
+        "linkType": "Thesis",
+        "URL": "https://google.com",
+        "title": "Original Thesis"
+      }
+    ]
+  },
+  {
+    "_id": "6722b48799b26f2c000bb48e",
+    "number": 11,
+    "url": "sunDial",
+    "name": "Sun Dial",
+    "year": "1971",
+    "department": [],
+    "advisor_builders": [{ "name": "John Stuart", "role": ["Builder"] }],
+    "description": "Though it collapsed from too much climbing, the Sun Dial still reminds us that every experiment is a step toward learning. Once a functional piece of art, it told time using the sun's position.",
+    "extended_description": "The Sun Dial collapsed in the 1990s due to overenthusiastic climbing. Despite its fall, it serves as a symbolic reminder of Cal Poly's 'learn by doing' philosophy. The structure highlights the experimental nature of Poly Canyon, showing that even failures contribute valuable insights to architectural education. It stands as a testament to the importance of structural integrity and user interaction. The Sun Dial's legacy continues to influence design considerations in student projects.",
+    "status": "",
+    "style": "",
+    "tags": [],
+    "location": {},
+    "images": [
+      {
+        "type": "main",
+        "orientation": true,
+        "path": "/images/M-11",
+        "description": "Main image of the Sun Dial."
+      },
+      {
+        "type": "closeup",
+        "orientation": true,
+        "path": "/images/C-11",
+        "description": "Close-up image of the Sun Dial."
+      }
+    ],
+    "links": [
+      {
+        "linkType": "Article",
+        "URL": "https://google.com",
+        "title": "CAED Website"
+      },
+      {
+        "linkType": "Thesis",
+        "URL": "https://google.com",
+        "title": "Original Thesis"
+      }
+    ]
+  },
+  {
+    "_id": "6722b48799b26f2c000bb48f",
+    "number": 12,
+    "url": "guniteBridge",
+    "name": "Gunite Bridge",
+    "year": "1965",
+    "department": [],
+    "advisor_builders": [
+      { "name": "Gordon L. Boles", "role": ["Builder"] },
+      { "name": "Roy Leland Bostrom", "role": ["Builder"] },
+      { "name": "Kokpo Ng", "role": ["Builder"] },
+      { "name": "Richard L. Saylor", "role": ["Builder"] },
+      { "name": "John Ulloa", "role": ["Builder"] }
+    ],
+    "description": "The Gunite Bridge was sprayed into existence! Students used a gunite machine to apply concrete over a steel skeleton. Demonstrating technical ingenuity, it was constructed using pretension and post-compression techniques.",
+    "extended_description": "Students built a reinforced steel skeleton with metal lath and then sprayed it with gunite—a type of concrete applied through a high-pressure hose. Once cured, tension cables were cut to place the structure in compression. This innovative process pushed the limits of concrete application, highlighting student experimentation with advanced construction methods. The bridge serves as a historical example of material and structural innovation. It continues to be studied for its unique construction technique. The Gunite Bridge remains a landmark of student creativity and engineering prowess.",
+    "status": "",
+    "style": "",
+    "tags": [],
+    "location": {},
+    "images": [
+      {
+        "type": "main",
+        "orientation": true,
+        "path": "/images/M-12",
+        "description": "Main image of the Gunite Bridge."
+      },
+      {
+        "type": "closeup",
+        "orientation": true,
+        "path": "/images/C-12",
+        "description": "Close-up image of the Gunite Bridge."
+      }
+    ],
+    "links": [
+      {
+        "linkType": "Article",
+        "URL": "https://google.com",
+        "title": "CAED Website"
+      },
+      {
+        "linkType": "Thesis",
+        "URL": "https://google.com",
+        "title": "Original Thesis"
+      }
+    ]
+  },
+  {
+    "_id": "6722b48799b26f2c000bb490",
+    "number": 13,
+    "url": "timberTruss",
+    "name": "Timber Truss",
+    "year": "1994",
+    "department": [],
+    "advisor_builders": [
+      { "name": "Derek Bonsper", "role": ["Builder"] },
+      { "name": "Josh Randall", "role": ["Builder"] },
+      { "name": "Fred Sobottka", "role": ["Builder"] },
+      { "name": "Mike Willis", "role": ["Builder"] }
+    ],
+    "description": "This bridge stands as a tribute to Keigen Langholff, a passionate student whose contributions to Poly Canyon were cut tragically short. It showcases the strength and versatility of timber in bridge construction.",
+    "extended_description": "Recently retrofitted, the structure continues to serve as a hands-on learning tool for students, allowing them to study and experience firsthand the principles of structural engineering in a real-world application. The bridge's design incorporates complex truss systems, emphasizing the importance of structural integrity and design. It stands as both a memorial and an educational resource. The Timber Truss bridge inspires future architects and engineers through its enduring presence.",
+    "status": "",
+    "style": "",
+    "tags": [],
+    "location": {},
+    "images": [
+      {
+        "type": "main",
+        "orientation": true,
+        "path": "/images/M-13",
+        "description": "Main image of the Timber Truss."
+      },
+      {
+        "type": "closeup",
+        "orientation": true,
+        "path": "/images/C-13",
+        "description": "Close-up image of the Timber Truss."
+      }
+    ],
+    "links": [
+      {
+        "linkType": "Article",
+        "URL": "https://google.com",
+        "title": "CAED Website"
+      },
+      {
+        "linkType": "Thesis",
+        "URL": "https://google.com",
+        "title": "Original Thesis"
+      }
+    ]
+  },
+  {
+    "_id": "6722b48799b26f2c000bb491",
+    "number": 14,
+    "url": "stickStructure",
+    "name": "Stick Structure",
+    "year": "1976 / 2009",
+    "department": [],
+    "advisor_builders": [
+      { "name": "William F Martin", "role": ["Builder"] },
+      { "name": "Brian Gottlieb", "role": ["Builder"] },
+      { "name": "Dan Morita", "role": ["Builder"] },
+      { "name": "Michelle M. Pettit", "role": ["Builder"] },
+      { "name": "Jake Feldman", "role": ["Builder"] }
+    ],
+    "description": "Intended to change shapes regularly, the Stick Structure stood unchanged for decades before students gave it a fresh makeover. Originally built as a life-sized structural stability model, it allows students to explore load flow and stiffness in various configurations.",
+    "extended_description": "Although it was meant for regular reconfiguration, it remained the same for years until a renovation in 2009 revived its purpose. This hands-on educational tool demonstrates the principles of structural design in a tangible, full-scale format, emphasizing the longevity of student innovation. The Stick Structure serves as a testament to the enduring value of experimental architecture and the importance of continual learning and adaptation in design.",
+    "status": "",
+    "style": "",
+    "tags": [],
+    "location": {},
+    "images": [
+      {
+        "type": "main",
+        "orientation": true,
+        "path": "/images/M-14",
+        "description": "Main image of the Stick Structure."
+      },
+      {
+        "type": "closeup",
+        "orientation": true,
+        "path": "/images/C-14",
+        "description": "Close-up image of the Stick Structure."
+      }
+    ],
+    "links": [
+      {
+        "linkType": "Article",
+        "URL": "https://google.com",
+        "title": "CAED Website"
+      },
+      {
+        "linkType": "Thesis",
+        "URL": "https://google.com",
+        "title": "Original Thesis"
+      }
+    ]
+  },
+  {
+    "_id": "6722b48799b26f2c000bb492",
+    "number": 15,
+    "url": "pyramid",
+    "name": "Pyramid",
+    "year": "????",
+    "department": [],
+    "advisor_builders": [],
+    "description": "The Pyramid's unknown origins invite endless speculation—was it an early experiment, an artistic statement, or something else entirely? This enigmatic structure stands as a testament to the experimental nature of Poly Canyon.",
+    "extended_description": "Noted only on the original Poly Canyon map, its mysterious origins embody the spirit of architectural exploration that defines the area. The pyramid adds an element of intrigue to the landscape, encouraging visitors to ponder the diverse forms architecture can take. It symbolizes the openness to innovation and the unknown, reflecting the boundless possibilities in design.",
+    "status": "",
+    "style": "",
+    "tags": [],
+    "location": {},
+    "images": [
+      {
+        "type": "main",
+        "orientation": true,
+        "path": "/images/M-15",
+        "description": "Main image of the Pyramid."
+      },
+      {
+        "type": "closeup",
+        "orientation": true,
+        "path": "/images/C-15",
+        "description": "Close-up image of the Pyramid."
+      }
+    ],
+    "links": [
+      {
+        "linkType": "Article",
+        "URL": "https://google.com",
+        "title": "CAED Website"
+      },
+      {
+        "linkType": "Thesis",
+        "URL": "https://google.com",
+        "title": "Original Thesis"
+      }
+    ]
+  },
+  {
+    "_id": "6722b48799b26f2c000bb493",
+    "number": 16,
+    "url": "bridgeHouse",
+    "name": "Bridge House",
+    "year": "1968",
+    "department": [],
+    "advisor_builders": [
+      { "name": "Ronald Davena", "role": ["Builder"] },
+      { "name": "Joel Dean", "role": ["Builder"] },
+      { "name": "Robert Garlow", "role": ["Builder"] },
+      { "name": "Raymond Hilken", "role": ["Builder"] },
+      { "name": "Lui Horstmeyer", "role": ["Builder"] },
+      { "name": "James January", "role": ["Builder"] },
+      { "name": "Lloyd Suehiro", "role": ["Builder"] },
+      { "name": "Thomas Wiggin", "role": ["Builder"] },
+      { "name": "Kurt Holder", "role": ["Builder"] },
+      { "name": "Bruce Campe", "role": ["Builder"] }
+    ],
+    "description": "This isn't just a house—it's a bridge between architecture and engineering, and was one of the first to use rust-loving Cor-ten steel! Inspired by Craig Ellwood's designs, the Bridge House utilizes Cor-ten steel, which develops a protective rust layer over time.",
+    "extended_description": "Originally serving as lodging for guest lecturers, it has been adapted for seismic testing with removable exterior braces. This multifunctional space allows students to explore different seismic load configurations, embodying innovation and adaptability in a dynamic learning environment. The Bridge House exemplifies the fusion of architectural aesthetics with engineering functionality, continuing to be a valuable educational resource.",
+    "status": "",
+    "style": "",
+    "tags": [],
+    "location": {},
+    "images": [
+      {
+        "type": "main",
+        "orientation": true,
+        "path": "/images/M-16",
+        "description": "Main image of the Bridge House."
+      },
+      {
+        "type": "closeup",
+        "orientation": true,
+        "path": "/images/C-16",
+        "description": "Close-up image of the Bridge House."
+      }
+    ],
+    "links": [
+      {
+        "linkType": "Article",
+        "URL": "https://google.com",
+        "title": "CAED Website"
+      },
+      {
+        "linkType": "Thesis",
+        "URL": "https://google.com",
+        "title": "Original Thesis"
+      }
+    ]
+  },
+  {
+    "_id": "6722b48799b26f2c000bb494",
+    "number": 17,
+    "url": "waterTanks",
+    "name": "Water Tanks",
+    "year": "1969 / 1998",
+    "department": [],
+    "advisor_builders": [{ "name": "Mathew Bittleston", "role": ["Builder"] }],
+    "description": "These tanks tap into a spring that feeds Brizzolara Creek, connecting modern engineering with the area's natural water sources! Situated near a hillside spring, the Water Tanks play a crucial role in Poly Canyon's infrastructure.",
+    "extended_description": "The original tank faced issues holding water above a certain level, which was ingeniously solved with the addition of polyvinyl storage tanks. This project highlights sustainable resource management and how engineering solutions can evolve over time to meet functional challenges while respecting natural resources. The Water Tanks exemplify the integration of technology with environmental stewardship.",
+    "status": "",
+    "style": "",
+    "tags": [],
+    "location": {},
+    "images": [
+      {
+        "type": "main",
+        "orientation": true,
+        "path": "/images/M-17",
+        "description": "Main image of the Water Tanks."
+      },
+      {
+        "type": "closeup",
+        "orientation": true,
+        "path": "/images/C-17",
+        "description": "Close-up image of the Water Tanks."
+      }
+    ],
+    "links": [
+      {
+        "linkType": "Article",
+        "URL": "https://google.com",
+        "title": "CAED Website"
+      },
+      {
+        "linkType": "Thesis",
+        "URL": "https://google.com",
+        "title": "Original Thesis"
+      }
+    ]
+  },
+  {
+    "_id": "6722b48799b26f2c000bb495",
+    "number": 18,
+    "url": "observationDeck",
+    "name": "Observation Deck",
+    "year": "2019",
+    "department": [],
+    "advisor_builders": [
+      { "name": "Tony Pellegrini", "role": ["Builder"] },
+      { "name": "Harrison Woods", "role": ["Builder"] },
+      { "name": "Sitora Vaxidova", "role": ["Builder"] }
+    ],
+    "description": "The Observation Deck was completed just one day before the team's graduation, making it their final achievement as Cal Poly students. This redwood structure offers panoramic views of the surrounding hills.",
+    "extended_description": "Serving as both a rest stop for hikers and a symbol of Poly Canyon's rejuvenation, its construction represents a renewed push for student-led projects in the area. The deck's design balances functionality with aesthetic appeal, providing a peaceful vantage point that encourages appreciation of the canyon's natural beauty and architectural diversity. It stands as a lasting legacy of the students' dedication and hard work.",
+    "status": "",
+    "style": "",
+    "tags": [],
+    "location": {},
+    "images": [
+      {
+        "type": "main",
+        "orientation": true,
+        "path": "/images/M-18",
+        "description": "Main image of the Observation Deck."
+      },
+      {
+        "type": "closeup",
+        "orientation": true,
+        "path": "/images/C-18",
+        "description": "Close-up image of the Observation Deck."
+      }
+    ],
+    "links": [
+      {
+        "linkType": "Article",
+        "URL": "https://google.com",
+        "title": "CAED Website"
+      },
+      {
+        "linkType": "Thesis",
+        "URL": "https://google.com",
+        "title": "Original Thesis"
+      }
+    ]
+  },
+  {
+    "_id": "6722b48799b26f2c000bb496",
+    "number": 19,
+    "url": "polyPavilion",
+    "name": "Poly Pavilion",
+    "year": "1985",
+    "department": [],
+    "advisor_builders": [
+      { "name": "Alfredo Alcaraz", "role": ["Builder"] },
+      { "name": "Armando Paez", "role": ["Builder"] },
+      { "name": "Blanca Guerra", "role": ["Builder"] },
+      { "name": "Bob Green", "role": ["Builder"] },
+      { "name": "Brad Bishop", "role": ["Builder"] },
+      { "name": "Brett Beeman", "role": ["Builder"] },
+      { "name": "Chi Pham", "role": ["Builder"] },
+      { "name": "Cindy Smith", "role": ["Builder"] },
+      { "name": "Dave Hernandez", "role": ["Builder"] },
+      { "name": "Frank Maskiewicz", "role": ["Builder"] },
+      { "name": "Jim Low", "role": ["Builder"] },
+      { "name": "Joe Michale", "role": ["Builder"] },
+      { "name": "John Smith", "role": ["Builder"] },
+      { "name": "Ken Brehmer", "role": ["Builder"] },
+      { "name": "Ken Schumann", "role": ["Builder"] },
+      { "name": "Ku Divita", "role": ["Builder"] },
+      { "name": "Pete Chavez", "role": ["Builder"] },
+      { "name": "Randal Brunson", "role": ["Builder"] },
+      { "name": "Ricardo Arevalo", "role": ["Builder"] },
+      { "name": "Stan Smith", "role": ["Builder"] }
+    ],
+    "description": "The Poly Pavilion's precast segments were assembled on campus and transported to the canyon, showcasing the hands-on approach of Cal Poly students. Constructed by an Architectural Engineering class, it showcases the potential of precast concrete in architecture.",
+    "extended_description": "The segments were crafted on campus and transported to the canyon, demonstrating the logistical challenges of on-site assembly. Supported by arching action between its foundations, the pavilion illustrates how prefabrication techniques can be combined with innovative structural principles to create striking architectural forms. It stands as a testament to collaborative effort and engineering prowess.",
+    "status": "",
+    "style": "",
+    "tags": [],
+    "location": {},
+    "images": [
+      {
+        "type": "main",
+        "orientation": true,
+        "path": "/images/M-19",
+        "description": "Main image of the Poly Pavilion."
+      },
+      {
+        "type": "closeup",
+        "orientation": true,
+        "path": "/images/C-19",
+        "description": "Close-up image of the Poly Pavilion."
+      }
+    ],
+    "links": [
+      {
+        "linkType": "Article",
+        "URL": "https://google.com",
+        "title": "CAED Website"
+      },
+      {
+        "linkType": "Thesis",
+        "URL": "https://google.com",
+        "title": "Original Thesis"
+      }
+    ]
+  },
+  {
+    "_id": "6722b48799b26f2c000bb497",
+    "number": 20,
+    "url": "serenityWall",
+    "name": "Serenity Wall",
+    "year": "2004",
+    "department": [],
+    "advisor_builders": [{ "name": "Brian Milton", "role": ["Builder"] }],
+    "description": "The student who built the Serenity Wall also constructed two other unlisted structures: the Meditation Bench and Cardinal Direction. Designed to blend seamlessly with its surroundings, this structure embodies the principle of 'out of sight, out of mind.'",
+    "extended_description": "Constructed with weather-resistant redwood planks, it requires minimal maintenance while complementing the natural environment. The wall serves as a subtle gateway to other canyon features, demonstrating how architecture can enhance rather than dominate a landscape. It reflects a thoughtful approach to design that prioritizes harmony with nature.",
+    "status": "",
+    "style": "",
+    "tags": [],
+    "location": {},
+    "images": [
+      {
+        "type": "main",
+        "orientation": true,
+        "path": "/images/M-20",
+        "description": "Main image of the Serenity Wall."
+      },
+      {
+        "type": "closeup",
+        "orientation": true,
+        "path": "/images/C-20",
+        "description": "Close-up image of the Serenity Wall."
+      }
+    ],
+    "links": [
+      {
+        "linkType": "Article",
+        "URL": "https://google.com",
+        "title": "CAED Website"
+      },
+      {
+        "linkType": "Thesis",
+        "URL": "https://google.com",
+        "title": "Original Thesis"
+      }
+    ]
+  },
+  {
+    "_id": "6722b48799b26f2c000bb498",
+    "number": 21,
+    "url": "hayBale",
+    "name": "Hay Bale Arch",
+    "year": "2004",
+    "department": [],
+    "advisor_builders": [
+      { "name": "Philip Greene", "role": ["Builder"] },
+      { "name": "Adam Bradley", "role": ["Builder"] },
+      { "name": "Jason Hughey", "role": ["Builder"] },
+      { "name": "Matthew Vorhees", "role": ["Builder"] }
+    ],
+    "description": "This arch is likely the only double-barrel design of its kind, showcasing the creativity and resourcefulness of the students who built it. The Hay Bale Arch utilizes straw for its surprisingly effective insulation properties.",
+    "extended_description": "The unique 'window of truth' offers a glimpse into the straw core, educating visitors about alternative building materials. Its double-barrel design is likely one-of-a-kind, showcasing the creative potential of combining traditional materials with modern architectural concepts. The structure serves as both an educational exhibit and a testament to sustainable building practices.",
+    "status": "",
+    "style": "",
+    "tags": [],
+    "location": {},
+    "images": [
+      {
+        "type": "main",
+        "orientation": true,
+        "path": "/images/M-21",
+        "description": "Main image of the Hay Bale Arch."
+      },
+      {
+        "type": "closeup",
+        "orientation": true,
+        "path": "/images/C-21",
+        "description": "Close-up image of the Hay Bale Arch."
+      }
+    ],
+    "links": [
+      {
+        "linkType": "Article",
+        "URL": "https://google.com",
+        "title": "CAED Website"
+      },
+      {
+        "linkType": "Thesis",
+        "URL": "https://google.com",
+        "title": "Original Thesis"
+      }
+    ]
+  },
+  {
+    "_id": "6722b48799b26f2c000bb499",
+    "number": 22,
+    "url": "fratessaTower",
+    "name": "Fratessa Tower",
+    "year": "2004",
+    "department": [],
+    "advisor_builders": [
+      { "name": "Rachel Martin", "role": ["Builder"] },
+      { "name": "Justin Wei", "role": ["Builder"] },
+      { "name": "Michael Braund", "role": ["Builder"] },
+      { "name": "Eric Mcdonnell", "role": ["Builder"] },
+      { "name": "Tanya Worotko", "role": ["Builder"] },
+      { "name": "Adam Stagnaro", "role": ["Builder"] }
+    ],
+    "description": "Fratessa Tower honors Paul Fratessa, a beloved department head, and offers some of the most breathtaking views of Poly Canyon! Dedicated to the late ARCE department head, this tower stands on the foundations of a previous structure.",
+    "extended_description": "While the original tower was decommissioned due to leakage, this successor provides sweeping panoramic views of Poly Canyon. It symbolizes the continuation of architectural tradition and serves as a tribute to Fratessa's lasting impact on the student community. The tower represents the enduring legacy of educators in shaping architectural practice. It continues to inspire students and visitors alike.",
+    "status": "",
+    "style": "",
+    "tags": [],
+    "location": {},
+    "images": [
+      {
+        "type": "main",
+        "orientation": true,
+        "path": "/images/M-22",
+        "description": "Main image of the Fratessa Tower."
+      },
+      {
+        "type": "closeup",
+        "orientation": true,
+        "path": "/images/C-22",
+        "description": "Close-up image of the Fratessa Tower."
+      }
+    ],
+    "links": [
+      {
+        "linkType": "Article",
+        "URL": "https://google.com",
+        "title": "CAED Website"
+      },
+      {
+        "linkType": "Thesis",
+        "URL": "https://google.com",
+        "title": "Original Thesis"
+      }
+    ]
+  },
+  {
+    "_id": "6722b48799b26f2c000bb49a",
+    "number": 23,
+    "url": "tensegrity",
+    "name": "Tensegrity",
+    "year": "2022",
+    "department": [],
+    "advisor_builders": [
+      { "name": "Will Adam", "role": ["Builder"] },
+      { "name": "Ivan Cruz", "role": ["Builder"] },
+      { "name": "Jos Hernandez", "role": ["Builder"] },
+      { "name": "Kasey Tatis", "role": ["Builder"] },
+      { "name": "Truman Waller", "role": ["Builder"] }
+    ],
+    "description": "The team behind Tensegrity met entirely over Zoom when planning, making it the only structure shaped by remote collaboration during the pandemic. This striking pavilion showcases the principle of tensile integrity, pioneered by Buckminster Fuller.",
+    "extended_description": "Featuring wooden pyramids and steel cables, it creates a captivating floating effect with a suspended seating area. The structure's complex design and remote collaboration during its creation highlight the challenges and innovations in modern architectural practices. It serves as a testament to adaptability and creativity in the face of unprecedented circumstances. The Tensegrity pavilion inspires future architects to embrace new technologies and collaborative methods.",
+    "status": "",
+    "style": "",
+    "tags": [],
+    "location": {},
+    "images": [
+      {
+        "type": "main",
+        "orientation": true,
+        "path": "/images/M-23",
+        "description": "Main image of the Tensegrity."
+      },
+      {
+        "type": "closeup",
+        "orientation": true,
+        "path": "/images/C-23",
+        "description": "Close-up image of the Tensegrity."
+      }
+    ],
+    "links": [
+      {
+        "linkType": "Article",
+        "URL": "https://google.com",
+        "title": "CAED Website"
+      },
+      {
+        "linkType": "Thesis",
+        "URL": "https://google.com",
+        "title": "Original Thesis"
+      }
+    ]
+  },
+  {
+    "_id": "6722b48799b26f2c000bb49b",
+    "number": 24,
+    "url": "shellHouse",
+    "name": "Shell House",
+    "year": "1975",
+    "department": [],
+    "advisor_builders": [
+      { "name": "Larry Gangwisch", "role": ["Builder"] },
+      { "name": "Ronald James", "role": ["Builder"] },
+      { "name": "Raymond Ketzel", "role": ["Builder"] },
+      { "name": "Roger Marshall", "role": ["Builder"] },
+      { "name": "David Wright", "role": ["Builder"] },
+      { "name": "James Zimmerman", "role": ["Builder"] },
+      { "name": "George Hasslein", "role": ["Builder"] },
+      { "name": "Wesley Ward", "role": ["Builder"] },
+      { "name": "Harvey Koehen", "role": ["Builder"] }
+    ],
+    "description": "During construction of the Shell House, students got unexpected shocks—they learned the hard way about grounding when working with wire mesh and shotcrete! An early pioneer in using shotcrete at Poly Canyon, the Shell House features a unique roof formed by cables, wire mesh, and sprayed concrete.",
+    "extended_description": "The students faced unexpected electrical shocks due to improper grounding, adding a memorable lesson to the building process. Supported at just three ground points, this structure exemplifies innovation and the hands-on challenges that come with experimental architecture. The Shell House stands as a testament to the learning experiences that shape architectural education. It continues to be a symbol of ingenuity and practical problem-solving.",
+    "status": "",
+    "style": "",
+    "tags": [],
+    "location": {},
+    "images": [
+      {
+        "type": "main",
+        "orientation": true,
+        "path": "/images/M-24",
+        "description": "Main image of the Shell House."
+      },
+      {
+        "type": "closeup",
+        "orientation": true,
+        "path": "/images/C-24",
+        "description": "Close-up image of the Shell House."
+      }
+    ],
+    "links": [
+      {
+        "linkType": "Article",
+        "URL": "https://google.com",
+        "title": "CAED Website"
+      },
+      {
+        "linkType": "Thesis",
+        "URL": "https://google.com",
+        "title": "Original Thesis"
+      }
+    ]
+  },
+  {
+    "_id": "6722b48799b26f2c000bb49c",
+    "number": 25,
+    "url": "greenHouse",
+    "name": "Green House",
+    "year": "1989",
+    "department": [],
+    "advisor_builders": [{ "name": "Mark Jenefsky", "role": ["Builder"] }],
+    "description": "The Green House was meant to be a self-sustaining structure with solar-heated water storage, an advanced concept for the 1980s. Although unfinished, this ambitious project was designed to integrate advanced environmental control systems.",
+    "extended_description": "Planned features included automatic watering and ventilation systems, along with solar-heated water storage. The structure's innovative design aimed to enhance the efficiency of traditional greenhouse models, showcasing early attempts at sustainable architectural practices. The Green House represents a forward-thinking approach to eco-friendly design. It continues to inspire discussions on sustainability and innovation in architecture.",
+    "status": "",
+    "style": "",
+    "tags": [],
+    "location": {},
+    "images": [
+      {
+        "type": "main",
+        "orientation": true,
+        "path": "/images/M-25",
+        "description": "Main image of the Green House."
+      },
+      {
+        "type": "closeup",
+        "orientation": true,
+        "path": "/images/C-25",
+        "description": "Close-up image of the Green House."
+      }
+    ],
+    "links": [
+      {
+        "linkType": "Article",
+        "URL": "https://google.com",
+        "title": "CAED Website"
+      },
+      {
+        "linkType": "Thesis",
+        "URL": "https://google.com",
+        "title": "Original Thesis"
+      }
+    ]
+  },
+  {
+    "_id": "6722b48799b26f2c000bb49d",
+    "number": 26,
+    "url": "modularHouse",
+    "name": "Modular House",
+    "year": "1973",
+    "department": [],
+    "advisor_builders": [
+      { "name": "Paul Thoryk", "role": ["Builder"] },
+      { "name": "John Edmiston", "role": ["Builder"] },
+      { "name": "Glen Jackson", "role": ["Builder"] },
+      { "name": "Tom Bylund", "role": ["Builder"] },
+      { "name": "James Jones", "role": ["Builder"] },
+      { "name": "Richard Pata", "role": ["Builder"] },
+      { "name": "Lorin Smith", "role": ["Builder"] },
+      { "name": "Jerry Tucker", "role": ["Builder"] },
+      { "name": "Dennis Turner", "role": ["Builder"] },
+      { "name": "John Edmisten", "role": ["Builder"] },
+      { "name": "Don Koberg", "role": ["Builder"] }
+    ],
+    "description": "The Modular House was originally fully enclosed, but today it stands hollow—so be cautious when exploring! This experimental dwelling features a steel frame with wood infill, designed on an eight-by-eight module to minimize lumber cutting.",
+    "extended_description": "Its modular approach demonstrates efficient use of materials and space. The structure's challenges with waterproofing due to differing material expansion rates provide valuable lessons in the practicalities of experimental design and material compatibility. The Modular House highlights the importance of considering material properties in architectural design. It remains a notable example of modular construction methods.",
+    "status": "",
+    "style": "",
+    "tags": [],
+    "location": {},
+    "images": [
+      {
+        "type": "main",
+        "orientation": true,
+        "path": "/images/M-26",
+        "description": "Main image of the Modular House."
+      },
+      {
+        "type": "closeup",
+        "orientation": true,
+        "path": "/images/C-26",
+        "description": "Close-up image of the Modular House."
+      }
+    ],
+    "links": [
+      {
+        "linkType": "Article",
+        "URL": "https://google.com",
+        "title": "CAED Website"
+      },
+      {
+        "linkType": "Thesis",
+        "URL": "https://google.com",
+        "title": "Original Thesis"
+      }
+    ]
+  },
+  {
+    "_id": "6722b48799b26f2c000bb49e",
+    "number": 27,
+    "url": "centeringCenter",
+    "name": "Centering Center",
+    "year": "2022",
+    "department": [],
+    "advisor_builders": [
+      { "name": "Marcos Lutyens", "role": ["Builder"] },
+      { "name": "Cynthia Brophy", "role": ["Builder"] }
+    ],
+    "description": "Before being moved to Poly Canyon, the Centering Dome was featured at Descanso Gardens, connecting art with architectural education. This structure now blends artistic expression with functional space.",
+    "extended_description": "Its relocation demonstrates the adaptability of architectural installations and their potential to serve multiple purposes in different contexts. The dome's design focuses on the 'social' quadrant of the Centering concept, fostering community interaction. The Centering Center symbolizes the fusion of art and architecture, enriching the educational environment. It invites visitors to explore the interplay between design and social engagement.",
+    "status": "",
+    "style": "",
+    "tags": [],
+    "location": {},
+    "images": [
+      {
+        "type": "main",
+        "orientation": true,
+        "path": "/images/M-27",
+        "description": "Main image of the Centering Center."
+      },
+      {
+        "type": "closeup",
+        "orientation": true,
+        "path": "/images/C-27",
+        "description": "Close-up image of the Centering Center."
+      }
+    ],
+    "links": [
+      {
+        "linkType": "Article",
+        "URL": "https://google.com",
+        "title": "CAED Website"
+      },
+      {
+        "linkType": "Thesis",
+        "URL": "https://google.com",
+        "title": "Original Thesis"
+      }
+    ]
+  },
+  {
+    "_id": "6722b48799b26f2c000bb49f",
+    "number": 28,
+    "url": "poleHouse",
+    "name": "Pole House",
+    "year": "1989",
+    "department": [],
+    "advisor_builders": [
+      { "name": "EDES Class Project", "role": ["Builder"] },
+      { "name": "Randy Detmer", "role": ["Builder"] }
+    ],
+    "description": "Built on a steep slope, the Pole House stands tall thanks to deep caissons that anchor directly into bedrock! Addressing the challenges of a sloping site, this structure is elevated on caissons that transfer the load directly to the bedrock below.",
+    "extended_description": "This innovative foundation technique makes it a structurally sound solution for difficult terrains. Often used as a staging ground for other projects, the Pole House highlights the adaptability of architectural design to the natural landscape, embodying practical ingenuity. It demonstrates how thoughtful engineering can overcome environmental obstacles. The structure serves as an educational model for foundation design.",
+    "status": "",
+    "style": "",
+    "tags": [],
+    "location": {},
+    "images": [
+      {
+        "type": "main",
+        "orientation": true,
+        "path": "/images/M-28",
+        "description": "Main image of the Pole House."
+      },
+      {
+        "type": "closeup",
+        "orientation": true,
+        "path": "/images/C-28",
+        "description": "Close-up image of the Pole House."
+      }
+    ],
+    "links": [
+      {
+        "linkType": "Article",
+        "URL": "https://google.com",
+        "title": "CAED Website"
+      },
+      {
+        "linkType": "Thesis",
+        "URL": "https://google.com",
+        "title": "Original Thesis"
+      }
+    ]
+  },
+  {
+    "_id": "6722b48799b26f2c000bb4a0",
+    "number": 29,
+    "url": "bbqPit",
+    "name": "BBQ Pit",
+    "year": "1975",
+    "department": [],
+    "advisor_builders": [{ "name": "Allan Cooper", "role": ["Builder"] }],
+    "description": "The BBQ Pit once had a corten steel hood, but it was removed because the differing materials didn't age well together. This communal space has evolved over time, adapting to material challenges and changing needs.",
+    "extended_description": "Originally featuring a corten steel hood, its current form demonstrates the importance of material compatibility in long-lasting structures. The pit and nearby seating areas continue to serve as gathering spaces, highlighting the social aspects of architectural design. The BBQ Pit remains a beloved spot for community events. It emphasizes the role of architecture in fostering social interaction.",
+    "status": "",
+    "style": "",
+    "tags": [],
+    "location": {},
+    "images": [
+      {
+        "type": "main",
+        "orientation": true,
+        "path": "/images/M-29",
+        "description": "Main image of the BBQ Pit."
+      },
+      {
+        "type": "closeup",
+        "orientation": true,
+        "path": "/images/C-29",
+        "description": "Close-up image of the BBQ Pit."
+      }
+    ],
+    "links": [
+      {
+        "linkType": "Article",
+        "URL": "https://google.com",
+        "title": "CAED Website"
+      },
+      {
+        "linkType": "Thesis",
+        "URL": "https://google.com",
+        "title": "Original Thesis"
+      }
+    ]
+  },
+  {
+    "_id": "6722b48799b26f2c000bb4a1",
+    "number": 30,
+    "url": "momentMonument",
+    "name": "Moment Monument",
+    "year": "2024",
+    "department": [],
+    "advisor_builders": [
+      { "name": "Carsten Huber", "role": ["Builder"] },
+      { "name": "Gaspar Solorio", "role": ["Builder"] },
+      { "name": "Jared Schieferle", "role": ["Builder"] },
+      { "name": "Brayden Martinez", "role": ["Builder"] }
+    ],
+    "description": "Each beam of the Moment Monument is connected differently, making it a unique educational tool for students studying earthquake-resistant design. As the newest addition to Poly Canyon, this structure serves as an educational tool for earthquake-resistant design.",
+    "extended_description": "Each beam is connected differently, allowing students to study various pre-qualified moment connections in steel frames. The monument exemplifies how full-scale models can enhance understanding of complex engineering principles, bridging the gap between theory and practice. It stands as a hands-on resource for learning about seismic resilience. The Moment Monument represents the forefront of educational architecture.",
+    "status": "",
+    "style": "",
+    "tags": [],
+    "location": {},
+    "images": [
+      {
+        "type": "main",
+        "orientation": true,
+        "path": "/images/M-30",
+        "description": "Main image of the Moment Monument."
+      },
+      {
+        "type": "closeup",
+        "orientation": true,
+        "path": "/images/C-30",
+        "description": "Close-up image of the Moment Monument."
+      }
+    ],
+    "links": [
+      {
+        "linkType": "Article",
+        "URL": "https://google.com",
+        "title": "CAED Website"
+      },
+      {
+        "linkType": "Thesis",
+        "URL": "https://google.com",
+        "title": "Original Thesis"
+      }
+    ]
+  }
+]
