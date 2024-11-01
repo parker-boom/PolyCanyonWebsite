@@ -171,48 +171,53 @@ export const SearchSection = styled.div`
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
-  background: white;
-  border-radius: 16px;
-  padding: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 8px;
   box-shadow:
-    0 4px 16px rgba(189, 139, 19, 0.15),
-    0 2px 4px rgba(189, 139, 19, 0.1);
-  border: 2px solid rgba(189, 139, 19, 0.25);
-  transition: all 0.3s ease;
+    0 4px 20px rgba(189, 139, 19, 0.15),
+    0 2px 8px rgba(189, 139, 19, 0.1),
+    inset 0 2px 4px rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(189, 139, 19, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   backdrop-filter: blur(10px);
 
   &:hover {
     box-shadow:
-      0 8px 24px rgba(189, 139, 19, 0.2),
-      0 4px 8px rgba(189, 139, 19, 0.15);
-    border-color: rgba(189, 139, 19, 0.4);
-    transform: translateY(-2px);
+      0 8px 32px rgba(189, 139, 19, 0.2),
+      0 4px 12px rgba(189, 139, 19, 0.15),
+      inset 0 2px 4px rgba(255, 255, 255, 0.9);
+    border-color: rgba(189, 139, 19, 0.3);
+    transform: translateY(-1px);
   }
 
   &:focus-within {
     border-color: #376d31;
     box-shadow:
-      0 8px 24px rgba(55, 109, 49, 0.15),
-      0 4px 8px rgba(55, 109, 49, 0.1),
-      0 0 0 2px rgba(55, 109, 49, 0.1);
+      0 8px 32px rgba(55, 109, 49, 0.15),
+      0 4px 12px rgba(55, 109, 49, 0.1),
+      0 0 0 2px rgba(55, 109, 49, 0.1),
+      inset 0 2px 4px rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
   }
 `;
 
 export const SearchInput = styled.input`
   width: 100%;
-  height: 48px;
-  padding: 0 16px;
+  height: 52px;
+  padding: 0 20px;
   font-size: 18px;
   border: none;
   outline: none;
   background: transparent;
-  color: #333;
+  color: #2c3e50;
   font-weight: 500;
   letter-spacing: 0.3px;
 
   &::placeholder {
-    color: rgba(189, 139, 19, 0.5);
+    color: rgba(189, 139, 19, 0.4);
     font-weight: 400;
+    transition: color 0.3s ease;
   }
 
   &:focus::placeholder {
@@ -222,27 +227,33 @@ export const SearchInput = styled.input`
 
 export const SearchIcon = styled.div`
   margin: 0 16px;
-  color: rgba(189, 139, 19, 0.6);
+  color: rgba(189, 139, 19, 0.7);
   font-size: 20px;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: rgba(189, 139, 19, 0.1);
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(189, 139, 19, 0.08);
+
+  ${SearchSection}:hover & {
+    color: rgba(189, 139, 19, 0.9);
+    background: rgba(189, 139, 19, 0.12);
+    transform: scale(1.05);
+  }
 
   ${SearchSection}:focus-within & {
     color: #376d31;
-    transform: scale(1.1);
-    background: rgba(55, 109, 49, 0.1);
+    transform: scale(1.05);
+    background: rgba(55, 109, 49, 0.08);
   }
 
-  ${SearchSection}:hover & {
-    color: rgba(189, 139, 19, 0.8);
-    background: rgba(189, 139, 19, 0.15);
+  ${SearchSection}:focus-within:hover & {
+    color: #376d31;
+    background: rgba(55, 109, 49, 0.12);
   }
 `;
 
@@ -587,31 +598,65 @@ export const StructureNumber = styled.div`
   color: #376d31;
   margin-bottom: 8px;
   line-height: 1;
-  text-shadow: 2px 2px 0 rgba(55, 109, 49, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-shadow:
+    2px 2px 0 rgba(255, 255, 255, 0.8),
+    -1px -1px 0 rgba(255, 255, 255, 0.8);
 `;
 
 export const StructureCard = styled.div`
   display: flex;
-  background: white;
+  background: linear-gradient(
+    135deg,
+    rgba(189, 139, 19, 0.08),
+    rgba(189, 139, 19, 0.03)
+  );
   border-radius: 24px;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow:
-    0 4px 16px rgba(55, 109, 49, 0.1),
-    0 2px 4px rgba(55, 109, 49, 0.08);
-  border: 2px solid transparent;
+    0 4px 16px rgba(55, 109, 49, 0.08),
+    0 2px 4px rgba(55, 109, 49, 0.05);
+  border: 2px solid rgba(189, 139, 19, 0.15);
   cursor: pointer;
   position: relative;
+  backdrop-filter: blur(8px);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.1)
+    );
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+  }
 
   &:hover {
     transform: translateY(-4px);
     border-color: rgba(189, 139, 19, 0.3);
     box-shadow:
-      0 12px 32px rgba(55, 109, 49, 0.15),
-      0 4px 8px rgba(55, 109, 49, 0.1);
+      0 12px 32px rgba(55, 109, 49, 0.12),
+      0 4px 8px rgba(55, 109, 49, 0.08);
+    background: linear-gradient(
+      135deg,
+      rgba(189, 139, 19, 0.12),
+      rgba(189, 139, 19, 0.06)
+    );
+
+    &::before {
+      opacity: 0.9;
+    }
 
     ${StructureNumber} {
-      color: rgba(189, 139, 19, 0.8);
+      color: rgba(189, 139, 19, 0.9);
+      transform: scale(1.05);
     }
   }
 `;
@@ -621,6 +666,14 @@ export const StructureImage = styled.img`
   height: 200px;
   object-fit: cover;
   flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+  border-right: 2px solid rgba(189, 139, 19, 0.15);
+
+  ${StructureCard}:hover & {
+    border-right-color: rgba(189, 139, 19, 0.25);
+  }
 `;
 
 export const StructureInfo = styled.div`
@@ -629,6 +682,8 @@ export const StructureInfo = styled.div`
   flex-direction: column;
   justify-content: center;
   flex-grow: 1;
+  position: relative;
+  z-index: 1;
   background: linear-gradient(
     to right,
     rgba(55, 109, 49, 0.03),
@@ -639,10 +694,11 @@ export const StructureInfo = styled.div`
 export const StructureTitle = styled.h2`
   font-size: 34px;
   font-weight: 600;
-  color: #333;
+  color: #2c3e50;
   margin: 0;
   line-height: 1.2;
   position: relative;
+  transition: all 0.3s ease;
 
   &::after {
     content: '';
@@ -651,14 +707,22 @@ export const StructureTitle = styled.h2`
     bottom: -8px;
     width: 48px;
     height: 3px;
-    background: #376d31;
+    background: linear-gradient(
+      to right,
+      rgba(189, 139, 19, 0.8),
+      rgba(189, 139, 19, 0.4)
+    );
     border-radius: 2px;
-    opacity: 0.5;
     transition: width 0.3s ease;
   }
 
   ${StructureCard}:hover &::after {
     width: 80px;
+    background: linear-gradient(
+      to right,
+      rgba(189, 139, 19, 0.9),
+      rgba(189, 139, 19, 0.5)
+    );
   }
 `;
 
@@ -667,20 +731,23 @@ export const ChevronIcon = styled.div`
   right: 16px;
   top: 50%;
   transform: translateY(-50%);
-  color: #376d31;
+  color: rgba(189, 139, 19, 0.6);
   opacity: 0;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 20px;
-  padding: 8px;
+  padding: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: white;
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(55, 109, 49, 0.15);
+  box-shadow: 0 2px 8px rgba(189, 139, 19, 0.15);
+  z-index: 2;
 
   ${StructureCard}:hover & {
     opacity: 1;
+    right: 24px;
+    color: rgba(189, 139, 19, 0.8);
   }
 `;
 
@@ -732,7 +799,7 @@ export const RoundedContainer = styled.div`
 
 // Create new containers for the search section and structures section
 export const SearchContainer = styled(RoundedContainer)`
-  margin-top: 8px;
+  margin-top: 5px;
   margin-bottom: 24px;
   padding: 24px;
   background-color: #e8efe8;

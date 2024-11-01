@@ -19,7 +19,6 @@ import { Helmet } from 'react-helmet-async';
 import {
   PageContainer,
   RoundedContainer,
-  TitleSection,
   Header,
   Subtitle,
   MainTitle,

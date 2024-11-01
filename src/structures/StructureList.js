@@ -64,7 +64,16 @@ const Structures = () => {
   }, []);
 
   const getSortedStructures = () => {
-    return numberList;
+    if (!structures.length) return [];
+
+    return numberList.filter((number) => {
+      const structure = structures.find((s) => s.number === number);
+      return (
+        structure.number.toString().includes(searchQuery.toLowerCase()) ||
+        structure.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        structure.description?.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    });
   };
   const numberList = structures.map((structure) => structure.number);
 

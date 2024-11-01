@@ -671,15 +671,30 @@ export const CTAButton = styled(Link)`
     left: -2px;
     right: -2px;
     bottom: -2px;
-    background: linear-gradient(45deg, #ffce33, #ff7e33, #ff338a, #3393ff);
+    background: linear-gradient(
+      45deg,
+      #376d31,
+      rgba(189, 139, 19, 0.8),
+      #376d31
+    );
     z-index: -1;
-    filter: blur(10px);
+    filter: blur(8px);
     opacity: 0;
     transition: opacity 0.3s ease;
   }
 
   &:hover::before {
     opacity: 1;
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
   }
 `;
 
@@ -699,7 +714,7 @@ export const CTAButtonIcon = styled.span`
   transition: transform 0.3s ease;
 
   ${CTAButton}:hover & {
-    transform: translateX(3px);
+    transform: translateX(4px);
   }
 `;
 

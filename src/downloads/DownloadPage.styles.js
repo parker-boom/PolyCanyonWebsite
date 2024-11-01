@@ -116,19 +116,39 @@ export const LearnMoreButton = styled(Link)`
     left: -2px;
     right: -2px;
     bottom: -2px;
-    background: linear-gradient(45deg, #ffce33, #ff7e33, #ff338a, #3393ff);
+    background: linear-gradient(
+      45deg,
+      #376d31,
+      rgba(189, 139, 19, 0.8),
+      #376d31
+    );
     z-index: -1;
-    filter: blur(10px);
+    filter: blur(8px);
     opacity: 0;
     transition: opacity 0.3s ease;
   }
 
   &:hover::before {
     opacity: 1;
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
   }
 
   svg {
     margin-left: 8px;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover svg {
+    transform: translateX(4px);
   }
 `;
 
@@ -254,7 +274,7 @@ export const DownloadButtonWrapper = styled.a`
   border: 2px solid #376d31;
 
   &:hover {
-    background: white;
+    background: rgba(189, 139, 19, 0.15);
     color: #376d31;
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(55, 109, 49, 0.2);
