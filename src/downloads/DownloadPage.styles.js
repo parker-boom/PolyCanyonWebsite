@@ -156,7 +156,7 @@ export const GifContainer = styled.div`
   height: 70vh;
   max-height: 600px;
   width: auto;
-  margin-bottom: 40px;
+  margin-bottom: 25px;
   display: flex;
   justify-content: center;
   align-items: center;

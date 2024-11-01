@@ -50,7 +50,6 @@ const StructureInfo = () => {
   const location = useLocation();
 
   const [structure, setStructure] = useState(null);
-  const [error, setError] = useState(null);
 
   const structureNumber = location.state?.structureNumber || 3;
 
@@ -74,14 +73,9 @@ const StructureInfo = () => {
   useEffect(() => {
     try {
       const structureData = getStructureInfo(structureNumber);
-      if (structureData) {
-        setStructure(structureData);
-      } else {
-        setError('Structure not found');
-      }
+      setStructure(structureData);
     } catch (error) {
       console.error('Error loading structure:', error);
-      setError(error.message);
     }
   }, [structureNumber]);
 
@@ -112,37 +106,6 @@ const StructureInfo = () => {
 
     loadImage();
   }, [currentImageIndex, structure]);
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
-
-  if (!structure) {
-    return (
-      <S.InfoPageWrapper>
-        <S.CenteredWrapper>
-          <S.HeaderContainer>
-            <S.StructureNumberBubble>{structureNumber}</S.StructureNumberBubble>
-            <S.StructureTitleInfo>Structure Not Found</S.StructureTitleInfo>
-            <S.CloseButton onClick={() => navigate('/structures')}>
-              <FaTimes />
-            </S.CloseButton>
-          </S.HeaderContainer>
-          <S.ContentContainer>
-            <S.MainContent>
-              <S.DescriptionContainer>
-                <S.SectionTitleInfo>Notice</S.SectionTitleInfo>
-                <S.DescriptionText>
-                  Detailed information for structure #{structureNumber} is not
-                  yet available.
-                </S.DescriptionText>
-              </S.DescriptionContainer>
-            </S.MainContent>
-          </S.ContentContainer>
-        </S.CenteredWrapper>
-      </S.InfoPageWrapper>
-    );
-  }
 
   const handlePrevImage = () => {
     setCurrentImageIndex((prevIndex) =>
@@ -234,6 +197,22 @@ const StructureInfo = () => {
 
   const currentImage = structure?.images?.[currentImageIndex];
   const imageDescription = currentImage?.description;
+
+  if (!structure) {
+    return (
+      <S.InfoPageWrapper>
+        <S.CenteredWrapper>
+          <S.HeaderContainer>
+            <S.StructureNumberBubble>{structureNumber}</S.StructureNumberBubble>
+            <S.StructureTitleInfo>Loading...</S.StructureTitleInfo>
+            <S.CloseButton onClick={() => navigate('/structures')}>
+              <FaTimes />
+            </S.CloseButton>
+          </S.HeaderContainer>
+        </S.CenteredWrapper>
+      </S.InfoPageWrapper>
+    );
+  }
 
   return (
     <S.InfoPageWrapper>

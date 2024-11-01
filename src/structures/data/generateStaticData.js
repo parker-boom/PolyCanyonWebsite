@@ -14,26 +14,32 @@ async function generateStaticData() {
     const dataDir = path.join(process.cwd(), 'src', 'structures', 'data');
     await fs.mkdir(dataDir, { recursive: true });
 
-    // Fetch and save basic structures list
-    const basicList = await db
-      .collection('basic_structures_list')
-      .findOne({ _id: 'basic_structure_list' });
-
-    await fs.writeFile(
-      path.join(dataDir, 'structuresList.json'),
-      JSON.stringify(basicList.structures),
-      'utf-8'
-    );
-
-    // Fetch and save full structure info
+    // Fetch full structure info
     const fullStructures = await db
       .collection('structure_full_info')
       .find({})
       .toArray();
 
+    // Save full structure info
     await fs.writeFile(
       path.join(dataDir, 'structuresInfo.json'),
       JSON.stringify(fullStructures),
+      'utf-8'
+    );
+
+    // Create and save simplified list
+    const basicList = fullStructures
+      .map((structure) => ({
+        number: structure.number,
+        url: structure.url,
+        title: structure.name,
+        image_key: `M-${structure.number}`,
+      }))
+      .sort((a, b) => a.number - b.number);
+
+    await fs.writeFile(
+      path.join(dataDir, 'structuresList.json'),
+      JSON.stringify(basicList),
       'utf-8'
     );
 
