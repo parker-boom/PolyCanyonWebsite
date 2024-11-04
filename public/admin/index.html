@@ -31,6 +31,19 @@
                 (builder) => builder.get('name')
               );
 
+              const renderField = (label, value, className = 'field') => {
+                return h(
+                  'div',
+                  { className },
+                  h('strong', {}, label),
+                  h(
+                    'span',
+                    { className: value ? '' : 'not-provided' },
+                    value || 'Not Provided'
+                  )
+                );
+              };
+
               return h(
                 'div',
                 { key: index, className: 'structure-card' },
@@ -42,136 +55,91 @@
                 ),
 
                 // Other Names
-                otherNames.length > 0 &&
-                  h(
-                    'div',
-                    { className: 'field' },
-                    h('strong', {}, 'Other Names: '),
-                    h('span', {}, otherNames.join(', '))
-                  ),
-
-                // Year
-                h(
-                  'div',
-                  { className: 'field' },
-                  h('strong', {}, 'Year: '),
-                  h('span', {}, structure.get('year'))
+                renderField(
+                  'Other Names: ',
+                  otherNames.length > 0 ? otherNames.join(', ') : null
                 ),
 
+                // Year
+                renderField('Year: ', structure.get('year')),
+
                 // Department
-                structure.get('department').size > 0 &&
-                  h(
-                    'div',
-                    { className: 'field' },
-                    h('strong', {}, 'Department: '),
-                    h('span', {}, structure.get('department').join(', '))
-                  ),
+                renderField(
+                  'Department: ',
+                  structure.get('department').size > 0
+                    ? structure.get('department').join(', ')
+                    : null
+                ),
 
                 // Advisors
-                advisors.length > 0 &&
-                  h(
-                    'div',
-                    { className: 'field' },
-                    h('strong', {}, 'Advisors: '),
-                    h('span', {}, advisors.join(', '))
-                  ),
+                renderField(
+                  'Advisors: ',
+                  advisors.length > 0 ? advisors.join(', ') : null
+                ),
 
                 // Builders
-                builders.length > 0 &&
-                  h(
-                    'div',
-                    { className: 'field' },
-                    h('strong', {}, 'Builders: '),
-                    h('span', {}, builders.join(', '))
-                  ),
+                renderField(
+                  'Builders: ',
+                  builders.length > 0 ? builders.join(', ') : null
+                ),
 
                 // Status
-                structure.get('status') &&
-                  h(
-                    'div',
-                    { className: 'field' },
-                    h('strong', {}, 'Status: '),
-                    h('span', {}, structure.get('status'))
-                  ),
+                renderField('Status: ', structure.get('status')),
 
                 // Style
-                structure.get('style') &&
-                  h(
-                    'div',
-                    { className: 'field' },
-                    h('strong', {}, 'Style: '),
-                    h('span', {}, structure.get('style'))
-                  ),
+                renderField('Style: ', structure.get('style')),
 
                 // Tags
-                structure.get('tags').size > 0 &&
-                  h(
-                    'div',
-                    { className: 'field' },
-                    h('strong', {}, 'Tags: '),
-                    h('span', {}, structure.get('tags').join(', '))
-                  ),
+                renderField(
+                  'Tags: ',
+                  structure.get('tags').size > 0
+                    ? structure.get('tags').join(', ')
+                    : null
+                ),
 
                 // Location
-                structure.getIn(['location', 'latitude']) &&
-                  h(
-                    'div',
-                    { className: 'field' },
-                    h('strong', {}, 'Location: '),
-                    h(
-                      'span',
-                      {},
-                      `${structure.getIn(['location', 'latitude'])}, ${structure.getIn(['location', 'longitude'])}`
-                    )
-                  ),
+                renderField(
+                  'Location: ',
+                  structure.getIn(['location', 'latitude'])
+                    ? `${structure.getIn(['location', 'latitude'])}, ${structure.getIn(['location', 'longitude'])}`
+                    : null
+                ),
 
                 // Description
-                h(
-                  'div',
-                  { className: 'field description' },
-                  h('strong', {}, 'Description: '),
-                  h('p', {}, structure.get('description'))
+                renderField(
+                  'Description: ',
+                  structure.get('description'),
+                  'field description'
                 ),
 
                 // Extended Description
-                h(
-                  'div',
-                  { className: 'field description' },
-                  h('strong', {}, 'Extended Description: '),
-                  h('p', {}, structure.get('extended_description'))
+                renderField(
+                  'Extended Description: ',
+                  structure.get('extended_description'),
+                  'field description'
                 ),
 
                 // Images
-                structure.get('images').size > 0 &&
-                  h(
-                    'div',
-                    { className: 'field' },
-                    h('strong', {}, 'Images: '),
-                    h(
-                      'span',
-                      {},
-                      structure
+                renderField(
+                  'Images: ',
+                  structure.get('images').size > 0
+                    ? structure
                         .get('images')
                         .map((img) => img.get('type'))
                         .join(', ')
-                    )
-                  ),
+                    : null
+                ),
 
                 // Links
-                structure.get('links').size > 0 &&
-                  h(
-                    'div',
-                    { className: 'field' },
-                    h('strong', {}, 'Links: '),
-                    h(
-                      'span',
-                      {},
-                      structure
+                renderField(
+                  'Links: ',
+                  structure.get('links').size > 0
+                    ? structure
                         .get('links')
                         .map((link) => link.get('title'))
                         .join(', ')
-                    )
-                  )
+                    : null
+                )
               );
             })
           );
