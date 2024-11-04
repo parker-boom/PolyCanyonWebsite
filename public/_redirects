@@ -1,7 +1,10 @@
-# Serve index.html for /info, /download, and /structures
+# Allow direct access to Netlify CMS
+/admin/*    /admin/index.html   200
+
+# Existing rules for other routes
 /info        /index.html   200
 /download    /index.html   200
 /structures  /index.html   200
 
-# Serve the React app for all other requests
+# Catch-all for SPA
 /*    /index.html   200
