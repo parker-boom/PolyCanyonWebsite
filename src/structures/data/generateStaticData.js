@@ -3,13 +3,16 @@ import path from 'path';
 
 async function generateStaticData() {
   try {
-    // Read from public folder
-    const structuresInfo = JSON.parse(
+    // Read the modified structuresInfo.json file from the public/data directory
+    const data = JSON.parse(
       await fs.readFile(
         path.join(process.cwd(), 'public', 'data', 'structuresInfo.json'),
         'utf-8'
       )
     );
+
+    // Extract the structures array from the data
+    const structuresInfo = data.structures;
 
     // Create data directory if it doesn't exist
     const dataDir = path.join(process.cwd(), 'src', 'structures', 'data');
