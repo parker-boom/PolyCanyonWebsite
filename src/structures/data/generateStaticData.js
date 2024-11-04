@@ -27,12 +27,12 @@ async function generateStaticData() {
       'utf-8'
     );
 
-    // Create and save simplified list
+    // Create and save simplified list - now using first name from array
     const basicList = fullStructures
       .map((structure) => ({
         number: structure.number,
         url: structure.url,
-        title: structure.name,
+        title: structure.names[0], // Use first name as primary title
         image_key: `M-${structure.number}`,
       }))
       .sort((a, b) => a.number - b.number);

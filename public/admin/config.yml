@@ -36,23 +36,11 @@ collections:
           hint: 'URL is auto-generated and not editable.',
           read_only: true,
         }
-      - label: 'Name'
-        name: 'name'
+      - label: 'Names'
+        name: 'names'
         widget: 'list'
-        allow_add: true
-        default: []
-        field:
-          - {
-              label: 'Primary Name',
-              name: 'name_main',
-              widget: 'string',
-              read_only: true,
-            }
-          - {
-              label: 'Alternative Names',
-              name: 'name_alternates',
-              widget: 'string',
-            }
+        field: { label: 'Name', name: 'name', widget: 'string' }
+        hint: 'First name will be used as primary title'
 
       - { label: 'Year', name: 'year', widget: 'string' }
       - { label: 'Department', name: 'department', widget: 'list', default: [] }

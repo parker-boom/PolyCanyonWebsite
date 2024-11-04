@@ -273,7 +273,7 @@ const StructureInfo = () => {
               onClick={() => setShowList(!showList)}
               isOpen={showList}
             >
-              {showList ? 'Choose Another Structure' : structure.name}
+              {showList ? 'Choose Another Structure' : structure.names[0]}
             </S.StructureTitleInfo>
 
             <S.NavigationOverlay side="right" onClick={handleNextStructure}>
@@ -408,7 +408,18 @@ const StructureInfo = () => {
                     </S.InfoCard>
                   )}
 
-                  {/* NEED: ALSO KNOWS AS / OTHER NAMES CARD : will pull from list of names in JSON, non-0 index*/}
+                  {/* Add Also Known As card if there are alternate names */}
+                  {structure.names.length > 1 && (
+                    <S.InfoCard>
+                      <S.InfoCardHeader>
+                        <S.InfoCardEmoji>📝</S.InfoCardEmoji>
+                        <S.InfoCardTitle>Also Known As</S.InfoCardTitle>
+                      </S.InfoCardHeader>
+                      <S.InfoCardContent>
+                        {structure.names.slice(1).join(', ')}
+                      </S.InfoCardContent>
+                    </S.InfoCard>
+                  )}
 
                   {/* Department Card */}
                   {structure.department?.length > 0 && (
