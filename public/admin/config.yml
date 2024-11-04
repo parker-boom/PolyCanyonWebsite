@@ -13,123 +13,142 @@ collections:
     label: 'Structures'
     files:
       - label: 'All Structures'
-        name: 'structures'
+        name: 'all_structures'
         file: 'public/data/structuresInfo.json'
         fields:
-          - label: 'Structures'
-            name: 'structures'
+          - name: 'data'
+            label: 'Structures'
             widget: 'list'
-            summary: '{{fields.names[0]}} (#{{fields.number}})'
-            fields:
-              - { label: 'ID', name: '_id', widget: 'string', read_only: true }
-              - {
-                  label: 'Number',
-                  name: 'number',
-                  widget: 'number',
-                  read_only: true,
-                }
-              - { label: 'URL', name: 'url', widget: 'string', read_only: true }
-              - label: 'Names'
-                name: 'names'
-                widget: 'list'
-                field: { label: 'Name', name: 'name', widget: 'string' }
-                hint: 'First name will be used as primary title'
-              - { label: 'Year', name: 'year', widget: 'string' }
-              - {
-                  label: 'Department',
-                  name: 'department',
-                  widget: 'list',
-                  default: [],
-                }
-              - label: 'Advisor/Builders'
-                name: 'advisor_builders'
-                widget: 'list'
-                fields:
-                  - {
-                      label: 'Name',
-                      name: 'name',
-                      widget: 'string',
-                      required: true,
-                    }
-                  - {
-                      label: 'Role',
-                      name: 'role',
-                      widget: 'list',
-                      required: true,
-                    }
-              - { label: 'Description', name: 'description', widget: 'text' }
-              - {
-                  label: 'Extended Description',
-                  name: 'extended_description',
-                  widget: 'text',
-                }
-              - label: 'Status'
-                name: 'status'
-                widget: 'select'
-                options:
-                  - { label: 'Active', value: 'Active' }
-                  - { label: 'Ghost', value: 'Ghost' }
-                  - { label: 'Planned', value: 'Planned' }
-              - { label: 'Style', name: 'style', widget: 'string', default: '' }
-              - { label: 'Tags', name: 'tags', widget: 'list', default: [] }
-              - label: 'Location'
-                name: 'location'
-                widget: 'object'
-                fields:
-                  - {
-                      label: 'Latitude',
-                      name: 'latitude',
-                      widget: 'number',
-                      read_only: true,
-                    }
-                  - {
-                      label: 'Longitude',
-                      name: 'longitude',
-                      widget: 'number',
-                      read_only: true,
-                    }
-              - label: 'Images'
-                name: 'images'
-                widget: 'list'
-                fields:
-                  - {
-                      label: 'Type',
-                      name: 'type',
-                      widget: 'string',
-                      read_only: true,
-                    }
-                  - {
-                      label: 'Orientation',
-                      name: 'orientation',
-                      widget: 'boolean',
-                      default: true,
-                      read_only: true,
-                    }
-                  - {
-                      label: 'Path',
-                      name: 'path',
-                      widget: 'string',
-                      read_only: true,
-                    }
-                  - {
-                      label: 'Description',
-                      name: 'description',
-                      widget: 'string',
-                    }
-              - label: 'Links'
-                name: 'links'
-                widget: 'list'
-                fields:
-                  - {
-                      label: 'Link Type',
-                      name: 'linkType',
-                      widget: 'string',
-                      read_only: true,
-                    }
-                  - {
-                      label: 'URL',
-                      name: 'URL',
-                      widget: 'string',
-                      read_only: true,
-                    }
-                  - { label: 'Title', name: 'title', widget: 'string' }
+            summary: '{{names[0]}} (#{{number}})'
+            minimize_collapsed: true
+            label_singular: 'Structure'
+            field:
+              widget: 'object'
+              fields:
+                - {
+                    label: 'ID',
+                    name: '_id',
+                    widget: 'string',
+                    read_only: true,
+                  }
+                - {
+                    label: 'Number',
+                    name: 'number',
+                    widget: 'number',
+                    read_only: true,
+                  }
+                - {
+                    label: 'URL',
+                    name: 'url',
+                    widget: 'string',
+                    read_only: true,
+                  }
+                - label: 'Names'
+                  name: 'names'
+                  widget: 'list'
+                  field: { label: 'Name', widget: 'string' }
+                  hint: 'First name will be used as primary title'
+                - { label: 'Year', name: 'year', widget: 'string' }
+                - {
+                    label: 'Department',
+                    name: 'department',
+                    widget: 'list',
+                    default: [],
+                  }
+                - label: 'Advisor/Builders'
+                  name: 'advisor_builders'
+                  widget: 'list'
+                  fields:
+                    - {
+                        label: 'Name',
+                        name: 'name',
+                        widget: 'string',
+                        required: true,
+                      }
+                    - {
+                        label: 'Role',
+                        name: 'role',
+                        widget: 'list',
+                        required: true,
+                      }
+                - { label: 'Description', name: 'description', widget: 'text' }
+                - {
+                    label: 'Extended Description',
+                    name: 'extended_description',
+                    widget: 'text',
+                  }
+                - label: 'Status'
+                  name: 'status'
+                  widget: 'select'
+                  options:
+                    - { label: 'Active', value: 'Active' }
+                    - { label: 'Ghost', value: 'Ghost' }
+                    - { label: 'Planned', value: 'Planned' }
+                - {
+                    label: 'Style',
+                    name: 'style',
+                    widget: 'string',
+                    default: '',
+                  }
+                - { label: 'Tags', name: 'tags', widget: 'list', default: [] }
+                - label: 'Location'
+                  name: 'location'
+                  widget: 'object'
+                  fields:
+                    - {
+                        label: 'Latitude',
+                        name: 'latitude',
+                        widget: 'number',
+                        read_only: true,
+                      }
+                    - {
+                        label: 'Longitude',
+                        name: 'longitude',
+                        widget: 'number',
+                        read_only: true,
+                      }
+                - label: 'Images'
+                  name: 'images'
+                  widget: 'list'
+                  fields:
+                    - {
+                        label: 'Type',
+                        name: 'type',
+                        widget: 'string',
+                        read_only: true,
+                      }
+                    - {
+                        label: 'Orientation',
+                        name: 'orientation',
+                        widget: 'boolean',
+                        default: true,
+                        read_only: true,
+                      }
+                    - {
+                        label: 'Path',
+                        name: 'path',
+                        widget: 'string',
+                        read_only: true,
+                      }
+                    - {
+                        label: 'Description',
+                        name: 'description',
+                        widget: 'string',
+                      }
+                - label: 'Links'
+                  name: 'links'
+                  widget: 'list'
+                  fields:
+                    - {
+                        label: 'Link Type',
+                        name: 'linkType',
+                        widget: 'string',
+                        read_only: true,
+                      }
+                    - {
+                        label: 'URL',
+                        name: 'URL',
+                        widget: 'string',
+                        read_only: true,
+                      }
+                    - { label: 'Title', name: 'title', widget: 'string' }

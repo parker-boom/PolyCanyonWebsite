@@ -14,15 +14,23 @@
     <script>
       CMS.init();
 
-      // Debug what data we're getting
-      fetch('/data/structuresInfo.json')
-        .then((response) => response.json())
-        .then((data) => {
-          console.log('Loaded JSON:', data);
-        })
-        .catch((error) => {
-          console.error('Error loading JSON:', error);
-        });
+      // Transform data for CMS
+      CMS.registerEventListener({
+        name: 'preSave',
+        handler: ({ entry }) => {
+          const data = entry.get('data').toJS();
+          return entry.get('data').set('data', data.structures || data);
+        },
+      });
+
+      // Transform data back to array when saving
+      CMS.registerEventListener({
+        name: 'postSave',
+        handler: ({ entry }) => {
+          const data = entry.get('data').toJS();
+          return Array.isArray(data.data) ? data.data : data;
+        },
+      });
 
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on('init', (user) => {
@@ -33,14 +41,6 @@
           }
         });
       }
-
-      CMS.registerEventListener({
-        name: 'preSave',
-        handler: ({ entry }) => {
-          console.log('Data being saved:', entry.get('data'));
-          return entry;
-        },
-      });
     </script>
   </body>
 </html>
