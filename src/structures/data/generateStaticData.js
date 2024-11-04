@@ -1,34 +1,24 @@
-import { MongoClient } from 'mongodb';
 import fs from 'fs/promises';
 import path from 'path';
-import 'dotenv/config';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 async function generateStaticData() {
-  let client;
   try {
-    // Connect to MongoDB
-    client = await MongoClient.connect(process.env.MONGO_URI);
-    const db = client.db('poly_canyon_structures');
+    // Read structuresInfo.json
+    const structuresInfo = JSON.parse(
+      await fs.readFile(path.join(__dirname, 'structuresInfo.json'), 'utf-8')
+    );
 
     // Create data directory if it doesn't exist
     const dataDir = path.join(process.cwd(), 'src', 'structures', 'data');
     await fs.mkdir(dataDir, { recursive: true });
 
-    // Fetch full structure info
-    const fullStructures = await db
-      .collection('structure_full_info')
-      .find({})
-      .toArray();
-
-    // Save full structure info
-    await fs.writeFile(
-      path.join(dataDir, 'structuresInfo.json'),
-      JSON.stringify(fullStructures),
-      'utf-8'
-    );
-
-    // Create and save simplified list - now using first name from array
-    const basicList = fullStructures
+    // Create simplified list from structuresInfo.json
+    const basicList = structuresInfo
       .map((structure) => ({
         number: structure.number,
         url: structure.url,
@@ -37,6 +27,7 @@ async function generateStaticData() {
       }))
       .sort((a, b) => a.number - b.number);
 
+    // Save simplified list
     await fs.writeFile(
       path.join(dataDir, 'structuresList.json'),
       JSON.stringify(basicList),
@@ -47,8 +38,6 @@ async function generateStaticData() {
   } catch (error) {
     console.error('Error generating static data:', error);
     process.exit(1);
-  } finally {
-    if (client) await client.close();
   }
 }
 
