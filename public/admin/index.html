@@ -14,27 +14,6 @@
     <script>
       console.log('CMS initialization starting...');
 
-      // Transform data for CMS
-      CMS.registerEventListener({
-        name: 'preSave',
-        handler: ({ entry }) => {
-          console.log('PreSave - Original data:', entry.get('data').toJS());
-          const data = entry.get('data').toJS();
-          // Ensure we're returning the array structure
-          return entry.get('data').set('root', data.root || data);
-        },
-      });
-
-      // Transform back to array when saving
-      CMS.registerEventListener({
-        name: 'postSave',
-        handler: ({ entry }) => {
-          const data = entry.get('data').toJS();
-          // Ensure we save as array
-          return data.root || data;
-        },
-      });
-
       CMS.init();
 
       if (window.netlifyIdentity) {

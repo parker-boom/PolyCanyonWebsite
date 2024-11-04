@@ -16,10 +16,10 @@ collections:
         name: 'all_structures'
         file: 'public/data/structuresInfo.json'
         fields:
-          - name: 'root'
+          - name: 'structures'
             label: 'Structures'
             widget: 'list'
-            summary: '{{names[0]}} (#{{number}})'
+            summary: '{{fields.names.0}} (#{{fields.number}})'
             minimize_collapsed: true
             label_singular: 'Structure'
             fields:
@@ -34,7 +34,7 @@ collections:
               - label: 'Names'
                 name: 'names'
                 widget: 'list'
-                field: { label: 'Name', name: 'name', widget: 'string' }
+                field: { label: 'Name', name: '', widget: 'string' }
                 hint: 'First name will be used as primary title'
               - { label: 'Year', name: 'year', widget: 'string' }
               - {
