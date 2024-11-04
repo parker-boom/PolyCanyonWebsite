@@ -1,16 +1,14 @@
 import fs from 'fs/promises';
 import path from 'path';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 
 async function generateStaticData() {
   try {
-    // Read structuresInfo.json
+    // Read from public folder
     const structuresInfo = JSON.parse(
-      await fs.readFile(path.join(__dirname, 'structuresInfo.json'), 'utf-8')
+      await fs.readFile(
+        path.join(process.cwd(), 'public', 'data', 'structuresInfo.json'),
+        'utf-8'
+      )
     );
 
     // Create data directory if it doesn't exist
@@ -22,7 +20,7 @@ async function generateStaticData() {
       .map((structure) => ({
         number: structure.number,
         url: structure.url,
-        title: structure.names[0], // Use first name as primary title
+        title: structure.names[0],
         image_key: `M-${structure.number}`,
       }))
       .sort((a, b) => a.number - b.number);
@@ -31,6 +29,13 @@ async function generateStaticData() {
     await fs.writeFile(
       path.join(dataDir, 'structuresList.json'),
       JSON.stringify(basicList),
+      'utf-8'
+    );
+
+    // Save a local copy of structuresInfo for React
+    await fs.writeFile(
+      path.join(dataDir, 'structuresInfo.local.json'),
+      JSON.stringify(structuresInfo),
       'utf-8'
     );
 
