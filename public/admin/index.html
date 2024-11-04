@@ -2,26 +2,26 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Content Manager</title>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
+    <!-- Netlify CMS -->
     <script>
       window.CMS_MANUAL_INIT = true;
     </script>
+    <!-- Include Netlify CMS -->
     <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
-    <script>
-      console.log('CMS initialization starting...');
+    <!-- Include your custom preview template -->
+    <script type="module">
+      import StructurePreview from './structurePreview.js';
+
+      CMS.registerPreviewTemplate('all_structures', StructurePreview);
 
       CMS.init();
 
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on('init', (user) => {
-          console.log(
-            'Identity initialized',
-            user ? 'with user' : 'without user'
-          );
           if (!user) {
             window.netlifyIdentity.on('login', () => {
               document.location.href = '/admin/';
