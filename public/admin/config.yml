@@ -8,6 +8,19 @@ public_folder: '/src/structures/images'
 locale: 'en'
 display_url: 'https://www.polycanyon.com'
 
+# Improved media library configuration
+media_library:
+  name: uploadcare # or 'cloudinary' - required property
+  config:
+    multiple: true # Allow multiple file selection
+    tabs: 'file camera url' # Enable various upload methods
+    previewStep: true # Show preview before upload
+    imageShrink: '2048x2048' # Automatically resize large images
+
+# Custom editor components
+editor:
+  preview: true # Keep preview visible by default
+
 collections:
   - name: 'structures'
     label: 'Structures'
@@ -144,11 +157,15 @@ collections:
                 name: 'images'
                 widget: 'list'
                 required: true
+                hint: >-
+                  Upload images with clear names with structure number
                 fields:
                   - {
                       label: 'Type',
                       name: 'type',
-                      widget: 'string',
+                      widget: 'select',
+                      options: ['main', 'closeup', 'historical', 'other'],
+                      hint: 'Name either main, closeup, historical, or other',
                       editable: false,
                       required: true,
                     }
@@ -157,6 +174,7 @@ collections:
                       name: 'orientation',
                       widget: 'boolean',
                       default: true,
+                      hint: 'True for landscape, False for portrait',
                       editable: false,
                       required: true,
                     }
@@ -164,6 +182,7 @@ collections:
                       label: 'Path',
                       name: 'path',
                       widget: 'string',
+                      hint: 'Should match the naming convention (e.g., /images/M-1)',
                       editable: false,
                       required: true,
                     }
@@ -171,6 +190,7 @@ collections:
                       label: 'Description',
                       name: 'description',
                       widget: 'string',
+                      hint: 'Provide a clear, concise description of what the image shows',
                       required: true,
                     }
               - label: 'Links'
@@ -198,8 +218,3 @@ collections:
                       widget: 'string',
                       required: true,
                     }
-
-# Optional: Add media library settings
-media_library:
-  max_file_size: 512000 # In bytes, optional
-  folder_support: true # Enable folder organization
