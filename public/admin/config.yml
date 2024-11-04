@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: main # Change this to your branch name
+  branch: master
 
 media_folder: 'src/structures/images' # Folder where images are stored
 public_folder: '/src/structures/images' # Public path for images
