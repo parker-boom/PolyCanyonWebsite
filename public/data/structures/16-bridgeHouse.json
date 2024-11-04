@@ -1,0 +1,104 @@
+{
+  "_id": "6722b48799b26f2c000bb493",
+  "number": 16,
+  "url": "bridgeHouse",
+  "names": [
+    "Bridge House"
+  ],
+  "year": "1968",
+  "department": [],
+  "advisor_builders": [
+    {
+      "name": "Ronald Davena",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Joel Dean",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Robert Garlow",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Raymond Hilken",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Lui Horstmeyer",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "James January",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Lloyd Suehiro",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Thomas Wiggin",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Kurt Holder",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Bruce Campe",
+      "role": [
+        "Builder"
+      ]
+    }
+  ],
+  "description": "This isn't just a house—it's a bridge between architecture and engineering, and was one of the first to use rust-loving Cor-ten steel! Inspired by Craig Ellwood's designs, the Bridge House utilizes Cor-ten steel, which develops a protective rust layer over time.",
+  "extended_description": "Originally serving as lodging for guest lecturers, it has been adapted for seismic testing with removable exterior braces. This multifunctional space allows students to explore different seismic load configurations, embodying innovation and adaptability in a dynamic learning environment. The Bridge House exemplifies the fusion of architectural aesthetics with engineering functionality, continuing to be a valuable educational resource.",
+  "status": "",
+  "style": "",
+  "tags": [],
+  "location": {},
+  "images": [
+    {
+      "type": "main",
+      "orientation": true,
+      "path": "/images/M-16",
+      "description": "Main image of the Bridge House."
+    },
+    {
+      "type": "closeup",
+      "orientation": true,
+      "path": "/images/C-16",
+      "description": "Close-up image of the Bridge House."
+    }
+  ],
+  "links": [
+    {
+      "linkType": "Article",
+      "URL": "https://google.com",
+      "title": "CAED Website"
+    },
+    {
+      "linkType": "Thesis",
+      "URL": "https://google.com",
+      "title": "Original Thesis"
+    }
+  ]
+}

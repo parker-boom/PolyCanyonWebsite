@@ -1,0 +1,80 @@
+{
+  "_id": "6722b48799b26f2c000bb499",
+  "number": 22,
+  "url": "fratessaTower",
+  "names": [
+    "Fratessa Tower"
+  ],
+  "year": "2004",
+  "department": [],
+  "advisor_builders": [
+    {
+      "name": "Rachel Martin",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Justin Wei",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Michael Braund",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Eric Mcdonnell",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Tanya Worotko",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Adam Stagnaro",
+      "role": [
+        "Builder"
+      ]
+    }
+  ],
+  "description": "Fratessa Tower honors Paul Fratessa, a beloved department head, and offers some of the most breathtaking views of Poly Canyon! Dedicated to the late ARCE department head, this tower stands on the foundations of a previous structure.",
+  "extended_description": "While the original tower was decommissioned due to leakage, this successor provides sweeping panoramic views of Poly Canyon. It symbolizes the continuation of architectural tradition and serves as a tribute to Fratessa's lasting impact on the student community. The tower represents the enduring legacy of educators in shaping architectural practice. It continues to inspire students and visitors alike.",
+  "status": "",
+  "style": "",
+  "tags": [],
+  "location": {},
+  "images": [
+    {
+      "type": "main",
+      "orientation": true,
+      "path": "/images/M-22",
+      "description": "Main image of the Fratessa Tower."
+    },
+    {
+      "type": "closeup",
+      "orientation": true,
+      "path": "/images/C-22",
+      "description": "Close-up image of the Fratessa Tower."
+    }
+  ],
+  "links": [
+    {
+      "linkType": "Article",
+      "URL": "https://google.com",
+      "title": "CAED Website"
+    },
+    {
+      "linkType": "Thesis",
+      "URL": "https://google.com",
+      "title": "Original Thesis"
+    }
+  ]
+}

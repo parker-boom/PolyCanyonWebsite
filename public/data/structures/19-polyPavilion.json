@@ -1,0 +1,164 @@
+{
+  "_id": "6722b48799b26f2c000bb496",
+  "number": 19,
+  "url": "polyPavilion",
+  "names": [
+    "Poly Pavilion"
+  ],
+  "year": "1985",
+  "department": [],
+  "advisor_builders": [
+    {
+      "name": "Alfredo Alcaraz",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Armando Paez",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Blanca Guerra",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Bob Green",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Brad Bishop",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Brett Beeman",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Chi Pham",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Cindy Smith",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Dave Hernandez",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Frank Maskiewicz",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Jim Low",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Joe Michale",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "John Smith",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Ken Brehmer",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Ken Schumann",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Ku Divita",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Pete Chavez",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Randal Brunson",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Ricardo Arevalo",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Stan Smith",
+      "role": [
+        "Builder"
+      ]
+    }
+  ],
+  "description": "The Poly Pavilion's precast segments were assembled on campus and transported to the canyon, showcasing the hands-on approach of Cal Poly students. Constructed by an Architectural Engineering class, it showcases the potential of precast concrete in architecture.",
+  "extended_description": "The segments were crafted on campus and transported to the canyon, demonstrating the logistical challenges of on-site assembly. Supported by arching action between its foundations, the pavilion illustrates how prefabrication techniques can be combined with innovative structural principles to create striking architectural forms. It stands as a testament to collaborative effort and engineering prowess.",
+  "status": "",
+  "style": "",
+  "tags": [],
+  "location": {},
+  "images": [
+    {
+      "type": "main",
+      "orientation": true,
+      "path": "/images/M-19",
+      "description": "Main image of the Poly Pavilion."
+    },
+    {
+      "type": "closeup",
+      "orientation": true,
+      "path": "/images/C-19",
+      "description": "Close-up image of the Poly Pavilion."
+    }
+  ],
+  "links": [
+    {
+      "linkType": "Article",
+      "URL": "https://google.com",
+      "title": "CAED Website"
+    },
+    {
+      "linkType": "Thesis",
+      "URL": "https://google.com",
+      "title": "Original Thesis"
+    }
+  ]
+}

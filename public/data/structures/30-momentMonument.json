@@ -1,0 +1,68 @@
+{
+  "_id": "6722b48799b26f2c000bb4a1",
+  "number": 30,
+  "url": "momentMonument",
+  "names": [
+    "Moment Monument"
+  ],
+  "year": "2024",
+  "department": [],
+  "advisor_builders": [
+    {
+      "name": "Carsten Huber",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Gaspar Solorio",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Jared Schieferle",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Brayden Martinez",
+      "role": [
+        "Builder"
+      ]
+    }
+  ],
+  "description": "Each beam of the Moment Monument is connected differently, making it a unique educational tool for students studying earthquake-resistant design. As the newest addition to Poly Canyon, this structure serves as an educational tool for earthquake-resistant design.",
+  "extended_description": "Each beam is connected differently, allowing students to study various pre-qualified moment connections in steel frames. The monument exemplifies how full-scale models can enhance understanding of complex engineering principles, bridging the gap between theory and practice. It stands as a hands-on resource for learning about seismic resilience. The Moment Monument represents the forefront of educational architecture.",
+  "status": "",
+  "style": "",
+  "tags": [],
+  "location": {},
+  "images": [
+    {
+      "type": "main",
+      "orientation": true,
+      "path": "/images/M-30",
+      "description": "Main image of the Moment Monument."
+    },
+    {
+      "type": "closeup",
+      "orientation": true,
+      "path": "/images/C-30",
+      "description": "Close-up image of the Moment Monument."
+    }
+  ],
+  "links": [
+    {
+      "linkType": "Article",
+      "URL": "https://google.com",
+      "title": "CAED Website"
+    },
+    {
+      "linkType": "Thesis",
+      "URL": "https://google.com",
+      "title": "Original Thesis"
+    }
+  ]
+}

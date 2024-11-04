@@ -1,0 +1,68 @@
+{
+  "_id": "6722b48799b26f2c000bb486",
+  "number": 3,
+  "url": "blade",
+  "names": [
+    "Blade"
+  ],
+  "year": "1963 / 2003",
+  "department": [],
+  "advisor_builders": [
+    {
+      "name": "Steve Gilmore",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Mark Haselton",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Dan McMann",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Ken Minor",
+      "role": [
+        "Builder"
+      ]
+    }
+  ],
+  "description": "The Blade structure collapsed once but was rebuilt decades later, proving that at Poly Canyon, students get second chances to make first-rate architecture. Originally testing pioneering post-tensioning methods, it faced design flaws but was reconstructed by a new team, including some original builders.",
+  "extended_description": "Updated with features like catenary arches to meet new building codes, the Blade won an Award of Excellence. The project embodies Cal Poly's 'learn by doing' spirit and showcases the evolution of architectural education through hands-on experience. Its reconstruction demonstrates perseverance and the value of learning from past mistakes. The structure now stands as a symbol of innovation and resilience. It continues to inspire students to push the boundaries of architectural design.",
+  "status": "",
+  "style": "",
+  "tags": [],
+  "location": {},
+  "images": [
+    {
+      "type": "main",
+      "orientation": true,
+      "path": "/images/M-3",
+      "description": "Main image of the Blade."
+    },
+    {
+      "type": "closeup",
+      "orientation": true,
+      "path": "/images/C-3",
+      "description": "Close-up image of the Blade."
+    }
+  ],
+  "links": [
+    {
+      "linkType": "Article",
+      "URL": "https://google.com",
+      "title": "CAED Website"
+    },
+    {
+      "linkType": "Thesis",
+      "URL": "https://google.com",
+      "title": "Original Thesis"
+    }
+  ]
+}

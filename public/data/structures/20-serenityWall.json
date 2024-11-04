@@ -1,0 +1,50 @@
+{
+  "_id": "6722b48799b26f2c000bb497",
+  "number": 20,
+  "url": "serenityWall",
+  "names": [
+    "Serenity Wall"
+  ],
+  "year": "2004",
+  "department": [],
+  "advisor_builders": [
+    {
+      "name": "Brian Milton",
+      "role": [
+        "Builder"
+      ]
+    }
+  ],
+  "description": "The student who built the Serenity Wall also constructed two other unlisted structures: the Meditation Bench and Cardinal Direction. Designed to blend seamlessly with its surroundings, this structure embodies the principle of 'out of sight, out of mind.'",
+  "extended_description": "Constructed with weather-resistant redwood planks, it requires minimal maintenance while complementing the natural environment. The wall serves as a subtle gateway to other canyon features, demonstrating how architecture can enhance rather than dominate a landscape. It reflects a thoughtful approach to design that prioritizes harmony with nature.",
+  "status": "",
+  "style": "",
+  "tags": [],
+  "location": {},
+  "images": [
+    {
+      "type": "main",
+      "orientation": true,
+      "path": "/images/M-20",
+      "description": "Main image of the Serenity Wall."
+    },
+    {
+      "type": "closeup",
+      "orientation": true,
+      "path": "/images/C-20",
+      "description": "Close-up image of the Serenity Wall."
+    }
+  ],
+  "links": [
+    {
+      "linkType": "Article",
+      "URL": "https://google.com",
+      "title": "CAED Website"
+    },
+    {
+      "linkType": "Thesis",
+      "URL": "https://google.com",
+      "title": "Original Thesis"
+    }
+  ]
+}

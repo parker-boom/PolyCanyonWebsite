@@ -1,0 +1,68 @@
+{
+  "_id": "6722b48799b26f2c000bb490",
+  "number": 13,
+  "url": "timberTruss",
+  "names": [
+    "Timber Truss"
+  ],
+  "year": "1994",
+  "department": [],
+  "advisor_builders": [
+    {
+      "name": "Derek Bonsper",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Josh Randall",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Fred Sobottka",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Mike Willis",
+      "role": [
+        "Builder"
+      ]
+    }
+  ],
+  "description": "This bridge stands as a tribute to Keigen Langholff, a passionate student whose contributions to Poly Canyon were cut tragically short. It showcases the strength and versatility of timber in bridge construction.",
+  "extended_description": "Recently retrofitted, the structure continues to serve as a hands-on learning tool for students, allowing them to study and experience firsthand the principles of structural engineering in a real-world application. The bridge's design incorporates complex truss systems, emphasizing the importance of structural integrity and design. It stands as both a memorial and an educational resource. The Timber Truss bridge inspires future architects and engineers through its enduring presence.",
+  "status": "",
+  "style": "",
+  "tags": [],
+  "location": {},
+  "images": [
+    {
+      "type": "main",
+      "orientation": true,
+      "path": "/images/M-13",
+      "description": "Main image of the Timber Truss."
+    },
+    {
+      "type": "closeup",
+      "orientation": true,
+      "path": "/images/C-13",
+      "description": "Close-up image of the Timber Truss."
+    }
+  ],
+  "links": [
+    {
+      "linkType": "Article",
+      "URL": "https://google.com",
+      "title": "CAED Website"
+    },
+    {
+      "linkType": "Thesis",
+      "URL": "https://google.com",
+      "title": "Original Thesis"
+    }
+  ]
+}

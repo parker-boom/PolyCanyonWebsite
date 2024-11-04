@@ -1,0 +1,50 @@
+{
+  "_id": "6722b48799b26f2c000bb488",
+  "number": 5,
+  "url": "palmTree",
+  "names": [
+    "Palm Tree"
+  ],
+  "year": "xxxx",
+  "department": [],
+  "advisor_builders": [
+    {
+      "name": "iii",
+      "role": [
+        "Builder"
+      ]
+    }
+  ],
+  "description": "The Palm Tree was originally designed to rotate with changing temperatures due to the differing expansion rates of its metals. This unique structure features a tall central pole crowned by an assembly of dissimilar metals.",
+  "extended_description": "The innovative design aimed to exploit the differing thermal expansion and contraction rates of the metals to generate rotation. Standing isolated against the rugged landscape, the structure's minimalist appearance contrasts with the complexity of its engineering intent. It serves as a physical representation of the interplay between art and science. The Palm Tree invites observers to consider the effects of environmental factors on structural design. Despite its simplicity, it embodies a sophisticated engineering concept.",
+  "status": "",
+  "style": "",
+  "tags": [],
+  "location": {},
+  "images": [
+    {
+      "type": "main",
+      "orientation": true,
+      "path": "/images/M-5",
+      "description": "Main image of the Palm Tree."
+    },
+    {
+      "type": "closeup",
+      "orientation": true,
+      "path": "/images/C-5",
+      "description": "Close-up image of the Palm Tree."
+    }
+  ],
+  "links": [
+    {
+      "linkType": "Article",
+      "URL": "https://google.com",
+      "title": "CAED Website"
+    },
+    {
+      "linkType": "Thesis",
+      "URL": "https://google.com",
+      "title": "Original Thesis"
+    }
+  ]
+}

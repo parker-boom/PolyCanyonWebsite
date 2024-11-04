@@ -1,0 +1,50 @@
+{
+  "_id": "6722b48799b26f2c000bb49c",
+  "number": 25,
+  "url": "greenHouse",
+  "names": [
+    "Green House"
+  ],
+  "year": "1989",
+  "department": [],
+  "advisor_builders": [
+    {
+      "name": "Mark Jenefsky",
+      "role": [
+        "Builder"
+      ]
+    }
+  ],
+  "description": "The Green House was meant to be a self-sustaining structure with solar-heated water storage, an advanced concept for the 1980s. Although unfinished, this ambitious project was designed to integrate advanced environmental control systems.",
+  "extended_description": "Planned features included automatic watering and ventilation systems, along with solar-heated water storage. The structure's innovative design aimed to enhance the efficiency of traditional greenhouse models, showcasing early attempts at sustainable architectural practices. The Green House represents a forward-thinking approach to eco-friendly design. It continues to inspire discussions on sustainability and innovation in architecture.",
+  "status": "",
+  "style": "",
+  "tags": [],
+  "location": {},
+  "images": [
+    {
+      "type": "main",
+      "orientation": true,
+      "path": "/images/M-25",
+      "description": "Main image of the Green House."
+    },
+    {
+      "type": "closeup",
+      "orientation": true,
+      "path": "/images/C-25",
+      "description": "Close-up image of the Green House."
+    }
+  ],
+  "links": [
+    {
+      "linkType": "Article",
+      "URL": "https://google.com",
+      "title": "CAED Website"
+    },
+    {
+      "linkType": "Thesis",
+      "URL": "https://google.com",
+      "title": "Original Thesis"
+    }
+  ]
+}

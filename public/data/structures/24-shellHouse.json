@@ -1,0 +1,98 @@
+{
+  "_id": "6722b48799b26f2c000bb49b",
+  "number": 24,
+  "url": "shellHouse",
+  "names": [
+    "Shell House"
+  ],
+  "year": "1975",
+  "department": [],
+  "advisor_builders": [
+    {
+      "name": "Larry Gangwisch",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Ronald James",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Raymond Ketzel",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Roger Marshall",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "David Wright",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "James Zimmerman",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "George Hasslein",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Wesley Ward",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Harvey Koehen",
+      "role": [
+        "Builder"
+      ]
+    }
+  ],
+  "description": "During construction of the Shell House, students got unexpected shocks—they learned the hard way about grounding when working with wire mesh and shotcrete! An early pioneer in using shotcrete at Poly Canyon, the Shell House features a unique roof formed by cables, wire mesh, and sprayed concrete.",
+  "extended_description": "The students faced unexpected electrical shocks due to improper grounding, adding a memorable lesson to the building process. Supported at just three ground points, this structure exemplifies innovation and the hands-on challenges that come with experimental architecture. The Shell House stands as a testament to the learning experiences that shape architectural education. It continues to be a symbol of ingenuity and practical problem-solving.",
+  "status": "",
+  "style": "",
+  "tags": [],
+  "location": {},
+  "images": [
+    {
+      "type": "main",
+      "orientation": true,
+      "path": "/images/M-24",
+      "description": "Main image of the Shell House."
+    },
+    {
+      "type": "closeup",
+      "orientation": true,
+      "path": "/images/C-24",
+      "description": "Close-up image of the Shell House."
+    }
+  ],
+  "links": [
+    {
+      "linkType": "Article",
+      "URL": "https://google.com",
+      "title": "CAED Website"
+    },
+    {
+      "linkType": "Thesis",
+      "URL": "https://google.com",
+      "title": "Original Thesis"
+    }
+  ]
+}

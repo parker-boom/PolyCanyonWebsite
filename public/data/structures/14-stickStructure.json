@@ -1,0 +1,74 @@
+{
+  "_id": "6722b48799b26f2c000bb491",
+  "number": 14,
+  "url": "stickStructure",
+  "names": [
+    "Stick Structure"
+  ],
+  "year": "1976 / 2009",
+  "department": [],
+  "advisor_builders": [
+    {
+      "name": "William F Martin",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Brian Gottlieb",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Dan Morita",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Michelle M. Pettit",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Jake Feldman",
+      "role": [
+        "Builder"
+      ]
+    }
+  ],
+  "description": "Intended to change shapes regularly, the Stick Structure stood unchanged for decades before students gave it a fresh makeover. Originally built as a life-sized structural stability model, it allows students to explore load flow and stiffness in various configurations.",
+  "extended_description": "Although it was meant for regular reconfiguration, it remained the same for years until a renovation in 2009 revived its purpose. This hands-on educational tool demonstrates the principles of structural design in a tangible, full-scale format, emphasizing the longevity of student innovation. The Stick Structure serves as a testament to the enduring value of experimental architecture and the importance of continual learning and adaptation in design.",
+  "status": "",
+  "style": "",
+  "tags": [],
+  "location": {},
+  "images": [
+    {
+      "type": "main",
+      "orientation": true,
+      "path": "/images/M-14",
+      "description": "Main image of the Stick Structure."
+    },
+    {
+      "type": "closeup",
+      "orientation": true,
+      "path": "/images/C-14",
+      "description": "Close-up image of the Stick Structure."
+    }
+  ],
+  "links": [
+    {
+      "linkType": "Article",
+      "URL": "https://google.com",
+      "title": "CAED Website"
+    },
+    {
+      "linkType": "Thesis",
+      "URL": "https://google.com",
+      "title": "Original Thesis"
+    }
+  ]
+}

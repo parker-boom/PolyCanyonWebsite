@@ -1,0 +1,50 @@
+{
+  "_id": "6722b48799b26f2c000bb4a0",
+  "number": 29,
+  "url": "bbqPit",
+  "names": [
+    "BBQ Pit"
+  ],
+  "year": "1975",
+  "department": [],
+  "advisor_builders": [
+    {
+      "name": "Allan Cooper",
+      "role": [
+        "Builder"
+      ]
+    }
+  ],
+  "description": "The BBQ Pit once had a corten steel hood, but it was removed because the differing materials didn't age well together. This communal space has evolved over time, adapting to material challenges and changing needs.",
+  "extended_description": "Originally featuring a corten steel hood, its current form demonstrates the importance of material compatibility in long-lasting structures. The pit and nearby seating areas continue to serve as gathering spaces, highlighting the social aspects of architectural design. The BBQ Pit remains a beloved spot for community events. It emphasizes the role of architecture in fostering social interaction.",
+  "status": "",
+  "style": "",
+  "tags": [],
+  "location": {},
+  "images": [
+    {
+      "type": "main",
+      "orientation": true,
+      "path": "/images/M-29",
+      "description": "Main image of the BBQ Pit."
+    },
+    {
+      "type": "closeup",
+      "orientation": true,
+      "path": "/images/C-29",
+      "description": "Close-up image of the BBQ Pit."
+    }
+  ],
+  "links": [
+    {
+      "linkType": "Article",
+      "URL": "https://google.com",
+      "title": "CAED Website"
+    },
+    {
+      "linkType": "Thesis",
+      "URL": "https://google.com",
+      "title": "Original Thesis"
+    }
+  ]
+}

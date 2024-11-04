@@ -1,0 +1,62 @@
+{
+  "_id": "6722b48799b26f2c000bb485",
+  "number": 2,
+  "url": "techiteBridge",
+  "names": [
+    "Techite Bridge"
+  ],
+  "year": "1973",
+  "department": [],
+  "advisor_builders": [
+    {
+      "name": "Robert Purdy",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Robert Mac Luan",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Merilee Amy",
+      "role": [
+        "Builder"
+      ]
+    }
+  ],
+  "description": "The Techite Bridge is the only Poly Canyon structure built entirely by Construction Engineering students, highlighting their hands-on expertise. Constructed from fiber-reinforced plastic mortar, it showcases innovative use of lightweight yet high-strength materials. The bridge exemplifies how students can bridge gaps in more ways than one.",
+  "extended_description": "As a testament to interdisciplinary collaboration, the Techite Bridge stands out for its creative application of construction techniques. The use of fiber-reinforced plastic mortar not only demonstrates technical skill but also innovation in material science. This lightweight yet durable bridge reflects the students' ability to think outside the box. It remains a symbol of student-driven experimentation in construction. The structure continues to inspire future generations of engineers and architects at Cal Poly.",
+  "status": "",
+  "style": "",
+  "tags": [],
+  "location": {},
+  "images": [
+    {
+      "type": "main",
+      "orientation": true,
+      "path": "/images/M-2",
+      "description": "Main image of the Techite Bridge."
+    },
+    {
+      "type": "closeup",
+      "orientation": true,
+      "path": "/images/C-2",
+      "description": "Close-up image of the Techite Bridge."
+    }
+  ],
+  "links": [
+    {
+      "linkType": "Article",
+      "URL": "https://google.com",
+      "title": "CAED Website"
+    },
+    {
+      "linkType": "Thesis",
+      "URL": "https://google.com",
+      "title": "Original Thesis"
+    }
+  ]
+}

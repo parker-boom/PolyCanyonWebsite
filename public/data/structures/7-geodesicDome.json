@@ -1,0 +1,74 @@
+{
+  "_id": "6722b48799b26f2c000bb48a",
+  "number": 7,
+  "url": "geodesicDome",
+  "names": [
+    "Geodesic Dome"
+  ],
+  "year": "1963",
+  "department": [],
+  "advisor_builders": [
+    {
+      "name": "Richard Neill",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "William Roth",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Donald Mills",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Samuel Peterson",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Don Trunklage",
+      "role": [
+        "Builder"
+      ]
+    }
+  ],
+  "description": "Inspired by Buckminster Fuller, the Geodesic Dome was originally built from surplus materials and offers stellar acoustics—it's even been used as a sound stage. This iconic dome showcases the strength and efficiency of triangular components.",
+  "extended_description": "Made from lightweight surplus materials, it was initially an entrance to the architecture building before finding its home in Poly Canyon. Renowned for its excellent acoustics, the dome continues to serve as a functional space for events, bridging historical innovation with modern utility. The structure embodies the pioneering spirit of architectural experimentation. Its design has influenced countless students and architects. The Geodesic Dome remains a symbol of ingenuity and timeless design principles.",
+  "status": "",
+  "style": "",
+  "tags": [],
+  "location": {},
+  "images": [
+    {
+      "type": "main",
+      "orientation": true,
+      "path": "/images/M-7",
+      "description": "Main image of the Geodesic Dome."
+    },
+    {
+      "type": "closeup",
+      "orientation": true,
+      "path": "/images/C-7",
+      "description": "Close-up image of the Geodesic Dome."
+    }
+  ],
+  "links": [
+    {
+      "linkType": "Article",
+      "URL": "https://google.com",
+      "title": "CAED Website"
+    },
+    {
+      "linkType": "Thesis",
+      "URL": "https://google.com",
+      "title": "Original Thesis"
+    }
+  ]
+}

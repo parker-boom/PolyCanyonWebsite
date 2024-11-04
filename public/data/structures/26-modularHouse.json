@@ -1,0 +1,110 @@
+{
+  "_id": "6722b48799b26f2c000bb49d",
+  "number": 26,
+  "url": "modularHouse",
+  "names": [
+    "Modular House"
+  ],
+  "year": "1973",
+  "department": [],
+  "advisor_builders": [
+    {
+      "name": "Paul Thoryk",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "John Edmiston",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Glen Jackson",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Tom Bylund",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "James Jones",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Richard Pata",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Lorin Smith",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Jerry Tucker",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Dennis Turner",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "John Edmisten",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Don Koberg",
+      "role": [
+        "Builder"
+      ]
+    }
+  ],
+  "description": "The Modular House was originally fully enclosed, but today it stands hollow—so be cautious when exploring! This experimental dwelling features a steel frame with wood infill, designed on an eight-by-eight module to minimize lumber cutting.",
+  "extended_description": "Its modular approach demonstrates efficient use of materials and space. The structure's challenges with waterproofing due to differing material expansion rates provide valuable lessons in the practicalities of experimental design and material compatibility. The Modular House highlights the importance of considering material properties in architectural design. It remains a notable example of modular construction methods.",
+  "status": "",
+  "style": "",
+  "tags": [],
+  "location": {},
+  "images": [
+    {
+      "type": "main",
+      "orientation": true,
+      "path": "/images/M-26",
+      "description": "Main image of the Modular House."
+    },
+    {
+      "type": "closeup",
+      "orientation": true,
+      "path": "/images/C-26",
+      "description": "Close-up image of the Modular House."
+    }
+  ],
+  "links": [
+    {
+      "linkType": "Article",
+      "URL": "https://google.com",
+      "title": "CAED Website"
+    },
+    {
+      "linkType": "Thesis",
+      "URL": "https://google.com",
+      "title": "Original Thesis"
+    }
+  ]
+}

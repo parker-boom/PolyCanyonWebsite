@@ -1,0 +1,116 @@
+{
+  "_id": "6722b48799b26f2c000bb48d",
+  "number": 10,
+  "url": "undergroundHouse",
+  "names": [
+    "Underground House"
+  ],
+  "year": "1982",
+  "department": [],
+  "advisor_builders": [
+    {
+      "name": "Carl C Barrett",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Robert S Cocores",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Allyn W Mcfarlin",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "John M Provato",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Jesse P Wedemeyer",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Wayne Christian",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Pat Dennison",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Fred Kozono",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Mark McIntire",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Chris Sterios",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Craig Wilson",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Mark V Zeolla",
+      "role": [
+        "Builder"
+      ]
+    }
+  ],
+  "description": "Designed to be invisible, the Underground House was supposed to be fully underground with only skylights showing—but leaks brought it back to the surface. An ambitious venture into subterranean architecture, it was intended to be completely submerged.",
+  "extended_description": "Significant issues with leaking led to it being partially unearthed. Despite the challenges, it has served as housing for caretakers, providing practical lessons in the complexities of underground construction and the importance of adapting designs to environmental constraints. The structure highlights the innovative yet practical aspects of architectural design. It stands as a learning monument to the challenges of waterproofing and subterranean living. The Underground House continues to intrigue those interested in alternative housing solutions.",
+  "status": "",
+  "style": "",
+  "tags": [],
+  "location": {},
+  "images": [
+    {
+      "type": "main",
+      "orientation": true,
+      "path": "/images/M-10",
+      "description": "Main image of the Underground House."
+    },
+    {
+      "type": "closeup",
+      "orientation": true,
+      "path": "/images/C-10",
+      "description": "Close-up image of the Underground House."
+    }
+  ],
+  "links": [
+    {
+      "linkType": "Article",
+      "URL": "https://google.com",
+      "title": "CAED Website"
+    },
+    {
+      "linkType": "Thesis",
+      "URL": "https://google.com",
+      "title": "Original Thesis"
+    }
+  ]
+}

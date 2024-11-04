@@ -1,0 +1,50 @@
+{
+  "_id": "6722b48799b26f2c000bb48e",
+  "number": 11,
+  "url": "sunDial",
+  "names": [
+    "Sun Dial"
+  ],
+  "year": "1971",
+  "department": [],
+  "advisor_builders": [
+    {
+      "name": "John Stuart",
+      "role": [
+        "Builder"
+      ]
+    }
+  ],
+  "description": "Though it collapsed from too much climbing, the Sun Dial still reminds us that every experiment is a step toward learning. Once a functional piece of art, it told time using the sun's position.",
+  "extended_description": "The Sun Dial collapsed in the 1990s due to overenthusiastic climbing. Despite its fall, it serves as a symbolic reminder of Cal Poly's 'learn by doing' philosophy. The structure highlights the experimental nature of Poly Canyon, showing that even failures contribute valuable insights to architectural education. It stands as a testament to the importance of structural integrity and user interaction. The Sun Dial's legacy continues to influence design considerations in student projects.",
+  "status": "",
+  "style": "",
+  "tags": [],
+  "location": {},
+  "images": [
+    {
+      "type": "main",
+      "orientation": true,
+      "path": "/images/M-11",
+      "description": "Main image of the Sun Dial."
+    },
+    {
+      "type": "closeup",
+      "orientation": true,
+      "path": "/images/C-11",
+      "description": "Close-up image of the Sun Dial."
+    }
+  ],
+  "links": [
+    {
+      "linkType": "Article",
+      "URL": "https://google.com",
+      "title": "CAED Website"
+    },
+    {
+      "linkType": "Thesis",
+      "URL": "https://google.com",
+      "title": "Original Thesis"
+    }
+  ]
+}

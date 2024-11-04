@@ -1,0 +1,68 @@
+{
+  "_id": "6722b48799b26f2c000bb498",
+  "number": 21,
+  "url": "hayBale",
+  "names": [
+    "Hay Bale Arch"
+  ],
+  "year": "2004",
+  "department": [],
+  "advisor_builders": [
+    {
+      "name": "Philip Greene",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Adam Bradley",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Jason Hughey",
+      "role": [
+        "Builder"
+      ]
+    },
+    {
+      "name": "Matthew Vorhees",
+      "role": [
+        "Builder"
+      ]
+    }
+  ],
+  "description": "This arch is likely the only double-barrel design of its kind, showcasing the creativity and resourcefulness of the students who built it. The Hay Bale Arch utilizes straw for its surprisingly effective insulation properties.",
+  "extended_description": "The unique 'window of truth' offers a glimpse into the straw core, educating visitors about alternative building materials. Its double-barrel design is likely one-of-a-kind, showcasing the creative potential of combining traditional materials with modern architectural concepts. The structure serves as both an educational exhibit and a testament to sustainable building practices.",
+  "status": "",
+  "style": "",
+  "tags": [],
+  "location": {},
+  "images": [
+    {
+      "type": "main",
+      "orientation": true,
+      "path": "/images/M-21",
+      "description": "Main image of the Hay Bale Arch."
+    },
+    {
+      "type": "closeup",
+      "orientation": true,
+      "path": "/images/C-21",
+      "description": "Close-up image of the Hay Bale Arch."
+    }
+  ],
+  "links": [
+    {
+      "linkType": "Article",
+      "URL": "https://google.com",
+      "title": "CAED Website"
+    },
+    {
+      "linkType": "Thesis",
+      "URL": "https://google.com",
+      "title": "Original Thesis"
+    }
+  ]
+}

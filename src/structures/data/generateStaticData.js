@@ -11,11 +11,30 @@ async function generateStaticData() {
       )
     );
 
-    // Create data directory if it doesn't exist
+    // Create data directories if they don't exist
     const dataDir = path.join(process.cwd(), 'src', 'structures', 'data');
+    const publicStructuresDir = path.join(
+      process.cwd(),
+      'public',
+      'data',
+      'structures'
+    );
     await fs.mkdir(dataDir, { recursive: true });
+    await fs.mkdir(publicStructuresDir, { recursive: true });
 
-    // Create simplified list from structuresInfo.json
+    // Create individual files for each structure
+    for (const structure of structuresInfo) {
+      await fs.writeFile(
+        path.join(
+          publicStructuresDir,
+          `${structure.number}-${structure.url}.json`
+        ),
+        JSON.stringify(structure, null, 2),
+        'utf-8'
+      );
+    }
+
+    // Create simplified list for navigation
     const basicList = structuresInfo
       .map((structure) => ({
         number: structure.number,
@@ -32,7 +51,7 @@ async function generateStaticData() {
       'utf-8'
     );
 
-    // Save a local copy of structuresInfo for React
+    // Save local copy for React
     await fs.writeFile(
       path.join(dataDir, 'structuresInfo.local.json'),
       JSON.stringify(structuresInfo),
