@@ -8,8 +8,6 @@ public_folder: '/src/structures/images'
 locale: 'en'
 display_url: 'https://www.polycanyon.com'
 
-# Disable ability to create/delete collections
-publish_mode: editorial_workflow
 collections:
   - name: 'structures'
     label: 'Structures'
@@ -28,6 +26,7 @@ collections:
             label_singular: 'Structure'
             allow_add: false
             allow_delete: false
+            collapsed: false
             fields:
               - {
                   label: 'ID',
@@ -199,3 +198,8 @@ collections:
                       widget: 'string',
                       required: true,
                     }
+
+# Optional: Add media library settings
+media_library:
+  max_file_size: 512000 # In bytes, optional
+  folder_support: true # Enable folder organization

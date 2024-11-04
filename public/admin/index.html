@@ -20,16 +20,23 @@
             'div',
             { className: 'structures-preview' },
             structures.map((structure, index) => {
-              const names = structure.get('names') || [];
-              const otherNames = names.slice(1);
-              const advisors = (structure.get('advisor_builders') || [])
-                .filter((builder) =>
-                  (builder.get('role') || []).includes('Advisor')
+              const names = structure.get('names');
+              const otherNames = names && names.size > 1 ? names.slice(1) : [];
+              const advisorBuilders = structure.get('advisor_builders') || [];
+              const advisors = advisorBuilders
+                .filter(
+                  (builder) =>
+                    builder.get('role') &&
+                    builder.get('role').includes('Advisor')
                 )
                 .map((advisor) => advisor.get('name'));
-              const builders = (structure.get('advisor_builders') || []).map(
-                (builder) => builder.get('name')
-              );
+              const builders = advisorBuilders
+                .filter(
+                  (builder) =>
+                    !builder.get('role') ||
+                    !builder.get('role').includes('Advisor')
+                )
+                .map((builder) => builder.get('name'));
 
               const renderField = (label, value, className = 'field') => {
                 return h(
@@ -51,14 +58,12 @@
                 h(
                   'h2',
                   {},
-                  `${structure.getIn(['names', 0])} (${structure.get('number')})`
+                  `${names ? names.get(0) : 'Untitled'} (${structure.get('number')})`
                 ),
 
                 // Other Names
-                renderField(
-                  'Other Names: ',
-                  otherNames.length > 0 ? otherNames.join(', ') : null
-                ),
+                otherNames.size > 0 &&
+                  renderField('Other Names: ', otherNames.join(', ')),
 
                 // Year
                 renderField('Year: ', structure.get('year')),
@@ -66,22 +71,19 @@
                 // Department
                 renderField(
                   'Department: ',
-                  structure.get('department').size > 0
+                  structure.get('department') &&
+                    structure.get('department').size > 0
                     ? structure.get('department').join(', ')
                     : null
                 ),
 
-                // Advisors
-                renderField(
-                  'Advisors: ',
-                  advisors.length > 0 ? advisors.join(', ') : null
-                ),
+                // Advisors (only if there are any)
+                advisors.size > 0 &&
+                  renderField('Advisors: ', advisors.join(', ')),
 
-                // Builders
-                renderField(
-                  'Builders: ',
-                  builders.length > 0 ? builders.join(', ') : null
-                ),
+                // Builders (only if there are any)
+                builders.size > 0 &&
+                  renderField('Builders: ', builders.join(', ')),
 
                 // Status
                 renderField('Status: ', structure.get('status')),
