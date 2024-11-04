@@ -16,7 +16,7 @@ collections:
         name: 'all_structures'
         file: 'public/data/structuresInfo.json'
         fields:
-          - name: 'data'
+          - name: 'root'
             label: 'Structures'
             widget: 'list'
             summary: '{{names[0]}} (#{{number}})'

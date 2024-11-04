@@ -1,5 +1,8 @@
-# Allow direct access to Netlify CMS
-/admin/*    /admin/index.html   200
+# Redirect HTTP to HTTPS
+http://www.polycanyon.com/* https://www.polycanyon.com/:splat 301!
+
+# Ensure admin paths work
+/admin/* /admin/index.html 200
 
 # Existing rules for other routes
 /info        /index.html   200
