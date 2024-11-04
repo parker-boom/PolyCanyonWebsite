@@ -10,7 +10,7 @@ Imports
 */
 
 // Libraries
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import {
   BrowserRouter as Router,
@@ -24,6 +24,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 
+// Styles
 import './index.css';
 import Navigation from './layout/Navigation.js';
 import { Footer, FooterText } from './layout/Navigation.styles.js';
@@ -83,10 +84,20 @@ function App() {
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
   const location = useLocation();
 
+  useEffect(() => {
+    // Check if the URL contains #invite_token
+    if (window.location.hash.includes('invite_token')) {
+      const token = window.location.hash.split('invite_token=')[1];
+      if (token) {
+        // Redirect to /admin with the invite token
+        window.location.href = `/admin/#invite_token=${token}`;
+      }
+    }
+  }, []);
+
   return (
     <AppContainer>
       {location.pathname !== '/' && <Navigation />}
-
       <Content path={location.pathname}>
         <Routes>
           {/* Home route */}
