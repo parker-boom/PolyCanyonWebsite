@@ -9,7 +9,6 @@
     <div id="nc-root"></div>
     <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
     <script>
-      // Initialize the CMS manually
       CMS.registerPreviewStyle('preview.css');
 
       const StructurePreview = createClass({
@@ -20,36 +19,161 @@
           return h(
             'div',
             { className: 'structures-preview' },
-            structures.map((structure, index) =>
-              h(
+            structures.map((structure, index) => {
+              const names = structure.get('names') || [];
+              const otherNames = names.slice(1);
+              const advisors = (structure.get('advisor_builders') || [])
+                .filter((builder) =>
+                  (builder.get('role') || []).includes('Advisor')
+                )
+                .map((advisor) => advisor.get('name'));
+              const builders = (structure.get('advisor_builders') || []).map(
+                (builder) => builder.get('name')
+              );
+
+              return h(
                 'div',
                 { key: index, className: 'structure-card' },
+                // Title and Number
                 h(
                   'h2',
                   {},
-                  structure.get('names')
-                    ? structure.getIn(['names', 0])
-                    : 'Untitled'
+                  `${structure.getIn(['names', 0])} (${structure.get('number')})`
                 ),
+
+                // Other Names
+                otherNames.length > 0 &&
+                  h(
+                    'div',
+                    { className: 'field' },
+                    h('strong', {}, 'Other Names: '),
+                    h('span', {}, otherNames.join(', '))
+                  ),
+
+                // Year
                 h(
                   'div',
-                  { className: 'structure-details' },
+                  { className: 'field' },
+                  h('strong', {}, 'Year: '),
+                  h('span', {}, structure.get('year'))
+                ),
+
+                // Department
+                structure.get('department').size > 0 &&
                   h(
-                    'p',
-                    {},
-                    h('strong', {}, 'Number: '),
-                    structure.get('number')
+                    'div',
+                    { className: 'field' },
+                    h('strong', {}, 'Department: '),
+                    h('span', {}, structure.get('department').join(', '))
                   ),
-                  h('p', {}, h('strong', {}, 'Year: '), structure.get('year')),
+
+                // Advisors
+                advisors.length > 0 &&
                   h(
-                    'p',
-                    {},
-                    h('strong', {}, 'Description: '),
-                    structure.get('description')
+                    'div',
+                    { className: 'field' },
+                    h('strong', {}, 'Advisors: '),
+                    h('span', {}, advisors.join(', '))
+                  ),
+
+                // Builders
+                builders.length > 0 &&
+                  h(
+                    'div',
+                    { className: 'field' },
+                    h('strong', {}, 'Builders: '),
+                    h('span', {}, builders.join(', '))
+                  ),
+
+                // Status
+                structure.get('status') &&
+                  h(
+                    'div',
+                    { className: 'field' },
+                    h('strong', {}, 'Status: '),
+                    h('span', {}, structure.get('status'))
+                  ),
+
+                // Style
+                structure.get('style') &&
+                  h(
+                    'div',
+                    { className: 'field' },
+                    h('strong', {}, 'Style: '),
+                    h('span', {}, structure.get('style'))
+                  ),
+
+                // Tags
+                structure.get('tags').size > 0 &&
+                  h(
+                    'div',
+                    { className: 'field' },
+                    h('strong', {}, 'Tags: '),
+                    h('span', {}, structure.get('tags').join(', '))
+                  ),
+
+                // Location
+                structure.getIn(['location', 'latitude']) &&
+                  h(
+                    'div',
+                    { className: 'field' },
+                    h('strong', {}, 'Location: '),
+                    h(
+                      'span',
+                      {},
+                      `${structure.getIn(['location', 'latitude'])}, ${structure.getIn(['location', 'longitude'])}`
+                    )
+                  ),
+
+                // Description
+                h(
+                  'div',
+                  { className: 'field description' },
+                  h('strong', {}, 'Description: '),
+                  h('p', {}, structure.get('description'))
+                ),
+
+                // Extended Description
+                h(
+                  'div',
+                  { className: 'field description' },
+                  h('strong', {}, 'Extended Description: '),
+                  h('p', {}, structure.get('extended_description'))
+                ),
+
+                // Images
+                structure.get('images').size > 0 &&
+                  h(
+                    'div',
+                    { className: 'field' },
+                    h('strong', {}, 'Images: '),
+                    h(
+                      'span',
+                      {},
+                      structure
+                        .get('images')
+                        .map((img) => img.get('type'))
+                        .join(', ')
+                    )
+                  ),
+
+                // Links
+                structure.get('links').size > 0 &&
+                  h(
+                    'div',
+                    { className: 'field' },
+                    h('strong', {}, 'Links: '),
+                    h(
+                      'span',
+                      {},
+                      structure
+                        .get('links')
+                        .map((link) => link.get('title'))
+                        .join(', ')
+                    )
                   )
-                )
-              )
-            )
+              );
+            })
           );
         },
       });
@@ -57,7 +181,6 @@
       CMS.registerPreviewTemplate('all_structures', StructurePreview);
       CMS.init();
 
-      // Handle Netlify Identity redirects
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on('init', (user) => {
           if (!user) {

@@ -4,28 +4,54 @@
   margin: 0 auto;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, sans-serif;
+  line-height: 1.5;
 }
 
 .structure-card {
-  margin-bottom: 2rem;
-  padding: 1.5rem;
+  margin-bottom: 3rem;
+  padding: 2rem;
   border: 1px solid #e1e1e1;
-  border-radius: 4px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .structure-card h2 {
-  margin: 0 0 1rem;
+  margin: 0 0 1.5rem;
   color: #2c3e50;
+  font-size: 1.8rem;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 0.5rem;
 }
 
-.structure-details {
+.field {
+  margin-bottom: 1rem;
+}
+
+.field strong {
+  color: #2c3e50;
+  font-weight: 600;
+  min-width: 150px;
+  display: inline-block;
+}
+
+.field span {
   color: #34495e;
 }
 
-.structure-details p {
-  margin: 0.5rem 0;
+.field.description {
+  margin-top: 1.5rem;
 }
 
-.structure-details strong {
-  color: #2c3e50;
+.field.description strong {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.field.description p {
+  margin: 0;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 4px;
+  color: #34495e;
 }

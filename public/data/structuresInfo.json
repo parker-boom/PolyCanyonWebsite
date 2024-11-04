@@ -6,9 +6,9 @@
       "url": "entryArch",
       "names": ["Entry Arch", "The Gateway", "Main Entrance"],
       "year": "1976",
-      "department": [],
+      "department": ["Architecture"],
       "advisor_builders": [
-        { "name": "Paul Miller", "role": ["Builder"] },
+        { "name": "Paul Miller", "role": ["Advisor"] },
         { "name": "Lynn Noah", "role": ["Builder"] },
         { "name": "Greg Lomax", "role": ["Builder"] },
         { "name": "Andrew Low", "role": ["Builder"] },
@@ -16,10 +16,10 @@
       ],
       "description": "The Entry Arch serves as both a practical entrance and a symbolic gateway into Poly Canyon's experimental landscape. Constructed with a steel frame overlaid with serpentinite rock, it adds a geological twist with a stone that naturally contains asbestos. Nearby, terracotta faces of the student builders are embedded in a stone wall, watching over visitors.",
       "extended_description": "These terracotta faces add a personal touch to the entrance, blending technical innovation with human artistry. The design embodies the collaborative spirit of Cal Poly students. The use of serpentinite rock showcases innovative material use and highlights the students' ability to incorporate unique geological elements into their work. The Entry Arch stands as a testament to the creativity and craftsmanship of its builders. It remains a significant landmark welcoming visitors into the rich tapestry of architectural experimentation within Poly Canyon.",
-      "status": "",
-      "style": "",
-      "tags": [],
-      "location": {},
+      "status": "Active",
+      "style": "Archy",
+      "tags": ["Arch", "Gateway", "Stone", "Entry"],
+      "location": { "latitude": 35.313384, "longitude": -120.651865 },
       "images": [
         {
           "type": "main",
