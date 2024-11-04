@@ -6,20 +6,58 @@
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
-    <!-- Netlify CMS -->
-    <script>
-      window.CMS_MANUAL_INIT = true;
-    </script>
-    <!-- Include Netlify CMS -->
+    <div id="nc-root"></div>
     <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
-    <!-- Include your custom preview template -->
-    <script type="module">
-      import StructurePreview from './structurePreview.js';
+    <script>
+      // Initialize the CMS manually
+      CMS.registerPreviewStyle('preview.css');
+
+      const StructurePreview = createClass({
+        render: function () {
+          const entry = this.props.entry;
+          const structures = entry.getIn(['data', 'structures']) || [];
+
+          return h(
+            'div',
+            { className: 'structures-preview' },
+            structures.map((structure, index) =>
+              h(
+                'div',
+                { key: index, className: 'structure-card' },
+                h(
+                  'h2',
+                  {},
+                  structure.get('names')
+                    ? structure.getIn(['names', 0])
+                    : 'Untitled'
+                ),
+                h(
+                  'div',
+                  { className: 'structure-details' },
+                  h(
+                    'p',
+                    {},
+                    h('strong', {}, 'Number: '),
+                    structure.get('number')
+                  ),
+                  h('p', {}, h('strong', {}, 'Year: '), structure.get('year')),
+                  h(
+                    'p',
+                    {},
+                    h('strong', {}, 'Description: '),
+                    structure.get('description')
+                  )
+                )
+              )
+            )
+          );
+        },
+      });
 
       CMS.registerPreviewTemplate('all_structures', StructurePreview);
-
       CMS.init();
 
+      // Handle Netlify Identity redirects
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on('init', (user) => {
           if (!user) {
