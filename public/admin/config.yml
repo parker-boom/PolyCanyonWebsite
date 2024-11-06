@@ -22,11 +22,11 @@ collections:
             label: 'Structures'
             widget: 'list'
             summary: '{{fields.names.0}} (#{{fields.number}})'
-            minimize_collapsed: true
+            minimize_collapsed: false
             label_singular: 'Structure'
             allow_add: false
             allow_delete: false
-            collapsed: true
+            collapsed: false
             fields:
               - { label: 'ID', name: '_id', widget: 'hidden', required: true }
               - {
@@ -159,17 +159,18 @@ collections:
                 name: 'links'
                 widget: 'list'
                 required: false
+                collapsed: false
                 fields:
                   - {
                       label: 'Link Type',
                       name: 'linkType',
-                      widget: 'hidden',
+                      widget: 'string',
                       required: true,
                     }
                   - {
                       label: 'URL',
                       name: 'URL',
-                      widget: 'hidden',
+                      widget: 'string',
                       required: true,
                     }
                   - {
@@ -178,3 +179,5 @@ collections:
                       widget: 'string',
                       required: true,
                     }
+
+            hint: 'Note: To add images, please use the Media tab and notify Parker. Images should be properly formatted before upload. Send him the source, title, and a description'
