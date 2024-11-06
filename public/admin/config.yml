@@ -22,11 +22,11 @@ collections:
             label: 'Structures'
             widget: 'list'
             summary: '{{fields.names.0}} (#{{fields.number}})'
-            minimize_collapsed: false
+            minimize_collapsed: true
             label_singular: 'Structure'
             allow_add: false
             allow_delete: false
-            collapsed: false
+            collapsed: true
             fields:
               - { label: 'ID', name: '_id', widget: 'hidden', required: true }
               - {
