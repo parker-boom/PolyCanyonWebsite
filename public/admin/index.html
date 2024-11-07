@@ -20,8 +20,8 @@
             'div',
             { className: 'structures-preview' },
             structures.map((structure, index) => {
-              const names = structure.get('names');
-              const otherNames = names && names.size > 1 ? names.slice(1) : [];
+              const names = structure.get('names') || [];
+              const otherNames = names.size > 1 ? names.slice(1) : [];
               const advisorBuilders = structure.get('advisor_builders') || [];
               const advisors = advisorBuilders
                 .filter(
@@ -39,16 +39,14 @@
                 .map((builder) => builder.get('name'));
 
               const renderField = (label, value, className = 'field') => {
-                return h(
-                  'div',
-                  { className },
-                  h('strong', {}, label),
-                  h(
-                    'span',
-                    { className: value ? '' : 'not-provided' },
-                    value || 'Not Provided'
-                  )
-                );
+                return value
+                  ? h(
+                      'div',
+                      { className },
+                      h('strong', {}, label),
+                      h('span', {}, value)
+                    )
+                  : null;
               };
 
               return h(
@@ -58,7 +56,7 @@
                 h(
                   'h2',
                   {},
-                  `${names ? names.get(0) : 'Untitled'} (${structure.get('number')})`
+                  `${names.get(0) || 'Untitled'} (#${structure.get('number') || 'N/A'})`
                 ),
 
                 // Other Names
@@ -68,44 +66,20 @@
                 // Year
                 renderField('Year: ', structure.get('year')),
 
-                // Department
-                renderField(
-                  'Department: ',
-                  structure.get('department') &&
-                    structure.get('department').size > 0
-                    ? structure.get('department').join(', ')
-                    : null
-                ),
-
-                // Advisors (only if there are any)
-                advisors.size > 0 &&
-                  renderField('Advisors: ', advisors.join(', ')),
-
-                // Builders (only if there are any)
-                builders.size > 0 &&
-                  renderField('Builders: ', builders.join(', ')),
-
                 // Status
                 renderField('Status: ', structure.get('status')),
 
-                // Style
-                renderField('Style: ', structure.get('style')),
-
                 // Tags
-                renderField(
-                  'Tags: ',
-                  structure.get('tags').size > 0
-                    ? structure.get('tags').join(', ')
-                    : null
-                ),
+                structure.get('tags') &&
+                  structure.get('tags').size > 0 &&
+                  renderField('Tags: ', structure.get('tags').join(', ')),
 
                 // Location
-                renderField(
-                  'Location: ',
-                  structure.getIn(['location', 'latitude'])
-                    ? `${structure.getIn(['location', 'latitude'])}, ${structure.getIn(['location', 'longitude'])}`
-                    : null
-                ),
+                structure.getIn(['location', 'latitude']) &&
+                  renderField(
+                    'Location: ',
+                    `${structure.getIn(['location', 'latitude'])}, ${structure.getIn(['location', 'longitude'])}`
+                  ),
 
                 // Description
                 renderField(
@@ -121,27 +95,34 @@
                   'field description'
                 ),
 
+                // Advisor/Builders
+                advisors.size > 0 &&
+                  renderField('Advisors: ', advisors.join(', ')),
+
+                builders.size > 0 &&
+                  renderField('Builders: ', builders.join(', ')),
+
                 // Images
-                renderField(
-                  'Images: ',
-                  structure.get('images').size > 0
-                    ? structure
-                        .get('images')
-                        .map((img) => img.get('type'))
-                        .join(', ')
-                    : null
-                ),
+                structure.get('images') &&
+                  structure.get('images').size > 0 &&
+                  renderField(
+                    'Images: ',
+                    structure
+                      .get('images')
+                      .map((img) => img.get('type'))
+                      .join(', ')
+                  ),
 
                 // Links
-                renderField(
-                  'Links: ',
-                  structure.get('links').size > 0
-                    ? structure
-                        .get('links')
-                        .map((link) => link.get('title'))
-                        .join(', ')
-                    : null
-                )
+                structure.get('links') &&
+                  structure.get('links').size > 0 &&
+                  renderField(
+                    'Links: ',
+                    structure
+                      .get('links')
+                      .map((link) => link.get('title'))
+                      .join(', ')
+                  )
               );
             })
           );
