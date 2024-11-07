@@ -1,53 +1,39 @@
 {
   "structures": [
     {
-      "names": [
-        "Entry Arch",
-        "The Gateway",
-        "Main Entrance"
-      ],
-      "number": 1,
+      "_id": "6722b48799b26f2c000bb484",
       "url": "entryArch",
-      "style": "Archy",
-      "department": [
-        "Architecture"
-      ],
+      "number": 1,
+      "names": ["Entry Arch", "The Gateway", "Main Entrance"],
+      "year": "1976",
       "status": "Active",
+      "tags": ["Arch", "Gateway", "Stone", "Entry"],
       "location": {
         "latitude": 35.313384,
         "longitude": -120.651865
       },
+      "description": "The Entry Arch serves as both a practical entrance and a symbolic gateway into Poly Canyon's experimental landscape. Constructed with a steel frame overlaid with serpentinite rock, it adds a geological twist with a stone that naturally contains asbestos. Nearby, terracotta faces of the student builders are embedded in a stone wall, watching over visitors.",
       "extended_description": "These terracotta faces add a personal touch to the entrance, blending technical innovation with human artistry. The design embodies the collaborative spirit of Cal Poly students. The use of serpentinite rock showcases innovative material use and highlights the students' ability to incorporate unique geological elements into their work. The Entry Arch stands as a testament to the creativity and craftsmanship of its builders. It remains a significant landmark welcoming visitors into the rich tapestry of architectural experimentation within Poly Canyon.",
       "advisor_builders": [
         {
           "name": "Paul Miller",
-          "role": [
-            "Advisor"
-          ]
+          "role": ["Advisor"]
         },
         {
           "name": "Lynn Noah",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Greg Lomax",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Andrew Low",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Gwin Stumbaugh",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -64,12 +50,6 @@
           "description": "Close-up image of the Entry Arch."
         }
       ],
-      "tags": [
-        "Arch",
-        "Gateway",
-        "Stone",
-        "Entry"
-      ],
       "links": [
         {
           "linkType": "Article",
@@ -81,40 +61,30 @@
           "URL": "https://google.com",
           "title": "Original Thesis"
         }
-      ],
-      "_id": "6722b48799b26f2c000bb484",
-      "description": "The Entry Arch serves as both a practical entrance and a symbolic gateway into Poly Canyon's experimental landscape. Constructed with a steel frame overlaid with serpentinite rock, it adds a geological twist with a stone that naturally contains asbestos. Nearby, terracotta faces of the student builders are embedded in a stone wall, watching over visitors.",
-      "year": "1976"
+      ]
     },
     {
-      "names": [
-        "Techite Bridge"
-      ],
-      "number": 2,
+      "_id": "6722b48799b26f2c000bb485",
       "url": "techiteBridge",
-      "style": "",
-      "department": [],
+      "number": 2,
+      "names": ["Techite Bridge"],
+      "year": "1973",
       "status": "Active",
       "location": {},
+      "description": "The Techite Bridge is the only Poly Canyon structure built entirely by Construction Engineering students, highlighting their hands-on expertise. Constructed from fiber-reinforced plastic mortar, it showcases innovative use of lightweight yet high-strength materials. The bridge exemplifies how students can bridge gaps in more ways than one.",
       "extended_description": "As a testament to interdisciplinary collaboration, the Techite Bridge stands out for its creative application of construction techniques. The use of fiber-reinforced plastic mortar not only demonstrates technical skill but also innovation in material science. This lightweight yet durable bridge reflects the students' ability to think outside the box. It remains a symbol of student-driven experimentation in construction. The structure continues to inspire future generations of engineers and architects at Cal Poly.",
       "advisor_builders": [
         {
           "name": "Robert Purdy",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Robert Mac Luan",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Merilee Amy",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -131,7 +101,6 @@
           "description": "Close-up image of the Techite Bridge."
         }
       ],
-      "tags": [],
       "links": [
         {
           "linkType": "Article",
@@ -143,46 +112,34 @@
           "URL": "https://google.com",
           "title": "Original Thesis"
         }
-      ],
-      "_id": "6722b48799b26f2c000bb485",
-      "description": "The Techite Bridge is the only Poly Canyon structure built entirely by Construction Engineering students, highlighting their hands-on expertise. Constructed from fiber-reinforced plastic mortar, it showcases innovative use of lightweight yet high-strength materials. The bridge exemplifies how students can bridge gaps in more ways than one.",
-      "year": "1973"
+      ]
     },
     {
-      "names": [
-        "Blade"
-      ],
-      "number": 3,
+      "_id": "6722b48799b26f2c000bb486",
       "url": "blade",
-      "style": "",
-      "department": [],
+      "number": 3,
+      "names": ["Blade"],
+      "year": "1963 / 2003",
       "status": "Active",
       "location": {},
+      "description": "The Blade structure collapsed once but was rebuilt decades later, proving that at Poly Canyon, students get second chances to make first-rate architecture. Originally testing pioneering post-tensioning methods, it faced design flaws but was reconstructed by a new team, including some original builders.",
       "extended_description": "Updated with features like catenary arches to meet new building codes, the Blade won an Award of Excellence. The project embodies Cal Poly's 'learn by doing' spirit and showcases the evolution of architectural education through hands-on experience. Its reconstruction demonstrates perseverance and the value of learning from past mistakes. The structure now stands as a symbol of innovation and resilience. It continues to inspire students to push the boundaries of architectural design.",
       "advisor_builders": [
         {
           "name": "Steve Gilmore",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Mark Haselton",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Dan McMann",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Ken Minor",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -199,7 +156,6 @@
           "description": "Close-up image of the Blade."
         }
       ],
-      "tags": [],
       "links": [
         {
           "linkType": "Article",
@@ -211,34 +167,26 @@
           "URL": "https://google.com",
           "title": "Original Thesis"
         }
-      ],
-      "_id": "6722b48799b26f2c000bb486",
-      "description": "The Blade structure collapsed once but was rebuilt decades later, proving that at Poly Canyon, students get second chances to make first-rate architecture. Originally testing pioneering post-tensioning methods, it faced design flaws but was reconstructed by a new team, including some original builders.",
-      "year": "1963 / 2003"
+      ]
     },
     {
-      "names": [
-        "Spire Array"
-      ],
-      "number": 4,
+      "_id": "6722b48799b26f2c000bb487",
       "url": "spireArray",
-      "style": "",
-      "department": [],
+      "number": 4,
+      "names": ["Spire Array"],
+      "year": "2020",
       "status": "Active",
       "location": {},
+      "description": "Wild horses are often spotted near the Spire Array\u2014did you see any today? This striking wooden structure explores minimalist construction methods using simple materials, resembling teepee-like forms.",
       "extended_description": "Created to investigate efficient building techniques, the geometric design allows natural light to filter through, offering a dynamic play of shadow and space. The project exemplifies how basic materials can be transformed into complex, visually intriguing structures through innovative design. It serves as a testament to the creativity and resourcefulness of students. The Spire Array adds a unique aesthetic to the Poly Canyon landscape. It encourages visitors to reflect on the possibilities of minimalist architecture.",
       "advisor_builders": [
         {
           "name": "Professor Dale Clifford",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Design Build Team",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -255,7 +203,6 @@
           "description": "Close-up image of the Spire Array."
         }
       ],
-      "tags": [],
       "links": [
         {
           "linkType": "Article",
@@ -267,28 +214,22 @@
           "URL": "https://google.com",
           "title": "Original Thesis"
         }
-      ],
-      "_id": "6722b48799b26f2c000bb487",
-      "description": "Wild horses are often spotted near the Spire Array—did you see any today? This striking wooden structure explores minimalist construction methods using simple materials, resembling teepee-like forms.",
-      "year": "2020"
+      ]
     },
     {
-      "names": [
-        "Palm Tree"
-      ],
-      "number": 5,
+      "_id": "6722b48799b26f2c000bb488",
       "url": "palmTree",
-      "style": "",
-      "department": [],
+      "number": 5,
+      "names": ["Palm Tree"],
+      "year": "xxxx",
       "status": "Active",
       "location": {},
+      "description": "The Palm Tree was originally designed to rotate with changing temperatures due to the differing expansion rates of its metals. This unique structure features a tall central pole crowned by an assembly of dissimilar metals.",
       "extended_description": "The innovative design aimed to exploit the differing thermal expansion and contraction rates of the metals to generate rotation. Standing isolated against the rugged landscape, the structure's minimalist appearance contrasts with the complexity of its engineering intent. It serves as a physical representation of the interplay between art and science. The Palm Tree invites observers to consider the effects of environmental factors on structural design. Despite its simplicity, it embodies a sophisticated engineering concept.",
       "advisor_builders": [
         {
           "name": "iii",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -305,7 +246,6 @@
           "description": "Close-up image of the Palm Tree."
         }
       ],
-      "tags": [],
       "links": [
         {
           "linkType": "Article",
@@ -317,64 +257,46 @@
           "URL": "https://google.com",
           "title": "Original Thesis"
         }
-      ],
-      "_id": "6722b48799b26f2c000bb488",
-      "description": "The Palm Tree was originally designed to rotate with changing temperatures due to the differing expansion rates of its metals. This unique structure features a tall central pole crowned by an assembly of dissimilar metals.",
-      "year": "xxxx"
+      ]
     },
     {
-      "names": [
-        "Tensile"
-      ],
-      "number": 6,
+      "_id": "6722b48799b26f2c000bb489",
       "url": "tensile",
-      "style": "",
-      "department": [],
+      "number": 6,
+      "names": ["Tensile"],
+      "year": "2002",
       "status": "Active",
       "location": {},
+      "description": "One student loved the Tensile structure so much, they got married under it\u2014a testament to its beauty and community spirit. Showcasing structural elegance, it is held up by twelve footings interconnected underground.",
       "extended_description": "Utilizing tension cables and fabric, the structure provides much-needed shade during events like Design Village. The fact that a student chose this spot for their wedding adds a personal dimension, highlighting how architecture can foster community and create meaningful spaces beyond their functional purpose. The Tensile structure exemplifies the harmonious blend of form and function. It continues to be a focal point for gatherings and events. The design inspires visitors to appreciate the possibilities of tensile architecture.",
       "advisor_builders": [
         {
           "name": "Kiren Kelly-Sneed",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Theresa Zaro",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Royce Chow",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Abe Lynn",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Michael Lucas",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Walt Tryon",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Richard Zweifel",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -391,7 +313,6 @@
           "description": "Close-up image of the Tensile."
         }
       ],
-      "tags": [],
       "links": [
         {
           "linkType": "Article",
@@ -403,52 +324,38 @@
           "URL": "https://google.com",
           "title": "Original Thesis"
         }
-      ],
-      "_id": "6722b48799b26f2c000bb489",
-      "description": "One student loved the Tensile structure so much, they got married under it—a testament to its beauty and community spirit. Showcasing structural elegance, it is held up by twelve footings interconnected underground.",
-      "year": "2002"
+      ]
     },
     {
-      "names": [
-        "Geodesic Dome"
-      ],
-      "number": 7,
+      "_id": "6722b48799b26f2c000bb48a",
       "url": "geodesicDome",
-      "style": "",
-      "department": [],
+      "number": 7,
+      "names": ["Geodesic Dome"],
+      "year": "1963",
       "status": "Active",
       "location": {},
+      "description": "Inspired by Buckminster Fuller, the Geodesic Dome was originally built from surplus materials and offers stellar acoustics\u2014it's even been used as a sound stage. This iconic dome showcases the strength and efficiency of triangular components.",
       "extended_description": "Made from lightweight surplus materials, it was initially an entrance to the architecture building before finding its home in Poly Canyon. Renowned for its excellent acoustics, the dome continues to serve as a functional space for events, bridging historical innovation with modern utility. The structure embodies the pioneering spirit of architectural experimentation. Its design has influenced countless students and architects. The Geodesic Dome remains a symbol of ingenuity and timeless design principles.",
       "advisor_builders": [
         {
           "name": "Richard Neill",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "William Roth",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Donald Mills",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Samuel Peterson",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Don Trunklage",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -465,7 +372,6 @@
           "description": "Close-up image of the Geodesic Dome."
         }
       ],
-      "tags": [],
       "links": [
         {
           "linkType": "Article",
@@ -477,46 +383,34 @@
           "URL": "https://google.com",
           "title": "Original Thesis"
         }
-      ],
-      "_id": "6722b48799b26f2c000bb48a",
-      "description": "Inspired by Buckminster Fuller, the Geodesic Dome was originally built from surplus materials and offers stellar acoustics—it's even been used as a sound stage. This iconic dome showcases the strength and efficiency of triangular components.",
-      "year": "1963"
+      ]
     },
     {
-      "names": [
-        "Cantilever Deck"
-      ],
-      "number": 8,
+      "_id": "6722b48799b26f2c000bb48b",
       "url": "cantileverDeck",
-      "style": "",
-      "department": [],
+      "number": 8,
+      "names": ["Cantilever Deck"],
+      "year": "1990",
       "status": "Active",
       "location": {},
+      "description": "The Cantilever Deck appears to float in mid-air, thanks to two students who defied gravity with cables and creativity. Constructed by ambitious architecture students, it exemplifies the principles of cantilever construction.",
       "extended_description": "Suspended entirely by cables with no direct ground support, it showcases the perfect balance of tension and compression forces. This minimalist design is a real-world application of structural precision, highlighting how innovative engineering can create the illusion of a floating platform amid the natural landscape. The deck provides a unique space for contemplation and observation. It challenges conventional architectural norms. The Cantilever Deck continues to inspire awe and curiosity among visitors.",
       "advisor_builders": [
         {
           "name": "Rowan Hernandez",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Kim Throndson",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "John Morrena",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Lee Benson",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -533,7 +427,6 @@
           "description": "Close-up image of the Cantilever Deck."
         }
       ],
-      "tags": [],
       "links": [
         {
           "linkType": "Article",
@@ -545,40 +438,30 @@
           "URL": "https://google.com",
           "title": "Original Thesis"
         }
-      ],
-      "_id": "6722b48799b26f2c000bb48b",
-      "description": "The Cantilever Deck appears to float in mid-air, thanks to two students who defied gravity with cables and creativity. Constructed by ambitious architecture students, it exemplifies the principles of cantilever construction.",
-      "year": "1990"
+      ]
     },
     {
-      "names": [
-        "Earth Restrooms"
-      ],
-      "number": 9,
+      "_id": "6722b48799b26f2c000bb48c",
       "url": "restrooms",
-      "style": "",
-      "department": [],
+      "number": 9,
+      "names": ["Earth Restrooms"],
+      "year": "1972",
       "status": "Active",
       "location": {},
+      "description": "These restrooms were shaped by dirt! Students used earth mounds as molds, then dug them out to reveal the curvy concrete roof. Ingeniously using earth mounds as natural formwork, they seamlessly blend with the landscape.",
       "extended_description": "After the concrete cured, the soil was excavated to reveal a structure that embodies efficient use of materials and environmental integration. Serving as essential infrastructure before other facilities were available, this project highlights the innovative spirit of students merging architecture with nature. The Earth-Formed Restrooms demonstrate sustainable building practices. They serve as an educational example of alternative construction methods. The design continues to intrigue and educate visitors about eco-friendly architecture.",
       "advisor_builders": [
         {
           "name": "Glen Jackson",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Robert Del Bianco",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Ralph Nafzgar",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -595,7 +478,6 @@
           "description": "Close-up image of the Earth-Formed Restrooms."
         }
       ],
-      "tags": [],
       "links": [
         {
           "linkType": "Article",
@@ -607,94 +489,66 @@
           "URL": "https://google.com",
           "title": "Original Thesis"
         }
-      ],
-      "_id": "6722b48799b26f2c000bb48c",
-      "description": "These restrooms were shaped by dirt! Students used earth mounds as molds, then dug them out to reveal the curvy concrete roof. Ingeniously using earth mounds as natural formwork, they seamlessly blend with the landscape.",
-      "year": "1972"
+      ]
     },
     {
-      "names": [
-        "Underground House"
-      ],
-      "number": 10,
+      "_id": "6722b48799b26f2c000bb48d",
       "url": "undergroundHouse",
-      "style": "",
-      "department": [],
+      "number": 10,
+      "names": ["Underground House"],
+      "year": "1982",
       "status": "Active",
       "location": {},
+      "description": "Designed to be invisible, the Underground House was supposed to be fully underground with only skylights showing\u2014but leaks brought it back to the surface. An ambitious venture into subterranean architecture, it was intended to be completely submerged.",
       "extended_description": "Significant issues with leaking led to it being partially unearthed. Despite the challenges, it has served as housing for caretakers, providing practical lessons in the complexities of underground construction and the importance of adapting designs to environmental constraints. The structure highlights the innovative yet practical aspects of architectural design. It stands as a learning monument to the challenges of waterproofing and subterranean living. The Underground House continues to intrigue those interested in alternative housing solutions.",
       "advisor_builders": [
         {
           "name": "Carl C Barrett",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Robert S Cocores",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Allyn W Mcfarlin",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "John M Provato",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Jesse P Wedemeyer",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Wayne Christian",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Pat Dennison",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Fred Kozono",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Mark McIntire",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Chris Sterios",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Craig Wilson",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Mark V Zeolla",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -711,7 +565,6 @@
           "description": "Close-up image of the Underground House."
         }
       ],
-      "tags": [],
       "links": [
         {
           "linkType": "Article",
@@ -723,28 +576,22 @@
           "URL": "https://google.com",
           "title": "Original Thesis"
         }
-      ],
-      "_id": "6722b48799b26f2c000bb48d",
-      "description": "Designed to be invisible, the Underground House was supposed to be fully underground with only skylights showing—but leaks brought it back to the surface. An ambitious venture into subterranean architecture, it was intended to be completely submerged.",
-      "year": "1982"
+      ]
     },
     {
-      "names": [
-        "Sun Dial"
-      ],
-      "number": 11,
+      "_id": "6722b48799b26f2c000bb48e",
       "url": "sunDial",
-      "style": "",
-      "department": [],
+      "number": 11,
+      "names": ["Sun Dial"],
+      "year": "1971",
       "status": "Active",
       "location": {},
+      "description": "Though it collapsed from too much climbing, the Sun Dial still reminds us that every experiment is a step toward learning. Once a functional piece of art, it told time using the sun's position.",
       "extended_description": "The Sun Dial collapsed in the 1990s due to overenthusiastic climbing. Despite its fall, it serves as a symbolic reminder of Cal Poly's 'learn by doing' philosophy. The structure highlights the experimental nature of Poly Canyon, showing that even failures contribute valuable insights to architectural education. It stands as a testament to the importance of structural integrity and user interaction. The Sun Dial's legacy continues to influence design considerations in student projects.",
       "advisor_builders": [
         {
           "name": "John Stuart",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -761,7 +608,6 @@
           "description": "Close-up image of the Sun Dial."
         }
       ],
-      "tags": [],
       "links": [
         {
           "linkType": "Article",
@@ -773,52 +619,38 @@
           "URL": "https://google.com",
           "title": "Original Thesis"
         }
-      ],
-      "_id": "6722b48799b26f2c000bb48e",
-      "description": "Though it collapsed from too much climbing, the Sun Dial still reminds us that every experiment is a step toward learning. Once a functional piece of art, it told time using the sun's position.",
-      "year": "1971"
+      ]
     },
     {
-      "names": [
-        "Gunite Bridge"
-      ],
-      "number": 12,
+      "_id": "6722b48799b26f2c000bb48f",
       "url": "guniteBridge",
-      "style": "",
-      "department": [],
+      "number": 12,
+      "names": ["Gunite Bridge"],
+      "year": "1965",
       "status": "Active",
       "location": {},
-      "extended_description": "Students built a reinforced steel skeleton with metal lath and then sprayed it with gunite—a type of concrete applied through a high-pressure hose. Once cured, tension cables were cut to place the structure in compression. This innovative process pushed the limits of concrete application, highlighting student experimentation with advanced construction methods. The bridge serves as a historical example of material and structural innovation. It continues to be studied for its unique construction technique. The Gunite Bridge remains a landmark of student creativity and engineering prowess.",
+      "description": "The Gunite Bridge was sprayed into existence! Students used a gunite machine to apply concrete over a steel skeleton. Demonstrating technical ingenuity, it was constructed using pretension and post-compression techniques.",
+      "extended_description": "Students built a reinforced steel skeleton with metal lath and then sprayed it with gunite\u2014a type of concrete applied through a high-pressure hose. Once cured, tension cables were cut to place the structure in compression. This innovative process pushed the limits of concrete application, highlighting student experimentation with advanced construction methods. The bridge serves as a historical example of material and structural innovation. It continues to be studied for its unique construction technique. The Gunite Bridge remains a landmark of student creativity and engineering prowess.",
       "advisor_builders": [
         {
           "name": "Gordon L. Boles",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Roy Leland Bostrom",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Kokpo Ng",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Richard L. Saylor",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "John Ulloa",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -835,7 +667,6 @@
           "description": "Close-up image of the Gunite Bridge."
         }
       ],
-      "tags": [],
       "links": [
         {
           "linkType": "Article",
@@ -847,46 +678,34 @@
           "URL": "https://google.com",
           "title": "Original Thesis"
         }
-      ],
-      "_id": "6722b48799b26f2c000bb48f",
-      "description": "The Gunite Bridge was sprayed into existence! Students used a gunite machine to apply concrete over a steel skeleton. Demonstrating technical ingenuity, it was constructed using pretension and post-compression techniques.",
-      "year": "1965"
+      ]
     },
     {
-      "names": [
-        "Timber Truss"
-      ],
-      "number": 13,
+      "_id": "6722b48799b26f2c000bb490",
       "url": "timberTruss",
-      "style": "",
-      "department": [],
+      "number": 13,
+      "names": ["Timber Truss"],
+      "year": "1994",
       "status": "Active",
       "location": {},
+      "description": "This bridge stands as a tribute to Keigen Langholff, a passionate student whose contributions to Poly Canyon were cut tragically short. It showcases the strength and versatility of timber in bridge construction.",
       "extended_description": "Recently retrofitted, the structure continues to serve as a hands-on learning tool for students, allowing them to study and experience firsthand the principles of structural engineering in a real-world application. The bridge's design incorporates complex truss systems, emphasizing the importance of structural integrity and design. It stands as both a memorial and an educational resource. The Timber Truss bridge inspires future architects and engineers through its enduring presence.",
       "advisor_builders": [
         {
           "name": "Derek Bonsper",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Josh Randall",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Fred Sobottka",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Mike Willis",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -903,7 +722,6 @@
           "description": "Close-up image of the Timber Truss."
         }
       ],
-      "tags": [],
       "links": [
         {
           "linkType": "Article",
@@ -915,52 +733,38 @@
           "URL": "https://google.com",
           "title": "Original Thesis"
         }
-      ],
-      "_id": "6722b48799b26f2c000bb490",
-      "description": "This bridge stands as a tribute to Keigen Langholff, a passionate student whose contributions to Poly Canyon were cut tragically short. It showcases the strength and versatility of timber in bridge construction.",
-      "year": "1994"
+      ]
     },
     {
-      "names": [
-        "Stick Structure"
-      ],
-      "number": 14,
+      "_id": "6722b48799b26f2c000bb491",
       "url": "stickStructure",
-      "style": "",
-      "department": [],
+      "number": 14,
+      "names": ["Stick Structure"],
+      "year": "1976 / 2009",
       "status": "Active",
       "location": {},
+      "description": "Intended to change shapes regularly, the Stick Structure stood unchanged for decades before students gave it a fresh makeover. Originally built as a life-sized structural stability model, it allows students to explore load flow and stiffness in various configurations.",
       "extended_description": "Although it was meant for regular reconfiguration, it remained the same for years until a renovation in 2009 revived its purpose. This hands-on educational tool demonstrates the principles of structural design in a tangible, full-scale format, emphasizing the longevity of student innovation. The Stick Structure serves as a testament to the enduring value of experimental architecture and the importance of continual learning and adaptation in design.",
       "advisor_builders": [
         {
           "name": "William F Martin",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Brian Gottlieb",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Dan Morita",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Michelle M. Pettit",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Jake Feldman",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -977,7 +781,6 @@
           "description": "Close-up image of the Stick Structure."
         }
       ],
-      "tags": [],
       "links": [
         {
           "linkType": "Article",
@@ -989,21 +792,17 @@
           "URL": "https://google.com",
           "title": "Original Thesis"
         }
-      ],
-      "_id": "6722b48799b26f2c000bb491",
-      "description": "Intended to change shapes regularly, the Stick Structure stood unchanged for decades before students gave it a fresh makeover. Originally built as a life-sized structural stability model, it allows students to explore load flow and stiffness in various configurations.",
-      "year": "1976 / 2009"
+      ]
     },
     {
-      "names": [
-        "Pyramid"
-      ],
-      "number": 15,
+      "_id": "6722b48799b26f2c000bb492",
       "url": "pyramid",
-      "style": "",
-      "department": [],
+      "number": 15,
+      "names": ["Pyramid"],
+      "year": "1976",
       "status": "Active",
       "location": {},
+      "description": "The Pyramid's unknown origins invite endless speculation\u2014was it an early experiment, an artistic statement, or something else entirely? This enigmatic structure stands as a testament to the experimental nature of Poly Canyon.",
       "extended_description": "Noted only on the original Poly Canyon map, its mysterious origins embody the spirit of architectural exploration that defines the area. The pyramid adds an element of intrigue to the landscape, encouraging visitors to ponder the diverse forms architecture can take. It symbolizes the openness to innovation and the unknown, reflecting the boundless possibilities in design.",
       "advisor_builders": [],
       "images": [
@@ -1020,7 +819,6 @@
           "description": "Close-up image of the Pyramid."
         }
       ],
-      "tags": [],
       "links": [
         {
           "linkType": "Article",
@@ -1032,82 +830,58 @@
           "URL": "https://google.com",
           "title": "Original Thesis"
         }
-      ],
-      "_id": "6722b48799b26f2c000bb492",
-      "description": "The Pyramid's unknown origins invite endless speculation—was it an early experiment, an artistic statement, or something else entirely? This enigmatic structure stands as a testament to the experimental nature of Poly Canyon.",
-      "year": "1976"
+      ]
     },
     {
-      "names": [
-        "Bridge House"
-      ],
-      "number": 16,
+      "_id": "6722b48799b26f2c000bb493",
       "url": "bridgeHouse",
-      "style": "",
-      "department": [],
+      "number": 16,
+      "names": ["Bridge House"],
+      "year": "1968",
       "status": "Active",
       "location": {},
+      "description": "This isn't just a house\u2014it's a bridge between architecture and engineering, and was one of the first to use rust-loving Cor-ten steel! Inspired by Craig Ellwood's designs, the Bridge House utilizes Cor-ten steel, which develops a protective rust layer over time.",
       "extended_description": "Originally serving as lodging for guest lecturers, it has been adapted for seismic testing with removable exterior braces. This multifunctional space allows students to explore different seismic load configurations, embodying innovation and adaptability in a dynamic learning environment. The Bridge House exemplifies the fusion of architectural aesthetics with engineering functionality, continuing to be a valuable educational resource.",
       "advisor_builders": [
         {
           "name": "Ronald Davena",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Joel Dean",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Robert Garlow",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Raymond Hilken",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Lui Horstmeyer",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "James January",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Lloyd Suehiro",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Thomas Wiggin",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Kurt Holder",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Bruce Campe",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -1124,7 +898,6 @@
           "description": "Close-up image of the Bridge House."
         }
       ],
-      "tags": [],
       "links": [
         {
           "linkType": "Article",
@@ -1136,28 +909,22 @@
           "URL": "https://google.com",
           "title": "Original Thesis"
         }
-      ],
-      "_id": "6722b48799b26f2c000bb493",
-      "description": "This isn't just a house—it's a bridge between architecture and engineering, and was one of the first to use rust-loving Cor-ten steel! Inspired by Craig Ellwood's designs, the Bridge House utilizes Cor-ten steel, which develops a protective rust layer over time.",
-      "year": "1968"
+      ]
     },
     {
-      "names": [
-        "Water Tanks"
-      ],
-      "number": 17,
+      "_id": "6722b48799b26f2c000bb494",
       "url": "waterTanks",
-      "style": "",
-      "department": [],
+      "number": 17,
+      "names": ["Water Tanks"],
+      "year": "1969 / 1998",
       "status": "Active",
       "location": {},
+      "description": "These tanks tap into a spring that feeds Brizzolara Creek, connecting modern engineering with the area's natural water sources! Situated near a hillside spring, the Water Tanks play a crucial role in Poly Canyon's infrastructure.",
       "extended_description": "The original tank faced issues holding water above a certain level, which was ingeniously solved with the addition of polyvinyl storage tanks. This project highlights sustainable resource management and how engineering solutions can evolve over time to meet functional challenges while respecting natural resources. The Water Tanks exemplify the integration of technology with environmental stewardship.",
       "advisor_builders": [
         {
           "name": "Mathew Bittleston",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -1174,7 +941,6 @@
           "description": "Close-up image of the Water Tanks."
         }
       ],
-      "tags": [],
       "links": [
         {
           "linkType": "Article",
@@ -1186,40 +952,30 @@
           "URL": "https://google.com",
           "title": "Original Thesis"
         }
-      ],
-      "_id": "6722b48799b26f2c000bb494",
-      "description": "These tanks tap into a spring that feeds Brizzolara Creek, connecting modern engineering with the area's natural water sources! Situated near a hillside spring, the Water Tanks play a crucial role in Poly Canyon's infrastructure.",
-      "year": "1969 / 1998"
+      ]
     },
     {
-      "names": [
-        "Observation Deck"
-      ],
-      "number": 18,
+      "_id": "6722b48799b26f2c000bb495",
       "url": "observationDeck",
-      "style": "",
-      "department": [],
+      "number": 18,
+      "names": ["Observation Deck"],
+      "year": "2019",
       "status": "Active",
       "location": {},
+      "description": "The Observation Deck was completed just one day before the team's graduation, making it their final achievement as Cal Poly students. This redwood structure offers panoramic views of the surrounding hills.",
       "extended_description": "Serving as both a rest stop for hikers and a symbol of Poly Canyon's rejuvenation, its construction represents a renewed push for student-led projects in the area. The deck's design balances functionality with aesthetic appeal, providing a peaceful vantage point that encourages appreciation of the canyon's natural beauty and architectural diversity. It stands as a lasting legacy of the students' dedication and hard work.",
       "advisor_builders": [
         {
           "name": "Tony Pellegrini",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Harrison Woods",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Sitora Vaxidova",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -1236,7 +992,6 @@
           "description": "Close-up image of the Observation Deck."
         }
       ],
-      "tags": [],
       "links": [
         {
           "linkType": "Article",
@@ -1248,142 +1003,98 @@
           "URL": "https://google.com",
           "title": "Original Thesis"
         }
-      ],
-      "_id": "6722b48799b26f2c000bb495",
-      "description": "The Observation Deck was completed just one day before the team's graduation, making it their final achievement as Cal Poly students. This redwood structure offers panoramic views of the surrounding hills.",
-      "year": "2019"
+      ]
     },
     {
-      "names": [
-        "Poly Pavilion"
-      ],
-      "number": 19,
+      "_id": "6722b48799b26f2c000bb496",
       "url": "polyPavilion",
-      "style": "",
-      "department": [],
+      "number": 19,
+      "names": ["Poly Pavilion"],
+      "year": "1985",
       "status": "Active",
       "location": {},
+      "description": "The Poly Pavilion's precast segments were assembled on campus and transported to the canyon, showcasing the hands-on approach of Cal Poly students. Constructed by an Architectural Engineering class, it showcases the potential of precast concrete in architecture.",
       "extended_description": "The segments were crafted on campus and transported to the canyon, demonstrating the logistical challenges of on-site assembly. Supported by arching action between its foundations, the pavilion illustrates how prefabrication techniques can be combined with innovative structural principles to create striking architectural forms. It stands as a testament to collaborative effort and engineering prowess.",
       "advisor_builders": [
         {
           "name": "Alfredo Alcaraz",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Armando Paez",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Blanca Guerra",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Bob Green",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Brad Bishop",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Brett Beeman",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Chi Pham",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Cindy Smith",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Dave Hernandez",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Frank Maskiewicz",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Jim Low",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Joe Michale",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "John Smith",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Ken Brehmer",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Ken Schumann",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Ku Divita",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Pete Chavez",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Randal Brunson",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Ricardo Arevalo",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Stan Smith",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -1400,7 +1111,6 @@
           "description": "Close-up image of the Poly Pavilion."
         }
       ],
-      "tags": [],
       "links": [
         {
           "linkType": "Article",
@@ -1412,28 +1122,22 @@
           "URL": "https://google.com",
           "title": "Original Thesis"
         }
-      ],
-      "_id": "6722b48799b26f2c000bb496",
-      "description": "The Poly Pavilion's precast segments were assembled on campus and transported to the canyon, showcasing the hands-on approach of Cal Poly students. Constructed by an Architectural Engineering class, it showcases the potential of precast concrete in architecture.",
-      "year": "1985"
+      ]
     },
     {
-      "names": [
-        "Serenity Wall"
-      ],
-      "number": 20,
+      "_id": "6722b48799b26f2c000bb497",
       "url": "serenityWall",
-      "style": "",
-      "department": [],
+      "number": 20,
+      "names": ["Serenity Wall"],
+      "year": "2004",
       "status": "Active",
       "location": {},
+      "description": "The student who built the Serenity Wall also constructed two other unlisted structures: the Meditation Bench and Cardinal Direction. Designed to blend seamlessly with its surroundings, this structure embodies the principle of 'out of sight, out of mind.'",
       "extended_description": "Constructed with weather-resistant redwood planks, it requires minimal maintenance while complementing the natural environment. The wall serves as a subtle gateway to other canyon features, demonstrating how architecture can enhance rather than dominate a landscape. It reflects a thoughtful approach to design that prioritizes harmony with nature.",
       "advisor_builders": [
         {
           "name": "Brian Milton",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -1450,7 +1154,6 @@
           "description": "Close-up image of the Serenity Wall."
         }
       ],
-      "tags": [],
       "links": [
         {
           "linkType": "Article",
@@ -1462,46 +1165,34 @@
           "URL": "https://google.com",
           "title": "Original Thesis"
         }
-      ],
-      "_id": "6722b48799b26f2c000bb497",
-      "description": "The student who built the Serenity Wall also constructed two other unlisted structures: the Meditation Bench and Cardinal Direction. Designed to blend seamlessly with its surroundings, this structure embodies the principle of 'out of sight, out of mind.'",
-      "year": "2004"
+      ]
     },
     {
-      "names": [
-        "Hay Bale Arch"
-      ],
-      "number": 21,
+      "_id": "6722b48799b26f2c000bb498",
       "url": "hayBale",
-      "style": "",
-      "department": [],
+      "number": 21,
+      "names": ["Hay Bale Arch"],
+      "year": "2004",
       "status": "Active",
       "location": {},
+      "description": "This arch is likely the only double-barrel design of its kind, showcasing the creativity and resourcefulness of the students who built it. The Hay Bale Arch utilizes straw for its surprisingly effective insulation properties.",
       "extended_description": "The unique 'window of truth' offers a glimpse into the straw core, educating visitors about alternative building materials. Its double-barrel design is likely one-of-a-kind, showcasing the creative potential of combining traditional materials with modern architectural concepts. The structure serves as both an educational exhibit and a testament to sustainable building practices.",
       "advisor_builders": [
         {
           "name": "Philip Greene",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Adam Bradley",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Jason Hughey",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Matthew Vorhees",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -1518,7 +1209,6 @@
           "description": "Close-up image of the Hay Bale Arch."
         }
       ],
-      "tags": [],
       "links": [
         {
           "linkType": "Article",
@@ -1530,58 +1220,42 @@
           "URL": "https://google.com",
           "title": "Original Thesis"
         }
-      ],
-      "_id": "6722b48799b26f2c000bb498",
-      "description": "This arch is likely the only double-barrel design of its kind, showcasing the creativity and resourcefulness of the students who built it. The Hay Bale Arch utilizes straw for its surprisingly effective insulation properties.",
-      "year": "2004"
+      ]
     },
     {
-      "names": [
-        "Fratessa Tower"
-      ],
-      "number": 22,
+      "_id": "6722b48799b26f2c000bb499",
       "url": "fratessaTower",
-      "style": "",
-      "department": [],
+      "number": 22,
+      "names": ["Fratessa Tower"],
+      "year": "2004",
       "status": "Active",
       "location": {},
+      "description": "Fratessa Tower honors Paul Fratessa, a beloved department head, and offers some of the most breathtaking views of Poly Canyon! Dedicated to the late ARCE department head, this tower stands on the foundations of a previous structure.",
       "extended_description": "While the original tower was decommissioned due to leakage, this successor provides sweeping panoramic views of Poly Canyon. It symbolizes the continuation of architectural tradition and serves as a tribute to Fratessa's lasting impact on the student community. The tower represents the enduring legacy of educators in shaping architectural practice. It continues to inspire students and visitors alike.",
       "advisor_builders": [
         {
           "name": "Rachel Martin",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Justin Wei",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Michael Braund",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Eric Mcdonnell",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Tanya Worotko",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Adam Stagnaro",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -1598,7 +1272,6 @@
           "description": "Close-up image of the Fratessa Tower."
         }
       ],
-      "tags": [],
       "links": [
         {
           "linkType": "Article",
@@ -1610,52 +1283,38 @@
           "URL": "https://google.com",
           "title": "Original Thesis"
         }
-      ],
-      "_id": "6722b48799b26f2c000bb499",
-      "description": "Fratessa Tower honors Paul Fratessa, a beloved department head, and offers some of the most breathtaking views of Poly Canyon! Dedicated to the late ARCE department head, this tower stands on the foundations of a previous structure.",
-      "year": "2004"
+      ]
     },
     {
-      "names": [
-        "Tensegrity"
-      ],
-      "number": 23,
+      "_id": "6722b48799b26f2c000bb49a",
       "url": "tensegrity",
-      "style": "",
-      "department": [],
+      "number": 23,
+      "names": ["Tensegrity"],
+      "year": "2022",
       "status": "Active",
       "location": {},
+      "description": "The team behind Tensegrity met entirely over Zoom when planning, making it the only structure shaped by remote collaboration during the pandemic. This striking pavilion showcases the principle of tensile integrity, pioneered by Buckminster Fuller.",
       "extended_description": "Featuring wooden pyramids and steel cables, it creates a captivating floating effect with a suspended seating area. The structure's complex design and remote collaboration during its creation highlight the challenges and innovations in modern architectural practices. It serves as a testament to adaptability and creativity in the face of unprecedented circumstances. The Tensegrity pavilion inspires future architects to embrace new technologies and collaborative methods.",
       "advisor_builders": [
         {
           "name": "Will Adam",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Ivan Cruz",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Jos Hernandez",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Kasey Tatis",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Truman Waller",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -1672,7 +1331,6 @@
           "description": "Close-up image of the Tensegrity."
         }
       ],
-      "tags": [],
       "links": [
         {
           "linkType": "Article",
@@ -1684,76 +1342,54 @@
           "URL": "https://google.com",
           "title": "Original Thesis"
         }
-      ],
-      "_id": "6722b48799b26f2c000bb49a",
-      "description": "The team behind Tensegrity met entirely over Zoom when planning, making it the only structure shaped by remote collaboration during the pandemic. This striking pavilion showcases the principle of tensile integrity, pioneered by Buckminster Fuller.",
-      "year": "2022"
+      ]
     },
     {
-      "names": [
-        "Shell House"
-      ],
-      "number": 24,
+      "_id": "6722b48799b26f2c000bb49b",
       "url": "shellHouse",
-      "style": "",
-      "department": [],
+      "number": 24,
+      "names": ["Shell House"],
+      "year": "1975",
       "status": "Active",
       "location": {},
+      "description": "During construction of the Shell House, students got unexpected shocks\u2014they learned the hard way about grounding when working with wire mesh and shotcrete! An early pioneer in using shotcrete at Poly Canyon, the Shell House features a unique roof formed by cables, wire mesh, and sprayed concrete.",
       "extended_description": "The students faced unexpected electrical shocks due to improper grounding, adding a memorable lesson to the building process. Supported at just three ground points, this structure exemplifies innovation and the hands-on challenges that come with experimental architecture. The Shell House stands as a testament to the learning experiences that shape architectural education. It continues to be a symbol of ingenuity and practical problem-solving.",
       "advisor_builders": [
         {
           "name": "Larry Gangwisch",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Ronald James",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Raymond Ketzel",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Roger Marshall",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "David Wright",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "James Zimmerman",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "George Hasslein",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Wesley Ward",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Harvey Koehen",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -1770,7 +1406,6 @@
           "description": "Close-up image of the Shell House."
         }
       ],
-      "tags": [],
       "links": [
         {
           "linkType": "Article",
@@ -1782,28 +1417,22 @@
           "URL": "https://google.com",
           "title": "Original Thesis"
         }
-      ],
-      "_id": "6722b48799b26f2c000bb49b",
-      "description": "During construction of the Shell House, students got unexpected shocks—they learned the hard way about grounding when working with wire mesh and shotcrete! An early pioneer in using shotcrete at Poly Canyon, the Shell House features a unique roof formed by cables, wire mesh, and sprayed concrete.",
-      "year": "1975"
+      ]
     },
     {
-      "names": [
-        "Green House"
-      ],
-      "number": 25,
+      "_id": "6722b48799b26f2c000bb49c",
       "url": "greenHouse",
-      "style": "",
-      "department": [],
+      "number": 25,
+      "names": ["Green House"],
+      "year": "1989",
       "status": "Active",
       "location": {},
+      "description": "The Green House was meant to be a self-sustaining structure with solar-heated water storage, an advanced concept for the 1980s. Although unfinished, this ambitious project was designed to integrate advanced environmental control systems.",
       "extended_description": "Planned features included automatic watering and ventilation systems, along with solar-heated water storage. The structure's innovative design aimed to enhance the efficiency of traditional greenhouse models, showcasing early attempts at sustainable architectural practices. The Green House represents a forward-thinking approach to eco-friendly design. It continues to inspire discussions on sustainability and innovation in architecture.",
       "advisor_builders": [
         {
           "name": "Mark Jenefsky",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -1820,7 +1449,6 @@
           "description": "Close-up image of the Green House."
         }
       ],
-      "tags": [],
       "links": [
         {
           "linkType": "Article",
@@ -1832,88 +1460,62 @@
           "URL": "https://google.com",
           "title": "Original Thesis"
         }
-      ],
-      "_id": "6722b48799b26f2c000bb49c",
-      "description": "The Green House was meant to be a self-sustaining structure with solar-heated water storage, an advanced concept for the 1980s. Although unfinished, this ambitious project was designed to integrate advanced environmental control systems.",
-      "year": "1989"
+      ]
     },
     {
-      "names": [
-        "Modular House"
-      ],
-      "number": 26,
+      "_id": "6722b48799b26f2c000bb49d",
       "url": "modularHouse",
-      "style": "",
-      "department": [],
+      "number": 26,
+      "names": ["Modular House"],
+      "year": "1973",
       "status": "Active",
       "location": {},
+      "description": "The Modular House was originally fully enclosed, but today it stands hollow\u2014so be cautious when exploring! This experimental dwelling features a steel frame with wood infill, designed on an eight-by-eight module to minimize lumber cutting.",
       "extended_description": "Its modular approach demonstrates efficient use of materials and space. The structure's challenges with waterproofing due to differing material expansion rates provide valuable lessons in the practicalities of experimental design and material compatibility. The Modular House highlights the importance of considering material properties in architectural design. It remains a notable example of modular construction methods.",
       "advisor_builders": [
         {
           "name": "Paul Thoryk",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "John Edmiston",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Glen Jackson",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Tom Bylund",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "James Jones",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Richard Pata",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Lorin Smith",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Jerry Tucker",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Dennis Turner",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "John Edmisten",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Don Koberg",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -1930,7 +1532,6 @@
           "description": "Close-up image of the Modular House."
         }
       ],
-      "tags": [],
       "links": [
         {
           "linkType": "Article",
@@ -1942,34 +1543,26 @@
           "URL": "https://google.com",
           "title": "Original Thesis"
         }
-      ],
-      "_id": "6722b48799b26f2c000bb49d",
-      "description": "The Modular House was originally fully enclosed, but today it stands hollow—so be cautious when exploring! This experimental dwelling features a steel frame with wood infill, designed on an eight-by-eight module to minimize lumber cutting.",
-      "year": "1973"
+      ]
     },
     {
-      "names": [
-        "Centering Center"
-      ],
-      "number": 27,
+      "_id": "6722b48799b26f2c000bb49e",
       "url": "centeringCenter",
-      "style": "",
-      "department": [],
+      "number": 27,
+      "names": ["Centering Center"],
+      "year": "2022",
       "status": "Active",
       "location": {},
+      "description": "Before being moved to Poly Canyon, the Centering Dome was featured at Descanso Gardens, connecting art with architectural education. This structure now blends artistic expression with functional space.",
       "extended_description": "Its relocation demonstrates the adaptability of architectural installations and their potential to serve multiple purposes in different contexts. The dome's design focuses on the 'social' quadrant of the Centering concept, fostering community interaction. The Centering Center symbolizes the fusion of art and architecture, enriching the educational environment. It invites visitors to explore the interplay between design and social engagement.",
       "advisor_builders": [
         {
           "name": "Marcos Lutyens",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Cynthia Brophy",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -1986,7 +1579,6 @@
           "description": "Close-up image of the Centering Center."
         }
       ],
-      "tags": [],
       "links": [
         {
           "linkType": "Article",
@@ -1998,34 +1590,26 @@
           "URL": "https://google.com",
           "title": "Original Thesis"
         }
-      ],
-      "_id": "6722b48799b26f2c000bb49e",
-      "description": "Before being moved to Poly Canyon, the Centering Dome was featured at Descanso Gardens, connecting art with architectural education. This structure now blends artistic expression with functional space.",
-      "year": "2022"
+      ]
     },
     {
-      "names": [
-        "Pole House"
-      ],
-      "number": 28,
+      "_id": "6722b48799b26f2c000bb49f",
       "url": "poleHouse",
-      "style": "",
-      "department": [],
+      "number": 28,
+      "names": ["Pole House"],
+      "year": "1989",
       "status": "Active",
       "location": {},
+      "description": "Built on a steep slope, the Pole House stands tall thanks to deep caissons that anchor directly into bedrock! Addressing the challenges of a sloping site, this structure is elevated on caissons that transfer the load directly to the bedrock below.",
       "extended_description": "This innovative foundation technique makes it a structurally sound solution for difficult terrains. Often used as a staging ground for other projects, the Pole House highlights the adaptability of architectural design to the natural landscape, embodying practical ingenuity. It demonstrates how thoughtful engineering can overcome environmental obstacles. The structure serves as an educational model for foundation design.",
       "advisor_builders": [
         {
           "name": "EDES Class Project",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Randy Detmer",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -2042,7 +1626,6 @@
           "description": "Close-up image of the Pole House."
         }
       ],
-      "tags": [],
       "links": [
         {
           "linkType": "Article",
@@ -2054,28 +1637,22 @@
           "URL": "https://google.com",
           "title": "Original Thesis"
         }
-      ],
-      "_id": "6722b48799b26f2c000bb49f",
-      "description": "Built on a steep slope, the Pole House stands tall thanks to deep caissons that anchor directly into bedrock! Addressing the challenges of a sloping site, this structure is elevated on caissons that transfer the load directly to the bedrock below.",
-      "year": "1989"
+      ]
     },
     {
-      "names": [
-        "BBQ Pit"
-      ],
-      "number": 29,
+      "_id": "6722b48799b26f2c000bb4a0",
       "url": "bbqPit",
-      "style": "",
-      "department": [],
+      "number": 29,
+      "names": ["BBQ Pit"],
+      "year": "1975",
       "status": "Active",
       "location": {},
+      "description": "The BBQ Pit once had a corten steel hood, but it was removed because the differing materials didn't age well together. This communal space has evolved over time, adapting to material challenges and changing needs.",
       "extended_description": "Originally featuring a corten steel hood, its current form demonstrates the importance of material compatibility in long-lasting structures. The pit and nearby seating areas continue to serve as gathering spaces, highlighting the social aspects of architectural design. The BBQ Pit remains a beloved spot for community events. It emphasizes the role of architecture in fostering social interaction.",
       "advisor_builders": [
         {
           "name": "Allan Cooper",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -2092,7 +1669,6 @@
           "description": "Close-up image of the BBQ Pit."
         }
       ],
-      "tags": [],
       "links": [
         {
           "linkType": "Article",
@@ -2104,46 +1680,34 @@
           "URL": "https://google.com",
           "title": "Original Thesis"
         }
-      ],
-      "_id": "6722b48799b26f2c000bb4a0",
-      "description": "The BBQ Pit once had a corten steel hood, but it was removed because the differing materials didn't age well together. This communal space has evolved over time, adapting to material challenges and changing needs.",
-      "year": "1975"
+      ]
     },
     {
-      "names": [
-        "Moment Monument"
-      ],
-      "number": 30,
+      "_id": "6722b48799b26f2c000bb4a1",
       "url": "momentMonument",
-      "style": "",
-      "department": [],
+      "number": 30,
+      "names": ["Moment Monument"],
+      "year": "2024",
       "status": "Active",
       "location": {},
+      "description": "Each beam of the Moment Monument is connected differently, making it a unique educational tool for students studying earthquake-resistant design. As the newest addition to Poly Canyon, this structure serves as an educational tool for earthquake-resistant design.",
       "extended_description": "Each beam is connected differently, allowing students to study various pre-qualified moment connections in steel frames. The monument exemplifies how full-scale models can enhance understanding of complex engineering principles, bridging the gap between theory and practice. It stands as a hands-on resource for learning about seismic resilience. The Moment Monument represents the forefront of educational architecture.",
       "advisor_builders": [
         {
           "name": "Carsten Huber",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Gaspar Solorio",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Jared Schieferle",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Brayden Martinez",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -2160,7 +1724,6 @@
           "description": "Close-up image of the Moment Monument."
         }
       ],
-      "tags": [],
       "links": [
         {
           "linkType": "Article",
@@ -2172,10 +1735,7 @@
           "URL": "https://google.com",
           "title": "Original Thesis"
         }
-      ],
-      "_id": "6722b48799b26f2c000bb4a1",
-      "description": "Each beam of the Moment Monument is connected differently, making it a unique educational tool for students studying earthquake-resistant design. As the newest addition to Poly Canyon, this structure serves as an educational tool for earthquake-resistant design.",
-      "year": "2024"
+      ]
     }
   ]
 }
