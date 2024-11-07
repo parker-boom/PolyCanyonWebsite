@@ -3,8 +3,7 @@
     {
       "names": [
         "Entry Arch",
-        "The Gateway",
-        "Main Entrance"
+        "Entrance Pathway"
       ],
       "number": 1,
       "url": "entryArch",
@@ -13,7 +12,7 @@
         "latitude": 35.313384,
         "longitude": -120.651865
       },
-      "extended_description": "These terracotta faces add a personal touch to the entrance, blending technical innovation with human artistry. The design embodies the collaborative spirit of Cal Poly students. The use of serpentinite rock showcases innovative material use and highlights the students' ability to incorporate unique geological elements into their work. The Entry Arch stands as a testament to the creativity and craftsmanship of its builders. It remains a significant landmark welcoming visitors into the rich tapestry of architectural experimentation within Poly Canyon.",
+      "extended_description": "The wall’s stonework is a testament to the builders' craftsmanship. Each stone was carefully selected, with recessed mortar joints to highlight its individual character. Additionally, the students embedded terracotta impressions of their faces within the wall as a subtle, personal signature. Originally envisioned with a small ceramic fountain, this detail was left unfinished due to water supply limitations. The Entry Arch now stands as both a functional entrance and a tribute to the learning and dedication that shaped its creation.",
       "advisor_builders": [
         {
           "name": "Paul Miller",
@@ -61,25 +60,26 @@
         }
       ],
       "tags": [
-        "Arch",
-        "Gateway",
-        "Stone",
-        "Entry"
+        "Entryway structure",
+        "Stone masonry",
+        "Terracotta faces",
+        "Visitor entrance",
+        "Poly Canyon gateway"
       ],
       "links": [
         {
           "linkType": "Article",
-          "URL": "https://google.com",
+          "URL": "https://polycanyon.calpoly.edu/history/entry-arch",
           "title": "CAED Website"
         },
         {
           "linkType": "Thesis",
-          "URL": "https://google.com",
-          "title": "Original Thesis"
+          "URL": "https://guides.lib.calpoly.edu/c.php?g=1365835&p=10429524",
+          "title": "Library Archives"
         }
       ],
       "_id": "6722b48799b26f2c000bb484",
-      "description": "The Entry Arch serves as both a practical entrance and a symbolic gateway into Poly Canyon's experimental landscape. Constructed with a steel frame overlaid with serpentinite rock, it adds a geological twist with a stone that naturally contains asbestos. Nearby, terracotta faces of the student builders are embedded in a stone wall, watching over visitors.",
+      "description": "The Entry Arch marks the threshold to Poly Canyon, combining function with artistry. Constructed in 1976, the gateway features a steel frame clad in serpentinite stone, chosen for its natural asbestos content, adding an unexpected resilience. Beyond the arch, a stone wall and three-fingered maze manage both visitor flow and livestock protection, ensuring agricultural safety without restricting access. This entry path incorporates careful drainage solutions, including subterranean pipes and basins to handle the area’s natural runoff, preventing erosion.",
       "year": "1976"
     },
     {
@@ -1497,7 +1497,7 @@
       "url": "fratessaTower",
       "status": "Active",
       "location": {},
-      "extended_description": "While the original tower was decommissioned due to leakage, this successor provides sweeping panoramic views of Poly Canyon. It symbolizes the continuation of architectural tradition and serves as a tribute to Fratessa's lasting impact on the student community. The tower represents the enduring legacy of educators in shaping architectural practice. It continues to inspire students and visitors alike.",
+      "extended_description": "Adjacent to Fratessa Tower are the remnants of an earlier project with precast concrete columns, believed to reflect a vision similar to the current tower’s design. The project was led by a team of architectural engineering students, who embraced this opportunity for hands-on experience, supported by contributions from industry sponsors.",
       "advisor_builders": [
         {
           "name": "Rachel Martin",
@@ -1550,20 +1550,27 @@
           "description": "Close-up image of the Fratessa Tower."
         }
       ],
+      "tags": [
+        "Observation tower",
+        "Structural foundation reuse",
+        "Dedication to Paul Fratessa",
+        "Canyon views",
+        "Precast concrete"
+      ],
       "links": [
         {
           "linkType": "Article",
-          "URL": "https://google.com",
+          "URL": "https://polycanyon.calpoly.edu/history/fratessa-tower",
           "title": "CAED Website"
         },
         {
-          "linkType": "Thesis",
-          "URL": "https://google.com",
-          "title": "Original Thesis"
+          "linkType": "Article",
+          "URL": "https://digitalcommons.calpoly.edu/focus/vol2/iss1/5/",
+          "title": "Project Highlight"
         }
       ],
       "_id": "6722b48799b26f2c000bb499",
-      "description": "Fratessa Tower honors Paul Fratessa, a beloved department head, and offers some of the most breathtaking views of Poly Canyon! Dedicated to the late ARCE department head, this tower stands on the foundations of a previous structure.",
+      "description": "Fratessa Tower, built in 2004, is an observation structure dedicated to the memory of Paul Fratessa, a former ARCE department head. It provides visitors with a unique vantage point to take in the scenic views of the surrounding canyon. The tower stands on the original foundations of an older observation structure that relied on a water column for support but was decommissioned due to leakage issues. The new tower’s design continues the legacy of its predecessor while adding modern structural stability.",
       "year": "2004"
     },
     {
