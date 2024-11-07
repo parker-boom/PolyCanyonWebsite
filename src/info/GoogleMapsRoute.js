@@ -15,7 +15,6 @@ import {
   GoogleMap,
   DirectionsRenderer,
   useLoadScript,
-  MarkerF,
 } from '@react-google-maps/api';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import PropTypes from 'prop-types';
@@ -174,10 +173,14 @@ const GoogleMapsRoute = () => {
   );
 };
 
+// Define libraries array outside component
+const libraries = ['marker'];
+
 // Update the StructureLocationMap component
 export const StructureLocationMap = ({ latitude, longitude }) => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    libraries,
   });
 
   if (!isLoaded) return <div>Loading...</div>;
@@ -195,24 +198,30 @@ export const StructureLocationMap = ({ latitude, longitude }) => {
           borderRadius: '10px',
         }}
         options={{
-          styles: mapStyles,
           disableDefaultUI: true,
           mapTypeControl: false,
           zoomControl: false,
           streetViewControl: false,
           clickableIcons: false,
+          mapId: process.env.REACT_APP_GOOGLE_MAPS_ID,
         }}
-      >
-        <MarkerF
-          position={center}
-          onClick={() =>
+        onLoad={(map) => {
+          // Create and add the advanced marker
+          const { AdvancedMarkerElement } = window.google.maps.marker;
+          const marker = new AdvancedMarkerElement({
+            map,
+            position: center,
+          });
+
+          // Add click listener to marker
+          marker.addListener('click', () => {
             window.open(
               `https://www.google.com/maps?q=${latitude},${longitude}`,
               '_blank'
-            )
-          }
-        />
-      </GoogleMap>
+            );
+          });
+        }}
+      />
     </MapContainer>
   );
 };
