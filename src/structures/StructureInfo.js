@@ -152,11 +152,9 @@ const StructureInfo = () => {
   const getInfoEmoji = (type) => {
     const emojiMap = {
       year: '📅',
-      department: '🏛️',
       advisor: '👨‍🏫',
       builders: '👷',
       status: '🔄',
-      style: '🎨',
       location: '📍',
     };
     return emojiMap[type] || '📌';
@@ -421,21 +419,6 @@ const StructureInfo = () => {
                     </S.InfoCard>
                   )}
 
-                  {/* Department Card */}
-                  {structure.department?.length > 0 && (
-                    <S.InfoCard>
-                      <S.InfoCardHeader>
-                        <S.InfoCardEmoji>
-                          {getInfoEmoji('department')}
-                        </S.InfoCardEmoji>
-                        <S.InfoCardTitle>Department</S.InfoCardTitle>
-                      </S.InfoCardHeader>
-                      <S.InfoCardContent>
-                        {structure.department.join(', ')}
-                      </S.InfoCardContent>
-                    </S.InfoCard>
-                  )}
-
                   {/* Advisor Card : !DOESNT WORK BECAUSE ADVISORS ARE JUST BUILDERS RN */}
                   {structure.advisor_builders?.some((person) =>
                     person.role.includes('Advisor')
@@ -486,19 +469,6 @@ const StructureInfo = () => {
                         <S.InfoCardTitle>Status</S.InfoCardTitle>
                       </S.InfoCardHeader>
                       <S.InfoCardContent>{structure.status}</S.InfoCardContent>
-                    </S.InfoCard>
-                  )}
-
-                  {/* Style Card : MAY CHANGE TO TAGS?*/}
-                  {structure.style && (
-                    <S.InfoCard>
-                      <S.InfoCardHeader>
-                        <S.InfoCardEmoji>
-                          {getInfoEmoji('style')}
-                        </S.InfoCardEmoji>
-                        <S.InfoCardTitle>Style</S.InfoCardTitle>
-                      </S.InfoCardHeader>
-                      <S.InfoCardContent>{structure.style}</S.InfoCardContent>
                     </S.InfoCard>
                   )}
 

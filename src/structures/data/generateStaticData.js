@@ -3,7 +3,7 @@ import path from 'path';
 
 async function generateStaticData() {
   try {
-    // Read the modified structuresInfo.json file from the public/data directory
+    // Read the structuresInfo.json file
     const data = JSON.parse(
       await fs.readFile(
         path.join(process.cwd(), 'public', 'data', 'structuresInfo.json'),
@@ -11,36 +11,35 @@ async function generateStaticData() {
       )
     );
 
-    // Extract the structures array from the data
-    const structuresInfo = data.structures;
+    // Extract and sort structures by number
+    const structuresInfo = data.structures.sort((a, b) => a.number - b.number);
 
-    // Create data directory if it doesn't exist
+    // Create data directory
     const dataDir = path.join(process.cwd(), 'src', 'structures', 'data');
     await fs.mkdir(dataDir, { recursive: true });
 
     // Create simplified list for navigation
-    const basicList = structuresInfo
-      .map((structure) => ({
-        number: structure.number,
-        url: structure.url,
-        title: structure.names[0],
-        image_key: `M-${structure.number}`,
-      }))
-      .sort((a, b) => a.number - b.number);
+    // Only include fields needed for the list view
+    const basicList = structuresInfo.map(({ number, url, names }) => ({
+      number,
+      url,
+      title: names[0],
+      image_key: `M-${number}`,
+    }));
 
-    // Save simplified list
-    await fs.writeFile(
-      path.join(dataDir, 'structuresList.json'),
-      JSON.stringify(basicList),
-      'utf-8'
-    );
-
-    // Save local copy for React
-    await fs.writeFile(
-      path.join(dataDir, 'structuresInfo.local.json'),
-      JSON.stringify(structuresInfo),
-      'utf-8'
-    );
+    // Save files
+    await Promise.all([
+      fs.writeFile(
+        path.join(dataDir, 'structuresList.json'),
+        JSON.stringify(basicList),
+        'utf-8'
+      ),
+      fs.writeFile(
+        path.join(dataDir, 'structuresInfo.local.json'),
+        JSON.stringify(structuresInfo),
+        'utf-8'
+      ),
+    ]);
 
     console.log('Static data files generated successfully!');
   } catch (error) {

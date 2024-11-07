@@ -24,7 +24,7 @@ export const ContentContainer = styled.div`
   min-width: 0;
   background-color: #ffffff;
   border-radius: 24px;
-  padding: 24px;
+  padding: 10px;
   box-shadow:
     0 4px 20px rgba(189, 139, 19, 0.25),
     0 2px 8px rgba(189, 139, 19, 0.1);
@@ -844,7 +844,7 @@ export const StructuresContainer = styled(RoundedContainer)`
 
 export const SectionTitleInfo = styled.h3`
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 700;
   color: #376d31;
   margin: 0 0 16px 0;
   display: flex;
@@ -996,8 +996,8 @@ export const InfoCard = styled.div`
   padding: 16px;
   margin-bottom: 16px;
   box-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.04),
-    0 1px 2px rgba(0, 0, 0, 0.02);
+    0 2px 12px rgba(0, 0, 0, 0.2),
+    0 1px 8px rgba(0, 0, 0, 0.35);
   transition: all 0.2s ease;
   border-left: 3px solid #376d31;
   background: linear-gradient(to right, rgba(55, 109, 49, 0.03), transparent);
@@ -1180,6 +1180,7 @@ export const StructureListView = styled.div`
   width: 95%;
   height: 100%;
   overflow-y: auto;
+  margin: 24px 24px;
   padding: 24px;
   animation: flipIn 0.4s ease-out;
 
@@ -1279,7 +1280,7 @@ export const InfoCardsSection = styled.div`
   flex: 2;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 10px;
   background: rgba(0, 0, 0, 0.02);
   padding: 20px;
   border-radius: 16px;
@@ -1291,6 +1292,7 @@ export const InfoCardsSection = styled.div`
   height: 0;
   min-height: 100%;
   overflow-y: auto;
+  margin-right: 30px;
 
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -1314,8 +1316,8 @@ export const DescriptionContainer = styled.div`
   margin-bottom: 24px;
   border: 1px solid rgba(0, 0, 0, 0.06);
   box-shadow:
-    0 4px 16px rgba(55, 109, 49, 0.1),
-    0 2px 4px rgba(55, 109, 49, 0.08);
+    0 4px 16px rgba(55, 109, 49, 0.3),
+    0 2px 4px rgba(55, 109, 49, 0.4);
 
   &:last-child {
     margin-bottom: 0;
@@ -1404,8 +1406,8 @@ export const ImageContainer = styled.div`
   border-radius: 16px;
   overflow: hidden;
   box-shadow:
-    0 4px 16px rgba(55, 109, 49, 0.1),
-    0 2px 4px rgba(55, 109, 49, 0.08);
+    0 4px 16px rgba(55, 109, 49, 0.3),
+    0 2px 4px rgba(55, 109, 49, 0.4);
 `;
 
 export const HeaderContainer = styled.div`
@@ -1563,8 +1565,9 @@ export const CloseButton = styled.button`
 `;
 
 export const ColumnsContainer = styled.div`
+  margin: 15px;
   display: flex;
-  gap: 40px;
+  gap: 25px;
   width: 100%;
   min-width: 0;
 `;
