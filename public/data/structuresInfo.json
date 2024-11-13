@@ -1,7 +1,10 @@
 {
   "structures": [
     {
-      "names": ["Entry Arch", "Entrance Pathway"],
+      "names": [
+        "Entry Arch",
+        "Entrance Pathway"
+      ],
       "number": 1,
       "url": "entryArch",
       "status": "Active",
@@ -13,23 +16,33 @@
       "advisor_builders": [
         {
           "name": "Paul Miller",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Lynn Noah",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Greg Lomax",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Andrew Low",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Gwin Stumbaugh",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -70,7 +83,9 @@
       "year": "1976"
     },
     {
-      "names": ["Techite Bridge"],
+      "names": [
+        "Techite Bridge"
+      ],
       "number": 2,
       "url": "techiteBridge",
       "status": "Active",
@@ -79,15 +94,21 @@
       "advisor_builders": [
         {
           "name": "Robert Purdy",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Robert Mac Luan",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Merilee Amy",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -121,7 +142,11 @@
       "year": "1973"
     },
     {
-      "names": ["Blade", "The Petal Structure", "The Concrete Flower"],
+      "names": [
+        "Blade",
+        "The Petal Structure",
+        "The Concrete Flower"
+      ],
       "number": 3,
       "url": "blade",
       "status": "Active",
@@ -133,19 +158,27 @@
       "advisor_builders": [
         {
           "name": "Steve Gilmore",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Mark Haselton",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Dan McMann",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ken Minor",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -184,7 +217,9 @@
       "year": "1963 / 2003"
     },
     {
-      "names": ["Spire Array"],
+      "names": [
+        "Spire Array"
+      ],
       "number": 4,
       "url": "spireArray",
       "status": "Active",
@@ -193,11 +228,15 @@
       "advisor_builders": [
         {
           "name": "Professor Dale Clifford",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Design Build Team",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -231,7 +270,9 @@
       "year": "2020"
     },
     {
-      "names": ["Palm Tree"],
+      "names": [
+        "Palm Tree"
+      ],
       "number": 5,
       "url": "palmTree",
       "status": "Active",
@@ -240,7 +281,9 @@
       "advisor_builders": [
         {
           "name": "iii",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -274,7 +317,9 @@
       "year": "xxxx"
     },
     {
-      "names": ["Tensile"],
+      "names": [
+        "Tensile"
+      ],
       "number": 6,
       "url": "tensile",
       "status": "Active",
@@ -283,31 +328,45 @@
       "advisor_builders": [
         {
           "name": "Kiren Kelly-Sneed",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Theresa Zaro",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Royce Chow",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Abe Lynn",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Michael Lucas",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Walt Tryon",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Richard Zweifel",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -341,7 +400,9 @@
       "year": "2002"
     },
     {
-      "names": ["Geodesic Dome"],
+      "names": [
+        "Geodesic Dome"
+      ],
       "number": 7,
       "url": "geodesicDome",
       "status": "Active",
@@ -353,23 +414,33 @@
       "advisor_builders": [
         {
           "name": "Richard Neill",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "William Roth",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Donald Mills",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Samuel Peterson",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Don Trunklage",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -410,7 +481,9 @@
       "year": "1963"
     },
     {
-      "names": ["Cantilever Deck"],
+      "names": [
+        "Cantilever Deck"
+      ],
       "number": 8,
       "url": "cantileverDeck",
       "status": "Active",
@@ -419,19 +492,27 @@
       "advisor_builders": [
         {
           "name": "Rowan Hernandez",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Kim Throndson",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "John Morrena",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Lee Benson",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -465,7 +546,9 @@
       "year": "1990"
     },
     {
-      "names": ["Earth Restrooms"],
+      "names": [
+        "Earth Restrooms"
+      ],
       "number": 9,
       "url": "restrooms",
       "status": "Active",
@@ -474,15 +557,21 @@
       "advisor_builders": [
         {
           "name": "Glen Jackson",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Robert Del Bianco",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ralph Nafzgar",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -516,7 +605,9 @@
       "year": "1972"
     },
     {
-      "names": ["Underground House"],
+      "names": [
+        "Underground House"
+      ],
       "number": 10,
       "url": "undergroundHouse",
       "status": "Active",
@@ -525,51 +616,75 @@
       "advisor_builders": [
         {
           "name": "Carl C Barrett",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Robert S Cocores",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Allyn W Mcfarlin",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "John M Provato",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jesse P Wedemeyer",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Wayne Christian",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Pat Dennison",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Fred Kozono",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Mark McIntire",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Chris Sterios",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Craig Wilson",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Mark V Zeolla",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -603,7 +718,9 @@
       "year": "1982"
     },
     {
-      "names": ["Sun Dial"],
+      "names": [
+        "Sun Dial"
+      ],
       "number": 11,
       "url": "sunDial",
       "status": "Active",
@@ -612,7 +729,9 @@
       "advisor_builders": [
         {
           "name": "John Stuart",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -646,7 +765,10 @@
       "year": "1971"
     },
     {
-      "names": ["Gunite Bridge", "Free Form Bridge"],
+      "names": [
+        "Gunite Bridge",
+        "Free Form Bridge"
+      ],
       "number": 12,
       "url": "guniteBridge",
       "status": "Active",
@@ -658,23 +780,33 @@
       "advisor_builders": [
         {
           "name": "Gordon L. Boles",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Roy Leland Bostrom",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Kokpo Ng",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Richard L. Saylor",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "John Ulloa",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -715,7 +847,9 @@
       "year": "1965"
     },
     {
-      "names": ["Timber Truss"],
+      "names": [
+        "Timber Truss"
+      ],
       "number": 13,
       "url": "timberTruss",
       "status": "Active",
@@ -724,19 +858,27 @@
       "advisor_builders": [
         {
           "name": "Derek Bonsper",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Josh Randall",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Fred Sobottka",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Mike Willis",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -770,7 +912,9 @@
       "year": "1994"
     },
     {
-      "names": ["Stick Structure"],
+      "names": [
+        "Stick Structure"
+      ],
       "number": 14,
       "url": "stickStructure",
       "status": "Active",
@@ -779,23 +923,33 @@
       "advisor_builders": [
         {
           "name": "William F Martin",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Brian Gottlieb",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Dan Morita",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Michelle M. Pettit",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jake Feldman",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -829,7 +983,9 @@
       "year": "1976 / 2009"
     },
     {
-      "names": ["Pyramid"],
+      "names": [
+        "Pyramid"
+      ],
       "number": 15,
       "url": "pyramid",
       "status": "Active",
@@ -867,7 +1023,9 @@
       "year": "1976"
     },
     {
-      "names": ["Bridge House"],
+      "names": [
+        "Bridge House"
+      ],
       "number": 16,
       "url": "bridgeHouse",
       "status": "Active",
@@ -879,43 +1037,63 @@
       "advisor_builders": [
         {
           "name": "Ronald Davena",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Joel Dean",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Robert Garlow",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Raymond Hilken",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Lui Horstmeyer",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "James January",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Lloyd Suehiro",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Thomas Wiggin",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Kurt Holder",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Bruce Campe",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -960,7 +1138,9 @@
       "year": "1968 / 2019"
     },
     {
-      "names": ["Water Tanks"],
+      "names": [
+        "Water Tanks"
+      ],
       "number": 17,
       "url": "waterTanks",
       "status": "Active",
@@ -969,7 +1149,9 @@
       "advisor_builders": [
         {
           "name": "Mathew Bittleston",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -1003,24 +1185,32 @@
       "year": "1969 / 1998"
     },
     {
-      "names": ["Observation Deck"],
+      "names": [
+        "Observation Deck"
+      ],
       "number": 18,
       "url": "observationDeck",
       "status": "Active",
       "location": {},
-      "extended_description": "Serving as both a rest stop for hikers and a symbol of Poly Canyon's rejuvenation, its construction represents a renewed push for student-led projects in the area. The deck's design balances functionality with aesthetic appeal, providing a peaceful vantage point that encourages appreciation of the canyon's natural beauty and architectural diversity. It stands as a lasting legacy of the students' dedication and hard work.",
+      "extended_description": "Originally conceived in 2017 as a simple rest stop, the deck design encountered delays until two construction management students took it up as a senior project. With limited funding sources, the team relied heavily on grants, donations, and creative outreach to cover mounting costs. Construction posed additional hurdles, from steep terrain to the absence of on-site utilities. Despite these challenges, the completed deck symbolizes a rekindled spirit of student involvement and innovation, encouraging others to contribute to this historic space.",
       "advisor_builders": [
         {
           "name": "Tony Pellegrini",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Harrison Woods",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Sitora Vaxidova",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -1037,24 +1227,43 @@
           "description": "Close-up image of the Observation Deck."
         }
       ],
+      "tags": [
+        "Observation Platform",
+        "Redwood Lumber",
+        "Outdoor Recreation",
+        "Student-Led Project",
+        "Fundraising Challenges"
+      ],
       "links": [
         {
-          "linkType": "Article",
-          "URL": "https://google.com",
-          "title": "CAED Website"
+          "linkType": "Thesis",
+          "URL": "https://digitalcommons.calpoly.edu/cgi/viewcontent.cgi?article=1176&context=cmsp",
+          "title": "Plan Overview"
         },
         {
           "linkType": "Thesis",
-          "URL": "https://google.com",
-          "title": "Original Thesis"
+          "URL": "https://digitalcommons.calpoly.edu/cgi/viewcontent.cgi?article=1082&context=arcesp",
+          "title": "Thesis Calculations"
+        },
+        {
+          "linkType": "Article",
+          "URL": "https://www.youtube.com/watch?v=5FBn4XkRRzs",
+          "title": "YouTube Interview"
+        },
+        {
+          "linkType": "Article",
+          "URL": "https://mustangnews.net/a-new-view-of-architecture-graveyard/",
+          "title": "Mustang News Article"
         }
       ],
       "_id": "6722b48799b26f2c000bb495",
-      "description": "The Observation Deck was completed just one day before the team's graduation, making it their final achievement as Cal Poly students. This redwood structure offers panoramic views of the surrounding hills.",
+      "description": "The observation deck serves as a scenic rest area for hikers and bikers, designed to inspire future student projects. Built with redwood lumber and thoughtfully positioned on a hilltop, it faced notable fundraising and logistical challenges but ultimately reflects a renewed commitment to hands-on learning.",
       "year": "2019"
     },
     {
-      "names": ["Poly Pavilion"],
+      "names": [
+        "Poly Pavilion"
+      ],
       "number": 19,
       "url": "polyPavilion",
       "status": "Active",
@@ -1063,83 +1272,123 @@
       "advisor_builders": [
         {
           "name": "Alfredo Alcaraz",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Armando Paez",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Blanca Guerra",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Bob Green",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Brad Bishop",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Brett Beeman",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Chi Pham",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Cindy Smith",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Dave Hernandez",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Frank Maskiewicz",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jim Low",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Joe Michale",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "John Smith",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ken Brehmer",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ken Schumann",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ku Divita",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Pete Chavez",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Randal Brunson",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ricardo Arevalo",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Stan Smith",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -1173,7 +1422,9 @@
       "year": "1985"
     },
     {
-      "names": ["Serenity Wall"],
+      "names": [
+        "Serenity Wall"
+      ],
       "number": 20,
       "url": "serenityWall",
       "status": "Active",
@@ -1182,7 +1433,9 @@
       "advisor_builders": [
         {
           "name": "Brian Milton",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -1216,7 +1469,9 @@
       "year": "2004"
     },
     {
-      "names": ["Hay Bale Arch"],
+      "names": [
+        "Hay Bale Arch"
+      ],
       "number": 21,
       "url": "hayBale",
       "status": "Active",
@@ -1225,19 +1480,27 @@
       "advisor_builders": [
         {
           "name": "Philip Greene",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Adam Bradley",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jason Hughey",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Matthew Vorhees",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -1271,7 +1534,9 @@
       "year": "2004"
     },
     {
-      "names": ["Fratessa Tower"],
+      "names": [
+        "Fratessa Tower"
+      ],
       "number": 22,
       "url": "fratessaTower",
       "status": "Active",
@@ -1283,27 +1548,39 @@
       "advisor_builders": [
         {
           "name": "Rachel Martin",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Justin Wei",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Michael Braund",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Eric Mcdonnell",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Tanya Worotko",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Adam Stagnaro",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -1344,7 +1621,9 @@
       "year": "2004"
     },
     {
-      "names": ["Tensegrity"],
+      "names": [
+        "Tensegrity"
+      ],
       "number": 23,
       "url": "tensegrity",
       "status": "Active",
@@ -1353,23 +1632,33 @@
       "advisor_builders": [
         {
           "name": "Will Adam",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ivan Cruz",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jos Hernandez",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Kasey Tatis",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Truman Waller",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -1403,7 +1692,9 @@
       "year": "2022"
     },
     {
-      "names": ["Shell House"],
+      "names": [
+        "Shell House"
+      ],
       "number": 24,
       "url": "shellHouse",
       "status": "Active",
@@ -1412,39 +1703,57 @@
       "advisor_builders": [
         {
           "name": "Larry Gangwisch",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ronald James",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Raymond Ketzel",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Roger Marshall",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "David Wright",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "James Zimmerman",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "George Hasslein",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Wesley Ward",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Harvey Koehen",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -1478,7 +1787,9 @@
       "year": "1975"
     },
     {
-      "names": ["Green House"],
+      "names": [
+        "Green House"
+      ],
       "number": 25,
       "url": "greenHouse",
       "status": "Active",
@@ -1487,7 +1798,9 @@
       "advisor_builders": [
         {
           "name": "Mark Jenefsky",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -1521,56 +1834,81 @@
       "year": "1989"
     },
     {
-      "names": ["Modular House"],
+      "names": [
+        "Modular House",
+        "Caretaker’s House"
+      ],
       "number": 26,
       "url": "modularHouse",
       "status": "Active",
       "location": {},
-      "extended_description": "Its modular approach demonstrates efficient use of materials and space. The structure's challenges with waterproofing due to differing material expansion rates provide valuable lessons in the practicalities of experimental design and material compatibility. The Modular House highlights the importance of considering material properties in architectural design. It remains a notable example of modular construction methods.",
+      "extended_description": "Built in the late 1960s as part of a series of student-led projects, the Modular House was designed with an 8x8x8 steel-framed modular layout, featuring plywood panels and basic insulation. Originally intended to house caretakers, it served as both a residence and an architectural landmark in Poly Canyon. Over time, additional features like expanded kitchen and living spaces and the application of donated road signs for weatherproofing were incorporated, reflecting an adaptive response to the site’s unique environmental conditions.\n\nIn the mid-2010s, significant weathering, vandalism, and the abandonment of the structure necessitated a more structural approach to restoration. Efforts in 2017–2018 included replacing interior elements with durable materials, such as concrete decking for flooring and metal guardrails infilled with recycled road signs. The goal was to secure the Modular House against further decay, maintain its original aesthetic, and reopen it for public engagement. Safety improvements, like reinforcing stairways and eliminating fall hazards, redefined the Modular House as an open structure that prioritized durability and minimal upkeep.\n\nThe latest stage has transitioned the Modular House fully towards an outdoor-centric design, eliminating indoor features and focusing on a bare-metal, weather-resistant framework. This recent overhaul involved stripping all non-structural elements, repainting exposed steel to prevent rust, and enhancing accessibility for public use. By making it an open-air, stripped-down structure, this phase aligns with the shift toward sustainability, ease of maintenance, and the desire to retain the modular steel frame as a historical artifact, while reducing the need for indoor upkeep and resources.",
       "advisor_builders": [
         {
           "name": "Paul Thoryk",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "John Edmiston",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Glen Jackson",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Tom Bylund",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "James Jones",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Richard Pata",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Lorin Smith",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jerry Tucker",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Dennis Turner",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "John Edmisten",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Don Koberg",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -1587,24 +1925,43 @@
           "description": "Close-up image of the Modular House."
         }
       ],
+      "tags": [
+        "Modular Construction",
+        "Outdoor Architecture",
+        "Restoration Project",
+        "Passive Solar Design",
+        "Sustainable Architecture"
+      ],
       "links": [
         {
           "linkType": "Article",
-          "URL": "https://google.com",
+          "URL": "https://polycanyon.calpoly.edu/history/modular-house",
           "title": "CAED Website"
         },
         {
           "linkType": "Thesis",
-          "URL": "https://google.com",
-          "title": "Original Thesis"
+          "URL": "https://guides.lib.calpoly.edu/c.php?g=1365835&p=10429515",
+          "title": "Library Archive "
+        },
+        {
+          "URL": "https://digitalcommons.calpoly.edu/cgi/viewcontent.cgi?article=8253&context=studentnewspaper",
+          "linkType": "Article",
+          "title": "Mustang Daily Historical"
+        },
+        {
+          "URL": "https://digitalcommons.calpoly.edu/cgi/viewcontent.cgi?article=1067&context=arcesp",
+          "linkType": "Thesis",
+          "title": "Reconstruction Thesis"
         }
       ],
       "_id": "6722b48799b26f2c000bb49d",
-      "description": "The Modular House was originally fully enclosed, but today it stands hollow—so be cautious when exploring! This experimental dwelling features a steel frame with wood infill, designed on an eight-by-eight module to minimize lumber cutting.",
-      "year": "1973"
+      "description": "The Modular House in has undergone several stages of restoration, each addressing unique challenges and progressively stripping it down to a more structural, outdoor-focused design. Originally conceived as an indoor facility with practical living accommodations, the Modular House later evolved to emphasize safety, minimal maintenance, and a raw structural aesthetic. This ongoing transformation underscores a balance between preserving architectural history and adapting to present needs.",
+      "year": "1973 / 2018"
     },
     {
-      "names": ["Centering for Center"],
+      "names": [
+        "Centering for Center"
+      ],
       "number": 27,
       "url": "centeringCenter",
       "status": "Active",
@@ -1616,11 +1973,15 @@
       "advisor_builders": [
         {
           "name": "Marcos Lutyens",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Cynthia Brophy",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -1666,7 +2027,9 @@
       "year": "2022"
     },
     {
-      "names": ["Pole House"],
+      "names": [
+        "Pole House"
+      ],
       "number": 28,
       "url": "poleHouse",
       "status": "Active",
@@ -1675,11 +2038,15 @@
       "advisor_builders": [
         {
           "name": "EDES Class Project",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Randy Detmer",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -1713,7 +2080,9 @@
       "year": "1989"
     },
     {
-      "names": ["BBQ Pit"],
+      "names": [
+        "BBQ Pit"
+      ],
       "number": 29,
       "url": "bbqPit",
       "status": "Active",
@@ -1722,7 +2091,9 @@
       "advisor_builders": [
         {
           "name": "Allan Cooper",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -1756,28 +2127,38 @@
       "year": "1975"
     },
     {
-      "names": ["Moment Monument"],
+      "names": [
+        "Moment Monument"
+      ],
       "number": 30,
       "url": "momentMonument",
       "status": "Active",
       "location": {},
-      "extended_description": "Each beam is connected differently, allowing students to study various pre-qualified moment connections in steel frames. The monument exemplifies how full-scale models can enhance understanding of complex engineering principles, bridging the gap between theory and practice. It stands as a hands-on resource for learning about seismic resilience. The Moment Monument represents the forefront of educational architecture.",
+      "extended_description": "Conceptualized to merge the educational values of hands-on experience with lasting structural relevance. The design, anchored by a radial concrete slab divided in a pinwheel form, serves as an accessible platform for observing seismic moment frames. Rising above this platform are six distinct moment frames, each demonstrating unique seismic connection types, such as the Reduced Beam Section and the Simpson Yield Link. These frames were chosen to introduce engineering students to critical concepts in seismic load management, showing varied approaches to lateral stability within structural frameworks.\n\nThroughout its creation, students faced challenges that underscored the complex realities of structural engineering. Initial design iterations explored multiple configurations before finalizing on a geometry that would both withstand environmental conditions and accommodate an engaging, interactive space. Construction spanned multiple months, marked by periods of heavy rainfall that demanded extra measures like water pumps and protective enclosures to secure the integrity of the foundation. Each obstacle served as a learning opportunity, reinforcing the team’s commitment to a precise and resilient construction approach.\n\nThe Moment Monument now stands as a testament to interdisciplinary teamwork and dedication, providing a hands-on tool for future students to engage directly with structural design principles.",
       "advisor_builders": [
         {
           "name": "Carsten Huber",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Gaspar Solorio",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jared Schieferle",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Brayden Martinez",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -1794,20 +2175,22 @@
           "description": "Close-up image of the Moment Monument."
         }
       ],
+      "tags": [
+        "Seismic Engineering",
+        "Moment Frames",
+        "Structural Resilience",
+        "Educational Installation",
+        "Interdisciplinary Design"
+      ],
       "links": [
         {
-          "linkType": "Article",
-          "URL": "https://google.com",
-          "title": "CAED Website"
-        },
-        {
           "linkType": "Thesis",
-          "URL": "https://google.com",
+          "URL": "https://digitalcommons.calpoly.edu/cgi/viewcontent.cgi?article=1242&context=arcesp",
           "title": "Original Thesis"
         }
       ],
       "_id": "6722b48799b26f2c000bb4a1",
-      "description": "Each beam of the Moment Monument is connected differently, making it a unique educational tool for students studying earthquake-resistant design. As the newest addition to Poly Canyon, this structure serves as an educational tool for earthquake-resistant design.",
+      "description": "The newest structure in the canyon was designed as a lasting educational resource, aimed to visually represent the mechanics of seismic moment connections. Built on a circular concrete slab that mirrors the right-hand rule concept in physics, it features six steel moment frames displaying distinct seismic connection types, all intended to aid engineering students in understanding real-world applications of structural resilience.",
       "year": "2024"
     }
   ]
