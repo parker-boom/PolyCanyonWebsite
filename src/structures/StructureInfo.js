@@ -516,6 +516,7 @@ const StructureInfo = () => {
                         <StructureLocationMap
                           latitude={structure.location.latitude}
                           longitude={structure.location.longitude}
+                          structureName={structure.names[0]}
                         />
                       </S.InfoCard>
                     )}
