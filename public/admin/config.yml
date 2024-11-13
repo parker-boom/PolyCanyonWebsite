@@ -29,13 +29,13 @@ collections:
             collapsed: true
             fields:
               - { label: 'ID', name: '_id', widget: 'hidden', required: true }
+              - { label: 'URL', name: 'url', widget: 'hidden', required: true }
               - {
                   label: 'Number',
                   name: 'number',
                   widget: 'hidden',
                   required: true,
                 }
-              - { label: 'URL', name: 'url', widget: 'hidden', required: true }
               - label: 'Names'
                 name: 'names'
                 widget: 'list'
@@ -50,56 +50,16 @@ collections:
                   required: true,
                 }
               - {
-                  label: 'Department',
-                  name: 'department',
-                  widget: 'list',
-                  default: [],
-                  required: false,
-                }
-              - label: 'Advisor/Builders'
-                name: 'advisor_builders'
-                widget: 'list'
-                hint: 'Expand open to list both the name and role'
-                required: true
-                fields:
-                  - {
-                      label: 'Name',
-                      name: 'name',
-                      widget: 'string',
-                      required: true,
-                    }
-                  - {
-                      label: 'Role',
-                      name: 'role',
-                      widget: 'list',
-                      required: true,
-                    }
-              - {
-                  label: 'Description',
-                  name: 'description',
-                  widget: 'text',
+                  label: 'Status',
+                  name: 'status',
+                  widget: 'select',
+                  options:
+                    [
+                      { label: 'Active', value: 'Active' },
+                      { label: 'Ghost', value: 'Ghost' },
+                      { label: 'Planned', value: 'Planned' },
+                    ],
                   required: true,
-                }
-              - {
-                  label: 'Extended Description',
-                  name: 'extended_description',
-                  widget: 'text',
-                  required: true,
-                }
-              - label: 'Status'
-                name: 'status'
-                widget: 'select'
-                options:
-                  - { label: 'Active', value: 'Active' }
-                  - { label: 'Ghost', value: 'Ghost' }
-                  - { label: 'Planned', value: 'Planned' }
-                required: true
-              - {
-                  label: 'Style',
-                  name: 'style',
-                  widget: 'string',
-                  default: '',
-                  required: false,
                 }
               - {
                   label: 'Tags',
@@ -124,6 +84,40 @@ collections:
                       name: 'longitude',
                       widget: 'hidden',
                       required: true,
+                    }
+              - {
+                  label: 'Description',
+                  name: 'description',
+                  widget: 'text',
+                  required: true,
+                }
+              - {
+                  label: 'Extended Description',
+                  name: 'extended_description',
+                  widget: 'text',
+                  hint: 'This text will be appended to the main description when expanded',
+                  required: true,
+                }
+              - label: 'Advisor/Builders'
+                name: 'advisor_builders'
+                widget: 'list'
+                hint: 'Expand open to list both the name and role'
+                required: true
+                allow_add: true
+                allow_delete: false
+                fields:
+                  - {
+                      label: 'Name',
+                      name: 'name',
+                      widget: 'string',
+                      required: true,
+                    }
+                  - {
+                      label: 'Role',
+                      name: 'role',
+                      widget: 'list',
+                      required: true,
+                      allow_add: true,
                     }
               - label: 'Images'
                 name: 'images'
@@ -160,6 +154,8 @@ collections:
                 widget: 'list'
                 required: false
                 collapsed: false
+                allow_add: true
+                allow_delete: false
                 fields:
                   - {
                       label: 'Link Type',
