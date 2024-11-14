@@ -1794,7 +1794,7 @@
       "url": "greenHouse",
       "status": "Active",
       "location": {},
-      "extended_description": "Planned features included automatic watering and ventilation systems, along with solar-heated water storage. The structure's innovative design aimed to enhance the efficiency of traditional greenhouse models, showcasing early attempts at sustainable architectural practices. The Green House represents a forward-thinking approach to eco-friendly design. It continues to inspire discussions on sustainability and innovation in architecture.",
+      "extended_description": "The project began in 1983, engaging students from diverse fields, including architecture, engineering, and horticulture, in a collaborative effort to create a greenhouse capable of sustaining stable temperatures through passive solar and thermal mass storage. A stone retaining wall was used as thermal mass, absorbing heat by day and releasing it at night. Solar chimneys and rotating vent catchers facilitated airflow, minimizing the need for active cooling—a cutting-edge design for the period.\n\nConstruction took place in phases, continuing through 1989, with the addition of a copper roof, custom glazing, and automated systems for humidity, temperature, and irrigation monitoring. Significant funding came from industry donations and student-led initiatives. By the late 1980s, it was an educational resource demonstrating renewable energy applications and interdisciplinary design, although its intended functionality gradually declined. Today, it stands as a shell, a historical reminder of past experimentation and the spirit of student-led sustainable design.",
       "advisor_builders": [
         {
           "name": "Mark Jenefsky",
@@ -1817,21 +1817,28 @@
           "description": "Close-up image of the Green House."
         }
       ],
+      "tags": [
+        "Passive solar technology",
+        "Thermal mass storage",
+        "Sustainable architecture",
+        "Student-led design",
+        "Architectural innovation"
+      ],
       "links": [
         {
           "linkType": "Article",
-          "URL": "https://google.com",
+          "URL": "https://polycanyon.calpoly.edu/history/greenhouse",
           "title": "CAED Website"
         },
         {
           "linkType": "Thesis",
-          "URL": "https://google.com",
-          "title": "Original Thesis"
+          "URL": "https://guides.lib.calpoly.edu/c.php?g=1365835&p=10174883",
+          "title": "Library Archive "
         }
       ],
       "_id": "6722b48799b26f2c000bb49c",
-      "description": "The Green House was meant to be a self-sustaining structure with solar-heated water storage, an advanced concept for the 1980s. Although unfinished, this ambitious project was designed to integrate advanced environmental control systems.",
-      "year": "1989"
+      "description": "Originally designed in the 1980s by graduate student Marc Jenefsky, this passive solar greenhouse was an innovative experiment in sustainable architecture. Built into a hillside, it used passive solar principles with a solar-heated water wall and rotating ventilation elements to create a self-regulating environment for year-round plant cultivation. This structure, now a historical artifact, showcased forward-thinking integration of solar energy, thermal storage, and passive cooling techniques of its time.",
+      "year": "1983 - 1989"
     },
     {
       "names": [
@@ -2028,13 +2035,14 @@
     },
     {
       "names": [
-        "Pole House"
+        "Pole House",
+        "Heavy Timber Demonstration Structure"
       ],
       "number": 28,
       "url": "poleHouse",
       "status": "Active",
       "location": {},
-      "extended_description": "This innovative foundation technique makes it a structurally sound solution for difficult terrains. Often used as a staging ground for other projects, the Pole House highlights the adaptability of architectural design to the natural landscape, embodying practical ingenuity. It demonstrates how thoughtful engineering can overcome environmental obstacles. The structure serves as an educational model for foundation design.",
+      "extended_description": "The Heavy Timber Demonstration Structure was developed as part of a student-led project, with construction spanning much of the decade. The design employs treated timber poles in a grid configuration, a style that gained popularity in the 1950s for its efficiency and durability. Each pole supports a portion of the roof, floor, and lateral forces, enabling the use of standard lumber dimensions while accommodating irregular terrain. The structure required extensive material procurement and logistical planning, involving donations and specialized timber, which proved challenging to source in the necessary quantities.\n\nConstructed on caissons, the load is directed into bedrock, stabilizing the building above ground. This engineering solution minimizes ground contact, reducing environmental impact and erosion on the hillside site. Additionally, the structure was intended to demonstrate the viability of pole construction for larger residential and commercial applications. In front of the structure, the surrounding area has served as a staging ground for other student projects, including test footings for experimental designs.",
       "advisor_builders": [
         {
           "name": "EDES Class Project",
@@ -2063,20 +2071,27 @@
           "description": "Close-up image of the Pole House."
         }
       ],
+      "tags": [
+        "Heavy timber construction",
+        "Pole structure",
+        "Caisson foundation",
+        "Student-led design",
+        "Sustainable building methods"
+      ],
       "links": [
         {
           "linkType": "Article",
-          "URL": "https://google.com",
+          "URL": "https://guides.lib.calpoly.edu/c.php?g=1365835&p=10432507",
           "title": "CAED Website"
         },
         {
           "linkType": "Thesis",
-          "URL": "https://google.com",
-          "title": "Original Thesis"
+          "URL": "https://guides.lib.calpoly.edu/c.php?g=1365835&p=10432507",
+          "title": "Library Archive "
         }
       ],
       "_id": "6722b48799b26f2c000bb49f",
-      "description": "Built on a steep slope, the Pole House stands tall thanks to deep caissons that anchor directly into bedrock! Addressing the challenges of a sloping site, this structure is elevated on caissons that transfer the load directly to the bedrock below.",
+      "description": "Built in the 1980s, this heavy timber structure was designed as a demonstration of large-scale pole construction techniques adapted for steep terrain. Supported by caissons embedded into bedrock, it showcases a grid of timber poles as the primary load-bearing system, effectively suspending the building above ground to accommodate the sloped site. This design allows the structure to distribute weight directly into the caissons, making it a unique response to challenging topography.",
       "year": "1989"
     },
     {
