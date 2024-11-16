@@ -547,13 +547,15 @@
     },
     {
       "names": [
-        "Earth Restrooms"
+        "Restrooms",
+        "Earth-Formed Restrooms",
+        "Concrete Bathrooms"
       ],
       "number": 9,
       "url": "restrooms",
       "status": "Active",
       "location": {},
-      "extended_description": "After the concrete cured, the soil was excavated to reveal a structure that embodies efficient use of materials and environmental integration. Serving as essential infrastructure before other facilities were available, this project highlights the innovative spirit of students merging architecture with nature. The Earth-Formed Restrooms demonstrate sustainable building practices. They serve as an educational example of alternative construction methods. The design continues to intrigue and educate visitors about eco-friendly architecture.",
+      "extended_description": "The restroom facility project allowed students to gain practical experience in planning, designing, and executing a full-scale construction. This was a challenging endeavor involving heavy equipment, meticulous detailing of construction components, and coordination among team members. The project was designed to accommodate both male and female restrooms, with concrete as the primary material for durability and low maintenance. The use of the earth mound as formwork gave the roof its distinctive curve, creating a natural and robust aesthetic. Once completed, the facility became a resource for canyon visitors, and an additional caretaker once living in the nearby Underground House was known to rely on this bathroom before alternative facilities were installed.",
       "advisor_builders": [
         {
           "name": "Glen Jackson",
@@ -588,20 +590,27 @@
           "description": "Close-up image of the Earth-Formed Restrooms."
         }
       ],
+      "tags": [
+        "Concrete structure",
+        "Earth-formed architecture",
+        "Curved roof",
+        "Formwork Shotcrete",
+        "Bathrooms"
+      ],
       "links": [
         {
           "linkType": "Article",
-          "URL": "https://google.com",
+          "URL": "https://polycanyon.calpoly.edu/history/earth-formed-restrooms",
           "title": "CAED Website"
         },
         {
           "linkType": "Thesis",
-          "URL": "https://google.com",
-          "title": "Original Thesis"
+          "URL": "https://guides.lib.calpoly.edu/c.php?g=1365835&p=10160061",
+          "title": "Library Archive"
         }
       ],
       "_id": "6722b48799b26f2c000bb48c",
-      "description": "These restrooms were shaped by dirt! Students used earth mounds as molds, then dug them out to reveal the curvy concrete roof. Ingeniously using earth mounds as natural formwork, they seamlessly blend with the landscape.",
+      "description": "These concrete bathrooms feature an innovative design, using an earth mound as formwork for a curved concrete roof. Once the roof was cured, the soil was excavated to reveal a unique restroom facility that served as both a functional structure and a hands-on learning experience for the students who built it.",
       "year": "1972"
     },
     {
@@ -990,8 +999,21 @@
       "url": "pyramid",
       "status": "Active",
       "location": {},
-      "extended_description": "Noted only on the original Poly Canyon map, its mysterious origins embody the spirit of architectural exploration that defines the area. The pyramid adds an element of intrigue to the landscape, encouraging visitors to ponder the diverse forms architecture can take. It symbolizes the openness to innovation and the unknown, reflecting the boundless possibilities in design.",
-      "advisor_builders": [],
+      "extended_description": "Rumor has it, the Pyramid was never meant to be understood. Some say it was built to test the “mystic properties” of its shape, while others believe it’s a cryptic homage to ancient designs—or maybe just a high-concept cattle back scratcher. Construction was no smooth journey, either, facing everything from stubborn clay to frustrating diversions, all of which might have added to its chaotic charm.\n\nFor years, visitors have tried to make sense of its purpose: a meditation spot, bird perch, or perhaps a secret energy channeling device. It’s possible the only intended purpose was to puzzle us all, to create a “monument to mystery” that offers no clear answers, only more questions. In a place known for pushing boundaries, the Pyramid takes things one step further, giving just enough form to fuel endless theories.",
+      "advisor_builders": [
+        {
+          "name": "H. William Sievers",
+          "role": [
+            "Builder"
+          ]
+        },
+        {
+          "name": "Jens Pohl",
+          "role": [
+            "Advisor"
+          ]
+        }
+      ],
       "images": [
         {
           "type": "main",
@@ -1006,6 +1028,14 @@
           "description": "Close-up image of the Pyramid."
         }
       ],
+      "tags": [
+        "Enigmatic",
+        "Experimental",
+        "Geometric",
+        "Artistic Expression",
+        "Great Pyramid Tribute",
+        "Humor"
+      ],
       "links": [
         {
           "linkType": "Article",
@@ -1019,7 +1049,7 @@
         }
       ],
       "_id": "6722b48799b26f2c000bb492",
-      "description": "The Pyramid's unknown origins invite endless speculation—was it an early experiment, an artistic statement, or something else entirely? This enigmatic structure stands as a testament to the experimental nature of Poly Canyon.",
+      "description": "The Pyramid’s origins are shrouded in mystery—was it an experiment, an artistic statement, or just the result of an ambitious senior project? With its geometric form and unknown purpose, it stands as an invitation to wonder, sparking questions that go unanswered. This enigmatic structure embodies a spirit of exploration, nudging each visitor to dream up their own interpretation",
       "year": "1976"
     },
     {
@@ -1262,13 +1292,14 @@
     },
     {
       "names": [
-        "Poly Pavilion"
+        "Poly Pavilion",
+        "The Structure"
       ],
       "number": 19,
       "url": "polyPavilion",
       "status": "Active",
       "location": {},
-      "extended_description": "The segments were crafted on campus and transported to the canyon, demonstrating the logistical challenges of on-site assembly. Supported by arching action between its foundations, the pavilion illustrates how prefabrication techniques can be combined with innovative structural principles to create striking architectural forms. It stands as a testament to collaborative effort and engineering prowess.",
+      "extended_description": "Building on Heinz Isler's principles of catenary curves, this project explores the mathematical form of a tensioned string, inverted to create an arch in pure compression. The pavilion's arches span 40 feet, reaching a height of 8 feet at their apex, and form an accessible interior with a seamless 360-degree flow. The concrete beams, arranged with diaphragm action, support future possibilities for integrating wood or fiberglass sub-diaphragms if needed for spatial divisions or aesthetic variations.\n\nThe pavilion's precast elements were poured offsite and later assembled onsite using crane assistance, emphasizing ease of formwork and construction efficiency. Concrete was chosen not only for its compressive strength but also for its low maintenance. This approach, combined with the three-pinned arch layout, allowed students to engage deeply in design, structural analysis, and field assembly, embodying a practical education model in architectural engineering.",
       "advisor_builders": [
         {
           "name": "Alfredo Alcaraz",
@@ -1405,20 +1436,37 @@
           "description": "Close-up image of the Poly Pavilion."
         }
       ],
+      "tags": [
+        "Architecture Experimental Structure",
+        "Precast Concrete",
+        "Catenary Arch",
+        "Compression Arch",
+        "Heinz Isler"
+      ],
       "links": [
         {
           "linkType": "Article",
-          "URL": "https://google.com",
+          "URL": "https://polycanyon.calpoly.edu/history/poly-pavillion",
           "title": "CAED Website"
         },
         {
           "linkType": "Thesis",
-          "URL": "https://google.com",
-          "title": "Original Thesis"
+          "URL": "https://guides.lib.calpoly.edu/c.php?g=1365835&p=10090047",
+          "title": "Library Archives"
+        },
+        {
+          "URL": "https://digitalcommons.calpoly.edu/cgi/viewcontent.cgi?article=4472&context=studentnewspaper",
+          "linkType": "Article",
+          "title": "Mustang Daily Historical"
+        },
+        {
+          "URL": "https://smithcompanystructuralengineers.com/building-the-structure-1985/",
+          "linkType": "Article",
+          "title": "Video Documentary "
         }
       ],
       "_id": "6722b48799b26f2c000bb496",
-      "description": "The Poly Pavilion's precast segments were assembled on campus and transported to the canyon, showcasing the hands-on approach of Cal Poly students. Constructed by an Architectural Engineering class, it showcases the potential of precast concrete in architecture.",
+      "description": "The Poly Pavilion, inspired by the work of Heinz Isler, features three catenary arches arranged in a radial pattern, creating a low, dome-like space. Utilizing a compression arch design, the pavilion showcases precast concrete and was constructed entirely by a student team as an independent project. The structure was built for hands-on experience in full-scale architectural and structural experimentation.",
       "year": "1985"
     },
     {
@@ -1455,13 +1503,8 @@
       "links": [
         {
           "linkType": "Article",
-          "URL": "https://google.com",
+          "URL": "https://polycanyon.calpoly.edu/history/serenity-wall",
           "title": "CAED Website"
-        },
-        {
-          "linkType": "Thesis",
-          "URL": "https://google.com",
-          "title": "Original Thesis"
         }
       ],
       "_id": "6722b48799b26f2c000bb497",
