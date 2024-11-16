@@ -941,10 +941,10 @@ export const ArrowButton = styled.button`
   cursor: pointer;
   transition: all 0.3s ease;
   color: #376d31;
-  pointer-events: auto; // Re-enable pointer events for the button
+  pointer-events: auto;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  z-index: 2; // Add this to match ImageControls
-  position: relative; // Add this to establish a new stacking context
+  z-index: 2;
+  position: relative;
 
   svg {
     font-size: 18px;
@@ -1220,7 +1220,7 @@ export const StructureListCard = styled.div`
   cursor: pointer;
   transition: all 0.3s ease;
   border: 2px solid ${(props) => (props.isSelected ? '#376d31' : 'transparent')};
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 
   &:hover {
     transform: translateY(-2px);
