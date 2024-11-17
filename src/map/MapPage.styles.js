@@ -35,6 +35,9 @@ export const MapImage = styled.img`
   height: 100%;
   object-fit: contain;
   cursor: grab;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 
   &:active {
     cursor: grabbing;

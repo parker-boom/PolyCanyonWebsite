@@ -25,20 +25,20 @@ import LightMap from './maps/LightMap.jpg';
 import SatelliteMap from './maps/SatelliteMap.jpg';
 import DarkMap from './maps/DarkMap.jpg';
 
+const maps = [
+  { id: 'light', src: LightMap, icon: MdLightMode, label: 'Light' },
+  {
+    id: 'satellite',
+    src: SatelliteMap,
+    icon: FaSatelliteDish,
+    label: 'Satellite',
+  },
+  { id: 'dark', src: DarkMap, icon: MdDarkMode, label: 'Dark' },
+];
+
 const MapPageWeb = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [imagesLoaded, setImagesLoaded] = useState(false);
-
-  const maps = [
-    { id: 'light', src: LightMap, icon: MdLightMode, label: 'Light' },
-    {
-      id: 'satellite',
-      src: SatelliteMap,
-      icon: FaSatelliteDish,
-      label: 'Satellite',
-    },
-    { id: 'dark', src: DarkMap, icon: MdDarkMode, label: 'Dark' },
-  ];
 
   useEffect(() => {
     const preloadImages = async () => {

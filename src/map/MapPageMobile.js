@@ -16,15 +16,16 @@ import SatelliteMap from './maps/SatelliteMap.jpg';
 import DarkMap from './maps/DarkMap.jpg';
 import BlurredSatellite from './maps/BlurredSatellite.jpg';
 
+// Move maps object outside component
+const maps = {
+  light: LightMap,
+  satellite: SatelliteMap,
+  dark: DarkMap,
+};
+
 const MapPageMobile = () => {
   const [currentMap, setCurrentMap] = useState('light');
   const [imagesLoaded, setImagesLoaded] = useState(false);
-
-  const maps = {
-    light: LightMap,
-    satellite: SatelliteMap,
-    dark: DarkMap,
-  };
 
   useEffect(() => {
     // Preload all images
@@ -58,7 +59,7 @@ const MapPageMobile = () => {
     };
 
     preloadImages();
-  }, []);
+  }, []); // Now empty dependency array is fine since maps is constant
 
   if (!imagesLoaded) {
     return (
