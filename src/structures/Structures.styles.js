@@ -1614,3 +1614,86 @@ export const DirectionToggle = styled.div`
     transform: scale(0.95);
   }
 `;
+
+/*
+Mobile-specific styled components
+*/
+export const MobilePageContainer = styled(PageContainer)`
+  padding: 10px;
+  max-width: 100%;
+`;
+
+export const MobileSearchContainer = styled(SearchContainer)`
+  padding: 15px;
+  margin-bottom: 15px;
+`;
+
+export const MobileSearchSection = styled(SearchSection)`
+  height: 48px;
+  padding: 8px 12px;
+  gap: 8px;
+  background: white;
+  border: 2px solid rgba(189, 139, 19, 0.2);
+
+  &:focus-within {
+    border-color: #376d31;
+    box-shadow: 0 2px 8px rgba(55, 109, 49, 0.1);
+  }
+`;
+
+export const MobileSearchIcon = styled(SearchIcon)`
+  background: none;
+  width: auto;
+  height: auto;
+  margin: 0;
+  color: rgba(189, 139, 19, 0.6);
+
+  ${MobileSearchSection}:focus-within & {
+    color: #376d31;
+  }
+`;
+
+export const MobileSearchInput = styled(SearchInput)`
+  height: 100%;
+  font-size: 16px;
+  padding: 0;
+
+  &::placeholder {
+    color: rgba(189, 139, 19, 0.4);
+  }
+
+  &:focus::placeholder {
+    color: rgba(55, 109, 49, 0.4);
+  }
+`;
+
+export const MobileStructuresGrid = styled(StructuresGrid)`
+  grid-template-columns: 1fr;
+  gap: 16px;
+  padding: 10px;
+`;
+
+export const MobileStructureCard = styled(StructureCard)`
+  height: 120px;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+`;
+
+export const MobileStructureImage = styled(StructureImage)`
+  width: 120px;
+  height: 120px;
+`;
+
+export const MobileStructureInfo = styled(StructureInfo)`
+  padding: 12px;
+`;
+
+export const MobileStructureNumber = styled(StructureNumber)`
+  font-size: 32px;
+`;
+
+export const MobileStructureTitle = styled(StructureTitle)`
+  font-size: 20px;
+`;

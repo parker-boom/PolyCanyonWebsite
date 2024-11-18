@@ -41,6 +41,7 @@ import MapPageMobile from './map/MapPageMobile.js';
 import StructureList from './structures/StructureList.js';
 import StructureListMobile from './structures/StructureListMobile.js';
 import StructureInfo from './structures/StructureInfo.js';
+import StructureInfoMobile from './structures/StructureInfoMobile.js';
 
 const AppContainer = styled.div`
   display: flex;
@@ -116,7 +117,10 @@ function App() {
             path="/structures"
             element={isMobile ? <StructureListMobile /> : <StructureList />}
           />
-          <Route path="/structures/:structureUrl" element={<StructureInfo />} />
+          <Route
+            path="/structures/:structureUrl"
+            element={isMobile ? <StructureInfoMobile /> : <StructureInfo />}
+          />
 
           {/* Download route */}
           <Route
