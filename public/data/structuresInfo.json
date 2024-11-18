@@ -1736,13 +1736,15 @@
     },
     {
       "names": [
-        "Shell House"
+        "Shell House",
+        "Pre-Tension Post-Compression Concrete Shell",
+        "Free Form House"
       ],
       "number": 24,
       "url": "shellHouse",
       "status": "Active",
       "location": {},
-      "extended_description": "The students faced unexpected electrical shocks due to improper grounding, adding a memorable lesson to the building process. Supported at just three ground points, this structure exemplifies innovation and the hands-on challenges that come with experimental architecture. The Shell House stands as a testament to the learning experiences that shape architectural education. It continues to be a symbol of ingenuity and practical problem-solving.",
+      "extended_description": "Designed and constructed by a team of six architectural engineering students as a senior project inn 1964, the Shell House was intended to explore the limits of pre-tension and post-compression structures. Utilizing shotcrete sprayed over tensioned steel cables and wire mesh, the structure was groundbreaking for its time. Its funicular shape allowed for pure compression, minimizing material use while maximizing strength. The entire structure was supported on three points, creating an ethereal, floating appearance.\n\nAfter a decade of lying unfinished, the Shell House's interior was finally constructed. Students installed utilities, including air conditioning, plumbing, and a modernized fireplace that preheated cold air using thermal drafts. The unique floor plan emphasized open spaces and a core utility design. Lucite panels were used for windows, and the kitchen featured cutting-edge appliances donated by sponsors. Challenges such as soil conditions and material shortages delayed completion, but by 1976, the house was ready for use.\n\nFor years, the Shell House served as a residence for caretakers and as a guest house for visiting lecturers. Its waterfall feature under the staircase and innovative fireplace made it a functional and aesthetic marvel. However, when caretakers moved out, vandalism and weathering took their toll. \n\nIn 2016, a senior project re-evaluated the Shell House’s seismic performance using modern tools like 3D modeling. Despite its age, the structure was deemed seismically adequate under gravity and significant seismic loads. The evaluation highlighted the need for better waterproofing and an updated understanding of the shell's thickness, which remains largely undocumented.",
       "advisor_builders": [
         {
           "name": "Larry Gangwisch",
@@ -1813,21 +1815,43 @@
           "description": "Close-up image of the Shell House."
         }
       ],
+      "tags": [
+        "Experimental architecture",
+        "shotcrete",
+        "architectural engineering",
+        "Cantilevered structure",
+        "Mid-century innovation"
+      ],
       "links": [
         {
           "linkType": "Article",
-          "URL": "https://google.com",
+          "URL": "https://polycanyon.calpoly.edu/history/shell-house",
           "title": "CAED Website"
         },
         {
           "linkType": "Thesis",
-          "URL": "https://google.com",
+          "URL": "https://guides.lib.calpoly.edu/c.php?g=1365835&p=10302058",
           "title": "Original Thesis"
+        },
+        {
+          "linkType": "Article",
+          "title": "El Mustang Historical",
+          "URL": "https://digitalcommons.calpoly.edu/cgi/viewcontent.cgi?article=2158&context=studentnewspaper"
+        },
+        {
+          "linkType": "Article",
+          "URL": "https://archives.calstate.edu/concern/archives/6969z409t",
+          "title": "1987 Video Tour"
+        },
+        {
+          "linkType": "Thesis",
+          "URL": "https://digitalcommons.calpoly.edu/cgi/viewcontent.cgi?article=1023&context=arcesp",
+          "title": "Modern Evaluation "
         }
       ],
       "_id": "6722b48799b26f2c000bb49b",
-      "description": "During construction of the Shell House, students got unexpected shocks—they learned the hard way about grounding when working with wire mesh and shotcrete! An early pioneer in using shotcrete at Poly Canyon, the Shell House features a unique roof formed by cables, wire mesh, and sprayed concrete.",
-      "year": "1975"
+      "description": "The Shell House stands as an enduring symbol of experimental architecture and engineering ingenuity. Built in 1964, its distinctive cantilevered, funicular design demonstrates innovation in structural compression and material efficiency. The structure's concrete shell, created using groundbreaking shotcrete techniques, rests on three support points. Over decades, its interior evolved into a fully operational living space with innovative heating, cooling, and design features. Despite challenges, including vandalism and maintenance issues, the Shell House remains a cherished artifact in the canyon.",
+      "year": "1964 / 1975"
     },
     {
       "names": [
