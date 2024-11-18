@@ -482,13 +482,14 @@
     },
     {
       "names": [
-        "Cantilever Deck"
+        "Cantilever Deck",
+        "Master Builders"
       ],
       "number": 8,
       "url": "cantileverDeck",
       "status": "Active",
       "location": {},
-      "extended_description": "Suspended entirely by cables with no direct ground support, it showcases the perfect balance of tension and compression forces. This minimalist design is a real-world application of structural precision, highlighting how innovative engineering can create the illusion of a floating platform amid the natural landscape. The deck provides a unique space for contemplation and observation. It challenges conventional architectural norms. The Cantilever Deck continues to inspire awe and curiosity among visitors.",
+      "extended_description": "Originally, the Cantilever Deck was conceived as an ambitious architectural endeavor in 1990. Originally intended as an amphitheater, the project transformed into a cantilevered platform able to support significant weight, even that of grazing cows—a nod to its rugged functionality. The build process required interdisciplinary collaboration between architectural, engineering, and welding students, making it a hallmark of cross-departmental teamwork. The structure's unique suspended design utilized steel perimeter beams, cable connectors, and galvanized floor grating, all fabricated and installed to meet high structural standards. Students innovated with welding techniques and overcame challenges such as sourcing materials and designing for safety, culminating in a project that became a lasting feature of the canyon.\n\nDecades later, the deck was renovated by a dedicated group of students just this year. The team sought to restore the deck’s integrity and inspire future generations. The process began with a 3D scan to account for missing original documentation and insights from the original welder. They replaced decayed wood beams with screw-laminated Alaskan yellow cedar, known for its 40-year lifespan, and strengthened the handrails to meet modern code standards. Steel components were repainted, and the structure was stabilized to eliminate its characteristic bounce. Despite challenges like moving a boulder manually and juggling long commutes, the team brought life back to the deck while building friendships and memories. Their work ensures the platform's continued use as a refuge and source of inspiration.\n\nProfessor Anahid, who fell in love with the canyon upon first seeing it, emphasized how these structures remain living projects, adapting to new challenges and inspiring creativity. Today, the deck represents not only a feat of engineering but also the enduring spirit of student collaboration and ingenuity.",
       "advisor_builders": [
         {
           "name": "Rowan Hernandez",
@@ -513,6 +514,48 @@
           "role": [
             "Builder"
           ]
+        },
+        {
+          "name": "Jeff Gilman",
+          "role": [
+            "Builder"
+          ]
+        },
+        {
+          "name": "Paco Perez",
+          "role": [
+            "Builder"
+          ]
+        },
+        {
+          "name": "Joseph Meyer",
+          "role": [
+            "Builder"
+          ]
+        },
+        {
+          "name": "Roger Biddle",
+          "role": [
+            "Builder"
+          ]
+        },
+        {
+          "name": "Calvin Vigeant",
+          "role": [
+            "Builder"
+          ]
+        },
+        {
+          "name": "Calvin Morgan",
+          "role": [
+            "Builder"
+          ]
+        },
+        {
+          "name": "Anahid Behrouzi",
+          "role": [
+            "Advisor"
+          ]
         }
       ],
       "images": [
@@ -529,21 +572,28 @@
           "description": "Close-up image of the Cantilever Deck."
         }
       ],
+      "tags": [
+        "cantilever deck",
+        "architectural engineering",
+        "interdisciplinary collaboration",
+        "cable-supported structure",
+        "Alaskan yellow cedar"
+      ],
       "links": [
         {
           "linkType": "Article",
-          "URL": "https://google.com",
+          "URL": "https://polycanyon.calpoly.edu/history/cantilever-deck",
           "title": "CAED Website"
         },
         {
           "linkType": "Thesis",
-          "URL": "https://google.com",
-          "title": "Original Thesis"
+          "URL": "https://guides.lib.calpoly.edu/c.php?g=1365835&p=10303912",
+          "title": "Library Archive"
         }
       ],
       "_id": "6722b48799b26f2c000bb48b",
-      "description": "The Cantilever Deck appears to float in mid-air, thanks to two students who defied gravity with cables and creativity. Constructed by ambitious architecture students, it exemplifies the principles of cantilever construction.",
-      "year": "1990"
+      "description": "The Cantilever Deck is a suspended structure originally designed in 1990 as an interdisciplinary senior project, combining architectural design, welding, and structural engineering expertise. Built to resemble a boat, the platform uses steel perimeter beams and cable supports to provide stability and a striking aesthetic. Recently renovated, the structure now features upgraded materials like Alaskan yellow cedar for improved durability, repainted steel, and modernized safety handrails, ensuring compliance with current building codes. It serves as a testament to creativity, collaboration, and the enduring legacy of student innovation.",
+      "year": "1990 / 2024"
     },
     {
       "names": [
@@ -922,13 +972,15 @@
     },
     {
       "names": [
-        "Stick Structure"
+        "Stick Structure",
+        "Jake's Structure",
+        "Structural Stability Model"
       ],
       "number": 14,
       "url": "stickStructure",
       "status": "Active",
       "location": {},
-      "extended_description": "Although it was meant for regular reconfiguration, it remained the same for years until a renovation in 2009 revived its purpose. This hands-on educational tool demonstrates the principles of structural design in a tangible, full-scale format, emphasizing the longevity of student innovation. The Stick Structure serves as a testament to the enduring value of experimental architecture and the importance of continual learning and adaptation in design.",
+      "extended_description": "The Stick Structure began as an ambitious senior project in 1976, intended as a modular framework to allow students to explore structural configurations and stability. The original design included plywood shear walls and bolted connections, making it flexible for reassembly. However, despite its adaptability, the structure remained untouched for decades, weathering into disrepair and leaving it unstable.\n\nBy 2008, years of exposure and neglect left the structure’s plywood walls rotting and its bays visibly leaning. A team of students undertook a full deconstruction and redesign in 2009, grappling with rusted bolts and structural instabilities. They carefully dismantled the original while preserving its core purpose as a teaching tool. The process included replacing outdated materials with steel diaphragms and introducing modern features to improve both functionality and safety.\n\nThe renovated structure debuted with significant updates, including a two-directional truss system and an innovative cornerlever design that reduced column dependence and maximized open space. These changes not only preserved the structure’s educational value but also revitalized its aesthetic and functional qualities. Today, the Stick Structure endures as a testament to creative problem-solving and the dedication of generations of students, evolving from an experimental framework into a durable and lasting symbol of structural ingenuity.",
       "advisor_builders": [
         {
           "name": "William F Martin",
@@ -975,20 +1027,27 @@
           "description": "Close-up image of the Stick Structure."
         }
       ],
+      "tags": [
+        "Structural Engineering",
+        "Stability Testing",
+        "Educational Model",
+        "Reconfigurable Architecture",
+        "Low Maintenance Design"
+      ],
       "links": [
         {
           "linkType": "Article",
-          "URL": "https://google.com",
+          "URL": "https://polycanyon.calpoly.edu/history/stick-structure",
           "title": "CAED Website"
         },
         {
           "linkType": "Thesis",
-          "URL": "https://google.com",
-          "title": "Original Thesis"
+          "URL": "https://guides.lib.calpoly.edu/c.php?g=1365835&p=10374284",
+          "title": "Library Archive"
         }
       ],
       "_id": "6722b48799b26f2c000bb491",
-      "description": "Intended to change shapes regularly, the Stick Structure stood unchanged for decades before students gave it a fresh makeover. Originally built as a life-sized structural stability model, it allows students to explore load flow and stiffness in various configurations.",
+      "description": "Originally constructed in 1976, the Stick Structure was designed as a modular, life-sized educational model for exploring structural stability and load flow. Built to be reconfigured frequently, it instead remained static for over 30 years, deteriorating due to environmental exposure. Renovated in 2009, it now features a two-directional truss system, durable steel diaphragms, and a striking cornerlever design, showcasing structural innovation and teamwork across generations. This resilient structure continues to inspire with its educational origins and reimagined modern form.",
       "year": "1976 / 2009"
     },
     {
@@ -1513,13 +1572,14 @@
     },
     {
       "names": [
-        "Hay Bale Arch"
+        "Hay Bale Arch",
+        "Straw Bale Arch"
       ],
       "number": 21,
       "url": "hayBale",
       "status": "Active",
       "location": {},
-      "extended_description": "The unique 'window of truth' offers a glimpse into the straw core, educating visitors about alternative building materials. Its double-barrel design is likely one-of-a-kind, showcasing the creative potential of combining traditional materials with modern architectural concepts. The structure serves as both an educational exhibit and a testament to sustainable building practices.",
+      "extended_description": "The project began as a senior project in 2004, inspired by the growing interest in sustainable construction and the inherent advantages of straw bale systems. These systems, traditionally undervalued, were rediscovered for their excellent insulating properties, fire resistance, and potential as structural components. The team aimed to push the boundaries of what straw bales could achieve by creating a parabolic, double-barrel arch entirely in compression.\n\nThe process of building the arch revealed both the challenges and rewards of working with straw as a primary material. During the initial construction, the team faced setbacks, including the collapse of their first arch due to misalignment and insufficient temporary supports. Persevering, the team redesigned and rebuilt, integrating stronger rebar stakes and better construction techniques. Despite these challenges, the project highlighted the composite nature of straw bales, wire mesh, and stucco working together to achieve structural stability.\n\nIn its finished state, the structure stood as an innovative example of green design, utilizing natural materials to create a functional, aesthetically unique piece. Over time, the \"window of truth,\" which allowed viewers to see the straw core, was covered, but the legacy remains intact as a testament to sustainable engineering practices and the creative spirit of its builders.",
       "advisor_builders": [
         {
           "name": "Philip Greene",
@@ -1560,20 +1620,20 @@
           "description": "Close-up image of the Hay Bale Arch."
         }
       ],
+      "tags": [
+        "Innovative",
+        "Hay",
+        "Straw"
+      ],
       "links": [
         {
           "linkType": "Article",
-          "URL": "https://google.com",
+          "URL": "https://polycanyon.calpoly.edu/history/hay-bale-arch",
           "title": "CAED Website"
-        },
-        {
-          "linkType": "Thesis",
-          "URL": "https://google.com",
-          "title": "Original Thesis"
         }
       ],
       "_id": "6722b48799b26f2c000bb498",
-      "description": "This arch is likely the only double-barrel design of its kind, showcasing the creativity and resourcefulness of the students who built it. The Hay Bale Arch utilizes straw for its surprisingly effective insulation properties.",
+      "description": "This unique structure showcases the use of straw bale construction in a double-barrel arch design, a rare architectural feature. The straw bales, combined with wire mesh and stucco, provide both insulation and surprising structural strength. A \"window of truth\" was included to reveal the straw core but is now covered. Although the students aimed to build the structure without any support, they had to use temporary reinforcements to hold the keystone bale in place before completing the arch. The project demonstrates the innovative application of sustainable materials while exploring the structural potential of straw.",
       "year": "2004"
     },
     {
