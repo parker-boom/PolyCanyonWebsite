@@ -409,8 +409,6 @@ const StructureInfoMobile = () => {
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
   const [modalImageStyle, setModalImageStyle] = useSpring(() => ({
     scale: 1,
-    x: 0,
-    y: 0,
   }));
 
   // Load structures list
@@ -536,25 +534,20 @@ const StructureInfoMobile = () => {
     return structure.links.filter((link) => link.URL !== 'https://google.com');
   };
 
-  // Add gesture handler
+  // Simplify the gesture handler to only handle pinch/zoom
   const bindGestures = useGesture(
     {
       onPinch: ({ offset: [d] }) => {
         setModalImageStyle.start({
-          scale: Math.min(Math.max(0.5, d / 200 + 1), 4),
+          scale: Math.min(Math.max(0.5, d / 200 + 1), 4), // Limit zoom between 0.5x and 4x
         });
       },
-      onDrag: ({ offset: [x, y] }) => {
-        setModalImageStyle.start({ x, y });
-      },
       onDoubleClick: () => {
-        setModalImageStyle.start({ scale: 1, x: 0, y: 0 });
+        // Reset zoom on double tap
+        setModalImageStyle.start({ scale: 1 });
       },
     },
     {
-      drag: {
-        from: () => [modalImageStyle.x.get(), modalImageStyle.y.get()],
-      },
       pinch: {
         scaleBounds: { min: 0.5, max: 4 },
         rubberband: true,
@@ -768,20 +761,22 @@ const StructureInfoMobile = () => {
         <ImageModal
           onClick={() => {
             setIsImageModalOpen(false);
-            setModalImageStyle.start({ scale: 1, x: 0, y: 0 });
+            setModalImageStyle.start({ scale: 1 });
           }}
         >
           <ModalCloseButton
             onClick={() => {
               setIsImageModalOpen(false);
-              setModalImageStyle.start({ scale: 1, x: 0, y: 0 });
+              setModalImageStyle.start({ scale: 1 });
             }}
           >
             <FaTimes />
           </ModalCloseButton>
           <ModalImage
             {...bindGestures()}
-            style={modalImageStyle}
+            style={{
+              scale: modalImageStyle.scale,
+            }}
             src={getImagePath(structure.images[currentImageIndex].path)}
             alt={structure.images[currentImageIndex].description}
             onClick={(e) => e.stopPropagation()}
