@@ -10,13 +10,13 @@ import {
   CardImageSquareMobile,
   CardContentMobile,
   CardTitleMobile,
-  HeaderImageMobile,
+  GlobalBackgroundStyle,
 } from './home.styles.js';
 
 import download from '../assets/home/SquareDownload.jpg';
 import info from '../assets/home/SquareInfo.jpg';
 import structures from '../assets/home/SquareStructures.jpg';
-import pcWide from './pcWide.jpg';
+import RotatingHomeGrid from './RotatingHomeGrid.js';
 
 const CARDS = [
   {
@@ -44,6 +44,7 @@ const CARDS = [
 const HomeMobile = () => {
   return (
     <>
+      <GlobalBackgroundStyle />
       <Helmet>
         <title>Poly Canyon Home</title>
         <meta
@@ -57,7 +58,7 @@ const HomeMobile = () => {
       </Helmet>
 
       <HomeContainer>
-        <HeaderImageMobile src={pcWide} alt="Poly Canyon Overview" />
+        <RotatingHomeGrid />
         <WelcomeSection>
           <MainHeading>
             <span className="mobile-title">Poly Canyon</span>

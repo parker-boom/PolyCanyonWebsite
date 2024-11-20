@@ -1675,9 +1675,47 @@ export const MobileStructuresGrid = styled(StructuresGrid)`
 
 export const MobileStructureCard = styled(StructureCard)`
   height: 120px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+
+  ${(props) =>
+    props.isActive &&
+    `
+    transform: translateY(-4px);
+    border-color: rgba(189, 139, 19, 0.3);
+    box-shadow: 
+      0 12px 32px rgba(55, 109, 49, 0.12),
+      0 4px 8px rgba(55, 109, 49, 0.08);
+    background: linear-gradient(
+      135deg,
+      rgba(189, 139, 19, 0.12),
+      rgba(189, 139, 19, 0.06)
+    );
+
+    &::before {
+      opacity: 0.9;
+    }
+
+    ${StructureNumber} {
+      color: rgba(189, 139, 19, 0.9);
+    }
+  `}
 
   &:hover {
-    transform: translateY(-2px);
+    transform: translateY(-4px);
+    border-color: rgba(189, 139, 19, 0.3);
+    box-shadow:
+      0 12px 32px rgba(55, 109, 49, 0.12),
+      0 4px 8px rgba(55, 109, 49, 0.08);
+    background: linear-gradient(
+      135deg,
+      rgba(189, 139, 19, 0.12),
+      rgba(189, 139, 19, 0.06)
+    );
+  }
+
+  .chevron-icon {
+    display: none;
   }
 `;
 

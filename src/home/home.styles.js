@@ -1,7 +1,17 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { createGlobalStyle } from 'styled-components';
 
-// Update just the HomeContainer style, removing the background pattern
+// Add this new global style
+export const GlobalBackgroundStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #e8efe8;
+  }
+`;
+
+// Update HomeContainer to remove background color since it's now handled globally
 export const HomeContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -9,8 +19,7 @@ export const HomeContainer = styled.div`
   max-width: 1224px;
   margin: 0 auto;
   padding: 40px 20px;
-  height: 100%; // Changed from min-height: 100vh
-  background-color: #ffffff;
+  height: 100%;
 
   @media (max-width: 768px) {
     padding: 20px;
@@ -90,7 +99,7 @@ export const MainHeading = styled.h1`
       display: block;
       font-size: 42px;
       font-weight: 800;
-      color: #376d31;
+      color: rgba(189, 139, 19, 0.9);
       line-height: 1.1;
     }
 

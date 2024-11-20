@@ -288,10 +288,16 @@ const MobileInfoCard = styled(S.InfoCard)`
 
 const ResourcesGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(
+    ${(props) => Math.min(props.itemCount, 3)},
+    minmax(80px, 1fr)
+  );
   gap: 12px;
   width: 100%;
   padding: 4px;
+
+  max-height: calc(2 * (24px + 1.2em + 48px));
+  overflow: hidden;
 `;
 
 const ResourceBox = styled.a`
@@ -299,20 +305,19 @@ const ResourceBox = styled.a`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 16px;
+  padding: 12px 8px;
   background: white;
   border-radius: 8px;
   border: 1px solid rgba(55, 109, 49, 0.1);
   text-decoration: none;
   color: #333;
   transition: all 0.2s ease;
-  gap: 10px;
-  aspect-ratio: 1 / 1;
+  gap: 8px;
   width: 100%;
   box-shadow: 0 2px 8px rgba(189, 139, 19, 0.15);
 
   svg {
-    font-size: 28px;
+    font-size: 24px;
     color: #376d31;
     transition: all 0.2s ease;
   }
@@ -332,11 +337,16 @@ const ResourceBox = styled.a`
 `;
 
 const ResourceTitle = styled.span`
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 600;
   text-align: center;
   color: #376d31;
   line-height: 1.2;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 `;
 
 const ImageModal = styled.div`
@@ -739,7 +749,7 @@ const StructureInfoMobile = () => {
 
             {getValidLinks().length > 0 && (
               <MobileLinksSection>
-                <ResourcesGrid>
+                <ResourcesGrid itemCount={getValidLinks().length}>
                   {getValidLinks().map((link, index) => (
                     <ResourceBox
                       key={index}

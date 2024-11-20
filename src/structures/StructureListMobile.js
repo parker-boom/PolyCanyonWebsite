@@ -32,6 +32,7 @@ const StructureListMobile = () => {
     ghost: true,
     planned: true,
   });
+  const [activeCardId, setActiveCardId] = useState(null);
 
   // Load structures list
   useEffect(() => {
@@ -74,6 +75,38 @@ const StructureListMobile = () => {
   const handleStructureClick = (structure) => {
     navigate(`/structures/${structure.url}`);
   };
+
+  useEffect(() => {
+    if (!structures.length) return;
+
+    const options = {
+      root: null,
+      rootMargin: '-49.9% 0px -49.9% 0px',
+      threshold: 0,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      // If none are intersecting, clear the active card
+      if (!entries.some((entry) => entry.isIntersecting)) {
+        setActiveCardId(null);
+      }
+
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveCardId(Number(entry.target.dataset.structureNumber));
+        }
+      });
+    }, options);
+
+    setTimeout(() => {
+      const cards = document.querySelectorAll('.structure-card');
+      cards.forEach((card) => {
+        observer.observe(card);
+      });
+    }, 100);
+
+    return () => observer.disconnect();
+  }, [structures]);
 
   if (error) {
     return <div>Error: {error}</div>;
@@ -131,6 +164,9 @@ const StructureListMobile = () => {
                     <S.MobileStructureCard
                       key={structure.number}
                       onClick={() => handleStructureClick(structure)}
+                      className="structure-card"
+                      data-structure-number={structure.number}
+                      isActive={activeCardId === structure.number}
                     >
                       <S.MobileStructureImage
                         src={mainImages[structure.image_key]}

@@ -162,52 +162,54 @@ const GoogleMapsRoute = () => {
       </GoogleMap>
 
       <DirectionsContainer>
-        {!isMobile && (
-          <ArrowButtonContainer>
-            <ArrowButton
-              onClick={() => setCurrentStep(Math.max(0, currentStep - 1))}
-              disabled={currentStep === 0}
-            >
-              <FaArrowLeft />
-            </ArrowButton>
-          </ArrowButtonContainer>
-        )}
+        {!isMobile ? (
+          <>
+            <ArrowButtonContainer>
+              <ArrowButton
+                onClick={() => setCurrentStep(Math.max(0, currentStep - 1))}
+                disabled={currentStep === 0}
+              >
+                <FaArrowLeft />
+              </ArrowButton>
+            </ArrowButtonContainer>
 
-        <StepContent>
-          <StepNumber>{currentStep + 1}</StepNumber>
-          <StepText>{steps[currentStep]}</StepText>
-        </StepContent>
+            <StepContent>
+              <StepNumber>{currentStep + 1}</StepNumber>
+              <StepText>{steps[currentStep]}</StepText>
+            </StepContent>
 
-        {!isMobile && (
-          <ArrowButtonContainer>
-            <ArrowButton
-              onClick={() =>
-                setCurrentStep(Math.min(steps.length - 1, currentStep + 1))
-              }
-              disabled={currentStep === steps.length - 1}
-            >
-              <FaArrowRight />
-            </ArrowButton>
-          </ArrowButtonContainer>
-        )}
-
-        {isMobile && (
-          <ArrowButtonContainer>
-            <ArrowButton
-              onClick={() => setCurrentStep(Math.max(0, currentStep - 1))}
-              disabled={currentStep === 0}
-            >
-              <FaArrowLeft />
-            </ArrowButton>
-            <ArrowButton
-              onClick={() =>
-                setCurrentStep(Math.min(steps.length - 1, currentStep + 1))
-              }
-              disabled={currentStep === steps.length - 1}
-            >
-              <FaArrowRight />
-            </ArrowButton>
-          </ArrowButtonContainer>
+            <ArrowButtonContainer>
+              <ArrowButton
+                onClick={() =>
+                  setCurrentStep(Math.min(steps.length - 1, currentStep + 1))
+                }
+                disabled={currentStep === steps.length - 1}
+              >
+                <FaArrowRight />
+              </ArrowButton>
+            </ArrowButtonContainer>
+          </>
+        ) : (
+          <>
+            <StepText>{steps[currentStep]}</StepText>
+            <ArrowButtonContainer>
+              <ArrowButton
+                onClick={() => setCurrentStep(Math.max(0, currentStep - 1))}
+                disabled={currentStep === 0}
+              >
+                <FaArrowLeft />
+              </ArrowButton>
+              <StepNumber>{currentStep + 1}</StepNumber>
+              <ArrowButton
+                onClick={() =>
+                  setCurrentStep(Math.min(steps.length - 1, currentStep + 1))
+                }
+                disabled={currentStep === steps.length - 1}
+              >
+                <FaArrowRight />
+              </ArrowButton>
+            </ArrowButtonContainer>
+          </>
         )}
       </DirectionsContainer>
     </>

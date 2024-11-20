@@ -934,6 +934,7 @@ export const DirectionsContainer = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
     padding: 15px 10px;
+    gap: 15px;
   }
 `;
 
@@ -982,9 +983,9 @@ export const ArrowButtonContainer = styled.div`
   }
 
   @media (max-width: 768px) {
-    margin-top: 15px;
     justify-content: center;
     width: 100%;
+    gap: 20px;
   }
 `;
 
@@ -1010,7 +1011,11 @@ export const StepNumber = styled.div`
   color: #376d31;
 
   @media (max-width: 768px) {
-    margin-bottom: 5px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
   }
 `;
 
@@ -1023,6 +1028,7 @@ export const StepText = styled.div`
   @media (max-width: 768px) {
     font-size: 18px;
     text-align: center;
+    margin-bottom: 5px;
   }
 `;
 

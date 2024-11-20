@@ -71,7 +71,7 @@ export const MenuIcon = styled.div`
 `;
 
 export const PolyCanyonTitle = styled.h1`
-  font-size: 28px;
+  font-size: 34px;
   font-weight: 900;
   background: linear-gradient(
     135deg,
