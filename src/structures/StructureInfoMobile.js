@@ -66,10 +66,19 @@ const MobileImageContainer = styled(S.ImageContainer)`
 `;
 
 const MobileDescriptionContainer = styled(S.DescriptionContainer)`
-  border-radius: 12px;
+  border-radius: 24px;
   margin: 15px;
   margin-bottom: 15px;
   margin-top: 20px;
+  background: linear-gradient(135deg, #ffffff, #f8f9fa);
+  border: 1px solid rgba(189, 139, 19, 0.15);
+  box-shadow:
+    0 4px 16px rgba(55, 109, 49, 0.15),
+    0 2px 4px rgba(55, 109, 49, 0.1);
+
+  &:hover {
+    transform: none;
+  }
 `;
 
 const MobileInfoCardsSection = styled(S.InfoCardsSection)`
@@ -90,7 +99,9 @@ const MobileHeader = styled(MobileHeaderContainer)`
   justify-content: space-between;
   padding: 8px 10px;
   height: 64px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #ffffff, #f8f9fa);
+  border-bottom: 2px solid rgba(189, 139, 19, 0.2);
+  box-shadow: 0 2px 8px rgba(189, 139, 19, 0.15);
 `;
 
 const MobileNumber = styled(S.StructureNumberBubble)`
@@ -121,24 +132,24 @@ const MobileTitleContainer = styled.div`
 `;
 
 const NavigationCircle = styled.button`
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: transparent;
-  border: none;
-  color: rgba(189, 139, 19, 0.6);
+  background: rgba(189, 139, 19, 0.1);
+  border: 1px solid rgba(189, 139, 19, 0.2);
+  color: rgba(189, 139, 19, 0.8);
   cursor: pointer;
-  transition: all 0.2s ease;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   padding: 0;
 
-  &:hover {
-    color: rgba(189, 139, 19, 0.9);
+  &:active {
+    background: rgba(189, 139, 19, 0.2);
+    transform: translateY(-50%) scale(0.95);
   }
 
   svg {
@@ -174,6 +185,7 @@ const MobileTitle = styled(S.StructureTitleInfo)`
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  text-shadow: 0 1px 2px rgba(189, 139, 19, 0.1);
 
   &:not(:empty) {
     font-size: ${(props) => {
@@ -261,29 +273,27 @@ const CaptionText = styled.div`
 const MobileQuickFacts = styled(MobileInfoCardsSection)`
   margin: 15px;
   padding: 16px;
-  border-radius: 12px;
-  background: #f5f7f5;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #f5f7f5, #ffffff);
   display: flex;
   flex-direction: column;
   gap: 16px;
   overflow: visible;
   height: auto;
   min-height: auto;
-  box-shadow: 0 2px 8px rgba(55, 109, 49, 0.1);
+  border: 1px solid rgba(189, 139, 19, 0.15);
+  box-shadow:
+    0 4px 16px rgba(55, 109, 49, 0.15),
+    0 2px 4px rgba(55, 109, 49, 0.1);
 `;
 
 const MobileInfoCard = styled(S.InfoCard)`
   margin: 0;
-  border-radius: 8px;
+  border-radius: 16px;
   background: white;
-  transition: all 0.2s ease;
   padding: 16px;
-  border: 1px solid rgba(55, 109, 49, 0.1);
-
-  &:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(55, 109, 49, 0.1);
-  }
+  border: 1px solid rgba(189, 139, 19, 0.1);
+  border-left: 2px solid #376d31;
 `;
 
 const ResourcesGrid = styled.div`
@@ -307,32 +317,23 @@ const ResourceBox = styled.a`
   justify-content: center;
   padding: 12px 8px;
   background: white;
-  border-radius: 8px;
-  border: 1px solid rgba(55, 109, 49, 0.1);
+  border-radius: 16px;
+  border: 1px solid rgba(189, 139, 19, 0.2);
   text-decoration: none;
   color: #333;
-  transition: all 0.2s ease;
   gap: 8px;
   width: 100%;
   box-shadow: 0 2px 8px rgba(189, 139, 19, 0.15);
+  transition: background-color 0.2s ease;
 
   svg {
     font-size: 24px;
     color: #376d31;
-    transition: all 0.2s ease;
   }
 
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow:
-      0 6px 16px rgba(189, 139, 19, 0.25),
-      0 2px 4px rgba(189, 139, 19, 0.2);
+  &:active {
+    background-color: rgba(189, 139, 19, 0.05);
     border-color: rgba(189, 139, 19, 0.3);
-
-    svg {
-      transform: scale(1.1);
-      color: rgba(189, 139, 19, 0.9);
-    }
   }
 `;
 
@@ -401,6 +402,25 @@ const ModalCloseButton = styled.button`
 
   &:hover {
     background: rgba(255, 255, 255, 0.1);
+  }
+`;
+
+const ToggleDescriptionButton = styled(S.ToggleDescriptionButton)`
+  background: linear-gradient(
+    135deg,
+    rgba(189, 139, 19, 0.1),
+    rgba(189, 139, 19, 0.05)
+  );
+  border: 1px solid rgba(189, 139, 19, 0.2);
+  color: rgba(189, 139, 19, 0.9);
+  font-weight: 600;
+  padding: 12px 16px;
+  border-radius: 12px;
+  margin-top: 16px;
+
+  &:active {
+    background: rgba(189, 139, 19, 0.15);
+    transform: scale(0.98);
   }
 `;
 
@@ -647,9 +667,9 @@ const StructureInfoMobile = () => {
                 <p>{structure.description}</p>
                 <p>{structure.extended_description}</p>
               </S.DescriptionText>
-              <S.ToggleDescriptionButton onClick={toggleDescription}>
+              <ToggleDescriptionButton onClick={toggleDescription}>
                 {descriptionExpanded ? 'Show Less' : 'Show More'}
-              </S.ToggleDescriptionButton>
+              </ToggleDescriptionButton>
             </MobileDescriptionContainer>
 
             <MobileQuickFacts>
