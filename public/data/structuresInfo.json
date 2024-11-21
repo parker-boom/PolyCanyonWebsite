@@ -60,11 +60,15 @@
         }
       ],
       "tags": [
-        "Entryway structure",
-        "Stone masonry",
-        "Terracotta faces",
-        "Visitor entrance",
-        "Poly Canyon gateway"
+        "stone masonry",
+        "recessed mortar joints",
+        "terracotta impressions",
+        "unfinished fountain",
+        "visitor entrance",
+        "livestock barrier",
+        "serpentinite cladding",
+        "three-fingered maze",
+        "drainage solutions"
       ],
       "links": [
         {
@@ -127,10 +131,15 @@
       ],
       "tags": [
         "fiber-reinforced plastic",
-        "experimental bridge",
-        "interdisciplinary engineering",
-        "structural innovation",
-        "sustainable materials"
+        "tensile strength testing",
+        "hollow FRP tubes",
+        "interdisciplinary design",
+        "lightweight construction",
+        "cost-effective materials",
+        "wooded integration",
+        "eco-friendly restoration",
+        "graffiti repair",
+        "chain railings"
       ],
       "links": [
         {
@@ -207,6 +216,17 @@
           "description": "Close-up image of the Blade."
         }
       ],
+      "tags": [
+        "post-tensioned concrete",
+        "catenary arch redesign",
+        "structural collapse",
+        "sculptural concrete petals",
+        "cattle impact",
+        "innovative load-bearing",
+        "experimental architecture",
+        "award-winning rebuild",
+        "weather resilience"
+      ],
       "links": [
         {
           "linkType": "Thesis",
@@ -265,6 +285,15 @@
           "description": "Close-up image of the Spire Array."
         }
       ],
+      "tags": [
+        "geometric design",
+        "light filtering",
+        "minimalist architecture",
+        "efficient materials",
+        "shadow play",
+        "visually intriguing",
+        "structural creativity"
+      ],
       "links": [
         {
           "linkType": "Article",
@@ -317,6 +346,14 @@
           "path": "/images/C-5",
           "description": "Close-up image of the Palm Tree."
         }
+      ],
+      "tags": [
+        "thermal expansion design",
+        "rotating metals",
+        "minimalist appearance",
+        "environmental engineering",
+        "artistic interplay",
+        "structural experimentation"
       ],
       "links": [],
       "_id": "6722b48799b26f2c000bb488",
@@ -392,11 +429,13 @@
         }
       ],
       "tags": [
-        "tensile architecture",
-        "fabric pavilion",
+        "tensile fabric pavilion",
         "high-tension cables",
-        "design village shade",
-        "wedding ceremony"
+        "interdisciplinary collaboration",
+        "prefabricated panels",
+        "Open House showcase",
+        "durable shade structure",
+        "architectural centerpiece"
       ],
       "links": [
         {
@@ -478,11 +517,13 @@
         }
       ],
       "tags": [
-        "Geodesic structure",
-        "Buckminster Fuller",
-        "Poly Canyon landmark",
-        "Structural efficiency",
-        "Experimental design"
+        "geodesic structure",
+        "triangular framework",
+        "lightweight strength",
+        "acoustic properties",
+        "multifunctional space",
+        "architectural innovation",
+        "post-war design"
       ],
       "links": [
         {
@@ -593,11 +634,14 @@
         }
       ],
       "tags": [
-        "cantilever deck",
-        "architectural engineering",
-        "interdisciplinary collaboration",
+        "cantilevered platform",
+        "interdisciplinary teamwork",
+        "suspended design",
+        "steel perimeter beams",
         "cable-supported structure",
-        "Alaskan yellow cedar"
+        "Alaskan yellow cedar",
+        "structural restoration",
+        "rugged functionality"
       ],
       "links": [
         {
@@ -661,11 +705,12 @@
         }
       ],
       "tags": [
-        "Concrete structure",
-        "Earth-formed architecture",
-        "Curved roof",
-        "Formwork Shotcrete",
-        "Bathrooms"
+        "earth-formed architecture",
+        "curved concrete roof",
+        "soil formwork",
+        "durable construction",
+        "shotcrete technique",
+        "functional design"
       ],
       "links": [
         {
@@ -783,11 +828,13 @@
         }
       ],
       "tags": [
-        "underground architecture",
-        "ferrocement construction",
-        "passive solar design",
+        "earth-sheltered design",
+        "ferrocement structure",
+        "passive solar principles",
+        "bentonite waterproofing",
+        "partially subterranean",
         "sustainable housing experiment",
-        "Poly Canyon structures"
+        "experimental architecture"
       ],
       "links": [
         {
@@ -843,11 +890,13 @@
         }
       ],
       "tags": [
-        "sundial design",
-        "pre-cast concrete",
         "solar timekeeping",
-        "structural engineering",
-        "student-built structure"
+        "pre-cast concrete ribs",
+        "parabolic curves",
+        "brass hour markers",
+        "tensioned steel cables",
+        "environmental harmony",
+        "functional sculpture"
       ],
       "links": [
         {
@@ -925,11 +974,13 @@
         }
       ],
       "tags": [
-        "Gunite construction",
-        "Thin-shell structure",
-        "Tension and compression",
-        "Innovative bridge design",
-        "Minimal material use"
+        "gunite construction",
+        "thin-shell design",
+        "tension and compression",
+        "innovative bridge technique",
+        "minimal material use",
+        "white sand veneer",
+        "reinforced steel skeleton"
       ],
       "links": [
         {
@@ -998,10 +1049,11 @@
       ],
       "tags": [
         "timber truss bridge",
-        "sustainable design",
-        "timber engineering",
+        "sustainable material",
+        "structural efficiency",
         "canyon restoration",
-        "memorial bridge"
+        "memorial dedication",
+        "traditional engineering"
       ],
       "links": [
         {
@@ -1072,11 +1124,13 @@
         }
       ],
       "tags": [
-        "Structural Engineering",
-        "Stability Testing",
-        "Educational Model",
-        "Reconfigurable Architecture",
-        "Low Maintenance Design"
+        "modular framework",
+        "structural stability model",
+        "reconfigurable architecture",
+        "steel diaphragms",
+        "two-directional truss",
+        "cornerlever design",
+        "educational tool"
       ],
       "links": [
         {
@@ -1132,12 +1186,12 @@
         }
       ],
       "tags": [
-        "Enigmatic",
-        "Experimental",
-        "Geometric",
-        "Artistic Expression",
-        "Great Pyramid Tribute",
-        "Humor"
+        "enigmatic design",
+        "geometric experimentation",
+        "artistic statement",
+        "mysterious purpose",
+        "ancient design homage",
+        "interpretive architecture"
       ],
       "links": [],
       "_id": "6722b48799b26f2c000bb492",
@@ -1234,9 +1288,12 @@
       ],
       "tags": [
         "Cor-ten steel",
-        "Experimental architecture",
-        "Structural resilience",
-        "Seismic testing"
+        "adaptive reuse",
+        "seismic testing site",
+        "rusting protective barrier",
+        "modernist vision",
+        "structural innovation",
+        "hillside spanning"
       ],
       "links": [
         {
@@ -1292,10 +1349,13 @@
         }
       ],
       "tags": [
-        "Water Infrastructure",
-        "Sustainability",
-        "Hydrology",
-        "Engineering Innovation"
+        "sustainable water system",
+        "hillside spring source",
+        "reinforced concrete tanks",
+        "polyvinyl replacements",
+        "gravity-fed flow",
+        "environmental adaptation",
+        "overflow catch basin"
       ],
       "links": [
         {
@@ -1357,11 +1417,12 @@
         }
       ],
       "tags": [
-        "Observation Platform",
-        "Redwood Lumber",
-        "Outdoor Recreation",
-        "Student-Led Project",
-        "Fundraising Challenges"
+        "redwood construction",
+        "scenic rest stop",
+        "outdoor recreation",
+        "student-led project",
+        "fundraising challenges",
+        "hilltop positioning"
       ],
       "links": [
         {
@@ -1536,11 +1597,13 @@
         }
       ],
       "tags": [
-        "Architecture Experimental Structure",
-        "Precast Concrete",
-        "Catenary Arch",
-        "Compression Arch",
-        "Heinz Isler"
+        "catenary arches",
+        "precast concrete",
+        "compression arch design",
+        "Heinz Isler inspiration",
+        "radial layout",
+        "low-maintenance structure",
+        "architectural experimentation"
       ],
       "links": [
         {
@@ -1598,6 +1661,14 @@
           "path": "/images/C-20",
           "description": "Close-up image of the Serenity Wall."
         }
+      ],
+      "tags": [
+        "redwood planks",
+        "weather-resistant design",
+        "natural harmony",
+        "minimalist architecture",
+        "subtle gateway",
+        "low maintenance"
       ],
       "links": [
         {
@@ -1661,9 +1732,13 @@
         }
       ],
       "tags": [
-        "Innovative",
-        "Hay",
-        "Straw"
+        "straw bale construction",
+        "sustainable design",
+        "double-barrel arch",
+        "insulation properties",
+        "stucco finish",
+        "structural innovation",
+        "compression-based system"
       ],
       "links": [
         {
@@ -1741,11 +1816,12 @@
         }
       ],
       "tags": [
-        "Observation tower",
-        "Structural foundation reuse",
-        "Dedication to Paul Fratessa",
-        "Canyon views",
-        "Precast concrete"
+        "observation tower",
+        "scenic views",
+        "precast concrete",
+        "reused foundation",
+        "structural dedication",
+        "canyon landmark"
       ],
       "links": [
         {
@@ -1820,11 +1896,12 @@
         }
       ],
       "tags": [
-        "tensegrity structure",
-        "tensile architecture",
+        "tensegrity principles",
+        "floating pavilion",
+        "tensile structure",
+        "tension and compression",
         "architectural experimentation",
-        "tension and compression design",
-        "floating pavilion"
+        "gravity-defying design"
       ],
       "links": [
         {
@@ -1934,11 +2011,13 @@
         }
       ],
       "tags": [
-        "Experimental architecture",
-        "shotcrete",
-        "architectural engineering",
-        "Cantilevered structure",
-        "Mid-century innovation"
+        "ferrocement construction",
+        "curved shell roof",
+        "organic architecture",
+        "lightweight structure",
+        "natural integration",
+        "structural efficiency",
+        "sustainable design"
       ],
       "links": [
         {
@@ -2003,11 +2082,12 @@
         }
       ],
       "tags": [
-        "Passive solar technology",
-        "Thermal mass storage",
-        "Sustainable architecture",
-        "Student-led design",
-        "Architectural innovation"
+        "ferrocement panels",
+        "passive solar heating",
+        "energy-efficient design",
+        "modular construction",
+        "skylight integration",
+        "sustainable materials"
       ],
       "links": [
         {
@@ -2118,11 +2198,12 @@
         }
       ],
       "tags": [
-        "Modular Construction",
-        "Outdoor Architecture",
-        "Restoration Project",
-        "Passive Solar Design",
-        "Sustainable Architecture"
+        "modular architecture",
+        "prefabricated panels",
+        "customizable design",
+        "efficient assembly",
+        "sustainable housing concept",
+        "experimental construction"
       ],
       "links": [
         {
@@ -2191,11 +2272,13 @@
         }
       ],
       "tags": [
-        "Modular dome",
-        "Meditative space",
-        "Sustainable design",
-        "Interdisciplinary project",
-        "Transportable structure"
+        "suspended geometry",
+        "compression ring",
+        "tensile cables",
+        "structural equilibrium",
+        "central focal point",
+        "architectural balance",
+        "innovative support system"
       ],
       "links": [
         {
@@ -2257,11 +2340,12 @@
         }
       ],
       "tags": [
-        "Heavy timber construction",
-        "Pole structure",
-        "Caisson foundation",
-        "Student-led design",
-        "Sustainable building methods"
+        "elevated design",
+        "wooden pole structure",
+        "hillside adaptation",
+        "natural integration",
+        "vertical support system",
+        "minimal footprint"
       ],
       "links": [
         {
@@ -2309,6 +2393,14 @@
           "path": "/images/C-29",
           "description": "Close-up image of the BBQ Pit."
         }
+      ],
+      "tags": [
+        "outdoor cooking",
+        "communal space",
+        "brick construction",
+        "fire-resistant design",
+        "functional sculpture",
+        "rustic gathering area"
       ],
       "links": [
         {
@@ -2376,11 +2468,12 @@
         }
       ],
       "tags": [
-        "Seismic Engineering",
-        "Moment Frames",
-        "Structural Resilience",
-        "Educational Installation",
-        "Interdisciplinary Design"
+        "structural symbolism",
+        "steel connections",
+        "architectural tribute",
+        "load-bearing exploration",
+        "welded design",
+        "commemorative structure"
       ],
       "links": [
         {
