@@ -330,13 +330,14 @@
     },
     {
       "names": [
-        "Tensile"
+        "Tensile",
+        "Tensile Fabric Pavilion"
       ],
       "number": 6,
       "url": "tensile",
       "status": "Active",
       "location": {},
-      "extended_description": "Utilizing tension cables and fabric, the structure provides much-needed shade during events like Design Village. The fact that a student chose this spot for their wedding adds a personal dimension, highlighting how architecture can foster community and create meaningful spaces beyond their functional purpose. The Tensile structure exemplifies the harmonious blend of form and function. It continues to be a focal point for gatherings and events. The design inspires visitors to appreciate the possibilities of tensile architecture.",
+      "extended_description": "Inspired by advanced tensile design concepts, the Tensile Structure was an ambitious project that required over a year to complete. Students from architecture and engineering disciplines collaborated to design and construct the fabric pavilion, tackling challenges in material sourcing, interdisciplinary planning, and self-directed construction. With donations totaling $20,000, including fabric panels from an Ohio company and critical financial support from alumni, the team overcame resource limitations to bring their vision to life.\n\nThe pavilion’s architectural significance lies in its innovative use of fabric as a structural material. High-tension cables are anchored by 12 underground footings, ensuring strength and stability while maintaining a lightweight aesthetic. The structure was unveiled during the 2003 Open House, marking the first new addition to the experimental architecture collection in over a decade. Designed to provide shade for annual design village events, it has become a functional and symbolic centerpiece of the collection.\n\nThe Tensile Structure has also taken on personal significance, serving as the location for a wedding ceremony beneath its iconic canopy. Its ability to unite aesthetic innovation, practical use, and emotional significance has made it a landmark in the experimental architecture collection.",
       "advisor_builders": [
         {
           "name": "Kiren Kelly-Sneed",
@@ -395,20 +396,32 @@
           "description": "Close-up image of the Tensile."
         }
       ],
+      "tags": [
+        "tensile architecture",
+        "fabric pavilion",
+        "high-tension cables",
+        "design village shade",
+        "wedding ceremony"
+      ],
       "links": [
         {
           "linkType": "Article",
-          "URL": "https://google.com",
+          "URL": "https://polycanyon.calpoly.edu/history/tensile-structure",
           "title": "CAED Website"
         },
         {
-          "linkType": "Thesis",
-          "URL": "https://google.com",
-          "title": "Original Thesis"
+          "linkType": "Article",
+          "URL": "https://digitalcommons.calpoly.edu/cgi/viewcontent.cgi?article=6921&context=studentnewspaper",
+          "title": "Mustang Daily Historical"
+        },
+        {
+          "linkType": "Article",
+          "title": "Article Feature",
+          "URL": "https://digitalcommons.calpoly.edu/cgi/viewcontent.cgi?article=1484&context=calpoly_magazine"
         }
       ],
       "_id": "6722b48799b26f2c000bb489",
-      "description": "One student loved the Tensile structure so much, they got married under it—a testament to its beauty and community spirit. Showcasing structural elegance, it is held up by twelve footings interconnected underground.",
+      "description": "The Tensile Structure, completed in 2003, is a fabric pavilion created to provide shade for events and enhance the architectural collection in the area. Its design uses fabric panels stretched under high tension, anchored by 12 interconnected underground footings for stability. Beyond its functional purpose, the structure has hosted significant moments, including a wedding ceremony beneath its distinctive canopy, showcasing its unique blend of practicality and emotional resonance.",
       "year": "2002"
     },
     {
@@ -677,13 +690,15 @@
     },
     {
       "names": [
-        "Underground House"
+        "Underground House",
+        "Earth Shelter",
+        "Earth House"
       ],
       "number": 10,
       "url": "undergroundHouse",
       "status": "Active",
       "location": {},
-      "extended_description": "Significant issues with leaking led to it being partially unearthed. Despite the challenges, it has served as housing for caretakers, providing practical lessons in the complexities of underground construction and the importance of adapting designs to environmental constraints. The structure highlights the innovative yet practical aspects of architectural design. It stands as a learning monument to the challenges of waterproofing and subterranean living. The Underground House continues to intrigue those interested in alternative housing solutions.",
+      "extended_description": "The Underground House began as an ambitious interdisciplinary project blending architecture, construction, and engineering to create an experimental earth-sheltered structure. Initially inspired by passive solar principles and the unique qualities of ferrocement, the project aimed to develop a dwelling integrated into the landscape. Early efforts focused on excavation, laying a foundation, and erecting a wire-reinforced dome structure. The innovative use of ferrocement highlighted its potential for affordable, flexible housing but also underscored the complexity of working with new materials.\n\nFunding challenges slowed progress, with early teams struggling to secure sufficient resources. Despite setbacks, successive student groups continued the work, completing key elements like the dome’s reinforcement and waterproofing with bentonite clay tiles. However, crucial features such as landscaping, interior finishes, and full enclosure were never realized, leaving the house exposed and incomplete. What was originally intended as a family dwelling evolved into a structure used as a meeting space and a lesson in design experimentation. Later touch-ups focused on stabilizing the structure and preserving.\n\nWhile the Underground House remains unfinished, it is a testament to the challenges and triumphs of student-driven architectural exploration and continues to inspire discussions about sustainability, innovation, and perseverance.",
       "advisor_builders": [
         {
           "name": "Carl C Barrett",
@@ -772,20 +787,32 @@
           "description": "Close-up image of the Underground House."
         }
       ],
+      "tags": [
+        "underground architecture",
+        "ferrocement construction",
+        "passive solar design",
+        "sustainable housing experiment",
+        "Poly Canyon structures"
+      ],
       "links": [
         {
           "linkType": "Article",
-          "URL": "https://google.com",
+          "URL": "https://polycanyon.calpoly.edu/history/underground-house",
           "title": "CAED Website"
         },
         {
           "linkType": "Thesis",
-          "URL": "https://google.com",
-          "title": "Original Thesis"
+          "URL": "https://guides.lib.calpoly.edu/c.php?g=1365835&p=10374463",
+          "title": "Library Archive"
+        },
+        {
+          "linkType": "Article",
+          "URL": "https://digitalcommons.calpoly.edu/cgi/viewcontent.cgi?article=4033&context=studentnewspaper",
+          "title": "Mustang Daily Historical"
         }
       ],
       "_id": "6722b48799b26f2c000bb48d",
-      "description": "Designed to be invisible, the Underground House was supposed to be fully underground with only skylights showing—but leaks brought it back to the surface. An ambitious venture into subterranean architecture, it was intended to be completely submerged.",
+      "description": "The Underground House in Poly Canyon, also called the Earth Shelter, was envisioned as an energy-efficient, ferrocement structure that harmonizes with its natural surroundings. Designed as a partially subterranean dome, it features passive solar principles, emphasizing sustainable design. While intended as a family dwelling, delays in funding and resources resulted in its incomplete state, leaving it as an exposed and experimental landmark showcasing the challenges of large-scale student-led projects.",
       "year": "1982"
     },
     {
@@ -933,7 +960,7 @@
       "url": "timberTruss",
       "status": "Active",
       "location": {},
-      "extended_description": "Recently retrofitted, the structure continues to serve as a hands-on learning tool for students, allowing them to study and experience firsthand the principles of structural engineering in a real-world application. The bridge's design incorporates complex truss systems, emphasizing the importance of structural integrity and design. It stands as both a memorial and an educational resource. The Timber Truss bridge inspires future architects and engineers through its enduring presence.",
+      "extended_description": "Built as a demonstration of timber truss engineering, the bridge features a design that prioritizes structural efficiency and natural harmony. It serves as a functional crossing and an educational tool for understanding timber's potential as a sustainable building material.\n\nIn 2015, the bridge was restored during a Canyon Days event. This effort included reinforcing its structural components and addressing wear from decades of exposure. The restoration became a meaningful project for the volunteers involved and added a new chapter to the bridge's legacy.\n\nOne of the participants, a first-year architecture student named Keigen Langholff, played a key role in the restoration efforts. Tragically, Langholff passed away in a vehicular collision shortly after completing his first year. The bridge now stands as a tribute to his enthusiasm and dedication, symbolizing the collaborative spirit and learning opportunities the canyon fosters.",
       "advisor_builders": [
         {
           "name": "Derek Bonsper",
@@ -974,21 +1001,23 @@
           "description": "Close-up image of the Timber Truss."
         }
       ],
+      "tags": [
+        "timber truss bridge",
+        "sustainable design",
+        "timber engineering",
+        "canyon restoration",
+        "memorial bridge"
+      ],
       "links": [
         {
           "linkType": "Article",
-          "URL": "https://google.com",
+          "URL": "https://polycanyon.calpoly.edu/history/timber-truss-bridge",
           "title": "CAED Website"
-        },
-        {
-          "linkType": "Thesis",
-          "URL": "https://google.com",
-          "title": "Original Thesis"
         }
       ],
       "_id": "6722b48799b26f2c000bb490",
-      "description": "This bridge stands as a tribute to Keigen Langholff, a passionate student whose contributions to Poly Canyon were cut tragically short. It showcases the strength and versatility of timber in bridge construction.",
-      "year": "1994"
+      "description": "The Timber Truss Bridge is a wooden bridge that demonstrates traditional truss engineering techniques. Its durable design reflects the practicality and elegance of timber construction, blending utility with craftsmanship in the experimental architecture area.",
+      "year": "1994 / 2015"
     },
     {
       "names": [
@@ -1248,13 +1277,14 @@
     },
     {
       "names": [
-        "Water Tanks"
+        "Water Tanks",
+        "Water SYstems"
       ],
       "number": 17,
       "url": "waterTanks",
       "status": "Active",
       "location": {},
-      "extended_description": "The original tank faced issues holding water above a certain level, which was ingeniously solved with the addition of polyvinyl storage tanks. This project highlights sustainable resource management and how engineering solutions can evolve over time to meet functional challenges while respecting natural resources. The Water Tanks exemplify the integration of technology with environmental stewardship.",
+      "extended_description": "The Water System began in 1969 as a solution to provide a sustainable water source for the Poly Canyon projects, using reinforced precast concrete tanks placed near a hillside spring. These tanks relied on natural gravity to facilitate water flow, demonstrating a commitment to leveraging the landscape's natural features for efficient resource management. Despite its innovative start, the original system struggled to maintain consistent water levels due to leakage and inadequate head pressure for chlorination.\n\nIn 1998, 2 students undertook a senior project to address these challenges. Their efforts focused on replacing the failing concrete tank with prefabricated polyvinyl tanks while designing a structure that could withstand hillside movement. Their final design incorporated continuous footings and interlocking rings to stabilize the tanks on the slide-prone terrain. The team also introduced a catch basin for overflow and corrugated siding, creatively compensating for the lack of formal construction documents. Although operational issues like incomplete gates and unreliable chlorine pumps persisted, the project marked a substantial improvement in water management for the canyon.",
       "advisor_builders": [
         {
           "name": "Mathew Bittleston",
@@ -1277,20 +1307,26 @@
           "description": "Close-up image of the Water Tanks."
         }
       ],
+      "tags": [
+        "Water Infrastructure",
+        "Sustainability",
+        "Hydrology",
+        "Engineering Innovation"
+      ],
       "links": [
         {
           "linkType": "Article",
-          "URL": "https://google.com",
+          "URL": "https://polycanyon.calpoly.edu/history/water-tanks",
           "title": "CAED Website"
         },
         {
           "linkType": "Thesis",
-          "URL": "https://google.com",
-          "title": "Original Thesis"
+          "URL": "https://guides.lib.calpoly.edu/c.php?g=1365835&p=10429523",
+          "title": "Library Archive "
         }
       ],
       "_id": "6722b48799b26f2c000bb494",
-      "description": "These tanks tap into a spring that feeds Brizzolara Creek, connecting modern engineering with the area's natural water sources! Situated near a hillside spring, the Water Tanks play a crucial role in Poly Canyon's infrastructure.",
+      "description": "The Water System in Poly Canyon serves as a vital resource, tapping into a spring that feeds Brizzolara Creek and supporting the infrastructure of nearby structures. Initially developed in 1969, the project combined ingenuity and practicality, integrating reinforced concrete storage with natural hydrology. In 1998, the system underwent a significant overhaul, introducing modern polyvinyl tanks and a robust foundation to enhance water capacity and reliability while adapting to environmental constraints. This evolution highlights sustainable water management and the adaptability of engineering practices over time.",
       "year": "1969 / 1998"
     },
     {
