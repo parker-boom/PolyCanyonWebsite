@@ -268,13 +268,13 @@
       "links": [
         {
           "linkType": "Article",
-          "URL": "https://google.com",
-          "title": "CAED Website"
+          "URL": "https://calpolydesignbuild.weebly.com/poly-canyon.html",
+          "title": "Website Design Build"
         },
         {
-          "linkType": "Thesis",
-          "URL": "https://google.com",
-          "title": "Original Thesis"
+          "URL": "https://youtu.be/PTjAWOCXd1w",
+          "linkType": "Article",
+          "title": "Youtube Video of Build"
         }
       ],
       "_id": "6722b48799b26f2c000bb487",
@@ -292,7 +292,13 @@
       "extended_description": "The innovative design aimed to exploit the differing thermal expansion and contraction rates of the metals to generate rotation. Standing isolated against the rugged landscape, the structure's minimalist appearance contrasts with the complexity of its engineering intent. It serves as a physical representation of the interplay between art and science. The Palm Tree invites observers to consider the effects of environmental factors on structural design. Despite its simplicity, it embodies a sophisticated engineering concept.",
       "advisor_builders": [
         {
-          "name": "iii",
+          "name": "Cristina Alcala",
+          "role": [
+            "Builder"
+          ]
+        },
+        {
+          "name": "Jaime Mora",
           "role": [
             "Builder"
           ]
@@ -312,21 +318,10 @@
           "description": "Close-up image of the Palm Tree."
         }
       ],
-      "links": [
-        {
-          "linkType": "Article",
-          "URL": "https://google.com",
-          "title": "CAED Website"
-        },
-        {
-          "linkType": "Thesis",
-          "URL": "https://google.com",
-          "title": "Original Thesis"
-        }
-      ],
+      "links": [],
       "_id": "6722b48799b26f2c000bb488",
       "description": "The Palm Tree was originally designed to rotate with changing temperatures due to the differing expansion rates of its metals. This unique structure features a tall central pole crowned by an assembly of dissimilar metals.",
-      "year": "xxxx"
+      "year": "1993"
     },
     {
       "names": [
@@ -1144,18 +1139,7 @@
         "Great Pyramid Tribute",
         "Humor"
       ],
-      "links": [
-        {
-          "linkType": "Article",
-          "URL": "https://google.com",
-          "title": "CAED Website"
-        },
-        {
-          "linkType": "Thesis",
-          "URL": "https://google.com",
-          "title": "Original Thesis"
-        }
-      ],
+      "links": [],
       "_id": "6722b48799b26f2c000bb492",
       "description": "The Pyramid’s origins are shrouded in mystery—was it an experiment, an artistic statement, or just the result of an ambitious senior project? With its geometric form and unknown purpose, it stands as an invitation to wonder, sparking questions that go unanswered. This enigmatic structure embodies a spirit of exploration, nudging each visitor to dream up their own interpretation",
       "year": "1976"
