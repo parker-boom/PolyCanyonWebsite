@@ -1332,13 +1332,13 @@ export const DescriptionText = styled.div`
   /* Style for the main description */
   > p:first-child {
     margin-top: 0;
+    margin-bottom: ${(props) => (props.expanded ? '16px' : '0')};
   }
 
   /* Style for the extended description */
-  > p:last-child {
+  > div.extended {
+    white-space: pre-line; // Only apply pre-line to extended description
     margin-top: 16px;
-    margin-bottom: 0;
-    display: ${(props) => (props.expanded ? 'block' : 'none')};
   }
 `;
 

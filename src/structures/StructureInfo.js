@@ -30,9 +30,11 @@ import { useNavigate, useParams } from 'react-router-dom';
 import * as S from './Structures.styles.js';
 
 // Components, images, and data
-import { StructureLocationMap } from '../info/GoogleMapsRoute.js';
+import GoogleMapLandmark from './GoogleMapLandmark.js';
 import { mainImages, closeUpImages } from './images/structureImages.js';
 import { getStructuresList, getStructureInfo } from './data/structuresData.js';
+import useImagePreloader from './useImagePreloader.js';
+import LoadingSpinner from './LoadingSpinner.js';
 
 // Image path helper function
 const getImagePath = (imagePath) => {
@@ -64,6 +66,13 @@ const StructureInfo = () => {
   const [showList, setShowList] = useState(false);
   const [imageAspectRatio, setImageAspectRatio] = useState(null);
   const [structuresList, setStructuresList] = useState([]);
+  const [imagePaths, setImagePaths] = useState({
+    currentPaths: [],
+    adjacentPaths: { prev: [], next: [] },
+  });
+
+  // Use the preloader hook with new interface
+  const { imagesLoaded, loadedImages } = useImagePreloader(imagePaths);
 
   // Load structures list (from JSON)
   useEffect(() => {
@@ -75,7 +84,7 @@ const StructureInfo = () => {
     }
   }, []);
 
-  // Load structure data and set structure number (from JSON)
+  // Modify the structure data loading effect to include adjacent structures
   useEffect(() => {
     try {
       const list = getStructuresList();
@@ -84,6 +93,37 @@ const StructureInfo = () => {
         setStructureNumber(foundStructure.number);
         const structureData = getStructureInfo(foundStructure.number);
         setStructure(structureData);
+
+        // Get current structure paths
+        const currentPaths =
+          structureData?.images
+            ?.map((img) => getImagePath(img.path))
+            .filter(Boolean) || [];
+
+        // Get adjacent structure paths
+        const currentIndex = list.findIndex((s) => s.url === structureUrl);
+        const prevIndex = currentIndex > 0 ? currentIndex - 1 : list.length - 1;
+        const nextIndex = currentIndex < list.length - 1 ? currentIndex + 1 : 0;
+
+        const prevStructure = getStructureInfo(list[prevIndex].number);
+        const nextStructure = getStructureInfo(list[nextIndex].number);
+
+        const prevPaths =
+          prevStructure?.images
+            ?.map((img) => getImagePath(img.path))
+            .filter(Boolean) || [];
+        const nextPaths =
+          nextStructure?.images
+            ?.map((img) => getImagePath(img.path))
+            .filter(Boolean) || [];
+
+        setImagePaths({
+          currentPaths,
+          adjacentPaths: {
+            prev: prevPaths,
+            next: nextPaths,
+          },
+        });
       }
     } catch (error) {
       console.error('Error loading structure:', error);
@@ -222,7 +262,7 @@ const StructureInfo = () => {
     return structure.links.filter((link) => link.URL !== 'https://google.com');
   };
 
-  // Loading state - needed to give time for data to load
+  // Modify the loading state to keep header visible
   if (!structure || !structureNumber) {
     return (
       <S.InfoPageWrapper>
@@ -233,6 +273,49 @@ const StructureInfo = () => {
               <FaTimes />
             </S.CloseButton>
           </S.HeaderContainer>
+        </S.CenteredWrapper>
+      </S.InfoPageWrapper>
+    );
+  }
+
+  // Show loading spinner only for images while keeping header
+  if (!imagesLoaded) {
+    return (
+      <S.InfoPageWrapper>
+        <S.CenteredWrapper>
+          {/* Header stays visible during image loading */}
+          <S.HeaderContainer>
+            <S.StructureNumberBubble>
+              {structure.number}
+            </S.StructureNumberBubble>
+
+            <S.TitleWrapper>
+              <S.NavigationOverlay side="left" onClick={handlePrevStructure}>
+                <S.NavigationNumber>
+                  {getPrevStructureNumber()}
+                </S.NavigationNumber>
+                <FaArrowLeft />
+              </S.NavigationOverlay>
+
+              <S.StructureTitleInfo>{structure.names[0]}</S.StructureTitleInfo>
+
+              <S.NavigationOverlay side="right" onClick={handleNextStructure}>
+                <S.NavigationNumber>
+                  {getNextStructureNumber()}
+                </S.NavigationNumber>
+                <FaArrowRight />
+              </S.NavigationOverlay>
+            </S.TitleWrapper>
+
+            <S.CloseButton onClick={() => navigate('/structures')}>
+              <FaTimes />
+            </S.CloseButton>
+          </S.HeaderContainer>
+
+          {/* Loading spinner for images */}
+          <S.ContentContainer>
+            <LoadingSpinner />
+          </S.ContentContainer>
         </S.CenteredWrapper>
       </S.InfoPageWrapper>
     );
@@ -323,38 +406,39 @@ const StructureInfo = () => {
 
                     {/* Image Container: Carousel & Scaling based on aspect ratio */}
                     <S.ImageContainer>
-                      {structure?.images?.[currentImageIndex]?.path && (
-                        <>
-                          <S.BackgroundImage
-                            src={getImagePath(
-                              structure.images[currentImageIndex].path
-                            )}
-                            alt=""
-                            loading="lazy"
-                            style={{
-                              objectPosition:
-                                imageAspectRatio < 16 / 9
-                                  ? '50% 50%'
-                                  : '50% 50%',
-                            }}
-                          />
+                      {structure?.images?.[currentImageIndex]?.path &&
+                        loadedImages[currentImageIndex] && (
+                          <>
+                            <S.BackgroundImage
+                              src={
+                                loadedImages[currentImageIndex].background.src
+                              }
+                              alt=""
+                              loading="lazy"
+                              style={{
+                                objectPosition:
+                                  imageAspectRatio < 16 / 9
+                                    ? '50% 50%'
+                                    : '50% 50%',
+                              }}
+                            />
 
-                          <S.StyledImage
-                            src={getImagePath(
-                              structure.images[currentImageIndex].path
-                            )}
-                            alt={
-                              structure.images[currentImageIndex].description
-                            }
-                            style={{
-                              width:
-                                imageAspectRatio < 16 / 9 ? 'auto' : '100%',
-                              height:
-                                imageAspectRatio < 16 / 9 ? '100%' : 'auto',
-                            }}
-                          />
-                        </>
-                      )}
+                            <S.StyledImage
+                              src={
+                                loadedImages[currentImageIndex].foreground.src
+                              }
+                              alt={
+                                structure.images[currentImageIndex].description
+                              }
+                              style={{
+                                width:
+                                  imageAspectRatio < 16 / 9 ? 'auto' : '100%',
+                                height:
+                                  imageAspectRatio < 16 / 9 ? '100%' : 'auto',
+                              }}
+                            />
+                          </>
+                        )}
 
                       {structure?.images?.length > 1 && (
                         <S.ImageControls>
@@ -379,7 +463,11 @@ const StructureInfo = () => {
                     <S.SectionTitleInfo>Description</S.SectionTitleInfo>
                     <S.DescriptionText expanded={descriptionExpanded}>
                       <p>{structure.description}</p>
-                      <p>{structure.extended_description}</p>
+                      {descriptionExpanded && (
+                        <div className="extended">
+                          {structure.extended_description}
+                        </div>
+                      )}
                     </S.DescriptionText>
                     <S.ToggleDescriptionButton onClick={toggleDescription}>
                       {descriptionExpanded
@@ -483,7 +571,7 @@ const StructureInfo = () => {
                           <S.InfoCardTitle>Location</S.InfoCardTitle>
                         </S.InfoCardHeader>
                         {/* Google Maps Connection */}
-                        <StructureLocationMap
+                        <GoogleMapLandmark
                           latitude={structure.location.latitude}
                           longitude={structure.location.longitude}
                           structureName={structure.names[0]}

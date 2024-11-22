@@ -20,9 +20,11 @@ import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { useSpring, animated } from 'react-spring';
 import { useGesture } from '@use-gesture/react';
+import useImagePreloader from './useImagePreloader.js';
+import LoadingSpinner from './LoadingSpinner.js';
 
 // Components and data
-import { StructureLocationMap } from '../info/GoogleMapsRoute.js';
+import GoogleMapLandmark from './GoogleMapLandmark.js';
 import { mainImages, closeUpImages } from './images/structureImages.js';
 import { getStructuresList, getStructureInfo } from './data/structuresData.js';
 import * as S from './Structures.styles.js';
@@ -440,6 +442,13 @@ const StructureInfoMobile = () => {
   const [modalImageStyle, setModalImageStyle] = useSpring(() => ({
     scale: 1,
   }));
+  const [imagePaths, setImagePaths] = useState({
+    currentPaths: [],
+    adjacentPaths: { prev: [], next: [] },
+  });
+
+  // Use the preloader hook
+  const { imagesLoaded, loadedImages } = useImagePreloader(imagePaths);
 
   // Load structures list
   useEffect(() => {
@@ -460,6 +469,37 @@ const StructureInfoMobile = () => {
         setStructureNumber(foundStructure.number);
         const structureData = getStructureInfo(foundStructure.number);
         setStructure(structureData);
+
+        // Get current structure paths
+        const currentPaths =
+          structureData?.images
+            ?.map((img) => getImagePath(img.path))
+            .filter(Boolean) || [];
+
+        // Get adjacent structure paths
+        const currentIndex = list.findIndex((s) => s.url === structureUrl);
+        const prevIndex = currentIndex > 0 ? currentIndex - 1 : list.length - 1;
+        const nextIndex = currentIndex < list.length - 1 ? currentIndex + 1 : 0;
+
+        const prevStructure = getStructureInfo(list[prevIndex].number);
+        const nextStructure = getStructureInfo(list[nextIndex].number);
+
+        const prevPaths =
+          prevStructure?.images
+            ?.map((img) => getImagePath(img.path))
+            .filter(Boolean) || [];
+        const nextPaths =
+          nextStructure?.images
+            ?.map((img) => getImagePath(img.path))
+            .filter(Boolean) || [];
+
+        setImagePaths({
+          currentPaths,
+          adjacentPaths: {
+            prev: prevPaths,
+            next: nextPaths,
+          },
+        });
       }
     } catch (error) {
       console.error('Error loading structure:', error);
@@ -590,9 +630,39 @@ const StructureInfoMobile = () => {
     return (
       <MobileInfoPageWrapper>
         <MobileCenteredWrapper>
-          <MobileHeaderContainer>
-            <S.StructureTitleInfo>Loading...</S.StructureTitleInfo>
-          </MobileHeaderContainer>
+          <MobileHeader>
+            <MobileTitle>Loading...</MobileTitle>
+            <CloseButton onClick={() => navigate('/structures')}>
+              <FaTimes />
+            </CloseButton>
+          </MobileHeader>
+        </MobileCenteredWrapper>
+      </MobileInfoPageWrapper>
+    );
+  }
+
+  if (!imagesLoaded) {
+    return (
+      <MobileInfoPageWrapper>
+        <MobileCenteredWrapper>
+          <MobileHeader>
+            <MobileNumber>{structure.number}</MobileNumber>
+            <MobileTitleContainer>
+              <NavigationCircle onClick={handlePrevStructure}>
+                <FaChevronLeft />
+              </NavigationCircle>
+              <MobileTitle>{structure.names[0]}</MobileTitle>
+              <NavigationCircle onClick={handleNextStructure}>
+                <FaChevronRight />
+              </NavigationCircle>
+            </MobileTitleContainer>
+            <CloseButton onClick={() => navigate('/structures')}>
+              <FaTimes />
+            </CloseButton>
+          </MobileHeader>
+          <MobileContentContainer>
+            <LoadingSpinner />
+          </MobileContentContainer>
         </MobileCenteredWrapper>
       </MobileInfoPageWrapper>
     );
@@ -622,24 +692,25 @@ const StructureInfoMobile = () => {
         <MobileContentContainer>
           <MobileMainContent>
             <MobileImageContainer>
-              {structure?.images?.[currentImageIndex]?.path && (
-                <>
-                  <S.BackgroundImage
-                    src={getImagePath(structure.images[currentImageIndex].path)}
-                    alt=""
-                    loading="lazy"
-                  />
-                  <S.StyledImage
-                    src={getImagePath(structure.images[currentImageIndex].path)}
-                    alt={structure.images[currentImageIndex].description}
-                    style={{
-                      width: imageAspectRatio < 16 / 9 ? 'auto' : '100%',
-                      height: imageAspectRatio < 16 / 9 ? '100%' : 'auto',
-                    }}
-                    onClick={() => setIsImageModalOpen(true)}
-                  />
-                </>
-              )}
+              {structure?.images?.[currentImageIndex]?.path &&
+                loadedImages[currentImageIndex] && (
+                  <>
+                    <S.BackgroundImage
+                      src={loadedImages[currentImageIndex].background.src}
+                      alt=""
+                      loading="lazy"
+                    />
+                    <S.StyledImage
+                      src={loadedImages[currentImageIndex].foreground.src}
+                      alt={structure.images[currentImageIndex].description}
+                      style={{
+                        width: imageAspectRatio < 16 / 9 ? 'auto' : '100%',
+                        height: imageAspectRatio < 16 / 9 ? '100%' : 'auto',
+                      }}
+                      onClick={() => setIsImageModalOpen(true)}
+                    />
+                  </>
+                )}
             </MobileImageContainer>
 
             {structure?.images?.[currentImageIndex]?.description && (
@@ -665,7 +736,11 @@ const StructureInfoMobile = () => {
               <S.SectionTitleInfo>About</S.SectionTitleInfo>
               <S.DescriptionText expanded={descriptionExpanded}>
                 <p>{structure.description}</p>
-                <p>{structure.extended_description}</p>
+                {descriptionExpanded && (
+                  <div className="extended">
+                    {structure.extended_description}
+                  </div>
+                )}
               </S.DescriptionText>
               <ToggleDescriptionButton onClick={toggleDescription}>
                 {descriptionExpanded ? 'Show Less' : 'Show More'}
@@ -758,7 +833,7 @@ const StructureInfoMobile = () => {
                       </S.InfoCardEmoji>
                       <S.InfoCardTitle>Location</S.InfoCardTitle>
                     </S.InfoCardHeader>
-                    <StructureLocationMap
+                    <GoogleMapLandmark
                       latitude={structure.location.latitude}
                       longitude={structure.location.longitude}
                       structureName={structure.names[0]}
@@ -807,7 +882,7 @@ const StructureInfoMobile = () => {
             style={{
               scale: modalImageStyle.scale,
             }}
-            src={getImagePath(structure.images[currentImageIndex].path)}
+            src={loadedImages[currentImageIndex].foreground.src}
             alt={structure.images[currentImageIndex].description}
             onClick={(e) => e.stopPropagation()}
           />

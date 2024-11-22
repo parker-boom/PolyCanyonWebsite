@@ -43,6 +43,9 @@ import StructureListMobile from './structures/StructureListMobile.js';
 import StructureInfo from './structures/StructureInfo.js';
 import StructureInfoMobile from './structures/StructureInfoMobile.js';
 
+// Utils
+import { loadGoogleMapsScript } from './utils/googleMaps.js';
+
 const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -88,6 +91,9 @@ function App() {
   const location = useLocation();
 
   useEffect(() => {
+    // Load Google Maps when app initializes
+    loadGoogleMapsScript();
+
     // Check if the URL contains #invite_token
     if (window.location.hash.includes('invite_token')) {
       const token = window.location.hash.split('invite_token=')[1];

@@ -1,10 +1,7 @@
 {
   "structures": [
     {
-      "names": [
-        "Entry Arch",
-        "Entrance Pathway"
-      ],
+      "names": ["Entry Arch", "Entrance Pathway"],
       "number": 1,
       "url": "entryArch",
       "status": "Active",
@@ -16,33 +13,23 @@
       "advisor_builders": [
         {
           "name": "Paul Miller",
-          "role": [
-            "Advisor"
-          ]
+          "role": ["Advisor"]
         },
         {
           "name": "Lynn Noah",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Greg Lomax",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Andrew Low",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Gwin Stumbaugh",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -87,9 +74,7 @@
       "year": "1976"
     },
     {
-      "names": [
-        "Techite Bridge"
-      ],
+      "names": ["Techite Bridge"],
       "number": 2,
       "url": "techiteBridge",
       "status": "Active",
@@ -101,21 +86,15 @@
       "advisor_builders": [
         {
           "name": "Robert Purdy",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Robert Mac Luan",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Merilee Amy",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -166,11 +145,7 @@
       "year": "1973"
     },
     {
-      "names": [
-        "Blade",
-        "The Petal Structure",
-        "The Concrete Flower"
-      ],
+      "names": ["Blade", "The Petal Structure", "The Concrete Flower"],
       "number": 3,
       "url": "blade",
       "status": "Active",
@@ -182,27 +157,19 @@
       "advisor_builders": [
         {
           "name": "Steve Gilmore",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Mark Haselton",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Dan McMann",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Ken Minor",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -252,9 +219,7 @@
       "year": "1963 / 2003"
     },
     {
-      "names": [
-        "Spire Array"
-      ],
+      "names": ["Spire Array"],
       "number": 4,
       "url": "spireArray",
       "status": "Active",
@@ -266,15 +231,11 @@
       "advisor_builders": [
         {
           "name": "Professor Dale Clifford",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Design Build Team",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -317,9 +278,7 @@
       "year": "2020"
     },
     {
-      "names": [
-        "Palm Tree"
-      ],
+      "names": ["Palm Tree"],
       "number": 5,
       "url": "palmTree",
       "status": "Active",
@@ -331,15 +290,11 @@
       "advisor_builders": [
         {
           "name": "Cristina Alcala",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Jaime Mora",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -370,10 +325,7 @@
       "year": "1993"
     },
     {
-      "names": [
-        "Tensile",
-        "Tensile Fabric Pavilion"
-      ],
+      "names": ["Tensile", "Tensile Fabric Pavilion"],
       "number": 6,
       "url": "tensile",
       "status": "Active",
@@ -385,45 +337,31 @@
       "advisor_builders": [
         {
           "name": "Kiren Kelly-Sneed",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Theresa Zaro",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Royce Chow",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Abe Lynn",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Michael Lucas",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Walt Tryon",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Richard Zweifel",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -471,47 +409,35 @@
       "year": "2002"
     },
     {
-      "names": [
-        "Geodesic Dome"
-      ],
+      "names": ["Geodesic Dome"],
       "number": 7,
       "url": "geodesicDome",
       "status": "Active",
       "location": {
-        "latitude": 35.31537,
-        "longitude": -120.627
+        "latitude": 35.31538,
+        "longitude": -120.65271
       },
       "extended_description": "The dome was inspired by Buckminster Fuller, a renowned architect and inventor whose work popularized the geodesic structure as an efficient and sustainable design. Fuller’s principles of “energetic geometry” focus on using interlocking triangles to evenly distribute forces, allowing lightweight yet strong structures that enclose large volumes with minimal material. This approach gained momentum in the post-war era, and Cal Poly’s dome became an early example of these revolutionary concepts on the West Coast.\n\nOriginally constructed in 1957 near the architecture building, the dome was relocated to its current site in 1963, where it became an enduring symbol of Cal Poly’s commitment to hands-on, collaborative learning. Unlike traditional builds led by small teams, this project involved hundreds of students, emphasizing large-scale teamwork and experimentation. Made from surplus boiler pipes and assembled with over 19,000 bolts, it served as a milestone for Cal Poly’s \"Learn by Doing\" philosophy, marking the first major application of this ethos on campus.\n\nOver the decades, the Geodesic Dome has served multiple functions, including a chapel, gathering space, and sound stage during Design Village events, where its unique acoustics are utilized. Today, it continues to stand as a cultural and architectural icon, inspiring students and visitors alike with its blend of efficiency, collaboration, and timeless design.",
       "advisor_builders": [
         {
           "name": "Richard Neill",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "William Roth",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Donald Mills",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Samuel Peterson",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Don Trunklage",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -554,10 +480,7 @@
       "year": "1963"
     },
     {
-      "names": [
-        "Cantilever Deck",
-        "Master Builders"
-      ],
+      "names": ["Cantilever Deck", "Master Builders"],
       "number": 8,
       "url": "cantileverDeck",
       "status": "Active",
@@ -569,69 +492,47 @@
       "advisor_builders": [
         {
           "name": "Rowan Hernandez",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Kim Throndson",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "John Morrena",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Lee Benson",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Jeff Gilman",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Paco Perez",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Joseph Meyer",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Roger Biddle",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Calvin Vigeant",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Calvin Morgan",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Anahid Behrouzi",
-          "role": [
-            "Advisor"
-          ]
+          "role": ["Advisor"]
         }
       ],
       "images": [
@@ -675,11 +576,7 @@
       "year": "1990 / 2024"
     },
     {
-      "names": [
-        "Restrooms",
-        "Earth-Formed Restrooms",
-        "Concrete Bathrooms"
-      ],
+      "names": ["Restrooms", "Earth-Formed Restrooms", "Concrete Bathrooms"],
       "number": 9,
       "url": "restrooms",
       "status": "Active",
@@ -691,21 +588,15 @@
       "advisor_builders": [
         {
           "name": "Glen Jackson",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Robert Del Bianco",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Ralph Nafzgar",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -747,11 +638,7 @@
       "year": "1972"
     },
     {
-      "names": [
-        "Underground House",
-        "Earth Shelter",
-        "Earth House"
-      ],
+      "names": ["Underground House", "Earth Shelter", "Earth House"],
       "number": 10,
       "url": "undergroundHouse",
       "status": "Active",
@@ -763,75 +650,51 @@
       "advisor_builders": [
         {
           "name": "Carl C Barrett",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Robert S Cocores",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Allyn W Mcfarlin",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "John M Provato",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Jesse P Wedemeyer",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Wayne Christian",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Pat Dennison",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Fred Kozono",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Mark McIntire",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Chris Sterios",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Craig Wilson",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Mark V Zeolla",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -879,10 +742,7 @@
       "year": "1982"
     },
     {
-      "names": [
-        "Sun Dial",
-        "Project 70 "
-      ],
+      "names": ["Sun Dial", "Project 70 "],
       "number": 11,
       "url": "sunDial",
       "status": "Active",
@@ -894,9 +754,7 @@
       "advisor_builders": [
         {
           "name": "John Stuart",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -939,10 +797,7 @@
       "year": "1971"
     },
     {
-      "names": [
-        "Gunite Bridge",
-        "Free Form Bridge"
-      ],
+      "names": ["Gunite Bridge", "Free Form Bridge"],
       "number": 12,
       "url": "guniteBridge",
       "status": "Active",
@@ -954,33 +809,23 @@
       "advisor_builders": [
         {
           "name": "Gordon L. Boles",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Roy Leland Bostrom",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Kokpo Ng",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Richard L. Saylor",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "John Ulloa",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -1023,9 +868,7 @@
       "year": "1965"
     },
     {
-      "names": [
-        "Timber Truss"
-      ],
+      "names": ["Timber Truss"],
       "number": 13,
       "url": "timberTruss",
       "status": "Active",
@@ -1037,27 +880,19 @@
       "advisor_builders": [
         {
           "name": "Derek Bonsper",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Josh Randall",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Fred Sobottka",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Mike Willis",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -1110,33 +945,23 @@
       "advisor_builders": [
         {
           "name": "William F Martin",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Brian Gottlieb",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Dan Morita",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Michelle M. Pettit",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Jake Feldman",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -1179,9 +1004,7 @@
       "year": "1976 / 2009"
     },
     {
-      "names": [
-        "Pyramid"
-      ],
+      "names": ["Pyramid"],
       "number": 15,
       "url": "pyramid",
       "status": "Active",
@@ -1193,15 +1016,11 @@
       "advisor_builders": [
         {
           "name": "H. William Sievers",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Jens Pohl",
-          "role": [
-            "Advisor"
-          ]
+          "role": ["Advisor"]
         }
       ],
       "images": [
@@ -1232,9 +1051,7 @@
       "year": "1976"
     },
     {
-      "names": [
-        "Bridge House"
-      ],
+      "names": ["Bridge House"],
       "number": 16,
       "url": "bridgeHouse",
       "status": "Active",
@@ -1246,63 +1063,43 @@
       "advisor_builders": [
         {
           "name": "Ronald Davena",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Joel Dean",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Robert Garlow",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Raymond Hilken",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Lui Horstmeyer",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "James January",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Lloyd Suehiro",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Thomas Wiggin",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Kurt Holder",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Bruce Campe",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -1350,10 +1147,7 @@
       "year": "1968 / 2019"
     },
     {
-      "names": [
-        "Water Tanks",
-        "Water SYstems"
-      ],
+      "names": ["Water Tanks", "Water SYstems"],
       "number": 17,
       "url": "waterTanks",
       "status": "Active",
@@ -1365,9 +1159,7 @@
       "advisor_builders": [
         {
           "name": "Mathew Bittleston",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -1410,9 +1202,7 @@
       "year": "1969 / 1998"
     },
     {
-      "names": [
-        "Observation Deck"
-      ],
+      "names": ["Observation Deck"],
       "number": 18,
       "url": "observationDeck",
       "status": "Active",
@@ -1424,21 +1214,15 @@
       "advisor_builders": [
         {
           "name": "Tony Pellegrini",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Harrison Woods",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Sitora Vaxidova",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -1490,10 +1274,7 @@
       "year": "2019"
     },
     {
-      "names": [
-        "Poly Pavilion",
-        "The Structure"
-      ],
+      "names": ["Poly Pavilion", "The Structure"],
       "number": 19,
       "url": "polyPavilion",
       "status": "Active",
@@ -1505,123 +1286,83 @@
       "advisor_builders": [
         {
           "name": "Alfredo Alcaraz",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Armando Paez",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Blanca Guerra",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Bob Green",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Brad Bishop",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Brett Beeman",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Chi Pham",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Cindy Smith",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Dave Hernandez",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Frank Maskiewicz",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Jim Low",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Joe Michale",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "John Smith",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Ken Brehmer",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Ken Schumann",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Ku Divita",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Pete Chavez",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Randal Brunson",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Ricardo Arevalo",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Stan Smith",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -1674,9 +1415,7 @@
       "year": "1985"
     },
     {
-      "names": [
-        "Serenity Wall"
-      ],
+      "names": ["Serenity Wall"],
       "number": 20,
       "url": "serenityWall",
       "status": "Active",
@@ -1688,9 +1427,7 @@
       "advisor_builders": [
         {
           "name": "Brian Milton",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -1727,10 +1464,7 @@
       "year": "2004"
     },
     {
-      "names": [
-        "Hay Bale Arch",
-        "Straw Bale Arch"
-      ],
+      "names": ["Hay Bale Arch", "Straw Bale Arch"],
       "number": 21,
       "url": "hayBale",
       "status": "Active",
@@ -1742,27 +1476,19 @@
       "advisor_builders": [
         {
           "name": "Philip Greene",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Adam Bradley",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Jason Hughey",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Matthew Vorhees",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -1800,9 +1526,7 @@
       "year": "2004"
     },
     {
-      "names": [
-        "Fratessa Tower"
-      ],
+      "names": ["Fratessa Tower"],
       "number": 22,
       "url": "fratessaTower",
       "status": "Active",
@@ -1814,39 +1538,27 @@
       "advisor_builders": [
         {
           "name": "Rachel Martin",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Justin Wei",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Michael Braund",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Eric Mcdonnell",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Tanya Worotko",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Adam Stagnaro",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -1888,10 +1600,7 @@
       "year": "2004"
     },
     {
-      "names": [
-        "Tensegrity",
-        "Tensegrity Pavilion"
-      ],
+      "names": ["Tensegrity", "Tensegrity Pavilion"],
       "number": 23,
       "url": "tensegrity",
       "status": "Active",
@@ -1903,33 +1612,23 @@
       "advisor_builders": [
         {
           "name": "Will Adam",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Ivan Cruz",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Jos Hernandez",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Kasey Tatis",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Truman Waller",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -1997,57 +1696,39 @@
       "advisor_builders": [
         {
           "name": "Larry Gangwisch",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Ronald James",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Raymond Ketzel",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Roger Marshall",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "David Wright",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "James Zimmerman",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "George Hasslein",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Wesley Ward",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Harvey Koehen",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -2105,9 +1786,7 @@
       "year": "1964 / 1975"
     },
     {
-      "names": [
-        "Green House"
-      ],
+      "names": ["Green House"],
       "number": 25,
       "url": "greenHouse",
       "status": "Active",
@@ -2119,9 +1798,7 @@
       "advisor_builders": [
         {
           "name": "Mark Jenefsky",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -2163,10 +1840,7 @@
       "year": "1983 - 1989"
     },
     {
-      "names": [
-        "Modular House",
-        "Caretaker’s House"
-      ],
+      "names": ["Modular House", "Caretaker’s House"],
       "number": 26,
       "url": "modularHouse",
       "status": "Active",
@@ -2178,69 +1852,47 @@
       "advisor_builders": [
         {
           "name": "Paul Thoryk",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "John Edmiston",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Glen Jackson",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Tom Bylund",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "James Jones",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Richard Pata",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Lorin Smith",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Jerry Tucker",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Dennis Turner",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "John Edmisten",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Don Koberg",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -2292,9 +1944,7 @@
       "year": "1973 / 2018"
     },
     {
-      "names": [
-        "Centering for Center"
-      ],
+      "names": ["Centering for Center"],
       "number": 27,
       "url": "centeringCenter",
       "status": "Active",
@@ -2306,15 +1956,11 @@
       "advisor_builders": [
         {
           "name": "Marcos Lutyens",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Cynthia Brophy",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -2362,10 +2008,7 @@
       "year": "2022"
     },
     {
-      "names": [
-        "Pole House",
-        "Heavy Timber Demonstration Structure"
-      ],
+      "names": ["Pole House", "Heavy Timber Demonstration Structure"],
       "number": 28,
       "url": "poleHouse",
       "status": "Active",
@@ -2377,15 +2020,11 @@
       "advisor_builders": [
         {
           "name": "EDES Class Project",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Randy Detmer",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -2427,9 +2066,7 @@
       "year": "1989"
     },
     {
-      "names": [
-        "BBQ Pit"
-      ],
+      "names": ["BBQ Pit"],
       "number": 29,
       "url": "bbqPit",
       "status": "Active",
@@ -2441,9 +2078,7 @@
       "advisor_builders": [
         {
           "name": "Allan Cooper",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
@@ -2485,41 +2120,31 @@
       "year": "1975"
     },
     {
-      "names": [
-        "Moment Monument"
-      ],
+      "names": ["Moment Monument"],
       "number": 30,
       "url": "momentMonument",
       "status": "Active",
       "location": {
-        "latitude": 35.3134566,
-        "longitude": -120.651585
+        "latitude": 35.314548,
+        "longitude": -120.651591
       },
       "extended_description": "Conceptualized to merge the educational values of hands-on experience with lasting structural relevance. The design, anchored by a radial concrete slab divided in a pinwheel form, serves as an accessible platform for observing seismic moment frames. Rising above this platform are six distinct moment frames, each demonstrating unique seismic connection types, such as the Reduced Beam Section and the Simpson Yield Link. These frames were chosen to introduce engineering students to critical concepts in seismic load management, showing varied approaches to lateral stability within structural frameworks.\n\nThroughout its creation, students faced challenges that underscored the complex realities of structural engineering. Initial design iterations explored multiple configurations before finalizing on a geometry that would both withstand environmental conditions and accommodate an engaging, interactive space. Construction spanned multiple months, marked by periods of heavy rainfall that demanded extra measures like water pumps and protective enclosures to secure the integrity of the foundation. Each obstacle served as a learning opportunity, reinforcing the team’s commitment to a precise and resilient construction approach.\n\nThe Moment Monument now stands as a testament to interdisciplinary teamwork and dedication, providing a hands-on tool for future students to engage directly with structural design principles.",
       "advisor_builders": [
         {
           "name": "Carsten Huber",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Gaspar Solorio",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Jared Schieferle",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Brayden Martinez",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
