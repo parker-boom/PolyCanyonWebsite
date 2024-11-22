@@ -309,6 +309,20 @@ const Structures = () => {
 
           {/* Ghost and Planned sections */}
         </S.StructuresContainer>
+
+        <S.ContactContainer>
+          <S.ContactTitle>Have information on structures?</S.ContactTitle>
+          <S.ContactText>
+            <a
+              href="https://forms.office.com/r/r13RDrzxxS"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Fill out this form
+            </a>
+            <a href="mailto:pjones15@calpoly.edu">Email pjones15@calpoly.edu</a>
+          </S.ContactText>
+        </S.ContactContainer>
       </S.PageContainer>
     </>
   );

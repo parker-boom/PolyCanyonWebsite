@@ -382,16 +382,58 @@ Footer Elements
 */
 export const Footer = styled.footer`
   margin-top: auto;
-  padding-top: 30px;
+  padding: 24px 0;
   width: 100%;
   text-align: center;
   animation: ${fadeIn} 0.5s ease-out;
+  background: linear-gradient(to bottom, transparent, rgba(189, 139, 19, 0.03));
+  border-top: 1px solid rgba(189, 139, 19, 0.1);
 `;
 
 export const FooterText = styled.p`
-  color: #777;
-  font-size: 16px;
-  margin: 8px 0; // Footer text margin
+  color: ${(props) => {
+    if (props.$primary && props.$developer) return 'rgba(189, 139, 19, 0.9)'; // Gold for developer credit
+    if (props.$primary) return 'rgba(55, 109, 49, 0.9)'; // Green for app name
+    if (props.$contact) return 'rgba(189, 139, 19, 0.7)'; // Gold for contact info
+    return 'rgba(55, 109, 49, 0.8)'; // Green for Cal Poly
+  }};
+  font-size: ${(props) => (props.$primary ? '16px' : '14px')};
+  margin: ${(props) => (props.$primary ? '8px 0' : '6px 0')};
+  font-weight: ${(props) => (props.$primary ? '600' : '500')};
+  letter-spacing: ${(props) => (props.$primary ? '0.3px' : 'normal')};
+  transition: all 0.3s ease;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 2px 4px;
+    border-radius: 4px;
+
+    &:hover {
+      color: ${(props) =>
+        props.$contact ? 'rgba(189, 139, 19, 1)' : 'rgba(55, 109, 49, 1)'};
+      background: ${(props) =>
+        props.$contact
+          ? 'rgba(189, 139, 19, 0.05)'
+          : 'rgba(55, 109, 49, 0.05)'};
+    }
+  }
+
+  ${(props) =>
+    props.$contact &&
+    `
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  `}
+`;
+
+export const FooterDivider = styled.span`
+  margin: 0 12px;
+  color: rgba(189, 139, 19, 0.3);
+  font-size: 8px;
+  vertical-align: middle;
 `;
 
 export const PageWrapper = styled.div`

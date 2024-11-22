@@ -27,7 +27,11 @@ import { createGlobalStyle } from 'styled-components';
 // Styles
 import './index.css';
 import Navigation from './layout/Navigation.js';
-import { Footer, FooterText } from './layout/Navigation.styles.js';
+import {
+  Footer,
+  FooterText,
+  FooterDivider,
+} from './layout/Navigation.styles.js';
 
 // Pages
 import HomeWeb from './home/homeWeb.js';
@@ -147,7 +151,15 @@ function App() {
 
       {location.pathname !== '/' && (
         <Footer>
-          <FooterText>© 2024 Poly Canyon App. All rights reserved.</FooterText>
+          <FooterText $primary>© 2024 Poly Canyon App</FooterText>
+          <FooterText $primary $developer>
+            Designed & Developed by Parker Jones
+          </FooterText>
+          <FooterText $contact>
+            <a href="mailto:pjones15@calpoly.edu">pjones15@calpoly.edu</a>
+            <FooterDivider>•</FooterDivider>
+            <a href="tel:425-577-9664">425-577-9664</a>
+          </FooterText>
           <FooterText>Cal Poly, San Luis Obispo</FooterText>
         </Footer>
       )}

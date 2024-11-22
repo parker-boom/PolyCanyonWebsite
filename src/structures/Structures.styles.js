@@ -1735,3 +1735,51 @@ export const MobileStructureNumber = styled(StructureNumber)`
 export const MobileStructureTitle = styled(StructureTitle)`
   font-size: 20px;
 `;
+
+export const ContactContainer = styled(RoundedContainer)`
+  margin-bottom: 24px;
+  padding: 20px;
+  background-color: #e8efe8;
+  box-shadow:
+    0 4px 20px rgba(189, 139, 19, 0.25),
+    0 2px 8px rgba(55, 109, 49, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+`;
+
+export const ContactTitle = styled.h3`
+  font-size: 30px;
+  font-weight: 800;
+  background: linear-gradient(
+    135deg,
+    rgba(189, 139, 19, 1),
+    rgba(189, 139, 19, 0.85)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+`;
+
+export const ContactText = styled.p`
+  font-size: 18px;
+  color: #2c3e50;
+  margin: 0;
+  line-height: 1.8;
+
+  a {
+    color: #376d31;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    display: block;
+
+    &:hover {
+      color: rgba(189, 139, 19, 0.9);
+      text-decoration: underline;
+    }
+  }
+`;
