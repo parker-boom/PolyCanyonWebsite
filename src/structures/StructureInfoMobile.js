@@ -61,10 +61,12 @@ const MobileContentContainer = styled(S.ContentContainer)`
   padding: 0;
   border-radius: 0;
   box-shadow: none;
+  background: #e8efe8;
 `;
 
 const MobileMainContent = styled(S.MainContent)`
   flex-direction: column;
+  background: #e8efe8;
 `;
 
 const MobileImageContainer = styled(S.ImageContainer)`
@@ -76,10 +78,15 @@ const MobileImageContainer = styled(S.ImageContainer)`
 
 const MobileDescriptionContainer = styled(S.DescriptionContainer)`
   border-radius: 24px;
-  margin: 15px;
-  margin-bottom: 15px;
-  margin-top: 20px;
-  background: linear-gradient(135deg, #ffffff, #f8f9fa);
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  width: 95%;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 248, 230, 0.9),
+    rgba(255, 245, 222, 0.85)
+  );
   border: 1px solid rgba(189, 139, 19, 0.15);
   box-shadow:
     0 4px 16px rgba(55, 109, 49, 0.15),
@@ -98,8 +105,28 @@ const MobileInfoCardsSection = styled(S.InfoCardsSection)`
 const MobileLinksSection = styled(S.LinksSection)`
   padding: 16px;
   border-radius: 12px;
-  background: #f5f7f5;
-  box-shadow: 0 2px 8px rgba(55, 109, 49, 0.1);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 248, 230, 0.95),
+    rgba(255, 245, 222, 0.9)
+  );
+  box-shadow: 0 2px 8px rgba(189, 139, 19, 0.15);
+  border: 1px solid rgba(189, 139, 19, 0.15);
+  position: relative;
+  margin-top: 24px;
+
+  &::before {
+    content: 'Resources';
+    position: absolute;
+    top: -10px;
+    left: 24px;
+    background: #e8efe8; // Match parent background
+    padding: 0 12px;
+    color: #376d31;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
 `;
 
 const MobileHeader = styled(MobileHeaderContainer)`
@@ -108,8 +135,8 @@ const MobileHeader = styled(MobileHeaderContainer)`
   justify-content: space-between;
   padding: 8px 10px;
   height: 64px;
-  background: linear-gradient(135deg, #ffffff, #f8f9fa);
-  border-bottom: 2px solid rgba(189, 139, 19, 0.2);
+  background: #e8efe8;
+  border-bottom: 3px solid rgba(189, 139, 19, 0.15);
   box-shadow: 0 2px 8px rgba(189, 139, 19, 0.15);
 `;
 
@@ -125,8 +152,10 @@ const MobileNumber = styled(S.StructureNumberBubble)`
   box-shadow: 0 2px 4px rgba(55, 109, 49, 0.2);
 
   &:hover {
-    border-color: rgba(189, 139, 19, 0.5);
-    transform: scale(1.05);
+    transform: none;
+    border-color: rgba(189, 139, 19, 0.3);
+    background: linear-gradient(135deg, #376d31, #2c5526);
+    box-shadow: 0 2px 4px rgba(55, 109, 49, 0.2);
   }
 `;
 
@@ -138,6 +167,7 @@ const MobileTitleContainer = styled.div`
   justify-content: center;
   position: relative;
   max-width: 65%;
+  padding: 0 40px;
 `;
 
 const NavigationCircle = styled.button`
@@ -147,17 +177,18 @@ const NavigationCircle = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(189, 139, 19, 0.1);
-  border: 1px solid rgba(189, 139, 19, 0.2);
-  color: rgba(189, 139, 19, 0.8);
+  background: rgba(55, 109, 49, 0.1);
+  border: 1px solid rgba(55, 109, 49, 0.2);
+  color: #376d31;
   cursor: pointer;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   padding: 0;
+  z-index: 2;
 
   &:active {
-    background: rgba(189, 139, 19, 0.2);
+    background: rgba(55, 109, 49, 0.2);
     transform: translateY(-50%) scale(0.95);
   }
 
@@ -166,11 +197,11 @@ const NavigationCircle = styled.button`
   }
 
   &:first-child {
-    left: 0;
+    left: -8px;
   }
 
   &:last-child {
-    right: 0;
+    right: -8px;
   }
 `;
 
@@ -196,6 +227,11 @@ const MobileTitle = styled(S.StructureTitleInfo)`
   -webkit-box-orient: vertical;
   text-shadow: 0 1px 2px rgba(189, 139, 19, 0.1);
 
+  &:hover {
+    transform: none;
+    text-shadow: 0 1px 2px rgba(189, 139, 19, 0.1);
+  }
+
   &:not(:empty) {
     font-size: ${(props) => {
       const length = props.children?.toString().length || 0;
@@ -211,15 +247,27 @@ const CloseButton = styled(S.CloseButton)`
   height: 48px;
   margin: 0;
   flex-shrink: 0;
+  background: linear-gradient(135deg, #376d31, #2c5526);
+  border: 2px solid rgba(189, 139, 19, 0.3);
+
+  &:hover {
+    transform: none;
+    background: linear-gradient(135deg, #376d31, #2c5526);
+    border-color: rgba(189, 139, 19, 0.3);
+  }
 `;
 
 const MobileImageDescription = styled(S.ImageDescription)`
   margin: 0;
   padding: 16px;
-  background: white;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 248, 230, 0.95),
+    rgba(255, 245, 222, 0.9)
+  );
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
-  border: 1px solid rgba(55, 109, 49, 0.1);
+  border: 1px solid rgba(189, 139, 19, 0.15);
   border-top: none;
   box-shadow:
     0 4px 12px rgba(55, 109, 49, 0.15),
@@ -280,10 +328,14 @@ const CaptionText = styled.div`
 `;
 
 const MobileQuickFacts = styled(MobileInfoCardsSection)`
-  margin: 15px;
+  margin: 10px;
   padding: 16px;
   border-radius: 24px;
-  background: linear-gradient(135deg, #f5f7f5, #ffffff);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 248, 230, 0.95),
+    rgba(255, 245, 222, 0.9)
+  );
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -299,10 +351,34 @@ const MobileQuickFacts = styled(MobileInfoCardsSection)`
 const MobileInfoCard = styled(S.InfoCard)`
   margin: 0;
   border-radius: 16px;
-  background: white;
+  background: linear-gradient(
+    135deg,
+    rgba(55, 109, 49, 0.12),
+    rgba(55, 109, 49, 0.08)
+  );
   padding: 16px;
   border: 1px solid rgba(189, 139, 19, 0.1);
   border-left: 2px solid #376d31;
+  transform: none;
+  box-shadow: none;
+
+  &:hover {
+    transform: none;
+    box-shadow: none;
+    background: linear-gradient(
+      135deg,
+      rgba(55, 109, 49, 0.12),
+      rgba(55, 109, 49, 0.08)
+    );
+    border: 1px solid rgba(189, 139, 19, 0.1);
+    border-left: 2px solid #376d31;
+  }
+
+  ${S.InfoCardTitle} {
+    &:hover {
+      color: #376d31;
+    }
+  }
 `;
 
 const ResourcesGrid = styled.div`
@@ -315,8 +391,9 @@ const ResourcesGrid = styled.div`
   width: 100%;
   padding: 4px;
 
-  max-height: calc(2 * (24px + 1.2em + 48px));
-  overflow: hidden;
+  // Remove fixed height constraint
+  max-height: none;
+  overflow: visible;
 `;
 
 const ResourceBox = styled.a`
@@ -325,23 +402,24 @@ const ResourceBox = styled.a`
   align-items: center;
   justify-content: center;
   padding: 12px 8px;
-  background: white;
+  background: linear-gradient(135deg, #376d31, #2c5526);
   border-radius: 16px;
   border: 1px solid rgba(189, 139, 19, 0.2);
   text-decoration: none;
-  color: #333;
+  color: white;
   gap: 8px;
   width: 100%;
-  box-shadow: 0 2px 8px rgba(189, 139, 19, 0.15);
-  transition: background-color 0.2s ease;
+  box-shadow: 0 2px 8px rgba(55, 109, 49, 0.15);
+  transition: all 0.2s ease;
 
   svg {
     font-size: 24px;
-    color: #376d31;
+    color: white;
   }
 
   &:active {
-    background-color: rgba(189, 139, 19, 0.05);
+    background: linear-gradient(135deg, #2c5526, #1e3a1a);
+    transform: scale(0.98);
     border-color: rgba(189, 139, 19, 0.3);
   }
 `;
@@ -350,7 +428,7 @@ const ResourceTitle = styled.span`
   font-size: 14px;
   font-weight: 600;
   text-align: center;
-  color: #376d31;
+  color: white;
   line-height: 1.2;
   word-break: break-word;
   display: -webkit-box;
