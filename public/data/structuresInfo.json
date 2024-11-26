@@ -1,10 +1,7 @@
 {
   "structures": [
     {
-      "names": [
-        "Entry Arch",
-        "Entrance Pathway"
-      ],
+      "names": ["Entry Arch", "Entrance Pathway"],
       "number": 1,
       "url": "entryArch",
       "status": "Active",
@@ -16,47 +13,60 @@
       "advisor_builders": [
         {
           "name": "Paul Miller",
-          "role": [
-            "Advisor"
-          ]
+          "role": ["Advisor"]
         },
         {
           "name": "Lynn Noah",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Greg Lomax",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Andrew Low",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Gwin Stumbaugh",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
         {
           "type": "main",
-          "orientation": true,
           "path": "/images/M-1",
           "description": "Main image of the Entry Arch."
         },
         {
           "type": "closeup",
-          "orientation": true,
           "path": "/images/C-1",
           "description": "Close-up image of the Entry Arch."
+        },
+        {
+          "type": "other",
+          "path": "/other/entryArch1",
+          "description": "Two people walking through the entry arch toward the stone wall, old information signs present."
+        },
+        {
+          "type": "other",
+          "path": "/other/entryArch2",
+          "description": "A builder constructing the stone wall extending from the arch."
+        },
+        {
+          "type": "other",
+          "path": "/other/entryArch3",
+          "description": "Workers smoothing out the path near missing informational sign."
+        },
+        {
+          "type": "other",
+          "path": "/other/entryArch4",
+          "description": "A photograph of the original display boards at the entrance, now removed."
+        },
+        {
+          "type": "other",
+          "path": "/other/entryArch5",
+          "description": "Visitors viewing the newly unveiled display boards near the entrance."
         }
       ],
       "tags": [
@@ -87,9 +97,7 @@
       "year": "1976"
     },
     {
-      "names": [
-        "Techite Bridge"
-      ],
+      "names": ["Techite Bridge"],
       "number": 2,
       "url": "techiteBridge",
       "status": "Active",
@@ -101,35 +109,42 @@
       "advisor_builders": [
         {
           "name": "Robert Purdy",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Robert Mac Luan",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Merilee Amy",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
         {
           "type": "main",
-          "orientation": true,
           "path": "/images/M-2",
           "description": "Main image of the Techite Bridge."
         },
         {
           "type": "closeup",
-          "orientation": true,
           "path": "/images/C-2",
           "description": "Close-up image of the Techite Bridge."
+        },
+        {
+          "type": "other",
+          "path": "/other/techiteBridge1",
+          "description": "Historical photograph from the original senior project."
+        },
+        {
+          "type": "other",
+          "path": "/other/techiteBridge2",
+          "description": "Historical image of construction on the bridge walkway."
+        },
+        {
+          "type": "other",
+          "path": "/other/techiteBridge3",
+          "description": "Thesis-era photo of concrete being poured for the base."
         }
       ],
       "tags": [
@@ -166,11 +181,7 @@
       "year": "1973"
     },
     {
-      "names": [
-        "Blade",
-        "The Petal Structure",
-        "The Concrete Flower"
-      ],
+      "names": ["Blade", "The Petal Structure", "The Concrete Flower"],
       "number": 3,
       "url": "blade",
       "status": "Active",
@@ -182,39 +193,29 @@
       "advisor_builders": [
         {
           "name": "Steve Gilmore",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Mark Haselton",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Dan McMann",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Ken Minor",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
         {
           "type": "main",
-          "orientation": true,
           "path": "/images/M-3",
           "description": "Main image of the Blade."
         },
         {
           "type": "closeup",
-          "orientation": true,
           "path": "/images/C-3",
           "description": "Close-up image of the Blade."
         }
@@ -252,9 +253,7 @@
       "year": "1963 / 2003"
     },
     {
-      "names": [
-        "Spire Array"
-      ],
+      "names": ["Spire Array"],
       "number": 4,
       "url": "spireArray",
       "status": "Active",
@@ -266,27 +265,21 @@
       "advisor_builders": [
         {
           "name": "Professor Dale Clifford",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Design Build Team",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
         {
           "type": "main",
-          "orientation": true,
           "path": "/images/M-4",
           "description": "Main image of the Spire Array."
         },
         {
           "type": "closeup",
-          "orientation": true,
           "path": "/images/C-4",
           "description": "Close-up image of the Spire Array."
         }
@@ -317,9 +310,7 @@
       "year": "2020"
     },
     {
-      "names": [
-        "Palm Tree"
-      ],
+      "names": ["Palm Tree"],
       "number": 5,
       "url": "palmTree",
       "status": "Active",
@@ -331,27 +322,21 @@
       "advisor_builders": [
         {
           "name": "Cristina Alcala",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Jaime Mora",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
         {
           "type": "main",
-          "orientation": true,
           "path": "/images/M-5",
           "description": "Main image of the Palm Tree."
         },
         {
           "type": "closeup",
-          "orientation": true,
           "path": "/images/C-5",
           "description": "Close-up image of the Palm Tree."
         }
@@ -370,10 +355,7 @@
       "year": "1993"
     },
     {
-      "names": [
-        "Tensile",
-        "Tensile Fabric Pavilion"
-      ],
+      "names": ["Tensile", "Tensile Fabric Pavilion"],
       "number": 6,
       "url": "tensile",
       "status": "Active",
@@ -385,59 +367,63 @@
       "advisor_builders": [
         {
           "name": "Kiren Kelly-Sneed",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Theresa Zaro",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Royce Chow",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Abe Lynn",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Michael Lucas",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Walt Tryon",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Richard Zweifel",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
         {
           "type": "main",
-          "orientation": true,
           "path": "/images/M-6",
           "description": "Main image of the Tensile."
         },
         {
           "type": "closeup",
-          "orientation": true,
           "path": "/images/C-6",
           "description": "Close-up image of the Tensile."
+        },
+        {
+          "type": "other",
+          "path": "/other/tensile1",
+          "description": "Early model crafted in the CAED shop."
+        },
+        {
+          "type": "other",
+          "path": "/other/tensile2",
+          "description": "A crane lowering support posts into place during construction."
+        },
+        {
+          "type": "other",
+          "path": "/other/tensile3",
+          "description": "Final adjustments being made during construction."
+        },
+        {
+          "type": "other",
+          "path": "/other/tensile4",
+          "description": "A wedding photo with the ceremony setup in the background, July 2003"
         }
       ],
       "tags": [
@@ -471,9 +457,7 @@
       "year": "2002"
     },
     {
-      "names": [
-        "Geodesic Dome"
-      ],
+      "names": ["Geodesic Dome"],
       "number": 7,
       "url": "geodesicDome",
       "status": "Active",
@@ -485,47 +469,60 @@
       "advisor_builders": [
         {
           "name": "Richard Neill",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "William Roth",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Donald Mills",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Samuel Peterson",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Don Trunklage",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
         {
           "type": "main",
-          "orientation": true,
           "path": "/images/M-7",
           "description": "Main image of the Geodesic Dome."
         },
         {
           "type": "closeup",
-          "orientation": true,
           "path": "/images/C-7",
           "description": "Close-up image of the Geodesic Dome."
+        },
+        {
+          "type": "other",
+          "path": "/other/geodesicDome1",
+          "description": "Sketch of the original geodesic dome constructed on campus."
+        },
+        {
+          "type": "other",
+          "path": "/other/geodesicDome2",
+          "description": "The completed dome in 1957, with Mount Bishop in the background."
+        },
+        {
+          "type": "other",
+          "path": "/other/geodesicDome3",
+          "description": "Students experimenting with materials inside the dome near the architectural engineering classrooms."
+        },
+        {
+          "type": "other",
+          "path": "/other/geodesicDome4",
+          "description": "Students assembling the dome in Poly Canyon."
+        },
+        {
+          "type": "other",
+          "path": "/other/geodesicDome5",
+          "description": "A climber working on the dome’s assembly in Poly Canyon."
         }
       ],
       "tags": [
@@ -554,10 +551,7 @@
       "year": "1963"
     },
     {
-      "names": [
-        "Cantilever Deck",
-        "Master Builders"
-      ],
+      "names": ["Cantilever Deck", "Master Builders"],
       "number": 8,
       "url": "cantileverDeck",
       "status": "Active",
@@ -569,83 +563,79 @@
       "advisor_builders": [
         {
           "name": "Rowan Hernandez",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Kim Throndson",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "John Morrena",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Lee Benson",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Jeff Gilman",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Paco Perez",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Joseph Meyer",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Roger Biddle",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Calvin Vigeant",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Calvin Morgan",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Anahid Behrouzi",
-          "role": [
-            "Advisor"
-          ]
+          "role": ["Advisor"]
         }
       ],
       "images": [
         {
           "type": "main",
-          "orientation": true,
           "path": "/images/M-8",
           "description": "Main image of the Cantilever Deck."
         },
         {
           "type": "closeup",
-          "orientation": true,
           "path": "/images/C-8",
           "description": "Close-up image of the Cantilever Deck."
+        },
+        {
+          "type": "other",
+          "path": "/other/cantileverDeck1",
+          "description": "Wedding photos taken on the edge of the cantilever deck."
+        },
+        {
+          "type": "other",
+          "path": "/other/cantileverDeck2",
+          "description": "Renovation team cutting the ribbon with original builder Ronan."
+        },
+        {
+          "type": "other",
+          "path": "/other/cantileverDeck3",
+          "description": "A crane lowering the deck into place during construction."
+        },
+        {
+          "type": "other",
+          "path": "/other/cantileverDeck4",
+          "description": "Sketch of the original project plans."
         }
       ],
       "tags": [
@@ -675,11 +665,7 @@
       "year": "1990 / 2024"
     },
     {
-      "names": [
-        "Restrooms",
-        "Earth-Formed Restrooms",
-        "Concrete Bathrooms"
-      ],
+      "names": ["Restrooms", "Earth-Formed Restrooms", "Concrete Bathrooms"],
       "number": 9,
       "url": "restrooms",
       "status": "Active",
@@ -691,35 +677,47 @@
       "advisor_builders": [
         {
           "name": "Glen Jackson",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Robert Del Bianco",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Ralph Nafzgar",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
         {
           "type": "main",
-          "orientation": true,
           "path": "/images/M-9",
           "description": "Main image of the Earth-Formed Restrooms."
         },
         {
           "type": "closeup",
-          "orientation": true,
           "path": "/images/C-9",
           "description": "Close-up image of the Earth-Formed Restrooms."
+        },
+        {
+          "type": "other",
+          "path": "/other/restrooms1",
+          "description": "Workers carving out nearby earth during the restroom project."
+        },
+        {
+          "type": "other",
+          "path": "/other/restrooms2",
+          "description": "Restrooms just after construction, before paths were smoothed."
+        },
+        {
+          "type": "other",
+          "path": "/other/restrooms3",
+          "description": "A massive septic tank being installed, highlighting the scale of the project."
+        },
+        {
+          "type": "other",
+          "path": "/other/restrooms4",
+          "description": "Cement truck filling in some of the final work, with the Dome seen in the background."
         }
       ],
       "tags": [
@@ -747,11 +745,7 @@
       "year": "1972"
     },
     {
-      "names": [
-        "Underground House",
-        "Earth Shelter",
-        "Earth House"
-      ],
+      "names": ["Underground House", "Earth Shelter", "Earth House"],
       "number": 10,
       "url": "undergroundHouse",
       "status": "Active",
@@ -763,89 +757,73 @@
       "advisor_builders": [
         {
           "name": "Carl C Barrett",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Robert S Cocores",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Allyn W Mcfarlin",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "John M Provato",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Jesse P Wedemeyer",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Wayne Christian",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Pat Dennison",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Fred Kozono",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Mark McIntire",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Chris Sterios",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Craig Wilson",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Mark V Zeolla",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
         {
           "type": "main",
-          "orientation": true,
           "path": "/images/M-10",
           "description": "Main image of the Underground House."
         },
         {
           "type": "closeup",
-          "orientation": true,
           "path": "/images/C-10",
           "description": "Close-up image of the Underground House."
+        },
+        {
+          "type": "other",
+          "path": "/other/undergroundHouse1",
+          "description": "Sketch of the 1963 Earth House concept that inspired the underground house."
+        },
+        {
+          "type": "other",
+          "path": "/other/undergroundHouse2",
+          "description": "Construction photo showing the mesh outline and carved hillside."
         }
       ],
       "tags": [
@@ -879,10 +857,7 @@
       "year": "1982"
     },
     {
-      "names": [
-        "Sun Dial",
-        "Project 70 "
-      ],
+      "names": ["Sun Dial", "Project 70 "],
       "number": 11,
       "url": "sunDial",
       "status": "Active",
@@ -894,23 +869,29 @@
       "advisor_builders": [
         {
           "name": "John Stuart",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
         {
           "type": "main",
-          "orientation": true,
           "path": "/images/M-11",
           "description": "Main image of the Sun Dial."
         },
         {
           "type": "closeup",
-          "orientation": true,
           "path": "/images/C-11",
           "description": "Close-up image of the Sun Dial."
+        },
+        {
+          "type": "other",
+          "path": "/other/sunDial1",
+          "description": "Cleaned sundial photographed, from 2019."
+        },
+        {
+          "type": "other",
+          "path": "/other/sunDial2",
+          "description": "Historical image of the sundial in its original, complete form."
         }
       ],
       "tags": [
@@ -939,10 +920,7 @@
       "year": "1971"
     },
     {
-      "names": [
-        "Gunite Bridge",
-        "Free Form Bridge"
-      ],
+      "names": ["Gunite Bridge", "Free Form Bridge"],
       "number": 12,
       "url": "guniteBridge",
       "status": "Active",
@@ -954,47 +932,40 @@
       "advisor_builders": [
         {
           "name": "Gordon L. Boles",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Roy Leland Bostrom",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Kokpo Ng",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Richard L. Saylor",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "John Ulloa",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
         {
           "type": "main",
-          "orientation": true,
           "path": "/images/M-12",
           "description": "Main image of the Gunite Bridge."
         },
         {
           "type": "closeup",
-          "orientation": true,
           "path": "/images/C-12",
           "description": "Close-up image of the Gunite Bridge."
+        },
+        {
+          "type": "other",
+          "path": "/other/guniteBridge1",
+          "description": "Sketch of the original gunite bridge design from its thesis proposal."
         }
       ],
       "tags": [
@@ -1023,9 +994,7 @@
       "year": "1965"
     },
     {
-      "names": [
-        "Timber Truss"
-      ],
+      "names": ["Timber Truss"],
       "number": 13,
       "url": "timberTruss",
       "status": "Active",
@@ -1037,39 +1006,29 @@
       "advisor_builders": [
         {
           "name": "Derek Bonsper",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Josh Randall",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Fred Sobottka",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Mike Willis",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
         {
           "type": "main",
-          "orientation": true,
           "path": "/images/M-13",
           "description": "Main image of the Timber Truss."
         },
         {
           "type": "closeup",
-          "orientation": true,
           "path": "/images/C-13",
           "description": "Close-up image of the Timber Truss."
         }
@@ -1110,47 +1069,55 @@
       "advisor_builders": [
         {
           "name": "William F Martin",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Brian Gottlieb",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Dan Morita",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Michelle M. Pettit",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Jake Feldman",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
         {
           "type": "main",
-          "orientation": true,
           "path": "/images/M-14",
           "description": "Main image of the Stick Structure."
         },
         {
           "type": "closeup",
-          "orientation": true,
           "path": "/images/C-14",
           "description": "Close-up image of the Stick Structure."
+        },
+        {
+          "type": "other",
+          "path": "/other/stickStructure1",
+          "description": "The structure after its 2009 rebuild, featuring a new blue paint job."
+        },
+        {
+          "type": "other",
+          "path": "/other/stickStructure2",
+          "description": "A Poly Canyon permit form submitted for the original build approval."
+        },
+        {
+          "type": "other",
+          "path": "/other/stickStructure3",
+          "description": "Historical photo of the initial stick structure under construction."
+        },
+        {
+          "type": "other",
+          "path": "/other/stickStructure4",
+          "description": "The stick structure in 2009 before renovations."
         }
       ],
       "tags": [
@@ -1179,9 +1146,7 @@
       "year": "1976 / 2009"
     },
     {
-      "names": [
-        "Pyramid"
-      ],
+      "names": ["Pyramid"],
       "number": 15,
       "url": "pyramid",
       "status": "Active",
@@ -1193,27 +1158,21 @@
       "advisor_builders": [
         {
           "name": "H. William Sievers",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Jens Pohl",
-          "role": [
-            "Advisor"
-          ]
+          "role": ["Advisor"]
         }
       ],
       "images": [
         {
           "type": "main",
-          "orientation": true,
           "path": "/images/M-15",
           "description": "Main image of the Pyramid."
         },
         {
           "type": "closeup",
-          "orientation": true,
           "path": "/images/C-15",
           "description": "Close-up image of the Pyramid."
         }
@@ -1232,9 +1191,7 @@
       "year": "1976"
     },
     {
-      "names": [
-        "Bridge House"
-      ],
+      "names": ["Bridge House"],
       "number": 16,
       "url": "bridgeHouse",
       "status": "Active",
@@ -1246,77 +1203,70 @@
       "advisor_builders": [
         {
           "name": "Ronald Davena",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Joel Dean",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Robert Garlow",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Raymond Hilken",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Lui Horstmeyer",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "James January",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Lloyd Suehiro",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Thomas Wiggin",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Kurt Holder",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Bruce Campe",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
         {
           "type": "main",
-          "orientation": true,
           "path": "/images/M-16",
           "description": "Main image of the Bridge House."
         },
         {
           "type": "closeup",
-          "orientation": true,
           "path": "/images/C-16",
           "description": "Close-up image of the Bridge House."
+        },
+        {
+          "type": "other",
+          "path": "/other/bridgeHouse1",
+          "description": "A group photo of students who restored the bridge house, adding railings and reopening the boarded-up windows."
+        },
+        {
+          "type": "other",
+          "path": "/other/bridgeHouse2",
+          "description": "A detailed sketch of the waste system designed for this structure, highlighting its functionality."
+        },
+        {
+          "type": "other",
+          "path": "/other/bridgeHouse3",
+          "description": "This original design, requested by Craig Ellwood in 1964, reflects his long-standing support for Cal Poly."
         }
       ],
       "tags": [
@@ -1350,10 +1300,7 @@
       "year": "1968 / 2019"
     },
     {
-      "names": [
-        "Water Tanks",
-        "Water SYstems"
-      ],
+      "names": ["Water Tanks", "Water SYstems"],
       "number": 17,
       "url": "waterTanks",
       "status": "Active",
@@ -1365,21 +1312,17 @@
       "advisor_builders": [
         {
           "name": "Mathew Bittleston",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
         {
           "type": "main",
-          "orientation": true,
           "path": "/images/M-17",
           "description": "Main image of the Water Tanks."
         },
         {
           "type": "closeup",
-          "orientation": true,
           "path": "/images/C-17",
           "description": "Close-up image of the Water Tanks."
         }
@@ -1403,6 +1346,31 @@
           "linkType": "Thesis",
           "URL": "https://guides.lib.calpoly.edu/c.php?g=1365835&p=10429523",
           "title": "Library Archive "
+        },
+        {
+          "type": "other",
+          "path": "/other/waterTanks1",
+          "description": "Students preparing surrounding roads for the water system construction."
+        },
+        {
+          "type": "other",
+          "path": "/other/waterTanks2",
+          "description": "Students putting the tanks into place for a larger water storage system."
+        },
+        {
+          "type": "other",
+          "path": "/other/waterTanks3",
+          "description": "Students digging for system installation."
+        },
+        {
+          "type": "other",
+          "path": "/other/waterTanks4",
+          "description": "Student posing in the middle of the 1998 expansion project."
+        },
+        {
+          "type": "other",
+          "path": "/other/waterTanks5",
+          "description": "Builders posing in front of the completed 1998 expansion."
         }
       ],
       "_id": "6722b48799b26f2c000bb494",
@@ -1410,9 +1378,7 @@
       "year": "1969 / 1998"
     },
     {
-      "names": [
-        "Observation Deck"
-      ],
+      "names": ["Observation Deck"],
       "number": 18,
       "url": "observationDeck",
       "status": "Active",
@@ -1424,35 +1390,32 @@
       "advisor_builders": [
         {
           "name": "Tony Pellegrini",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Harrison Woods",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Sitora Vaxidova",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
         {
           "type": "main",
-          "orientation": true,
           "path": "/images/M-18",
           "description": "Main image of the Observation Deck."
         },
         {
           "type": "closeup",
-          "orientation": true,
           "path": "/images/C-18",
           "description": "Close-up image of the Observation Deck."
+        },
+        {
+          "type": "other",
+          "path": "/other/observationDeck1",
+          "description": "The observation deck freshly completed, awaiting paint."
         }
       ],
       "tags": [
@@ -1490,10 +1453,7 @@
       "year": "2019"
     },
     {
-      "names": [
-        "Poly Pavilion",
-        "The Structure"
-      ],
+      "names": ["Poly Pavilion", "The Structure"],
       "number": 19,
       "url": "polyPavilion",
       "status": "Active",
@@ -1505,137 +1465,105 @@
       "advisor_builders": [
         {
           "name": "Alfredo Alcaraz",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Armando Paez",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Blanca Guerra",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Bob Green",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Brad Bishop",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Brett Beeman",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Chi Pham",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Cindy Smith",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Dave Hernandez",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Frank Maskiewicz",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Jim Low",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Joe Michale",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "John Smith",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Ken Brehmer",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Ken Schumann",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Ku Divita",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Pete Chavez",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Randal Brunson",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Ricardo Arevalo",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Stan Smith",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
         {
           "type": "main",
-          "orientation": true,
           "path": "/images/M-19",
           "description": "Main image of the Poly Pavilion."
         },
         {
           "type": "closeup",
-          "orientation": true,
           "path": "/images/C-19",
           "description": "Close-up image of the Poly Pavilion."
+        },
+        {
+          "type": "other",
+          "path": "/other/polyPavilion1",
+          "description": "Original pavilion plans featuring builder names and final calculations."
+        },
+        {
+          "type": "other",
+          "path": "/other/polyPavilion2",
+          "description": "Students and faculty examining a pavilion model prior to construction."
         }
       ],
       "tags": [
@@ -1674,9 +1602,7 @@
       "year": "1985"
     },
     {
-      "names": [
-        "Serenity Wall"
-      ],
+      "names": ["Serenity Wall"],
       "number": 20,
       "url": "serenityWall",
       "status": "Active",
@@ -1688,23 +1614,24 @@
       "advisor_builders": [
         {
           "name": "Brian Milton",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
         {
           "type": "main",
-          "orientation": true,
           "path": "/images/M-20",
           "description": "Main image of the Serenity Wall."
         },
         {
           "type": "closeup",
-          "orientation": true,
           "path": "/images/C-20",
           "description": "Close-up image of the Serenity Wall."
+        },
+        {
+          "type": "other",
+          "path": "/other/serenityWall1",
+          "description": "A vibrant spring photograph of Serenity Wall, newly completed."
         }
       ],
       "tags": [
@@ -1727,10 +1654,7 @@
       "year": "2004"
     },
     {
-      "names": [
-        "Hay Bale Arch",
-        "Straw Bale Arch"
-      ],
+      "names": ["Hay Bale Arch", "Straw Bale Arch"],
       "number": 21,
       "url": "hayBale",
       "status": "Active",
@@ -1742,39 +1666,29 @@
       "advisor_builders": [
         {
           "name": "Philip Greene",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Adam Bradley",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Jason Hughey",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Matthew Vorhees",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
         {
           "type": "main",
-          "orientation": true,
           "path": "/images/M-21",
           "description": "Main image of the Hay Bale Arch."
         },
         {
           "type": "closeup",
-          "orientation": true,
           "path": "/images/C-21",
           "description": "Close-up image of the Hay Bale Arch."
         }
@@ -1800,9 +1714,7 @@
       "year": "2004"
     },
     {
-      "names": [
-        "Fratessa Tower"
-      ],
+      "names": ["Fratessa Tower"],
       "number": 22,
       "url": "fratessaTower",
       "status": "Active",
@@ -1814,53 +1726,44 @@
       "advisor_builders": [
         {
           "name": "Rachel Martin",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Justin Wei",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Michael Braund",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Eric Mcdonnell",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Tanya Worotko",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Adam Stagnaro",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
         {
           "type": "main",
-          "orientation": true,
           "path": "/images/M-22",
           "description": "Main image of the Fratessa Tower."
         },
         {
           "type": "closeup",
-          "orientation": true,
           "path": "/images/C-22",
           "description": "Close-up image of the Fratessa Tower."
+        },
+        {
+          "type": "other",
+          "path": "/other/fratessaTower1",
+          "description": "An upward view of the tower with the hay bale arch visible in the background."
         }
       ],
       "tags": [
@@ -1888,10 +1791,7 @@
       "year": "2004"
     },
     {
-      "names": [
-        "Tensegrity",
-        "Tensegrity Pavilion"
-      ],
+      "names": ["Tensegrity", "Tensegrity Pavilion"],
       "number": 23,
       "url": "tensegrity",
       "status": "Active",
@@ -1903,47 +1803,50 @@
       "advisor_builders": [
         {
           "name": "Will Adam",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Ivan Cruz",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Jos Hernandez",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Kasey Tatis",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Truman Waller",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
         {
           "type": "main",
-          "orientation": true,
           "path": "/images/M-23",
           "description": "Main image of the Tensegrity."
         },
         {
           "type": "closeup",
-          "orientation": true,
           "path": "/images/C-23",
           "description": "Close-up image of the Tensegrity."
+        },
+        {
+          "type": "other",
+          "path": "/other/tensegrity1",
+          "description": "A model of the tensegrity structure from the thesis project."
+        },
+        {
+          "type": "other",
+          "path": "/other/tensegrity2",
+          "description": "The completed structure with official design stamps."
+        },
+        {
+          "type": "other",
+          "path": "/other/tensegrity3",
+          "description": "Students assembling the structure in the architecture courtyard."
         }
       ],
       "tags": [
@@ -1997,71 +1900,71 @@
       "advisor_builders": [
         {
           "name": "Larry Gangwisch",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Ronald James",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Raymond Ketzel",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Roger Marshall",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "David Wright",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "James Zimmerman",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "George Hasslein",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Wesley Ward",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Harvey Koehen",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
         {
           "type": "main",
-          "orientation": true,
           "path": "/images/M-24",
           "description": "Main image of the Shell House."
         },
         {
           "type": "closeup",
-          "orientation": true,
           "path": "/images/C-24",
           "description": "Close-up image of the Shell House."
+        },
+        {
+          "type": "other",
+          "path": "/other/shellHouse1",
+          "description": "A worker spraying concrete on one of the three contact points while others observe."
+        },
+        {
+          "type": "other",
+          "path": "/other/shellHouse2",
+          "description": "Another angle of the concrete spraying process."
+        },
+        {
+          "type": "other",
+          "path": "/other/shellHouse3",
+          "description": "Another angle of the concrete spraying process."
+        },
+        {
+          "type": "other",
+          "path": "/other/shellHouse4",
+          "description": "Original sketch of the internal residence, still in form but gutted today."
         }
       ],
       "tags": [
@@ -2105,9 +2008,7 @@
       "year": "1964 / 1975"
     },
     {
-      "names": [
-        "Green House"
-      ],
+      "names": ["Green House"],
       "number": 25,
       "url": "greenHouse",
       "status": "Active",
@@ -2119,23 +2020,34 @@
       "advisor_builders": [
         {
           "name": "Mark Jenefsky",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
         {
           "type": "main",
-          "orientation": true,
           "path": "/images/M-25",
           "description": "Main image of the Green House."
         },
         {
           "type": "closeup",
-          "orientation": true,
           "path": "/images/C-25",
           "description": "Close-up image of the Green House."
+        },
+        {
+          "type": "other",
+          "path": "/other/greenHouse1",
+          "description": "A newspaper clipping of the greenhouse's construction in 1984."
+        },
+        {
+          "type": "other",
+          "path": "/other/greenHouse2",
+          "description": "Original sketch of the greenhouse with the shell house visible in the background."
+        },
+        {
+          "type": "other",
+          "path": "/other/greenHouse3",
+          "description": "A pristine image of the greenhouse in its full form, undamaged."
         }
       ],
       "tags": [
@@ -2163,10 +2075,7 @@
       "year": "1983 - 1989"
     },
     {
-      "names": [
-        "Modular House",
-        "Caretaker’s House"
-      ],
+      "names": ["Modular House", "Caretaker’s House"],
       "number": 26,
       "url": "modularHouse",
       "status": "Active",
@@ -2178,83 +2087,69 @@
       "advisor_builders": [
         {
           "name": "Paul Thoryk",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "John Edmiston",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Glen Jackson",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Tom Bylund",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "James Jones",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Richard Pata",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Lorin Smith",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Jerry Tucker",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Dennis Turner",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "John Edmisten",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Don Koberg",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
         {
           "type": "main",
-          "orientation": true,
           "path": "/images/M-26",
           "description": "Main image of the Modular House."
         },
         {
           "type": "closeup",
-          "orientation": true,
           "path": "/images/C-26",
           "description": "Close-up image of the Modular House."
+        },
+        {
+          "type": "other",
+          "path": "/other/modularHouse1",
+          "description": "A student tiling the floor near the fireplace."
+        },
+        {
+          "type": "other",
+          "path": "/other/modularHouse2",
+          "description": "Surveying during the original construction phase."
         }
       ],
       "tags": [
@@ -2292,9 +2187,7 @@
       "year": "1973 / 2018"
     },
     {
-      "names": [
-        "Centering for Center"
-      ],
+      "names": ["Centering for Center"],
       "number": 27,
       "url": "centeringCenter",
       "status": "Active",
@@ -2306,29 +2199,43 @@
       "advisor_builders": [
         {
           "name": "Marcos Lutyens",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Cynthia Brophy",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
         {
           "type": "main",
-          "orientation": true,
           "path": "/images/M-27",
           "description": "Main image of the Centering Center."
         },
         {
           "type": "closeup",
-          "orientation": true,
           "path": "/images/C-27",
           "description": "Close-up image of the Centering Center."
+        },
+        {
+          "type": "other",
+          "path": "/other/centeringCenter1",
+          "description": "The structure being built near the Architecture Building on campus."
+        },
+        {
+          "type": "other",
+          "path": "/other/centeringCenter2",
+          "description": "Students setting up the installation in Descanso Gardens, Pasadena."
+        },
+        {
+          "type": "other",
+          "path": "/other/centeringCenter3",
+          "description": "The fully assembled project on display at Descanso Gardens."
+        },
+        {
+          "type": "other",
+          "path": "/other/centeringCenter4",
+          "description": "A student adding upgrades, including the Biophilic Instrument Pavilion (BIP)."
         }
       ],
       "tags": [
@@ -2362,10 +2269,7 @@
       "year": "2022"
     },
     {
-      "names": [
-        "Pole House",
-        "Heavy Timber Demonstration Structure"
-      ],
+      "names": ["Pole House", "Heavy Timber Demonstration Structure"],
       "number": 28,
       "url": "poleHouse",
       "status": "Active",
@@ -2377,27 +2281,21 @@
       "advisor_builders": [
         {
           "name": "EDES Class Project",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Randy Detmer",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
         {
           "type": "main",
-          "orientation": true,
           "path": "/images/M-28",
           "description": "Main image of the Pole House."
         },
         {
           "type": "closeup",
-          "orientation": true,
           "path": "/images/C-28",
           "description": "Close-up image of the Pole House."
         }
@@ -2427,9 +2325,7 @@
       "year": "1989"
     },
     {
-      "names": [
-        "BBQ Pit"
-      ],
+      "names": ["BBQ Pit"],
       "number": 29,
       "url": "bbqPit",
       "status": "Active",
@@ -2441,21 +2337,17 @@
       "advisor_builders": [
         {
           "name": "Allan Cooper",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
         {
           "type": "main",
-          "orientation": true,
           "path": "/images/M-29",
           "description": "Main image of the BBQ Pit."
         },
         {
           "type": "closeup",
-          "orientation": true,
           "path": "/images/C-29",
           "description": "Close-up image of the BBQ Pit."
         }
@@ -2485,9 +2377,7 @@
       "year": "1975"
     },
     {
-      "names": [
-        "Moment Monument"
-      ],
+      "names": ["Moment Monument"],
       "number": 30,
       "url": "momentMonument",
       "status": "Active",
@@ -2499,41 +2389,51 @@
       "advisor_builders": [
         {
           "name": "Carsten Huber",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Gaspar Solorio",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Jared Schieferle",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         },
         {
           "name": "Brayden Martinez",
-          "role": [
-            "Builder"
-          ]
+          "role": ["Builder"]
         }
       ],
       "images": [
         {
           "type": "main",
-          "orientation": true,
           "path": "/images/M-30",
           "description": "Main image of the Moment Monument."
         },
         {
           "type": "closeup",
-          "orientation": true,
           "path": "/images/C-30",
           "description": "Close-up image of the Moment Monument."
+        },
+        {
+          "type": "other",
+          "path": "/other/momentMonument1",
+          "description": "The team reacquainting themselves with the borrowed surveying equipment."
+        },
+        {
+          "type": "other",
+          "path": "/other/momentMonument2",
+          "description": "A group photo at the site following one of the first excavation days."
+        },
+        {
+          "type": "other",
+          "path": "/other/momentMonument3",
+          "description": "Frames being erected on-site using a Telehandler forklift."
+        },
+        {
+          "type": "other",
+          "path": "/other/momentMonument4",
+          "description": "The finished monument, with the crew posing in front."
         }
       ],
       "tags": [
