@@ -1,8 +1,10 @@
 /**
  * Need to:
+ *  // image pre loading first
  * 1. Re-enable sorting and filtering
  * 2. Add meta-data
  * 3. Ghost/Planned sections in the future (data first)
+ * 4. Surprise me button + surprise me image button (goes to random image view structure)
  */
 
 /*

@@ -18,30 +18,6 @@ export const PageContainer = styled.div`
   box-sizing: border-box;
 `;
 
-export const ContentContainer = styled.div`
-  flex: 1;
-  width: 100%;
-  min-width: 0;
-  background-color: #ffffff;
-  border-radius: 24px;
-  padding: 10px;
-  box-shadow:
-    0 4px 20px rgba(189, 139, 19, 0.25),
-    0 2px 8px rgba(189, 139, 19, 0.1);
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  box-sizing: border-box;
-  transition: all 0.3s ease;
-  overflow: hidden;
-
-  &:hover {
-    box-shadow:
-      0 8px 24px rgba(189, 139, 19, 0.3),
-      0 4px 8px rgba(189, 139, 19, 0.15);
-  }
-`;
-
 export const TitleContainer = styled.div`
   text-align: center;
   margin-bottom: 40px;
@@ -843,18 +819,20 @@ export const StructuresContainer = styled(RoundedContainer)`
 // New styles for StructureInfo component
 
 export const SectionTitleInfo = styled.h3`
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 24px;
+  font-weight: 800;
   color: #376d31;
   margin: 0 0 16px 0;
   display: flex;
   align-items: center;
   gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 
   &::before {
     content: '';
     width: 4px;
-    height: 20px;
+    height: 24px;
     background: linear-gradient(to bottom, #376d31, rgba(189, 139, 19, 0.5));
     border-radius: 2px;
     opacity: 0.8;
@@ -868,7 +846,7 @@ export const InfoPageWrapper = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background: #f0f4f8;
+  background: white;
   z-index: 1000;
   padding: 15px;
   display: flex;
@@ -905,111 +883,98 @@ export const StyledImage = styled.img`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(1.25); // Added scale(1.25)
+  transform: translate(-50%, -50%) scale(1.25);
   max-height: 100%;
   max-width: 100%;
   width: auto;
   height: auto;
   object-fit: contain;
   z-index: 1;
-  transition: all 0.3s ease; // Added for smooth transitions
+  transition: all 0.3s ease;
 `;
 
 // Update ImageControls to position arrows over the image
-export const ImageControls = styled.div`
-  position: absolute;
-  bottom: 16px;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 16px;
-  pointer-events: none; // This ensures clicks pass through to the buttons
-  z-index: 2; // Add this to ensure it's above both images
-`;
-
-// Update ArrowButton for the new positioning
-export const ArrowButton = styled.button`
-  background: rgba(255, 255, 255, 0.9);
-  border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+export const ImageDescription = styled.div`
+  background: rgba(255, 248, 230, 0.95);
+  padding: 16px 64px;
+  border-radius: 12px;
+  margin-top: 12px;
+  border: 1px solid rgba(189, 139, 19, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
   transition: all 0.3s ease;
-  color: #376d31;
-  pointer-events: auto;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  z-index: 2;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
   position: relative;
-
-  svg {
-    font-size: 18px;
-    transition: transform 0.2s ease;
-  }
-
-  &:hover {
-    background: white;
-    transform: scale(1.1);
-
-    svg {
-      transform: scale(1.1);
-    }
-  }
-
-  &:active {
-    transform: scale(0.95);
-  }
-`;
-
-export const ImageDescription = styled.div`
-  background: rgba(55, 109, 49, 0.05);
-  padding: 16px;
-  border-radius: 12px;
-  margin-top: 12px;
-  border: 1px solid rgba(55, 109, 49, 0.1);
-  display: flex;
-  align-items: center;
-  gap: 16px;
 
   p {
     margin: 0;
-    font-size: 16px;
-    color: #333;
+    font-size: 17px;
+    font-weight: 500;
+    color: #2c3e50;
     line-height: 1.6;
-    flex: 1;
-  }
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-  svg {
-    font-size: 24px;
-    color: #376d31;
-    flex-shrink: 0;
+    /* This will make the second line longer when text wraps */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-align-last: center;
+    hyphens: auto;
+    width: 100%;
+    max-width: 600px; // Adjust this value as needed
   }
 `;
 
+export const InfoCardTitle = styled.h3`
+  margin: 0;
+  font-size: 18px;
+  color: #376d31;
+  font-weight: 800;
+  transition: all 0.3s ease;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+`;
+
 export const InfoCard = styled.div`
-  background: white;
+  background: linear-gradient(
+    135deg,
+    rgba(55, 109, 49, 0.12),
+    rgba(55, 109, 49, 0.08)
+  );
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 16px;
   box-shadow:
-    0 2px 12px rgba(0, 0, 0, 0.2),
-    0 1px 8px rgba(0, 0, 0, 0.35);
-  transition: all 0.2s ease;
-  border-left: 3px solid #376d31;
-  background: linear-gradient(to right, rgba(55, 109, 49, 0.03), transparent);
+    0 3px 12px rgba(0, 0, 0, 0.16),
+    0 2px 4px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(55, 109, 49, 0.15);
+  position: relative;
+  backdrop-filter: blur(4px);
+  z-index: 2;
 
   &:hover {
-    transform: translateY(-1px);
-    border-left-color: rgba(189, 139, 19, 0.5);
+    transform: translateY(-2px);
     background: linear-gradient(
-      to right,
-      rgba(189, 139, 19, 0.03),
-      transparent
+      135deg,
+      rgba(55, 109, 49, 0.15),
+      rgba(55, 109, 49, 0.1)
     );
+    border-color: rgba(55, 109, 49, 0.25);
+    box-shadow:
+      0 6px 20px rgba(0, 0, 0, 0.1),
+      0 3px 6px rgba(0, 0, 0, 0.06);
+
+    ${InfoCardTitle} {
+      color: #2c5526;
+    }
+
+    &::before {
+      background: linear-gradient(to bottom, #2c5526, rgba(44, 85, 38, 0.6));
+    }
   }
 
   &:last-child {
@@ -1022,23 +987,20 @@ export const InfoCardHeader = styled.div`
   align-items: center;
   gap: 12px;
   margin-bottom: 12px;
+  position: relative;
 `;
 
 export const InfoCardEmoji = styled.span`
   font-size: 24px;
 `;
 
-export const InfoCardTitle = styled.h3`
-  margin: 0;
-  font-size: 16px;
-  color: #376d31;
-  font-weight: 600;
-`;
-
 export const InfoCardContent = styled.div`
-  color: #333;
-  font-size: 15px;
+  color: #2c3e50;
+  font-size: 16px;
+  font-weight: 500;
   line-height: 1.5;
+  position: relative;
+  padding-left: 4px;
 `;
 
 export const LinkButton = styled.a`
@@ -1053,13 +1015,16 @@ export const LinkButton = styled.a`
   text-decoration: none;
   font-weight: 500;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.05),
+    0 -1px 8px rgba(189, 139, 19, 0.35);
 
   &:hover {
     transform: translateY(-2px);
     box-shadow:
       0 4px 12px rgba(55, 109, 49, 0.15),
-      0 0 0 2px rgba(189, 139, 19, 0.1);
+      0 0 0 2px rgba(189, 139, 19, 0.1),
+      0 -2px 12px rgba(189, 139, 19, 0.45);
     background: linear-gradient(135deg, #2c5526, #1e3a1a);
     border-color: rgba(189, 139, 19, 0.5);
   }
@@ -1106,17 +1071,24 @@ export const TitleWrapper = styled.div`
   display: flex;
   align-items: center;
   border-radius: 32px;
-  background: rgba(55, 109, 49, 0.08);
+  background: linear-gradient(
+    185deg,
+    rgba(255, 248, 230, 0.95),
+    rgba(255, 245, 222, 0.9)
+  );
   border: 2px solid rgba(189, 139, 19, 0.3);
   overflow: hidden;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 16px rgba(189, 139, 19, 0.1);
+  box-shadow:
+    0 4px 16px rgba(189, 139, 19, 0.15),
+    0 2px 8px rgba(189, 139, 19, 0.1);
 
   &:hover {
-    background: rgba(55, 109, 49, 0.12);
+    border-color: rgba(189, 139, 19, 0.5);
     transform: translateY(-1px);
-    border-color: rgba(189, 139, 19, 0.4);
-    box-shadow: 0 8px 24px rgba(189, 139, 19, 0.15);
+    box-shadow:
+      0 6px 20px rgba(189, 139, 19, 0.2),
+      0 3px 10px rgba(189, 139, 19, 0.15);
   }
 `;
 
@@ -1129,15 +1101,16 @@ export const NavigationOverlay = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #376d31;
+  color: rgba(255, 255, 255, 0.7);
   cursor: pointer;
   transition: all 0.3s ease;
   background: linear-gradient(
     ${(props) => (props.side === 'left' ? '90deg' : '-90deg')},
-    rgba(55, 109, 49, 0.15) 0%,
-    transparent 100%
+    rgba(189, 139, 19, 0.2),
+    transparent 70%
   );
-  opacity: 0.5;
+  opacity: 0.8;
+  z-index: 10;
 
   svg {
     position: absolute;
@@ -1145,17 +1118,24 @@ export const NavigationOverlay = styled.div`
     transition: all 0.3s ease;
     ${(props) => props.side}: 24px;
     opacity: 0.7;
+    color: #2c5526;
+    pointer-events: none;
   }
 
   &:hover {
     opacity: 1;
-    background: rgba(55, 109, 49, 0.15);
+    background: linear-gradient(
+      ${(props) => (props.side === 'left' ? '90deg' : '-90deg')},
+      rgba(189, 139, 19, 0.3),
+      transparent 80%
+    );
 
     svg {
       opacity: 0;
       transform: translateX(
         ${(props) => (props.side === 'left' ? '-20px' : '20px')}
       );
+      color: #2c5526;
     }
 
     span {
@@ -1174,6 +1154,7 @@ export const NavigationNumber = styled.span`
     ${(props) => (props.side === 'left' ? '20px' : '-20px')}
   );
   transition: all 0.3s ease;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.4);
 `;
 
 export const StructureListView = styled.div`
@@ -1257,6 +1238,7 @@ export const StructureListTitle = styled.div`
 export const MainContent = styled.div`
   display: flex;
   flex-direction: column;
+  background: #e8efe8;
   width: 100%;
   min-width: 0;
   box-sizing: border-box;
@@ -1280,64 +1262,101 @@ export const InfoCardsSection = styled.div`
   flex: 2;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  background: rgba(0, 0, 0, 0.02);
+  gap: 12px;
+  height: 0;
+  min-height: 98%;
+  overflow-y: auto;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 248, 230, 0.95),
+    rgba(255, 245, 222, 0.9)
+  );
   padding: 20px;
   border-radius: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(189, 139, 19, 0.15);
+  box-shadow:
+    inset 0 2px 4px rgba(189, 139, 19, 0.08),
+    0 4px 16px rgba(0, 0, 0, 0.08);
   min-width: 0;
   box-sizing: border-box;
   transition: all 0.3s ease;
-  height: 0;
-  min-height: 100%;
-  overflow-y: auto;
-  margin-right: 30px;
+  margin-top: 10px;
 
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    pointer-events: none;
+    z-index: 1;
+  }
 
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
   &::-webkit-scrollbar {
     display: none;
   }
 
-  &:hover {
-    background: rgba(0, 0, 0, 0.03);
-    box-shadow:
-      inset 0 2px 4px rgba(0, 0, 0, 0.03),
-      0 0 0 1px rgba(0, 0, 0, 0.08);
-  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 `;
 
 export const DescriptionContainer = styled.div`
-  background: white;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 248, 230, 0.9),
+    rgba(255, 245, 222, 0.85)
+  );
   border-radius: 16px;
   padding: 20px;
-  margin-bottom: 24px;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  margin-bottom: 10px;
+  border: 1px solid rgba(189, 139, 19, 0.15);
   box-shadow:
-    0 4px 16px rgba(55, 109, 49, 0.3),
-    0 2px 4px rgba(55, 109, 49, 0.4);
+    0 4px 16px rgba(0, 0, 0, 0.12),
+    0 2px 8px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  margin-top: ${(props) => (props.expanded ? '24px' : '10px')};
+  order: ${(props) => (props.expanded ? 1 : 0)}; // Push to bottom when expanded
+  transition: all 0.3s ease;
 
-  &:last-child {
-    margin-bottom: 0;
+  &:hover {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 248, 230, 0.95),
+      rgba(255, 245, 222, 0.9)
+    );
+    box-shadow:
+      0 6px 20px rgba(0, 0, 0, 0.15),
+      0 3px 10px rgba(0, 0, 0, 0.1);
   }
 `;
 
 export const DescriptionText = styled.div`
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.6;
-  color: #333;
+  color: #2c3e50;
+  font-weight: 500;
 
-  /* Style for the main description */
   > p:first-child {
     margin-top: 0;
     margin-bottom: ${(props) => (props.expanded ? '16px' : '0')};
   }
 
-  /* Style for the extended description */
   > div.extended {
-    white-space: pre-line; // Only apply pre-line to extended description
+    white-space: pre-line;
     margin-top: 16px;
   }
 `;
@@ -1383,7 +1402,7 @@ export const LinksSection = styled.div`
     position: absolute;
     top: -10px;
     left: 24px;
-    background: white;
+    background: #e8efe8;
     padding: 0 12px;
     color: #376d31;
     font-size: 14px;
@@ -1397,6 +1416,9 @@ export const LinkButtonContainer = styled.div`
   flex-wrap: wrap;
   gap: 16px;
   width: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 5px;
 `;
 
 export const ImageContainer = styled.div`
@@ -1412,7 +1434,7 @@ export const ImageContainer = styled.div`
 
 export const HeaderContainer = styled.div`
   width: 100%;
-  background: linear-gradient(to right, #ffffff, #f8f9fa);
+  background: #e8efe8;
   border-radius: 24px;
   padding: 24px;
   margin-bottom: 15px;
@@ -1446,7 +1468,11 @@ export const HeaderContainer = styled.div`
 `;
 
 export const StructureNumberBubble = styled.div`
-  background: linear-gradient(135deg, #376d31, #2c5526);
+  background: linear-gradient(
+    135deg,
+    rgba(189, 139, 19, 1),
+    rgba(189, 139, 19, 0.85)
+  );
   color: white;
   font-size: 32px;
   font-weight: 700;
@@ -1457,19 +1483,22 @@ export const StructureNumberBubble = styled.div`
   align-items: center;
   justify-content: center;
   box-shadow:
-    0 4px 12px rgba(55, 109, 49, 0.15),
-    0 1px 2px rgba(55, 109, 49, 0.1);
+    0 4px 12px rgba(189, 139, 19, 0.25),
+    0 1px 2px rgba(189, 139, 19, 0.15);
   flex-shrink: 0;
-  cursor: pointer;
   transition: all 0.3s ease;
-  border: 2px solid rgba(189, 139, 19, 0.3);
+  border: 2px solid rgba(55, 109, 49, 0.3);
 
   &:hover {
-    transform: ${(props) => (props.isOpen ? 'scale(1.1)' : 'scale(1.05)')};
-    background: linear-gradient(135deg, #2c5526, #1e3a1a);
-    border-color: rgba(189, 139, 19, 0.5);
+    transform: scale(1.05);
+    background: linear-gradient(
+      135deg,
+      rgba(189, 139, 19, 0.9),
+      rgba(189, 139, 19, 0.75)
+    );
+    border-color: rgba(55, 109, 49, 0.5);
     box-shadow:
-      0 4px 12px rgba(55, 109, 49, 0.2),
+      0 4px 12px rgba(189, 139, 19, 0.3),
       0 0 0 2px rgba(189, 139, 19, 0.1);
   }
 `;
@@ -1484,27 +1513,15 @@ export const StructureTitleInfo = styled.div`
   align-items: center;
   justify-content: center;
   padding: 0 80px;
-  cursor: pointer;
   transition: all 0.3s ease;
-  background: linear-gradient(
-    135deg,
-    rgba(189, 139, 19, 1),
-    rgba(189, 139, 19, 0.85)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-shadow: 0 2px 4px rgba(189, 139, 19, 0.1);
   letter-spacing: -0.5px;
-
-  ${(props) =>
-    props.isOpen &&
-    `
-    background: linear-gradient(135deg, rgba(189, 139, 19, 0.9), rgba(189, 139, 19, 0.75));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  `}
+  position: relative;
+  text-shadow:
+    0 1px 1px rgba(255, 255, 255, 0.8),
+    0 2px 3px rgba(55, 109, 49, 0.2),
+    0 4px 8px rgba(0, 0, 0, 0.1),
+    0 6px 12px rgba(189, 139, 19, 0.15);
+  color: #376d31;
 
   &::before {
     content: '';
@@ -1516,17 +1533,30 @@ export const StructureTitleInfo = styled.div`
     height: 110%;
     background: radial-gradient(
       circle at center,
-      rgba(255, 255, 255, 0.8) 0%,
+      rgba(55, 109, 49, 0.08) 0%,
       transparent 70%
     );
     z-index: -1;
     opacity: 0.5;
   }
+
+  &:hover {
+    transform: scale(1.02);
+    text-shadow:
+      0 1px 1px rgba(255, 255, 255, 0.9),
+      0 2px 4px rgba(55, 109, 49, 0.3),
+      0 6px 12px rgba(0, 0, 0, 0.15),
+      0 8px 16px rgba(189, 139, 19, 0.2);
+  }
 `;
 
 export const CloseButton = styled.button`
-  background: linear-gradient(135deg, #376d31, #2c5526);
-  border: 2px solid rgba(189, 139, 19, 0.3);
+  background: linear-gradient(
+    135deg,
+    rgba(189, 139, 19, 1),
+    rgba(189, 139, 19, 0.85)
+  );
+  border: 2px solid rgba(55, 109, 49, 0.3);
   width: 64px;
   height: 64px;
   border-radius: 50%;
@@ -1538,8 +1568,8 @@ export const CloseButton = styled.button`
   color: white;
   flex-shrink: 0;
   box-shadow:
-    0 4px 12px rgba(55, 109, 49, 0.15),
-    0 1px 2px rgba(55, 109, 49, 0.1);
+    0 4px 12px rgba(189, 139, 19, 0.25),
+    0 1px 2px rgba(189, 139, 19, 0.15);
 
   svg {
     font-size: 32px;
@@ -1547,11 +1577,15 @@ export const CloseButton = styled.button`
   }
 
   &:hover {
-    background: linear-gradient(135deg, #2c5526, #1e3a1a);
-    border-color: rgba(189, 139, 19, 0.5);
+    background: linear-gradient(
+      135deg,
+      rgba(189, 139, 19, 0.9),
+      rgba(189, 139, 19, 0.75)
+    );
+    border-color: rgba(55, 109, 49, 0.5);
     transform: rotate(90deg) scale(1.1);
     box-shadow:
-      0 4px 12px rgba(55, 109, 49, 0.2),
+      0 4px 12px rgba(189, 139, 19, 0.3),
       0 0 0 2px rgba(189, 139, 19, 0.1);
 
     svg {
@@ -1565,11 +1599,11 @@ export const CloseButton = styled.button`
 `;
 
 export const ColumnsContainer = styled.div`
-  margin: 15px;
   display: flex;
   gap: 25px;
   width: 100%;
-  min-width: 0;
+  background: #e8efe8;
+  padding: 10px;
 `;
 
 export const SectionTitleContainer = styled.div`
@@ -1780,6 +1814,327 @@ export const ContactText = styled.p`
     &:hover {
       color: rgba(189, 139, 19, 0.9);
       text-decoration: underline;
+    }
+  }
+`;
+
+export const ImageSectionContainer = styled(DescriptionContainer)`
+  background: linear-gradient(
+    135deg,
+    rgba(255, 248, 230, 0.9),
+    rgba(255, 245, 222, 0.85)
+  );
+  border: 1px solid rgba(189, 139, 19, 0.15);
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.12),
+    0 2px 8px rgba(0, 0, 0, 0.08);
+
+  ${ImageDescription} {
+    background: rgba(255, 248, 230, 0.95);
+    border: 1px solid rgba(189, 139, 19, 0.12);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  }
+
+  &:hover {
+    box-shadow:
+      0 6px 20px rgba(0, 0, 0, 0.15),
+      0 3px 10px rgba(0, 0, 0, 0.1);
+  }
+`;
+
+export const InfoCardsSectionExpanded = styled(InfoCardsSection)`
+  height: ${(props) => props.imageHeight}px;
+  min-height: auto;
+`;
+
+export const DescriptionContainerExpanded = styled(DescriptionContainer)`
+  width: calc(100% + (100% * 3 / 4) + 15px);
+  margin-top: 10px;
+`;
+
+export const ContentContainer = styled.div`
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  background: #e8efe8;
+  border-radius: 24px;
+  padding: 10px;
+  box-shadow:
+    0 4px 20px rgba(189, 139, 19, 0.25),
+    0 2px 8px rgba(189, 139, 19, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  overflow: ${(props) => (props.isFullscreen ? 'visible' : 'hidden')};
+  position: relative;
+
+  ${StructureListView} {
+    background: white;
+  }
+
+  &:hover {
+    box-shadow:
+      0 8px 24px rgba(189, 139, 19, 0.3),
+      0 4px 8px rgba(189, 139, 19, 0.15);
+  }
+`;
+
+export const ArrowButton = styled.button`
+  background: #e8efe8;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 2px 8px rgba(55, 109, 49, 0.4);
+  z-index: 2;
+
+  &:first-of-type {
+    left: 16px;
+  }
+
+  &:last-of-type {
+    right: 16px;
+  }
+
+  svg {
+    font-size: 20px;
+    transition: transform 0.2s ease;
+    color: rgba(189, 139, 19, 1);
+    font-weight: bold;
+  }
+
+  &:hover {
+    background: #dbe5db;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 4px 12px rgba(55, 109, 49, 0.6);
+
+    svg {
+      transform: scale(1.1);
+      color: #bd8b13;
+    }
+  }
+
+  &:active {
+    transform: translateY(-50%) scale(0.95);
+  }
+`;
+
+export const ImageSectionHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-right: 8px;
+`;
+
+export const FullscreenButton = styled.button`
+  background: none;
+  border: none;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #376d31;
+  opacity: 0.7;
+  margin: -15px -10px 0 0;
+
+  svg {
+    font-size: 32px;
+    transition: transform 0.2s ease;
+  }
+
+  &:hover {
+    opacity: 1;
+    transform: scale(1.1);
+
+    svg {
+      color: rgba(189, 139, 19, 0.9);
+    }
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+`;
+
+export const FullscreenContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+`;
+
+export const FullscreenImageContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const FullscreenBackgroundImage = styled(BackgroundImage)`
+  filter: blur(30px);
+  opacity: 0.4;
+`;
+
+export const FullscreenImage = styled(StyledImage)`
+  transform: translate(-50%, -50%) scale(1);
+  max-height: 85vh;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translate(-50%, -50%) scale(1.02);
+  }
+`;
+
+export const FullscreenNavigation = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 102;
+
+  ${FullscreenContainer}:hover & {
+    opacity: 1;
+  }
+`;
+
+export const FullscreenArrowButton = styled(ArrowButton)`
+  position: relative;
+  transform: none;
+  top: auto;
+  width: 56px;
+  height: 56px;
+  background: rgba(255, 248, 230, 0.95);
+  opacity: 1;
+
+  svg {
+    font-size: 24px;
+    color: rgba(189, 139, 19, 1);
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    background: rgba(255, 248, 230, 0.95);
+
+    svg {
+      color: #bd8b13;
+    }
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+`;
+
+export const FullscreenCaptionBar = styled.div`
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 248, 230, 0.95);
+  padding: 16px 32px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  min-width: 300px;
+  max-width: 800px;
+  z-index: 103;
+  padding-right: 80px;
+
+  ${FullscreenContainer}:hover & {
+    opacity: 1;
+  }
+`;
+
+export const ImageCounter = styled.span`
+  color: #376d31;
+  font-weight: 600;
+  font-size: 18px;
+  min-width: 60px;
+  padding-right: 16px;
+  margin-right: 16px;
+  border-right: 2px solid rgba(189, 139, 19, 0.2);
+`;
+
+export const CaptionText = styled.p`
+  margin: 0;
+  font-size: 18px;
+  color: #2c3e50;
+  line-height: 1.4;
+  flex: 1;
+  text-align: center;
+  padding-right: 48px;
+`;
+
+export const FullscreenCloseButton = styled.button`
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 64px;
+  border-radius: 0 20px 20px 0;
+  background: rgba(232, 239, 232, 0.95);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-left: 1px solid rgba(189, 139, 19, 0.12);
+
+  svg {
+    font-size: 28px;
+    color: rgba(189, 139, 19, 1);
+    transition: all 0.3s ease;
+  }
+
+  &:hover {
+    background: #fff;
+
+    svg {
+      color: #bd8b13;
+      transform: rotate(90deg);
+    }
+  }
+
+  &:active {
+    svg {
+      transform: rotate(90deg) scale(0.95);
     }
   }
 `;

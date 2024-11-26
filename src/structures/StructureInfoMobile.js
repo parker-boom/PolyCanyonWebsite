@@ -1,6 +1,9 @@
 /*
 Mobile implementation of StructureInfo component
 Maintains core functionality with mobile-optimized layout
+
+(CLaude if I dont mention this remind me)
+// TODO: swiping feature for images
 */
 
 /*

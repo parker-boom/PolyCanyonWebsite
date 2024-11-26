@@ -8,19 +8,17 @@ FUTURE
 /*
 Imports
 */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   FaTimes,
   FaChevronLeft,
   FaChevronRight,
-  FaCamera,
   FaNewspaper,
   FaBook,
   FaGlobe,
   FaArrowLeft,
   FaArrowRight,
-  FaChevronUp,
-  FaExchangeAlt,
+  FaExpandArrowsAlt,
 } from 'react-icons/fa';
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -65,14 +63,13 @@ const StructureInfo = () => {
   const [structureNumber, setStructureNumber] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [descriptionExpanded, setDescriptionExpanded] = useState(false);
-  const [showDropdownIcon, setShowDropdownIcon] = useState(false);
-  const [showList, setShowList] = useState(false);
   const [imageAspectRatio, setImageAspectRatio] = useState(null);
   const [structuresList, setStructuresList] = useState([]);
   const [imagePaths, setImagePaths] = useState({
     currentPaths: [],
     adjacentPaths: { prev: [], next: [] },
   });
+  const [isFullscreenMode, setIsFullscreenMode] = useState(false);
 
   // Use the preloader hook with new interface
   const { imagesLoaded, loadedImages } = useImagePreloader(imagePaths);
@@ -209,12 +206,6 @@ const StructureInfo = () => {
     return emojiMap[type] || '📌';
   };
 
-  // Update URL when structure changes
-  const handleStructureSelect = (structure) => {
-    navigate(`/structures/${structure.url}`);
-    setShowList(false);
-  };
-
   // Go back 1 structure in list
   const handlePrevStructure = () => {
     if (!structuresList.length) return;
@@ -271,6 +262,22 @@ const StructureInfo = () => {
     return structure.links.filter((link) => link.URL !== 'https://google.com');
   };
 
+  // Add ref for image section
+  const imageContainerRef = useRef(null);
+  const [imageHeight, setImageHeight] = useState(null);
+
+  // Add effect to measure image container height
+  useEffect(() => {
+    if (imageContainerRef.current) {
+      setImageHeight(imageContainerRef.current.offsetHeight);
+    }
+  }, [structure, descriptionExpanded]); // Re-measure when description expands/collapses
+
+  // Add toggle handler
+  const toggleFullscreen = () => {
+    setIsFullscreenMode(!isFullscreenMode);
+  };
+
   // Modify the loading state to keep header visible
   if (!structure || !structureNumber) {
     return (
@@ -299,8 +306,13 @@ const StructureInfo = () => {
             </S.StructureNumberBubble>
 
             <S.TitleWrapper>
-              <S.NavigationOverlay side="left" onClick={handlePrevStructure}>
-                <S.NavigationNumber>
+              <S.NavigationOverlay
+                side="left"
+                onClick={handlePrevStructure}
+                role="button"
+                aria-label="Previous structure"
+              >
+                <S.NavigationNumber side="left">
                   {getPrevStructureNumber()}
                 </S.NavigationNumber>
                 <FaArrowLeft />
@@ -308,8 +320,13 @@ const StructureInfo = () => {
 
               <S.StructureTitleInfo>{structure.names[0]}</S.StructureTitleInfo>
 
-              <S.NavigationOverlay side="right" onClick={handleNextStructure}>
-                <S.NavigationNumber>
+              <S.NavigationOverlay
+                side="right"
+                onClick={handleNextStructure}
+                role="button"
+                aria-label="Next structure"
+              >
+                <S.NavigationNumber side="right">
                   {getNextStructureNumber()}
                 </S.NavigationNumber>
                 <FaArrowRight />
@@ -336,38 +353,30 @@ const StructureInfo = () => {
       <S.CenteredWrapper>
         {/* Header Content: Number, Title, Close*/}
         <S.HeaderContainer>
-          <S.StructureNumberBubble
-            onClick={() => setShowList(!showList)}
-            isOpen={showList}
-            onMouseEnter={() => !showList && setShowDropdownIcon(true)}
-            onMouseLeave={() => !showList && setShowDropdownIcon(false)}
-          >
-            {showList ? (
-              <FaChevronUp />
-            ) : showDropdownIcon ? (
-              <FaExchangeAlt />
-            ) : (
-              structure.number
-            )}
-          </S.StructureNumberBubble>
+          <S.StructureNumberBubble>{structure.number}</S.StructureNumberBubble>
 
           <S.TitleWrapper>
-            <S.NavigationOverlay side="left" onClick={handlePrevStructure}>
-              <S.NavigationNumber>
+            <S.NavigationOverlay
+              side="left"
+              onClick={handlePrevStructure}
+              role="button"
+              aria-label="Previous structure"
+            >
+              <S.NavigationNumber side="left">
                 {getPrevStructureNumber()}
               </S.NavigationNumber>
               <FaArrowLeft />
             </S.NavigationOverlay>
 
-            <S.StructureTitleInfo
-              onClick={() => setShowList(!showList)}
-              isOpen={showList}
-            >
-              {showList ? 'Choose Another Structure' : structure.names[0]}
-            </S.StructureTitleInfo>
+            <S.StructureTitleInfo>{structure.names[0]}</S.StructureTitleInfo>
 
-            <S.NavigationOverlay side="right" onClick={handleNextStructure}>
-              <S.NavigationNumber>
+            <S.NavigationOverlay
+              side="right"
+              onClick={handleNextStructure}
+              role="button"
+              aria-label="Next structure"
+            >
+              <S.NavigationNumber side="right">
                 {getNextStructureNumber()}
               </S.NavigationNumber>
               <FaArrowRight />
@@ -380,40 +389,76 @@ const StructureInfo = () => {
         </S.HeaderContainer>
 
         {/* Content Container: List of structures or Structure Info Content */}
-        <S.ContentContainer>
-          {/* List of structures for changing */}
-          {showList ? (
-            <S.StructureListView>
-              <S.StructuresListGrid>
-                {structuresList.map((item) => (
-                  <S.StructureListCard
-                    key={item.number}
-                    onClick={() => handleStructureSelect(item)}
-                    isSelected={item.number === structure.number}
+        <S.ContentContainer isFullscreen={isFullscreenMode}>
+          {isFullscreenMode ? (
+            <S.FullscreenContainer>
+              <S.FullscreenImageContainer>
+                {structure?.images?.[currentImageIndex]?.path &&
+                  loadedImages[currentImageIndex] && (
+                    <>
+                      <S.FullscreenBackgroundImage
+                        src={loadedImages[currentImageIndex].background.src}
+                        alt=""
+                        loading="lazy"
+                        style={{
+                          objectPosition:
+                            imageAspectRatio < 16 / 9 ? '50% 50%' : '50% 50%',
+                        }}
+                      />
+                      <S.FullscreenImage
+                        src={loadedImages[currentImageIndex].foreground.src}
+                        alt={structure.images[currentImageIndex].description}
+                        style={{
+                          width: imageAspectRatio < 16 / 9 ? 'auto' : '100%',
+                          height: imageAspectRatio < 16 / 9 ? '100%' : 'auto',
+                        }}
+                      />
+                    </>
+                  )}
+
+                <S.FullscreenNavigation>
+                  {structure?.images?.length > 1 && (
+                    <>
+                      <S.FullscreenArrowButton onClick={handlePrevImage}>
+                        <FaChevronLeft />
+                      </S.FullscreenArrowButton>
+                      <S.FullscreenArrowButton onClick={handleNextImage}>
+                        <FaChevronRight />
+                      </S.FullscreenArrowButton>
+                    </>
+                  )}
+                </S.FullscreenNavigation>
+
+                <S.FullscreenCaptionBar>
+                  <S.ImageCounter>
+                    {currentImageIndex + 1} / {structure.images.length}
+                  </S.ImageCounter>
+                  <S.CaptionText>{imageDescription}</S.CaptionText>
+                  <S.FullscreenCloseButton
+                    onClick={toggleFullscreen}
+                    aria-label="Exit fullscreen mode"
                   >
-                    <S.StructureImage
-                      src={mainImages[item.image_key]}
-                      alt={item.title}
-                    />
-                    <S.StructureListInfo>
-                      <S.StructureListNumber>
-                        {item.number}
-                      </S.StructureListNumber>
-                      <S.StructureListTitle>{item.title}</S.StructureListTitle>
-                    </S.StructureListInfo>
-                  </S.StructureListCard>
-                ))}
-              </S.StructuresListGrid>
-            </S.StructureListView>
+                    <FaTimes />
+                  </S.FullscreenCloseButton>
+                </S.FullscreenCaptionBar>
+              </S.FullscreenImageContainer>
+            </S.FullscreenContainer>
           ) : (
             <S.MainContent>
               {/* Main Content: Image / Description on left | Quick Facts on right */}
               <S.ColumnsContainer>
                 <S.LeftSection>
-                  <S.DescriptionContainer>
-                    <S.SectionTitleInfo>Images</S.SectionTitleInfo>
+                  <S.ImageSectionContainer ref={imageContainerRef}>
+                    <S.ImageSectionHeader>
+                      <S.SectionTitleInfo>Images</S.SectionTitleInfo>
+                      <S.FullscreenButton
+                        onClick={toggleFullscreen}
+                        aria-label="Toggle fullscreen mode"
+                      >
+                        <FaExpandArrowsAlt />
+                      </S.FullscreenButton>
+                    </S.ImageSectionHeader>
 
-                    {/* Image Container: Carousel & Scaling based on aspect ratio */}
                     <S.ImageContainer>
                       {structure?.images?.[currentImageIndex]?.path &&
                         loadedImages[currentImageIndex] && (
@@ -448,146 +493,263 @@ const StructureInfo = () => {
                             />
                           </>
                         )}
-
-                      {structure?.images?.length > 1 && (
-                        <S.ImageControls>
-                          <S.ArrowButton onClick={handlePrevImage}>
-                            <FaChevronLeft />
-                          </S.ArrowButton>
-                          <S.ArrowButton onClick={handleNextImage}>
-                            <FaChevronRight />
-                          </S.ArrowButton>
-                        </S.ImageControls>
-                      )}
                     </S.ImageContainer>
 
                     <S.ImageDescription>
-                      <FaCamera />
+                      {structure?.images?.length > 1 && (
+                        <S.ArrowButton onClick={handlePrevImage}>
+                          <FaChevronLeft />
+                        </S.ArrowButton>
+                      )}
                       <p>{imageDescription}</p>
+                      {structure?.images?.length > 1 && (
+                        <S.ArrowButton onClick={handleNextImage}>
+                          <FaChevronRight />
+                        </S.ArrowButton>
+                      )}
                     </S.ImageDescription>
-                  </S.DescriptionContainer>
+                  </S.ImageSectionContainer>
 
-                  {/* Description Container: Description & Toggle extended Button */}
-                  <S.DescriptionContainer>
-                    <S.SectionTitleInfo>Description</S.SectionTitleInfo>
-                    <S.DescriptionText expanded={descriptionExpanded}>
-                      <p>{structure.description}</p>
-                      {descriptionExpanded && (
+                  {descriptionExpanded ? (
+                    <S.DescriptionContainerExpanded>
+                      <S.SectionTitleInfo>Description</S.SectionTitleInfo>
+                      <S.DescriptionText expanded={descriptionExpanded}>
+                        <p>{structure.description}</p>
                         <div className="extended">
                           {structure.extended_description}
                         </div>
-                      )}
-                    </S.DescriptionText>
-                    <S.ToggleDescriptionButton onClick={toggleDescription}>
-                      {descriptionExpanded
-                        ? 'Show Less Info'
-                        : 'Show More Info'}
-                    </S.ToggleDescriptionButton>
-                  </S.DescriptionContainer>
+                      </S.DescriptionText>
+                      <S.ToggleDescriptionButton onClick={toggleDescription}>
+                        Show Less Info
+                      </S.ToggleDescriptionButton>
+                    </S.DescriptionContainerExpanded>
+                  ) : (
+                    <S.DescriptionContainer>
+                      <S.SectionTitleInfo>Description</S.SectionTitleInfo>
+                      <S.DescriptionText expanded={false}>
+                        <p>{structure.description}</p>
+                      </S.DescriptionText>
+                      <S.ToggleDescriptionButton onClick={toggleDescription}>
+                        Show More Info
+                      </S.ToggleDescriptionButton>
+                    </S.DescriptionContainer>
+                  )}
                 </S.LeftSection>
 
                 {/* Info Cards Section: Quick Facts, scrollable, matches height of image/description */}
-                <S.InfoCardsSection>
-                  <S.SectionTitleInfo>Quick Facts</S.SectionTitleInfo>
+                {descriptionExpanded ? (
+                  <S.InfoCardsSectionExpanded imageHeight={imageHeight}>
+                    <S.SectionTitleInfo>Quick Facts</S.SectionTitleInfo>
 
-                  {/* Year Card */}
-                  {structure.year && (
-                    <S.InfoCard>
-                      <S.InfoCardHeader>
-                        <S.InfoCardEmoji>
-                          {getInfoEmoji('year')}
-                        </S.InfoCardEmoji>
-                        <S.InfoCardTitle>Year</S.InfoCardTitle>
-                      </S.InfoCardHeader>
-                      <S.InfoCardContent>{structure.year}</S.InfoCardContent>
-                    </S.InfoCard>
-                  )}
-
-                  {/* Add Also Known As card if there are alternate names */}
-                  {structure.names.length > 1 && (
-                    <S.InfoCard>
-                      <S.InfoCardHeader>
-                        <S.InfoCardEmoji>📝</S.InfoCardEmoji>
-                        <S.InfoCardTitle>Also Known As</S.InfoCardTitle>
-                      </S.InfoCardHeader>
-                      <S.InfoCardContent>
-                        {structure.names.slice(1).join(', ')}
-                      </S.InfoCardContent>
-                    </S.InfoCard>
-                  )}
-
-                  {/* Advisor Card : !DOESNT WORK BECAUSE ADVISORS ARE JUST BUILDERS RN */}
-                  {structure.advisor_builders?.some((person) =>
-                    person.role.includes('Advisor')
-                  ) && (
-                    <S.InfoCard>
-                      <S.InfoCardHeader>
-                        <S.InfoCardEmoji>
-                          {getInfoEmoji('advisor')}
-                        </S.InfoCardEmoji>
-                        <S.InfoCardTitle>Advisors</S.InfoCardTitle>
-                      </S.InfoCardHeader>
-                      <S.InfoCardContent>
-                        {structure.advisor_builders
-                          .filter((person) => person.role.includes('Advisor'))
-                          .map((person) => person.name)
-                          .join(', ')}
-                      </S.InfoCardContent>
-                    </S.InfoCard>
-                  )}
-
-                  {/* Builders Card */}
-                  {structure.advisor_builders?.some(
-                    (person) => !person.role.includes('Advisor')
-                  ) && (
-                    <S.InfoCard>
-                      <S.InfoCardHeader>
-                        <S.InfoCardEmoji>
-                          {getInfoEmoji('builders')}
-                        </S.InfoCardEmoji>
-                        <S.InfoCardTitle>Builders</S.InfoCardTitle>
-                      </S.InfoCardHeader>
-                      <S.InfoCardContent>
-                        {structure.advisor_builders
-                          .filter((person) => !person.role.includes('Advisor'))
-                          .map((person) => person.name)
-                          .join(', ')}
-                      </S.InfoCardContent>
-                    </S.InfoCard>
-                  )}
-
-                  {/* Status Card */}
-                  {structure.status && (
-                    <S.InfoCard>
-                      <S.InfoCardHeader>
-                        <S.InfoCardEmoji>
-                          {getInfoEmoji('status')}
-                        </S.InfoCardEmoji>
-                        <S.InfoCardTitle>Status</S.InfoCardTitle>
-                      </S.InfoCardHeader>
-                      <S.InfoCardContent>{structure.status}</S.InfoCardContent>
-                    </S.InfoCard>
-                  )}
-
-                  {/* Location Card */}
-                  {structure.location?.latitude &&
-                    structure.location?.longitude && (
+                    {/* Year Card */}
+                    {structure.year && (
                       <S.InfoCard>
                         <S.InfoCardHeader>
                           <S.InfoCardEmoji>
-                            {getInfoEmoji('location')}
+                            {getInfoEmoji('year')}
                           </S.InfoCardEmoji>
-                          <S.InfoCardTitle>Location</S.InfoCardTitle>
+                          <S.InfoCardTitle>Year</S.InfoCardTitle>
                         </S.InfoCardHeader>
-                        {/* Google Maps Connection */}
-                        <GoogleMapLandmark
-                          latitude={structure.location.latitude}
-                          longitude={structure.location.longitude}
-                          structureName={structure.names[0]}
-                        />
+                        <S.InfoCardContent>{structure.year}</S.InfoCardContent>
                       </S.InfoCard>
                     )}
-                </S.InfoCardsSection>
+
+                    {/* Add Also Known As card if there are alternate names */}
+                    {structure.names.length > 1 && (
+                      <S.InfoCard>
+                        <S.InfoCardHeader>
+                          <S.InfoCardEmoji>📝</S.InfoCardEmoji>
+                          <S.InfoCardTitle>Also Known As</S.InfoCardTitle>
+                        </S.InfoCardHeader>
+                        <S.InfoCardContent>
+                          {structure.names.slice(1).join(', ')}
+                        </S.InfoCardContent>
+                      </S.InfoCard>
+                    )}
+
+                    {/* Advisor Card : !DOESNT WORK BECAUSE ADVISORS ARE JUST BUILDERS RN */}
+                    {structure.advisor_builders?.some((person) =>
+                      person.role.includes('Advisor')
+                    ) && (
+                      <S.InfoCard>
+                        <S.InfoCardHeader>
+                          <S.InfoCardEmoji>
+                            {getInfoEmoji('advisor')}
+                          </S.InfoCardEmoji>
+                          <S.InfoCardTitle>Advisors</S.InfoCardTitle>
+                        </S.InfoCardHeader>
+                        <S.InfoCardContent>
+                          {structure.advisor_builders
+                            .filter((person) => person.role.includes('Advisor'))
+                            .map((person) => person.name)
+                            .join(', ')}
+                        </S.InfoCardContent>
+                      </S.InfoCard>
+                    )}
+
+                    {/* Builders Card */}
+                    {structure.advisor_builders?.some(
+                      (person) => !person.role.includes('Advisor')
+                    ) && (
+                      <S.InfoCard>
+                        <S.InfoCardHeader>
+                          <S.InfoCardEmoji>
+                            {getInfoEmoji('builders')}
+                          </S.InfoCardEmoji>
+                          <S.InfoCardTitle>Builders</S.InfoCardTitle>
+                        </S.InfoCardHeader>
+                        <S.InfoCardContent>
+                          {structure.advisor_builders
+                            .filter(
+                              (person) => !person.role.includes('Advisor')
+                            )
+                            .map((person) => person.name)
+                            .join(', ')}
+                        </S.InfoCardContent>
+                      </S.InfoCard>
+                    )}
+
+                    {/* Status Card */}
+                    {structure.status && (
+                      <S.InfoCard>
+                        <S.InfoCardHeader>
+                          <S.InfoCardEmoji>
+                            {getInfoEmoji('status')}
+                          </S.InfoCardEmoji>
+                          <S.InfoCardTitle>Status</S.InfoCardTitle>
+                        </S.InfoCardHeader>
+                        <S.InfoCardContent>
+                          {structure.status}
+                        </S.InfoCardContent>
+                      </S.InfoCard>
+                    )}
+
+                    {/* Location Card */}
+                    {structure.location?.latitude &&
+                      structure.location?.longitude && (
+                        <S.InfoCard>
+                          <S.InfoCardHeader>
+                            <S.InfoCardEmoji>
+                              {getInfoEmoji('location')}
+                            </S.InfoCardEmoji>
+                            <S.InfoCardTitle>Location</S.InfoCardTitle>
+                          </S.InfoCardHeader>
+                          {/* Google Maps Connection */}
+                          <GoogleMapLandmark
+                            latitude={structure.location.latitude}
+                            longitude={structure.location.longitude}
+                            structureName={structure.names[0]}
+                          />
+                        </S.InfoCard>
+                      )}
+                  </S.InfoCardsSectionExpanded>
+                ) : (
+                  <S.InfoCardsSection>
+                    <S.SectionTitleInfo>Quick Facts</S.SectionTitleInfo>
+
+                    {/* Year Card */}
+                    {structure.year && (
+                      <S.InfoCard>
+                        <S.InfoCardHeader>
+                          <S.InfoCardEmoji>
+                            {getInfoEmoji('year')}
+                          </S.InfoCardEmoji>
+                          <S.InfoCardTitle>Year</S.InfoCardTitle>
+                        </S.InfoCardHeader>
+                        <S.InfoCardContent>{structure.year}</S.InfoCardContent>
+                      </S.InfoCard>
+                    )}
+
+                    {/* Add Also Known As card if there are alternate names */}
+                    {structure.names.length > 1 && (
+                      <S.InfoCard>
+                        <S.InfoCardHeader>
+                          <S.InfoCardEmoji>📝</S.InfoCardEmoji>
+                          <S.InfoCardTitle>Also Known As</S.InfoCardTitle>
+                        </S.InfoCardHeader>
+                        <S.InfoCardContent>
+                          {structure.names.slice(1).join(', ')}
+                        </S.InfoCardContent>
+                      </S.InfoCard>
+                    )}
+
+                    {/* Advisor Card : !DOESNT WORK BECAUSE ADVISORS ARE JUST BUILDERS RN */}
+                    {structure.advisor_builders?.some((person) =>
+                      person.role.includes('Advisor')
+                    ) && (
+                      <S.InfoCard>
+                        <S.InfoCardHeader>
+                          <S.InfoCardEmoji>
+                            {getInfoEmoji('advisor')}
+                          </S.InfoCardEmoji>
+                          <S.InfoCardTitle>Advisors</S.InfoCardTitle>
+                        </S.InfoCardHeader>
+                        <S.InfoCardContent>
+                          {structure.advisor_builders
+                            .filter((person) => person.role.includes('Advisor'))
+                            .map((person) => person.name)
+                            .join(', ')}
+                        </S.InfoCardContent>
+                      </S.InfoCard>
+                    )}
+
+                    {/* Builders Card */}
+                    {structure.advisor_builders?.some(
+                      (person) => !person.role.includes('Advisor')
+                    ) && (
+                      <S.InfoCard>
+                        <S.InfoCardHeader>
+                          <S.InfoCardEmoji>
+                            {getInfoEmoji('builders')}
+                          </S.InfoCardEmoji>
+                          <S.InfoCardTitle>Builders</S.InfoCardTitle>
+                        </S.InfoCardHeader>
+                        <S.InfoCardContent>
+                          {structure.advisor_builders
+                            .filter(
+                              (person) => !person.role.includes('Advisor')
+                            )
+                            .map((person) => person.name)
+                            .join(', ')}
+                        </S.InfoCardContent>
+                      </S.InfoCard>
+                    )}
+
+                    {/* Status Card */}
+                    {structure.status && (
+                      <S.InfoCard>
+                        <S.InfoCardHeader>
+                          <S.InfoCardEmoji>
+                            {getInfoEmoji('status')}
+                          </S.InfoCardEmoji>
+                          <S.InfoCardTitle>Status</S.InfoCardTitle>
+                        </S.InfoCardHeader>
+                        <S.InfoCardContent>
+                          {structure.status}
+                        </S.InfoCardContent>
+                      </S.InfoCard>
+                    )}
+
+                    {/* Location Card */}
+                    {structure.location?.latitude &&
+                      structure.location?.longitude && (
+                        <S.InfoCard>
+                          <S.InfoCardHeader>
+                            <S.InfoCardEmoji>
+                              {getInfoEmoji('location')}
+                            </S.InfoCardEmoji>
+                            <S.InfoCardTitle>Location</S.InfoCardTitle>
+                          </S.InfoCardHeader>
+                          {/* Google Maps Connection */}
+                          <GoogleMapLandmark
+                            latitude={structure.location.latitude}
+                            longitude={structure.location.longitude}
+                            structureName={structure.names[0]}
+                          />
+                        </S.InfoCard>
+                      )}
+                  </S.InfoCardsSection>
+                )}
               </S.ColumnsContainer>
 
               {/* Links Section (only shows if there are valid links) */}
