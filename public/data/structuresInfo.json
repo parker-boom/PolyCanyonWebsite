@@ -1,7 +1,10 @@
 {
   "structures": [
     {
-      "names": ["Entry Arch", "Entrance Pathway"],
+      "names": [
+        "Entry Arch",
+        "Entrance Pathway"
+      ],
       "number": 1,
       "url": "entryArch",
       "status": "Active",
@@ -13,23 +16,33 @@
       "advisor_builders": [
         {
           "name": "Paul Miller",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Lynn Noah",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Greg Lomax",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Andrew Low",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Gwin Stumbaugh",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -97,7 +110,9 @@
       "year": "1976"
     },
     {
-      "names": ["Techite Bridge"],
+      "names": [
+        "Techite Bridge"
+      ],
       "number": 2,
       "url": "techiteBridge",
       "status": "Active",
@@ -109,15 +124,21 @@
       "advisor_builders": [
         {
           "name": "Robert Purdy",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Robert Mac Luan",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Merilee Amy",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -181,7 +202,11 @@
       "year": "1973"
     },
     {
-      "names": ["Blade", "The Petal Structure", "The Concrete Flower"],
+      "names": [
+        "Blade",
+        "The Petal Structure",
+        "The Concrete Flower"
+      ],
       "number": 3,
       "url": "blade",
       "status": "Active",
@@ -193,19 +218,27 @@
       "advisor_builders": [
         {
           "name": "Steve Gilmore",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Mark Haselton",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Dan McMann",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ken Minor",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -253,7 +286,9 @@
       "year": "1963 / 2003"
     },
     {
-      "names": ["Spire Array"],
+      "names": [
+        "Spire Array"
+      ],
       "number": 4,
       "url": "spireArray",
       "status": "Active",
@@ -265,11 +300,15 @@
       "advisor_builders": [
         {
           "name": "Professor Dale Clifford",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Design Build Team",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -310,7 +349,9 @@
       "year": "2020"
     },
     {
-      "names": ["Palm Tree"],
+      "names": [
+        "Palm Tree"
+      ],
       "number": 5,
       "url": "palmTree",
       "status": "Active",
@@ -318,15 +359,19 @@
         "latitude": 35.31499,
         "longitude": -120.65241
       },
-      "extended_description": "Palm Tree is one of the more enigmatic structures in this experimental collection, with limited information available beyond its construction year and the builders credited on its plaque. Its design aimed to harness the differing expansion and contraction rates of its dissimilar metals, theoretically enabling subtle rotation in response to temperature changes. Whether or not this functionality was achieved, the structure’s intent reflects an intriguing exploration of how environmental forces could shape engineered movement.\n\nThe structure’s minimalist appearance—a slender central pole crowned with metallic elements—suggests an interplay of simplicity and sophistication. Palm Tree prompts questions about the relationship between natural processes and human design, making it a compelling,  mysterious piece of architectural experimentation.",
+      "extended_description": "This sculpture is one of the more enigmatic structures in this experimental collection, with limited information available beyond its construction year and the builders credited on its plaque. Its design aimed to harness the differing expansion and contraction rates of its dissimilar metals, theoretically enabling subtle rotation in response to temperature changes. Whether or not this functionality was achieved, the structure’s intent reflects an intriguing exploration of how environmental forces could shape engineered movement.\n\nThe structure’s minimalist appearance—a slender central pole crowned with metallic elements—suggests an interplay of simplicity and sophistication. Palm Tree prompts questions about the relationship between natural processes and human design, making it a compelling,  mysterious piece of architectural experimentation.",
       "advisor_builders": [
         {
           "name": "Cristina Alcala",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jaime Mora",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -355,7 +400,10 @@
       "year": "1993"
     },
     {
-      "names": ["Tensile", "Tensile Fabric Pavilion"],
+      "names": [
+        "Tensile",
+        "Tensile Fabric Pavilion"
+      ],
       "number": 6,
       "url": "tensile",
       "status": "Active",
@@ -363,35 +411,49 @@
         "latitude": 35.31523,
         "longitude": -120.65243
       },
-      "extended_description": "Completed in 2003, the Tensile Fabric Pavilion represents a bold experiment in lightweight structural design, combining engineering precision with architectural artistry. The pavilion’s design utilizes prefabricated fabric panels stretched under high tension, anchored securely by twelve underground footings. This approach showcases the innovation of tensile structures, which use pre-stressed materials to distribute loads efficiently while maintaining a lightweight, sculptural form.\n\nThe pavilion’s creation was a collaborative effort between architecture and engineering students, who overcame limited resources through donations totaling $20,000, including specialized fabric from an Ohio manufacturer and alumni financial support. The construction process spanned over a year, with the student-led team tackling challenges in material sourcing, planning, and assembly. Its unveiling during the 2003 Open House marked a milestone as the first addition to the experimental architecture collection in over a decade.\n\nInitially designed as a shade structure for annual design village events, the pavilion has taken on symbolic and personal significance. It even hosted a wedding ceremony beneath its canopy, underscoring its unique ability to merge practical function with emotional resonance. Today, the Tensile Fabric Pavilion stands as a testament to the innovative potential of tensile materials and the power of interdisciplinary collaboration.",
+      "extended_description": "This structure represents a bold experiment in lightweight structural design, combining engineering precision with architectural artistry. The pavilion’s design utilizes prefabricated fabric panels stretched under high tension, anchored securely by twelve underground footings. This approach showcases the innovation of tensile structures, which use pre-stressed materials to distribute loads efficiently while maintaining a lightweight, sculptural form.\n\nThe pavilion’s creation was a collaborative effort between architecture and engineering students, who overcame limited resources through donations totaling $20,000, including specialized fabric from an Ohio manufacturer and alumni financial support. The construction process spanned over a year, with the student-led team tackling challenges in material sourcing, planning, and assembly. Its unveiling during the 2003 Open House marked a milestone as the first addition to the experimental architecture collection in over a decade.\n\nInitially designed as a shade structure for annual design village events, the pavilion has taken on symbolic and personal significance. It even hosted a wedding ceremony beneath its canopy, underscoring its unique ability to merge practical function with emotional resonance. Today, the Tensile Fabric Pavilion stands as a testament to the innovative potential of tensile materials and the power of interdisciplinary collaboration.",
       "advisor_builders": [
         {
           "name": "Kiren Kelly-Sneed",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Theresa Zaro",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Royce Chow",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Abe Lynn",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Michael Lucas",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Walt Tryon",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Richard Zweifel",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -457,7 +519,9 @@
       "year": "2002"
     },
     {
-      "names": ["Geodesic Dome"],
+      "names": [
+        "Geodesic Dome"
+      ],
       "number": 7,
       "url": "geodesicDome",
       "status": "Active",
@@ -469,23 +533,33 @@
       "advisor_builders": [
         {
           "name": "Richard Neill",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "William Roth",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Donald Mills",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Samuel Peterson",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Don Trunklage",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -551,7 +625,10 @@
       "year": "1963"
     },
     {
-      "names": ["Cantilever Deck", "Master Builders"],
+      "names": [
+        "Cantilever Deck",
+        "Master Builders"
+      ],
       "number": 8,
       "url": "cantileverDeck",
       "status": "Active",
@@ -559,51 +636,73 @@
         "latitude": 35.31567,
         "longitude": -120.65255
       },
-      "extended_description": "In  deck was envisioned as an experiment meant to push architectural boundaries. Using a cantilever system—a design where weight is supported by beams anchored on only one end—the structure appears to float, suspended in space. This gravity-defying platform, fabricated with steel perimeter beams, cable connectors, and galvanized floor grating, achieves strength through balance, avoiding the need for traditional columns. Initially intended as an amphitheater, the deck evolved into a hybrid of engineering precision and architectural artistry, capable of withstanding the weight of curious cows grazing nearby. Its creation brought together architectural, engineering, and welding students, uniting their diverse skills in one bold and rugged design.\n\nOver time, the elements began to take their toll, but the deck’s story didn’t end there. In 2024, a new generation of students embarked on its restoration, breathing new life into this suspended marvel. The team began with a 3D scan, rebuilding missing plans from scratch and collaborating with one of the original welders to ensure accuracy. They replaced weathered wood beams with screw-laminated Alaskan yellow cedar, a material chosen for its resilience and long lifespan. Steel components were repainted, modern safety handrails were fabricated, and the platform’s infamous bounce was stabilized—all without losing its distinct character.\n\nThe restoration was as much about human connection as it was about construction. The team tackled obstacles like manually moving a massive boulder blocking the site and navigating long commutes, but what emerged was more than a finished deck: it was a bond forged through shared purpose. As Professor Anahid Behrouzi, the project’s advisor, reflected, the Cantilever Deck embodies a \"living project,\" growing and evolving with every generation of builders who care for it.\n\nThis suspended platform is more than an architectural feat—it’s a story of experimentation, collaboration, and the enduring spirit of reinvention.",
+      "extended_description": "The deck was envisioned as an experiment meant to push architectural boundaries. Using a cantilever system—a design where weight is supported by beams anchored on only one end—the structure appears to float, suspended in space. This gravity-defying platform, fabricated with steel perimeter beams, cable connectors, and galvanized floor grating, achieves strength through balance, avoiding the need for traditional columns. Initially intended as an amphitheater, the deck evolved into a hybrid of engineering precision and architectural artistry, capable of withstanding the weight of curious cows grazing nearby. Its creation brought together architectural, engineering, and welding students, uniting their diverse skills in one bold and rugged design.\n\nOver time, the elements began to take their toll, but the deck’s story didn’t end there. In 2024, a new generation of students embarked on its restoration, breathing new life into this suspended marvel. The team began with a 3D scan, rebuilding missing plans from scratch and collaborating with one of the original welders to ensure accuracy. They replaced weathered wood beams with screw-laminated Alaskan yellow cedar, a material chosen for its resilience and long lifespan. Steel components were repainted, modern safety handrails were fabricated, and the platform’s infamous bounce was stabilized—all without losing its distinct character.\n\nThe restoration was as much about human connection as it was about construction. The team tackled obstacles like manually moving a massive boulder blocking the site and navigating long commutes, but what emerged was more than a finished deck: it was a bond forged through shared purpose. As Professor Anahid Behrouzi, the project’s advisor, reflected, the Cantilever Deck embodies a \"living project,\" growing and evolving with every generation of builders who care for it.\n\nThis suspended platform is more than an architectural feat—it’s a story of experimentation, collaboration, and the enduring spirit of reinvention.",
       "advisor_builders": [
         {
           "name": "Rowan Hernandez",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Kim Throndson",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "John Morrena",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Lee Benson",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jeff Gilman",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Paco Perez",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Joseph Meyer",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Roger Biddle",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Calvin Vigeant",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Calvin Morgan",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Anahid Behrouzi",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         }
       ],
       "images": [
@@ -665,7 +764,11 @@
       "year": "1990 / 2024"
     },
     {
-      "names": ["Restrooms", "Earth-Formed Restrooms", "Concrete Bathrooms"],
+      "names": [
+        "Restrooms",
+        "Earth-Formed Restrooms",
+        "Concrete Bathrooms"
+      ],
       "number": 9,
       "url": "restrooms",
       "status": "Active",
@@ -677,15 +780,21 @@
       "advisor_builders": [
         {
           "name": "Glen Jackson",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Robert Del Bianco",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ralph Nafzgar",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -745,7 +854,11 @@
       "year": "1972"
     },
     {
-      "names": ["Underground House", "Earth Shelter", "Earth House"],
+      "names": [
+        "Underground House",
+        "Earth Shelter",
+        "Earth House"
+      ],
       "number": 10,
       "url": "undergroundHouse",
       "status": "Active",
@@ -757,51 +870,75 @@
       "advisor_builders": [
         {
           "name": "Carl C Barrett",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Robert S Cocores",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Allyn W Mcfarlin",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "John M Provato",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jesse P Wedemeyer",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Wayne Christian",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Pat Dennison",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Fred Kozono",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Mark McIntire",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Chris Sterios",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Craig Wilson",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Mark V Zeolla",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -857,7 +994,10 @@
       "year": "1982"
     },
     {
-      "names": ["Sun Dial", "Project 70 "],
+      "names": [
+        "Sun Dial",
+        "Project 70 "
+      ],
       "number": 11,
       "url": "sunDial",
       "status": "Active",
@@ -869,7 +1009,9 @@
       "advisor_builders": [
         {
           "name": "John Stuart",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -920,7 +1062,10 @@
       "year": "1971"
     },
     {
-      "names": ["Gunite Bridge", "Free Form Bridge"],
+      "names": [
+        "Gunite Bridge",
+        "Free Form Bridge"
+      ],
       "number": 12,
       "url": "guniteBridge",
       "status": "Active",
@@ -932,23 +1077,33 @@
       "advisor_builders": [
         {
           "name": "Gordon L. Boles",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Roy Leland Bostrom",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Kokpo Ng",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Richard L. Saylor",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "John Ulloa",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -994,7 +1149,9 @@
       "year": "1965"
     },
     {
-      "names": ["Timber Truss"],
+      "names": [
+        "Timber Truss"
+      ],
       "number": 13,
       "url": "timberTruss",
       "status": "Active",
@@ -1002,23 +1159,31 @@
         "latitude": 35.31654,
         "longitude": -120.654
       },
-      "extended_description": "Little is known about the Timber Truss Bridge’s early history, but its design reflects the practical elegance of traditional timber truss construction. Built in 1994, the bridge demonstrates the versatility of wood as a sustainable material and emphasizes structural efficiency through its straightforward engineering. Both functional and unassuming, the bridge blends seamlessly into its natural surroundings.\n\nIn 2015, the bridge was restored as part of a Canyon Days event, where volunteers repaired structural components and reinforced the design after decades of wear. Among the restoration team was first-year architecture student Keigen Langholff, whose enthusiasm for the project left a deep impression on his peers. Following his tragic passing shortly after the restoration, the bridge became a quiet memorial to his dedication, reflecting the collaborative spirit of the canyon.",
+      "extended_description": "Little is known about the bridge's early history, but its design reflects the practical elegance of traditional timber truss construction. Built in 1994, the bridge demonstrates the versatility of wood as a sustainable material and emphasizes structural efficiency through its straightforward engineering. Both functional and unassuming, the bridge blends seamlessly into its natural surroundings.\n\nIn 2015, the bridge was restored as part of a Canyon Days event, where volunteers repaired structural components and reinforced the design after decades of wear. Among the restoration team was first-year architecture student Keigen Langholff, whose enthusiasm for the project left a deep impression on his peers. Following his tragic passing shortly after the restoration, the bridge became a quiet memorial to his dedication, reflecting the collaborative spirit of the canyon.",
       "advisor_builders": [
         {
           "name": "Derek Bonsper",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Josh Randall",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Fred Sobottka",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Mike Willis",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -1065,27 +1230,37 @@
         "latitude": 35.31668,
         "longitude": -120.65384
       },
-      "extended_description": "The Stick Structure was conceived as a senior project with a bold purpose: to create a life-sized, reconfigurable model for teaching structural stability. Its original design featured plywood shear walls and bolted connections, allowing students to disassemble and reconfigure it to study different load flows and configurations. However, this vision of adaptability was never realized, and the structure remained static for over three decades. Exposure to the elements took its toll, with the plywood walls deteriorating and the framework leaning precariously by the early 2000s.\n\nIn 2009, a dedicated team of students took on the challenge of revitalizing the Stick Structure, preserving its educational intent while addressing its growing instability. The team carefully dismantled the aging framework, navigating rusted bolts and compromised materials. In its place, they introduced modern updates that reimagined the structure for a new generation. Steel diaphragms replaced the plywood walls, offering greater durability and resistance to weather. A two-directional truss system improved stability, while a cornerlever design reduced column dependence, maximizing open space and enhancing the structure’s versatility.\n\nThe renovation process exemplified collaborative problem-solving, blending respect for the original design with forward-thinking innovations. More than a structure, the Stick Structure represents an evolving educational tool, demonstrating how modular frameworks can adapt to new needs while maintaining their relevance. Its ability to transform, both physically and conceptually, has made it a rare and enduring model of reconfigurable design.",
+      "extended_description": "The structure was conceived as a senior project with a bold purpose: to create a life-sized, reconfigurable model for teaching structural stability. Its original design featured plywood shear walls and bolted connections, allowing students to disassemble and reconfigure it to study different load flows and configurations. However, this vision of adaptability was never realized, and the structure remained static for over three decades. Exposure to the elements took its toll, with the plywood walls deteriorating and the framework leaning precariously by the early 2000s.\n\nIn 2009, a dedicated team of students took on the challenge of revitalizing the Stick Structure, preserving its educational intent while addressing its growing instability. The team carefully dismantled the aging framework, navigating rusted bolts and compromised materials. In its place, they introduced modern updates that reimagined the structure for a new generation. Steel diaphragms replaced the plywood walls, offering greater durability and resistance to weather. A two-directional truss system improved stability, while a cornerlever design reduced column dependence, maximizing open space and enhancing the structure’s versatility.\n\nThe renovation process exemplified collaborative problem-solving, blending respect for the original design with forward-thinking innovations. More than a structure, the Stick Structure represents an evolving educational tool, demonstrating how modular frameworks can adapt to new needs while maintaining their relevance. Its ability to transform, both physically and conceptually, has made it a rare and enduring model of reconfigurable design.",
       "advisor_builders": [
         {
           "name": "William F Martin",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Brian Gottlieb",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Dan Morita",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Michelle M. Pettit",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jake Feldman",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -1146,7 +1321,9 @@
       "year": "1976 / 2009"
     },
     {
-      "names": ["Pyramid"],
+      "names": [
+        "Pyramid"
+      ],
       "number": 15,
       "url": "pyramid",
       "status": "Active",
@@ -1158,11 +1335,15 @@
       "advisor_builders": [
         {
           "name": "H. William Sievers",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jens Pohl",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         }
       ],
       "images": [
@@ -1191,7 +1372,9 @@
       "year": "1976"
     },
     {
-      "names": ["Bridge House"],
+      "names": [
+        "Bridge House"
+      ],
       "number": 16,
       "url": "bridgeHouse",
       "status": "Active",
@@ -1203,43 +1386,63 @@
       "advisor_builders": [
         {
           "name": "Ronald Davena",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Joel Dean",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Robert Garlow",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Raymond Hilken",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Lui Horstmeyer",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "James January",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Lloyd Suehiro",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Thomas Wiggin",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Kurt Holder",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Bruce Campe",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -1300,7 +1503,10 @@
       "year": "1968 / 2019"
     },
     {
-      "names": ["Water Tanks", "Water SYstems"],
+      "names": [
+        "Water Tanks",
+        "Water SYstems"
+      ],
       "number": 17,
       "url": "waterTanks",
       "status": "Active",
@@ -1308,11 +1514,13 @@
         "latitude": 35.31697,
         "longitude": -120.65526
       },
-      "extended_description": "The Water Tanks of Poly Canyon, built in 1998, represent a pivotal chapter in the canyon’s evolving approach to sustainable resource management. Designed as the centerpiece of a water system first envisioned in 1969, these tanks replaced the aging precast concrete reservoirs that initially drew from a hillside spring. This natural source not only fed Brizzolara Creek but also sustained an intricate network of pipes and storage that supported some of the canyon’s most iconic experimental structures.\n\nThe original system, conceived during the canyon’s early days, aimed to showcase how natural hydrology could seamlessly integrate into architectural experimentation. Using gravity-fed flow, water was delivered to structures like the Shell House and Modular House, enabling their functionality and furthering the canyon’s ethos of environmental harmony. However, the concrete tanks faced persistent issues, including leaks and inadequate pressure for effective chlorination, which led to water quality concerns and inefficiencies.\n\nBy the late 1990s, the system was due for a complete redesign. Two students took on this challenge as their senior project in 1998, introducing polyvinyl tanks supported by a reinforced foundation engineered to withstand the shifting hillside terrain. The new design featured continuous footings, interlocking rings for stability, and an overflow catch basin to prevent spillage. These elements reflected not only technical ingenuity but also the improvisational spirit of Poly Canyon, as the students navigated incomplete documentation and unpredictable environmental conditions. Corrugated metal siding gave the tanks a protective shell while maintaining an industrial aesthetic consistent with the canyon’s experimental roots.\n\nThe revamped water system marked a significant improvement, enabling greater capacity and reliability. Yet even with these upgrades, it was not without flaws—gates remained unfinished, and the chlorine pumps proved inconsistent. Over time, the tanks and their infrastructure became less of an active resource and more of a silent witness to Poly Canyon’s history. Though the water system no longer serves its original purpose, its integration with the canyon’s topography and its contributions to the experimental structures define its legacy.\n\nAs a piece of infrastructure, the water system remains one of the most coherent examples of the canyon’s larger vision. While the tanks themselves stand as a physical marker of its later development, the broader system reveals the canyon’s ongoing dialogue between design, sustainability, and adaptability. Though weathered by a decade of inactivity, the Water Tanks continue to inspire reflection on the challenges and potential of designing with nature in mind; offering a glimpse into Poly Canyon’s ambitious experiment in living systems.",
+      "extended_description": "The wat tanks, built in 1998, represent a pivotal chapter in the canyon’s evolving approach to sustainable resource management. Designed as the centerpiece of a water system first envisioned in 1969, these tanks replaced the aging precast concrete reservoirs that initially drew from a hillside spring. This natural source not only fed Brizzolara Creek but also sustained an intricate network of pipes and storage that supported some of the canyon’s most iconic experimental structures.\n\nThe original system, conceived during the canyon’s early days, aimed to showcase how natural hydrology could seamlessly integrate into architectural experimentation. Using gravity-fed flow, water was delivered to structures like the Shell House and Modular House, enabling their functionality and furthering the canyon’s ethos of environmental harmony. However, the concrete tanks faced persistent issues, including leaks and inadequate pressure for effective chlorination, which led to water quality concerns and inefficiencies.\n\nBy the late 1990s, the system was due for a complete redesign. Two students took on this challenge as their senior project in 1998, introducing polyvinyl tanks supported by a reinforced foundation engineered to withstand the shifting hillside terrain. The new design featured continuous footings, interlocking rings for stability, and an overflow catch basin to prevent spillage. These elements reflected not only technical ingenuity but also the improvisational spirit of Poly Canyon, as the students navigated incomplete documentation and unpredictable environmental conditions. Corrugated metal siding gave the tanks a protective shell while maintaining an industrial aesthetic consistent with the canyon’s experimental roots.\n\nThe revamped water system marked a significant improvement, enabling greater capacity and reliability. Yet even with these upgrades, it was not without flaws—gates remained unfinished, and the chlorine pumps proved inconsistent. Over time, the tanks and their infrastructure became less of an active resource and more of a silent witness to Poly Canyon’s history. Though the water system no longer serves its original purpose, its integration with the canyon’s topography and its contributions to the experimental structures define its legacy.\n\nAs a piece of infrastructure, the water system remains one of the most coherent examples of the canyon’s larger vision. While the tanks themselves stand as a physical marker of its later development, the broader system reveals the canyon’s ongoing dialogue between design, sustainability, and adaptability. Though weathered by a decade of inactivity, the Water Tanks continue to inspire reflection on the challenges and potential of designing with nature in mind; offering a glimpse into Poly Canyon’s ambitious experiment in living systems.",
       "advisor_builders": [
         {
           "name": "Mathew Bittleston",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -1378,7 +1586,9 @@
       "year": "1969 / 1998"
     },
     {
-      "names": ["Observation Deck"],
+      "names": [
+        "Observation Deck"
+      ],
       "number": 18,
       "url": "observationDeck",
       "status": "Active",
@@ -1390,15 +1600,21 @@
       "advisor_builders": [
         {
           "name": "Tony Pellegrini",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Harrison Woods",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Sitora Vaxidova",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -1453,7 +1669,10 @@
       "year": "2019"
     },
     {
-      "names": ["Poly Pavilion", "The Structure"],
+      "names": [
+        "Poly Pavilion",
+        "The Structure"
+      ],
       "number": 19,
       "url": "polyPavilion",
       "status": "Active",
@@ -1465,83 +1684,123 @@
       "advisor_builders": [
         {
           "name": "Alfredo Alcaraz",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Armando Paez",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Blanca Guerra",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Bob Green",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Brad Bishop",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Brett Beeman",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Chi Pham",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Cindy Smith",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Dave Hernandez",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Frank Maskiewicz",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jim Low",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Joe Michale",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "John Smith",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ken Brehmer",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ken Schumann",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ku Divita",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Pete Chavez",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Randal Brunson",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ricardo Arevalo",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Stan Smith",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -1602,7 +1861,9 @@
       "year": "1985"
     },
     {
-      "names": ["Serenity Wall"],
+      "names": [
+        "Serenity Wall"
+      ],
       "number": 20,
       "url": "serenityWall",
       "status": "Active",
@@ -1614,7 +1875,9 @@
       "advisor_builders": [
         {
           "name": "Brian Milton",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -1654,7 +1917,10 @@
       "year": "2004"
     },
     {
-      "names": ["Hay Bale Arch", "Straw Bale Arch"],
+      "names": [
+        "Hay Bale Arch",
+        "Straw Bale Arch"
+      ],
       "number": 21,
       "url": "hayBale",
       "status": "Active",
@@ -1662,23 +1928,31 @@
         "latitude": 35.31612,
         "longitude": -120.65412
       },
-      "extended_description": "The tower is more than an observation deck—it’s a story told in steel and concrete. It honors Paul Fratessa, a guiding force in the Architectural Engineering program. Designed by students, it combines technical ingenuity with heartfelt tribute, creating a structure that’s as much a reflection of Fratessa’s legacy as it is an expression of the builders’ creativity.\n\nThe tower stands on the foundation of a previous hydraulic structure, blending past and present with a design rooted in modern engineering. Its precast concrete legs rise at sharp angles, forming a tripod-like frame stabilized by tension cables that stretch upward to meet at the apex. This design doesn’t just support the elevated platform—it gives the tower its distinct visual identity. A spiral staircase leads visitors to the viewing deck, where they’re greeted with expansive views of rolling hills and experimental architecture. It offers visitors a quiet moment to connect with the landscape while standing as a testament to the dedication of all the canyons builders, supporters, and visitors.\n\nFratessa Tower’s simplicity belies the layers of design and meaning packed into its framework. It’s hard to believe so much intention and purpose could fit into one structure, yet it does—and it stands as a lasting reminder of how design can honor the past while shaping the present.",
+      "extended_description": "The arch stands as a groundbreaking experiment in green architecture and likely the only straw bale double-barrel arch ever constructed. Conceived in 2004 as a senior project, the structure tested the limits of straw bale systems, which were historically undervalued despite their excellent insulating properties, fire resistance, and renewability. By adopting a parabolic shape and relying entirely on compression for stability, the design pushed the boundaries of what straw could achieve in structural engineering.\n\nBuilding the arch presented a series of technical and logistical challenges. The initial design collapsed during construction due to misalignment and insufficient temporary supports, prompting the team to rethink their approach. Using stronger rebar stakes and refined techniques, they successfully reconstructed the arch, demonstrating the composite strength of straw bales, wire mesh, and stucco. These materials worked in unison to distribute loads and stabilize the structure while maintaining its aesthetic and environmental appeal.\n\nHistorically, straw bale construction has been relegated to low-cost, utilitarian buildings. The Hay Bale Arch subverts this notion, proving that straw can serve as a medium for innovative, large-scale design. Its parabolic geometry, which optimally distributes weight through compression, further underscores the precision and ambition of the project.\n\nThough the \"window of truth\" that once revealed the straw core is now covered, the arch remains an unparalleled achievement in experimental architecture. It serves as a monument to sustainable engineering, combining historical techniques with modern ingenuity to create a structure that is both functional and forward-thinking.",
       "advisor_builders": [
         {
           "name": "Philip Greene",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Adam Bradley",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jason Hughey",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Matthew Vorhees",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -1710,11 +1984,13 @@
         }
       ],
       "_id": "6722b48799b26f2c000bb498",
-      "description": "Fratessa Tower, built in 2004, stands as a bold yet thoughtful observation structure dedicated to Paul Fratessa, the former head of Cal Poly's ARCE department. With its soaring precast concrete legs and elegant tension cables, the tower reclaims the foundation of a previous hydraulic structure, transforming it into a platform for reflection and exploration. Offering sweeping views of nearby structures, the tower balances history, innovation, and memory in every detail.",
+      "description": "The Hay Bale Arch is likely the only structure of its kind in the world, showcasing a parabolic, double-barrel arch constructed entirely from straw bales. Completed in 2004, it was designed to highlight the untapped structural potential of straw, combining it with wire mesh and stucco for durability and insulation. This one-of-a-kind project reflects both the challenges and rewards of sustainable construction innovation.",
       "year": "2004"
     },
     {
-      "names": ["Fratessa Tower"],
+      "names": [
+        "Fratessa Tower"
+      ],
       "number": 22,
       "url": "fratessaTower",
       "status": "Active",
@@ -1722,31 +1998,43 @@
         "latitude": 35.315823,
         "longitude": -120.654225
       },
-      "extended_description": "Adjacent to Fratessa Tower are the remnants of an earlier project with precast concrete columns, believed to reflect a vision similar to the current tower’s design. The project was led by a team of architectural engineering students, who embraced this opportunity for hands-on experience, supported by contributions from industry sponsors.",
+      "extended_description": "The tower is more than an observation deck—it’s a story told in steel and concrete. It honors Paul Fratessa, a guiding force in the Architectural Engineering program. Designed by students, it combines technical ingenuity with heartfelt tribute, creating a structure that’s as much a reflection of Fratessa’s legacy as it is an expression of the builders’ creativity.\n\nThe tower stands on the foundation of a previous hydraulic structure, blending past and present with a design rooted in modern engineering. Its precast concrete legs rise at sharp angles, forming a tripod-like frame stabilized by tension cables that stretch upward to meet at the apex. This design doesn’t just support the elevated platform—it gives the tower its distinct visual identity. A spiral staircase leads visitors to the viewing deck, where they’re greeted with expansive views of rolling hills and experimental architecture. It offers visitors a quiet moment to connect with the landscape while standing as a testament to the dedication of all the canyons builders, supporters, and visitors.\n\nFratessa Tower’s simplicity belies the layers of design and meaning packed into its framework. It’s hard to believe so much intention and purpose could fit into one structure, yet it does—and it stands as a lasting reminder of how design can honor the past while shaping the present.",
       "advisor_builders": [
         {
           "name": "Rachel Martin",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Justin Wei",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Michael Braund",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Eric Mcdonnell",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Tanya Worotko",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Adam Stagnaro",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -1787,11 +2075,14 @@
         }
       ],
       "_id": "6722b48799b26f2c000bb499",
-      "description": "Fratessa Tower, built in 2004, is an observation structure dedicated to the memory of Paul Fratessa, a former ARCE department head. It provides visitors with a unique vantage point to take in the scenic views of the surrounding canyon. The tower stands on the original foundations of an older observation structure that relied on a water column for support but was decommissioned due to leakage issues. The new tower’s design continues the legacy of its predecessor while adding modern structural stability.",
+      "description": "Fratessa Tower, built in 2004, stands as a bold yet thoughtful observation structure dedicated to Paul Fratessa, the former head of Cal Poly's ARCE department. With its soaring precast concrete legs and elegant tension cables, the tower reclaims the foundation of a previous hydraulic structure, transforming it into a platform for reflection and exploration. Offering sweeping views of nearby structures, the tower balances history, innovation, and memory in every detail.",
       "year": "2004"
     },
     {
-      "names": ["Tensegrity", "Tensegrity Pavilion"],
+      "names": [
+        "Tensegrity",
+        "Tensegrity Pavilion"
+      ],
       "number": 23,
       "url": "tensegrity",
       "status": "Active",
@@ -1803,23 +2094,33 @@
       "advisor_builders": [
         {
           "name": "Will Adam",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ivan Cruz",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jos Hernandez",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Kasey Tatis",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Truman Waller",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -1900,39 +2201,57 @@
       "advisor_builders": [
         {
           "name": "Larry Gangwisch",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ronald James",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Raymond Ketzel",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Roger Marshall",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "David Wright",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "James Zimmerman",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "George Hasslein",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Wesley Ward",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Harvey Koehen",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -2008,7 +2327,9 @@
       "year": "1964 / 1975"
     },
     {
-      "names": ["Green House"],
+      "names": [
+        "Green House"
+      ],
       "number": 25,
       "url": "greenHouse",
       "status": "Active",
@@ -2020,7 +2341,9 @@
       "advisor_builders": [
         {
           "name": "Mark Jenefsky",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -2075,7 +2398,10 @@
       "year": "1983 - 1989"
     },
     {
-      "names": ["Modular House", "Caretaker’s House"],
+      "names": [
+        "Modular House",
+        "Caretaker’s House"
+      ],
       "number": 26,
       "url": "modularHouse",
       "status": "Active",
@@ -2087,47 +2413,69 @@
       "advisor_builders": [
         {
           "name": "Paul Thoryk",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "John Edmiston",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Glen Jackson",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Tom Bylund",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "James Jones",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Richard Pata",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Lorin Smith",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jerry Tucker",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Dennis Turner",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "John Edmisten",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Don Koberg",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -2187,7 +2535,9 @@
       "year": "1973 / 2018"
     },
     {
-      "names": ["Centering for Center"],
+      "names": [
+        "Centering for Center"
+      ],
       "number": 27,
       "url": "centeringCenter",
       "status": "Active",
@@ -2199,11 +2549,15 @@
       "advisor_builders": [
         {
           "name": "Marcos Lutyens",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Cynthia Brophy",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -2269,7 +2623,10 @@
       "year": "2022"
     },
     {
-      "names": ["Pole House", "Heavy Timber Demonstration Structure"],
+      "names": [
+        "Pole House",
+        "Heavy Timber Demonstration Structure"
+      ],
       "number": 28,
       "url": "poleHouse",
       "status": "Active",
@@ -2277,15 +2634,19 @@
         "latitude": 35.31503,
         "longitude": -120.65298
       },
-      "extended_description": "The Pole House was conceived during a period when pole construction was gaining recognition for its efficiency and ability to adapt to challenging sites. Students embraced the opportunity to experiment with this method, using a grid of timber poles to suspend the structure above ground. By anchoring these poles into caissons that extend into bedrock, the design avoided extensive excavation and allowed the building to adapt seamlessly to the hillside’s natural contours.\n\nWhat makes the Pole House particularly notable is its ongoing relevance. While many structures have transitioned to symbolic or aesthetic purposes, this building remains a functional asset. It stores tools and materials for year-round canyon maintenance and provides a staging ground for the annual Design Village event, where students create and test experimental structures. The planned restoration in 2025 aims to revitalize the Pole House for continued use, reaffirming its role as a cornerstone of the canyon’s infrastructure.\n\nMore than a demonstration project, the Pole House has quietly proven that innovative, adaptive architecture can endure—not just as a monument to the past but as a vital part of the present.",
+      "extended_description": "The structure was conceived during a period when pole construction was gaining recognition for its efficiency and ability to adapt to challenging sites. Students embraced the opportunity to experiment with this method, using a grid of timber poles to suspend the structure above ground. By anchoring these poles into caissons that extend into bedrock, the design avoided extensive excavation and allowed the building to adapt seamlessly to the hillside’s natural contours.\n\nWhat makes the Pole House particularly notable is its ongoing relevance. While many structures have transitioned to symbolic or aesthetic purposes, this building remains a functional asset. It stores tools and materials for year-round canyon maintenance and provides a staging ground for the annual Design Village event, where students create and test experimental structures. The planned restoration in 2025 aims to revitalize the Pole House for continued use, reaffirming its role as a cornerstone of the canyon’s infrastructure.\n\nMore than a demonstration project, the Pole House has quietly proven that innovative, adaptive architecture can endure—not just as a monument to the past but as a vital part of the present.",
       "advisor_builders": [
         {
           "name": "EDES Class Project",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Randy Detmer",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -2325,7 +2686,9 @@
       "year": "1989"
     },
     {
-      "names": ["BBQ Pit"],
+      "names": [
+        "BBQ Pit"
+      ],
       "number": 29,
       "url": "bbqPit",
       "status": "Active",
@@ -2337,7 +2700,9 @@
       "advisor_builders": [
         {
           "name": "Allan Cooper",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -2377,7 +2742,9 @@
       "year": "1975"
     },
     {
-      "names": ["Moment Monument"],
+      "names": [
+        "Moment Monument"
+      ],
       "number": 30,
       "url": "momentMonument",
       "status": "Active",
@@ -2389,19 +2756,27 @@
       "advisor_builders": [
         {
           "name": "Carsten Huber",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Gaspar Solorio",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jared Schieferle",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Brayden Martinez",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
