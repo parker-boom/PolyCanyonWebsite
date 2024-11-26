@@ -1,8 +1,6 @@
 /*
-NOTES: All current URLS with google.com are hidden, so keep these as placeholders, that's fine. 
 
 FUTURE
-1. List of names in the JSON, first name: main, other names: Quick facts AKA section
 2. Add sharing feature
 3. Advisor logic (currently just shows as builders)
 */
@@ -31,25 +29,30 @@ import * as S from './Structures.styles.js';
 
 // Components, images, and data
 import GoogleMapLandmark from './GoogleMapLandmark.js';
-import { mainImages, closeUpImages } from './images/structureImages.js';
+import {
+  mainImages,
+  closeUpImages,
+  otherImages,
+} from './images/structureImages.js';
 import { getStructuresList, getStructureInfo } from './data/structuresData.js';
 import useImagePreloader from './useImagePreloader.js';
 import LoadingSpinner from './LoadingSpinner.js';
 
 // Image path helper function
 const getImagePath = (imagePath) => {
-  // Extract the image key
   const imageKey = imagePath.split('/').pop();
 
-  // Check if it's a main image or closeup image [only these for now]
-  if (imageKey.startsWith('M-')) {
-    return mainImages[imageKey];
-  } else if (imageKey.startsWith('C-')) {
-    return closeUpImages[imageKey];
-  }
+  if (imageKey.startsWith('M-')) return mainImages[imageKey];
+  if (imageKey.startsWith('C-')) return closeUpImages[imageKey];
+  return otherImages[imageKey];
+};
 
-  console.warn(`Image not found for path: ${imagePath}`);
-  return null;
+// Add this sorting function near the top of the file
+const sortImages = (images) => {
+  return [...images].sort((a, b) => {
+    const typeOrder = { main: 0, other: 1, closeup: 2 };
+    return typeOrder[a.type] - typeOrder[b.type];
+  });
 };
 
 const StructureInfo = () => {
@@ -92,9 +95,15 @@ const StructureInfo = () => {
       if (foundStructure) {
         setStructureNumber(foundStructure.number);
         const structureData = getStructureInfo(foundStructure.number);
+
+        // Sort the images if they exist
+        if (structureData.images) {
+          structureData.images = sortImages(structureData.images);
+        }
+
         setStructure(structureData);
 
-        // Get current structure paths
+        // Get current structure paths (now using sorted images)
         const currentPaths =
           structureData?.images
             ?.map((img) => getImagePath(img.path))

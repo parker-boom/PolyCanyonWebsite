@@ -25,7 +25,11 @@ import LoadingSpinner from './LoadingSpinner.js';
 
 // Components and data
 import GoogleMapLandmark from './GoogleMapLandmark.js';
-import { mainImages, closeUpImages } from './images/structureImages.js';
+import {
+  mainImages,
+  closeUpImages,
+  otherImages,
+} from './images/structureImages.js';
 import { getStructuresList, getStructureInfo } from './data/structuresData.js';
 import * as S from './Structures.styles.js';
 
@@ -468,9 +472,15 @@ const StructureInfoMobile = () => {
       if (foundStructure) {
         setStructureNumber(foundStructure.number);
         const structureData = getStructureInfo(foundStructure.number);
+
+        // Sort the images if they exist
+        if (structureData.images) {
+          structureData.images = sortImages(structureData.images);
+        }
+
         setStructure(structureData);
 
-        // Get current structure paths
+        // Get current structure paths (now using sorted images)
         const currentPaths =
           structureData?.images
             ?.map((img) => getImagePath(img.path))
@@ -518,7 +528,15 @@ const StructureInfoMobile = () => {
     const imageKey = imagePath.split('/').pop();
     if (imageKey.startsWith('M-')) return mainImages[imageKey];
     if (imageKey.startsWith('C-')) return closeUpImages[imageKey];
-    return null;
+    return otherImages[imageKey];
+  };
+
+  // Add sorting function
+  const sortImages = (images) => {
+    return [...images].sort((a, b) => {
+      const typeOrder = { main: 0, other: 1, closeup: 2 };
+      return typeOrder[a.type] - typeOrder[b.type];
+    });
   };
 
   // Load image & determine aspect ratio

@@ -1325,27 +1325,6 @@
           "type": "closeup",
           "path": "/images/C-17",
           "description": "Close-up image of the Water Tanks."
-        }
-      ],
-      "tags": [
-        "sustainable water system",
-        "hillside spring source",
-        "reinforced concrete tanks",
-        "polyvinyl replacements",
-        "gravity-fed flow",
-        "environmental adaptation",
-        "overflow catch basin"
-      ],
-      "links": [
-        {
-          "linkType": "Article",
-          "URL": "https://polycanyon.calpoly.edu/history/water-tanks",
-          "title": "CAED Website"
-        },
-        {
-          "linkType": "Thesis",
-          "URL": "https://guides.lib.calpoly.edu/c.php?g=1365835&p=10429523",
-          "title": "Library Archive "
         },
         {
           "type": "other",
@@ -1371,6 +1350,27 @@
           "type": "other",
           "path": "/other/waterTanks5",
           "description": "Builders posing in front of the completed 1998 expansion."
+        }
+      ],
+      "tags": [
+        "sustainable water system",
+        "hillside spring source",
+        "reinforced concrete tanks",
+        "polyvinyl replacements",
+        "gravity-fed flow",
+        "environmental adaptation",
+        "overflow catch basin"
+      ],
+      "links": [
+        {
+          "linkType": "Article",
+          "URL": "https://polycanyon.calpoly.edu/history/water-tanks",
+          "title": "CAED Website"
+        },
+        {
+          "linkType": "Thesis",
+          "URL": "https://guides.lib.calpoly.edu/c.php?g=1365835&p=10429523",
+          "title": "Library Archive "
         }
       ],
       "_id": "6722b48799b26f2c000bb494",

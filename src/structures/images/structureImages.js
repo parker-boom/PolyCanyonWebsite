@@ -67,19 +67,73 @@ import C29 from './close/C-29.jpg';
 import C30 from './close/C-30.jpg';
 
 // Other images
-import BIPInstall from './other/BIPInstall.png';
-import BridgeCurrent from './other/BridgeCurrent.png';
-import BridgeHouseOGSketch from './other/BridgeHouseOGSketch.png';
-import BridgeWasteSketch from './other/BridgeWasteSketch.png';
-import C4CBuilding from './other/C4CBuilding.png';
-import C4CInGarden from './other/C4CInGarden.png';
-import C4COnCampus from './other/C4COnCampus.png';
-import EntryA from './other/entryA.png';
-import EntryB from './other/entryB.png';
-import EntryC from './other/entryC.png';
-import EntryD from './other/entryD.png';
-import EntryE from './other/entryE.png';
-import Fratessa1 from './other/fratessa1.png';
+import bridgeHouse1 from './other/bridgeHouse1.jpg';
+import bridgeHouse2 from './other/bridgeHouse2.jpg';
+import bridgeHouse3 from './other/bridgeHouse3.jpg';
+import cantileverDeck1 from './other/cantileverDeck1.jpg';
+import cantileverDeck2 from './other/cantileverDeck2.jpg';
+import cantileverDeck3 from './other/cantileverDeck3.jpg';
+import cantileverDeck4 from './other/cantileverDeck4.jpg';
+import centeringCenter1 from './other/centeringCenter1.jpg';
+import centeringCenter2 from './other/centeringCenter2.jpg';
+import centeringCenter3 from './other/centeringCenter3.jpg';
+import centeringCenter4 from './other/centeringCenter4.jpg';
+import entryArch1 from './other/entryArch1.jpg';
+import entryArch2 from './other/entryArch2.jpg';
+import entryArch3 from './other/entryArch3.jpg';
+import entryArch4 from './other/entryArch4.jpg';
+import entryArch5 from './other/entryArch5.jpg';
+import fratessaTower1 from './other/fratessaTower1.jpg';
+import geodesicDome1 from './other/geodesicDome1.jpg';
+import geodesicDome2 from './other/geodesicDome2.jpg';
+import geodesicDome3 from './other/geodesicDome3.jpg';
+import geodesicDome4 from './other/geodesicDome4.jpg';
+import geodesicDome5 from './other/geodesicDome5.jpg';
+import greenHouse1 from './other/greenHouse1.jpg';
+import greenHouse2 from './other/greenHouse2.jpg';
+import greenHouse3 from './other/greenHouse3.jpg';
+import guniteBridge1 from './other/guniteBridge1.jpg';
+import modularHouse1 from './other/modularHouse1.jpg';
+import modularHouse2 from './other/modularHouse2.jpg';
+import momentMonument1 from './other/momentMonument1.jpg';
+import momentMonument2 from './other/momentMonument2.jpg';
+import momentMonument3 from './other/momentMonument3.jpg';
+import momentMonument4 from './other/momentMonument4.jpg';
+import observationDeck1 from './other/observationDeck1.jpg';
+import polyPavilion1 from './other/polyPavilion1.jpg';
+import polyPavilion2 from './other/polyPavilion2.jpg';
+import restrooms1 from './other/restrooms1.jpg';
+import restrooms2 from './other/restrooms2.jpg';
+import restrooms3 from './other/restrooms3.jpg';
+import restrooms4 from './other/restrooms4.jpg';
+import serenityWall1 from './other/serenityWall1.jpg';
+import shellHouse1 from './other/shellHouse1.jpg';
+import shellHouse2 from './other/shellHouse2.jpg';
+import shellHouse3 from './other/shellHouse3.jpg';
+import shellHouse4 from './other/shellHouse4.jpg';
+import stickStructure1 from './other/stickStructure1.jpg';
+import stickStructure2 from './other/stickStructure2.jpg';
+import stickStructure3 from './other/stickStructure3.jpg';
+import stickStructure4 from './other/stickStructure4.jpg';
+import sunDial1 from './other/sunDial1.jpg';
+import sunDial2 from './other/sunDial2.jpg';
+import techiteBridge1 from './other/techiteBridge1.jpg';
+import techiteBridge2 from './other/techiteBridge2.jpg';
+import techiteBridge3 from './other/techiteBridge3.jpg';
+import tensegrity1 from './other/tensegrity1.jpg';
+import tensegrity2 from './other/tensegrity2.jpg';
+import tensegrity3 from './other/tensegrity3.jpg';
+import tensile1 from './other/tensile1.jpg';
+import tensile2 from './other/tensile2.jpg';
+import tensile3 from './other/tensile3.jpg';
+import tensile4 from './other/tensile4.jpg';
+import undergroundHouse1 from './other/undergroundHouse1.jpg';
+import undergroundHouse2 from './other/undergroundHouse2.jpg';
+import waterTanks1 from './other/waterTanks1.jpg';
+import waterTanks2 from './other/waterTanks2.jpg';
+import waterTanks3 from './other/waterTanks3.jpg';
+import waterTanks4 from './other/waterTanks4.jpg';
+import waterTanks5 from './other/waterTanks5.jpg';
 
 /*
 EXPORTS
@@ -155,17 +209,71 @@ export const closeUpImages = {
 
 // Other images
 export const otherImages = {
-  BIPInstall,
-  BridgeCurrent,
-  BridgeHouseOGSketch,
-  BridgeWasteSketch,
-  C4CBuilding,
-  C4CInGarden,
-  C4COnCampus,
-  EntryA,
-  EntryB,
-  EntryC,
-  EntryD,
-  EntryE,
-  Fratessa1,
+  bridgeHouse1,
+  bridgeHouse2,
+  bridgeHouse3,
+  cantileverDeck1,
+  cantileverDeck2,
+  cantileverDeck3,
+  cantileverDeck4,
+  centeringCenter1,
+  centeringCenter2,
+  centeringCenter3,
+  centeringCenter4,
+  entryArch1,
+  entryArch2,
+  entryArch3,
+  entryArch4,
+  entryArch5,
+  fratessaTower1,
+  geodesicDome1,
+  geodesicDome2,
+  geodesicDome3,
+  geodesicDome4,
+  geodesicDome5,
+  greenHouse1,
+  greenHouse2,
+  greenHouse3,
+  guniteBridge1,
+  modularHouse1,
+  modularHouse2,
+  momentMonument1,
+  momentMonument2,
+  momentMonument3,
+  momentMonument4,
+  observationDeck1,
+  polyPavilion1,
+  polyPavilion2,
+  restrooms1,
+  restrooms2,
+  restrooms3,
+  restrooms4,
+  serenityWall1,
+  shellHouse1,
+  shellHouse2,
+  shellHouse3,
+  shellHouse4,
+  stickStructure1,
+  stickStructure2,
+  stickStructure3,
+  stickStructure4,
+  sunDial1,
+  sunDial2,
+  techiteBridge1,
+  techiteBridge2,
+  techiteBridge3,
+  tensegrity1,
+  tensegrity2,
+  tensegrity3,
+  tensile1,
+  tensile2,
+  tensile3,
+  tensile4,
+  undergroundHouse1,
+  undergroundHouse2,
+  waterTanks1,
+  waterTanks2,
+  waterTanks3,
+  waterTanks4,
+  waterTanks5,
 };
