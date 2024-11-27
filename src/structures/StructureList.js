@@ -1,6 +1,5 @@
 /**
  * Need to:
- *  // image pre loading first
  * 1. Re-enable sorting and filtering
  * 2. Add meta-data
  * 3. Ghost/Planned sections in the future (data first)
@@ -34,6 +33,8 @@ import * as S from './Structures.styles.js';
 // Data & Images
 import { mainImages } from './images/structureImages.js';
 import { getStructuresList } from './data/structuresData.js';
+import useListImagePreloader from './useListImagePreloader.js';
+import LoadingSpinner from './LoadingSpinner.js';
 
 /*
 Components & Renders
@@ -53,6 +54,9 @@ const Structures = () => {
   });
 
   //const [dropdownPosition, setDropdownPosition] = useState({ top: 0, left: 0 });
+
+  const { initialBatchLoaded, loadedImages } =
+    useListImagePreloader(structures);
 
   // Load structures list
   useEffect(() => {
@@ -155,6 +159,15 @@ const Structures = () => {
   const handleStructureClick = (structure) => {
     navigate(`/structures/${structure.url}`);
   };
+
+  // Show loading spinner while initial batch loads
+  if (!initialBatchLoaded) {
+    return (
+      <S.PageContainer>
+        <LoadingSpinner />
+      </S.PageContainer>
+    );
+  }
 
   // Error handling
   if (error) {
@@ -285,14 +298,20 @@ const Structures = () => {
                       key={structure.number}
                       onClick={() => handleStructureClick(structure)}
                     >
-                      <S.StructureImage
-                        src={mainImages[structure.image_key]}
-                        alt={structure.title}
-                        onError={(e) => {
-                          e.target.src =
-                            'https://via.placeholder.com/200x200?text=Structure';
-                        }}
-                      />
+                      {loadedImages.has(structure.image_key) ? (
+                        <S.StructureImage
+                          src={mainImages[structure.image_key]}
+                          alt={structure.title}
+                          onError={(e) => {
+                            e.target.src =
+                              'https://via.placeholder.com/200x200?text=Structure';
+                          }}
+                        />
+                      ) : (
+                        <S.StructureImagePlaceholder>
+                          <LoadingSpinner small />
+                        </S.StructureImagePlaceholder>
+                      )}
                       <S.StructureInfo>
                         <S.StructureNumber>
                           {structure.number}
