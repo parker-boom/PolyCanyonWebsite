@@ -606,51 +606,30 @@ export const StructureCard = styled.div`
   display: flex;
   background: linear-gradient(
     135deg,
-    rgba(189, 139, 19, 0.08),
-    rgba(189, 139, 19, 0.03)
+    rgba(255, 248, 230, 0.9),
+    rgba(255, 245, 222, 0.85)
   );
   border-radius: 24px;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow:
-    0 4px 16px rgba(55, 109, 49, 0.08),
-    0 2px 4px rgba(55, 109, 49, 0.05);
+    0 4px 16px rgba(189, 139, 19, 0.15),
+    0 2px 4px rgba(189, 139, 19, 0.1);
   border: 2px solid rgba(189, 139, 19, 0.15);
   cursor: pointer;
   position: relative;
-  backdrop-filter: blur(8px);
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.4),
-      rgba(255, 255, 255, 0.1)
-    );
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
-  }
 
   &:hover {
     transform: translateY(-4px);
     border-color: rgba(189, 139, 19, 0.3);
     box-shadow:
-      0 12px 32px rgba(55, 109, 49, 0.12),
-      0 4px 8px rgba(55, 109, 49, 0.08);
+      0 12px 32px rgba(189, 139, 19, 0.2),
+      0 4px 8px rgba(189, 139, 19, 0.15);
     background: linear-gradient(
       135deg,
-      rgba(189, 139, 19, 0.12),
-      rgba(189, 139, 19, 0.06)
+      rgba(255, 248, 230, 0.95),
+      rgba(255, 245, 222, 0.9)
     );
-
-    &::before {
-      opacity: 0.9;
-    }
 
     ${StructureNumber} {
       color: rgba(189, 139, 19, 0.9);
@@ -696,7 +675,6 @@ export const StructureTitle = styled.h2`
   margin: 0;
   line-height: 1.2;
   position: relative;
-  transition: all 0.3s ease;
 
   &::after {
     content: '';
@@ -1709,8 +1687,6 @@ export const MobileStructuresGrid = styled(StructuresGrid)`
 
 export const MobileStructureCard = styled(StructureCard)`
   height: 120px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 2px solid transparent;
 
   ${(props) =>
     props.isActive &&
@@ -1718,39 +1694,18 @@ export const MobileStructureCard = styled(StructureCard)`
     transform: translateY(-4px);
     border-color: rgba(189, 139, 19, 0.3);
     box-shadow: 
-      0 12px 32px rgba(55, 109, 49, 0.12),
-      0 4px 8px rgba(55, 109, 49, 0.08);
+      0 12px 32px rgba(189, 139, 19, 0.2),
+      0 4px 8px rgba(189, 139, 19, 0.15);
     background: linear-gradient(
       135deg,
-      rgba(189, 139, 19, 0.12),
-      rgba(189, 139, 19, 0.06)
+      rgba(255, 248, 230, 0.95),
+      rgba(255, 245, 222, 0.9)
     );
-
-    &::before {
-      opacity: 0.9;
-    }
 
     ${StructureNumber} {
       color: rgba(189, 139, 19, 0.9);
     }
   `}
-
-  &:hover {
-    transform: translateY(-4px);
-    border-color: rgba(189, 139, 19, 0.3);
-    box-shadow:
-      0 12px 32px rgba(55, 109, 49, 0.12),
-      0 4px 8px rgba(55, 109, 49, 0.08);
-    background: linear-gradient(
-      135deg,
-      rgba(189, 139, 19, 0.12),
-      rgba(189, 139, 19, 0.06)
-    );
-  }
-
-  .chevron-icon {
-    display: none;
-  }
 `;
 
 export const MobileStructureImage = styled(StructureImage)`
@@ -2137,4 +2092,14 @@ export const FullscreenCloseButton = styled.button`
       transform: rotate(90deg) scale(0.95);
     }
   }
+`;
+
+export const StructureImagePlaceholder = styled.div`
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(189, 139, 19, 0.1);
+  flex-shrink: 0;
 `;

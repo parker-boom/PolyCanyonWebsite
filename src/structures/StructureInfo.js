@@ -21,6 +21,7 @@ import {
   FaExpandArrowsAlt,
 } from 'react-icons/fa';
 import { useNavigate, useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 // Styles
 import * as S from './Structures.styles.js';
@@ -349,432 +350,483 @@ const StructureInfo = () => {
 
   // Render the structure info page
   return (
-    <S.InfoPageWrapper>
-      <S.CenteredWrapper>
-        {/* Header Content: Number, Title, Close*/}
-        <S.HeaderContainer>
-          <S.StructureNumberBubble>{structure.number}</S.StructureNumberBubble>
+    <>
+      {structure && (
+        <Helmet>
+          {/* Basic metadata */}
+          <title>{structure.names[0]}</title>
+          <meta
+            name="description"
+            content="Discover this iconic structure in Poly Canyon and learn about its unique history"
+          />
 
-          <S.TitleWrapper>
-            <S.NavigationOverlay
-              side="left"
-              onClick={handlePrevStructure}
-              role="button"
-              aria-label="Previous structure"
-            >
-              <S.NavigationNumber side="left">
-                {getPrevStructureNumber()}
-              </S.NavigationNumber>
-              <FaArrowLeft />
-            </S.NavigationOverlay>
+          {/* Keywords combining structure-specific tags with default keywords */}
+          <meta
+            name="keywords"
+            content={[
+              ...structure.tags,
+              ...structure.names,
+              'Poly Canyon',
+              'Cal Poly',
+              'Architecture',
+              'Student Projects',
+            ].join(', ')}
+          />
 
-            <S.StructureTitleInfo>{structure.names[0]}</S.StructureTitleInfo>
+          {/* OpenGraph metadata */}
+          <meta property="og:title" content={structure.names[0]} />
+          <meta
+            property="og:description"
+            content="Discover this iconic structure in Poly Canyon and learn about its unique history"
+          />
 
-            <S.NavigationOverlay
-              side="right"
-              onClick={handleNextStructure}
-              role="button"
-              aria-label="Next structure"
-            >
-              <S.NavigationNumber side="right">
-                {getNextStructureNumber()}
-              </S.NavigationNumber>
-              <FaArrowRight />
-            </S.NavigationOverlay>
-          </S.TitleWrapper>
+          {/* Twitter metadata */}
+          <meta name="twitter:title" content={structure.names[0]} />
+          <meta
+            name="twitter:description"
+            content="Discover this iconic structure in Poly Canyon and learn about its unique history"
+          />
+        </Helmet>
+      )}
 
-          <S.CloseButton onClick={() => navigate('/structures')}>
-            <FaTimes />
-          </S.CloseButton>
-        </S.HeaderContainer>
+      <S.InfoPageWrapper>
+        <S.CenteredWrapper>
+          {/* Header Content: Number, Title, Close*/}
+          <S.HeaderContainer>
+            <S.StructureNumberBubble>
+              {structure.number}
+            </S.StructureNumberBubble>
 
-        {/* Content Container: List of structures or Structure Info Content */}
-        <S.ContentContainer isFullscreen={isFullscreenMode}>
-          {isFullscreenMode ? (
-            <S.FullscreenContainer>
-              <S.FullscreenImageContainer>
-                {structure?.images?.[currentImageIndex]?.path &&
-                  loadedImages[currentImageIndex] && (
-                    <>
-                      <S.FullscreenBackgroundImage
-                        src={loadedImages[currentImageIndex].background.src}
-                        alt=""
-                        loading="lazy"
-                        style={{
-                          objectPosition:
-                            imageAspectRatio < 16 / 9 ? '50% 50%' : '50% 50%',
-                        }}
-                      />
-                      <S.FullscreenImage
-                        src={loadedImages[currentImageIndex].foreground.src}
-                        alt={structure.images[currentImageIndex].description}
-                        style={{
-                          width: imageAspectRatio < 16 / 9 ? 'auto' : '100%',
-                          height: imageAspectRatio < 16 / 9 ? '100%' : 'auto',
-                        }}
-                      />
-                    </>
-                  )}
+            <S.TitleWrapper>
+              <S.NavigationOverlay
+                side="left"
+                onClick={handlePrevStructure}
+                role="button"
+                aria-label="Previous structure"
+              >
+                <S.NavigationNumber side="left">
+                  {getPrevStructureNumber()}
+                </S.NavigationNumber>
+                <FaArrowLeft />
+              </S.NavigationOverlay>
 
-                <S.FullscreenNavigation>
-                  {structure?.images?.length > 1 && (
-                    <>
-                      <S.FullscreenArrowButton onClick={handlePrevImage}>
-                        <FaChevronLeft />
-                      </S.FullscreenArrowButton>
-                      <S.FullscreenArrowButton onClick={handleNextImage}>
-                        <FaChevronRight />
-                      </S.FullscreenArrowButton>
-                    </>
-                  )}
-                </S.FullscreenNavigation>
+              <S.StructureTitleInfo>{structure.names[0]}</S.StructureTitleInfo>
 
-                <S.FullscreenCaptionBar>
-                  <S.ImageCounter>
-                    {currentImageIndex + 1} / {structure.images.length}
-                  </S.ImageCounter>
-                  <S.CaptionText>{imageDescription}</S.CaptionText>
-                  <S.FullscreenCloseButton
-                    onClick={toggleFullscreen}
-                    aria-label="Exit fullscreen mode"
-                  >
-                    <FaTimes />
-                  </S.FullscreenCloseButton>
-                </S.FullscreenCaptionBar>
-              </S.FullscreenImageContainer>
-            </S.FullscreenContainer>
-          ) : (
-            <S.MainContent>
-              {/* Main Content: Image / Description on left | Quick Facts on right */}
-              <S.ColumnsContainer>
-                <S.LeftSection>
-                  <S.ImageSectionContainer ref={imageContainerRef}>
-                    <S.ImageSectionHeader>
-                      <S.SectionTitleInfo>Images</S.SectionTitleInfo>
-                      <S.FullscreenButton
-                        onClick={toggleFullscreen}
-                        aria-label="Toggle fullscreen mode"
-                      >
-                        <FaExpandArrowsAlt />
-                      </S.FullscreenButton>
-                    </S.ImageSectionHeader>
+              <S.NavigationOverlay
+                side="right"
+                onClick={handleNextStructure}
+                role="button"
+                aria-label="Next structure"
+              >
+                <S.NavigationNumber side="right">
+                  {getNextStructureNumber()}
+                </S.NavigationNumber>
+                <FaArrowRight />
+              </S.NavigationOverlay>
+            </S.TitleWrapper>
 
-                    <S.ImageContainer>
-                      {structure?.images?.[currentImageIndex]?.path &&
-                        loadedImages[currentImageIndex] && (
-                          <>
-                            <S.BackgroundImage
-                              src={
-                                loadedImages[currentImageIndex].background.src
-                              }
-                              alt=""
-                              loading="lazy"
-                              style={{
-                                objectPosition:
-                                  imageAspectRatio < 16 / 9
-                                    ? '50% 50%'
-                                    : '50% 50%',
-                              }}
-                            />
+            <S.CloseButton onClick={() => navigate('/structures')}>
+              <FaTimes />
+            </S.CloseButton>
+          </S.HeaderContainer>
 
-                            <S.StyledImage
-                              src={
-                                loadedImages[currentImageIndex].foreground.src
-                              }
-                              alt={
-                                structure.images[currentImageIndex].description
-                              }
-                              style={{
-                                width:
-                                  imageAspectRatio < 16 / 9 ? 'auto' : '100%',
-                                height:
-                                  imageAspectRatio < 16 / 9 ? '100%' : 'auto',
-                              }}
-                            />
-                          </>
-                        )}
-                    </S.ImageContainer>
+          {/* Content Container: List of structures or Structure Info Content */}
+          <S.ContentContainer isFullscreen={isFullscreenMode}>
+            {isFullscreenMode ? (
+              <S.FullscreenContainer>
+                <S.FullscreenImageContainer>
+                  {structure?.images?.[currentImageIndex]?.path &&
+                    loadedImages[currentImageIndex] && (
+                      <>
+                        <S.FullscreenBackgroundImage
+                          src={loadedImages[currentImageIndex].background.src}
+                          alt=""
+                          loading="lazy"
+                          style={{
+                            objectPosition:
+                              imageAspectRatio < 16 / 9 ? '50% 50%' : '50% 50%',
+                          }}
+                        />
+                        <S.FullscreenImage
+                          src={loadedImages[currentImageIndex].foreground.src}
+                          alt={structure.images[currentImageIndex].description}
+                          style={{
+                            width: imageAspectRatio < 16 / 9 ? 'auto' : '100%',
+                            height: imageAspectRatio < 16 / 9 ? '100%' : 'auto',
+                          }}
+                        />
+                      </>
+                    )}
 
-                    <S.ImageDescription>
-                      {structure?.images?.length > 1 && (
-                        <S.ArrowButton onClick={handlePrevImage}>
+                  <S.FullscreenNavigation>
+                    {structure?.images?.length > 1 && (
+                      <>
+                        <S.FullscreenArrowButton onClick={handlePrevImage}>
                           <FaChevronLeft />
-                        </S.ArrowButton>
-                      )}
-                      <p>{imageDescription}</p>
-                      {structure?.images?.length > 1 && (
-                        <S.ArrowButton onClick={handleNextImage}>
+                        </S.FullscreenArrowButton>
+                        <S.FullscreenArrowButton onClick={handleNextImage}>
                           <FaChevronRight />
-                        </S.ArrowButton>
-                      )}
-                    </S.ImageDescription>
-                  </S.ImageSectionContainer>
+                        </S.FullscreenArrowButton>
+                      </>
+                    )}
+                  </S.FullscreenNavigation>
 
+                  <S.FullscreenCaptionBar>
+                    <S.ImageCounter>
+                      {currentImageIndex + 1} / {structure.images.length}
+                    </S.ImageCounter>
+                    <S.CaptionText>{imageDescription}</S.CaptionText>
+                    <S.FullscreenCloseButton
+                      onClick={toggleFullscreen}
+                      aria-label="Exit fullscreen mode"
+                    >
+                      <FaTimes />
+                    </S.FullscreenCloseButton>
+                  </S.FullscreenCaptionBar>
+                </S.FullscreenImageContainer>
+              </S.FullscreenContainer>
+            ) : (
+              <S.MainContent>
+                {/* Main Content: Image / Description on left | Quick Facts on right */}
+                <S.ColumnsContainer>
+                  <S.LeftSection>
+                    <S.ImageSectionContainer ref={imageContainerRef}>
+                      <S.ImageSectionHeader>
+                        <S.SectionTitleInfo>Images</S.SectionTitleInfo>
+                        <S.FullscreenButton
+                          onClick={toggleFullscreen}
+                          aria-label="Toggle fullscreen mode"
+                        >
+                          <FaExpandArrowsAlt />
+                        </S.FullscreenButton>
+                      </S.ImageSectionHeader>
+
+                      <S.ImageContainer>
+                        {structure?.images?.[currentImageIndex]?.path &&
+                          loadedImages[currentImageIndex] && (
+                            <>
+                              <S.BackgroundImage
+                                src={
+                                  loadedImages[currentImageIndex].background.src
+                                }
+                                alt=""
+                                loading="lazy"
+                                style={{
+                                  objectPosition:
+                                    imageAspectRatio < 16 / 9
+                                      ? '50% 50%'
+                                      : '50% 50%',
+                                }}
+                              />
+
+                              <S.StyledImage
+                                src={
+                                  loadedImages[currentImageIndex].foreground.src
+                                }
+                                alt={
+                                  structure.images[currentImageIndex]
+                                    .description
+                                }
+                                style={{
+                                  width:
+                                    imageAspectRatio < 16 / 9 ? 'auto' : '100%',
+                                  height:
+                                    imageAspectRatio < 16 / 9 ? '100%' : 'auto',
+                                }}
+                              />
+                            </>
+                          )}
+                      </S.ImageContainer>
+
+                      <S.ImageDescription>
+                        {structure?.images?.length > 1 && (
+                          <S.ArrowButton onClick={handlePrevImage}>
+                            <FaChevronLeft />
+                          </S.ArrowButton>
+                        )}
+                        <p>{imageDescription}</p>
+                        {structure?.images?.length > 1 && (
+                          <S.ArrowButton onClick={handleNextImage}>
+                            <FaChevronRight />
+                          </S.ArrowButton>
+                        )}
+                      </S.ImageDescription>
+                    </S.ImageSectionContainer>
+
+                    {descriptionExpanded ? (
+                      <S.DescriptionContainerExpanded>
+                        <S.SectionTitleInfo>Description</S.SectionTitleInfo>
+                        <S.DescriptionText expanded={descriptionExpanded}>
+                          <p>{structure.description}</p>
+                          <div className="extended">
+                            {structure.extended_description}
+                          </div>
+                        </S.DescriptionText>
+                        <S.ToggleDescriptionButton onClick={toggleDescription}>
+                          Show Less Info
+                        </S.ToggleDescriptionButton>
+                      </S.DescriptionContainerExpanded>
+                    ) : (
+                      <S.DescriptionContainer>
+                        <S.SectionTitleInfo>Description</S.SectionTitleInfo>
+                        <S.DescriptionText expanded={false}>
+                          <p>{structure.description}</p>
+                        </S.DescriptionText>
+                        <S.ToggleDescriptionButton onClick={toggleDescription}>
+                          Show More Info
+                        </S.ToggleDescriptionButton>
+                      </S.DescriptionContainer>
+                    )}
+                  </S.LeftSection>
+
+                  {/* Info Cards Section: Quick Facts, scrollable, matches height of image/description */}
                   {descriptionExpanded ? (
-                    <S.DescriptionContainerExpanded>
-                      <S.SectionTitleInfo>Description</S.SectionTitleInfo>
-                      <S.DescriptionText expanded={descriptionExpanded}>
-                        <p>{structure.description}</p>
-                        <div className="extended">
-                          {structure.extended_description}
-                        </div>
-                      </S.DescriptionText>
-                      <S.ToggleDescriptionButton onClick={toggleDescription}>
-                        Show Less Info
-                      </S.ToggleDescriptionButton>
-                    </S.DescriptionContainerExpanded>
+                    <S.InfoCardsSectionExpanded imageHeight={imageHeight}>
+                      <S.SectionTitleInfo>Quick Facts</S.SectionTitleInfo>
+
+                      {/* Year Card */}
+                      {structure.year && (
+                        <S.InfoCard>
+                          <S.InfoCardHeader>
+                            <S.InfoCardEmoji>
+                              {getInfoEmoji('year')}
+                            </S.InfoCardEmoji>
+                            <S.InfoCardTitle>Year</S.InfoCardTitle>
+                          </S.InfoCardHeader>
+                          <S.InfoCardContent>
+                            {structure.year}
+                          </S.InfoCardContent>
+                        </S.InfoCard>
+                      )}
+
+                      {/* Add Also Known As card if there are alternate names */}
+                      {structure.names.length > 1 && (
+                        <S.InfoCard>
+                          <S.InfoCardHeader>
+                            <S.InfoCardEmoji>📝</S.InfoCardEmoji>
+                            <S.InfoCardTitle>Also Known As</S.InfoCardTitle>
+                          </S.InfoCardHeader>
+                          <S.InfoCardContent>
+                            {structure.names.slice(1).join(', ')}
+                          </S.InfoCardContent>
+                        </S.InfoCard>
+                      )}
+
+                      {/* Advisor Card : !DOESNT WORK BECAUSE ADVISORS ARE JUST BUILDERS RN */}
+                      {structure.advisor_builders?.some((person) =>
+                        person.role.includes('Advisor')
+                      ) && (
+                        <S.InfoCard>
+                          <S.InfoCardHeader>
+                            <S.InfoCardEmoji>
+                              {getInfoEmoji('advisor')}
+                            </S.InfoCardEmoji>
+                            <S.InfoCardTitle>Advisors</S.InfoCardTitle>
+                          </S.InfoCardHeader>
+                          <S.InfoCardContent>
+                            {structure.advisor_builders
+                              .filter((person) =>
+                                person.role.includes('Advisor')
+                              )
+                              .map((person) => person.name)
+                              .join(', ')}
+                          </S.InfoCardContent>
+                        </S.InfoCard>
+                      )}
+
+                      {/* Builders Card */}
+                      {structure.advisor_builders?.some(
+                        (person) => !person.role.includes('Advisor')
+                      ) && (
+                        <S.InfoCard>
+                          <S.InfoCardHeader>
+                            <S.InfoCardEmoji>
+                              {getInfoEmoji('builders')}
+                            </S.InfoCardEmoji>
+                            <S.InfoCardTitle>Builders</S.InfoCardTitle>
+                          </S.InfoCardHeader>
+                          <S.InfoCardContent>
+                            {structure.advisor_builders
+                              .filter(
+                                (person) => !person.role.includes('Advisor')
+                              )
+                              .map((person) => person.name)
+                              .join(', ')}
+                          </S.InfoCardContent>
+                        </S.InfoCard>
+                      )}
+
+                      {/* Status Card */}
+                      {structure.status && (
+                        <S.InfoCard>
+                          <S.InfoCardHeader>
+                            <S.InfoCardEmoji>
+                              {getInfoEmoji('status')}
+                            </S.InfoCardEmoji>
+                            <S.InfoCardTitle>Status</S.InfoCardTitle>
+                          </S.InfoCardHeader>
+                          <S.InfoCardContent>
+                            {structure.status}
+                          </S.InfoCardContent>
+                        </S.InfoCard>
+                      )}
+
+                      {/* Location Card */}
+                      {structure.location?.latitude &&
+                        structure.location?.longitude && (
+                          <S.InfoCard>
+                            <S.InfoCardHeader>
+                              <S.InfoCardEmoji>
+                                {getInfoEmoji('location')}
+                              </S.InfoCardEmoji>
+                              <S.InfoCardTitle>Location</S.InfoCardTitle>
+                            </S.InfoCardHeader>
+                            {/* Google Maps Connection */}
+                            <GoogleMapLandmark
+                              latitude={structure.location.latitude}
+                              longitude={structure.location.longitude}
+                              structureName={structure.names[0]}
+                            />
+                          </S.InfoCard>
+                        )}
+                    </S.InfoCardsSectionExpanded>
                   ) : (
-                    <S.DescriptionContainer>
-                      <S.SectionTitleInfo>Description</S.SectionTitleInfo>
-                      <S.DescriptionText expanded={false}>
-                        <p>{structure.description}</p>
-                      </S.DescriptionText>
-                      <S.ToggleDescriptionButton onClick={toggleDescription}>
-                        Show More Info
-                      </S.ToggleDescriptionButton>
-                    </S.DescriptionContainer>
+                    <S.InfoCardsSection>
+                      <S.SectionTitleInfo>Quick Facts</S.SectionTitleInfo>
+
+                      {/* Year Card */}
+                      {structure.year && (
+                        <S.InfoCard>
+                          <S.InfoCardHeader>
+                            <S.InfoCardEmoji>
+                              {getInfoEmoji('year')}
+                            </S.InfoCardEmoji>
+                            <S.InfoCardTitle>Year</S.InfoCardTitle>
+                          </S.InfoCardHeader>
+                          <S.InfoCardContent>
+                            {structure.year}
+                          </S.InfoCardContent>
+                        </S.InfoCard>
+                      )}
+
+                      {/* Add Also Known As card if there are alternate names */}
+                      {structure.names.length > 1 && (
+                        <S.InfoCard>
+                          <S.InfoCardHeader>
+                            <S.InfoCardEmoji>📝</S.InfoCardEmoji>
+                            <S.InfoCardTitle>Also Known As</S.InfoCardTitle>
+                          </S.InfoCardHeader>
+                          <S.InfoCardContent>
+                            {structure.names.slice(1).join(', ')}
+                          </S.InfoCardContent>
+                        </S.InfoCard>
+                      )}
+
+                      {/* Advisor Card : !DOESNT WORK BECAUSE ADVISORS ARE JUST BUILDERS RN */}
+                      {structure.advisor_builders?.some((person) =>
+                        person.role.includes('Advisor')
+                      ) && (
+                        <S.InfoCard>
+                          <S.InfoCardHeader>
+                            <S.InfoCardEmoji>
+                              {getInfoEmoji('advisor')}
+                            </S.InfoCardEmoji>
+                            <S.InfoCardTitle>Advisors</S.InfoCardTitle>
+                          </S.InfoCardHeader>
+                          <S.InfoCardContent>
+                            {structure.advisor_builders
+                              .filter((person) =>
+                                person.role.includes('Advisor')
+                              )
+                              .map((person) => person.name)
+                              .join(', ')}
+                          </S.InfoCardContent>
+                        </S.InfoCard>
+                      )}
+
+                      {/* Builders Card */}
+                      {structure.advisor_builders?.some(
+                        (person) => !person.role.includes('Advisor')
+                      ) && (
+                        <S.InfoCard>
+                          <S.InfoCardHeader>
+                            <S.InfoCardEmoji>
+                              {getInfoEmoji('builders')}
+                            </S.InfoCardEmoji>
+                            <S.InfoCardTitle>Builders</S.InfoCardTitle>
+                          </S.InfoCardHeader>
+                          <S.InfoCardContent>
+                            {structure.advisor_builders
+                              .filter(
+                                (person) => !person.role.includes('Advisor')
+                              )
+                              .map((person) => person.name)
+                              .join(', ')}
+                          </S.InfoCardContent>
+                        </S.InfoCard>
+                      )}
+
+                      {/* Status Card */}
+                      {structure.status && (
+                        <S.InfoCard>
+                          <S.InfoCardHeader>
+                            <S.InfoCardEmoji>
+                              {getInfoEmoji('status')}
+                            </S.InfoCardEmoji>
+                            <S.InfoCardTitle>Status</S.InfoCardTitle>
+                          </S.InfoCardHeader>
+                          <S.InfoCardContent>
+                            {structure.status}
+                          </S.InfoCardContent>
+                        </S.InfoCard>
+                      )}
+
+                      {/* Location Card */}
+                      {structure.location?.latitude &&
+                        structure.location?.longitude && (
+                          <S.InfoCard>
+                            <S.InfoCardHeader>
+                              <S.InfoCardEmoji>
+                                {getInfoEmoji('location')}
+                              </S.InfoCardEmoji>
+                              <S.InfoCardTitle>Location</S.InfoCardTitle>
+                            </S.InfoCardHeader>
+                            {/* Google Maps Connection */}
+                            <GoogleMapLandmark
+                              latitude={structure.location.latitude}
+                              longitude={structure.location.longitude}
+                              structureName={structure.names[0]}
+                            />
+                          </S.InfoCard>
+                        )}
+                    </S.InfoCardsSection>
                   )}
-                </S.LeftSection>
+                </S.ColumnsContainer>
 
-                {/* Info Cards Section: Quick Facts, scrollable, matches height of image/description */}
-                {descriptionExpanded ? (
-                  <S.InfoCardsSectionExpanded imageHeight={imageHeight}>
-                    <S.SectionTitleInfo>Quick Facts</S.SectionTitleInfo>
-
-                    {/* Year Card */}
-                    {structure.year && (
-                      <S.InfoCard>
-                        <S.InfoCardHeader>
-                          <S.InfoCardEmoji>
-                            {getInfoEmoji('year')}
-                          </S.InfoCardEmoji>
-                          <S.InfoCardTitle>Year</S.InfoCardTitle>
-                        </S.InfoCardHeader>
-                        <S.InfoCardContent>{structure.year}</S.InfoCardContent>
-                      </S.InfoCard>
-                    )}
-
-                    {/* Add Also Known As card if there are alternate names */}
-                    {structure.names.length > 1 && (
-                      <S.InfoCard>
-                        <S.InfoCardHeader>
-                          <S.InfoCardEmoji>📝</S.InfoCardEmoji>
-                          <S.InfoCardTitle>Also Known As</S.InfoCardTitle>
-                        </S.InfoCardHeader>
-                        <S.InfoCardContent>
-                          {structure.names.slice(1).join(', ')}
-                        </S.InfoCardContent>
-                      </S.InfoCard>
-                    )}
-
-                    {/* Advisor Card : !DOESNT WORK BECAUSE ADVISORS ARE JUST BUILDERS RN */}
-                    {structure.advisor_builders?.some((person) =>
-                      person.role.includes('Advisor')
-                    ) && (
-                      <S.InfoCard>
-                        <S.InfoCardHeader>
-                          <S.InfoCardEmoji>
-                            {getInfoEmoji('advisor')}
-                          </S.InfoCardEmoji>
-                          <S.InfoCardTitle>Advisors</S.InfoCardTitle>
-                        </S.InfoCardHeader>
-                        <S.InfoCardContent>
-                          {structure.advisor_builders
-                            .filter((person) => person.role.includes('Advisor'))
-                            .map((person) => person.name)
-                            .join(', ')}
-                        </S.InfoCardContent>
-                      </S.InfoCard>
-                    )}
-
-                    {/* Builders Card */}
-                    {structure.advisor_builders?.some(
-                      (person) => !person.role.includes('Advisor')
-                    ) && (
-                      <S.InfoCard>
-                        <S.InfoCardHeader>
-                          <S.InfoCardEmoji>
-                            {getInfoEmoji('builders')}
-                          </S.InfoCardEmoji>
-                          <S.InfoCardTitle>Builders</S.InfoCardTitle>
-                        </S.InfoCardHeader>
-                        <S.InfoCardContent>
-                          {structure.advisor_builders
-                            .filter(
-                              (person) => !person.role.includes('Advisor')
-                            )
-                            .map((person) => person.name)
-                            .join(', ')}
-                        </S.InfoCardContent>
-                      </S.InfoCard>
-                    )}
-
-                    {/* Status Card */}
-                    {structure.status && (
-                      <S.InfoCard>
-                        <S.InfoCardHeader>
-                          <S.InfoCardEmoji>
-                            {getInfoEmoji('status')}
-                          </S.InfoCardEmoji>
-                          <S.InfoCardTitle>Status</S.InfoCardTitle>
-                        </S.InfoCardHeader>
-                        <S.InfoCardContent>
-                          {structure.status}
-                        </S.InfoCardContent>
-                      </S.InfoCard>
-                    )}
-
-                    {/* Location Card */}
-                    {structure.location?.latitude &&
-                      structure.location?.longitude && (
-                        <S.InfoCard>
-                          <S.InfoCardHeader>
-                            <S.InfoCardEmoji>
-                              {getInfoEmoji('location')}
-                            </S.InfoCardEmoji>
-                            <S.InfoCardTitle>Location</S.InfoCardTitle>
-                          </S.InfoCardHeader>
-                          {/* Google Maps Connection */}
-                          <GoogleMapLandmark
-                            latitude={structure.location.latitude}
-                            longitude={structure.location.longitude}
-                            structureName={structure.names[0]}
-                          />
-                        </S.InfoCard>
-                      )}
-                  </S.InfoCardsSectionExpanded>
-                ) : (
-                  <S.InfoCardsSection>
-                    <S.SectionTitleInfo>Quick Facts</S.SectionTitleInfo>
-
-                    {/* Year Card */}
-                    {structure.year && (
-                      <S.InfoCard>
-                        <S.InfoCardHeader>
-                          <S.InfoCardEmoji>
-                            {getInfoEmoji('year')}
-                          </S.InfoCardEmoji>
-                          <S.InfoCardTitle>Year</S.InfoCardTitle>
-                        </S.InfoCardHeader>
-                        <S.InfoCardContent>{structure.year}</S.InfoCardContent>
-                      </S.InfoCard>
-                    )}
-
-                    {/* Add Also Known As card if there are alternate names */}
-                    {structure.names.length > 1 && (
-                      <S.InfoCard>
-                        <S.InfoCardHeader>
-                          <S.InfoCardEmoji>📝</S.InfoCardEmoji>
-                          <S.InfoCardTitle>Also Known As</S.InfoCardTitle>
-                        </S.InfoCardHeader>
-                        <S.InfoCardContent>
-                          {structure.names.slice(1).join(', ')}
-                        </S.InfoCardContent>
-                      </S.InfoCard>
-                    )}
-
-                    {/* Advisor Card : !DOESNT WORK BECAUSE ADVISORS ARE JUST BUILDERS RN */}
-                    {structure.advisor_builders?.some((person) =>
-                      person.role.includes('Advisor')
-                    ) && (
-                      <S.InfoCard>
-                        <S.InfoCardHeader>
-                          <S.InfoCardEmoji>
-                            {getInfoEmoji('advisor')}
-                          </S.InfoCardEmoji>
-                          <S.InfoCardTitle>Advisors</S.InfoCardTitle>
-                        </S.InfoCardHeader>
-                        <S.InfoCardContent>
-                          {structure.advisor_builders
-                            .filter((person) => person.role.includes('Advisor'))
-                            .map((person) => person.name)
-                            .join(', ')}
-                        </S.InfoCardContent>
-                      </S.InfoCard>
-                    )}
-
-                    {/* Builders Card */}
-                    {structure.advisor_builders?.some(
-                      (person) => !person.role.includes('Advisor')
-                    ) && (
-                      <S.InfoCard>
-                        <S.InfoCardHeader>
-                          <S.InfoCardEmoji>
-                            {getInfoEmoji('builders')}
-                          </S.InfoCardEmoji>
-                          <S.InfoCardTitle>Builders</S.InfoCardTitle>
-                        </S.InfoCardHeader>
-                        <S.InfoCardContent>
-                          {structure.advisor_builders
-                            .filter(
-                              (person) => !person.role.includes('Advisor')
-                            )
-                            .map((person) => person.name)
-                            .join(', ')}
-                        </S.InfoCardContent>
-                      </S.InfoCard>
-                    )}
-
-                    {/* Status Card */}
-                    {structure.status && (
-                      <S.InfoCard>
-                        <S.InfoCardHeader>
-                          <S.InfoCardEmoji>
-                            {getInfoEmoji('status')}
-                          </S.InfoCardEmoji>
-                          <S.InfoCardTitle>Status</S.InfoCardTitle>
-                        </S.InfoCardHeader>
-                        <S.InfoCardContent>
-                          {structure.status}
-                        </S.InfoCardContent>
-                      </S.InfoCard>
-                    )}
-
-                    {/* Location Card */}
-                    {structure.location?.latitude &&
-                      structure.location?.longitude && (
-                        <S.InfoCard>
-                          <S.InfoCardHeader>
-                            <S.InfoCardEmoji>
-                              {getInfoEmoji('location')}
-                            </S.InfoCardEmoji>
-                            <S.InfoCardTitle>Location</S.InfoCardTitle>
-                          </S.InfoCardHeader>
-                          {/* Google Maps Connection */}
-                          <GoogleMapLandmark
-                            latitude={structure.location.latitude}
-                            longitude={structure.location.longitude}
-                            structureName={structure.names[0]}
-                          />
-                        </S.InfoCard>
-                      )}
-                  </S.InfoCardsSection>
+                {/* Links Section (only shows if there are valid links) */}
+                {getValidLinks().length > 0 && (
+                  <S.LinksSection>
+                    <S.LinkButtonContainer>
+                      {getValidLinks().map((link, index) => (
+                        <S.LinkButton
+                          key={index}
+                          href={link.URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {getLinkIcon(link.title)}
+                          {link.title}
+                        </S.LinkButton>
+                      ))}
+                    </S.LinkButtonContainer>
+                  </S.LinksSection>
                 )}
-              </S.ColumnsContainer>
-
-              {/* Links Section (only shows if there are valid links) */}
-              {getValidLinks().length > 0 && (
-                <S.LinksSection>
-                  <S.LinkButtonContainer>
-                    {getValidLinks().map((link, index) => (
-                      <S.LinkButton
-                        key={index}
-                        href={link.URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {getLinkIcon(link.title)}
-                        {link.title}
-                      </S.LinkButton>
-                    ))}
-                  </S.LinkButtonContainer>
-                </S.LinksSection>
-              )}
-            </S.MainContent>
-          )}
-        </S.ContentContainer>
-      </S.CenteredWrapper>
-    </S.InfoPageWrapper>
+              </S.MainContent>
+            )}
+          </S.ContentContainer>
+        </S.CenteredWrapper>
+      </S.InfoPageWrapper>
+    </>
   );
 };
 

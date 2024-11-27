@@ -25,6 +25,7 @@ import { useSpring, animated } from 'react-spring';
 import { useGesture } from '@use-gesture/react';
 import useImagePreloader from './useImagePreloader.js';
 import LoadingSpinner from './LoadingSpinner.js';
+import { Helmet } from 'react-helmet-async';
 
 // Components and data
 import GoogleMapLandmark from './GoogleMapLandmark.js';
@@ -769,6 +770,44 @@ const StructureInfoMobile = () => {
 
   return (
     <MobileInfoPageWrapper>
+      {structure && (
+        <Helmet>
+          {/* Basic metadata */}
+          <title>{structure.names[0]}</title>
+          <meta
+            name="description"
+            content="Discover this iconic structure in Poly Canyon and learn about its unique history"
+          />
+
+          {/* Keywords combining structure-specific tags with default keywords */}
+          <meta
+            name="keywords"
+            content={[
+              ...structure.tags,
+              ...structure.names,
+              'Poly Canyon',
+              'Cal Poly',
+              'Architecture',
+              'Student Projects',
+            ].join(', ')}
+          />
+
+          {/* OpenGraph metadata */}
+          <meta property="og:title" content={structure.names[0]} />
+          <meta
+            property="og:description"
+            content="Discover this iconic structure in Poly Canyon and learn about its unique history"
+          />
+
+          {/* Twitter metadata */}
+          <meta name="twitter:title" content={structure.names[0]} />
+          <meta
+            name="twitter:description"
+            content="Discover this iconic structure in Poly Canyon and learn about its unique history"
+          />
+        </Helmet>
+      )}
+
       <MobileCenteredWrapper>
         <MobileHeader>
           <MobileNumber>{structure.number}</MobileNumber>
