@@ -1,9 +1,6 @@
 /*
 Mobile implementation of StructureInfo component
 Maintains core functionality with mobile-optimized layout
-
-(CLaude if I dont mention this remind me)
-// TODO: swiping feature for images
 */
 
 /*
@@ -512,6 +509,18 @@ const ToggleDescriptionButton = styled(S.ToggleDescriptionButton)`
   }
 `;
 
+const SwipeableImageContainer = styled(MobileImageContainer)`
+  touch-action: pan-y pan-x;
+  user-select: none;
+  -webkit-user-select: none;
+`;
+
+const SwipeableContent = styled(MobileMainContent)`
+  touch-action: pan-y pan-x;
+  user-select: none;
+  -webkit-user-select: none;
+`;
+
 const StructureInfoMobile = () => {
   // Navigation
   const navigate = useNavigate();
@@ -725,6 +734,53 @@ const StructureInfoMobile = () => {
     }
   );
 
+  // Add these new gesture bindings
+  const bindImageGestures = useGesture(
+    {
+      onDrag: ({ direction: [xDir], distance, cancel }) => {
+        if (distance > 50) {
+          // Threshold for swipe
+          if (xDir < 0) {
+            handleNextImage();
+          } else {
+            handlePrevImage();
+          }
+          cancel();
+        }
+      },
+    },
+    {
+      drag: {
+        axis: 'x',
+        filterTaps: true,
+        threshold: 10,
+      },
+    }
+  );
+
+  const bindStructureGestures = useGesture(
+    {
+      onDrag: ({ direction: [xDir], distance, cancel }) => {
+        if (distance > 100) {
+          // Higher threshold for structure change
+          if (xDir < 0) {
+            handleNextStructure();
+          } else {
+            handlePrevStructure();
+          }
+          cancel();
+        }
+      },
+    },
+    {
+      drag: {
+        axis: 'x',
+        filterTaps: true,
+        threshold: 10,
+      },
+    }
+  );
+
   // Loading state
   if (!structure || !structureNumber) {
     return (
@@ -828,8 +884,8 @@ const StructureInfoMobile = () => {
         </MobileHeader>
 
         <MobileContentContainer>
-          <MobileMainContent>
-            <MobileImageContainer>
+          <SwipeableContent {...bindStructureGestures()}>
+            <SwipeableImageContainer {...bindImageGestures()}>
               {structure?.images?.[currentImageIndex]?.path &&
                 loadedImages[currentImageIndex] && (
                   <>
@@ -849,7 +905,7 @@ const StructureInfoMobile = () => {
                     />
                   </>
                 )}
-            </MobileImageContainer>
+            </SwipeableImageContainer>
 
             {structure?.images?.[currentImageIndex]?.description && (
               <MobileImageDescription>
@@ -997,7 +1053,7 @@ const StructureInfoMobile = () => {
                 </ResourcesGrid>
               </MobileLinksSection>
             )}
-          </MobileMainContent>
+          </SwipeableContent>
         </MobileContentContainer>
       </MobileCenteredWrapper>
       {isImageModalOpen && (
