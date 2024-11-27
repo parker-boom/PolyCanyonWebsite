@@ -101,6 +101,24 @@ const StructureInfo = () => {
 
         setStructure(structureData);
 
+        // Get URL parameters
+        const params = new URLSearchParams(window.location.search);
+
+        // Set fullscreen mode if parameter exists
+        if (params.get('fullscreen') === 'true') {
+          setIsFullscreenMode(true);
+        }
+
+        // Set image index if parameter exists and is valid
+        const imageIndex = parseInt(params.get('imageIndex'));
+        if (
+          !isNaN(imageIndex) &&
+          structureData.images &&
+          imageIndex < structureData.images.length
+        ) {
+          setCurrentImageIndex(imageIndex);
+        }
+
         // Get current structure paths (now using sorted images)
         const currentPaths =
           structureData?.images

@@ -1572,7 +1572,9 @@ export const CloseButton = styled.button`
   }
 
   &:active {
-    transform: rotate(90deg) scale(0.95);
+    svg {
+      transform: rotate(90deg) scale(0.95);
+    }
   }
 `;
 
@@ -2102,4 +2104,268 @@ export const StructureImagePlaceholder = styled.div`
   justify-content: center;
   background: rgba(189, 139, 19, 0.1);
   flex-shrink: 0;
+`;
+
+export const SurpriseButtonsContainer = styled.div`
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: -8px;
+  position: relative; // Added to ensure tooltips position correctly
+`;
+
+export const SurpriseButton = styled.button`
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #376d31, #2c5526);
+  color: white;
+  border: 2px solid rgba(189, 139, 19, 0.3);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative; // Important for tooltip positioning
+  box-shadow: 0 2px 8px rgba(55, 109, 49, 0.15);
+  overflow: visible; // Changed from hidden to show tooltip
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(189, 139, 19, 0.15),
+      transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  svg {
+    font-size: 26px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: rgba(255, 255, 255, 0.95);
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: rgba(189, 139, 19, 0.5);
+    background: linear-gradient(135deg, #2c5526, #1e3a1a);
+    box-shadow:
+      0 8px 24px rgba(55, 109, 49, 0.2),
+      0 4px 8px rgba(55, 109, 49, 0.15);
+
+    &::before {
+      opacity: 1;
+    }
+
+    svg {
+      transform: scale(1.15);
+      color: rgba(189, 139, 19, 0.95);
+    }
+
+    .tooltip {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+    svg {
+      transform: scale(0.95);
+    }
+  }
+`;
+
+export const Tooltip = styled.span`
+  position: absolute;
+  top: 50%;
+  background: linear-gradient(
+    135deg,
+    rgba(55, 109, 49, 0.98),
+    rgba(44, 85, 38, 0.95)
+  );
+  color: rgba(255, 255, 255, 0.95);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  box-shadow:
+    0 4px 12px rgba(55, 109, 49, 0.25),
+    0 2px 4px rgba(55, 109, 49, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  z-index: 100;
+  border: 1px solid rgba(189, 139, 19, 0.3);
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+
+  ${(props) =>
+    props.position === 'left' &&
+    `
+    right: calc(100% + 12px);
+    transform: translateY(-50%);
+  `}
+
+  ${(props) =>
+    props.position === 'right' &&
+    `
+    left: calc(100% + 12px);
+    transform: translateY(-50%);
+  `}
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+
+    ${(props) =>
+      props.position === 'left' &&
+      `
+      right: -6px;
+      border-left: 6px solid rgba(55, 109, 49, 0.98);
+    `}
+
+    ${(props) =>
+      props.position === 'right' &&
+      `
+      left: -6px;
+      border-right: 6px solid rgba(55, 109, 49, 0.98);
+    `}
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(189, 139, 19, 0.15),
+      transparent 60%
+    );
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  ${SurpriseButton}:hover & {
+    &::after {
+      opacity: 1;
+    }
+  }
+`;
+
+export const MobileSurpriseButton = styled.button`
+  width: 200px;
+  height: 52px;
+  margin: -12px auto 20px;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #376d31, #2c5526);
+  border: 2px solid rgba(189, 139, 19, 0.3);
+  border-radius: 16px;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(55, 109, 49, 0.2);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(189, 139, 19, 0.15),
+      transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: rgba(189, 139, 19, 0.5);
+    background: linear-gradient(135deg, #2c5526, #1e3a1a);
+    box-shadow:
+      0 8px 24px rgba(55, 109, 49, 0.2),
+      0 4px 8px rgba(55, 109, 49, 0.15);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+`;
+
+export const MobileSurpriseIcon = styled.div`
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(189, 139, 19, 0.15);
+  border-right: 2px solid rgba(189, 139, 19, 0.2);
+  transition: all 0.3s ease;
+
+  svg {
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.95);
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
+    transition: all 0.3s ease;
+  }
+
+  ${MobileSurpriseButton}:hover & {
+    background: rgba(189, 139, 19, 0.25);
+    border-right-color: rgba(189, 139, 19, 0.3);
+
+    svg {
+      transform: rotate(-15deg) scale(1.1);
+      color: rgba(189, 139, 19, 0.95);
+    }
+  }
+`;
+
+export const MobileSurpriseText = styled.span`
+  flex: 1;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 18px;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  padding-right: 10px;
+
+  ${MobileSurpriseButton}:hover & {
+    color: rgba(189, 139, 19, 0.95);
+    text-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.3),
+      0 0 8px rgba(189, 139, 19, 0.3);
+  }
 `;

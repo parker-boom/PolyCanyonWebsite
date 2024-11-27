@@ -11,7 +11,7 @@ Imports
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { FaSearch, FaChevronDown, FaArrowRight } from 'react-icons/fa';
+import { FaSearch, FaChevronDown, FaArrowRight, FaDice } from 'react-icons/fa';
 
 // Styles
 import * as S from './Structures.styles.js';
@@ -108,6 +108,16 @@ const StructureListMobile = () => {
     return () => observer.disconnect();
   }, [structures]);
 
+  const getRandomStructure = () => {
+    const randomIndex = Math.floor(Math.random() * structures.length);
+    return structures[randomIndex];
+  };
+
+  const handleSurpriseMe = () => {
+    const randomStructure = getRandomStructure();
+    navigate(`/structures/${randomStructure.url}`);
+  };
+
   if (error) {
     return <div>Error: {error}</div>;
   }
@@ -129,6 +139,13 @@ const StructureListMobile = () => {
             <S.TitleBottom>Structures</S.TitleBottom>
             <S.TitleTagline>A Legacy of Student Innovation</S.TitleTagline>
           </S.TitleContainer>
+
+          <S.MobileSurpriseButton onClick={handleSurpriseMe}>
+            <S.MobileSurpriseIcon>
+              <FaDice />
+            </S.MobileSurpriseIcon>
+            <S.MobileSurpriseText>Surprise me!</S.MobileSurpriseText>
+          </S.MobileSurpriseButton>
 
           <S.MobileSearchSection>
             <S.MobileSearchIcon>

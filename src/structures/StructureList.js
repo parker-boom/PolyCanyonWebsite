@@ -1,9 +1,7 @@
 /**
  * Need to:
  * 1. Re-enable sorting and filtering
- * 2. Add meta-data
- * 3. Ghost/Planned sections in the future (data first)
- * 4. Surprise me button + surprise me image button (goes to random image view structure)
+ * 2. Ghost/Planned sections in the future (data first)
  */
 
 /*
@@ -24,6 +22,8 @@ import {
   //FaSort,
   //FaCalendarAlt,
   //FaMapMarkerAlt,
+  FaDice,
+  FaImage,
 } from 'react-icons/fa';
 //import { RiSparklingFill } from 'react-icons/ri'; (uncomment later when AI feature ready)
 
@@ -32,7 +32,7 @@ import * as S from './Structures.styles.js';
 
 // Data & Images
 import { mainImages } from './images/structureImages.js';
-import { getStructuresList } from './data/structuresData.js';
+import { getStructuresList, getStructureInfo } from './data/structuresData.js';
 import useListImagePreloader from './useListImagePreloader.js';
 import LoadingSpinner from './LoadingSpinner.js';
 
@@ -160,6 +160,32 @@ const Structures = () => {
     navigate(`/structures/${structure.url}`);
   };
 
+  const getRandomStructure = () => {
+    const randomIndex = Math.floor(Math.random() * structures.length);
+    return structures[randomIndex];
+  };
+
+  const handleSurpriseMe = () => {
+    const randomStructure = getRandomStructure();
+    navigate(`/structures/${randomStructure.url}`);
+  };
+
+  const handleSurpriseImage = () => {
+    const randomStructure = getRandomStructure();
+    const structureInfo = getStructureInfo(randomStructure.number);
+
+    let randomImageIndex = 0;
+    if (structureInfo.images && structureInfo.images.length > 0) {
+      randomImageIndex = Math.floor(
+        Math.random() * structureInfo.images.length
+      );
+    }
+
+    navigate(
+      `/structures/${randomStructure.url}?fullscreen=true&imageIndex=${randomImageIndex}`
+    );
+  };
+
   // Show loading spinner while initial batch loads
   if (!initialBatchLoaded) {
     return (
@@ -193,6 +219,21 @@ const Structures = () => {
             <S.TitleBottom>The Structures</S.TitleBottom>
             <S.TitleTagline>A Legacy of Student Innovation</S.TitleTagline>
           </S.TitleContainer>
+
+          <S.SurpriseButtonsContainer>
+            <S.SurpriseButton onClick={handleSurpriseMe}>
+              <FaDice />
+              <S.Tooltip className="tooltip" position="left">
+                Surprise me with a random structure
+              </S.Tooltip>
+            </S.SurpriseButton>
+            <S.SurpriseButton onClick={handleSurpriseImage}>
+              <FaImage />
+              <S.Tooltip className="tooltip" position="right">
+                Show me a random structure&apos;s image
+              </S.Tooltip>
+            </S.SurpriseButton>
+          </S.SurpriseButtonsContainer>
 
           <S.SearchSection>
             <S.SearchIcon>
