@@ -7,7 +7,27 @@ export const GlobalBackgroundStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    background-color: #e8efe8;
+    background: linear-gradient(135deg, #ffffff, #f8f4e9, #ffffff);
+    position: relative;
+    overflow: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l.83.828-1.415 1.415L51.8 0h2.827zM5.373 0l-.83.828L5.96 2.243 8.2 0H5.374zM48.97 0l3.657 3.657-1.414 1.414L46.143 0h2.828zM11.03 0L7.372 3.657 8.787 5.07 13.857 0H11.03zm32.284 0L49.8 6.485 48.384 7.9l-7.9-7.9h2.83zM16.686 0L10.2 6.485 11.616 7.9l7.9-7.9h-2.83zM22.343 0L13.857 8.485 15.272 9.9l7.9-7.9h-.83L25.172 0h-2.83zM32 0l-3.657 3.657 1.414 1.414L32 2.828l2.243 2.243 1.414-1.414L32 0zm13.627 0L52.8 8.485 51.384 9.9l-7.9-7.9h2.83zM27.656 0L36.143 8.485 34.728 9.9l-7.9-7.9h.83L25.83 0h2.83z' fill='%23bd8b13' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.5;
+    animation: subtleFloat 30s linear infinite;
+  }
+
+  @keyframes subtleFloat {
+    0% { background-position: 0 0; }
+    100% { background-position: 60px 60px; }
   }
 `;
 
@@ -34,10 +54,10 @@ export const WelcomeSection = styled.div`
   position: relative;
 
   .animated-divider {
-    width: 180px; // Increased width for web
+    width: 180px;
     height: 3px;
     background: #376d31;
-    margin: 24px auto 0; // Added margin-top to place below subtitle
+    margin: 24px auto 0;
     position: relative;
     overflow: hidden;
 
@@ -147,7 +167,31 @@ export const ActionContainer = styled.div`
   }
 `;
 
-// Enhance the action card with more sophisticated hover effects
+// Add these new color constants at the top
+const CARD_COLORS = {
+  info: '#f9eda8',
+  download: '#b5d6ab',
+  research: '#cdbe9a',
+};
+
+export const CardContent = styled.div`
+  padding: 24px;
+  background: transparent;
+  position: relative;
+  transition: background 0.5s ease;
+
+  .arrow-icon {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    color: #376d31;
+    opacity: 0.6;
+    font-size: 14px;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+`;
+
+// Update ActionCard with enhanced hover effects and color transitions
 export const ActionCard = styled(Link)`
   flex: 1;
   max-width: 350px;
@@ -156,16 +200,29 @@ export const ActionCard = styled(Link)`
   overflow: hidden;
   text-decoration: none;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   transform-style: preserve-3d;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: ${(props) =>
+      props.cardType === 'info'
+        ? CARD_COLORS.info
+        : props.cardType === 'download'
+          ? CARD_COLORS.download
+          : CARD_COLORS.research};
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
 
   @media (max-width: 768px) {
     max-width: 100%;
     width: 100%;
     margin: 0;
     transform: none !important;
-    transition: transform 0.3s ease;
 
     &:active {
       transform: scale(0.98) !important;
@@ -174,19 +231,35 @@ export const ActionCard = styled(Link)`
 
   @media (min-width: 769px) {
     &:hover {
-      transform: translateY(-5px) rotateX(2deg);
-      box-shadow: 0 12px 30px rgba(55, 109, 49, 0.2);
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px
+        ${(props) =>
+          props.cardType === 'info'
+            ? 'rgba(249, 237, 168, 0.3)'
+            : props.cardType === 'download'
+              ? 'rgba(181, 214, 171, 0.3)'
+              : 'rgba(205, 190, 154, 0.3)'};
 
       &::before {
-        opacity: 1;
+        opacity: 0.15;
       }
-    }
 
-    &:nth-child(2) {
-      transform: scale(1.05);
+      ${CardContent} {
+        background: linear-gradient(
+          to bottom,
+          transparent,
+          ${(props) =>
+            props.cardType === 'info'
+              ? 'rgba(249, 237, 168, 0.1)'
+              : props.cardType === 'download'
+                ? 'rgba(181, 214, 171, 0.1)'
+                : 'rgba(205, 190, 154, 0.1)'}
+        );
+      }
 
-      &:hover {
-        transform: scale(1.05) translateY(-5px) rotateX(2deg);
+      .arrow-icon {
+        transform: translateX(5px);
+        opacity: 1;
       }
     }
   }
@@ -218,40 +291,7 @@ export const CardImage = styled.div`
   }
 `;
 
-// Enhance the card content
-export const CardContent = styled.div`
-  padding: 24px;
-  background: white;
-  position: relative;
-
-  @media (max-width: 768px) {
-    padding: 20px;
-  }
-
-  .arrow-icon {
-    position: absolute;
-    bottom: 12px;
-    right: 12px;
-    color: #376d31;
-    opacity: 0.6;
-    font-size: 14px;
-    transition:
-      transform 0.3s ease,
-      opacity 0.3s ease;
-
-    @media (max-width: 768px) {
-      bottom: 20px;
-      right: 20px;
-    }
-  }
-
-  @media (min-width: 769px) {
-    ${ActionCard}:hover & .arrow-icon {
-      transform: translateX(5px);
-      opacity: 1;
-    }
-  }
-`;
+// Update CardContent with smoother transitions
 
 // Card title
 export const CardTitle = styled.h2`
@@ -300,7 +340,7 @@ export const PopularTag = styled.div`
   }
 `;
 
-// Add stats section
+// Update StatsContainer with auto-rotating stats
 export const StatsContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -310,6 +350,33 @@ export const StatsContainer = styled.div`
   background: rgba(255, 255, 255, 0.9);
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(55, 109, 49, 0.05),
+      transparent
+    );
+    animation: shimmerStats 3s infinite;
+  }
+
+  @keyframes shimmerStats {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(50%);
+    }
+  }
 
   @media (max-width: 768px) {
     display: grid;
@@ -325,10 +392,34 @@ export const StatItem = styled.div`
   text-align: center;
 `;
 
+// Update StatNumber with continuous animation
 export const StatNumber = styled.div`
   font-size: 36px;
   font-weight: 800;
   color: #376d31;
+  opacity: 0;
+  transform: translateY(20px);
+  animation:
+    fadeUpIn 0.6s ease forwards,
+    pulseGlow 3s ease-in-out infinite;
+  animation-delay: ${(props) => props.index * 0.2}s, 0.6s;
+
+  @keyframes pulseGlow {
+    0%,
+    100% {
+      text-shadow: 0 0 0 rgba(55, 109, 49, 0);
+    }
+    50% {
+      text-shadow: 0 0 10px rgba(55, 109, 49, 0.2);
+    }
+  }
+
+  @keyframes fadeUpIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
   @media (max-width: 768px) {
     font-size: 24px;
@@ -339,6 +430,15 @@ export const StatLabel = styled.div`
   font-size: 16px;
   color: #666;
   margin-top: 5px;
+  opacity: 0;
+  animation: fadeIn 0.6s ease forwards;
+  animation-delay: ${(props) => props.index * 0.2 + 0.2}s;
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
 
   @media (max-width: 768px) {
     font-size: 12px;

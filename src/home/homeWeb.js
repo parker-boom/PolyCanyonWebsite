@@ -16,6 +16,7 @@ import {
   StatItem,
   StatNumber,
   StatLabel,
+  GlobalBackgroundStyle,
 } from './home.styles.js';
 
 import download from '../assets/home/Download.jpg';
@@ -25,6 +26,7 @@ import structures from '../assets/home/Structures.jpg';
 const Home = () => {
   return (
     <>
+      <GlobalBackgroundStyle />
       <Helmet>
         <title>Poly Canyon Home</title>
         <meta
@@ -48,7 +50,7 @@ const Home = () => {
 
         <ActionContainer>
           {/* Learn Card */}
-          <ActionCard to="/info">
+          <ActionCard to="/info" cardType="info">
             <CardImage src={info} />
             <CardContent>
               <CardTitle>Learn About the Canyon</CardTitle>
@@ -61,7 +63,7 @@ const Home = () => {
           </ActionCard>
 
           {/* Download Card */}
-          <ActionCard to="/download">
+          <ActionCard to="/download" cardType="download">
             <CardImage src={download} />
             <CardContent>
               <CardTitle>Download the App</CardTitle>
@@ -74,7 +76,7 @@ const Home = () => {
           </ActionCard>
 
           {/* Research Card */}
-          <ActionCard to="/structures">
+          <ActionCard to="/structures" cardType="research">
             <CardImage src={structures} />
             <CardContent>
               <CardTitle>Research Structures</CardTitle>
@@ -89,16 +91,16 @@ const Home = () => {
 
         <StatsContainer>
           <StatItem>
-            <StatNumber>30+</StatNumber>
-            <StatLabel>Unique Structures</StatLabel>
+            <StatNumber index={0}>30+</StatNumber>
+            <StatLabel index={0}>Unique Structures</StatLabel>
           </StatItem>
           <StatItem>
-            <StatNumber>60</StatNumber>
-            <StatLabel>Years of History</StatLabel>
+            <StatNumber index={1}>60</StatNumber>
+            <StatLabel index={1}>Years of History</StatLabel>
           </StatItem>
           <StatItem>
-            <StatNumber>1000+</StatNumber>
-            <StatLabel>Monthly Visitors</StatLabel>
+            <StatNumber index={2}>1000+</StatNumber>
+            <StatLabel index={2}>Monthly Visitors</StatLabel>
           </StatItem>
         </StatsContainer>
       </HomeContainer>
