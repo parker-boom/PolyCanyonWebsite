@@ -996,6 +996,7 @@ export const LinkButton = styled.a`
   box-shadow:
     0 2px 8px rgba(0, 0, 0, 0.05),
     0 -1px 8px rgba(189, 139, 19, 0.35);
+  cursor: ${(props) => (props.as === 'button' ? 'pointer' : 'default')};
 
   &:hover {
     transform: translateY(-2px);
@@ -2108,63 +2109,64 @@ export const StructureImagePlaceholder = styled.div`
 
 export const SurpriseButtonsContainer = styled.div`
   display: flex;
-  gap: 16px;
   justify-content: center;
-  margin-bottom: 20px;
-  margin-top: -8px;
-  position: relative; // Added to ensure tooltips position correctly
+  margin-top: 20px;
+  position: relative;
+  z-index: 1;
 `;
 
-export const SurpriseButton = styled.button`
-  width: 52px;
-  height: 52px;
+export const IntegratedSurpriseButton = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: stretch;
   background: linear-gradient(135deg, #376d31, #2c5526);
-  color: white;
   border: 2px solid rgba(189, 139, 19, 0.3);
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative; // Important for tooltip positioning
+  border-radius: 24px;
+  overflow: visible;
   box-shadow: 0 2px 8px rgba(55, 109, 49, 0.15);
-  overflow: visible; // Changed from hidden to show tooltip
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-      135deg,
-      rgba(189, 139, 19, 0.15),
-      transparent 60%
-    );
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  svg {
-    font-size: 26px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    color: rgba(255, 255, 255, 0.95);
-    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
-  }
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
     transform: translateY(-2px);
     border-color: rgba(189, 139, 19, 0.5);
-    background: linear-gradient(135deg, #2c5526, #1e3a1a);
     box-shadow:
       0 8px 24px rgba(55, 109, 49, 0.2),
       0 4px 8px rgba(55, 109, 49, 0.15);
+  }
+`;
 
-    &::before {
-      opacity: 1;
-    }
+export const SurpriseText = styled.div`
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  cursor: default;
+  border-right: 2px solid rgba(189, 139, 19, 0.2);
+
+  ${IntegratedSurpriseButton}:hover & {
+    color: rgba(189, 139, 19, 0.95);
+  }
+`;
+
+export const SurpriseIconButton = styled.button`
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: visible;
+
+  &:hover {
+    background: rgba(189, 139, 19, 0.15);
 
     svg {
       transform: scale(1.15);
@@ -2174,18 +2176,23 @@ export const SurpriseButton = styled.button`
     .tooltip {
       opacity: 1;
       visibility: visible;
-      transform: translateY(0);
+      transform: translateX(-50%) scale(1);
     }
   }
 
-  &:active {
-    transform: translateY(0);
-    svg {
-      transform: scale(0.95);
-    }
+  svg {
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.95);
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
+    transition: all 0.3s ease;
+  }
+
+  &:active svg {
+    transform: scale(0.95);
   }
 `;
 
+// Update Tooltip styles for bottom position
 export const Tooltip = styled.span`
   position: absolute;
   top: 50%;
@@ -2198,7 +2205,11 @@ export const Tooltip = styled.span`
   padding: 8px 14px;
   border-radius: 8px;
   font-size: 14px;
-  white-space: nowrap;
+  white-space: pre-line;
+  text-align: center;
+  line-height: 1.4;
+  min-width: 160px;
+  max-width: 200px;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -2212,66 +2223,66 @@ export const Tooltip = styled.span`
   font-weight: 500;
   letter-spacing: 0.2px;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-
-  ${(props) =>
-    props.position === 'left' &&
-    `
-    right: calc(100% + 12px);
-    transform: translateY(-50%);
-  `}
+  transform: translate(8px, -50%) scale(0.95);
 
   ${(props) =>
     props.position === 'right' &&
     `
-    left: calc(100% + 12px);
-    transform: translateY(-50%);
+    left: calc(100% + 10px);
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-right: 6px solid rgba(55, 109, 49, 0.98);
+    }
   `}
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    border-top: 6px solid transparent;
-    border-bottom: 6px solid transparent;
-
-    ${(props) =>
-      props.position === 'left' &&
-      `
+  ${(props) =>
+    props.position === 'left' &&
+    `
+    right: calc(100% + 10px);
+    
+    &::before {
+      content: '';
+      position: absolute;
       right: -6px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
       border-left: 6px solid rgba(55, 109, 49, 0.98);
-    `}
-
-    ${(props) =>
-      props.position === 'right' &&
-      `
-      left: -6px;
-      border-right: 6px solid rgba(55, 109, 49, 0.98);
-    `}
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-      135deg,
-      rgba(189, 139, 19, 0.15),
-      transparent 60%
-    );
-    border-radius: inherit;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  ${SurpriseButton}:hover & {
-    &::after {
-      opacity: 1;
     }
-  }
+  `}
+
+  ${(props) =>
+    props.position === 'bottom' &&
+    `
+    top: calc(100% + 15px);
+    left: 50%;
+    transform: translateX(-50%) scale(0.95);
+    white-space: nowrap;
+    min-width: auto;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: -6px;
+      transform: translateX(-50%);
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-bottom: 6px solid rgba(55, 109, 49, 0.98);
+    }
+
+    ${IntegratedSurpriseButton}:hover & {
+      transform: translateX(-50%) scale(1);
+    }
+  `}
 `;
 
 export const MobileSurpriseButton = styled.button`
@@ -2367,5 +2378,123 @@ export const MobileSurpriseText = styled.span`
     text-shadow:
       0 1px 2px rgba(0, 0, 0, 0.3),
       0 0 8px rgba(189, 139, 19, 0.3);
+  }
+`;
+
+// Add these new styled components after SearchIcon
+
+export const SearchAndInfoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+`;
+
+export const InfoButton = styled.button`
+  height: 68px; // Match SearchSection height (52px input + 8px padding * 2)
+  width: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  border: 2px solid rgba(189, 139, 19, 0.2);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  box-shadow:
+    0 4px 20px rgba(189, 139, 19, 0.15),
+    0 2px 8px rgba(189, 139, 19, 0.1),
+    inset 0 2px 4px rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  flex-shrink: 0;
+
+  svg {
+    font-size: 28px;
+    color: rgba(189, 139, 19, 0.7);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &:hover {
+    box-shadow:
+      0 8px 32px rgba(189, 139, 19, 0.2),
+      0 4px 12px rgba(189, 139, 19, 0.15),
+      inset 0 2px 4px rgba(255, 255, 255, 0.9);
+    border-color: rgba(189, 139, 19, 0.3);
+    transform: translateY(-1px);
+
+    svg {
+      color: rgba(189, 139, 19, 0.9);
+      transform: scale(1.05);
+    }
+
+    .tooltip {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(0, -50%) scale(1);
+    }
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &:focus {
+    border-color: #376d31;
+    box-shadow:
+      0 8px 32px rgba(55, 109, 49, 0.15),
+      0 4px 12px rgba(55, 109, 49, 0.1),
+      0 0 0 2px rgba(55, 109, 49, 0.1),
+      inset 0 2px 4px rgba(255, 255, 255, 0.9);
+    outline: none;
+
+    svg {
+      color: #376d31;
+    }
+  }
+`;
+
+export const CircleInfoButton = styled.button`
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #376d31, #2c5526);
+  border: 1px solid rgba(189, 139, 19, 0.3);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.05),
+    0 -1px 8px rgba(189, 139, 19, 0.35);
+  margin-right: 20px;
+  flex-shrink: 0;
+
+  svg {
+    font-size: 20px;
+    color: rgba(189, 139, 19, 0.9);
+    transition: all 0.2s ease;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 4px 12px rgba(55, 109, 49, 0.15),
+      0 0 0 2px rgba(189, 139, 19, 0.1),
+      0 -2px 12px rgba(189, 139, 19, 0.45);
+    background: linear-gradient(135deg, #2c5526, #1e3a1a);
+    border-color: rgba(189, 139, 19, 0.5);
+
+    svg {
+      color: rgba(189, 139, 19, 1);
+      transform: scale(1.1);
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 `;

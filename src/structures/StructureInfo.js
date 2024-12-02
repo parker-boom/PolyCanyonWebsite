@@ -19,6 +19,7 @@ import {
   FaArrowLeft,
   FaArrowRight,
   FaExpandArrowsAlt,
+  FaQuestion,
 } from 'react-icons/fa';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -36,6 +37,7 @@ import {
 import { getStructuresList, getStructureInfo } from './data/structuresData.js';
 import useImagePreloader from './useImagePreloader.js';
 import LoadingSpinner from './LoadingSpinner.js';
+import ResearchInfo from './ResearchInfo.js';
 
 // Image path helper function
 const getImagePath = (imagePath) => {
@@ -71,6 +73,7 @@ const StructureInfo = () => {
     adjacentPaths: { prev: [], next: [] },
   });
   const [isFullscreenMode, setIsFullscreenMode] = useState(false);
+  const [showResearchInfo, setShowResearchInfo] = useState(false);
 
   // Use the preloader hook with new interface
   const { imagesLoaded, loadedImages } = useImagePreloader(imagePaths);
@@ -822,7 +825,7 @@ const StructureInfo = () => {
                 </S.ColumnsContainer>
 
                 {/* Links Section (only shows if there are valid links) */}
-                {getValidLinks().length > 0 && (
+                {(getValidLinks().length > 0 || true) && (
                   <S.LinksSection>
                     <S.LinkButtonContainer>
                       {getValidLinks().map((link, index) => (
@@ -836,6 +839,12 @@ const StructureInfo = () => {
                           {link.title}
                         </S.LinkButton>
                       ))}
+                      <S.CircleInfoButton
+                        onClick={() => setShowResearchInfo(true)}
+                        style={{ marginLeft: 'auto' }}
+                      >
+                        <FaQuestion />
+                      </S.CircleInfoButton>
                     </S.LinkButtonContainer>
                   </S.LinksSection>
                 )}
@@ -844,6 +853,10 @@ const StructureInfo = () => {
           </S.ContentContainer>
         </S.CenteredWrapper>
       </S.InfoPageWrapper>
+
+      {showResearchInfo && (
+        <ResearchInfo onClose={() => setShowResearchInfo(false)} />
+      )}
     </>
   );
 };

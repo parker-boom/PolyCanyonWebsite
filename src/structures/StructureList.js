@@ -24,6 +24,7 @@ import {
   //FaMapMarkerAlt,
   FaDice,
   FaImage,
+  FaQuestion,
 } from 'react-icons/fa';
 //import { RiSparklingFill } from 'react-icons/ri'; (uncomment later when AI feature ready)
 
@@ -35,6 +36,7 @@ import { mainImages } from './images/structureImages.js';
 import { getStructuresList, getStructureInfo } from './data/structuresData.js';
 import useListImagePreloader from './useListImagePreloader.js';
 import LoadingSpinner from './LoadingSpinner.js';
+import ResearchInfo from './ResearchInfo.js';
 
 /*
 Components & Renders
@@ -57,6 +59,8 @@ const Structures = () => {
 
   const { initialBatchLoaded, loadedImages } =
     useListImagePreloader(structures);
+
+  const [showResearchInfo, setShowResearchInfo] = useState(false);
 
   // Load structures list
   useEffect(() => {
@@ -220,32 +224,44 @@ const Structures = () => {
             <S.TitleTagline>A Legacy of Student Innovation</S.TitleTagline>
           </S.TitleContainer>
 
-          <S.SurpriseButtonsContainer>
-            <S.SurpriseButton onClick={handleSurpriseMe}>
-              <FaDice />
-              <S.Tooltip className="tooltip" position="left">
-                Surprise me with a random structure
-              </S.Tooltip>
-            </S.SurpriseButton>
-            <S.SurpriseButton onClick={handleSurpriseImage}>
-              <FaImage />
+          <S.SearchAndInfoContainer>
+            <S.SearchSection>
+              <S.SearchIcon>
+                <FaSearch />
+              </S.SearchIcon>
+              <S.SearchInput
+                type="text"
+                placeholder="Search structures by name or number..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+            </S.SearchSection>
+            <S.InfoButton onClick={() => setShowResearchInfo(true)}>
+              <FaQuestion />
               <S.Tooltip className="tooltip" position="right">
-                Show me a random structure&apos;s image
+                Learn about
+                <br /> the research process
               </S.Tooltip>
-            </S.SurpriseButton>
-          </S.SurpriseButtonsContainer>
+            </S.InfoButton>
+          </S.SearchAndInfoContainer>
 
-          <S.SearchSection>
-            <S.SearchIcon>
-              <FaSearch />
-            </S.SearchIcon>
-            <S.SearchInput
-              type="text"
-              placeholder="Search structures by name or number..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          </S.SearchSection>
+          <S.SurpriseButtonsContainer>
+            <S.IntegratedSurpriseButton>
+              <S.SurpriseText>Surprise me</S.SurpriseText>
+              <S.SurpriseIconButton onClick={handleSurpriseMe}>
+                <FaDice />
+                <S.Tooltip className="tooltip" position="bottom">
+                  with a random structure
+                </S.Tooltip>
+              </S.SurpriseIconButton>
+              <S.SurpriseIconButton onClick={handleSurpriseImage}>
+                <FaImage />
+                <S.Tooltip className="tooltip" position="bottom">
+                  with a random image
+                </S.Tooltip>
+              </S.SurpriseIconButton>
+            </S.IntegratedSurpriseButton>
+          </S.SurpriseButtonsContainer>
         </S.SearchContainer>
 
         {/* Active Structures Toggle */}
@@ -385,6 +401,10 @@ const Structures = () => {
             <a href="mailto:pjones15@calpoly.edu">Email pjones15@calpoly.edu</a>
           </S.ContactText>
         </S.ContactContainer>
+
+        {showResearchInfo && (
+          <ResearchInfo onClose={() => setShowResearchInfo(false)} />
+        )}
       </S.PageContainer>
     </>
   );
