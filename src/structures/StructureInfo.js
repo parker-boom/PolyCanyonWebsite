@@ -1,11 +1,4 @@
 /*
-
-FUTURE
-2. Add sharing feature
-3. Advisor logic (currently just shows as builders)
-*/
-
-/*
 Imports
 */
 import React, { useState, useEffect, useRef } from 'react';
@@ -825,7 +818,7 @@ const StructureInfo = () => {
                 </S.ColumnsContainer>
 
                 {/* Links Section (only shows if there are valid links) */}
-                {(getValidLinks().length > 0 || true) && (
+                {getValidLinks().length > 0 && (
                   <S.LinksSection>
                     <S.LinkButtonContainer>
                       {getValidLinks().map((link, index) => (

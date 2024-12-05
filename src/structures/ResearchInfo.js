@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import {
   FaTimes,
@@ -6,6 +6,8 @@ import {
   FaCamera,
   FaNewspaper,
 } from 'react-icons/fa';
+import { motion, AnimatePresence } from 'framer-motion';
+import PropTypes from 'prop-types';
 
 const Overlay = styled.div`
   position: fixed;
@@ -50,6 +52,15 @@ const Container = styled.div`
       transform: scale(1);
     }
   }
+`;
+
+const MobileContainer = styled(Container)`
+  width: 90%;
+  max-width: 400px;
+  max-height: none;
+  height: auto;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Header = styled.div`
@@ -108,11 +119,9 @@ const CloseButton = styled.button`
 `;
 
 const IntroText = styled.p`
-  font-size: 18px;
-  color: #2c3e50;
-  line-height: 1.6;
-  text-align: center;
-  margin-top: 15px;
+  font-size: 17px;
+  line-height: 1.5;
+  margin-top: 12px;
   margin-bottom: 0px;
   padding: 0 24px;
 `;
@@ -120,12 +129,12 @@ const IntroText = styled.p`
 const SourcesGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding: 20px;
+  gap: 16px;
+  padding: 16px;
 
   @media (max-width: 600px) {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 20px;
   }
 `;
 
@@ -134,7 +143,7 @@ const SourceCard = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 20px;
+  padding: 16px;
   background: rgba(255, 255, 255, 0.5);
   border-radius: 16px;
   border: 1px solid rgba(189, 139, 19, 0.2);
@@ -150,14 +159,14 @@ const SourceCard = styled.div`
 `;
 
 const IconWrapper = styled.div`
-  width: 52px;
-  height: 52px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   background: linear-gradient(135deg, #376d31, #2c5526);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   color: white;
   font-size: 24px;
   box-shadow:
@@ -174,7 +183,7 @@ const IconWrapper = styled.div`
 `;
 
 const SourceTitle = styled.h3`
-  font-size: 20px;
+  font-size: 18px;
   color: #376d31;
   margin: 0;
   font-weight: 700;
@@ -201,8 +210,8 @@ const Disclaimer = styled.div`
 `;
 
 const CreditsSection = styled.div`
-  margin: 12px 24px 0;
-  padding: 24px;
+  margin: 8px 24px 0;
+  padding: 20px;
   background: linear-gradient(
     135deg,
     rgba(255, 248, 230, 0.9),
@@ -246,14 +255,14 @@ const CreditsTitle = styled.h4`
 const CreditsList = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   font-size: 15px;
   color: #2c3e50;
   line-height: 1.4;
 `;
 
 const CreditItem = styled.div`
-  padding: 8px 0;
+  padding: 6px 0;
 
   strong {
     color: rgba(189, 139, 19, 0.9);
@@ -265,100 +274,227 @@ const CreditItem = styled.div`
   }
 `;
 
-const Content = () => (
-  <div>
-    <IntroText>
-      The research into the structures at Poly Canyon comes directly from
-      historical records and archives. When these sources are directly
-      available, they have been linked in the &quot;Resources&quot; section at
-      the bottom of each structure&apos;s page. Generally they can be
-      categorized into the following 3 areas:
-    </IntroText>
+const CarouselContainer = styled(motion.div)`
+  position: relative;
+  width: 100%;
+  height: 140px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
-    <SourcesGrid>
-      <SourceCard>
-        <IconWrapper>
-          <FaGraduationCap />
-        </IconWrapper>
-        <SourceTitle>Original Theses</SourceTitle>
-      </SourceCard>
+const StyledLink = styled.a`
+  color: #376d31;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: inline-block;
+  margin-left: 8px;
 
-      <SourceCard>
-        <IconWrapper>
-          <FaCamera />
-        </IconWrapper>
-        <SourceTitle>Historical Images</SourceTitle>
-      </SourceCard>
+  &:hover {
+    color: rgba(189, 139, 19, 0.9);
+    text-decoration: underline;
+  }
+`;
 
-      <SourceCard>
-        <IconWrapper>
-          <FaNewspaper />
-        </IconWrapper>
-        <SourceTitle>Articles & Resources</SourceTitle>
-      </SourceCard>
-    </SourcesGrid>
+const Content = ({ isMobile }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
 
-    <CreditsSection>
-      <CreditsTitle>Special Thanks To</CreditsTitle>
-      <CreditsList>
-        <CreditItem>
-          <strong>Danny Wills and his 4th Year Architecture Studio</strong> for
-          their comprehensive compilation of historical resources
-        </CreditItem>
-        <CreditItem>
-          <strong>Jesse Vestermark</strong> for creating the Poly Canyon
-          Research Guide and preserving access to original theses
-        </CreditItem>
-        <CreditItem>
-          <strong>CAED Department</strong> for their collective knowledge and
-          ongoing contributions to documenting these structures
-        </CreditItem>
-      </CreditsList>
-    </CreditsSection>
+  useEffect(() => {
+    if (isMobile) {
+      const timer = setInterval(() => {
+        setActiveIndex((prev) => (prev + 1) % 3);
+      }, 3000);
+      return () => clearInterval(timer);
+    }
+  }, [isMobile]);
 
-    <Disclaimer>
-      <p>
-        While all information is sourced from primary and official
-        documentation, please note that some details may be incomplete or
-        subject to interpretation. This compilation puts forward a best effort
-        representation of the history of these structures, but should not be
-        considered definitive. To offer corrections or additional information,{' '}
-        <a
-          href="https://forms.office.com/r/r13RDrzxxS"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            color: '#376d31',
-            textDecoration: 'underline',
-            fontWeight: 600,
-            transition: 'all 0.2s ease',
-            '&:hover': {
-              color: '#2c5526',
-              textDecoration: 'none',
-            },
-          }}
-        >
-          submit your feedback
-        </a>
-      </p>
-    </Disclaimer>
-  </div>
-);
+  const sources = [
+    {
+      icon: <FaGraduationCap />,
+      title: 'Original Theses',
+    },
+    {
+      icon: <FaCamera />,
+      title: 'Historical Images',
+    },
+    {
+      icon: <FaNewspaper />,
+      title: 'Articles & Resources',
+    },
+  ];
 
-const ResearchInfo = ({ onClose }) => {
+  if (isMobile) {
+    return (
+      <div>
+        <IntroText>
+          Research comes from historical records and archives, but generally
+          falls into one of 3 categories:
+        </IntroText>
+
+        <CarouselContainer>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeIndex}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.3 }}
+            >
+              <SourceCard>
+                <IconWrapper>{sources[activeIndex].icon}</IconWrapper>
+                <SourceTitle>{sources[activeIndex].title}</SourceTitle>
+              </SourceCard>
+            </motion.div>
+          </AnimatePresence>
+        </CarouselContainer>
+
+        <CreditsSection>
+          <CreditsTitle>Special Thanks</CreditsTitle>
+          <CreditsList>
+            <CreditItem>
+              <strong>Danny Wills & 4th Year Studio</strong>
+              <br />
+              for extensive historical research
+            </CreditItem>
+            <CreditItem>
+              <strong>Jesse Vestermark</strong>
+              <br />
+              for preserving original theses
+            </CreditItem>
+            <CreditItem>
+              <strong>CAED Department</strong>
+              <br />
+              for ongoing documentation
+            </CreditItem>
+          </CreditsList>
+        </CreditsSection>
+
+        <Disclaimer>
+          <p>
+            Information comes from official documents but may be inaccurate or
+            incomplete.
+            <StyledLink
+              href="https://forms.office.com/r/r13RDrzxxS"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Submit corrections here
+            </StyledLink>
+          </p>
+        </Disclaimer>
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <IntroText>
+        The research into the structures at Poly Canyon comes directly from
+        historical records and archives. When these sources are directly
+        available, they have been linked in the &quot;Resources&quot; section at
+        the bottom of each structure&apos;s page. Generally they can be
+        categorized into the following 3 areas:
+      </IntroText>
+
+      <SourcesGrid>
+        <SourceCard>
+          <IconWrapper>
+            <FaGraduationCap />
+          </IconWrapper>
+          <SourceTitle>Original Theses</SourceTitle>
+        </SourceCard>
+
+        <SourceCard>
+          <IconWrapper>
+            <FaCamera />
+          </IconWrapper>
+          <SourceTitle>Historical Images</SourceTitle>
+        </SourceCard>
+
+        <SourceCard>
+          <IconWrapper>
+            <FaNewspaper />
+          </IconWrapper>
+          <SourceTitle>Articles & Resources</SourceTitle>
+        </SourceCard>
+      </SourcesGrid>
+
+      <CreditsSection>
+        <CreditsTitle>Special Thanks To</CreditsTitle>
+        <CreditsList>
+          <CreditItem>
+            <strong>Danny Wills and his 4th Year Architecture Studio</strong>{' '}
+            for their comprehensive compilation of historical resources
+          </CreditItem>
+          <CreditItem>
+            <strong>Jesse Vestermark</strong> for creating the Poly Canyon
+            Research Guide and preserving access to original theses
+          </CreditItem>
+          <CreditItem>
+            <strong>CAED Department</strong> for their collective knowledge and
+            ongoing contributions to documenting these structures
+          </CreditItem>
+        </CreditsList>
+      </CreditsSection>
+
+      <Disclaimer>
+        <p>
+          While all information is sourced from primary and official
+          documentation, please note that some details may be incomplete or
+          subject to interpretation. This compilation puts forward a best effort
+          representation of the history of these structures, but should not be
+          considered definitive. To offer corrections or additional information,{' '}
+          <StyledLink
+            href="https://forms.office.com/r/r13RDrzxxS"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            submit your feedback
+          </StyledLink>
+        </p>
+      </Disclaimer>
+    </div>
+  );
+};
+
+Content.propTypes = {
+  isMobile: PropTypes.bool.isRequired,
+};
+
+const ResearchInfo = ({ onClose, isMobile }) => {
   return (
     <Overlay onClick={onClose}>
-      <Container onClick={(e) => e.stopPropagation()}>
-        <Header>
-          <Title>How the Research Was Done</Title>
-          <CloseButton onClick={onClose}>
-            <FaTimes />
-          </CloseButton>
-        </Header>
-        <Content />
-      </Container>
+      {isMobile ? (
+        <MobileContainer onClick={(e) => e.stopPropagation()}>
+          <Header>
+            <Title style={{ fontSize: isMobile ? '24px' : '32px' }}>
+              Research & Sources
+            </Title>
+            <CloseButton onClick={onClose}>
+              <FaTimes />
+            </CloseButton>
+          </Header>
+          <Content isMobile={true} />
+        </MobileContainer>
+      ) : (
+        <Container onClick={(e) => e.stopPropagation()}>
+          <Header>
+            <Title>How the Research Was Done</Title>
+            <CloseButton onClick={onClose}>
+              <FaTimes />
+            </CloseButton>
+          </Header>
+          <Content isMobile={false} />
+        </Container>
+      )}
     </Overlay>
   );
+};
+
+ResearchInfo.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  isMobile: PropTypes.bool.isRequired,
 };
 
 export default ResearchInfo;
