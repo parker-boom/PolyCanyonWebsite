@@ -11,7 +11,13 @@ Imports
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { FaSearch, FaChevronDown, FaArrowRight, FaDice } from 'react-icons/fa';
+import {
+  FaSearch,
+  FaChevronDown,
+  FaArrowRight,
+  FaDice,
+  FaQuestion,
+} from 'react-icons/fa';
 
 // Styles
 import * as S from './Structures.styles.js';
@@ -19,6 +25,9 @@ import * as S from './Structures.styles.js';
 // Data & Images
 import { mainImages } from './images/structureImages.js';
 import { getStructuresList } from './data/structuresData.js';
+
+// ResearchInfo component
+import ResearchInfo from './ResearchInfo.js';
 
 /*
 Component
@@ -33,6 +42,8 @@ const StructureListMobile = () => {
     planned: true,
   });
   const [activeCardId, setActiveCardId] = useState(null);
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const [showResearchInfo, setShowResearchInfo] = useState(false);
 
   // Load structures list
   useEffect(() => {
@@ -147,17 +158,45 @@ const StructureListMobile = () => {
             <S.MobileSurpriseText>Surprise me!</S.MobileSurpriseText>
           </S.MobileSurpriseButton>
 
-          <S.MobileSearchSection>
-            <S.MobileSearchIcon>
-              <FaSearch />
-            </S.MobileSearchIcon>
-            <S.MobileSearchInput
-              type="text"
-              placeholder="Search structures..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          </S.MobileSearchSection>
+          <S.SearchAndInfoContainer>
+            <S.MobileSearchSection
+              style={{
+                flex: isSearchFocused ? '1' : 'initial',
+                transition: 'flex 0.3s ease',
+              }}
+            >
+              <S.MobileSearchIcon>
+                <FaSearch />
+              </S.MobileSearchIcon>
+              <S.MobileSearchInput
+                type="text"
+                placeholder="Search structures..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onFocus={() => setIsSearchFocused(true)}
+                onBlur={() => setIsSearchFocused(false)}
+              />
+            </S.MobileSearchSection>
+            <S.InfoButton
+              style={{
+                width: '48px',
+                height: '48px',
+                borderRadius: '50%',
+                padding: '0',
+                opacity: isSearchFocused ? 0 : 1,
+                visibility: isSearchFocused ? 'hidden' : 'visible',
+                transition: 'opacity 0.3s ease, visibility 0.3s ease',
+                marginLeft: isSearchFocused ? '-48px' : '0',
+              }}
+              onClick={() => setShowResearchInfo(true)}
+            >
+              <FaQuestion style={{ fontSize: '22px' }} />
+              <S.Tooltip className="tooltip" position="right">
+                Learn about
+                <br /> the research process
+              </S.Tooltip>
+            </S.InfoButton>
+          </S.SearchAndInfoContainer>
         </S.MobileSearchContainer>
 
         <S.StructuresContainer>
@@ -226,6 +265,13 @@ const StructureListMobile = () => {
           </S.ContactText>
         </S.ContactContainer>
       </S.MobilePageContainer>
+
+      {showResearchInfo && (
+        <ResearchInfo
+          onClose={() => setShowResearchInfo(false)}
+          isMobile={true}
+        />
+      )}
     </>
   );
 };

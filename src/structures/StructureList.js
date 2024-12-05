@@ -1,7 +1,6 @@
 /**
  * Need to:
- * 1. Re-enable sorting and filtering
- * 2. Ghost/Planned sections in the future (data first)
+ * 1. Re-enable sorting
  */
 
 /*

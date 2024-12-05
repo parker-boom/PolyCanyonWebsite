@@ -33,6 +33,7 @@ import {
 } from './images/structureImages.js';
 import { getStructuresList, getStructureInfo } from './data/structuresData.js';
 import * as S from './Structures.styles.js';
+import ResearchInfo from './ResearchInfo.js';
 
 /*
 Mobile-specific styled components extending base styles
@@ -112,19 +113,6 @@ const MobileLinksSection = styled(S.LinksSection)`
   border: 1px solid rgba(189, 139, 19, 0.15);
   position: relative;
   margin-top: 24px;
-
-  &::before {
-    content: 'Resources';
-    position: absolute;
-    top: -10px;
-    left: 24px;
-    background: #e8efe8; // Match parent background
-    padding: 0 12px;
-    color: #376d31;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-  }
 `;
 
 const MobileHeader = styled(MobileHeaderContainer)`
@@ -133,9 +121,18 @@ const MobileHeader = styled(MobileHeaderContainer)`
   justify-content: space-between;
   padding: 8px 10px;
   height: 64px;
-  background: #e8efe8;
-  border-bottom: 3px solid rgba(189, 139, 19, 0.15);
-  box-shadow: 0 2px 8px rgba(189, 139, 19, 0.15);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 248, 230, 0.95),
+    rgba(255, 245, 222, 0.9)
+  );
+  border-bottom: 2px solid rgba(189, 139, 19, 0.4);
+  box-shadow:
+    0 4px 16px rgba(189, 139, 19, 0.15),
+    0 2px 4px rgba(189, 139, 19, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 `;
 
 const MobileNumber = styled(S.StructureNumberBubble)`
@@ -388,6 +385,7 @@ const ResourcesGrid = styled.div`
   gap: 12px;
   width: 100%;
   padding: 4px;
+  margin-top: 12px;
 
   // Remove fixed height constraint
   max-height: none;
@@ -521,6 +519,29 @@ const SwipeableContent = styled(MobileMainContent)`
   -webkit-user-select: none;
 `;
 
+const ResourcesLabel = styled.div`
+  position: absolute;
+  top: -12px;
+  left: 24px;
+  background: rgba(255, 248, 230, 0.95);
+  padding: 4px 12px;
+  border-radius: 8px;
+  border: 1.5px solid rgba(189, 139, 19, 0.8);
+  color: rgba(189, 139, 19, 0.9);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 4px rgba(189, 139, 19, 0.1);
+
+  svg {
+    font-size: 12px;
+    margin-top: 1px;
+  }
+`;
+
 const StructureInfoMobile = () => {
   // Navigation
   const navigate = useNavigate();
@@ -541,6 +562,7 @@ const StructureInfoMobile = () => {
     currentPaths: [],
     adjacentPaths: { prev: [], next: [] },
   });
+  const [showResearchInfo, setShowResearchInfo] = useState(false);
 
   // Use the preloader hook
   const { imagesLoaded, loadedImages } = useImagePreloader(imagePaths);
@@ -1038,6 +1060,9 @@ const StructureInfoMobile = () => {
 
             {getValidLinks().length > 0 && (
               <MobileLinksSection>
+                <ResourcesLabel onClick={() => setShowResearchInfo(true)}>
+                  Resources <FaChevronRight />
+                </ResourcesLabel>
                 <ResourcesGrid itemCount={getValidLinks().length}>
                   {getValidLinks().map((link, index) => (
                     <ResourceBox
@@ -1084,6 +1109,12 @@ const StructureInfoMobile = () => {
             {structure.images[currentImageIndex].description}
           </ModalCaption>
         </ImageModal>
+      )}
+      {showResearchInfo && (
+        <ResearchInfo
+          onClose={() => setShowResearchInfo(false)}
+          isMobile={true}
+        />
       )}
     </MobileInfoPageWrapper>
   );
