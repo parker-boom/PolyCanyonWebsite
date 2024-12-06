@@ -402,10 +402,10 @@ const StructureInfo = () => {
       {structure && (
         <Helmet>
           {/* Basic metadata */}
-          <title>{structure.names[0]}</title>
+          <title>{structure.names[0]} - Poly Canyon Structure</title>
           <meta
             name="description"
-            content={structure.description.slice(0, 155) + '...'}
+            content={`Explore the history and details of ${structure.names[0]}, a unique student-built structure in Poly Canyon. View images, learn about its construction, and discover its architectural significance.`}
           />
           <meta
             name="keywords"
@@ -420,21 +420,21 @@ const StructureInfo = () => {
           />
 
           {/* OpenGraph metadata with image */}
-          <meta property="og:title" content={structure.names[0]} />
+          <meta
+            property="og:title"
+            content={`${structure.names[0]} - Poly Canyon Structure`}
+          />
           <meta
             property="og:description"
-            content={structure.description.slice(0, 155) + '...'}
+            content={`Explore the history and details of ${structure.names[0]}, a unique student-built structure in Poly Canyon. View images, learn about its construction, and discover its architectural significance.`}
           />
           <meta
             property="og:url"
             content={`https://polycanyon.com/structures/${structure.url}`}
           />
+          <meta property="og:type" content="article" />
           {structure?.images?.[0]?.path && (
             <>
-              <meta
-                property="og:image"
-                content={getImagePath(structure.images[0].path)}
-              />
               <meta
                 property="og:image"
                 content={`https://polycanyon.com${getImagePath(structure.images[0].path)}`}
@@ -446,15 +446,18 @@ const StructureInfo = () => {
 
           {/* Twitter metadata with image */}
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content={structure.names[0]} />
+          <meta
+            name="twitter:title"
+            content={`${structure.names[0]} - Poly Canyon Structure`}
+          />
           <meta
             name="twitter:description"
-            content={structure.description.slice(0, 155) + '...'}
+            content={`Explore the history and details of ${structure.names[0]}, a unique student-built structure in Poly Canyon. View images, learn about its construction, and discover its architectural significance.`}
           />
           {structure?.images?.[0]?.path && (
             <meta
               name="twitter:image"
-              content={getImagePath(structure.images[0].path)}
+              content={`https://polycanyon.com${getImagePath(structure.images[0].path)}`}
             />
           )}
         </Helmet>

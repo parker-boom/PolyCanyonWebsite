@@ -212,6 +212,27 @@ const Structures = () => {
           name="description"
           content="Explore and learn about the student-built structures in Poly Canyon."
         />
+        <meta property="og:title" content="Poly Canyon Structures" />
+        <meta
+          property="og:description"
+          content="Explore and learn about the student-built structures in Poly Canyon."
+        />
+        <meta property="og:url" content="https://polycanyon.com/structures" />
+        <meta
+          property="og:image"
+          content="https://polycanyon.com/sharePNG/ogstructures.png"
+        />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Poly Canyon Structures" />
+        <meta
+          name="twitter:description"
+          content="Explore and learn about the student-built structures in Poly Canyon."
+        />
+        <meta
+          name="twitter:image"
+          content="https://polycanyon.com/sharePNG/twitstructures.png"
+        />
       </Helmet>
 
       <S.PageContainer>
