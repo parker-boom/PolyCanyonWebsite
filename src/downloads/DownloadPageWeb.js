@@ -53,19 +53,11 @@ const DownloadPageWeb = () => {
           property="og:description"
           content="Explore the unique student-built structures and projects from anywhere. Experience the area through the app, available for iOS and Android."
         />
-        <meta
-          property="og:image"
-          content="https://polycanyon.com/sharePNG/ogdownload.png"
-        />
         <meta property="og:url" content="https://polycanyon.com/download" />
         <meta name="twitter:title" content="Download the Poly Canyon App" />
         <meta
           name="twitter:description"
           content="Explore the unique student-built structures and projects from anywhere. Experience the area through the app, available for iOS and Android."
-        />
-        <meta
-          name="twitter:image"
-          content="https://polycanyon.com/sharePNG/twitdownload.png"
         />
       </Helmet>
 

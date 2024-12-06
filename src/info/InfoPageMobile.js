@@ -354,10 +354,6 @@ const InfoPage = () => {
           property="og:description"
           content="Uncover the details of this outdoor architectural space and see how the app enhances your visit with an interactive experience."
         />
-        <meta
-          property="og:image"
-          content="https://polycanyon.com/sharePNG/oginfo.png"
-        />
         <meta property="og:url" content="https://polycanyon.com/info" />
         <meta
           name="twitter:title"
@@ -366,10 +362,6 @@ const InfoPage = () => {
         <meta
           name="twitter:description"
           content="Uncover the details of this outdoor architectural space and see how the app enhances your visit with an interactive experience."
-        />
-        <meta
-          name="twitter:image"
-          content="https://polycanyon.com/sharePNG/twitinfo.png"
         />
       </Helmet>
 

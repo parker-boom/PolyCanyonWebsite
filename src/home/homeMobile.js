@@ -65,10 +65,6 @@ const HomeMobile = () => {
         />
         <meta property="og:url" content="https://polycanyon.com" />
         <meta property="og:type" content="website" />
-        <meta
-          property="og:image"
-          content="https://polycanyon.com/sharePNG/OGDefault.png"
-        />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
@@ -77,10 +73,6 @@ const HomeMobile = () => {
         <meta
           name="twitter:description"
           content="Discover Poly Canyon's unique architectural structures through our interactive app, educational resources, and detailed research materials."
-        />
-        <meta
-          name="twitter:image"
-          content="https://polycanyon.com/sharePNG/TwitDefault.png"
         />
       </Helmet>
 

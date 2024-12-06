@@ -419,7 +419,7 @@ const StructureInfo = () => {
             ].join(', ')}
           />
 
-          {/* OpenGraph metadata with image */}
+          {/* OpenGraph metadata */}
           <meta
             property="og:title"
             content={`${structure.names[0]} - Poly Canyon Structure`}
@@ -433,18 +433,8 @@ const StructureInfo = () => {
             content={`https://polycanyon.com/structures/${structure.url}`}
           />
           <meta property="og:type" content="article" />
-          {structure?.images?.[0]?.path && (
-            <>
-              <meta
-                property="og:image"
-                content={`https://polycanyon.com${getImagePath(structure.images[0].path)}`}
-              />
-              <meta property="og:image:width" content="1200" />
-              <meta property="og:image:height" content="630" />
-            </>
-          )}
 
-          {/* Twitter metadata with image */}
+          {/* Twitter metadata */}
           <meta name="twitter:card" content="summary_large_image" />
           <meta
             name="twitter:title"
@@ -454,12 +444,6 @@ const StructureInfo = () => {
             name="twitter:description"
             content={`Explore the history and details of ${structure.names[0]}, a unique student-built structure in Poly Canyon. View images, learn about its construction, and discover its architectural significance.`}
           />
-          {structure?.images?.[0]?.path && (
-            <meta
-              name="twitter:image"
-              content={`https://polycanyon.com${getImagePath(structure.images[0].path)}`}
-            />
-          )}
         </Helmet>
       )}
 
