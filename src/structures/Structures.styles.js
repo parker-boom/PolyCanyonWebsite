@@ -2138,7 +2138,7 @@ export const SurpriseText = styled.div`
   align-items: center;
   color: rgba(255, 255, 255, 0.95);
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.3px;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
@@ -2147,6 +2147,7 @@ export const SurpriseText = styled.div`
 
   ${IntegratedSurpriseButton}:hover & {
     color: rgba(189, 139, 19, 0.95);
+    font-size: 22px;
   }
 `;
 
