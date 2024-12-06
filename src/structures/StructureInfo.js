@@ -13,6 +13,7 @@ import {
   FaArrowRight,
   FaExpandArrowsAlt,
   FaQuestion,
+  FaShareSquare,
 } from 'react-icons/fa';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -277,20 +278,49 @@ const StructureInfo = () => {
     return structure.links.filter((link) => link.URL !== 'https://google.com');
   };
 
-  // Add ref for image section
+  // Measure image container height
   const imageContainerRef = useRef(null);
   const [imageHeight, setImageHeight] = useState(null);
 
-  // Add effect to measure image container height
+  // Measure image container height
   useEffect(() => {
     if (imageContainerRef.current) {
       setImageHeight(imageContainerRef.current.offsetHeight);
     }
   }, [structure, descriptionExpanded]); // Re-measure when description expands/collapses
 
-  // Add toggle handler
+  // Toggle fullscreen mode
   const toggleFullscreen = () => {
     setIsFullscreenMode(!isFullscreenMode);
+  };
+
+  // Share function with API if available, otherwise fallback to copying URL
+  const handleShare = async () => {
+    const shareUrl = `https://polycanyon.com/structures/${structure.url}`;
+    const shareText = 'Check out this structure in Poly Canyon!';
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: structure.names[0],
+          text: shareText,
+          url: shareUrl,
+        });
+      } catch (error) {
+        // Don't show error if user just cancelled share
+        if (error.name !== 'AbortError') {
+          // Fallback to copying URL
+          await navigator.clipboard.writeText(shareUrl);
+        }
+      }
+    } else {
+      // Fallback for browsers that don't support sharing
+      try {
+        await navigator.clipboard.writeText(shareUrl);
+      } catch (error) {
+        console.error('Failed to copy URL:', error);
+      }
+    }
   };
 
   // Modify the loading state to keep header visible
@@ -333,7 +363,11 @@ const StructureInfo = () => {
                 <FaArrowLeft />
               </S.NavigationOverlay>
 
-              <S.StructureTitleInfo>{structure.names[0]}</S.StructureTitleInfo>
+              <S.TitleAndShareContainer>
+                <S.StructureTitleInfo>
+                  {structure.names[0]}
+                </S.StructureTitleInfo>
+              </S.TitleAndShareContainer>
 
               <S.NavigationOverlay
                 side="right"
@@ -371,10 +405,8 @@ const StructureInfo = () => {
           <title>{structure.names[0]}</title>
           <meta
             name="description"
-            content="Discover this iconic structure in Poly Canyon and learn about its unique history"
+            content={structure.description.slice(0, 155) + '...'}
           />
-
-          {/* Keywords combining structure-specific tags with default keywords */}
           <meta
             name="keywords"
             content={[
@@ -387,19 +419,44 @@ const StructureInfo = () => {
             ].join(', ')}
           />
 
-          {/* OpenGraph metadata */}
+          {/* OpenGraph metadata with image */}
           <meta property="og:title" content={structure.names[0]} />
           <meta
             property="og:description"
-            content="Discover this iconic structure in Poly Canyon and learn about its unique history"
+            content={structure.description.slice(0, 155) + '...'}
           />
+          <meta
+            property="og:url"
+            content={`https://polycanyon.com/structures/${structure.url}`}
+          />
+          {structure?.images?.[0]?.path && (
+            <>
+              <meta
+                property="og:image"
+                content={getImagePath(structure.images[0].path)}
+              />
+              <meta
+                property="og:image"
+                content={`https://polycanyon.com${getImagePath(structure.images[0].path)}`}
+              />
+              <meta property="og:image:width" content="1200" />
+              <meta property="og:image:height" content="630" />
+            </>
+          )}
 
-          {/* Twitter metadata */}
+          {/* Twitter metadata with image */}
+          <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:title" content={structure.names[0]} />
           <meta
             name="twitter:description"
-            content="Discover this iconic structure in Poly Canyon and learn about its unique history"
+            content={structure.description.slice(0, 155) + '...'}
           />
+          {structure?.images?.[0]?.path && (
+            <meta
+              name="twitter:image"
+              content={getImagePath(structure.images[0].path)}
+            />
+          )}
         </Helmet>
       )}
 
@@ -424,7 +481,11 @@ const StructureInfo = () => {
                 <FaArrowLeft />
               </S.NavigationOverlay>
 
-              <S.StructureTitleInfo>{structure.names[0]}</S.StructureTitleInfo>
+              <S.TitleAndShareContainer>
+                <S.StructureTitleInfo>
+                  {structure.names[0]}
+                </S.StructureTitleInfo>
+              </S.TitleAndShareContainer>
 
               <S.NavigationOverlay
                 side="right"
@@ -596,6 +657,12 @@ const StructureInfo = () => {
                   {/* Info Cards Section: Quick Facts, scrollable, matches height of image/description */}
                   {descriptionExpanded ? (
                     <S.InfoCardsSectionExpanded imageHeight={imageHeight}>
+                      <S.ShareButton
+                        onClick={handleShare}
+                        aria-label="Share structure"
+                      >
+                        <FaShareSquare />
+                      </S.ShareButton>
                       <S.SectionTitleInfo>Quick Facts</S.SectionTitleInfo>
 
                       {/* Year Card */}
@@ -706,6 +773,12 @@ const StructureInfo = () => {
                     </S.InfoCardsSectionExpanded>
                   ) : (
                     <S.InfoCardsSection>
+                      <S.ShareButton
+                        onClick={handleShare}
+                        aria-label="Share structure"
+                      >
+                        <FaShareSquare />
+                      </S.ShareButton>
                       <S.SectionTitleInfo>Quick Facts</S.SectionTitleInfo>
 
                       {/* Year Card */}

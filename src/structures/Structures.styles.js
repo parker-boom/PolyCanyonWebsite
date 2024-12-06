@@ -1260,6 +1260,7 @@ export const InfoCardsSection = styled.div`
   box-sizing: border-box;
   transition: all 0.3s ease;
   margin-top: 10px;
+  position: relative; // Added this to position the share button
 
   &::before {
     content: '';
@@ -1483,7 +1484,6 @@ export const StructureNumberBubble = styled.div`
 `;
 
 export const StructureTitleInfo = styled.div`
-  flex-grow: 1;
   font-size: 42px;
   font-weight: 800;
   text-align: center;
@@ -1491,10 +1491,8 @@ export const StructureTitleInfo = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 80px;
   transition: all 0.3s ease;
   letter-spacing: -0.5px;
-  position: relative;
   text-shadow:
     0 1px 1px rgba(255, 255, 255, 0.8),
     0 2px 3px rgba(55, 109, 49, 0.2),
@@ -2496,5 +2494,92 @@ export const CircleInfoButton = styled.button`
 
   &:active {
     transform: translateY(0);
+  }
+`;
+
+export const ShareButton = styled.button`
+  height: 36px;
+  padding: 0 12px;
+  background: linear-gradient(135deg, #376d31, #2c5526);
+  border: 2px solid rgba(189, 139, 19, 0.3);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  box-shadow: 0 2px 8px rgba(55, 109, 49, 0.15);
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+
+  svg {
+    font-size: 14px;
+    transition: all 0.2s ease;
+  }
+
+  &::after {
+    content: 'Share';
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    transition: all 0.2s ease;
+  }
+
+  &:hover {
+    background: linear-gradient(135deg, #2c5526, #1e3a1a);
+    border-color: rgba(189, 139, 19, 0.5);
+    transform: translateY(-1px);
+    box-shadow:
+      0 4px 12px rgba(55, 109, 49, 0.2),
+      0 2px 4px rgba(55, 109, 49, 0.15);
+
+    svg {
+      color: rgba(189, 139, 19, 0.9);
+    }
+
+    &::after {
+      color: rgba(189, 139, 19, 0.9);
+    }
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+`;
+
+// Add this new container
+export const TitleAndShareContainer = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  gap: 10px;
+  padding: 0 80px;
+`;
+
+// Add this mobile-specific variant of the share button
+export const MobileDescriptionContainer = styled(DescriptionContainer)`
+  border-radius: 24px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  width: 95%;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 248, 230, 0.9),
+    rgba(255, 245, 222, 0.85)
+  );
+  border: 1px solid rgba(189, 139, 19, 0.15);
+  box-shadow:
+    0 4px 16px rgba(55, 109, 49, 0.15),
+    0 2px 4px rgba(55, 109, 49, 0.1);
+  position: relative; // Added this
+
+  &:hover {
+    transform: none;
   }
 `;

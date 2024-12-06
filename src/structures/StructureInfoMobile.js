@@ -15,6 +15,7 @@ import {
   FaBook,
   FaGlobe,
   FaCamera,
+  FaShareSquare,
 } from 'react-icons/fa';
 import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
@@ -90,6 +91,7 @@ const MobileDescriptionContainer = styled(S.DescriptionContainer)`
   box-shadow:
     0 4px 16px rgba(55, 109, 49, 0.15),
     0 2px 4px rgba(55, 109, 49, 0.1);
+  position: relative;
 
   &:hover {
     transform: none;
@@ -542,6 +544,49 @@ const ResourcesLabel = styled.div`
   }
 `;
 
+const MobileShareButton = styled(S.ShareButton)`
+  height: 32px;
+  padding: 0 10px;
+  border-radius: 16px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+
+  svg {
+    font-size: 12px;
+  }
+
+  &::after {
+    font-size: 13px;
+  }
+
+  /* Override hover states from parent */
+  &:hover {
+    transform: none;
+    background: linear-gradient(135deg, #376d31, #2c5526);
+    border-color: rgba(189, 139, 19, 0.3);
+    box-shadow: 0 2px 8px rgba(55, 109, 49, 0.15);
+
+    svg,
+    &::after {
+      color: rgba(255, 255, 255, 0.9);
+    }
+  }
+
+  /* Add touch-friendly active state */
+  &:active {
+    transform: scale(0.95);
+    background: linear-gradient(135deg, #2c5526, #1e3a1a);
+    border-color: rgba(189, 139, 19, 0.5);
+
+    svg,
+    &::after {
+      color: rgba(189, 139, 19, 0.9);
+    }
+  }
+`;
+
 const StructureInfoMobile = () => {
   // Navigation
   const navigate = useNavigate();
@@ -803,6 +848,35 @@ const StructureInfoMobile = () => {
     }
   );
 
+  // Share function with API if available, otherwise fallback to copying URL
+  const handleShare = async () => {
+    const shareUrl = `https://polycanyon.com/structures/${structure.url}`;
+    const shareText = 'Check out this structure in Poly Canyon!';
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: structure.names[0],
+          text: shareText,
+          url: shareUrl,
+        });
+      } catch (error) {
+        // Don't show error if user just cancelled share
+        if (error.name !== 'AbortError') {
+          // Fallback to copying URL
+          await navigator.clipboard.writeText(shareUrl);
+        }
+      }
+    } else {
+      // Fallback for browsers that don't support sharing
+      try {
+        await navigator.clipboard.writeText(shareUrl);
+      } catch (error) {
+        console.error('Failed to copy URL:', error);
+      }
+    }
+  };
+
   // Loading state
   if (!structure || !structureNumber) {
     return (
@@ -854,10 +928,8 @@ const StructureInfoMobile = () => {
           <title>{structure.names[0]}</title>
           <meta
             name="description"
-            content="Discover this iconic structure in Poly Canyon and learn about its unique history"
+            content={structure.description.slice(0, 155) + '...'}
           />
-
-          {/* Keywords combining structure-specific tags with default keywords */}
           <meta
             name="keywords"
             content={[
@@ -870,19 +942,44 @@ const StructureInfoMobile = () => {
             ].join(', ')}
           />
 
-          {/* OpenGraph metadata */}
+          {/* OpenGraph metadata with image */}
           <meta property="og:title" content={structure.names[0]} />
           <meta
             property="og:description"
-            content="Discover this iconic structure in Poly Canyon and learn about its unique history"
+            content={structure.description.slice(0, 155) + '...'}
           />
+          <meta
+            property="og:url"
+            content={`https://polycanyon.com/structures/${structure.url}`}
+          />
+          {structure?.images?.[0]?.path && (
+            <>
+              <meta
+                property="og:image"
+                content={getImagePath(structure.images[0].path)}
+              />
+              <meta
+                property="og:image"
+                content={`https://polycanyon.com${getImagePath(structure.images[0].path)}`}
+              />
+              <meta property="og:image:width" content="1200" />
+              <meta property="og:image:height" content="630" />
+            </>
+          )}
 
-          {/* Twitter metadata */}
+          {/* Twitter metadata with image */}
+          <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:title" content={structure.names[0]} />
           <meta
             name="twitter:description"
-            content="Discover this iconic structure in Poly Canyon and learn about its unique history"
+            content={structure.description.slice(0, 155) + '...'}
           />
+          {structure?.images?.[0]?.path && (
+            <meta
+              name="twitter:image"
+              content={getImagePath(structure.images[0].path)}
+            />
+          )}
         </Helmet>
       )}
 
@@ -949,6 +1046,12 @@ const StructureInfoMobile = () => {
             )}
 
             <MobileDescriptionContainer>
+              <MobileShareButton
+                onClick={handleShare}
+                aria-label="Share structure"
+              >
+                <FaShareSquare />
+              </MobileShareButton>
               <S.SectionTitleInfo>About</S.SectionTitleInfo>
               <S.DescriptionText expanded={descriptionExpanded}>
                 <p>{structure.description}</p>
