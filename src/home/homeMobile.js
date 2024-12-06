@@ -55,6 +55,33 @@ const HomeMobile = () => {
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
+        <meta
+          property="og:title"
+          content="Poly Canyon - Student Built Architectural Laboratory"
+        />
+        <meta
+          property="og:description"
+          content="Discover Poly Canyon's unique architectural structures through our interactive app, educational resources, and detailed research materials."
+        />
+        <meta property="og:url" content="https://polycanyon.com" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://polycanyon.com/sharePNG/OGDefault.png"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Poly Canyon - Student Built Architectural Laboratory"
+        />
+        <meta
+          name="twitter:description"
+          content="Discover Poly Canyon's unique architectural structures through our interactive app, educational resources, and detailed research materials."
+        />
+        <meta
+          name="twitter:image"
+          content="https://polycanyon.com/sharePNG/TwitDefault.png"
+        />
       </Helmet>
 
       <HomeContainer>
