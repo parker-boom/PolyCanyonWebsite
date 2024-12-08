@@ -14,18 +14,16 @@ import { Helmet } from 'react-helmet-async';
 import {
   FaSearch,
   FaChevronDown,
-  //FaSortAmountDown,
-  //FaSortAmountUp,
-  //FaExchangeAlt,
+  FaSortAmountDown,
+  FaSortAmountUp,
   FaArrowRight,
-  //FaSort,
-  //FaCalendarAlt,
-  //FaMapMarkerAlt,
+  FaCalendarAlt,
+  FaMapMarkerAlt,
   FaDice,
   FaImage,
   FaQuestion,
+  FaHashtag,
 } from 'react-icons/fa';
-//import { RiSparklingFill } from 'react-icons/ri'; (uncomment later when AI feature ready)
 
 // Styles
 import * as S from './Structures.styles.js';
@@ -45,21 +43,27 @@ const Structures = () => {
   const [error, setError] = useState(null);
 
   const [searchQuery, setSearchQuery] = useState('');
-  //const [sortOpen, setSortOpen] = useState(false);
-  //const [currentSort, setCurrentSort] = useState('Number');
-  //const [sortAscending, setSortAscending] = useState(true);
+  const [currentSort, setCurrentSort] = useState('Number');
+  const [sortAscending, setSortAscending] = useState(true);
   const [sectionsOpen, setSectionsOpen] = useState({
     active: true,
     ghost: true,
     planned: true,
   });
 
-  //const [dropdownPosition, setDropdownPosition] = useState({ top: 0, left: 0 });
-
   const { initialBatchLoaded, loadedImages } =
     useListImagePreloader(structures);
 
   const [showResearchInfo, setShowResearchInfo] = useState(false);
+
+  // Add hover state
+  const [hoveredSort, setHoveredSort] = useState(null);
+
+  // Move debug useEffect up here with other hooks
+  useEffect(() => {
+    console.log('Current sort:', currentSort);
+    console.log('Sort ascending:', sortAscending);
+  }, [currentSort, sortAscending]);
 
   // Load structures list
   useEffect(() => {
@@ -72,28 +76,11 @@ const Structures = () => {
     }
   }, []);
 
-  // Get sorted structures (disabled for now)
-  const getSortedStructures = () => {
-    if (!structures.length) return [];
-
-    return numberList.filter((number) => {
-      const structure = structures.find((s) => s.number === number);
-      return (
-        structure.number.toString().includes(searchQuery.toLowerCase()) ||
-        structure.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        structure.description?.toLowerCase().includes(searchQuery.toLowerCase())
-      );
-    });
-  };
-
   // Default list is just numerical
   const numberList = structures.map((structure) => structure.number);
 
-  /*
-  DISABLED SORTING FEATURE FOR NOW
-
   const yearList = [
-    7, 3, 12, 16, 11, 9, 2, 26, 24, 29, 1, 14, 15, 10, 19, 25, 28, 8, 13, 17, 6,
+    3, 7, 24, 12, 16, 29, 11, 26, 9, 2, 1, 14, 15, 10, 25, 19, 28, 8, 13, 17, 6,
     20, 21, 22, 5, 18, 4, 23, 27, 30,
   ];
 
@@ -126,27 +113,16 @@ const Structures = () => {
         const structure = structures.find((s) => s.number === number);
         return (
           structure.number.toString().includes(searchQuery.toLowerCase()) ||
-          structure.title.toLowerCase().includes(searchQuery.toLowerCase())
+          structure.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          structure.description
+            ?.toLowerCase()
+            .includes(searchQuery.toLowerCase())
         );
       });
     }
 
-    return sortAscending ? sortedList : sortedList.reverse();
+    return sortAscending ? sortedList : [...sortedList].reverse();
   };
-
-
-  const toggleSortDirection = () => {
-    setSortAscending(!sortAscending);
-  };
-
-  const handleSortClick = (event) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    setDropdownPosition({
-      top: rect.bottom + window.scrollY,
-      left: rect.left + window.scrollX,
-    });
-    setSortOpen(true);
-  }; */
 
   // Toggle section visibility (active, ghost, planned)
   const toggleSection = (section) => {
@@ -287,72 +263,48 @@ const Structures = () => {
                 </S.SectionToggle>
               </S.SectionTitleContainer>
 
-              {/* SORTING DISABLED FOR NOW
               <S.ControlGroup>
-                <S.SortButton
-                  onClick={handleSortClick}
-                  ascending={sortAscending}
-                >
+                <S.SortButtonGroup>
+                  <S.SortOption
+                    onClick={() => setCurrentSort('Number')}
+                    selected={currentSort === 'Number'}
+                    onMouseEnter={() => setHoveredSort('Number')}
+                    onMouseLeave={() => setHoveredSort(null)}
+                    $hovered={hoveredSort === 'Number'}
+                    $anyHovered={hoveredSort !== null}
+                  >
+                    <FaHashtag />
+                    <span>Number</span>
+                  </S.SortOption>
+                  <S.SortOption
+                    onClick={() => setCurrentSort('Year')}
+                    selected={currentSort === 'Year'}
+                    onMouseEnter={() => setHoveredSort('Year')}
+                    onMouseLeave={() => setHoveredSort(null)}
+                    $hovered={hoveredSort === 'Year'}
+                    $anyHovered={hoveredSort !== null}
+                  >
+                    <FaCalendarAlt />
+                    <span>Year</span>
+                  </S.SortOption>
+                  <S.SortOption
+                    onClick={() => setCurrentSort('Location')}
+                    selected={currentSort === 'Location'}
+                    onMouseEnter={() => setHoveredSort('Location')}
+                    onMouseLeave={() => setHoveredSort(null)}
+                    $hovered={hoveredSort === 'Location'}
+                    $anyHovered={hoveredSort !== null}
+                  >
+                    <FaMapMarkerAlt />
+                    <span>Location</span>
+                  </S.SortOption>
                   <S.DirectionToggle
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      toggleSortDirection();
-                    }}
+                    onClick={() => setSortAscending(!sortAscending)}
                   >
                     {sortAscending ? <FaSortAmountUp /> : <FaSortAmountDown />}
                   </S.DirectionToggle>
-                  <span>{currentSort}</span>
-                  <FaChevronDown />
-                </S.SortButton>
-                {sortOpen && (
-                  <S.EnhancedDropdownMenu
-                    top={dropdownPosition.top}
-                    left={dropdownPosition.left}
-                  >
-                    <S.DropdownItem
-                      onClick={() => {
-                        setCurrentSort('Number');
-                        setSortOpen(false);
-                      }}
-                      selected={currentSort === 'Number'}
-                    >
-                      <FaSort />
-                      Number
-                    </S.DropdownItem>
-                    <S.DropdownItem
-                      onClick={() => {
-                        setCurrentSort('Year');
-                        setSortOpen(false);
-                      }}
-                      selected={currentSort === 'Year'}
-                    >
-                      <FaCalendarAlt />
-                      Year
-                    </S.DropdownItem>
-                    <S.DropdownItem
-                      onClick={() => {
-                        setCurrentSort('Location');
-                        setSortOpen(false);
-                      }}
-                      selected={currentSort === 'Location'}
-                    >
-                      <FaMapMarkerAlt />
-                      Location
-                    </S.DropdownItem>
-                    <S.SortDirectionToggle
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        toggleSortDirection();
-                        setSortOpen(false);
-                      }}
-                    >
-                      <span>{sortAscending ? 'Ascending' : 'Descending'}</span>
-                      <FaExchangeAlt />
-                    </S.SortDirectionToggle>
-                  </S.EnhancedDropdownMenu>
-                )}
+                </S.SortButtonGroup>
               </S.ControlGroup>
-              */}
 
               {/* Active Structures List */}
             </S.SectionHeader>
