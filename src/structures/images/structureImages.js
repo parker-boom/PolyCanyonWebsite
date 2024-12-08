@@ -67,13 +67,18 @@ import C29 from './close/C-29.jpg';
 import C30 from './close/C-30.jpg';
 
 // Other images
+import blade1 from './other/blade1.jpg';
+import blade2 from './other/blade2.jpg';
 import bridgeHouse1 from './other/bridgeHouse1.jpg';
 import bridgeHouse2 from './other/bridgeHouse2.jpg';
 import bridgeHouse3 from './other/bridgeHouse3.jpg';
+import bridgeHouse4 from './other/bridgeHouse4.jpg';
+import bridgeHouse5 from './other/bridgeHouse5.jpg';
 import cantileverDeck1 from './other/cantileverDeck1.jpg';
 import cantileverDeck2 from './other/cantileverDeck2.jpg';
 import cantileverDeck3 from './other/cantileverDeck3.jpg';
 import cantileverDeck4 from './other/cantileverDeck4.jpg';
+import cantileverDeck5 from './other/cantileverDeck5.jpg';
 import centeringCenter1 from './other/centeringCenter1.jpg';
 import centeringCenter2 from './other/centeringCenter2.jpg';
 import centeringCenter3 from './other/centeringCenter3.jpg';
@@ -95,6 +100,10 @@ import greenHouse3 from './other/greenHouse3.jpg';
 import guniteBridge1 from './other/guniteBridge1.jpg';
 import modularHouse1 from './other/modularHouse1.jpg';
 import modularHouse2 from './other/modularHouse2.jpg';
+import modularHouse3 from './other/modularHouse3.jpg';
+import modularHouse4 from './other/modularHouse4.jpg';
+import modularHouse5 from './other/modularHouse5.jpg';
+import modularHouse6 from './other/modularHouse6.jpg';
 import momentMonument1 from './other/momentMonument1.jpg';
 import momentMonument2 from './other/momentMonument2.jpg';
 import momentMonument3 from './other/momentMonument3.jpg';
@@ -111,6 +120,8 @@ import shellHouse1 from './other/shellHouse1.jpg';
 import shellHouse2 from './other/shellHouse2.jpg';
 import shellHouse3 from './other/shellHouse3.jpg';
 import shellHouse4 from './other/shellHouse4.jpg';
+import spireArray1 from './other/spireArray1.jpg';
+import spireArray2 from './other/spireArray2.jpg';
 import stickStructure1 from './other/stickStructure1.jpg';
 import stickStructure2 from './other/stickStructure2.jpg';
 import stickStructure3 from './other/stickStructure3.jpg';
@@ -209,13 +220,18 @@ export const closeUpImages = {
 
 // Other images
 export const otherImages = {
+  blade1,
+  blade2,
   bridgeHouse1,
   bridgeHouse2,
   bridgeHouse3,
+  bridgeHouse4,
+  bridgeHouse5,
   cantileverDeck1,
   cantileverDeck2,
   cantileverDeck3,
   cantileverDeck4,
+  cantileverDeck5,
   centeringCenter1,
   centeringCenter2,
   centeringCenter3,
@@ -237,6 +253,10 @@ export const otherImages = {
   guniteBridge1,
   modularHouse1,
   modularHouse2,
+  modularHouse3,
+  modularHouse4,
+  modularHouse5,
+  modularHouse6,
   momentMonument1,
   momentMonument2,
   momentMonument3,
@@ -253,6 +273,8 @@ export const otherImages = {
   shellHouse2,
   shellHouse3,
   shellHouse4,
+  spireArray1,
+  spireArray2,
   stickStructure1,
   stickStructure2,
   stickStructure3,
