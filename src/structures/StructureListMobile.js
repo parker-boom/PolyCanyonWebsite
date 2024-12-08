@@ -17,6 +17,11 @@ import {
   FaArrowRight,
   FaDice,
   FaQuestion,
+  FaHashtag,
+  FaCalendarAlt,
+  FaMapMarkerAlt,
+  FaSortAmountUp,
+  FaSortAmountDown,
 } from 'react-icons/fa';
 
 // Styles
@@ -44,6 +49,8 @@ const StructureListMobile = () => {
   const [activeCardId, setActiveCardId] = useState(null);
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [showResearchInfo, setShowResearchInfo] = useState(false);
+  const [currentSort, setCurrentSort] = useState('Number');
+  const [sortAscending, setSortAscending] = useState(true);
 
   // Load structures list
   useEffect(() => {
@@ -56,18 +63,51 @@ const StructureListMobile = () => {
     }
   }, []);
 
-  // Filter structures based on search
+  // Add the sorting arrays
+  const yearList = [
+    3, 7, 24, 12, 16, 29, 11, 26, 9, 2, 1, 14, 15, 10, 25, 19, 28, 8, 13, 17, 6,
+    20, 21, 22, 5, 18, 4, 23, 27, 30,
+  ];
+
+  const locationList = [
+    17, 16, 18, 15, 19, 13, 14, 20, 21, 12, 11, 22, 23, 10, 24, 25, 9, 26, 8,
+    27, 7, 28, 6, 5, 29, 4, 30, 3, 2, 1,
+  ];
+
+  // Update getSortedStructures to handle sorting
   const getSortedStructures = () => {
     if (!structures.length) return [];
 
-    return numberList.filter((number) => {
-      const structure = structures.find((s) => s.number === number);
-      return (
-        structure.number.toString().includes(searchQuery.toLowerCase()) ||
-        structure.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        structure.description?.toLowerCase().includes(searchQuery.toLowerCase())
-      );
-    });
+    let sortedList;
+
+    switch (currentSort) {
+      case 'Number':
+        sortedList = [...numberList];
+        break;
+      case 'Year':
+        sortedList = [...yearList];
+        break;
+      case 'Location':
+        sortedList = [...locationList];
+        break;
+      default:
+        sortedList = [...numberList];
+    }
+
+    if (searchQuery) {
+      sortedList = sortedList.filter((number) => {
+        const structure = structures.find((s) => s.number === number);
+        return (
+          structure.number.toString().includes(searchQuery.toLowerCase()) ||
+          structure.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          structure.description
+            ?.toLowerCase()
+            .includes(searchQuery.toLowerCase())
+        );
+      });
+    }
+
+    return sortAscending ? sortedList : [...sortedList].reverse();
   };
 
   const numberList = structures.map((structure) => structure.number);
@@ -222,6 +262,37 @@ const StructureListMobile = () => {
                 </S.SectionToggle>
               </S.SectionTitleContainer>
             </S.SectionHeader>
+
+            <S.MobileSortContainer>
+              <S.MobileSortOptions>
+                <S.MobileSortOption
+                  onClick={() => setCurrentSort('Number')}
+                  selected={currentSort === 'Number'}
+                >
+                  <FaHashtag />
+                  <span>Number</span>
+                </S.MobileSortOption>
+                <S.MobileSortOption
+                  onClick={() => setCurrentSort('Year')}
+                  selected={currentSort === 'Year'}
+                >
+                  <FaCalendarAlt />
+                  <span>Year</span>
+                </S.MobileSortOption>
+                <S.MobileSortOption
+                  onClick={() => setCurrentSort('Location')}
+                  selected={currentSort === 'Location'}
+                >
+                  <FaMapMarkerAlt />
+                  <span>Location</span>
+                </S.MobileSortOption>
+              </S.MobileSortOptions>
+              <S.MobileDirectionToggle
+                onClick={() => setSortAscending(!sortAscending)}
+              >
+                {sortAscending ? <FaSortAmountUp /> : <FaSortAmountDown />}
+              </S.MobileDirectionToggle>
+            </S.MobileSortContainer>
 
             {sectionsOpen.active && (
               <S.MobileStructuresGrid>

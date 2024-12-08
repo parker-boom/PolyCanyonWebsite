@@ -269,7 +269,7 @@ export const ControlGroup = styled.div`
   display: flex;
   align-items: center;
   height: 100%;
-  z-index: 9999;
+  isolation: isolate;
 `;
 
 const BaseButton = styled.button`
@@ -373,6 +373,7 @@ export const SortButton = styled(BaseButton)`
   margin: auto 0;
   position: relative;
   z-index: 2;
+  isolation: isolate;
   class: 'sort-button';
 
   svg {
@@ -445,10 +446,9 @@ export const DropdownMenu = styled.div`
 `;
 
 export const EnhancedDropdownMenu = styled(DropdownMenu)`
-  position: absolute;
-  top: 100%;
-  right: 0;
-  margin-top: 8px;
+  position: absolute; // Change back to absolute
+  top: calc(100% + 8px); // Position below button
+  right: 0; // Align with right edge of button
   background: white;
   border-radius: 12px;
   box-shadow:
@@ -457,21 +457,13 @@ export const EnhancedDropdownMenu = styled(DropdownMenu)`
   border: 1px solid rgba(189, 139, 19, 0.2);
   min-width: 200px;
   padding: 8px;
-  z-index: 9999;
-
+  z-index: 999999; // Very high z-index
   transform-origin: top right;
   animation: dropdownAppear 0.2s ease-out;
 
-  @keyframes dropdownAppear {
-    from {
-      opacity: 0;
-      transform: scale(0.95);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
+  // Add these new styles
+  margin-top: 0;
+  pointer-events: auto;
 `;
 
 export const DropdownItem = styled.button`
@@ -530,11 +522,13 @@ export const SectionHeader = styled.div`
   padding: 16px 24px;
   background: rgba(189, 139, 19, 0.15);
   border-radius: 16px;
-  margin-bottom: 24px;
+  margin-bottom: 10px;
   box-shadow: 0 2px 4px rgba(189, 139, 19, 0.2);
   border: 2px solid rgba(55, 109, 49, 0.3);
   backdrop-filter: blur(5px);
   transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
 
   &:hover {
     background: rgba(189, 139, 19, 0.18);
@@ -583,7 +577,7 @@ export const StructuresGrid = styled.div`
   gap: 32px;
   padding: 16px;
   position: relative;
-  z-index: 1;
+  z-index: 0; // Lower than SectionHeader
 
   @media (max-width: 1200px) {
     grid-template-columns: 1fr;
@@ -1603,31 +1597,6 @@ export const SectionTitleContainer = styled.div`
   }
 `;
 
-export const DirectionToggle = styled.div`
-  padding: 8px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-  background: rgba(55, 109, 49, 0.05);
-  margin-right: 4px;
-
-  svg {
-    font-size: 16px;
-    color: #376d31;
-  }
-
-  &:hover {
-    background: rgba(55, 109, 49, 0.1);
-    transform: scale(1.1);
-  }
-
-  &:active {
-    transform: scale(0.95);
-  }
-`;
-
 /*
 Mobile-specific styled components
 */
@@ -2583,4 +2552,238 @@ export const MobileDescriptionContainer = styled(DescriptionContainer)`
   &:hover {
     transform: none;
   }
+`;
+
+export const SortButtonGroup = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 4px; // Smaller gap between buttons
+  background: linear-gradient(
+    135deg,
+    rgba(55, 109, 49, 0.1),
+    rgba(55, 109, 49, 0.05)
+  );
+  padding: 4px;
+  border-radius: 12px;
+  border: 2px solid rgba(189, 139, 19, 0.2);
+  box-shadow: 0 2px 8px rgba(55, 109, 49, 0.08);
+`;
+
+export const SortOption = styled.button`
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: ${(props) => {
+    if (props.$hovered) return '8px';
+    if (props.selected && !props.$anyHovered) return '8px';
+    return '0px';
+  }};
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background: ${(props) =>
+    props.selected
+      ? 'linear-gradient(135deg, #376d31, #2c5526)'
+      : 'transparent'};
+  color: ${(props) => (props.selected ? '#fff' : '#376d31')};
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+  pointer-events: auto; // Ensure hover events are captured
+  isolation: isolate; // Create stacking context
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: inherit;
+    pointer-events: none; // Prevent hover on the pseudo-element
+  }
+
+  svg {
+    font-size: 18px;
+    color: inherit;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  span {
+    opacity: ${(props) => {
+      if (props.$hovered) return 1;
+      if (props.selected && !props.$anyHovered) return 1;
+      return 0;
+    }};
+    width: ${(props) => {
+      if (props.$hovered) return 'auto';
+      if (props.selected && !props.$anyHovered) return 'auto';
+      return '0';
+    }};
+    overflow: hidden;
+    white-space: nowrap;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: left center;
+    transform: ${(props) => {
+      if (props.$hovered) return 'translateX(0)';
+      if (props.selected && !props.$anyHovered) return 'translateX(0)';
+      return 'translateX(-10px)';
+    }};
+  }
+
+  &:hover {
+    background: ${(props) =>
+      props.selected
+        ? 'linear-gradient(135deg, #2c5526, #1e3a1a)'
+        : 'rgba(55, 109, 49, 0.1)'};
+    border-color: rgba(189, 139, 19, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(55, 109, 49, 0.15);
+
+    svg {
+      transform: scale(1.1);
+    }
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+`;
+
+export const DirectionToggle = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(
+    135deg,
+    rgba(189, 139, 19, 0.15),
+    rgba(189, 139, 19, 0.1)
+  );
+  color: #376d31;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+
+  &:hover {
+    background: linear-gradient(
+      135deg,
+      rgba(189, 139, 19, 0.2),
+      rgba(189, 139, 19, 0.15)
+    );
+    border-color: rgba(189, 139, 19, 0.3);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(55, 109, 49, 0.15);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+`;
+
+export const MobileSortContainer = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: rgba(189, 139, 19, 0.15); // Match the header background
+  padding: 8px;
+  border-radius: 12px;
+  border: 2px solid rgba(55, 109, 49, 0.3); // Match the green border
+  margin: 5px 0 16px 0;
+  box-shadow: 0 2px 4px rgba(189, 139, 19, 0.2);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(189, 139, 19, 0.18);
+    border-color: rgba(55, 109, 49, 0.4);
+    box-shadow:
+      0 4px 8px rgba(189, 139, 19, 0.25),
+      0 2px 4px rgba(55, 109, 49, 0.15);
+  }
+`;
+
+export const MobileSortOption = styled.button`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: ${(props) =>
+    props.selected
+      ? 'linear-gradient(135deg, #376d31, #2c5526)'
+      : 'rgba(255, 255, 255, 0.6)'};
+  color: ${(props) => (props.selected ? '#fff' : '#376d31')};
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 1;
+  border: 1px solid
+    ${(props) => (props.selected ? 'transparent' : 'rgba(55, 109, 49, 0.15)')};
+
+  svg {
+    font-size: 20px;
+    color: inherit;
+  }
+
+  span {
+    display: ${(props) => (props.selected ? 'block' : 'none')};
+    margin-left: 8px;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &:hover {
+    background: ${(props) =>
+      props.selected
+        ? 'linear-gradient(135deg, #2c5526, #1e3a1a)'
+        : 'rgba(255, 255, 255, 0.8)'};
+    border-color: rgba(55, 109, 49, 0.3);
+    box-shadow: 0 2px 6px rgba(55, 109, 49, 0.15);
+  }
+`;
+
+export const MobileDirectionToggle = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.6);
+  color: #376d31;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-left: 6px;
+  border: 1px solid rgba(55, 109, 49, 0.15);
+
+  svg {
+    font-size: 20px;
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(55, 109, 49, 0.3);
+    box-shadow: 0 2px 6px rgba(55, 109, 49, 0.15);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+`;
+
+export const MobileSortOptions = styled.div`
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 6px;
 `;
