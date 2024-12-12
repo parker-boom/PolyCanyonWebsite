@@ -3982,7 +3982,7 @@
         "latitude": 35.31473,
         "longitude": -120.6528
       },
-      "extended_description": "Though little formal documentation exists about its creation, the BBQ Pit reflects a practical response to the needs of its time. The sturdy brick construction and central placement suggest its use as a focal point for meals during events like Design Village, where students and visitors would gather to share ideas, stories, and food. While the corten steel hood was removed, the pit’s brick base has endured, serving as a quiet reminder of the canyon’s history of utility-driven design.\n\nWhat makes the BBQ Pit intriguing is not just its individual story, but its role within a network of nearby features. Adjacent to the pit are a semi-circular wooden bench that hugs a weathered power pole, a small stone footbridge spanning the creek, and what appears to be a low stone counter or wall. These understated additions, likely created at different times, suggest a piecemeal evolution of the area—an unplanned tapestry of functionality woven together by generations of students. While their exact origins remain unclear, their collective presence reflects the canyon’s ever changing nature.\n\nUnlike some of the more ambitious structures that have fallen into disrepair, the pit continues to bring people together, even if its not being used for actual BBQs. Whether hosting small groups for informal gatherings or simply standing as a testament to student creativity, it remains a quiet but enduring piece. Its simplicity reminds us that not all innovation is loud—sometimes, it’s found in a sturdy, smoke-stained brick hearth that has welcomed decades of fires and friendships.",
+      "extended_description": "The BBQ Pit served as a practical centerpiece for the canyon’s social events, offering a durable and functional design. Its central location made it a natural hub for shared meals and conversations, though the larger plans for the area were never realized. Over time, nearby informal additions such as small benches and stone features emerged, suggesting a gradual and improvised development of the space. ",
       "advisor_builders": [
         {
           "name": "Allan Cooper",
@@ -4054,8 +4054,8 @@
         }
       ],
       "_id": "6722b48799b26f2c000bb4a0",
-      "description": "The BBQ Pit is a modest yet enduring relic. Likely built by a design-build class in the mid-1970s, its primary purpose was practical: to serve as a communal space for gatherings, especially during events like Design Village. Constructed from brick and stone for durability and fire resistance, the pit once featured a corten steel hood, which was later removed due to material incompatibility. Over time, the area has become part of a larger, informal network of mini-structures that speak to the canyon’s evolving role as a space for both function and fellowship.",
-      "year": "1975"
+      "description": "Built in 1976 as a senior project, the BBQ Pit was part of a larger plan that envisioned picnic tables, benches, and a water fountain for communal use. While only the pit itself was completed, its brick-and-stone construction became a gathering spot during events like Design Village. Initially equipped with a corten steel hood, the pit underwent changes over time—the hood was removed due to material issues, and the fire pit was eventually filled in.",
+      "year": "1976"
     },
     {
       "names": [
