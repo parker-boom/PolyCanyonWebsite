@@ -30,6 +30,7 @@ import * as S from './Structures.styles.js';
 
 // Data & Images
 import { mainImages } from './images/structureImages.js';
+import { accessoryImages } from './images/structureImages.js';
 import { getStructuresList, getStructureInfo } from './data/structuresData.js';
 import useListImagePreloader from './useListImagePreloader.js';
 import LoadingSpinner from './LoadingSpinner.js';
@@ -90,6 +91,26 @@ const Structures = () => {
     39, 37, 42, 34, 38, 35, 40, 41, 33, 32, 36,
   ];
 
+  // Add this hook at the top of the file with other hooks
+  const useRotatingAccessoryImage = () => {
+    const [currentImageKey, setCurrentImageKey] = useState(0);
+    const accessoryImageKeys = Object.keys(accessoryImages);
+
+    useEffect(() => {
+      const timer = setInterval(() => {
+        setCurrentImageKey((prev) => (prev + 1) % accessoryImageKeys.length);
+      }, 5000);
+
+      return () => clearInterval(timer);
+    }, [accessoryImageKeys.length]);
+
+    return accessoryImages[accessoryImageKeys[currentImageKey]];
+  };
+
+  // In the Structures component, add:
+  const currentAccessoryImage = useRotatingAccessoryImage();
+
+  // Then modify the getSortedStructures function:
   const getSortedStructures = (status) => {
     if (!structures.length) return [];
 
@@ -103,7 +124,7 @@ const Structures = () => {
 
     switch (currentSort) {
       case 'Number':
-        sortedList = [...filteredNumbers];
+        sortedList = [...filteredNumbers].filter((num) => num !== -1);
         break;
       case 'Year':
         sortedList = yearList.filter((num) => filteredNumbers.includes(num));
@@ -115,6 +136,11 @@ const Structures = () => {
         break;
       default:
         sortedList = [...filteredNumbers];
+    }
+
+    // Add accessory structure (-1) at the end if it's in the filtered list
+    if (filteredNumbers.includes(-1)) {
+      sortedList.push(-1);
     }
 
     if (searchQuery) {
@@ -328,9 +354,14 @@ const Structures = () => {
                       key={structure.number}
                       onClick={() => handleStructureClick(structure)}
                     >
-                      {loadedImages.has(structure.image_key) ? (
+                      {loadedImages.has(structure.image_key) ||
+                      structure.number === -1 ? (
                         <S.StructureImage
-                          src={mainImages[structure.image_key]}
+                          src={
+                            structure.number === -1
+                              ? currentAccessoryImage
+                              : mainImages[structure.image_key]
+                          }
                           alt={structure.title}
                           onError={(e) => {
                             e.target.src =
@@ -343,8 +374,8 @@ const Structures = () => {
                         </S.StructureImagePlaceholder>
                       )}
                       <S.StructureInfo>
-                        <S.StructureNumber>
-                          {structure.number}
+                        <S.StructureNumber number={structure.number}>
+                          {structure.number === -1 ? '★' : structure.number}
                         </S.StructureNumber>
                         <S.StructureTitle>{structure.title}</S.StructureTitle>
                       </S.StructureInfo>

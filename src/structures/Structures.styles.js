@@ -594,6 +594,14 @@ export const StructureNumber = styled.div`
   text-shadow:
     2px 2px 0 rgba(255, 255, 255, 0.8),
     -1px -1px 0 rgba(255, 255, 255, 0.8);
+
+  /* Add star styling */
+  ${(props) =>
+    props.number === -1 &&
+    `
+    font-size: 58px;
+    line-height: 0.9;
+  `}
 `;
 
 export const StructureCard = styled.div`

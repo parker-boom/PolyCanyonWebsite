@@ -46,6 +46,8 @@ import StructureList from './structures/StructureList.js';
 import StructureListMobile from './structures/StructureListMobile.js';
 import StructureInfo from './structures/StructureInfo.js';
 import StructureInfoMobile from './structures/StructureInfoMobile.js';
+import AccessoryStructureInfo from './structures/AccessoryStructureInfo.js';
+import AccessoryStructureInfoMobile from './structures/AccessoryStructureInfoMobile.js';
 
 // Utils
 import { loadGoogleMapsScript } from './utils/googleMaps.js';
@@ -130,6 +132,16 @@ function App() {
           <Route
             path="/structures/:structureUrl"
             element={isMobile ? <StructureInfoMobile /> : <StructureInfo />}
+          />
+          <Route
+            path="/structures/accessory"
+            element={
+              isMobile ? (
+                <AccessoryStructureInfoMobile />
+              ) : (
+                <AccessoryStructureInfo />
+              )
+            }
           />
 
           {/* Download route */}

@@ -188,6 +188,14 @@ import waterTanks5 from './other/waterTanks5.jpg';
 import waterTanks6 from './other/waterTanks6.jpg';
 import waterTanks7 from './other/waterTanks7.jpg';
 
+// Accessory images
+import Billboard from './accessory/Billboard.jpg';
+import CardinalDirection from './accessory/CardinalDirection.jpg';
+import Crossroads from './accessory/Crossroads.jpg';
+import Entrance from './accessory/Entrance.jpg';
+import StoneBridge from './accessory/StoneBridge.jpg';
+import WoodenBridge from './accessory/WoodenBridge.jpg';
+
 /*
 EXPORTS
 */
@@ -382,4 +390,14 @@ export const otherImages = {
   waterTanks5,
   waterTanks6,
   waterTanks7,
+};
+
+// Accessory images
+export const accessoryImages = {
+  Billboard,
+  CardinalDirection,
+  Crossroads,
+  Entrance,
+  StoneBridge,
+  WoodenBridge,
 };

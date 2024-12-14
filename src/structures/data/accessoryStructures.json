@@ -1,0 +1,64 @@
+{
+  "accessory_structures": [
+    {
+      "name": "Metal Entrance Sign",
+      "year": "2018",
+      "location": {
+        "latitude": 35.31346,
+        "longitude": -120.65189
+      },
+      "description": "Installed in 2019, these entry signs aim to redefine how visitors perceive the canyon. While some involved hope to replace the long-standing name \"Poly Canyon\" with \"Experimental Practices Laboratory,\" the new title hasn't gained much traction among students or alumni. The signs stand as a well-crafted introduction to the area, designed to communicate the canyon's legacy as a place for experimentation and innovation. Love them or hate them, they're hard to miss.",
+      "image": "/accessory/Entrance.jpg"
+    },
+    {
+      "name": "Crossroads",
+      "year": "Recent",
+      "location": {
+        "latitude": 35.31452,
+        "longitude": -120.65254
+      },
+      "description": "This white and red sculpture, located at a key crossroads of the canyon, has little documented history or context. Its design suggests a more recent addition, serving as a modest yet inviting marker for those entering the area. Though its origins remain unknown, its bold colors and placement make it a welcoming feature you almost can't help but pass.",
+      "image": "/accessory/Crossroads.jpg"
+    },
+    {
+      "name": "Wooden Bridge",
+      "year": "< 1987",
+      "location": {
+        "latitude": 35.31711,
+        "longitude": -120.65478
+      },
+      "description": "This small wooden bridge, built sometime before 1987, was likely more frequently used before the Bridgehouse transitioned into its current function as a bridge. Rumored to have been constructed using salvaged wood from the Bridge House itself, the bridge provided a practical crossing for its time. As the Bridgehouse became the primary crossing, this smaller bridge fell into disuse, leaving its trail overgrown. Despite this, the bridge remains intact today, having been repaired in recent years, though it now stands quietly in the shadow of its more iconic neighbor.",
+      "image": "/accessory/WoodenBridge.jpg"
+    },
+    {
+      "name": "Stone Bridge",
+      "year": "Unknown",
+      "location": {
+        "latitude": 35.31482,
+        "longitude": -120.65262
+      },
+      "description": "This small stone footbridge, leading to the BBQ area, was likely built alongside the pit in 1976, though no specific records mention its construction. Its simple, functional design reflects the kind of small-scale infrastructure common throughout the canyon, often overlooked and undocumented. While modest, it serves as a practical feature that quietly ties the area together.",
+      "image": "/accessory/StoneBridge.jpg"
+    },
+    {
+      "name": "Cardinal Direction",
+      "year": "2004",
+      "location": {
+        "latitude": 35.3165,
+        "longitude": -120.65384
+      },
+      "description": "Built in 2004 by Brian Milton as part of a project that included the Serenity Wall and a meditation bench, the Steel Wall—later called Cardinal Direction—was intended as a reflective, minimalist feature. Little was documented about its construction or purpose, but its clean design speaks to its role in shaping the area's meditative atmosphere.",
+      "image": "/accessory/CardinalDirection.jpg"
+    },
+    {
+      "name": "Billboard",
+      "year": "Unknown",
+      "location": {
+        "latitude": 35.315303,
+        "longitude": -120.654165
+      },
+      "description": "Hidden beneath a tree behind the Shell House, this structure resembles a billboard but lacks any clear signage or purpose. Its origins and builders are unknown, and it now exists as an obscure relic overshadowed by its surroundings. Serving no practical function today, it's a subtle testament to the canyon's habit of revealing unexpected, unexplained features to those who look closely.",
+      "image": "/accessory/Billboard.jpg"
+    }
+  ]
+}

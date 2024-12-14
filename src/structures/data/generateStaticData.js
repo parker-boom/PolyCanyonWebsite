@@ -28,6 +28,15 @@ async function generateStaticData() {
       status: status || 'Active', // Providing a default value in case status is missing
     }));
 
+    // Add the accessory structures entry
+    basicList.push({
+      number: -1,
+      url: 'accessory',
+      title: 'Accessory Structures',
+      image_key: 'M-accessory',
+      status: 'Active',
+    });
+
     // Save files
     await Promise.all([
       fs.writeFile(

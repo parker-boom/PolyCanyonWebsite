@@ -29,6 +29,7 @@ import * as S from './Structures.styles.js';
 
 // Data & Images
 import { mainImages } from './images/structureImages.js';
+import { accessoryImages } from './images/structureImages.js';
 import { getStructuresList } from './data/structuresData.js';
 
 // ResearchInfo component
@@ -92,18 +93,25 @@ const StructureListMobile = () => {
 
     switch (currentSort) {
       case 'Number':
-        sortedList = [...filteredNumbers];
+        sortedList = [...filteredNumbers].filter((num) => num !== -1);
         break;
       case 'Year':
-        sortedList = yearList.filter((num) => filteredNumbers.includes(num));
+        sortedList = yearList.filter(
+          (num) => filteredNumbers.includes(num) && num !== -1
+        );
         break;
       case 'Location':
-        sortedList = locationList.filter((num) =>
-          filteredNumbers.includes(num)
+        sortedList = locationList.filter(
+          (num) => filteredNumbers.includes(num) && num !== -1
         );
         break;
       default:
         sortedList = [...filteredNumbers];
+    }
+
+    // Add accessory structure (-1) at the end if it's in the filtered list
+    if (filteredNumbers.includes(-1)) {
+      sortedList.push(-1);
     }
 
     if (searchQuery) {
@@ -319,7 +327,11 @@ const StructureListMobile = () => {
                       isActive={activeCardId === structure.number}
                     >
                       <S.MobileStructureImage
-                        src={mainImages[structure.image_key]}
+                        src={
+                          structure.number === -1
+                            ? accessoryImages[Object.keys(accessoryImages)[0]]
+                            : mainImages[structure.image_key]
+                        }
                         alt={structure.title}
                         onError={(e) => {
                           e.target.src =
@@ -328,7 +340,7 @@ const StructureListMobile = () => {
                       />
                       <S.MobileStructureInfo>
                         <S.MobileStructureNumber>
-                          {structure.number}
+                          {structure.number === -1 ? '★' : structure.number}
                         </S.MobileStructureNumber>
                         <S.MobileStructureTitle>
                           {structure.title}
