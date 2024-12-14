@@ -33,6 +33,7 @@ import M27 from './main/M-27.jpg';
 import M28 from './main/M-28.jpg';
 import M29 from './main/M-29.jpg';
 import M30 from './main/M-30.jpg';
+import M31 from './main/M-31.jpg';
 
 // Closeup images
 import C1 from './close/C-1.jpg';
@@ -63,10 +64,12 @@ import C25 from './close/C-25.jpg';
 import C26 from './close/C-26.jpg';
 import C27 from './close/C-27.jpg';
 import C28 from './close/C-28.jpg';
-import C29 from './close/C-29.jpg';
 import C30 from './close/C-30.jpg';
+import C31 from './close/C-31.jpg';
 
 // Other images
+import bbqPit1 from './other/BBQPit1.jpg';
+import bbqPit2 from './other/BBQPit2.jpg';
 import blade1 from './other/blade1.jpg';
 import blade2 from './other/blade2.jpg';
 import bridgeHouse1 from './other/bridgeHouse1.jpg';
@@ -83,6 +86,11 @@ import centeringCenter1 from './other/centeringCenter1.jpg';
 import centeringCenter2 from './other/centeringCenter2.jpg';
 import centeringCenter3 from './other/centeringCenter3.jpg';
 import centeringCenter4 from './other/centeringCenter4.jpg';
+import electric1 from './other/Electric1.jpg';
+import electric2 from './other/Electric2.jpg';
+import electric3 from './other/Electric3.jpg';
+import electric4 from './other/Electric4.jpg';
+import electric5 from './other/Electric5.jpg';
 import entryArch1 from './other/entryArch1.jpg';
 import entryArch2 from './other/entryArch2.jpg';
 import entryArch3 from './other/entryArch3.jpg';
@@ -145,6 +153,8 @@ import waterTanks2 from './other/waterTanks2.jpg';
 import waterTanks3 from './other/waterTanks3.jpg';
 import waterTanks4 from './other/waterTanks4.jpg';
 import waterTanks5 from './other/waterTanks5.jpg';
+import waterTanks6 from './other/waterTanks6.jpg';
+import waterTanks7 from './other/waterTanks7.jpg';
 
 /*
 EXPORTS
@@ -182,6 +192,7 @@ export const mainImages = {
   'M-28': M28,
   'M-29': M29,
   'M-30': M30,
+  'M-31': M31,
 };
 
 // Closeup images
@@ -214,12 +225,14 @@ export const closeUpImages = {
   'C-26': C26,
   'C-27': C27,
   'C-28': C28,
-  'C-29': C29,
   'C-30': C30,
+  'C-31': C31,
 };
 
 // Other images
 export const otherImages = {
+  bbqPit1,
+  bbqPit2,
   blade1,
   blade2,
   bridgeHouse1,
@@ -236,6 +249,11 @@ export const otherImages = {
   centeringCenter2,
   centeringCenter3,
   centeringCenter4,
+  electric1,
+  electric2,
+  electric3,
+  electric4,
+  electric5,
   entryArch1,
   entryArch2,
   entryArch3,
@@ -298,4 +316,6 @@ export const otherImages = {
   waterTanks3,
   waterTanks4,
   waterTanks5,
+  waterTanks6,
+  waterTanks7,
 };
