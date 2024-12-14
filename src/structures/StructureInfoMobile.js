@@ -1048,9 +1048,12 @@ const StructureInfoMobile = () => {
                   </div>
                 )}
               </S.DescriptionText>
-              <ToggleDescriptionButton onClick={toggleDescription}>
-                {descriptionExpanded ? 'Show Less' : 'Show More'}
-              </ToggleDescriptionButton>
+              {structure.extended_description &&
+                structure.extended_description !== '' && (
+                  <ToggleDescriptionButton onClick={toggleDescription}>
+                    {descriptionExpanded ? 'Show Less' : 'Show More'}
+                  </ToggleDescriptionButton>
+                )}
             </MobileDescriptionContainer>
 
             <MobileQuickFacts>
@@ -1130,22 +1133,25 @@ const StructureInfoMobile = () => {
               )}
 
               {/* Location Card */}
-              {structure.location?.latitude &&
-                structure.location?.longitude && (
-                  <MobileInfoCard>
-                    <S.InfoCardHeader>
-                      <S.InfoCardEmoji>
-                        {getInfoEmoji('location')}
-                      </S.InfoCardEmoji>
-                      <S.InfoCardTitle>Location</S.InfoCardTitle>
-                    </S.InfoCardHeader>
+              {structure.location && (
+                <MobileInfoCard>
+                  <S.InfoCardHeader>
+                    <S.InfoCardEmoji>
+                      {getInfoEmoji('location')}
+                    </S.InfoCardEmoji>
+                    <S.InfoCardTitle>Location</S.InfoCardTitle>
+                  </S.InfoCardHeader>
+                  {structure.location.latitude === 0 ? (
+                    <S.InfoCardContent>Unknown</S.InfoCardContent>
+                  ) : (
                     <GoogleMapLandmark
                       latitude={structure.location.latitude}
                       longitude={structure.location.longitude}
                       structureName={structure.names[0]}
                     />
-                  </MobileInfoCard>
-                )}
+                  )}
+                </MobileInfoCard>
+              )}
             </MobileQuickFacts>
 
             {getValidLinks().length > 0 && (

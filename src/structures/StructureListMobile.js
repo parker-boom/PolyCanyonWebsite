@@ -63,35 +63,47 @@ const StructureListMobile = () => {
     }
   }, []);
 
-  // Add the sorting arrays
+  // Update the yearList and locationList to include ghost structures
   const yearList = [
     3, 7, 24, 12, 16, 29, 11, 26, 9, 2, 1, 14, 15, 10, 25, 19, 28, 8, 13, 17, 6,
     20, 21, 22, 5, 18, 4, 23, 27, 30,
+    // Adding ghost structures in year order
+    32, 33, 40, 41, 35, 36, 34, 37, 42, 38, 39,
   ];
 
   const locationList = [
     17, 16, 18, 15, 19, 13, 14, 20, 21, 12, 11, 22, 23, 10, 24, 25, 9, 26, 8,
     27, 7, 28, 6, 5, 29, 4, 30, 3, 2, 1,
+    // Adding ghost structures in location order
+    39, 37, 42, 34, 38, 35, 40, 41, 33, 32, 36,
   ];
 
-  // Update getSortedStructures to handle sorting
-  const getSortedStructures = () => {
+  // Update getSortedStructures to handle status filtering
+  const getSortedStructures = (status) => {
     if (!structures.length) return [];
 
     let sortedList;
 
+    // Filter structures by status first
+    const filteredStructures = structures.filter(
+      (s) => s.status.toLowerCase() === status.toLowerCase()
+    );
+    const filteredNumbers = filteredStructures.map((s) => s.number);
+
     switch (currentSort) {
       case 'Number':
-        sortedList = [...numberList];
+        sortedList = [...filteredNumbers];
         break;
       case 'Year':
-        sortedList = [...yearList];
+        sortedList = yearList.filter((num) => filteredNumbers.includes(num));
         break;
       case 'Location':
-        sortedList = [...locationList];
+        sortedList = locationList.filter((num) =>
+          filteredNumbers.includes(num)
+        );
         break;
       default:
-        sortedList = [...numberList];
+        sortedList = [...filteredNumbers];
     }
 
     if (searchQuery) {
@@ -109,8 +121,6 @@ const StructureListMobile = () => {
 
     return sortAscending ? sortedList : [...sortedList].reverse();
   };
-
-  const numberList = structures.map((structure) => structure.number);
 
   // Toggle section visibility
   const toggleSection = (section) => {
@@ -254,15 +264,6 @@ const StructureListMobile = () => {
 
         <S.StructuresContainer>
           <S.SectionContainer>
-            <S.SectionHeader>
-              <S.SectionTitleContainer onClick={() => toggleSection('active')}>
-                <S.SectionTitle>Active Structures</S.SectionTitle>
-                <S.SectionToggle isOpen={sectionsOpen.active}>
-                  <FaChevronDown />
-                </S.SectionToggle>
-              </S.SectionTitleContainer>
-            </S.SectionHeader>
-
             <S.MobileSortContainer>
               <S.MobileSortOptions>
                 <S.MobileSortOption
@@ -294,9 +295,68 @@ const StructureListMobile = () => {
               </S.MobileDirectionToggle>
             </S.MobileSortContainer>
 
+            <S.SectionHeader>
+              <S.SectionTitleContainer onClick={() => toggleSection('active')}>
+                <S.SectionTitle>Active Structures</S.SectionTitle>
+                <S.SectionToggle isOpen={sectionsOpen.active}>
+                  <FaChevronDown />
+                </S.SectionToggle>
+              </S.SectionTitleContainer>
+            </S.SectionHeader>
+
             {sectionsOpen.active && (
               <S.MobileStructuresGrid>
-                {getSortedStructures().map((structureNumber) => {
+                {getSortedStructures('active').map((structureNumber) => {
+                  const structure = structures.find(
+                    (s) => s.number === structureNumber
+                  );
+                  return (
+                    <S.MobileStructureCard
+                      key={structure.number}
+                      onClick={() => handleStructureClick(structure)}
+                      className="structure-card"
+                      data-structure-number={structure.number}
+                      isActive={activeCardId === structure.number}
+                    >
+                      <S.MobileStructureImage
+                        src={mainImages[structure.image_key]}
+                        alt={structure.title}
+                        onError={(e) => {
+                          e.target.src =
+                            'https://via.placeholder.com/200x200?text=Structure';
+                        }}
+                      />
+                      <S.MobileStructureInfo>
+                        <S.MobileStructureNumber>
+                          {structure.number}
+                        </S.MobileStructureNumber>
+                        <S.MobileStructureTitle>
+                          {structure.title}
+                        </S.MobileStructureTitle>
+                      </S.MobileStructureInfo>
+                      <S.ChevronIcon className="chevron-icon">
+                        <FaArrowRight />
+                      </S.ChevronIcon>
+                    </S.MobileStructureCard>
+                  );
+                })}
+              </S.MobileStructuresGrid>
+            )}
+          </S.SectionContainer>
+
+          <S.SectionContainer>
+            <S.SectionHeader>
+              <S.SectionTitleContainer onClick={() => toggleSection('ghost')}>
+                <S.SectionTitle>Ghost Structures</S.SectionTitle>
+                <S.SectionToggle isOpen={sectionsOpen.ghost}>
+                  <FaChevronDown />
+                </S.SectionToggle>
+              </S.SectionTitleContainer>
+            </S.SectionHeader>
+
+            {sectionsOpen.ghost && (
+              <S.MobileStructuresGrid>
+                {getSortedStructures('ghost').map((structureNumber) => {
                   const structure = structures.find(
                     (s) => s.number === structureNumber
                   );

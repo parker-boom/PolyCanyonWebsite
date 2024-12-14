@@ -3464,6 +3464,621 @@
       "_id": "6722b48799b26f2c000bb4a1",
       "description": "The Moment Monument, built in 2024, is more than a structure—it is a tool, a lesson, and a bridge between theory and practice. Rising from its circular concrete base, its six steel frames illustrate the intricacies of seismic moment connections, each demonstrating a distinct engineering approach to managing lateral forces. Designed as a hands-on teaching aid, it is a monument to the canyon’s enduring role in architectural education, inviting students to step into the world of real-world design and structural resilience.",
       "year": "2024"
+    },
+    {
+      "names": ["Botanical Garden", "Work Shed"],
+      "number": 32,
+      "url": "botanicalGarden",
+      "status": "Ghost",
+      "location": {
+        "latitude": 35.31346,
+        "longitude": -120.65027
+      },
+      "description": "The Botanical Garden, once a key feature of the area, was situated south of the canyon across the creek, separate from the main canyon itself. Established in 1955 by the Botany Department, the garden was designed to preserve native California plant species. While the garden is no longer extant, its historical significance and contribution to environmental education at Cal Poly are notable.",
+      "extended_description": "The botanical garden was a dedicated space for cultivating and studying native California flora, with species such as incense cedar, foothill pine, and California bay laurel among its collection. The garden was originally accessible via a suspension bridge built in 1961, and later a more robust timber truss bridge in the 1970s, which improved access for visitors.\n\nThough the garden was located across the creek from Poly Canyon and not directly within it, its role in the environmental and academic history of the region was significant. Over time, however, the garden faced environmental and accessibility challenges, leading to its eventual abandonment. Today, it remains a ghost structure, remembered for its educational contributions, but the site that once hosted it is now a relic of the past.",
+      "advisor_builders": [
+        {
+          "name": "Unknown",
+          "role": ["Builder"]
+        }
+      ],
+      "images": [
+        {
+          "type": "main",
+          "path": "/images/M-32",
+          "description": "Main image of the Botanical Garden."
+        },
+        {
+          "type": "other",
+          "path": "/other/botanical1",
+          "description": "An original map from a 1990s botanist guide through the botanical garden. Many of the accessories are still intact today."
+        },
+        {
+          "type": "other",
+          "path": "/other/botanical2",
+          "description": "Closeup image of one of the more exotic plants featured in the botanical garden."
+        },
+        {
+          "type": "other",
+          "path": "/other/botanical3",
+          "description": "Modern day photo of the work shed that housed materials for the botanical garden & materials for canyon work."
+        },
+        {
+          "type": "other",
+          "path": "/other/botanical4",
+          "description": "Modern day photo of the wooden bridge that takes yout out to the botanical garden."
+        }
+      ],
+      "tags": [
+        "botanical garden",
+        "california native plants",
+        "sustainable landscaping",
+        "interpretive trail",
+        "ecological education"
+      ]
+    },
+    {
+      "names": ["Suspension Bridge"],
+      "number": 33,
+      "url": "suspensionBridge",
+      "status": "Ghost",
+      "location": {
+        "latitude": 35.31321,
+        "longitude": -120.65132
+      },
+      "description": "The Suspension Bridge, an experimental senior project from 1961, was a bold attempt at combining innovative lightweight concrete techniques with practical architectural design. Located just south of the canyon boundaries, it spans a creek near the Botanical Garden. Predating the canyon and still standing today, the bridge is aged and no longer serves its original purpose, existing as a quiet relic of student ingenuity.",
+      "extended_description": "Constructed by five architectural engineering students, the Suspension Bridge served both as a practical crossing and an architectural experiment. The bridge’s intersecting 86-foot arches, leaning at 20 degrees, were fabricated in prefabricated segments, each weighing 125 pounds. These segments were assembled using steel pin connections and minimal mechanical support, demonstrating both precision and teamwork. While its construction took only eight hours, the planning and design spanned six months, during which the team documented every challenge and solution. Today, the bridge still stands south of the canyon boundaries, crossing a small creek. Though weathered and unused, it remains a testament to student innovation and the boldness of mid-century architectural experimentation.",
+      "advisor_builders": [
+        {
+          "name": "Jere Anderson",
+          "role": ["Builder"]
+        },
+        {
+          "name": "Kenneth Bennett",
+          "role": ["Builder"]
+        },
+        {
+          "name": "Donald Roster",
+          "role": ["Builder"]
+        },
+        {
+          "name": "Fred Hallock",
+          "role": ["Builder"]
+        },
+        {
+          "name": "Harold Rueb",
+          "role": ["Builder"]
+        }
+      ],
+      "images": [
+        {
+          "type": "main",
+          "path": "/images/M-33",
+          "description": "Main image of the Suspension Bridge."
+        },
+        {
+          "type": "other",
+          "path": "/other/suspension1",
+          "description": "Historical photo from the 1960s showing George Hasslein posing on the suspension bridge."
+        },
+        {
+          "type": "other",
+          "path": "/other/suspension2",
+          "description": "Photo from the original thesis showing the project team & advisor with the finished structure."
+        },
+        {
+          "type": "other",
+          "path": "/other/suspension3",
+          "description": "The original calculations of the suspension bridge featured in the thesis."
+        }
+      ],
+      "tags": [
+        "suspension bridge",
+        "lightweight concrete",
+        "senior project",
+        "experimental design",
+        "architectural history"
+      ]
+    },
+    {
+      "names": [
+        "Hydraulic House",
+        "Multi-Story Water Building",
+        "Hydrostatic Structure"
+      ],
+      "number": 34,
+      "url": "hydraulicHouse",
+      "status": "Ghost",
+      "location": {
+        "latitude": 35.31578,
+        "longitude": -120.65435
+      },
+      "description": "The Hydraulic House was a highly innovative architectural experiment conceived in the early 1970s. Centered around a 23-foot tall steel column filled with pressurized water, the structure explored the use of hydraulic forces as a primary load-bearing system. This pioneering design sought to combine ecological sustainability, prefabrication, and structural flexibility. Though the project also aimed to incorporate solar energy solutions, these elements were ultimately unsuccessful. Despite setbacks in construction and the inability to fully realize its environmental ambitions, the building’s experimental approach to architectural design remains a striking example of innovation in engineering and architecture.",
+      "extended_description": "Fully completed in the late 1970s, the Hydraulic House, also known as the Hydrostatic Structure, was an experimental architectural endeavor that aimed to push the limits of building technology. Its core feature was a 23-foot steel column filled with pressurized water, which functioned as the primary support structure for the building, intended to demonstrate how hydraulic forces could replace traditional load-bearing systems. In conjunction with this, the building used a suspended roof system supported by a central hub and radial trusses, reflecting the project’s dedication to both structural simplicity and strength.\n\nWhile the design also sought to incorporate solar technologies, these efforts were ultimately unsuccessful, and no further attempts were made to integrate them. The building’s ambition extended beyond its structural innovation, with the multi-story design featuring flexible, modular spaces that aimed to serve as a multi-use facility within Poly Canyon. Although the project faced challenges, including structural misalignment and limited success with environmental features, the building remains an important part of architectural history for its vision, daring experimentation, and integration of unconventional materials and techniques.\n\nThis structure’s attempt to use water as a structural element represented a leap into uncharted territory for architectural engineering, merging the principles of ecological building and technological advancement in a way that was ahead of its time. While the project never fully materialized as intended, it paved the way for future explorations in innovative and adaptive architectural practices.",
+      "advisor_builders": [
+        {
+          "name": "William Brown",
+          "role": ["Advisor"]
+        },
+        {
+          "name": "Dr. Jens Pohl",
+          "role": ["Advisor"]
+        },
+        {
+          "name": "John Hickman",
+          "role": ["Builder"]
+        },
+        {
+          "name": "Kris Reiswig",
+          "role": ["Builder"]
+        },
+        {
+          "name": "Windell Reynolds",
+          "role": ["Builder"]
+        },
+        {
+          "name": "Greg Warner",
+          "role": ["Builder"]
+        },
+        {
+          "name": "James Adams",
+          "role": ["Builder"]
+        },
+        {
+          "name": "Sergio Alvarez",
+          "role": ["Builder"]
+        },
+        {
+          "name": "Charles Cauthon",
+          "role": ["Builder"]
+        },
+        {
+          "name": "David Quattrone",
+          "role": ["Builder"]
+        },
+        {
+          "name": "Eric Farmer",
+          "role": ["Builder"]
+        },
+        {
+          "name": "Dan Smith",
+          "role": ["Builder"]
+        },
+        {
+          "name": "Mike Carson",
+          "role": ["Builder"]
+        },
+        {
+          "name": "Jerry White",
+          "role": ["Builder"]
+        },
+        {
+          "name": "Bruce Elster",
+          "role": ["Builder"]
+        },
+        {
+          "name": "Keith Foiles",
+          "role": ["Builder"]
+        },
+        {
+          "name": "Barney Mintz",
+          "role": ["Builder"]
+        },
+        {
+          "name": "Peter Van Matre",
+          "role": ["Builder"]
+        },
+        {
+          "name": "Raul Ojeda",
+          "role": ["Builder"]
+        }
+      ],
+      "images": [
+        {
+          "type": "main",
+          "path": "/images/M-34",
+          "description": "Main image of the Hydraulic House."
+        },
+        {
+          "type": "other",
+          "path": "/other/hydraulic1",
+          "description": "A scanned image of the finished hydraulic house."
+        },
+        {
+          "type": "other",
+          "path": "/other/hydraulic2",
+          "description": "An original photo from CAED photo lab showing the digging and work of the foundation for the hydraulic house."
+        }
+      ],
+      "tags": [
+        "hydrostatic architecture",
+        "prefabricated building",
+        "water-based support",
+        "sustainable architecture",
+        "architectural experimentation"
+      ]
+    },
+    {
+      "names": ["Tree House"],
+      "number": 35,
+      "url": "treeHouse",
+      "status": "Ghost",
+      "location": {
+        "latitude": 35.31354,
+        "longitude": -120.65187
+      },
+      "description": "Built in 1967 by a Poly Royal crew, the tree house and accompanying gate were once situated near the entrance of the canyon, predating the stone archway. Originally designed as a playful, elevated platform among the sycamores, the structure’s charm faded over time. A 1982 repair list noted it needed preservative treatment, hinting at its gradual decay. By 1987, the tree house was missing its ladder, and a rare photograph captured its final years. Now vanished without a trace, it lingers in memory as a curious remnant of a bygone era, shrouded in mystery despite its once-prominent location.",
+      "extended_description": "",
+      "advisor_builders": [
+        {
+          "name": "Poly Royal Crew",
+          "role": ["Builder"]
+        }
+      ],
+      "images": [
+        {
+          "type": "main",
+          "path": "/images/M-35",
+          "description": "Main image of the Tree House."
+        },
+        {
+          "type": "other",
+          "path": "/other/treeHouse1",
+          "description": " A modern day photo of the tree near the entrance that the tree house used to sit on."
+        }
+      ],
+      "tags": [
+        "tree house",
+        "ghost structure",
+        "poly royal",
+        "sycamore platform",
+        "lost structure"
+      ]
+    },
+    {
+      "names": ["Exercise Structure"],
+      "number": 36,
+      "url": "exercise",
+      "status": "Ghost",
+      "location": {
+        "latitude": 0,
+        "longitude": 0
+      },
+      "description": "The Exercise Station structures were developed as part of a broader vision to integrate physical fitness with the natural environment. Conceptualized in 1973 and refined in 1974, these stations featured equipment for exercises like pull-ups and sit-ups, blending recreation with fitness. However, the structures are now considered ghost projects—their exact locations are unknown, and no physical remains have been identified. They serve as a fascinating glimpse into experimental outdoor fitness design.",
+      "extended_description": "The project evolved over two years, beginning with a 1973 thesis that focused heavily on the conceptual aspects of integrating jogging routes with structured exercise stops. This initial plan outlined a European-inspired fitness circuit but tailored it to the canyon's terrain and the needs of Cal Poly’s community. The 1974 thesis expanded on this foundation, shifting focus to the design and imagined construction of specific exercise structures. Featuring whimsical sketches and practical insights, the work emphasized accessibility and functionality. Though the stations were never fully documented in the field and their exact locations remain unknown, they stand as a testament to the creative experimentation of student-led fitness and design projects. An old photograph confirms at one point, at least one of the structures was built.",
+      "advisor_builders": [
+        {
+          "name": "Dr. Jim Webb",
+          "role": ["Advisor"]
+        },
+        {
+          "name": "Rob Bateman",
+          "role": ["Builder"]
+        },
+        {
+          "name": "Mike Roanhaus",
+          "role": ["Builder"]
+        },
+        {
+          "name": "Ken Snelling",
+          "role": ["Builder"]
+        },
+        {
+          "name": "Dale Horton",
+          "role": ["Builder"]
+        }
+      ],
+      "images": [
+        {
+          "type": "main",
+          "path": "/images/M-36",
+          "description": "Main image of the Exercise Structure."
+        },
+        {
+          "type": "other",
+          "path": "/other/exercise1",
+          "description": "An original sketch from the thesis, that depicts a general outline of the Cal Poly exercise circuit."
+        },
+        {
+          "type": "other",
+          "path": "/other/exercise2",
+          "description": "An original sketch from the thesis, that shows the creativity and the details of the project. "
+        }
+      ],
+      "tags": [
+        "exercise stations",
+        "jogging loops",
+        "outdoor fitness",
+        "student design",
+        "ghost structure"
+      ]
+    },
+    {
+      "names": ["Tensegrity Mast"],
+      "number": 37,
+      "url": "tensegrityMast",
+      "status": "Ghost",
+      "location": {
+        "latitude": 35.31585,
+        "longitude": -120.65374
+      },
+      "description": "The Tensegrity Mast, constructed in 1975 by students under Jack Peterson’s guidance, was a striking structural experiment placed prominently on a knoll in the canyon. The mast’s history is marked by cycles of vandalism and repair, with wires cut and turnbuckles loosened during its early years, causing repeated collapses. Photographs show it lying horizontal before briefly being reassembled upright in 1978. By 1982, plans were made to rewire and move it back to its original location, but it was never fully restored. While the mast itself is long gone, its original foundations remain visible near the site of the Tensegrity structure, serving as a tangible reminder of its ambitious legacy.",
+      "extended_description": "",
+      "advisor_builders": [
+        {
+          "name": "Jack Peterson",
+          "role": ["Advisor"]
+        },
+        {
+          "name": "Unknown",
+          "role": ["Builder"]
+        }
+      ],
+      "images": [
+        {
+          "type": "main",
+          "path": "/images/M-37",
+          "description": "Main image of the Tensegrity Mast."
+        },
+        {
+          "type": "other",
+          "path": "/other/tensegrityMast1",
+          "description": "The student builders of the tensegrity mass carrying it out to the canyon during Design Village."
+        },
+        {
+          "type": "other",
+          "path": "/other/tensegrityMast2",
+          "description": "A modern day photo of the foundations for the tensegrity mass."
+        }
+      ],
+      "tags": [
+        "tensegrity mast",
+        "student structural experiment",
+        "architectural vandalism history",
+        "poly royal design",
+        "foundation remains structure"
+      ]
+    },
+    {
+      "names": ["Cor X"],
+      "number": 38,
+      "url": "corX",
+      "status": "Ghost",
+      "location": {
+        "latitude": 35.315787,
+        "longitude": -120.654243
+      },
+      "description": "The Cor-X house, built in 1982, was a lightweight plastic structure with aluminum framing constructed by a Crop Sciences major and an Architecture major. Designed as a low-cost, portable housing experiment, the structure featured polystyrene insulation, an RV-style toilet, and a unique greenhouse-style front door. Its purpose was to promote sustainable housing solutions for disaster relief and developing countries. Though functional during its time, the house has since vanished, leaving its foundations near the modern-day Fratessa Tower as the only trace of its existence.",
+      "extended_description": "",
+      "advisor_builders": [
+        {
+          "name": "Nathan Duddles",
+          "role": ["Builder"]
+        },
+        {
+          "name": "Jim Theiss",
+          "role": ["Builder"]
+        }
+      ],
+      "images": [
+        {
+          "type": "main",
+          "path": "/images/M-38",
+          "description": "Main image of the Cor X structure."
+        },
+        {
+          "type": "other",
+          "path": "/other/corX1",
+          "description": "From the original newspaper article, an inside image of the CorX house."
+        },
+        {
+          "type": "other",
+          "path": "/other/corX2",
+          "description": "From the original newspaper article, an image showing off the working refirgerator in the house."
+        },
+        {
+          "type": "other",
+          "path": "/other/corX3",
+          "description": "From the original newspaper article, an image showing off Duddles on his sleeping bag."
+        }
+      ],
+      "tags": [
+        "cor-x house",
+        "portable housing experiment",
+        "lightweight plastic structure",
+        "sustainable disaster housing"
+      ]
+    },
+    {
+      "names": ["Accessory Shed"],
+      "number": 39,
+      "url": "accessoryShed",
+      "status": "Ghost",
+      "location": {
+        "latitude": 35.31694,
+        "longitude": -120.65474
+      },
+      "description": "The Accessory Shed, completed in 2022, was an asymmetrical wooden shed designed to explore the undervalued architectural style of California’s Central Valley. Built with CDX plywood and featuring a pitched roof, raised heel truss, and overhanging eaves, the structure deliberately lacked windows or doors, drawing focus to its external design. Its imbalanced form and exaggerated proportions challenged traditional perceptions of utility buildings while providing shade and scenic views. Positioned near the top of the canyon, the structure had no accessible interior and no functional purpose, and it has since been removed.",
+      "extended_description": "",
+      "advisor_builders": [
+        {
+          "name": "Dylan Krueger",
+          "role": ["Builder"]
+        },
+        {
+          "name": "Vera Alekseyeva Gabriel",
+          "role": ["Builder"]
+        },
+        {
+          "name": "Cobain Galen",
+          "role": ["Builder"]
+        },
+        {
+          "name": "Anping Fong",
+          "role": ["Builder"]
+        },
+        {
+          "name": "Dara Lin",
+          "role": ["Builder"]
+        },
+        {
+          "name": "Will McCullough",
+          "role": ["Builder"]
+        },
+        {
+          "name": "Edgar Rivera",
+          "role": ["Builder"]
+        },
+        {
+          "name": "Jacqueline Velasquez",
+          "role": ["Builder"]
+        }
+      ],
+      "images": [
+        {
+          "type": "main",
+          "path": "/images/M-39",
+          "description": "Main image of the Accessory Shed."
+        },
+        {
+          "type": "other",
+          "path": "/other/shed1",
+          "description": "The builder of the shed accessory posing in front of the finished creation."
+        },
+        {
+          "type": "other",
+          "path": "/other/shed2",
+          "description": "The foundation of the shed, still present today. "
+        }
+      ],
+      "tags": [
+        "asymmetrical wooden shed",
+        "california central valley architecture",
+        "inaccessible design architecture",
+        "removed architectural installations"
+      ]
+    },
+    {
+      "names": ["Cow Fence"],
+      "number": 40,
+      "url": "cowFence",
+      "status": "Ghost",
+      "location": {
+        "latitude": 35.31361,
+        "longitude": -120.65202
+      },
+      "description": "The Cow Fence, estimated to have been built in 1965, was an early structure designed to keep cows out of the area designated for projects at the time. Crafted from an array of vertical wooden posts, the gate combined functionality with a whimsical aesthetic. It's believed to have been near the current entrance to the canyon, slightly north of its current location. Intended to allow people to pass freely while serving as a barrier for livestock, little is known about the structure beyond a photograph found in George Hasslein’s scrapbook, which depicts him walking through the gate.",
+      "extended_description": "",
+      "advisor_builders": [
+        {
+          "name": "Unknown",
+          "role": ["Builder"]
+        }
+      ],
+      "images": [
+        {
+          "type": "main",
+          "path": "/images/M-40",
+          "description": "Main image of the Cow Fence."
+        }
+      ],
+      "tags": [
+        "cow fence 1963",
+        "experimental architecture",
+        "george hasslein project",
+        "wooden post gate",
+        "entrance"
+      ]
+    },
+    {
+      "names": ["Compressed Earth Blocks"],
+      "number": 41,
+      "url": "earthBlocks",
+      "status": "Ghost",
+      "location": {
+        "latitude": 0,
+        "longitude": 0
+      },
+      "description": "The Compressed Earth Blocks project, developed in 1965, was an effort by five architectural engineering students to explore sustainable construction methods using locally sourced materials. The team designed and tested dozens of compressed earth blocks (CEBs) for durability, load-bearing capacity, and fire resistance. Though initially part of a more ambitious plan, the focus on CEBs demonstrated the potential of low-cost, eco-friendly materials for future canyon projects.",
+      "extended_description": "Originally envisioned as a large-scale \"Experimental Design Laboratory,\" the project aimed to create a dedicated space for architectural innovation and education within the canyon. The proposed lab included workspaces for sixteen students, offices for instructors, and shared areas for seminars and discussions, all framed by the natural landscape. However, the ambitious scope, coupled with resource and time constraints, led the team to pivot toward the more attainable goal of developing compressed earth blocks (CEBs).\n\nUsing soil from the surrounding area, the students crafted and tested CEBs, highlighting their strength, fire resistance, and cost-effectiveness compared to traditional masonry. Treated with waterproofing agents and optimized for earthquake resilience, the blocks showcased the viability of sustainable, locally sourced materials in construction. While the Experimental Design Laboratory itself was never realized, the CEB research stands as a testament to the team's adaptability and innovative spirit, offering valuable insights into resource-efficient building practices.",
+      "advisor_builders": [
+        {
+          "name": "John Barton",
+          "role": ["Builder"]
+        },
+        {
+          "name": "Daniel Beauchamp",
+          "role": ["Builder"]
+        },
+        {
+          "name": "David Cartnal",
+          "role": ["Builder"]
+        },
+        {
+          "name": "Rudolph Espinoza",
+          "role": ["Builder"]
+        },
+        {
+          "name": "Marvin Guillermo",
+          "role": ["Builder"]
+        }
+      ],
+      "images": [
+        {
+          "type": "main",
+          "path": "/images/M-41",
+          "description": "Main image of the Compressed Earth Blocks project."
+        },
+        {
+          "type": "other",
+          "path": "/other/earthBlocks1",
+          "description": "From the thesis, an image depicts the students working on some of the original earth blocks."
+        },
+        {
+          "type": "other",
+          "path": "/other/earthBlocks2",
+          "description": "From the thesis, an image depicts students working on the process of forming the earth blocks."
+        }
+      ],
+      "tags": [
+        "compressed earth blocks",
+        "experimental design lab",
+        "sustainable materials",
+        "architectural engineering",
+        "local construction resources"
+      ]
+    },
+    {
+      "names": ["Sculptural Windmill"],
+      "number": 42,
+      "url": "sculpturalWindmill",
+      "status": "Ghost",
+      "location": {
+        "latitude": 35.316381,
+        "longitude": -120.654399
+      },
+      "description": "The Windmill, a ghost structure documented through a single photograph, remains an enigma. Believed to have responded to changes in wind direction, its precise purpose and construction details are unknown, although its location has been deciphered from the photo. In 1982, there was a mention of possibly rebuilding or designing a new windmill, but no further information has surfaced. Its fleeting presence adds a layer of intrigue to the sculpture.",
+      "extended_description": "",
+      "advisor_builders": [
+        {
+          "name": "Unknown",
+          "role": ["Builder"]
+        }
+      ],
+      "images": [
+        {
+          "type": "main",
+          "path": "/images/M-42",
+          "description": "Main image of the Sculptural Windmill."
+        }
+      ],
+      "tags": [
+        "wind-powered sculpture",
+        "kinetic art",
+        "experimental engineering",
+        "mystery structure",
+        "ghost windmill"
+      ]
     }
   ]
 }

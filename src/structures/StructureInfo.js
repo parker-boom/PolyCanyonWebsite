@@ -634,9 +634,14 @@ const StructureInfo = () => {
                         <S.DescriptionText expanded={false}>
                           <p>{structure.description}</p>
                         </S.DescriptionText>
-                        <S.ToggleDescriptionButton onClick={toggleDescription}>
-                          Show More Info
-                        </S.ToggleDescriptionButton>
+                        {structure.extended_description &&
+                          structure.extended_description !== '' && (
+                            <S.ToggleDescriptionButton
+                              onClick={toggleDescription}
+                            >
+                              Show More Info
+                            </S.ToggleDescriptionButton>
+                          )}
                       </S.DescriptionContainer>
                     )}
                   </S.LeftSection>
@@ -740,23 +745,25 @@ const StructureInfo = () => {
                       )}
 
                       {/* Location Card */}
-                      {structure.location?.latitude &&
-                        structure.location?.longitude && (
-                          <S.InfoCard>
-                            <S.InfoCardHeader>
-                              <S.InfoCardEmoji>
-                                {getInfoEmoji('location')}
-                              </S.InfoCardEmoji>
-                              <S.InfoCardTitle>Location</S.InfoCardTitle>
-                            </S.InfoCardHeader>
-                            {/* Google Maps Connection */}
+                      {structure.location && (
+                        <S.InfoCard>
+                          <S.InfoCardHeader>
+                            <S.InfoCardEmoji>
+                              {getInfoEmoji('location')}
+                            </S.InfoCardEmoji>
+                            <S.InfoCardTitle>Location</S.InfoCardTitle>
+                          </S.InfoCardHeader>
+                          {structure.location.latitude === 0 ? (
+                            <S.InfoCardContent>Unknown</S.InfoCardContent>
+                          ) : (
                             <GoogleMapLandmark
                               latitude={structure.location.latitude}
                               longitude={structure.location.longitude}
                               structureName={structure.names[0]}
                             />
-                          </S.InfoCard>
-                        )}
+                          )}
+                        </S.InfoCard>
+                      )}
                     </S.InfoCardsSectionExpanded>
                   ) : (
                     <S.InfoCardsSection>
@@ -856,23 +863,25 @@ const StructureInfo = () => {
                       )}
 
                       {/* Location Card */}
-                      {structure.location?.latitude &&
-                        structure.location?.longitude && (
-                          <S.InfoCard>
-                            <S.InfoCardHeader>
-                              <S.InfoCardEmoji>
-                                {getInfoEmoji('location')}
-                              </S.InfoCardEmoji>
-                              <S.InfoCardTitle>Location</S.InfoCardTitle>
-                            </S.InfoCardHeader>
-                            {/* Google Maps Connection */}
+                      {structure.location && (
+                        <S.InfoCard>
+                          <S.InfoCardHeader>
+                            <S.InfoCardEmoji>
+                              {getInfoEmoji('location')}
+                            </S.InfoCardEmoji>
+                            <S.InfoCardTitle>Location</S.InfoCardTitle>
+                          </S.InfoCardHeader>
+                          {structure.location.latitude === 0 ? (
+                            <S.InfoCardContent>Unknown</S.InfoCardContent>
+                          ) : (
                             <GoogleMapLandmark
                               latitude={structure.location.latitude}
                               longitude={structure.location.longitude}
                               structureName={structure.names[0]}
                             />
-                          </S.InfoCard>
-                        )}
+                          )}
+                        </S.InfoCard>
+                      )}
                     </S.InfoCardsSection>
                   )}
                 </S.ColumnsContainer>

@@ -19,12 +19,13 @@ async function generateStaticData() {
     await fs.mkdir(dataDir, { recursive: true });
 
     // Create simplified list for navigation
-    // Only include fields needed for the list view
-    const basicList = structuresInfo.map(({ number, url, names }) => ({
+    // Now including the status field
+    const basicList = structuresInfo.map(({ number, url, names, status }) => ({
       number,
       url,
       title: names[0],
       image_key: `M-${number}`,
+      status: status || 'Active', // Providing a default value in case status is missing
     }));
 
     // Save files

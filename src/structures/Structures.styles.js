@@ -663,7 +663,7 @@ export const StructureInfo = styled.div`
 `;
 
 export const StructureTitle = styled.h2`
-  font-size: 34px;
+  font-size: 32px;
   font-weight: 600;
   color: #2c3e50;
   margin: 0;

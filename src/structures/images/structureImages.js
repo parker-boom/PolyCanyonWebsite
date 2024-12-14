@@ -34,6 +34,17 @@ import M28 from './main/M-28.jpg';
 import M29 from './main/M-29.jpg';
 import M30 from './main/M-30.jpg';
 import M31 from './main/M-31.jpg';
+import M32 from './main/M-32.jpg';
+import M33 from './main/M-33.jpg';
+import M34 from './main/M-34.jpg';
+import M35 from './main/M-35.jpg';
+import M36 from './main/M-36.jpg';
+import M37 from './main/M-37.jpg';
+import M38 from './main/M-38.jpg';
+import M39 from './main/M-39.jpg';
+import M40 from './main/M-40.jpg';
+import M41 from './main/M-41.jpg';
+import M42 from './main/M-42.jpg';
 
 // Closeup images
 import C1 from './close/C-1.jpg';
@@ -72,6 +83,10 @@ import bbqPit1 from './other/BBQPit1.jpg';
 import bbqPit2 from './other/BBQPit2.jpg';
 import blade1 from './other/blade1.jpg';
 import blade2 from './other/blade2.jpg';
+import botanical1 from './other/Botanical1.jpg';
+import botanical2 from './other/Botanical2.jpg';
+import botanical3 from './other/Botanical3.jpg';
+import botanical4 from './other/Botanical4.jpg';
 import bridgeHouse1 from './other/bridgeHouse1.jpg';
 import bridgeHouse2 from './other/bridgeHouse2.jpg';
 import bridgeHouse3 from './other/bridgeHouse3.jpg';
@@ -86,6 +101,11 @@ import centeringCenter1 from './other/centeringCenter1.jpg';
 import centeringCenter2 from './other/centeringCenter2.jpg';
 import centeringCenter3 from './other/centeringCenter3.jpg';
 import centeringCenter4 from './other/centeringCenter4.jpg';
+import corX1 from './other/CorX1.jpg';
+import corX2 from './other/CorX2.jpg';
+import corX3 from './other/CorX3.jpg';
+import earthBlocks1 from './other/EarthBlocks1.jpg';
+import earthBlocks2 from './other/EarthBlocks2.jpg';
 import electric1 from './other/Electric1.jpg';
 import electric2 from './other/Electric2.jpg';
 import electric3 from './other/Electric3.jpg';
@@ -96,6 +116,8 @@ import entryArch2 from './other/entryArch2.jpg';
 import entryArch3 from './other/entryArch3.jpg';
 import entryArch4 from './other/entryArch4.jpg';
 import entryArch5 from './other/entryArch5.jpg';
+import exercise1 from './other/Exercise1.jpg';
+import exercise2 from './other/Exercise2.jpg';
 import fratessaTower1 from './other/fratessaTower1.jpg';
 import geodesicDome1 from './other/geodesicDome1.jpg';
 import geodesicDome2 from './other/geodesicDome2.jpg';
@@ -106,6 +128,8 @@ import greenHouse1 from './other/greenHouse1.jpg';
 import greenHouse2 from './other/greenHouse2.jpg';
 import greenHouse3 from './other/greenHouse3.jpg';
 import guniteBridge1 from './other/guniteBridge1.jpg';
+import hydraulic1 from './other/Hydraulic1.jpg';
+import hydraulic2 from './other/Hydraulic2.jpg';
 import modularHouse1 from './other/modularHouse1.jpg';
 import modularHouse2 from './other/modularHouse2.jpg';
 import modularHouse3 from './other/modularHouse3.jpg';
@@ -124,12 +148,17 @@ import restrooms2 from './other/restrooms2.jpg';
 import restrooms3 from './other/restrooms3.jpg';
 import restrooms4 from './other/restrooms4.jpg';
 import serenityWall1 from './other/serenityWall1.jpg';
+import shed1 from './other/Shed1.jpg';
+import shed2 from './other/Shed2.jpg';
 import shellHouse1 from './other/shellHouse1.jpg';
 import shellHouse2 from './other/shellHouse2.jpg';
 import shellHouse3 from './other/shellHouse3.jpg';
 import shellHouse4 from './other/shellHouse4.jpg';
 import spireArray1 from './other/spireArray1.jpg';
 import spireArray2 from './other/spireArray2.jpg';
+import suspension1 from './other/Suspension1.jpg';
+import suspension2 from './other/Suspension2.jpg';
+import suspension3 from './other/Suspension3.jpg';
 import stickStructure1 from './other/stickStructure1.jpg';
 import stickStructure2 from './other/stickStructure2.jpg';
 import stickStructure3 from './other/stickStructure3.jpg';
@@ -142,10 +171,13 @@ import techiteBridge3 from './other/techiteBridge3.jpg';
 import tensegrity1 from './other/tensegrity1.jpg';
 import tensegrity2 from './other/tensegrity2.jpg';
 import tensegrity3 from './other/tensegrity3.jpg';
+import tensegrityMast1 from './other/TensegrityMast1.jpg';
+import tensegrityMast2 from './other/TensegrityMast2.jpg';
 import tensile1 from './other/tensile1.jpg';
 import tensile2 from './other/tensile2.jpg';
 import tensile3 from './other/tensile3.jpg';
 import tensile4 from './other/tensile4.jpg';
+import treeHouse1 from './other/TreeHouse1.jpg';
 import undergroundHouse1 from './other/undergroundHouse1.jpg';
 import undergroundHouse2 from './other/undergroundHouse2.jpg';
 import waterTanks1 from './other/waterTanks1.jpg';
@@ -193,6 +225,17 @@ export const mainImages = {
   'M-29': M29,
   'M-30': M30,
   'M-31': M31,
+  'M-32': M32,
+  'M-33': M33,
+  'M-34': M34,
+  'M-35': M35,
+  'M-36': M36,
+  'M-37': M37,
+  'M-38': M38,
+  'M-39': M39,
+  'M-40': M40,
+  'M-41': M41,
+  'M-42': M42,
 };
 
 // Closeup images
@@ -235,6 +278,10 @@ export const otherImages = {
   bbqPit2,
   blade1,
   blade2,
+  botanical1,
+  botanical2,
+  botanical3,
+  botanical4,
   bridgeHouse1,
   bridgeHouse2,
   bridgeHouse3,
@@ -249,6 +296,11 @@ export const otherImages = {
   centeringCenter2,
   centeringCenter3,
   centeringCenter4,
+  corX1,
+  corX2,
+  corX3,
+  earthBlocks1,
+  earthBlocks2,
   electric1,
   electric2,
   electric3,
@@ -259,6 +311,8 @@ export const otherImages = {
   entryArch3,
   entryArch4,
   entryArch5,
+  exercise1,
+  exercise2,
   fratessaTower1,
   geodesicDome1,
   geodesicDome2,
@@ -269,6 +323,8 @@ export const otherImages = {
   greenHouse2,
   greenHouse3,
   guniteBridge1,
+  hydraulic1,
+  hydraulic2,
   modularHouse1,
   modularHouse2,
   modularHouse3,
@@ -287,6 +343,8 @@ export const otherImages = {
   restrooms3,
   restrooms4,
   serenityWall1,
+  shed1,
+  shed2,
   shellHouse1,
   shellHouse2,
   shellHouse3,
@@ -299,16 +357,22 @@ export const otherImages = {
   stickStructure4,
   sunDial1,
   sunDial2,
+  suspension1,
+  suspension2,
+  suspension3,
   techiteBridge1,
   techiteBridge2,
   techiteBridge3,
   tensegrity1,
   tensegrity2,
   tensegrity3,
+  tensegrityMast1,
+  tensegrityMast2,
   tensile1,
   tensile2,
   tensile3,
   tensile4,
+  treeHouse1,
   undergroundHouse1,
   undergroundHouse2,
   waterTanks1,
