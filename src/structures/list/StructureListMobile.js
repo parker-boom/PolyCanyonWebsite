@@ -25,15 +25,15 @@ import {
 } from 'react-icons/fa';
 
 // Styles
-import * as S from './Structures.styles.js';
+import * as S from '../Structures.styles.js';
 
 // Data & Images
-import { mainImages } from './images/structureImages.js';
-import { accessoryImages } from './images/structureImages.js';
-import { getStructuresList } from './data/structuresData.js';
+import { mainImages } from '../images/structureImages.js';
+import { accessoryImages } from '../images/structureImages.js';
+import { getStructuresList } from '../data/structuresData.js';
 
 // ResearchInfo component
-import ResearchInfo from './ResearchInfo.js';
+import ResearchInfo from '../extraComponents/ResearchInfo.js';
 
 /*
 Component

@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaTimes, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import styled from 'styled-components';
-import * as S from './Structures.styles.js';
-import { getAccessoryStructures } from './data/structuresData.js';
-import { accessoryImages } from './images/structureImages.js';
-import GoogleMapLandmark from './GoogleMapLandmark.js';
+import * as S from '../Structures.styles.js';
+import { getAccessoryStructures } from '../data/structuresData.js';
+import { accessoryImages } from '../images/structureImages.js';
+import GoogleMapLandmark from '../extraComponents/GoogleMapLandmark.js';
 
 // Styled components modifications
 const AccessoryNumber = styled(S.StructureNumberBubble)`

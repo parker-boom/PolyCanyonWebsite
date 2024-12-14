@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { Helmet } from 'react-helmet-async';
-import * as S from './Structures.styles.js';
-import { getAccessoryStructures } from './data/structuresData.js';
-import { accessoryImages } from './images/structureImages.js';
-import GoogleMapLandmark from './GoogleMapLandmark.js';
+import * as S from '../Structures.styles.js';
+import { getAccessoryStructures } from '../data/structuresData.js';
+import { accessoryImages } from '../images/structureImages.js';
+import GoogleMapLandmark from '../extraComponents/GoogleMapLandmark.js';
 import styled from 'styled-components';
 // Keep only the styled components we need
 const MobileInfoPageWrapper = styled(S.InfoPageWrapper)`

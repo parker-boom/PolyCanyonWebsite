@@ -42,12 +42,12 @@ import InfoPageMobile from './info/InfoPageMobile.js';
 import InfoPageWeb from './info/InfoPageWeb.js';
 import MapPageWeb from './map/MapPageWeb.js';
 import MapPageMobile from './map/MapPageMobile.js';
-import StructureList from './structures/StructureList.js';
-import StructureListMobile from './structures/StructureListMobile.js';
-import StructureInfo from './structures/StructureInfo.js';
-import StructureInfoMobile from './structures/StructureInfoMobile.js';
-import AccessoryStructureInfo from './structures/AccessoryStructureInfo.js';
-import AccessoryStructureInfoMobile from './structures/AccessoryStructureInfoMobile.js';
+import StructureList from './structures/list/StructureList.js';
+import StructureListMobile from './structures/list/StructureListMobile.js';
+import StructureInfo from './structures/info/StructureInfo.js';
+import StructureInfoMobile from './structures/info/StructureInfoMobile.js';
+import AccessoryStructureInfo from './structures/accessory/AccessoryStructureInfo.js';
+import AccessoryStructureInfoMobile from './structures/accessory/AccessoryStructureInfoMobile.js';
 
 // Utils
 import { loadGoogleMapsScript } from './utils/googleMaps.js';

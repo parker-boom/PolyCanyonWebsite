@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { mainImages } from './images/structureImages.js';
+import { mainImages } from './structureImages.js';
 
 const useListImagePreloader = (structures) => {
   const [loadingStatus, setLoadingStatus] = useState({

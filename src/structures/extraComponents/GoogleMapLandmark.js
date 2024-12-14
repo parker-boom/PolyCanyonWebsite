@@ -1,8 +1,8 @@
 import React from 'react';
 import { GoogleMap, MarkerF } from '@react-google-maps/api';
 import PropTypes from 'prop-types';
-import { MapContainer } from '../info/InfoPage.styles.js';
-import { structureMapStyles } from '../utils/googleMaps.js';
+import { MapContainer } from '../../info/InfoPage.styles.js';
+import { structureMapStyles } from '../../utils/googleMaps.js';
 
 export const GoogleMapLandmark = ({ latitude, longitude, structureName }) => {
   if (!window.google) return <div>Loading map...</div>;

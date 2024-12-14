@@ -19,19 +19,19 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
 // Styles
-import * as S from './Structures.styles.js';
+import * as S from '../Structures.styles.js';
 
 // Components, images, and data
-import GoogleMapLandmark from './GoogleMapLandmark.js';
+import GoogleMapLandmark from '../extraComponents/GoogleMapLandmark.js';
 import {
   mainImages,
   closeUpImages,
   otherImages,
-} from './images/structureImages.js';
-import { getStructuresList, getStructureInfo } from './data/structuresData.js';
-import useImagePreloader from './useImagePreloader.js';
-import LoadingSpinner from './LoadingSpinner.js';
-import ResearchInfo from './ResearchInfo.js';
+} from '../images/structureImages.js';
+import { getStructuresList, getStructureInfo } from '../data/structuresData.js';
+import useImagePreloader from '../images/useImagePreloader.js';
+import LoadingSpinner from '../extraComponents/LoadingSpinner.js';
+import ResearchInfo from '../extraComponents/ResearchInfo.js';
 
 // Image path helper function
 const getImagePath = (imagePath) => {

@@ -21,20 +21,20 @@ import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { useSpring, animated } from 'react-spring';
 import { useGesture } from '@use-gesture/react';
-import useImagePreloader from './useImagePreloader.js';
-import LoadingSpinner from './LoadingSpinner.js';
+import useImagePreloader from '../images/useImagePreloader.js';
+import LoadingSpinner from '../extraComponents/LoadingSpinner.js';
 import { Helmet } from 'react-helmet-async';
 
 // Components and data
-import GoogleMapLandmark from './GoogleMapLandmark.js';
+import GoogleMapLandmark from '../extraComponents/GoogleMapLandmark.js';
 import {
   mainImages,
   closeUpImages,
   otherImages,
-} from './images/structureImages.js';
-import { getStructuresList, getStructureInfo } from './data/structuresData.js';
-import * as S from './Structures.styles.js';
-import ResearchInfo from './ResearchInfo.js';
+} from '../images/structureImages.js';
+import { getStructuresList, getStructureInfo } from '../data/structuresData.js';
+import * as S from '../Structures.styles.js';
+import ResearchInfo from '../extraComponents/ResearchInfo.js';
 
 /*
 Mobile-specific styled components extending base styles

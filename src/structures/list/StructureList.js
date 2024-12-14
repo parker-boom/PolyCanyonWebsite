@@ -26,15 +26,15 @@ import {
 } from 'react-icons/fa';
 
 // Styles
-import * as S from './Structures.styles.js';
+import * as S from '../Structures.styles.js';
 
 // Data & Images
-import { mainImages } from './images/structureImages.js';
-import { accessoryImages } from './images/structureImages.js';
-import { getStructuresList, getStructureInfo } from './data/structuresData.js';
-import useListImagePreloader from './useListImagePreloader.js';
-import LoadingSpinner from './LoadingSpinner.js';
-import ResearchInfo from './ResearchInfo.js';
+import { mainImages } from '../images/structureImages.js';
+import { accessoryImages } from '../images/structureImages.js';
+import { getStructuresList, getStructureInfo } from '../data/structuresData.js';
+import useListImagePreloader from '../images/useListImagePreloader.js';
+import LoadingSpinner from '../extraComponents/LoadingSpinner.js';
+import ResearchInfo from '../extraComponents/ResearchInfo.js';
 
 /*
 Components & Renders
