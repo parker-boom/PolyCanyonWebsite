@@ -1,0 +1,4 @@
+This document is used to document the progress of the chronicles overall.
+So it is easy to know what is done and what is not done.
+It also can be used to see where there is overlap (AKA when components are in chronicles.styles to be shared with other pages)
+

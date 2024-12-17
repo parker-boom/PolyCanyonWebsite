@@ -1,0 +1,117 @@
+
+THE WILDS
+The layout shows 1 different type of wilds at a time, with the bottom slider to switch between them. The interactive elements take up the vertical left and right and are tall because of it. The middle is for a quick overview text.
+Bottom Slider Navigation:
+A curved slider at the bottom with 5 categories represented as icons. Users can drag or click to switch between categories.
+Categories will flow in a smooth arc, creating an elegant, organic aesthetic.
+Information Display:
+Top Section: The curved slider extends outward into a rectangle below, seamlessly connected to the content space.
+Main Content Area: The center is reserved for text summaries of each category, with two interactive charts/images flanking either side (one on the left, one on the right).
+Color Theme:
+A mix of earthy greens, soft blues, and flowing white accents, evoking a sense of nature and tranquility.
+Interactive elements (e.g., sliders, buttons) accented with subtle gold highlights to maintain thematic consistency with the Chronicles.
+
+
+
+
+CLIMATE
+
+
+Component 1: Wind Map
+Description: An animated map showing wind patterns across the canyon.
+Daytime: Sea-to-land breeze visualized with subtle arrows moving inland.
+Nighttime: The reverse flow (land-to-sea) shown with contrasting arrow colors.
+Interaction: Users toggle between day/night wind patterns with a simple switch.
+Component 2: Rainfall & Creek Visualization
+Description: 365 squares are shown in an area, an array index is provided and the squares at those index are blued
+It is explained that highlights the days that are blue
+
+
+PARAGRAPH
+Every day in the canyon is shaped by the wind. It rushes inland from the sea during the afternoon, carving through the ridges, and by night, it turns, flowing back toward the coast. It’s a rhythm as old as the hills themselves, giving the canyon its ever-present feeling of movement and change. When the rain comes, everything shifts again. Brizzolara Creek swells, carrying life through the canyon where it usually trickles quietly. The dry slopes become streaked with rushing water, and for a short time, the plants and trails transform into something vibrant, almost unrecognizable. It’s not just the big moments, though—the golden summers and crisp winters—it’s the quiet ones too. The fog that rolls in during early mornings, the way the wind tugs at the oaks, or how the heat clings to the hillsides in August. This ever-changing, breathing climate didn’t just influence the canyon’s history—it’s part of it.
+
+
+
+
+VEGETATION
+
+
+Component 1: Vegetation Map
+Description: A map overlay showing four main vegetation zones:
+Riparian (Creek Zone): Lush areas with willows and bay laurels along Brizzolara Creek.
+Chaparral: Hardy shrubs like Toyon and Chaparral Yucca, thriving on dry slopes.
+Grasslands: Open spaces dominated by golden grasses, green after rainfall.
+Coastal Live Oak Woodland: Scattered oak trees creating dappled shade on rolling hills.
+Component 2: Plant Spotlights
+Description: 3 Featured Plants with short, engaging descriptions:
+Toyon (Christmas Berry): Vibrant red berries that bring winter color and wildlife.
+Chaparral Yucca (Our Lord’s Candle): A striking, spiky plant with blooms taller than a person.
+Sticky Monkeyflower: Small, cheerful orange flowers that cling to dry slopes.
+
+
+PARAGRAPH
+The land in Poly Canyon shifts with every step, a mosaic of textures and colors that feels both wild and carefully composed. Along the creek, shaded by willows and bay laurels, riparian zones hum with life, even in the heat of summer. Climb higher, and the slopes turn rugged, where chaparral plants like Toyon and Chaparral Yucca cling to rocky soil, their resilience a quiet triumph. Between these zones, grasslands stretch wide, golden and wind-swept for most of the year, but alive with green shoots and wildflowers after the rains. It’s in these fleeting moments—when the Sticky Monkeyflower’s orange blossoms dot the hillsides—that the canyon’s vegetation feels like a living canvas, painting its story with each season.
+
+
+
+
+WILDLIFE
+
+
+Left: “Friendly Wildlife”
+Title: “Wildlife You’ll Want to See”
+Hummingbirds: How to Help: Plant flowers near the trail or avoid spreading chemicals that harm their food sources.
+Turkeys: How to Help: Keep your distance to avoid startling them and enjoy observing their group behavior.
+Western Fence Lizards: How to Help: Appreciate them from afar; they help reduce ticks by hosting a bacteria that neutralizes Lyme disease.
+Right: “Wildlife to Watch Out For”
+Title: “How to Handle Encounters”
+Coyotes: What to Do: Avoid feeding them, keep pets on a leash, and make noise to scare them off if they get too close.
+Rattlesnakes: What to Do: Stay calm, back away slowly, and don’t try to handle or provoke them. Watch your step on rocky trails.
+Deer (During Rutting Season): What to Do: Keep your distance—bucks can be aggressive if they feel threatened, especially during fall.
+
+
+PARAGRAPH
+Before becoming a hub for experimentation, this place was farmland—its hills home to grazing cattle and horses under an agreement that still stands and is still utilized today. Evidence of this past lingers in unexpected ways: the Blade Structure, famously broken by a cow using it as a frequent scratching post, is an important lesson in how animals contribute. Even today, visitors to the canyon can’t miss the wildlife. Turkeys roam in large groups, hawks circle high above, and deer graze quietly in the oak woodlands. Spring brings frogs and toads to the creek, their calls echoing after the rains, while summer sees lizards basking on sun-warmed rocks and hummingbirds darting between blossoms. In every season, the canyon hums with life—its animals not just visitors, but inhabitants.
+
+
+
+
+
+
+GEOLOGY & SOIL
+
+
+Left: “Understanding the Terrain”
+Title: “A Land Built on Slopes”
+Topological map from the guide
+Additional Insight: Include fun facts, such as: “The canyon’s average slope is 27%, making construction here an act of bold ingenuity.”
+Right: “Structures in Harmony”
+Title: “Designing with the Earth”
+Showcase structures that embraced the terrain, such as the Cantilever Deck and Stick Structure.
+Images:Photos showing how these projects adapted to the natural slopes.
+Highlight: Use captions like: “The Cantilever Deck stands as a triumph of design over gravity, anchored by piers to the hillside’s rugged geology.”
+
+
+PARAGRAPH
+The geology here tells a story of constant motion. The grinding collision of the Pacific and North American plates formed the Santa Lucia Mountains, carving out the ridges and valleys that define the canyon. Beneath the surface lies the Franciscan Formation, a jumble of rock and sediment visible in sandstone outcrops and serpentine ridges. These serpentine fractures feed natural springs by guiding water through, while the dense mélange below traps it, sustaining Brizzolara Creek. The soils tell their own tale: Los Osos clay swells and shifts, while Diablo soils shrink and crack, creating a challenge for anyone who dares to build here. But these challenges have only sparked ingenuity. Builders in the canyon didn’t see obstacles—they saw opportunities to design structures that work with the land, not against it, proving that creativity thrives even in the toughest terrain.
+
+The creeks here have always been a lifeline, feeding natural springs that sustain the land and its people. These waters, carried through serpentine fractures, once supported agricultural efforts before becoming a vital resource for the experimental projects and residents who called the canyon home. Even today, remnants of this infrastructure lie hidden underground—buried septic tanks and intact water systems that quietly trace the creek’s flow. While the creeks are modest in size, their significance runs deep, connecting this pocket of the land to the broader San Luis Obispo watershed and, ultimately, the Pacific Ocean. Every drop carries a legacy, winding its way through history.
+
+
+
+
+HYDROLOGY
+
+Left: “Tracing the Waters”
+Title: “The Flow of Life”
+A hydrology map from the guide
+Right: “Water Infrastructure Through Time”
+Title: “The Hidden Network”
+A three-stage timeline:
+First water tanks
+Connection to restrooms and modular
+1998 expansion
+
+
+PARAGRAPH
+The creeks here have always been a lifeline, feeding natural springs that sustain the land and its people. These waters, carried through serpentine fractures, once supported agricultural efforts before becoming a vital resource for the experimental projects and residents who called the canyon home. Even today, remnants of this infrastructure lie hidden underground—buried septic tanks and intact water systems that quietly trace the creek’s flow. While the creeks are modest in size, their significance runs deep, connecting this pocket of the land to the broader San Luis Obispo watershed and, ultimately, the Pacific Ocean. Every drop carries a legacy, winding its way through history.

@@ -25,6 +25,17 @@ const slideDown = keyframes`
   }
 `;
 
+const pulseGlow = keyframes`
+  0% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+  100% { opacity: 0.4; transform: scale(1); }
+`;
+
+const shimmer = keyframes`
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+`;
+
 /*
 Mobile Elements
 */
@@ -438,4 +449,77 @@ export const FooterDivider = styled.span`
 
 export const PageWrapper = styled.div`
   padding-top: 70px; // Always add padding since banner is always fixed
+`;
+
+export const ChroniclesButton = styled(Link)`
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 0px;
+  padding: 6px 8px;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 20px;
+  text-shadow: 0 0 15px rgba(189, 139, 19, 0.5);
+
+  // Move the text content into a span to keep it above everything
+  span {
+    position: relative;
+    z-index: 3;
+    background: linear-gradient(
+      90deg,
+      rgb(189, 139, 19) 0%,
+      rgb(212, 169, 65) 50%,
+      rgb(189, 139, 19) 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: ${shimmer} 4s linear infinite;
+  }
+
+  // Glowing orb icon
+  &::before {
+    content: '✧';
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: ${pulseGlow} 2s ease-in-out infinite;
+    text-shadow: 0 0 15px rgba(189, 139, 19, 0.8);
+    -webkit-text-fill-color: rgb(189, 139, 19);
+    position: relative;
+    z-index: 3;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    padding: 6px 20px;
+
+    // Move background effects to a separate pseudo-element
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 248, 235, 0.1);
+      box-shadow:
+        0 0 20px rgba(189, 139, 19, 0.2),
+        0 0 30px rgba(189, 139, 19, 0.1),
+        inset 0 0 15px rgba(189, 139, 19, 0.1);
+      border-radius: 20px;
+      z-index: 1;
+    }
+
+    &::before {
+      animation: ${pulseGlow} 1s ease-in-out infinite;
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
 `;

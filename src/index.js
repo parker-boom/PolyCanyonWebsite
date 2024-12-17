@@ -48,6 +48,11 @@ import StructureInfo from './structures/info/StructureInfo.js';
 import StructureInfoMobile from './structures/info/StructureInfoMobile.js';
 import AccessoryStructureInfo from './structures/accessory/AccessoryStructureInfo.js';
 import AccessoryStructureInfoMobile from './structures/accessory/AccessoryStructureInfoMobile.js';
+import ChroniclesHome from './chronicles/Home/cHome.js';
+import Origins from './chronicles/Origins/cOrigins.js';
+import Land from './chronicles/Land/cLand.js';
+import People from './chronicles/People/cPeople.js';
+import Projects from './chronicles/Projects/cProjects.js';
 
 // Utils
 import { loadGoogleMapsScript } from './utils/googleMaps.js';
@@ -60,7 +65,8 @@ const AppContainer = styled.div`
 
 const Content = styled.main`
   flex: 1;
-  margin-top: ${(props) => (props.path === '/' ? '0' : '80px')};
+  margin-top: ${(props) =>
+    props.path === '/' || props.path.startsWith('/chronicles') ? '0' : '80px'};
 `;
 
 const GlobalStyle = createGlobalStyle`
@@ -112,7 +118,8 @@ function App() {
 
   return (
     <AppContainer>
-      {location.pathname !== '/' && <Navigation />}
+      {location.pathname !== '/' &&
+        !location.pathname.startsWith('/chronicles') && <Navigation />}
       <Content path={location.pathname}>
         <Routes>
           {/* Home route */}
@@ -156,25 +163,33 @@ function App() {
             element={isMobile ? <MapPageMobile /> : <MapPageWeb />}
           />
 
+          {/* Chronicles routes */}
+          <Route path="/chronicles" element={<ChroniclesHome />} />
+          <Route path="/chronicles/origins" element={<Origins />} />
+          <Route path="/chronicles/Land" element={<Land />} />
+          <Route path="/chronicles/people" element={<People />} />
+          <Route path="/chronicles/projects" element={<Projects />} />
+
           {/* Redirect any unmatched route to home */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Content>
 
-      {location.pathname !== '/' && (
-        <Footer>
-          <FooterText $primary>© 2024 Poly Canyon App</FooterText>
-          <FooterText $primary $developer>
-            Designed & Developed by Parker Jones
-          </FooterText>
-          <FooterText $contact>
-            <a href="mailto:pjones15@calpoly.edu">pjones15@calpoly.edu</a>
-            <FooterDivider>•</FooterDivider>
-            <a href="tel:425-577-9664">425-577-9664</a>
-          </FooterText>
-          <FooterText>Cal Poly, San Luis Obispo</FooterText>
-        </Footer>
-      )}
+      {location.pathname !== '/' &&
+        !location.pathname.startsWith('/chronicles') && (
+          <Footer>
+            <FooterText $primary>© 2024 Poly Canyon App</FooterText>
+            <FooterText $primary $developer>
+              Designed & Developed by Parker Jones
+            </FooterText>
+            <FooterText $contact>
+              <a href="mailto:pjones15@calpoly.edu">pjones15@calpoly.edu</a>
+              <FooterDivider>•</FooterDivider>
+              <a href="tel:425-577-9664">425-577-9664</a>
+            </FooterText>
+            <FooterText>Cal Poly, San Luis Obispo</FooterText>
+          </Footer>
+        )}
     </AppContainer>
   );
 }
