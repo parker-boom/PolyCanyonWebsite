@@ -44,6 +44,7 @@ import {
   NavLinks,
   NavLink,
   BannerIcon,
+  ChroniclesButton,
 } from './Navigation.styles.js';
 
 // Logo
@@ -119,7 +120,7 @@ const Navigation = () => {
 
   // Change to other pages
   const navLinks = [
-    { to: '/download', icon: <FaDownload />, text: 'Download' },
+    { to: '/download', icon: <FaDownload />, text: 'App' },
     { to: '/info', icon: <FaInfo />, text: 'Info' },
     { to: '/structures', icon: <FaBuilding />, text: 'Structures' },
   ];
@@ -208,6 +209,9 @@ const Navigation = () => {
                 {icon} {text}
               </NavLink>
             ))}
+            <ChroniclesButton to="/chronicles">
+              <span>Chronicles</span>
+            </ChroniclesButton>
           </NavLinks>
         </LeftSection>
       </BannerContent>
