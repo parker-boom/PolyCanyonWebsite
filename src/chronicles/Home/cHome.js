@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { FaArrowLeft, FaChevronRight } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useRef } from 'react';
+import { FaTimes, FaChevronRight } from 'react-icons/fa';
+import { useNavigate, useLocation } from 'react-router-dom';
 import {
   Container,
   ExitBar,
@@ -14,20 +14,22 @@ import {
   StageButton,
   ExploreTitle,
   ChroniclesLogo,
+  BottomRow,
 } from './cHome.styles.js';
-import OriginsImg from './bubbleimgs/Origins.png';
+import StoryImg from './bubbleimgs/Story.png';
 import NaturalImg from './bubbleimgs/Natural.png';
 import PeopleImg from './bubbleimgs/People.png';
 import ProjectsImg from './bubbleimgs/Projects.png';
 import ChroniclesIcon from './bubbleimgs/chroniclesIcon.png';
 
 const Home = () => {
-  const [stage, setStage] = useState(1);
+  const location = useLocation();
   const titleRef = useRef(null);
   const navigate = useNavigate();
 
+  const currentStage = location.pathname === '/chronicles/2' ? 2 : 1;
+
   useEffect(() => {
-    // Set up SVG text with proper positioning
     if (titleRef.current) {
       const text = titleRef.current;
       const bbox = text.getBBox();
@@ -40,10 +42,14 @@ const Home = () => {
     navigate(`/chronicles/${path.toLowerCase()}`);
   };
 
+  const handleStageChange = () => {
+    navigate('/chronicles/2');
+  };
+
   return (
     <Container>
-      <TitleContainer $stage={stage}>
-        {stage === 1 ? (
+      <TitleContainer $stage={currentStage}>
+        {currentStage === 1 ? (
           <>
             <ChroniclesLogo src={ChroniclesIcon} alt="Chronicles Icon" />
             <MainTitle>
@@ -55,68 +61,64 @@ const Home = () => {
               Canyon Chronicles
             </MainTitle>
             <Subtitle>
-              <span>We must understand what has already been,</span>
-              <span>to dream about what could be</span>
+              <span>We must understand what has been,</span>
+              <span>to dream about what can be</span>
             </Subtitle>
-            <StageButton onClick={() => setStage(2)}>
+            <StageButton onClick={handleStageChange}>
               Uncover the Story <FaChevronRight />
             </StageButton>
           </>
         ) : (
           <>
-            <ExploreTitle>
-              <svg overflow="visible">
-                <text ref={titleRef} x="50%" y="50%" textAnchor="middle">
-                  What would you like to explore?
-                </text>
-              </svg>
-              What would you like to explore?
-            </ExploreTitle>
+            <ExploreTitle>What would you like to explore?</ExploreTitle>
             <BubblesGrid>
               <BubbleCard
-                $image={OriginsImg}
-                onClick={() => handleCardClick('origins')}
+                $image={StoryImg}
+                onClick={() => handleCardClick('story')}
+                $isStory={true}
               >
-                <BubbleTitle>
+                <BubbleTitle $isStory={true}>
                   <span className="prefix">The</span>
-                  <span className="main">Origins</span>
+                  <span className="main">Story</span>
                 </BubbleTitle>
               </BubbleCard>
-              <BubbleCard
-                $image={NaturalImg}
-                onClick={() => handleCardClick('land')}
-              >
-                <BubbleTitle>
-                  <span className="prefix">The</span>
-                  <span className="main">Land</span>
-                </BubbleTitle>
-              </BubbleCard>
-              <BubbleCard
-                $image={PeopleImg}
-                onClick={() => handleCardClick('people')}
-              >
-                <BubbleTitle>
-                  <span className="prefix">The</span>
-                  <span className="main">People</span>
-                </BubbleTitle>
-              </BubbleCard>
-              <BubbleCard
-                $image={ProjectsImg}
-                onClick={() => handleCardClick('projects')}
-              >
-                <BubbleTitle>
-                  <span className="prefix">The</span>
-                  <span className="main">Projects</span>
-                </BubbleTitle>
-              </BubbleCard>
+              <BottomRow>
+                <BubbleCard
+                  $image={NaturalImg}
+                  onClick={() => handleCardClick('land')}
+                >
+                  <BubbleTitle>
+                    <span className="prefix">The</span>
+                    <span className="main">Land</span>
+                  </BubbleTitle>
+                </BubbleCard>
+                <BubbleCard
+                  $image={PeopleImg}
+                  onClick={() => handleCardClick('people')}
+                >
+                  <BubbleTitle>
+                    <span className="prefix">The</span>
+                    <span className="main">People</span>
+                  </BubbleTitle>
+                </BubbleCard>
+                <BubbleCard
+                  $image={ProjectsImg}
+                  onClick={() => handleCardClick('projects')}
+                >
+                  <BubbleTitle>
+                    <span className="prefix">The</span>
+                    <span className="main">Projects</span>
+                  </BubbleTitle>
+                </BubbleCard>
+              </BottomRow>
             </BubblesGrid>
           </>
         )}
       </TitleContainer>
 
-      <ExitBar>
+      <ExitBar $stage={currentStage}>
         <ExitLink to="/">
-          <FaArrowLeft /> Exit the Chronicles
+          <FaTimes /> Exit the Chronicles
         </ExitLink>
       </ExitBar>
     </Container>

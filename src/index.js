@@ -49,7 +49,7 @@ import StructureInfoMobile from './structures/info/StructureInfoMobile.js';
 import AccessoryStructureInfo from './structures/accessory/AccessoryStructureInfo.js';
 import AccessoryStructureInfoMobile from './structures/accessory/AccessoryStructureInfoMobile.js';
 import ChroniclesHome from './chronicles/Home/cHome.js';
-import Origins from './chronicles/Origins/cOrigins.js';
+import Story from './chronicles/Story/cStory.js';
 import Land from './chronicles/Land/cLand.js';
 import People from './chronicles/People/cPeople.js';
 import Projects from './chronicles/Projects/cProjects.js';
@@ -165,8 +165,9 @@ function App() {
 
           {/* Chronicles routes */}
           <Route path="/chronicles" element={<ChroniclesHome />} />
-          <Route path="/chronicles/origins" element={<Origins />} />
-          <Route path="/chronicles/Land" element={<Land />} />
+          <Route path="/chronicles/2" element={<ChroniclesHome />} />
+          <Route path="/chronicles/story" element={<Story />} />
+          <Route path="/chronicles/land" element={<Land />} />
           <Route path="/chronicles/people" element={<People />} />
           <Route path="/chronicles/projects" element={<Projects />} />
 
