@@ -1,5 +1,10 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
+
+const fadeIn = keyframes`
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+`;
 
 export const Container = styled.div`
   width: 100vw;
@@ -7,6 +12,10 @@ export const Container = styled.div`
   background: black;
   color: white;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: ${fadeIn} 0.6s ease-out;
 `;
 
 export const ExitBar = styled.div`

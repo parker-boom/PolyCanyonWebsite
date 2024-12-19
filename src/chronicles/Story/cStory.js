@@ -40,7 +40,7 @@ import {
 } from './cStory.styles.js';
 import eraPhotoCaptions from './eraPhotoCaptions.json';
 
-const Origins = () => {
+const Story = () => {
   const [currentEraIndex, setCurrentEraIndex] = useState(0);
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const [isRevealed, setIsRevealed] = useState(false);
@@ -255,4 +255,4 @@ const Origins = () => {
   );
 };
 
-export default Origins;
+export default Story;

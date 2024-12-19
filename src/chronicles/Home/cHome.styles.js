@@ -165,7 +165,7 @@ export const BubblesGrid = styled.div`
   display: grid;
   grid-template-rows: 240px 195px;
   gap: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 100px;
   opacity: 0;
   animation: ${fadeScale} 0.5s ease-out forwards 0.2s;
   width: 810px;

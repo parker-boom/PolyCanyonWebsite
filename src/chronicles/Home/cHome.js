@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { FaTimes, FaChevronRight } from 'react-icons/fa';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { TransitionProvider, useTransition } from '../TransitionContext.js';
+import ChroniclesTransition from '../ChroniclesTransition.js';
 import {
   Container,
   ExitBar,
@@ -22,10 +24,11 @@ import PeopleImg from './bubbleimgs/People.png';
 import ProjectsImg from './bubbleimgs/Projects.png';
 import ChroniclesIcon from './bubbleimgs/chroniclesIcon.png';
 
-const Home = () => {
+const HomeContent = () => {
   const location = useLocation();
   const titleRef = useRef(null);
   const navigate = useNavigate();
+  const { startTransition, updateLoadingProgress } = useTransition();
 
   const currentStage = location.pathname === '/chronicles/2' ? 2 : 1;
 
@@ -38,8 +41,24 @@ const Home = () => {
     }
   }, []);
 
-  const handleCardClick = (path) => {
-    navigate(`/chronicles/${path.toLowerCase()}`);
+  const handleCardClick = async (path, e, imageUrl) => {
+    // Get click position relative to viewport
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100 + '%';
+    const y = ((e.clientY - rect.top) / rect.height) * 100 + '%';
+
+    // Start transition
+    startTransition({
+      fromSection: 'home',
+      toSection: path,
+      startPosition: { x, y },
+      imageUrl,
+    });
+
+    // Wait for expansion and quick fade
+    setTimeout(() => {
+      navigate(`/chronicles/${path.toLowerCase()}`);
+    }, 1200); // Gives time for expansion (800ms) and quick fade (400ms)
   };
 
   const handleStageChange = () => {
@@ -48,6 +67,7 @@ const Home = () => {
 
   return (
     <Container>
+      <ChroniclesTransition />
       <TitleContainer $stage={currentStage}>
         {currentStage === 1 ? (
           <>
@@ -74,7 +94,7 @@ const Home = () => {
             <BubblesGrid>
               <BubbleCard
                 $image={StoryImg}
-                onClick={() => handleCardClick('story')}
+                onClick={(e) => handleCardClick('story', e, StoryImg)}
                 $isStory={true}
               >
                 <BubbleTitle $isStory={true}>
@@ -85,7 +105,7 @@ const Home = () => {
               <BottomRow>
                 <BubbleCard
                   $image={NaturalImg}
-                  onClick={() => handleCardClick('land')}
+                  onClick={(e) => handleCardClick('land', e, NaturalImg)}
                 >
                   <BubbleTitle>
                     <span className="prefix">The</span>
@@ -94,7 +114,7 @@ const Home = () => {
                 </BubbleCard>
                 <BubbleCard
                   $image={PeopleImg}
-                  onClick={() => handleCardClick('people')}
+                  onClick={(e) => handleCardClick('people', e, PeopleImg)}
                 >
                   <BubbleTitle>
                     <span className="prefix">The</span>
@@ -103,7 +123,7 @@ const Home = () => {
                 </BubbleCard>
                 <BubbleCard
                   $image={ProjectsImg}
-                  onClick={() => handleCardClick('projects')}
+                  onClick={(e) => handleCardClick('projects', e, ProjectsImg)}
                 >
                   <BubbleTitle>
                     <span className="prefix">The</span>
@@ -122,6 +142,14 @@ const Home = () => {
         </ExitLink>
       </ExitBar>
     </Container>
+  );
+};
+
+const Home = () => {
+  return (
+    <TransitionProvider>
+      <HomeContent />
+    </TransitionProvider>
   );
 };
 
