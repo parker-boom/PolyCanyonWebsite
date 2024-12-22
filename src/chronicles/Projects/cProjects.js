@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaDice, FaArrowLeft } from 'react-icons/fa';
+import { Helmet } from 'react-helmet-async';
 import { projectImages } from './images/projectImgs.js';
 import projectData from './images/projectImgs.json';
 import projectsBg from '../Home/bubbleimgs/projects.jpg';
@@ -44,6 +45,33 @@ const Projects = () => {
 
   return (
     <Container $bgImage={projectsBg}>
+      <Helmet>
+        <title>The Projects - Student-Built Legacy of Poly Canyon</title>
+        <meta
+          name="description"
+          content="Explore the remarkable student-built structures of Poly Canyon. Each project tells a story of innovation, determination, and architectural vision, creating a living laboratory of experimental design."
+        />
+        <meta
+          property="og:title"
+          content="The Projects - Student-Built Legacy of Poly Canyon"
+        />
+        <meta
+          property="og:description"
+          content="Explore the remarkable student-built structures of Poly Canyon. Each project tells a story of innovation, determination, and architectural vision, creating a living laboratory of experimental design."
+        />
+        <meta
+          property="og:url"
+          content="https://polycanyon.com/chronicles/projects"
+        />
+        <meta
+          name="twitter:title"
+          content="The Projects - Student-Built Legacy of Poly Canyon"
+        />
+        <meta
+          name="twitter:description"
+          content="Explore the remarkable student-built structures of Poly Canyon. Each project tells a story of innovation, determination, and architectural vision, creating a living laboratory of experimental design."
+        />
+      </Helmet>
       <ImageSection>
         <HeaderBar>
           <StructureTitle>{currentData.name}</StructureTitle>

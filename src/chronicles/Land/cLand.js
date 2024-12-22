@@ -34,6 +34,7 @@ import {
   HydrologyInteractive,
 } from './cLand.components.js';
 import { categoryQuestions } from './landData.js';
+import { Helmet } from 'react-helmet-async';
 
 // Map of interactive components for each category
 const interactiveComponents = {
@@ -60,6 +61,33 @@ const Land = () => {
 
   return (
     <Container>
+      <Helmet>
+        <title>The Land - Natural History of Poly Canyon</title>
+        <meta
+          name="description"
+          content="Discover the natural environment of Poly Canyon - from its Mediterranean climate and native vegetation to its unique geology, wildlife, and water systems that shape this architectural laboratory."
+        />
+        <meta
+          property="og:title"
+          content="The Land - Natural History of Poly Canyon"
+        />
+        <meta
+          property="og:description"
+          content="Discover the natural environment of Poly Canyon - from its Mediterranean climate and native vegetation to its unique geology, wildlife, and water systems that shape this architectural laboratory."
+        />
+        <meta
+          property="og:url"
+          content="https://polycanyon.com/chronicles/land"
+        />
+        <meta
+          name="twitter:title"
+          content="The Land - Natural History of Poly Canyon"
+        />
+        <meta
+          name="twitter:description"
+          content="Discover the natural environment of Poly Canyon - from its Mediterranean climate and native vegetation to its unique geology, wildlife, and water systems that shape this architectural laboratory."
+        />
+      </Helmet>
       <ContentWrapper>
         <TopSection>
           <SelectedIconContainer>

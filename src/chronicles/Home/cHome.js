@@ -3,6 +3,7 @@ import { FaTimes, FaChevronRight } from 'react-icons/fa';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { TransitionProvider, useTransition } from '../TransitionContext.js';
 import ChroniclesTransition from '../ChroniclesTransition.js';
+import { Helmet } from 'react-helmet-async';
 import {
   Container,
   ExitBar,
@@ -67,6 +68,30 @@ const HomeContent = () => {
 
   return (
     <Container>
+      <Helmet>
+        <title>Canyon Chronicles - A Journey Through Time</title>
+        <meta
+          name="description"
+          content="Explore the rich history of Poly Canyon through an interactive journey. Discover the story, land, people, and projects that shaped this unique architectural laboratory."
+        />
+        <meta
+          property="og:title"
+          content="Canyon Chronicles - A Journey Through Time"
+        />
+        <meta
+          property="og:description"
+          content="Explore the rich history of Poly Canyon through an interactive journey. Discover the story, land, people, and projects that shaped this unique architectural laboratory."
+        />
+        <meta property="og:url" content="https://polycanyon.com/chronicles" />
+        <meta
+          name="twitter:title"
+          content="Canyon Chronicles - A Journey Through Time"
+        />
+        <meta
+          name="twitter:description"
+          content="Explore the rich history of Poly Canyon through an interactive journey. Discover the story, land, people, and projects that shaped this unique architectural laboratory."
+        />
+      </Helmet>
       <ChroniclesTransition />
       <TitleContainer $stage={currentStage}>
         {currentStage === 1 ? (

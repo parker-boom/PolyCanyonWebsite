@@ -39,6 +39,7 @@ import {
   TextContent,
 } from './cStory.styles.js';
 import eraPhotoCaptions from './eraPhotoCaptions.json';
+import { Helmet } from 'react-helmet-async';
 
 const Story = () => {
   const [currentEraIndex, setCurrentEraIndex] = useState(0);
@@ -144,6 +145,33 @@ const Story = () => {
 
   return (
     <Container>
+      <Helmet>
+        <title>The Story - History of Poly Canyon Through Time</title>
+        <meta
+          name="description"
+          content="Journey through the eras that shaped Poly Canyon, from its earliest days to the present. Explore the evolution of this unique architectural laboratory through historical photographs and stories."
+        />
+        <meta
+          property="og:title"
+          content="The Story - History of Poly Canyon Through Time"
+        />
+        <meta
+          property="og:description"
+          content="Journey through the eras that shaped Poly Canyon, from its earliest days to the present. Explore the evolution of this unique architectural laboratory through historical photographs and stories."
+        />
+        <meta
+          property="og:url"
+          content="https://polycanyon.com/chronicles/story"
+        />
+        <meta
+          name="twitter:title"
+          content="The Story - History of Poly Canyon Through Time"
+        />
+        <meta
+          name="twitter:description"
+          content="Journey through the eras that shaped Poly Canyon, from its earliest days to the present. Explore the evolution of this unique architectural laboratory through historical photographs and stories."
+        />
+      </Helmet>
       <NavigationBar>
         <NavigationControls>
           <NavButton
