@@ -9,7 +9,7 @@ const fadeIn = keyframes`
 export const Container = styled.div`
   width: 100vw;
   height: 100vh;
-  background: black;
+  background: linear-gradient(180deg, #1a1100 0%, #000000 100%);
   color: white;
   position: relative;
   display: flex;
@@ -23,34 +23,46 @@ export const ExitBar = styled.div`
   bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.8);
   padding: 12px 24px;
   border-radius: 20px;
   display: flex;
   align-items: center;
   gap: 12px;
-  box-shadow:
-    0 0 20px rgba(255, 255, 255, 0.12),
-    0 0 30px rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(219, 139, 28, 0.3);
+  backdrop-filter: blur(10px);
   transition: all 0.3s ease;
 
   &:hover {
     transform: translateX(-50%) translateY(-2px);
+    border-color: rgba(219, 139, 28, 0.5);
     box-shadow:
-      0 0 25px rgba(255, 255, 255, 0.15),
-      0 0 50px rgba(255, 255, 255, 0.08);
+      0 0 20px rgba(219, 139, 28, 0.2),
+      0 0 40px rgba(219, 139, 28, 0.1);
   }
 `;
 
 export const ExitLink = styled(Link)`
   text-decoration: none;
-  color: white;
+  color: rgba(255, 255, 255, 0.9);
   font-size: 16px;
   font-weight: 500;
-  letter-spacing: 0.5px;
   display: flex;
   align-items: center;
   gap: 12px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: #db8b1c;
+
+    svg {
+      transform: translateX(-3px);
+    }
+  }
+
+  svg {
+    transition: transform 0.3s ease;
+  }
 `;
 
 export const NavigationBar = styled.div`

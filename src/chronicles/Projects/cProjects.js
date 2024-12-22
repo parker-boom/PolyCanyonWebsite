@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FaDice, FaArrowLeft } from 'react-icons/fa';
 import { projectImages } from './images/projectImgs.js';
 import projectData from './images/projectImgs.json';
+import projectsBg from '../Home/bubbleimgs/projects.jpg';
 import {
   Container,
   ImageSection,
@@ -42,7 +43,7 @@ const Projects = () => {
   };
 
   return (
-    <Container>
+    <Container $bgImage={projectsBg}>
       <ImageSection>
         <HeaderBar>
           <StructureTitle>{currentData.name}</StructureTitle>

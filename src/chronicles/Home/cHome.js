@@ -18,17 +18,17 @@ import {
   ChroniclesLogo,
   BottomRow,
 } from './cHome.styles.js';
-import StoryImg from './bubbleimgs/Story.png';
-import NaturalImg from './bubbleimgs/Natural.png';
-import PeopleImg from './bubbleimgs/People.png';
-import ProjectsImg from './bubbleimgs/Projects.png';
+import StoryImg from './bubbleimgs/story.jpg';
+import NaturalImg from './bubbleimgs/land.jpg';
+import PeopleImg from './bubbleimgs/people.jpg';
+import ProjectsImg from './bubbleimgs/projects.jpg';
 import ChroniclesIcon from './bubbleimgs/chroniclesIcon.png';
 
 const HomeContent = () => {
   const location = useLocation();
   const titleRef = useRef(null);
   const navigate = useNavigate();
-  const { startTransition, updateLoadingProgress } = useTransition();
+  const { startTransition } = useTransition();
 
   const currentStage = location.pathname === '/chronicles/2' ? 2 : 1;
 
