@@ -86,14 +86,17 @@ const Projects = () => {
           />
         </ImageContainer>
         <ProjectDescription>
-          In these structures lie countless stories from students. Each project
-          began with uncertainty - hands shaking as they drew the first lines,
-          voices wavering as they defended their visions. But in moments of
-          fear, something remarkable happened. The canyon became their teacher,
-          their canvas, their crucible. These weren&apos;t just senior projects
-          - they were battles with the status quo that forged new confidence,
-          technical challenges that bred innovation, and solitary visions that
-          blossomed into lasting legacies.
+          Every structure in the canyon began as a senior project, but each grew
+          far beyond its original scope. Students from architecture,
+          engineering, and construction worked together, testing new ideas at
+          full scale. What makes these projects remarkable isn&apos;t just their
+          experimental nature—it&apos;s how they challenged everyone involved.
+          Simple drawings became complex problems. Initial timelines stretched
+          as students grappled with real materials, weather, and terrain. Yet
+          these challenges created something remarkable: the purest example of
+          learning by doing. While each structure explored different techniques
+          and scales, they all share this legacy of pushing boundaries through
+          collaboration.
         </ProjectDescription>
       </ImageSection>
 

@@ -153,12 +153,12 @@ export const ProjectDescription = styled.div`
   width: 100%;
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(10px);
-  padding: 25px 35px;
-  line-height: 1.7;
+  padding: 20px 30px;
+  line-height: 1.5;
   color: rgba(255, 255, 255, 0.9);
   font-size: 18px;
-  font-weight: 500;
-  letter-spacing: 0.3px;
+  font-weight: 600;
+  letter-spacing: 0.25px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   animation: ${fadeIn} 0.6s ease-out;
 `;

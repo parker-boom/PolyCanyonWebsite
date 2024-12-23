@@ -66,122 +66,165 @@ export const ExitLink = styled(Link)`
 `;
 
 export const NavigationBar = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 24px;
-  transform: scale(1.3);
-  padding-top: 40px;
+  margin-bottom: 24px;
+  transform: scale(1.15);
 `;
 
 export const NavigationControls = styled.div`
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 32px;
   width: 100%;
-  max-width: 1200px;
   justify-content: center;
-  padding: 0 40px;
 `;
 
 export const NavButton = styled.button`
+  position: absolute;
+  ${(props) => (props.$direction === 'prev' ? 'left: 0;' : 'right: 0;')}
+  top: 50%;
+  transform: translateY(-50%);
   background: transparent;
   border: none;
   color: #db8b1c;
   padding: 12px;
   display: flex;
   align-items: center;
-  gap: 12px;
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
   opacity: 0.8;
+  font-size: 20px;
 
   &:hover:not(:disabled) {
     opacity: 1;
-    transform: translateX(
-      ${(props) => (props.$direction === 'prev' ? '-8px' : '8px')}
-    );
-    text-shadow: 0 0 20px rgba(219, 139, 28, 0.4);
+    transform: translateY(-50%) scale(1.1);
   }
 
   &:disabled {
     opacity: 0.3;
     cursor: not-allowed;
   }
-
-  svg {
-    font-size: 14px;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  &:hover:not(:disabled) svg {
-    transform: translateX(
-      ${(props) => (props.$direction === 'prev' ? '-5px' : '5px')}
-    );
-  }
 `;
 
 export const EraDisplay = styled.div`
-  background: rgba(0, 0, 0, 0.95);
+  background: rgba(219, 139, 28, 0.15);
   border: 1px solid rgba(219, 139, 28, 0.3);
-  border-radius: 30px;
-  padding: 16px 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  min-width: 400px;
-  box-shadow:
-    0 0 30px rgba(219, 139, 28, 0.1),
-    0 0 60px rgba(219, 139, 28, 0.05);
+  border-radius: 20px;
+  padding: 16px 24px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(219, 139, 28, 0.1);
   transition: all 0.3s ease;
 
   &:hover {
-    border-color: rgba(219, 139, 28, 0.5);
-    box-shadow:
-      0 0 40px rgba(219, 139, 28, 0.15),
-      0 0 80px rgba(219, 139, 28, 0.08);
+    background: rgba(219, 139, 28, 0.2);
+    border-color: rgba(219, 139, 28, 0.4);
   }
 
   .era-name {
-    font-size: 28px;
+    font-size: 38px;
     font-weight: 800;
     color: #db8b1c;
     letter-spacing: 0.5px;
-  }
-
-  .time-period {
-    font-size: 16px;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.9);
-    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px rgba(219, 139, 28, 0.4);
   }
 `;
 
 export const TimelineContainer = styled.div`
-  position: fixed;
-  bottom: 100px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80%;
-  max-width: 1000px;
-  height: 60px;
+  position: relative;
+  width: 70%;
+  height: 80px;
   background: rgba(0, 0, 0, 0.95);
   border: 1px solid rgba(219, 139, 28, 0.3);
   border-radius: 30px;
   display: flex;
   align-items: center;
-  padding: 0 30px;
+  margin: 30px auto 0;
   box-shadow:
     0 0 30px rgba(219, 139, 28, 0.1),
     0 0 60px rgba(219, 139, 28, 0.05);
+`;
+
+export const TimelineWrapper = styled.div`
+  position: relative;
+  display: grid;
+  grid-template-columns: 15% 70% 15%;
+  width: 100%;
+  height: 100%;
+`;
+
+export const NavArea = styled.button`
+  background: transparent;
+  border: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #db8b1c;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0 15px;
+  border-radius: 30px;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 15%;
+    bottom: 15%;
+    width: 1px;
+    background: rgba(219, 139, 28, 0.3);
+    ${(props) => (props.$direction === 'prev' ? 'right: 0;' : 'left: 0;')}
+  }
+
+  .nav-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-direction: ${(props) =>
+      props.$direction === 'prev' ? 'row-reverse' : 'row'};
+  }
+
+  .nav-text {
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 0;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: ${(props) => (props.$direction === 'prev' ? 'right' : 'left')};
+    line-height: 1.3;
+  }
+
+  svg {
+    font-size: 32px;
+    transition: all 0.3s ease;
+  }
+
+  &:hover:not(:disabled) {
+    opacity: 1;
+    background: rgba(219, 139, 28, 0.1);
+
+    .nav-text {
+      opacity: 1;
+    }
+
+    svg {
+      transform: scale(1.1);
+    }
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
 `;
 
 export const TimelineLine = styled.div`
@@ -193,6 +236,9 @@ export const TimelineLine = styled.div`
   display: flex;
   align-items: center;
   z-index: 1;
+  margin-top: 40px;
+  padding-left: 5px;
+  padding-right: 5px;
 `;
 
 export const TimelineSection = styled.div`
@@ -202,6 +248,23 @@ export const TimelineSection = styled.div`
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
+
+  ${(props) =>
+    props.$isActive &&
+    `
+    &::after {
+      content: '${props.$years}';
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #db8b1c;
+      font-size: 14px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+  `}
+
   box-shadow: ${(props) =>
     props.$isActive
       ? '0 0 10px rgba(219, 139, 28, 0.6), 0 0 20px rgba(219, 139, 28, 0.4)'
@@ -230,7 +293,7 @@ export const TimelineSection = styled.div`
 
 export const TimelineDivider = styled.div`
   width: 2px;
-  height: 24px;
+  height: 30px;
   background: ${(props) =>
     props.$isConnectedToActive ? '#db8b1c' : 'rgba(255, 255, 255, 0.4)'};
   transform: translateY(0);
@@ -243,31 +306,27 @@ export const TimelineDivider = styled.div`
 `;
 
 export const ContentContainer = styled.div`
-  position: fixed;
-  top: 185px;
-  bottom: 185px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: calc(90% - 30px);
-  max-width: 1400px;
-  display: flex;
+  position: relative;
+  display: grid;
+  grid-template-columns: 50% 50%;
   gap: 25px;
-  margin: 0 15px;
+  height: calc(100vh - 185px);
+  width: calc(90% - 30px);
+  max-width: 1800px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+  padding-top: 20px;
 `;
 
 export const ImageColumn = styled.div`
-  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
   height: 100%;
-  position: relative;
-  overflow: visible;
-  padding-right: 20px;
+  padding: 0 20px;
 `;
 
 export const TextColumn = styled.div`
-  flex: 1;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -281,6 +340,7 @@ export const TextColumn = styled.div`
     0 0 40px rgba(0, 0, 0, 0.9),
     0 0 100px rgba(255, 255, 255, 0.04),
     0 0 18px rgba(255, 255, 255, 0.3);
+  margin-left: 20px;
 `;
 
 export const TextTitle = styled.h2`
@@ -396,9 +456,10 @@ export const ContentOverlay = styled.div`
   cursor: pointer;
   border-radius: 25px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  left: 0;
-  width: 51%;
+  width: 50%;
   height: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
 
   &:hover {
     backdrop-filter: blur(6.5px);

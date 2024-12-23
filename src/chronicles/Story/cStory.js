@@ -37,6 +37,9 @@ import {
   CaptionContent,
   TextHeader,
   TextContent,
+  TimelineWrapper,
+  TimelineYears,
+  NavArea,
 } from './cStory.styles.js';
 import eraPhotoCaptions from './eraPhotoCaptions.json';
 import { Helmet } from 'react-helmet-async';
@@ -172,30 +175,58 @@ const Story = () => {
           content="Journey through the eras that shaped Poly Canyon, from its earliest days to the present. Explore the evolution of this unique architectural laboratory through historical photographs and stories."
         />
       </Helmet>
-      <NavigationBar>
-        <NavigationControls>
-          <NavButton
+      <TimelineContainer>
+        <TimelineWrapper>
+          <NavArea
             onClick={handlePrevEra}
             disabled={currentEraIndex === 0}
             $direction="prev"
           >
-            <FaChevronLeft /> Previous Era
-          </NavButton>
+            <div className="nav-content">
+              <FaChevronLeft />
+              <div className="nav-text">
+                Previous
+                <br />
+                Era
+              </div>
+            </div>
+          </NavArea>
 
-          <EraDisplay>
-            <span className="era-name">{currentEra.name}</span>
-            <span className="time-period">{currentEra.time_period}</span>
-          </EraDisplay>
+          <TimelineLine>
+            <TimelineDivider $isConnectedToActive={currentEraIndex === 0} />
+            {eraWidths.map((width, index) => (
+              <React.Fragment key={index}>
+                <TimelineSection
+                  $width={`${width}%`}
+                  $isActive={currentEraIndex === index}
+                  $years={eras[index].time_period}
+                  onClick={() => handleTimelineClick(index)}
+                />
+                <TimelineDivider
+                  $isConnectedToActive={
+                    currentEraIndex === index || currentEraIndex === index + 1
+                  }
+                />
+              </React.Fragment>
+            ))}
+          </TimelineLine>
 
-          <NavButton
+          <NavArea
             onClick={handleNextEra}
             disabled={currentEraIndex === eras.length - 1}
             $direction="next"
           >
-            Next Era <FaChevronRight />
-          </NavButton>
-        </NavigationControls>
-      </NavigationBar>
+            <div className="nav-content">
+              <FaChevronRight />
+              <div className="nav-text">
+                Next
+                <br />
+                Era
+              </div>
+            </div>
+          </NavArea>
+        </TimelineWrapper>
+      </TimelineContainer>
 
       <ContentContainer>
         <TextColumn>
@@ -206,7 +237,12 @@ const Story = () => {
             ))}
           </TextContent>
         </TextColumn>
+
         <ImageColumn>
+          <EraDisplay>
+            <span className="era-name">{currentEra.name}</span>
+          </EraDisplay>
+
           <ImageArea>
             <ImageContainer>
               <BlurredBackground
@@ -221,6 +257,7 @@ const Story = () => {
               </ProgressDots>
             </ImageContainer>
           </ImageArea>
+
           <CaptionArea>
             <CaptionNavButton
               $direction="left"
@@ -240,39 +277,19 @@ const Story = () => {
               <FaChevronRight />
             </CaptionNavButton>
           </CaptionArea>
+
+          {!isRevealed && (
+            <ContentOverlay onClick={handleReveal}>
+              <QuestionContainer>
+                <RevealButton>
+                  <FaEyeSlash size={70} color="white" />
+                  <span>{currentEra.opening_question}</span>
+                </RevealButton>
+              </QuestionContainer>
+            </ContentOverlay>
+          )}
         </ImageColumn>
-
-        {!isRevealed && (
-          <ContentOverlay onClick={handleReveal}>
-            <QuestionContainer>
-              <RevealButton>
-                <FaEyeSlash size={70} color="white" />
-                <span>{currentEra.opening_question}</span>
-              </RevealButton>
-            </QuestionContainer>
-          </ContentOverlay>
-        )}
       </ContentContainer>
-
-      <TimelineContainer>
-        <TimelineLine>
-          <TimelineDivider $isConnectedToActive={currentEraIndex === 0} />
-          {eraWidths.map((width, index) => (
-            <React.Fragment key={index}>
-              <TimelineSection
-                $width={`${width}%`}
-                $isActive={currentEraIndex === index}
-                onClick={() => handleTimelineClick(index)}
-              />
-              <TimelineDivider
-                $isConnectedToActive={
-                  currentEraIndex === index || currentEraIndex === index + 1
-                }
-              />
-            </React.Fragment>
-          ))}
-        </TimelineLine>
-      </TimelineContainer>
 
       <ExitBar>
         <ExitLink to="/chronicles/2">

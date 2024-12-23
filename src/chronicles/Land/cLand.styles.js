@@ -49,13 +49,12 @@ export const TextSection = styled.div`
   height: 550px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 `;
 
 export const TextContainer = styled.div`
   flex: 1;
   overflow-y: auto;
-  padding-right: 15px;
 
   &::-webkit-scrollbar {
     width: 8px;
@@ -278,11 +277,11 @@ export const ExitLink = styled(Link)`
 
 export const ParagraphText = styled.p`
   color: rgba(255, 255, 255, 0.9);
-  font-size: 18px;
-  line-height: 1.8;
+  font-size: 17.5px;
+  line-height: 1.5;
   margin: 0;
   text-align: justify;
-  letter-spacing: 0.3px;
-
+  letter-spacing: 0.12px;
+  white-space: pre-wrap;
   animation: ${fadeIn} 0.5s ease-out;
 `;
