@@ -169,7 +169,7 @@ export const ActionLine = styled.div`
   position: absolute;
   width: 100%;
   max-width: 800px;
-  margin-top: 5px;
+  margin-top: 15px;
   top: calc(10px + 250px + 5px + 72px + 50px);
   left: 50%;
   transform: translateX(-50%);

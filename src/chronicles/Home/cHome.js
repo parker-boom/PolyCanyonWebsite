@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { FaTimes, FaChevronRight } from 'react-icons/fa';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { TransitionProvider, useTransition } from '../TransitionContext.js';
@@ -61,86 +62,123 @@ const HomeContent = () => {
   };
 
   return (
-    <Container
-      className={`stage-${currentStage} ${isButtonHovered ? 'button-hovered' : ''}`}
-    >
-      <ChroniclesTransition />
-      <TitleContainer $stage={currentStage}>
-        {currentStage === 1 ? (
-          <>
-            <LogoTitleGroup>
-              <ChroniclesLogo src={ChroniclesIcon} alt="Chronicles Icon" />
-              <MainTitle>Canyon Chronicles</MainTitle>
-            </LogoTitleGroup>
-            <ActionLine>
-              An interactive journey through Cal Poly&apos;s architectural
-              wonderland
-            </ActionLine>
-            <StageButton
-              onClick={handleStageChange}
-              onMouseEnter={() => setIsButtonHovered(true)}
-              onMouseLeave={() => setIsButtonHovered(false)}
-            >
-              <span>
-                Uncover the Story
-                <FaChevronRight />
-              </span>
-            </StageButton>
-          </>
-        ) : (
-          <>
-            <ExploreTitle>What would you like to explore?</ExploreTitle>
-            <BubblesGrid>
-              <BubbleCard
-                $image={StoryImg}
-                onClick={(e) => handleCardClick('story', e, StoryImg)}
-                $isStory={true}
-              >
-                <BubbleTitle $isStory={true}>
-                  <span className="prefix">The</span>
-                  <span className="main">Story</span>
-                </BubbleTitle>
-              </BubbleCard>
-              <BottomRow>
-                <BubbleCard
-                  $image={NaturalImg}
-                  onClick={(e) => handleCardClick('land', e, NaturalImg)}
-                >
-                  <BubbleTitle>
-                    <span className="prefix">The</span>
-                    <span className="main">Land</span>
-                  </BubbleTitle>
-                </BubbleCard>
-                <BubbleCard
-                  $image={PeopleImg}
-                  onClick={(e) => handleCardClick('people', e, PeopleImg)}
-                >
-                  <BubbleTitle>
-                    <span className="prefix">The</span>
-                    <span className="main">People</span>
-                  </BubbleTitle>
-                </BubbleCard>
-                <BubbleCard
-                  $image={ProjectsImg}
-                  onClick={(e) => handleCardClick('projects', e, ProjectsImg)}
-                >
-                  <BubbleTitle>
-                    <span className="prefix">The</span>
-                    <span className="main">Projects</span>
-                  </BubbleTitle>
-                </BubbleCard>
-              </BottomRow>
-            </BubblesGrid>
-          </>
-        )}
-      </TitleContainer>
+    <>
+      <Helmet>
+        <title>Canyon Chronicles | Poly Canyon Interactive Experience</title>
+        <meta
+          name="description"
+          content="Embark on an interactive journey through Cal Poly's architectural wonderland. Explore the rich history, untold stories, and architectural heritage of Poly Canyon through an immersive digital experience."
+        />
+        <meta
+          name="keywords"
+          content="Poly Canyon, Cal Poly, architecture, interactive experience, architectural history, design village, experimental structures"
+        />
 
-      <ExitBar $stage={currentStage}>
-        <ExitLink to="/">
-          <FaTimes /> Exit the Chronicles
-        </ExitLink>
-      </ExitBar>
-    </Container>
+        {/* Open Graph tags for social sharing */}
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:title"
+          content="Canyon Chronicles | Poly Canyon Interactive Experience"
+        />
+        <meta
+          property="og:description"
+          content="Discover the stories, people, and projects that shaped Cal Poly's architectural wonderland through an immersive digital journey."
+        />
+        <meta property="og:site_name" content="Poly Canyon App" />
+
+        {/* Twitter Card tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Canyon Chronicles | Interactive History of Poly Canyon"
+        />
+        <meta
+          name="twitter:description"
+          content="Explore the rich history and architectural heritage of Poly Canyon through an interactive digital experience."
+        />
+      </Helmet>
+
+      <Container
+        className={`stage-${currentStage} ${isButtonHovered ? 'button-hovered' : ''}`}
+      >
+        <ChroniclesTransition />
+        <TitleContainer $stage={currentStage}>
+          {currentStage === 1 ? (
+            <>
+              <LogoTitleGroup>
+                <ChroniclesLogo src={ChroniclesIcon} alt="Chronicles Icon" />
+                <MainTitle>Canyon Chronicles</MainTitle>
+              </LogoTitleGroup>
+              <ActionLine>
+                An interactive journey through Cal Poly&apos;s architectural
+                wonderland
+              </ActionLine>
+              <StageButton
+                onClick={handleStageChange}
+                onMouseEnter={() => setIsButtonHovered(true)}
+                onMouseLeave={() => setIsButtonHovered(false)}
+              >
+                <span>
+                  Uncover the Story
+                  <FaChevronRight />
+                </span>
+              </StageButton>
+            </>
+          ) : (
+            <>
+              <ExploreTitle>What would you like to explore?</ExploreTitle>
+              <BubblesGrid>
+                <BubbleCard
+                  $image={StoryImg}
+                  onClick={(e) => handleCardClick('story', e, StoryImg)}
+                  $isStory={true}
+                >
+                  <BubbleTitle $isStory={true}>
+                    <span className="prefix">The</span>
+                    <span className="main">Story</span>
+                  </BubbleTitle>
+                </BubbleCard>
+                <BottomRow>
+                  <BubbleCard
+                    $image={NaturalImg}
+                    onClick={(e) => handleCardClick('land', e, NaturalImg)}
+                  >
+                    <BubbleTitle>
+                      <span className="prefix">The</span>
+                      <span className="main">Land</span>
+                    </BubbleTitle>
+                  </BubbleCard>
+                  <BubbleCard
+                    $image={PeopleImg}
+                    onClick={(e) => handleCardClick('people', e, PeopleImg)}
+                  >
+                    <BubbleTitle>
+                      <span className="prefix">The</span>
+                      <span className="main">People</span>
+                    </BubbleTitle>
+                  </BubbleCard>
+                  <BubbleCard
+                    $image={ProjectsImg}
+                    onClick={(e) => handleCardClick('projects', e, ProjectsImg)}
+                  >
+                    <BubbleTitle>
+                      <span className="prefix">The</span>
+                      <span className="main">Projects</span>
+                    </BubbleTitle>
+                  </BubbleCard>
+                </BottomRow>
+              </BubblesGrid>
+            </>
+          )}
+        </TitleContainer>
+
+        <ExitBar $stage={currentStage}>
+          <ExitLink to="/">
+            <FaTimes /> Exit the Chronicles
+          </ExitLink>
+        </ExitBar>
+      </Container>
+    </>
   );
 };
 
