@@ -1,12 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  FaDownload,
-  FaInfo,
-  FaBuilding,
-  FaChevronRight,
-  FaChevronDown,
-} from 'react-icons/fa';
+import { FaDownload, FaInfo, FaBuilding, FaChevronRight } from 'react-icons/fa';
 import { mainImages } from '../structures/images/structureImages.js';
 import structuresList from '../structures/data/structuresList.json';
 import {
@@ -28,14 +22,12 @@ import {
   StructureInfoArea,
   ImageContainer,
   MainImage,
-  BlurBackground,
   TitleContainer,
   StructureTitle,
   StructureNumber,
   TitleContent,
   ViewButton,
   InfoIcon,
-  InfoTitle,
   InfoSubtitle,
   InfoDescription,
   CornerChevron,
@@ -47,7 +39,8 @@ import {
   ChroniclesContent,
   ChroniclesIcon,
   ChroniclesTitle,
-  // New layout components will go here
+  ChroniclesSubtitle,
+  ChroniclesTitleGroup,
 } from './home.styles.js';
 import app360 from '../assets/app360.jpg';
 
@@ -59,6 +52,17 @@ const activeStructures = structuresList.filter(
     structure.number <= 30 &&
     structure.title.length <= 20
 );
+
+// Add this function to track mouse position
+const handleMouseMove = (e) => {
+  const banner = e.currentTarget;
+  const rect = banner.getBoundingClientRect();
+  const x = ((e.clientX - rect.left) / banner.offsetWidth) * 100;
+  const y = ((e.clientY - rect.top) / banner.offsetHeight) * 100;
+
+  banner.style.setProperty('--mouse-x', `${x}%`);
+  banner.style.setProperty('--mouse-y', `${y}%`);
+};
 
 const HomeWeb = () => {
   const navigate = useNavigate();
@@ -163,11 +167,16 @@ const HomeWeb = () => {
           </ButtonsSection>
         </MainLayout>
 
-        <ChroniclesBanner to="/chronicles">
+        <ChroniclesBanner to="/chronicles" onMouseMove={handleMouseMove}>
           <ChroniclesContent>
-            <ChroniclesIcon>✧</ChroniclesIcon>
-            <ChroniclesTitle>CHRONICLES</ChroniclesTitle>
-            <ChroniclesIcon>✧</ChroniclesIcon>
+            <ChroniclesTitleGroup>
+              <ChroniclesIcon>✧</ChroniclesIcon>
+              <ChroniclesTitle>CHRONICLES</ChroniclesTitle>
+              <ChroniclesIcon>✧</ChroniclesIcon>
+            </ChroniclesTitleGroup>
+            <ChroniclesSubtitle>
+              EXPLORE THE <strong>INTERACTIVE EXPERIENCE</strong>
+            </ChroniclesSubtitle>
           </ChroniclesContent>
         </ChroniclesBanner>
       </ContentWrapper>

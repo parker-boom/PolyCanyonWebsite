@@ -1,12 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import {
-  FaDownload,
-  FaInfo,
-  FaBuilding,
-  FaChevronRight,
-  FaChevronDown,
-} from 'react-icons/fa';
+import { FaChevronDown } from 'react-icons/fa';
 import { keyframes } from 'styled-components';
 
 const pulseGlow = keyframes`
@@ -40,7 +34,7 @@ export const ContentWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 20px 40px;
-  gap: 12px;
+  gap: 18px;
 `;
 
 export const GlassNav = styled.nav`
@@ -505,8 +499,18 @@ export const ActionButton = styled(Link)`
   flex: 1;
   background: ${(props) =>
     props.$type === 'info'
-      ? 'linear-gradient(135deg, rgba(189, 139, 19, 0.2), rgba(212, 169, 65, 0.1))'
-      : 'linear-gradient(135deg, rgba(55, 109, 49, 0.2), rgba(232, 239, 232, 0.95))'};
+      ? `linear-gradient(
+      135deg,
+      rgba(254, 255, 247, 1) 0%,
+      rgba(189, 139, 19, 0.03) 75%,
+      rgba(189, 139, 19, 0.22) 100%
+    )`
+      : `linear-gradient(
+      135deg,
+      rgba(250, 255, 247, 1) 0%,
+      rgba(55, 109, 49, 0.03) 75%,
+      rgba(55, 109, 49, 0.22) 100%
+    )`};
   border-radius: 20px;
   padding: 40px 24px 32px;
   display: flex;
@@ -517,36 +521,51 @@ export const ActionButton = styled(Link)`
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
+  border: 1px solid
+    ${(props) =>
+      props.$type === 'info'
+        ? 'rgba(189, 139, 19, 0.1)'
+        : 'rgba(55, 109, 49, 0.1)'};
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.02),
+    0 4px 8px rgba(0, 0, 0, 0.02);
 
   svg {
     font-size: 52px;
     color: ${(props) => (props.$type === 'info' ? '#bd8b13' : '#376d31')};
+    opacity: 0.9;
     transition: all 0.3s ease;
-    margin-bottom: 4px;
-  }
-
-  &::after {
-    content: '›';
-    position: absolute;
-    bottom: 12px;
-    right: 16px;
-    font-size: 24px;
-    color: rgba(189, 139, 19, 0.4);
-    transform: rotate(45deg);
-    transition: all 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
   }
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(189, 139, 19, 0.15);
+    background: ${(props) =>
+      props.$type === 'info'
+        ? `linear-gradient(
+        135deg,
+        rgba(189, 139, 19, 0.05) 0%,
+        rgba(189, 139, 19, 0.05) 60%,
+        rgba(189, 139, 19, 0.15) 100%
+      )`
+        : `linear-gradient(
+        135deg,
+        rgba(55, 109, 49, 0.05) 0%,
+        rgba(55, 109, 49, 0.05) 60%,
+        rgba(55, 109, 49, 0.15) 100%
+      )`};
+    border-color: ${(props) =>
+      props.$type === 'info'
+        ? 'rgba(189, 139, 19, 0.2)'
+        : 'rgba(55, 109, 49, 0.2)'};
+    box-shadow:
+      0 8px 20px rgba(0, 0, 0, 0.06),
+      0 4px 8px rgba(0, 0, 0, 0.04);
 
     svg {
       transform: scale(1.1);
-    }
-
-    &::after {
-      transform: rotate(45deg) scale(1.4);
-      color: #bd8b13;
+      opacity: 1;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
     }
   }
 `;
@@ -564,6 +583,12 @@ export const ButtonTitle = styled.h3`
   font-size: 22px;
   font-weight: 700;
   color: ${(props) => (props.$type === 'info' ? '#bd8b13' : '#376d31')};
+  transition: all 0.3s ease;
+  opacity: 0.9;
+
+  ${ActionButton}:hover & {
+    opacity: 1;
+  }
 `;
 
 export const ButtonSubtitle = styled.span`
@@ -572,15 +597,21 @@ export const ButtonSubtitle = styled.span`
   max-width: 200px;
   display: block;
   margin: 0 auto;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+
+  ${ActionButton}:hover & {
+    opacity: 1;
+  }
 `;
 
 export const MainLayout = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: 2fr 1fr; // 2/3 - 1/3 split
+  grid-template-columns: 2fr 1fr;
   gap: 24px;
-  height: calc(50vh); // Viewport height minus nav and padding
-  margin-top: 12px;
+  height: 530px;
+  min-height: 530px;
 `;
 
 export const StructuresSection = styled.div`
@@ -631,8 +662,9 @@ export const InfoDescription = styled.p`
 export const StructureInfoArea = styled.div`
   background: linear-gradient(
     135deg,
-    rgba(55, 109, 49, 0.18),
-    rgba(232, 239, 232, 0.95)
+    rgba(250, 255, 247, 1) 0%,
+    rgba(232, 239, 232, 0.9) 85%,
+    rgba(235, 230, 200, 1) 100%
   );
   backdrop-filter: blur(8px);
   border-radius: 20px;
@@ -644,45 +676,23 @@ export const StructureInfoArea = styled.div`
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid rgba(55, 109, 49, 0.1);
-  position: relative; // For corner arrow positioning
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 16px;
-    right: 16px;
-    color: rgba(189, 139, 19, 0.4);
-    transition: all 0.3s ease;
-  }
+  position: relative;
 
   &:hover {
     transform: translateY(-8px);
     background: linear-gradient(
       135deg,
-      rgba(55, 109, 49, 0.15),
-      rgba(55, 109, 49, 0.08)
+      rgba(55, 109, 49, 0.15) 0%,
+      rgba(55, 109, 49, 0.05) 80%,
+      rgba(255, 255, 255, 0.9) 100%
     );
     box-shadow:
-      0 20px 40px rgba(55, 109, 49, 0.2),
-      0 8px 16px rgba(55, 109, 49, 0.15),
-      inset 0 1px 1px rgba(255, 255, 255, 0.1);
-
-    &::after {
-      transform: scale(1.4) translate(-2px, -2px);
-      color: #bd8b13;
-    }
+      0 20px 40px rgba(55, 109, 49, 0.15),
+      0 8px 16px rgba(55, 109, 49, 0.1);
 
     ${InfoIcon} {
-      color: #bd8b13;
-      transform: scale(1.1);
-    }
-
-    ${InfoSubtitle} {
-      transform: translateY(-2px);
-    }
-
-    ${InfoDescription} {
-      color: #444;
+      transform: translateY(-4px);
+      color: #376d31;
     }
   }
 `;
@@ -711,21 +721,30 @@ export const CornerChevron = styled(FaChevronDown)`
 
 export const ChroniclesContent = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 4px;
   transition: all 0.3s ease;
+  z-index: 1;
+`;
+
+export const ChroniclesTitleGroup = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
 `;
 
 export const ChroniclesBanner = styled(Link)`
   width: 100%;
-  margin-top: 8px;
-  padding: 16px;
+  padding: 20px;
   background: linear-gradient(
-    90deg,
-    rgba(189, 139, 19, 0.15),
-    rgba(189, 139, 19, 0.2) 50%,
-    rgba(189, 139, 19, 0.15)
+    100deg,
+    rgba(189, 139, 19, 0.43) 0%,
+    rgba(189, 139, 19, 0.23) 15%,
+    rgba(189, 139, 19, 0.23) 85%,
+    rgba(189, 139, 19, 0.43) 100%
   );
+  backdrop-filter: blur(8px);
   border-radius: 24px;
   display: flex;
   align-items: center;
@@ -734,52 +753,98 @@ export const ChroniclesBanner = styled(Link)`
   position: relative;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(189, 139, 19, 0.25);
+  border: 1px solid rgba(189, 139, 19, 0.2);
   box-shadow: 0 2px 12px rgba(189, 139, 19, 0.1);
 
   &::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: -100%;
-    width: 200%;
-    height: 100%;
+    inset: 0;
     background: linear-gradient(
       90deg,
       transparent,
       rgba(189, 139, 19, 0.15),
       transparent
     );
-    animation: shine 6s linear infinite;
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at var(--mouse-x, center) var(--mouse-y, center),
+      rgba(189, 139, 19, 0.15),
+      transparent 120px
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
 
   &:hover {
     transform: translateY(-2px);
-    background: linear-gradient(
-      90deg,
-      rgba(189, 139, 19, 0.2),
-      rgba(189, 139, 19, 0.25) 50%,
-      rgba(189, 139, 19, 0.2)
-    );
-    border-color: rgba(189, 139, 19, 0.3);
+    background: #e5e5cd;
     box-shadow:
-      0 8px 24px rgba(189, 139, 19, 0.15),
-      0 2px 8px rgba(189, 139, 19, 0.1);
+      0 4px 20px rgba(189, 139, 19, 0.15),
+      inset 0 0 30px rgba(189, 139, 19, 0.1);
 
-    ${ChroniclesContent} {
-      transform: scale(1.02);
+    &::before {
+      transform: translateX(100%);
+    }
+
+    &::after {
+      opacity: 1;
+    }
+  }
+`;
+
+export const ChroniclesTitle = styled.span`
+  font-size: 28px;
+  font-weight: 800;
+  color: rgba(189, 139, 19, 0.9);
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 10px rgba(189, 139, 19, 0.2);
+
+  ${ChroniclesBanner}:hover & {
+    color: #bd8b13;
+    letter-spacing: 3px;
+    text-shadow: 0 0 15px rgba(189, 139, 19, 0.4);
+  }
+`;
+
+export const ChroniclesSubtitle = styled.span`
+  font-size: 15px;
+  color: rgba(189, 139, 19, 0.7);
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+
+  strong {
+    color: rgba(189, 139, 19, 0.85);
+    font-weight: 700;
+  }
+
+  ${ChroniclesBanner}:hover & {
+    color: rgba(189, 139, 19, 0.8);
+    letter-spacing: 1.5px;
+
+    strong {
+      color: #bd8b13;
     }
   }
 `;
 
 export const ChroniclesIcon = styled.span`
-  font-size: 20px;
-  color: #bd8b13;
-`;
-
-export const ChroniclesTitle = styled.span`
   font-size: 24px;
-  font-weight: 800;
-  color: #bd8b13;
-  letter-spacing: 1px;
+  color: rgba(189, 139, 19, 0.9);
+  text-shadow: 0 0 10px rgba(189, 139, 19, 0.3);
+  transition: all 0.3s ease;
+
+  ${ChroniclesBanner}:hover & {
+    color: #bd8b13;
+    text-shadow: 0 0 15px rgba(189, 139, 19, 0.5);
+  }
 `;
