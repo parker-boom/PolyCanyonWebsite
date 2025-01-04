@@ -503,7 +503,7 @@ export const WildlifeInteractive = () => {
       type: 'friendly',
       image: horseImg,
       tip: 'You can say hi from a distance, but never feed them',
-      fact: "Cal Poly's Agriculture program maintains these grazing animals as part of a long-standing agreement",
+      fact: 'Part of the Agriculture program',
     },
     {
       id: 'rattlesnake',
@@ -511,7 +511,7 @@ export const WildlifeInteractive = () => {
       type: 'caution',
       image: rattlesnakeImg,
       tip: 'Stay alert on rocky trails and listen for their warning rattle',
-      fact: 'They help control the rodent population and rarely strike unless threatened',
+      fact: 'They rarely strike unless threatened',
     },
     {
       id: 'lizard',
@@ -519,7 +519,7 @@ export const WildlifeInteractive = () => {
       type: 'friendly',
       image: lizardImg,
       tip: "Watch them do push-ups on sunny rocks - they're showing off!",
-      fact: 'Their blood naturally kills Lyme disease bacteria in ticks',
+      fact: 'Their blood kills Lyme disease in ticks',
     },
     {
       id: 'tarantula',
@@ -527,7 +527,7 @@ export const WildlifeInteractive = () => {
       type: 'caution',
       image: tarantulaImg,
       tip: "Give them space - they're more scared of you than you are of them",
-      fact: 'These gentle giants help control insect populations and are most active in fall',
+      fact: 'Most active in fall',
     },
   ];
 

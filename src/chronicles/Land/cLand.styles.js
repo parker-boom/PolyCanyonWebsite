@@ -17,7 +17,7 @@ export const Container = styled.div`
   align-items: center;
   position: relative;
   overflow: hidden;
-  padding: 20px 40px;
+  padding: 10px 20px 0;
 `;
 
 export const ContentWrapper = styled.div`
@@ -35,12 +35,12 @@ export const MainContent = styled.div`
   display: flex;
   width: 85%;
   flex: 1;
-  gap: 20px;
-  margin: 20px 0;
+  gap: 10px;
+  margin: 10px 0;
 `;
 
 export const TextSection = styled.div`
-  flex: 1;
+  flex: 0.6;
   background: rgba(0, 0, 0, 0.7);
   border: 1px solid rgba(144, 238, 144, 0.15);
   border-radius: 20px;
@@ -85,7 +85,7 @@ export const SectionTitle = styled.h3`
 `;
 
 export const InteractiveSection = styled.div`
-  flex: 1;
+  flex: 0.4;
   background: rgba(0, 0, 0, 0.7);
   border: 1px solid rgba(144, 238, 144, 0.15);
   border-radius: 20px;
@@ -115,11 +115,11 @@ export const NavigationContainer = styled.div`
 
 export const TopSection = styled.div`
   width: 30%;
+  min-width: 350px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 5px;
-  margin-top: 20px;
+  justify-content: center;
+  margin-top: 5px;
   background: rgba(0, 0, 0, 0.6);
   padding: 20px 30px;
   border-radius: 20px;
@@ -127,11 +127,20 @@ export const TopSection = styled.div`
   box-shadow: 0 0 30px rgba(144, 238, 144, 0.1);
 `;
 
+export const TopContentWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  width: fit-content;
+`;
+
 export const SelectedIconContainer = styled.div`
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 `;
 
 export const DisplayIcon = styled(motion.div)`
@@ -165,9 +174,10 @@ export const CategoryTitle = styled.h2`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0;
-  text-align: center;
+  text-align: left;
   filter: drop-shadow(0 0 10px rgba(144, 238, 144, 0.3));
   letter-spacing: 1px;
+  flex: 1;
 `;
 
 export const IconsBar = styled.div`

@@ -11,6 +11,7 @@ import {
   Container,
   ContentWrapper,
   TopSection,
+  TopContentWrapper,
   SelectedIconContainer,
   DisplayIcon,
   CategoryTitle,
@@ -90,12 +91,14 @@ const Land = () => {
       </Helmet>
       <ContentWrapper>
         <TopSection>
-          <SelectedIconContainer>
-            <DisplayIcon>
-              <selectedCategory.icon />
-            </DisplayIcon>
-          </SelectedIconContainer>
-          <CategoryTitle>{selectedCategory.label}</CategoryTitle>
+          <TopContentWrapper>
+            <SelectedIconContainer>
+              <DisplayIcon>
+                <selectedCategory.icon />
+              </DisplayIcon>
+            </SelectedIconContainer>
+            <CategoryTitle>{selectedCategory.label}</CategoryTitle>
+          </TopContentWrapper>
         </TopSection>
 
         <MainContent>

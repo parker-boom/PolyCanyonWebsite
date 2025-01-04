@@ -169,6 +169,7 @@ function App() {
           <Route path="/chronicles/story" element={<Story />} />
           <Route path="/chronicles/land" element={<Land />} />
           <Route path="/chronicles/people" element={<People />} />
+          <Route path="/chronicles/people/:type" element={<People />} />
           <Route path="/chronicles/projects" element={<Projects />} />
 
           {/* Redirect any unmatched route to home */}

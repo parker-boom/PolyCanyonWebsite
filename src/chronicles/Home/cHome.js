@@ -1,16 +1,14 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { FaTimes, FaChevronRight } from 'react-icons/fa';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { TransitionProvider, useTransition } from '../TransitionContext.js';
 import ChroniclesTransition from '../ChroniclesTransition.js';
-import { Helmet } from 'react-helmet-async';
 import {
   Container,
   ExitBar,
   ExitLink,
   TitleContainer,
   MainTitle,
-  Subtitle,
   BubblesGrid,
   BubbleCard,
   BubbleTitle,
@@ -18,6 +16,8 @@ import {
   ExploreTitle,
   ChroniclesLogo,
   BottomRow,
+  ActionLine,
+  LogoTitleGroup,
 } from './cHome.styles.js';
 import StoryImg from './bubbleimgs/story.jpg';
 import NaturalImg from './bubbleimgs/land.jpg';
@@ -27,28 +27,27 @@ import ChroniclesIcon from './bubbleimgs/chroniclesIcon.png';
 
 const HomeContent = () => {
   const location = useLocation();
-  const titleRef = useRef(null);
   const navigate = useNavigate();
   const { startTransition } = useTransition();
+  const [isButtonHovered, setIsButtonHovered] = useState(false);
 
   const currentStage = location.pathname === '/chronicles/2' ? 2 : 1;
 
-  useEffect(() => {
-    if (titleRef.current) {
-      const text = titleRef.current;
-      const bbox = text.getBBox();
-      const viewBox = `${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`;
-      text.closest('svg').setAttribute('viewBox', viewBox);
+  const handleStageChange = () => {
+    const container = document.querySelector('.stage-1');
+    if (container) {
+      container.style.opacity = 0;
+      setTimeout(() => {
+        navigate('/chronicles/2');
+      }, 600);
     }
-  }, []);
+  };
 
   const handleCardClick = async (path, e, imageUrl) => {
-    // Get click position relative to viewport
     const rect = e.currentTarget.getBoundingClientRect();
     const x = ((e.clientX - rect.left) / rect.width) * 100 + '%';
     const y = ((e.clientY - rect.top) / rect.height) * 100 + '%';
 
-    // Start transition
     startTransition({
       fromSection: 'home',
       toSection: path,
@@ -56,61 +55,36 @@ const HomeContent = () => {
       imageUrl,
     });
 
-    // Wait for expansion and quick fade
     setTimeout(() => {
       navigate(`/chronicles/${path.toLowerCase()}`);
-    }, 1200); // Gives time for expansion (800ms) and quick fade (400ms)
-  };
-
-  const handleStageChange = () => {
-    navigate('/chronicles/2');
+    }, 1200);
   };
 
   return (
-    <Container>
-      <Helmet>
-        <title>Canyon Chronicles - A Journey Through Time</title>
-        <meta
-          name="description"
-          content="Explore the rich history of Poly Canyon through an interactive journey. Discover the story, land, people, and projects that shaped this unique architectural laboratory."
-        />
-        <meta
-          property="og:title"
-          content="Canyon Chronicles - A Journey Through Time"
-        />
-        <meta
-          property="og:description"
-          content="Explore the rich history of Poly Canyon through an interactive journey. Discover the story, land, people, and projects that shaped this unique architectural laboratory."
-        />
-        <meta property="og:url" content="https://polycanyon.com/chronicles" />
-        <meta
-          name="twitter:title"
-          content="Canyon Chronicles - A Journey Through Time"
-        />
-        <meta
-          name="twitter:description"
-          content="Explore the rich history of Poly Canyon through an interactive journey. Discover the story, land, people, and projects that shaped this unique architectural laboratory."
-        />
-      </Helmet>
+    <Container
+      className={`stage-${currentStage} ${isButtonHovered ? 'button-hovered' : ''}`}
+    >
       <ChroniclesTransition />
       <TitleContainer $stage={currentStage}>
         {currentStage === 1 ? (
           <>
-            <ChroniclesLogo src={ChroniclesIcon} alt="Chronicles Icon" />
-            <MainTitle>
-              <svg overflow="visible">
-                <text ref={titleRef} x="50%" y="50%" textAnchor="middle">
-                  Canyon Chronicles
-                </text>
-              </svg>
-              Canyon Chronicles
-            </MainTitle>
-            <Subtitle>
-              <span>We must understand what has been,</span>
-              <span>to dream about what can be</span>
-            </Subtitle>
-            <StageButton onClick={handleStageChange}>
-              Uncover the Story <FaChevronRight />
+            <LogoTitleGroup>
+              <ChroniclesLogo src={ChroniclesIcon} alt="Chronicles Icon" />
+              <MainTitle>Canyon Chronicles</MainTitle>
+            </LogoTitleGroup>
+            <ActionLine>
+              An interactive journey through Cal Poly&apos;s architectural
+              wonderland
+            </ActionLine>
+            <StageButton
+              onClick={handleStageChange}
+              onMouseEnter={() => setIsButtonHovered(true)}
+              onMouseLeave={() => setIsButtonHovered(false)}
+            >
+              <span>
+                Uncover the Story
+                <FaChevronRight />
+              </span>
             </StageButton>
           </>
         ) : (

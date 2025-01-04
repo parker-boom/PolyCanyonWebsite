@@ -1,13 +1,32 @@
 import styled, { keyframes, css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const traceText = keyframes`
-  0% {
-    stroke-dashoffset: 100%;
-  }
-  100% {
-    stroke-dashoffset: 0;
-  }
+// Animation Timing Configuration (in seconds)
+const TIMING = {
+  // Initial zoom of logo + title
+  ZOOM_DELAY: 0.75,
+  ZOOM_DURATION: 1.5,
+
+  // Slide up and scale down
+  SLIDE_DELAY: 2.5, // Starts after zoom completes
+  SLIDE_DURATION: 1.2,
+
+  // Action line fade in (starts after logo/title finishes moving)
+  ACTION_DELAY: 3.5, // Starts after slide
+  ACTION_DURATION: 0.3,
+
+  // Exit bar appearance
+  EXIT_DELAY: 5.4,
+  EXIT_DURATION: 0.6,
+
+  // Stage button fade in
+  BUTTON_DELAY: 4.3,
+  BUTTON_DURATION: 1.2,
+};
+
+const fadeIn = keyframes`
+  from { opacity: 0; }
+  to { opacity: 1; }
 `;
 
 const fadeScale = keyframes`
@@ -15,120 +34,122 @@ const fadeScale = keyframes`
   100% { opacity: 1; transform: scale(1); }
 `;
 
-const fadeSlideUp = keyframes`
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
+const zoomIn = keyframes`
+  0% {
+    opacity: 0;
+    transform: translate(-50%, calc(-50% - 50px - 10vh + 50px)) scale(1.4);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, calc(-50% - 50px - 10vh + 50px)) scale(1);
+  }
 `;
 
-const pulseOutline = keyframes`
-  0% { border-color: rgba(219, 139, 28, 0.4); }
-  50% { border-color: rgba(219, 139, 28, 1); }
-  100% { border-color: rgba(219, 139, 28, 0.4); }
+const slideUpAndScale = keyframes`
+  0% {
+    transform: translate(-50%, calc(-50% - 50px - 10vh + 50px)) scale(1);
+  }
+  100% {
+    transform: translate(-50%, calc(-100% + 20px - 10vh + 50px)) scale(0.9);
+  }
+`;
+
+const viewportGlow = keyframes`
+  0%, 100% { 
+    box-shadow: inset 0 0 150px rgba(219, 139, 28, 0);
+  }
+  50% { 
+    box-shadow: 
+      inset 0 0 150px rgba(219, 139, 28, 0.25),
+      inset 0 0 300px rgba(219, 139, 28, 0.1);
+  }
 `;
 
 export const Container = styled.div`
   width: 100vw;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   background: black;
-  color: white;
   position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  transition: opacity 0.6s ease-out;
+
+  &.button-hovered {
+    animation: ${viewportGlow} 2s ease-in-out infinite;
+  }
+
+  &.stage-1 {
+    opacity: 1;
+  }
+
+  &.stage-2 {
+    opacity: 0;
+    animation: ${fadeIn} 0.6s ease-out forwards;
+  }
 `;
 
 export const TitleContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: ${(props) => (props.$stage === 1 ? '20px' : '10px')};
-  width: 100%;
+  padding-top: ${(props) => (props.$stage === 2 ? '0' : '0')};
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  margin-bottom: ${(props) => (props.$stage === 1 ? '85px' : '40px')};
+`;
+
+export const LogoTitleGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center center;
+  opacity: 0;
+  animation:
+    ${zoomIn} ${TIMING.ZOOM_DURATION}s cubic-bezier(0.16, 1, 0.3, 1) forwards
+      ${TIMING.ZOOM_DELAY}s,
+    ${slideUpAndScale} ${TIMING.SLIDE_DURATION}s cubic-bezier(0.16, 1, 0.3, 1)
+      forwards ${TIMING.SLIDE_DELAY}s;
 `;
 
 export const MainTitle = styled.h1`
   font-size: 72px;
   font-weight: 900;
   font-style: italic;
-  color: transparent;
-  position: relative;
-  width: fit-content;
-  opacity: 0;
-  animation: ${fadeSlideUp} 0.6s ease-out forwards;
-
-  svg {
-    position: absolute;
-    inset: -40px;
-    width: calc(100% + 80px);
-    height: calc(100% + 80px);
-    overflow: visible;
-
-    text {
-      fill: #db8b1c;
-      stroke: rgb(212, 169, 65);
-      stroke-width: 1px;
-      stroke-dasharray: 100%;
-      animation:
-        ${traceText} 1.2s ease forwards,
-        ${fadeSlideUp} 0.6s ease-out forwards;
-      filter: drop-shadow(0 0 10px rgba(189, 139, 19, 0.6))
-        drop-shadow(0 0 20px rgba(189, 139, 19, 0.4))
-        drop-shadow(0 0 30px rgba(189, 139, 19, 0.2));
-    }
-  }
+  color: #db8b1c;
+  white-space: nowrap;
+  text-shadow:
+    0 0 20px rgba(219, 139, 28, 0.6),
+    0 0 40px rgba(219, 139, 28, 0.4),
+    0 0 60px rgba(219, 139, 28, 0.2);
 `;
 
-export const Subtitle = styled.h2`
-  font-size: 24px;
-  font-weight: 800;
-  color: #e9a830;
-  text-align: center;
-  max-width: 700px;
-  line-height: 1.3;
-  opacity: 0;
-  animation: ${fadeSlideUp} 0.6s ease-out forwards 0.6s;
-  letter-spacing: 0.5px;
-  margin-top: -5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-
-  span {
-    display: block;
-    white-space: nowrap;
-  }
+export const ChroniclesLogo = styled.img`
+  width: 250px;
+  height: 250px;
+  filter: drop-shadow(0 0 15px rgba(189, 139, 19, 0.6))
+    drop-shadow(0 0 30px rgba(189, 139, 19, 0.3));
 `;
 
 export const ExitBar = styled.div`
   position: fixed;
-  bottom: 30px;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.9);
   padding: 12px 24px;
   border-radius: 20px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  box-shadow:
-    0 0 20px rgba(255, 255, 255, 0.12),
-    0 0 30px rgba(255, 255, 255, 0.07);
-  transition: all 0.3s ease;
   opacity: ${(props) => (props.$stage === 2 ? 1 : 0)};
   animation: ${(props) =>
     props.$stage === 1
       ? css`
-          ${fadeSlideUp} 0.6s ease-out forwards 2.5s
+          ${fadeIn} ${TIMING.EXIT_DURATION}s ease-out forwards ${TIMING.EXIT_DELAY}s
         `
       : 'none'};
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow:
-      0 0 25px rgba(255, 255, 255, 0.15),
-      0 0 50px rgba(255, 255, 255, 0.08);
-  }
 `;
 
 export const ExitLink = styled(Link)`
@@ -136,39 +157,109 @@ export const ExitLink = styled(Link)`
   color: white;
   font-size: 16px;
   font-weight: 500;
-  letter-spacing: 0.5px;
   display: flex;
   align-items: center;
   gap: 12px;
+`;
 
-  svg {
-    transition: transform 0.3s ease;
+export const ActionLine = styled.div`
+  font-size: 32px;
+  font-weight: 800;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  max-width: 800px;
+  margin-top: 25px;
+  top: calc(10px + 250px + 5px + 72px + 50px);
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  animation: ${fadeIn} ${TIMING.ACTION_DURATION}s ease-out forwards
+    ${TIMING.ACTION_DELAY}s;
+  letter-spacing: 0.5px;
+  line-height: 1.3;
+
+  background: linear-gradient(135deg, #b7611f 0%, #bd6117 50%, #913d0c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 0.3px black;
+  text-stroke: 0.3px black;
+
+  filter: drop-shadow(0 0 8px rgba(247, 227, 126, 0.4));
+`;
+
+export const StageButton = styled.button`
+  position: absolute;
+  top: calc(10px + 250px + 5px + 72px + 32px + 130px + 90px);
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  padding: 14px 28px;
+  border-radius: 30px;
+  border: none;
+  background: rgb(0, 0, 0);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0;
+  animation: ${fadeIn} ${TIMING.BUTTON_DURATION}s ease-out forwards
+    ${TIMING.BUTTON_DELAY}s;
+
+  // Subtle float effect with centered shadow
+  box-shadow:
+    0 0 8px rgba(255, 255, 255, 0.1),
+    0 0 14px rgba(255, 255, 255, 0.05);
+
+  &:hover {
+    box-shadow:
+      0 0 15px rgba(255, 255, 255, 0.03),
+      0 0 40px rgba(219, 139, 28, 0.35);
   }
 
-  &:hover svg {
-    transform: translateX(-3px);
+  span {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: white;
+    text-transform: uppercase;
+  }
+
+  svg {
+    font-size: 22px;
+    color: white;
+    transition: transform 0.3s ease;
   }
 `;
 
-export const BubblesContainer = styled.div`
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  pointer-events: none;
-  padding: 100px;
+export const ExploreTitle = styled.h1`
+  font-size: 64px;
+  font-weight: 800;
+  color: #db8b1c;
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: ${fadeScale} 0.6s ease-out forwards;
+  text-shadow:
+    0 0 10px rgba(189, 139, 19, 0.6),
+    0 0 20px rgba(189, 139, 19, 0.4),
+    0 0 30px rgba(189, 139, 19, 0.2);
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  width: 100%;
+  max-width: 1200px;
 `;
 
 export const BubblesGrid = styled.div`
   display: grid;
   grid-template-rows: 240px 195px;
   gap: 15px;
-  margin-bottom: 100px;
   opacity: 0;
   animation: ${fadeScale} 0.5s ease-out forwards 0.2s;
   width: 810px;
+  margin: 0 auto;
 `;
 
 export const BubbleTitle = styled.div`
@@ -247,7 +338,6 @@ export const BubbleCard = styled.div`
 
     ${BubbleTitle} {
       transform: translateY(-5px);
-
       .prefix,
       .main {
         text-shadow:
@@ -256,89 +346,6 @@ export const BubbleCard = styled.div`
       }
     }
   }
-`;
-
-export const StageButton = styled.button`
-  background: transparent;
-  border: 2px solid rgba(219, 139, 28, 0.4);
-  border-radius: 30px;
-  color: white;
-  font-size: 20px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 16px 32px;
-  margin-top: 60px;
-  cursor: pointer;
-  position: relative;
-  transition: all 0.3s ease;
-  opacity: 0;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  box-shadow:
-    0 0 10px rgba(219, 139, 28, 0.1),
-    0 0 20px rgba(219, 139, 28, 0.05),
-    0 0 30px rgba(219, 139, 28, 0.025);
-
-  animation:
-    ${fadeSlideUp} 0.6s ease-out forwards 1.5s,
-    ${pulseOutline} 2s ease-in-out infinite 2.1s;
-
-  svg {
-    font-size: 20px;
-    font-weight: bold;
-    transition: transform 0.3s ease;
-    opacity: 0.7;
-  }
-
-  &:hover {
-    transform: translateY(-2px);
-    border-color: rgba(219, 139, 28, 1);
-
-    animation-duration: 1s;
-
-    box-shadow:
-      0 0 15px rgba(219, 139, 28, 0.2),
-      0 0 30px rgba(219, 139, 28, 0.15),
-      0 0 45px rgba(219, 139, 28, 0.1);
-
-    svg {
-      transform: translateX(5px);
-      opacity: 1;
-    }
-  }
-
-  &:active {
-    transform: translateY(0);
-  }
-`;
-
-export const ExploreTitle = styled.h1`
-  font-size: 64px;
-  font-weight: 800;
-  color: #db8b1c;
-  text-align: center;
-  margin-bottom: 40px;
-  opacity: 0;
-  animation: ${fadeSlideUp} 0.6s ease-out forwards;
-  text-shadow:
-    0 0 10px rgba(189, 139, 19, 0.6),
-    0 0 20px rgba(189, 139, 19, 0.4),
-    0 0 30px rgba(189, 139, 19, 0.2);
-  letter-spacing: 0.5px;
-  line-height: 1.2;
-  max-width: 1200px;
-`;
-
-export const ChroniclesLogo = styled.img`
-  width: 250px;
-  height: 250px;
-  margin-bottom: 0px;
-  filter: drop-shadow(0 0 15px rgba(189, 139, 19, 0.6))
-    drop-shadow(0 0 30px rgba(189, 139, 19, 0.3));
-  animation: ${fadeSlideUp} 1s ease-out forwards;
 `;
 
 export const BottomRow = styled.div`

@@ -14,14 +14,15 @@ export const Container = styled.div`
   align-items: center;
   color: white;
   position: relative;
-  padding-top: 20px;
+  padding: 20px 20px 100px;
+  gap: 25px;
 
   &::before {
     content: '';
     position: fixed;
     inset: 0;
     background: ${(props) => `url(${props.$bgImage})`} center/cover;
-    filter: blur(12x) brightness(0.7);
+    filter: blur(12px) brightness(0.7);
     transform: scale(1.1);
     z-index: -1;
   }
@@ -42,6 +43,10 @@ export const Container = styled.div`
 export const ImageSection = styled.div`
   width: 950px;
   max-width: 95%;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
   border-radius: 15px;
   overflow: hidden;
   background: rgba(0, 0, 0, 0.75);
@@ -54,7 +59,7 @@ export const ImageSection = styled.div`
 
 export const HeaderBar = styled.div`
   width: 100%;
-  height: 60px;
+  padding: 8px 0;
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(10px);
   display: flex;
@@ -62,8 +67,7 @@ export const HeaderBar = styled.div`
   align-items: center;
   justify-content: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  position: relative;
-  padding: 8px 0;
+  flex-shrink: 0;
 `;
 
 export const HeaderContent = styled.div`
@@ -75,12 +79,12 @@ export const HeaderContent = styled.div`
 export const ImageContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 450px;
-  aspect-ratio: 16/9;
-  overflow: hidden;
+  flex: 1;
+  min-height: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 `;
 
 export const BlurredBackground = styled.div`
@@ -161,6 +165,7 @@ export const ProjectDescription = styled.div`
   letter-spacing: 0.25px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   animation: ${fadeIn} 0.6s ease-out;
+  flex-shrink: 0;
 `;
 
 export const SurpriseButton = styled.button`
@@ -168,7 +173,7 @@ export const SurpriseButton = styled.button`
   align-items: center;
   justify-content: center;
   gap: 18px;
-  margin: 25px auto 0;
+  margin: 0px auto 0;
   padding: 21px 42px;
   background: rgba(0, 0, 0, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.15);
