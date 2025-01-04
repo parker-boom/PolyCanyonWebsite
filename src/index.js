@@ -118,8 +118,8 @@ function App() {
 
   return (
     <AppContainer>
-      {location.pathname !== '/' &&
-        !location.pathname.startsWith('/chronicles') && <Navigation />}
+      {!location.pathname.startsWith('/chronicles') &&
+        (location.pathname !== '/' || isMobile) && <Navigation />}
       <Content path={location.pathname}>
         <Routes>
           {/* Home route */}

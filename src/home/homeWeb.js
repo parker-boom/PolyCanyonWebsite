@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { FaDownload, FaInfo, FaBuilding, FaChevronRight } from 'react-icons/fa';
 import { mainImages } from '../structures/images/structureImages.js';
 import structuresList from '../structures/data/structuresList.json';
@@ -83,104 +84,116 @@ const HomeWeb = () => {
   const imageUrl = mainImages[imageKey];
 
   return (
-    <HomeContainer>
-      <ContentWrapper>
-        <GlassNav>
-          <NavContent>
-            <LeftSection>
-              <LogoGroup>
-                <Logo
-                  src={app360}
-                  alt="Poly Canyon Logo"
-                  onClick={() => navigate('/')}
-                />
-                <SiteTitle>Poly Canyon</SiteTitle>
-              </LogoGroup>
-              <NavLinks>
-                <NavLink to="/download">
-                  <FaDownload /> App
-                </NavLink>
-                <NavLink to="/info">
-                  <FaInfo /> Info
-                </NavLink>
-                <NavLink to="/structures">
-                  <FaBuilding /> Structures
-                </NavLink>
-                <ChroniclesButton to="/chronicles">
-                  <span>Chronicles</span>
-                </ChroniclesButton>
-              </NavLinks>
-            </LeftSection>
-          </NavContent>
-        </GlassNav>
+    <>
+      <Helmet>
+        <title>Poly Canyon Home</title>
+        <meta
+          name="description"
+          content="Welcome to Poly Canyon - Cal Poly's unique outdoor experimental construction laboratory. Explore student-built architectural projects and discover the innovative spirit of hands-on learning."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="canonical" href="https://polycanyon.com" />
+      </Helmet>
 
-        <MainLayout>
-          <StructuresSection>
-            <StructureImageArea>
-              <ImageContainer>
-                <MainImage src={imageUrl} alt={structure.title} />
-              </ImageContainer>
-              <TitleContainer
-                onClick={() => navigate(`/structures/${structure.url}`)}
-              >
-                <StructureNumber>{structure.number}</StructureNumber>
-                <TitleContent>
-                  <StructureTitle>{structure.title}</StructureTitle>
-                  <ViewButton>
-                    <FaChevronRight />
-                  </ViewButton>
-                </TitleContent>
-              </TitleContainer>
-            </StructureImageArea>
-            <StructureInfoArea onClick={() => navigate('/structures')}>
-              <InfoIcon>
-                <FaBuilding />
-              </InfoIcon>
-              <InfoSubtitle>Research Structures</InfoSubtitle>
-              <InfoDescription>
-                Explore all the amazing creations in depth
-              </InfoDescription>
-              <CornerChevron />
-            </StructureInfoArea>
-          </StructuresSection>
+      <HomeContainer>
+        <ContentWrapper>
+          <GlassNav>
+            <NavContent>
+              <LeftSection>
+                <LogoGroup>
+                  <Logo
+                    src={app360}
+                    alt="Poly Canyon Logo"
+                    onClick={() => navigate('/')}
+                  />
+                  <SiteTitle>Poly Canyon</SiteTitle>
+                </LogoGroup>
+                <NavLinks>
+                  <NavLink to="/download">
+                    <FaDownload /> App
+                  </NavLink>
+                  <NavLink to="/info">
+                    <FaInfo /> Info
+                  </NavLink>
+                  <NavLink to="/structures">
+                    <FaBuilding /> Structures
+                  </NavLink>
+                  <ChroniclesButton to="/chronicles">
+                    <span>Chronicles</span>
+                  </ChroniclesButton>
+                </NavLinks>
+              </LeftSection>
+            </NavContent>
+          </GlassNav>
 
-          <ButtonsSection>
-            <ActionButton to="/info" $type="info">
-              <FaInfo />
-              <ButtonContent>
-                <ButtonTitle $type="info">Get Information</ButtonTitle>
-                <ButtonSubtitle>
-                  Everything you need to know before your first visit
-                </ButtonSubtitle>
-              </ButtonContent>
-            </ActionButton>
+          <MainLayout>
+            <StructuresSection>
+              <StructureImageArea>
+                <ImageContainer>
+                  <MainImage src={imageUrl} alt={structure.title} />
+                </ImageContainer>
+                <TitleContainer
+                  onClick={() => navigate(`/structures/${structure.url}`)}
+                >
+                  <StructureNumber>{structure.number}</StructureNumber>
+                  <TitleContent>
+                    <StructureTitle>{structure.title}</StructureTitle>
+                    <ViewButton>
+                      <FaChevronRight />
+                    </ViewButton>
+                  </TitleContent>
+                </TitleContainer>
+              </StructureImageArea>
+              <StructureInfoArea onClick={() => navigate('/structures')}>
+                <InfoIcon>
+                  <FaBuilding />
+                </InfoIcon>
+                <InfoSubtitle>Research Structures</InfoSubtitle>
+                <InfoDescription>
+                  Explore all the amazing creations in depth
+                </InfoDescription>
+                <CornerChevron />
+              </StructureInfoArea>
+            </StructuresSection>
 
-            <ActionButton to="/download" $type="app">
-              <FaDownload />
-              <ButtonContent>
-                <ButtonTitle $type="app">Checkout the App</ButtonTitle>
-                <ButtonSubtitle>
-                  The must have interactive exploration guide is here
-                </ButtonSubtitle>
-              </ButtonContent>
-            </ActionButton>
-          </ButtonsSection>
-        </MainLayout>
+            <ButtonsSection>
+              <ActionButton to="/info" $type="info">
+                <FaInfo />
+                <ButtonContent>
+                  <ButtonTitle $type="info">Get Information</ButtonTitle>
+                  <ButtonSubtitle>
+                    Everything you need to know before your first visit
+                  </ButtonSubtitle>
+                </ButtonContent>
+              </ActionButton>
 
-        <ChroniclesBanner to="/chronicles" onMouseMove={handleMouseMove}>
-          <ChroniclesContent>
-            <ChroniclesTitleGroup>
-              <ChroniclesIcon>✧</ChroniclesIcon>
-              <ChroniclesTitle>CHRONICLES</ChroniclesTitle>
-              <ChroniclesIcon>✧</ChroniclesIcon>
-            </ChroniclesTitleGroup>
-            <ChroniclesSubtitle>
-              EXPLORE THE <strong>INTERACTIVE EXPERIENCE</strong>
-            </ChroniclesSubtitle>
-          </ChroniclesContent>
-        </ChroniclesBanner>
-      </ContentWrapper>
-    </HomeContainer>
+              <ActionButton to="/download" $type="app">
+                <FaDownload />
+                <ButtonContent>
+                  <ButtonTitle $type="app">Checkout the App</ButtonTitle>
+                  <ButtonSubtitle>
+                    The must have interactive exploration guide is here
+                  </ButtonSubtitle>
+                </ButtonContent>
+              </ActionButton>
+            </ButtonsSection>
+          </MainLayout>
+
+          <ChroniclesBanner to="/chronicles" onMouseMove={handleMouseMove}>
+            <ChroniclesContent>
+              <ChroniclesTitleGroup>
+                <ChroniclesIcon>✧</ChroniclesIcon>
+                <ChroniclesTitle>CHRONICLES</ChroniclesTitle>
+                <ChroniclesIcon>✧</ChroniclesIcon>
+              </ChroniclesTitleGroup>
+              <ChroniclesSubtitle>
+                EXPLORE THE <strong>INTERACTIVE EXPERIENCE</strong>
+              </ChroniclesSubtitle>
+            </ChroniclesContent>
+          </ChroniclesBanner>
+        </ContentWrapper>
+      </HomeContainer>
+    </>
   );
 };
 
