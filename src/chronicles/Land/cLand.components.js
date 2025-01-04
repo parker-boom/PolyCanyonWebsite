@@ -371,13 +371,24 @@ const RefreshIcon = styled(motion.div)`
   justify-content: center;
 `;
 
-// Add this styled component
-const HydroMap = styled.img`
+// Modify the Container for HydrologyInteractive
+const HydroContainer = styled(Container)`
   height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+`;
+
+export const HydroMap = styled.img`
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
   object-fit: contain;
   border-radius: 20px;
   display: block;
-  margin: 0 auto;
 `;
 
 // CLIMATE INTERACTIVE
@@ -687,11 +698,11 @@ export const GeologyInteractive = () => {
   );
 };
 
-// Add the Hydrology component
+// Update HydrologyInteractive to use the new container
 export const HydrologyInteractive = () => {
   return (
-    <Container style={{ justifyContent: 'center' }}>
+    <HydroContainer>
       <HydroMap src={hydroMapImg} alt="Hydrology Map" />
-    </Container>
+    </HydroContainer>
   );
 };

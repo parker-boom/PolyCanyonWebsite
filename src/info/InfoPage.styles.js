@@ -1202,3 +1202,94 @@ export const PhotoGridMobileWrapper = styled.div`
   padding: 10px 0;
   box-sizing: border-box;
 `;
+
+// Add these new styled components after the PhotoGrid styles
+
+export const DiveDeeper = styled(Section)`
+  padding: 30px 20px;
+  margin: 30px auto;
+  max-width: 800px;
+`;
+
+export const DiveDeeperTitle = styled.h3`
+  font-size: 36px;
+  color: #376d31;
+  margin-bottom: 30px;
+  text-align: center;
+`;
+
+export const NavigationButtons = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 20px 0;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+`;
+
+export const NavButton = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  border-radius: 24px;
+  text-decoration: none;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  width: 320px;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+
+  // Different styling for each button type
+  background: ${(props) =>
+    props.$type === 'chronicles'
+      ? 'linear-gradient(135deg, rgba(189, 139, 19, 0.15) 0%, rgba(189, 139, 19, 0.05) 100%)'
+      : 'linear-gradient(135deg, rgba(55, 109, 49, 0.15) 0%, rgba(55, 109, 49, 0.05) 100%)'};
+
+  border: 1px solid
+    ${(props) =>
+      props.$type === 'chronicles'
+        ? 'rgba(189, 139, 19, 0.2)'
+        : 'rgba(55, 109, 49, 0.2)'};
+
+  box-shadow: 0 4px 15px
+    ${(props) =>
+      props.$type === 'chronicles'
+        ? 'rgba(189, 139, 19, 0.15)'
+        : 'rgba(55, 109, 49, 0.15)'};
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px
+      ${(props) =>
+        props.$type === 'chronicles'
+          ? 'rgba(189, 139, 19, 0.25)'
+          : 'rgba(55, 109, 49, 0.25)'};
+  }
+`;
+
+export const NavButtonIcon = styled.div`
+  font-size: 48px;
+  margin-bottom: 15px;
+  color: ${(props) => (props.$type === 'chronicles' ? '#BD8B13' : '#376d31')};
+`;
+
+export const NavButtonTitle = styled.h4`
+  font-size: 28px;
+  font-weight: 700;
+  color: ${(props) => (props.$type === 'chronicles' ? '#BD8B13' : '#376d31')};
+  margin: 0 0 10px 0;
+  text-align: center;
+`;
+
+export const NavButtonSubtitle = styled.p`
+  font-size: 18px;
+  color: #666;
+  margin: 0;
+  text-align: center;
+`;

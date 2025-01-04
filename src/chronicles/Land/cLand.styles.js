@@ -33,20 +33,33 @@ export const ContentWrapper = styled.div`
 
 export const MainContent = styled.div`
   display: flex;
-  width: 85%;
+  width: 100%;
   flex: 1;
-  gap: 10px;
+  gap: 20px;
   margin: 10px 0;
 `;
 
-export const TextSection = styled.div`
+export const TextColumn = styled.div`
   flex: 0.6;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
+
+export const InteractiveColumn = styled.div`
+  flex: 0.4;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
+
+export const TextSection = styled.div`
+  flex: 1;
   background: rgba(0, 0, 0, 0.7);
   border: 1px solid rgba(144, 238, 144, 0.15);
   border-radius: 20px;
   backdrop-filter: blur(10px);
   padding: 30px;
-  height: 550px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -85,7 +98,7 @@ export const SectionTitle = styled.h3`
 `;
 
 export const InteractiveSection = styled.div`
-  flex: 0.4;
+  flex: 1;
   background: rgba(0, 0, 0, 0.7);
   border: 1px solid rgba(144, 238, 144, 0.15);
   border-radius: 20px;
@@ -94,9 +107,6 @@ export const InteractiveSection = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 550px;
-  min-height: 550px;
-  max-height: 550px;
   overflow: hidden;
 
   & > * {
@@ -114,17 +124,22 @@ export const NavigationContainer = styled.div`
 `;
 
 export const TopSection = styled.div`
-  width: 30%;
-  min-width: 350px;
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-top: 5px;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 20px 30px;
-  border-radius: 20px;
+  justify-content: flex-start;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 15px 25px;
+  border-radius: 30px;
   border: 1px solid rgba(144, 238, 144, 0.2);
-  box-shadow: 0 0 30px rgba(144, 238, 144, 0.1);
+  box-shadow: 0 0 20px rgba(144, 238, 144, 0.1);
+  backdrop-filter: blur(5px);
+
+  &:hover {
+    box-shadow:
+      0 0 25px rgba(144, 238, 144, 0.15),
+      0 0 50px rgba(144, 238, 144, 0.1);
+  }
 `;
 
 export const TopContentWrapper = styled.div`
@@ -188,10 +203,10 @@ export const IconsBar = styled.div`
   border: 1px solid rgba(144, 238, 144, 0.2);
   border-radius: 30px;
   backdrop-filter: blur(5px);
-  margin-bottom: 20px;
   box-shadow:
     0 0 20px rgba(144, 238, 144, 0.1),
     0 0 40px rgba(144, 238, 144, 0.05);
+  justify-content: center;
 
   &:hover {
     box-shadow:

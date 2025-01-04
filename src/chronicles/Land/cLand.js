@@ -25,6 +25,8 @@ import {
   ParagraphText,
   SectionTitle,
   TextContainer,
+  TextColumn,
+  InteractiveColumn,
 } from './cLand.styles.js';
 import { landContent } from './landContent.js';
 import {
@@ -56,8 +58,6 @@ const categories = [
 
 const Land = () => {
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
-
-  // Get the appropriate interactive component
   const InteractiveComponent = interactiveComponents[selectedCategory.id];
 
   return (
@@ -90,52 +90,60 @@ const Land = () => {
         />
       </Helmet>
       <ContentWrapper>
-        <TopSection>
-          <TopContentWrapper>
-            <SelectedIconContainer>
-              <DisplayIcon>
-                <selectedCategory.icon />
-              </DisplayIcon>
-            </SelectedIconContainer>
-            <CategoryTitle>{selectedCategory.label}</CategoryTitle>
-          </TopContentWrapper>
-        </TopSection>
-
         <MainContent>
-          <TextSection>
-            <SectionTitle>
-              {categoryQuestions[selectedCategory.id]}
-            </SectionTitle>
-            <TextContainer>
-              <ParagraphText>{landContent[selectedCategory.id]}</ParagraphText>
-            </TextContainer>
-          </TextSection>
+          {/* Left Column */}
+          <TextColumn>
+            <TopSection>
+              <TopContentWrapper>
+                <SelectedIconContainer>
+                  <DisplayIcon>
+                    <selectedCategory.icon />
+                  </DisplayIcon>
+                </SelectedIconContainer>
+                <CategoryTitle>{selectedCategory.label}</CategoryTitle>
+              </TopContentWrapper>
+            </TopSection>
 
-          <InteractiveSection>
-            <InteractiveComponent />
-          </InteractiveSection>
+            <TextSection>
+              <SectionTitle>
+                {categoryQuestions[selectedCategory.id]}
+              </SectionTitle>
+              <TextContainer>
+                <ParagraphText>
+                  {landContent[selectedCategory.id]}
+                </ParagraphText>
+              </TextContainer>
+            </TextSection>
+          </TextColumn>
+
+          {/* Right Column */}
+          <InteractiveColumn>
+            <IconsBar>
+              {categories.map((category) => (
+                <NavIcon
+                  key={category.id}
+                  $isSelected={selectedCategory.id === category.id}
+                  onClick={() => setSelectedCategory(category)}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <category.icon />
+                </NavIcon>
+              ))}
+            </IconsBar>
+
+            <InteractiveSection>
+              <InteractiveComponent />
+            </InteractiveSection>
+          </InteractiveColumn>
         </MainContent>
 
-        <IconsBar>
-          {categories.map((category) => (
-            <NavIcon
-              key={category.id}
-              $isSelected={selectedCategory.id === category.id}
-              onClick={() => setSelectedCategory(category)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <category.icon />
-            </NavIcon>
-          ))}
-        </IconsBar>
+        <ExitBar>
+          <ExitLink to="/chronicles/2">
+            <FaArrowLeft /> Back to Chronicles
+          </ExitLink>
+        </ExitBar>
       </ContentWrapper>
-
-      <ExitBar>
-        <ExitLink to="/chronicles/2">
-          <FaArrowLeft /> Back to Chronicles
-        </ExitLink>
-      </ExitBar>
     </Container>
   );
 };

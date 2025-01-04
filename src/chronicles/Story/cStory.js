@@ -9,12 +9,9 @@ import eras from './eras.json';
 import { eraPhotos } from './Images/eraPhotos.js';
 import {
   Container,
-  NavigationBar,
-  NavButton,
   EraDisplay,
   ExitBar,
   ExitLink,
-  NavigationControls,
   TimelineContainer,
   TimelineLine,
   TimelineSection,
@@ -38,7 +35,6 @@ import {
   TextHeader,
   TextContent,
   TimelineWrapper,
-  TimelineYears,
   NavArea,
 } from './cStory.styles.js';
 import eraPhotoCaptions from './eraPhotoCaptions.json';

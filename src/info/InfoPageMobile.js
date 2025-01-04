@@ -25,17 +25,13 @@ IMPORTS
 */
 
 // Libraries
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import {
   FaChevronRight,
   FaMapMarkerAlt,
   FaWalking,
   FaSearch,
-  FaHistory,
-  FaGlobeAmericas,
-  FaChevronDown,
-  FaChevronUp,
 } from 'react-icons/fa';
 
 // Styles
@@ -46,33 +42,6 @@ import {
   Section,
   SectionTitle,
   Text,
-
-  // More Info
-  MoreInfoContainer,
-  MoreInfoToggle,
-  MoreInfoContent,
-  ImprovedPicker,
-  PickerButton,
-  PickerContent,
-  PickerTitle,
-
-  // More Info: History
-  MobileCarouselImageContainer,
-  MobileCarouselContainer,
-  MobileCarouselImage,
-  MobileBackgroundImage,
-  MobileArrowButtonImage,
-  CarouselCaption,
-  CaptionTitle,
-  CaptionText,
-
-  // More Info: Geology
-  MobileGeologyContainer,
-  MobileGeologyCard,
-  GeologyContent,
-  GeologyTitle,
-  GeologyText,
-  GeologyIcon,
 
   // App Section
   ModeSelector,
@@ -107,235 +76,14 @@ import GoogleMapsRoute from './GoogleMapsRoute.js';
 // App screenshot
 import appPreview from '../assets/appPreview.png';
 
-// Historical images - imports
-import bladeRedesign from '../assets/pchistory/bladeRedesign.png';
-import designVillage from '../assets/pchistory/designVillage.webp';
-import entryArch from '../assets/pchistory/entryArch.jpg';
-import shellHouseConstruct from '../assets/pchistory/shellHouseConstruct.jpg';
-import bridgeGroup from '../assets/pchistory/bridgeGroup.jpg';
-import modHouseConstruction from '../assets/pchistory/modHouseConstruction.jpg';
-import geodesicDome from '../assets/pchistory/geodesicDome.jpg';
-import fratessaTower from '../assets/pchistory/fratessaTowerb4.jpg';
-
-/*
-CONSTANTS
-*/
-
-// Historical image titles & descriptions
-const historicalImages = [
-  {
-    src: entryArch,
-    alt: 'Entry Arch',
-    caption: 'The canyon entrance, built with local serpentinite rock.',
-  },
-  {
-    src: shellHouseConstruct,
-    alt: 'Shell House Under Construction',
-    caption: 'Building the Shell House with cables and sprayed concrete.',
-  },
-  {
-    src: bridgeGroup,
-    alt: 'Bridge House Group Photo',
-    caption:
-      'Students on the Bridge House, one of the first Cor-ten steel structures.',
-  },
-  {
-    src: bladeRedesign,
-    alt: 'Blade Structure Redesign',
-    caption: 'Award-winning 2006 redesign using post-tensioning techniques.',
-  },
-  {
-    src: modHouseConstruction,
-    alt: 'Modular House Construction',
-    caption: 'Construction of the experimental Modular House frame.',
-  },
-  {
-    src: geodesicDome,
-    alt: 'Geodesic Dome Construction',
-    caption: "Students building the West Coast's first geodesic dome.",
-  },
-  {
-    src: fratessaTower,
-    alt: 'Fratessa Tower (Old Version)',
-    caption: 'Original water-supported observation tower, since replaced.',
-  },
-  {
-    src: designVillage,
-    alt: 'Design Village Competition',
-    caption: 'Annual competition where students build temporary shelters.',
-  },
-];
-
 // Rendered component
 const InfoPage = () => {
   // Variables for state
-  const [currentPicker, setCurrentPicker] = useState('history');
   const [currentMode, setCurrentMode] = useState('adventure');
-  const [isMoreInfoOpen, setIsMoreInfoOpen] = useState(false);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [nextImageIndex] = useState(1);
-  const [isTransitioning] = useState(false);
-  const moreInfoButtonRef = useRef(null);
-  const moreInfoContainerRef = useRef(null);
-  const [hasInteracted, setHasInteracted] = useState(false);
 
   // Change adventure/virtual mode
   const handleModeChange = (mode) => {
     setCurrentMode(mode);
-  };
-
-  // Open MoreInfo Section
-  const toggleMoreInfo = () => {
-    setIsMoreInfoOpen(!isMoreInfoOpen);
-    setHasInteracted(true);
-  };
-
-  // Close MoreInfo (& scroll up)
-  useEffect(() => {
-    if (!isMoreInfoOpen && hasInteracted && moreInfoContainerRef.current) {
-      moreInfoContainerRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, [isMoreInfoOpen, hasInteracted]);
-
-  // Preload images
-  useEffect(() => {
-    historicalImages.forEach((image) => {
-      const img = new Image();
-      img.src = image.src;
-    });
-  }, []);
-
-  // Navigate to next image (historical section)
-  const handleNextImage = () => {
-    setCurrentImageIndex(
-      (prevIndex) => (prevIndex + 1) % historicalImages.length
-    );
-  };
-
-  // Navigate to previous image (historical section)
-  const handlePrevImage = () => {
-    setCurrentImageIndex(
-      (prevIndex) =>
-        (prevIndex - 1 + historicalImages.length) % historicalImages.length
-    );
-  };
-
-  // Components for the more info section
-  const pickerContent = {
-    // HISTORY
-    history: {
-      title: 'A Rich Legacy',
-      content: (
-        <>
-          {/* Introductory text */}
-          <Text>
-            Since the 1960s, the area has been a testing ground for experimental
-            architecture and engineering. Students come here to turn their
-            boldest designs into reality.
-          </Text>
-
-          {/* Mobile Carousel for Historical Images with Arrow Buttons */}
-          <MobileCarouselContainer>
-            <MobileBackgroundImage
-              src={historicalImages[currentImageIndex].src}
-            />
-            <MobileCarouselImageContainer>
-              <MobileCarouselImage
-                src={historicalImages[currentImageIndex].src}
-                alt={historicalImages[currentImageIndex].alt}
-                style={{ opacity: isTransitioning ? 0 : 1 }}
-              />
-              <MobileCarouselImage
-                src={historicalImages[nextImageIndex].src}
-                alt={historicalImages[nextImageIndex].alt}
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  opacity: isTransitioning ? 1 : 0,
-                }}
-              />
-            </MobileCarouselImageContainer>
-
-            {/* Bottom-positioned Arrow Buttons */}
-            <MobileArrowButtonImage
-              onClick={handlePrevImage}
-              disabled={isTransitioning}
-            >
-              &lt;
-            </MobileArrowButtonImage>
-            <MobileArrowButtonImage
-              onClick={handleNextImage}
-              disabled={isTransitioning}
-            >
-              &gt;
-            </MobileArrowButtonImage>
-          </MobileCarouselContainer>
-
-          {/* Caption with Title */}
-          <CarouselCaption>
-            <CaptionTitle>
-              {historicalImages[currentImageIndex].alt}
-            </CaptionTitle>
-            <CaptionText>
-              {historicalImages[currentImageIndex].caption}
-            </CaptionText>
-          </CarouselCaption>
-        </>
-      ),
-    },
-
-    // GEOLOGY
-    geology: {
-      title: 'Unique Landscape',
-      content: (
-        <>
-          <Text>
-            The canyon&apos;s unique landscape was shaped over millions of
-            years, creating a perfect natural laboratory for architecture and
-            ecology.
-          </Text>
-
-          <MobileGeologyContainer>
-            {/* Tectonic Forces */}
-            <MobileGeologyCard>
-              <GeologyIcon>🌍</GeologyIcon>
-              <GeologyContent>
-                <GeologyTitle>Moving Earth</GeologyTitle>
-                <GeologyText>
-                  Two massive tectonic plates meet here, creating unique rock
-                  formations perfect for testing architectural designs.
-                </GeologyText>
-              </GeologyContent>
-            </MobileGeologyCard>
-
-            {/* Springs */}
-            <MobileGeologyCard>
-              <GeologyIcon>💧</GeologyIcon>
-              <GeologyContent>
-                <GeologyTitle>Natural Springs</GeologyTitle>
-                <GeologyText>
-                  Underground springs emerge through special green rocks,
-                  creating micro-environments throughout the canyon.
-                </GeologyText>
-              </GeologyContent>
-            </MobileGeologyCard>
-
-            {/* Soil */}
-            <MobileGeologyCard>
-              <GeologyIcon>🌱</GeologyIcon>
-              <GeologyContent>
-                <GeologyTitle>Rich Soil</GeologyTitle>
-                <GeologyText>
-                  Different soil types across the canyon support diverse plant
-                  life and provide varied building conditions.
-                </GeologyText>
-              </GeologyContent>
-            </MobileGeologyCard>
-          </MobileGeologyContainer>
-        </>
-      ),
-    },
   };
 
   return (
@@ -393,53 +141,6 @@ const InfoPage = () => {
             different kind of hike, or just want to experience what makes Cal
             Poly unique, it&apos;s worth checking out.
           </Text>
-
-          {/* More Info Section (implementation above) */}
-          <MoreInfoContainer ref={moreInfoContainerRef}>
-            {!isMoreInfoOpen && (
-              <MoreInfoToggle onClick={toggleMoreInfo} ref={moreInfoButtonRef}>
-                Learn More
-                <FaChevronDown />
-              </MoreInfoToggle>
-            )}
-
-            {isMoreInfoOpen && (
-              <MoreInfoContent>
-                {/* Pikcer Between MoreInfo Subsections */}
-                <ImprovedPicker>
-                  <PickerButton
-                    active={currentPicker === 'history'}
-                    onClick={() => setCurrentPicker('history')}
-                  >
-                    <FaHistory />
-                    History
-                  </PickerButton>
-                  <PickerButton
-                    active={currentPicker === 'geology'}
-                    onClick={() => setCurrentPicker('geology')}
-                  >
-                    <FaGlobeAmericas />
-                    Geology
-                  </PickerButton>
-                </ImprovedPicker>
-
-                <PickerContent>
-                  <PickerTitle>
-                    {pickerContent[currentPicker].title}
-                  </PickerTitle>
-                  {pickerContent[currentPicker].content}
-                </PickerContent>
-
-                <MoreInfoToggle
-                  onClick={toggleMoreInfo}
-                  style={{ marginTop: '30px' }}
-                >
-                  Show Less
-                  <FaChevronUp />
-                </MoreInfoToggle>
-              </MoreInfoContent>
-            )}
-          </MoreInfoContainer>
         </Section>
 
         {/* 

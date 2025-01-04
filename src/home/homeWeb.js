@@ -1,130 +1,178 @@
-import React from 'react';
-import { Helmet } from 'react-helmet-async';
-import { FaChevronRight } from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import {
+  FaDownload,
+  FaInfo,
+  FaBuilding,
+  FaChevronRight,
+  FaChevronDown,
+} from 'react-icons/fa';
+import { mainImages } from '../structures/images/structureImages.js';
+import structuresList from '../structures/data/structuresList.json';
 import {
   HomeContainer,
-  MainHeading,
-  ActionContainer,
-  ActionCard,
-  CardImage,
-  CardContent,
-  CardTitle,
-  CardSubtitle,
-  WelcomeSection,
-  Subtitle,
-  StatsContainer,
-  StatItem,
-  StatNumber,
-  StatLabel,
-  GlobalBackgroundStyle,
+  ContentWrapper,
+  GlassNav,
+  NavContent,
+  Logo,
+  SiteTitle,
+  LeftSection,
+  LogoGroup,
+  NavLinks,
+  NavLink,
+  ChroniclesButton,
+  MainLayout,
+  StructuresSection,
+  ButtonsSection,
+  StructureImageArea,
+  StructureInfoArea,
+  ImageContainer,
+  MainImage,
+  BlurBackground,
+  TitleContainer,
+  StructureTitle,
+  StructureNumber,
+  TitleContent,
+  ViewButton,
+  InfoIcon,
+  InfoTitle,
+  InfoSubtitle,
+  InfoDescription,
+  CornerChevron,
+  ActionButton,
+  ButtonContent,
+  ButtonTitle,
+  ButtonSubtitle,
+  ChroniclesBanner,
+  ChroniclesContent,
+  ChroniclesIcon,
+  ChroniclesTitle,
+  // New layout components will go here
 } from './home.styles.js';
+import app360 from '../assets/app360.jpg';
 
-import download from '../assets/home/Download.jpg';
-import info from '../assets/home/Info.jpg';
-import structures from '../assets/home/Structures.jpg';
+// Filter out ghost structures, accessory structures, and long titles
+const activeStructures = structuresList.filter(
+  (structure) =>
+    structure.status === 'Active' &&
+    structure.number > 0 &&
+    structure.number <= 30 &&
+    structure.title.length <= 20
+);
 
-const Home = () => {
+const HomeWeb = () => {
+  const navigate = useNavigate();
+  const [currentStructure, setCurrentStructure] = useState(0);
+
+  // Rotate through structures randomly
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const nextIndex = Math.floor(Math.random() * activeStructures.length);
+      setCurrentStructure(nextIndex);
+    }, 6000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const structure = activeStructures[currentStructure];
+  const imageKey = structure?.image_key;
+  const imageUrl = mainImages[imageKey];
+
   return (
-    <>
-      <GlobalBackgroundStyle />
-      <Helmet>
-        <title>Poly Canyon Home</title>
-        <meta
-          name="description"
-          content="Discover Poly Canyon's unique architectural structures through our interactive app, educational resources, and detailed research materials."
-        />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-        />
-        <meta
-          property="og:title"
-          content="Poly Canyon - Student Built Architectural Laboratory"
-        />
-        <meta
-          property="og:description"
-          content="Discover Poly Canyon's unique architectural structures through our interactive app, educational resources, and detailed research materials."
-        />
-        <meta property="og:url" content="https://polycanyon.com" />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Poly Canyon - Student Built Architectural Laboratory"
-        />
-        <meta
-          name="twitter:description"
-          content="Discover Poly Canyon's unique architectural structures through our interactive app, educational resources, and detailed research materials."
-        />
-      </Helmet>
+    <HomeContainer>
+      <ContentWrapper>
+        <GlassNav>
+          <NavContent>
+            <LeftSection>
+              <LogoGroup>
+                <Logo
+                  src={app360}
+                  alt="Poly Canyon Logo"
+                  onClick={() => navigate('/')}
+                />
+                <SiteTitle>Poly Canyon</SiteTitle>
+              </LogoGroup>
+              <NavLinks>
+                <NavLink to="/download">
+                  <FaDownload /> App
+                </NavLink>
+                <NavLink to="/info">
+                  <FaInfo /> Info
+                </NavLink>
+                <NavLink to="/structures">
+                  <FaBuilding /> Structures
+                </NavLink>
+                <ChroniclesButton to="/chronicles">
+                  <span>Chronicles</span>
+                </ChroniclesButton>
+              </NavLinks>
+            </LeftSection>
+          </NavContent>
+        </GlassNav>
 
-      <HomeContainer>
-        <WelcomeSection>
-          <MainHeading>How would you like to explore Poly Canyon?</MainHeading>
-          <Subtitle>
-            Your gateway to Cal Poly&apos;s unique architectural laboratory
-          </Subtitle>
-          <div className="animated-divider" />
-        </WelcomeSection>
+        <MainLayout>
+          <StructuresSection>
+            <StructureImageArea>
+              <ImageContainer>
+                <MainImage src={imageUrl} alt={structure.title} />
+              </ImageContainer>
+              <TitleContainer
+                onClick={() => navigate(`/structures/${structure.url}`)}
+              >
+                <StructureNumber>{structure.number}</StructureNumber>
+                <TitleContent>
+                  <StructureTitle>{structure.title}</StructureTitle>
+                  <ViewButton>
+                    <FaChevronRight />
+                  </ViewButton>
+                </TitleContent>
+              </TitleContainer>
+            </StructureImageArea>
+            <StructureInfoArea onClick={() => navigate('/structures')}>
+              <InfoIcon>
+                <FaBuilding />
+              </InfoIcon>
+              <InfoSubtitle>Research Structures</InfoSubtitle>
+              <InfoDescription>
+                Explore all the amazing creations in depth
+              </InfoDescription>
+              <CornerChevron />
+            </StructureInfoArea>
+          </StructuresSection>
 
-        <ActionContainer>
-          {/* Learn Card */}
-          <ActionCard to="/info" cardType="info">
-            <CardImage src={info} />
-            <CardContent>
-              <CardTitle>Learn About the Canyon</CardTitle>
-              <CardSubtitle>
-                Discover the significance of this unique architectural
-                playground
-              </CardSubtitle>
-              <FaChevronRight className="arrow-icon" />
-            </CardContent>
-          </ActionCard>
+          <ButtonsSection>
+            <ActionButton to="/info" $type="info">
+              <FaInfo />
+              <ButtonContent>
+                <ButtonTitle $type="info">Get Information</ButtonTitle>
+                <ButtonSubtitle>
+                  Everything you need to know before your first visit
+                </ButtonSubtitle>
+              </ButtonContent>
+            </ActionButton>
 
-          {/* Download Card */}
-          <ActionCard to="/download" cardType="download">
-            <CardImage src={download} />
-            <CardContent>
-              <CardTitle>Download the App</CardTitle>
-              <CardSubtitle>
-                Enhance your visit with real time navigation and detailed
-                information
-              </CardSubtitle>
-              <FaChevronRight className="arrow-icon" />
-            </CardContent>
-          </ActionCard>
+            <ActionButton to="/download" $type="app">
+              <FaDownload />
+              <ButtonContent>
+                <ButtonTitle $type="app">Checkout the App</ButtonTitle>
+                <ButtonSubtitle>
+                  The must have interactive exploration guide is here
+                </ButtonSubtitle>
+              </ButtonContent>
+            </ActionButton>
+          </ButtonsSection>
+        </MainLayout>
 
-          {/* Research Card */}
-          <ActionCard to="/structures" cardType="research">
-            <CardImage src={structures} />
-            <CardContent>
-              <CardTitle>Research Structures</CardTitle>
-              <CardSubtitle>
-                Dive into comprehensive details about unique architectural
-                projects
-              </CardSubtitle>
-              <FaChevronRight className="arrow-icon" />
-            </CardContent>
-          </ActionCard>
-        </ActionContainer>
-
-        <StatsContainer>
-          <StatItem>
-            <StatNumber index={0}>30+</StatNumber>
-            <StatLabel index={0}>Unique Structures</StatLabel>
-          </StatItem>
-          <StatItem>
-            <StatNumber index={1}>60</StatNumber>
-            <StatLabel index={1}>Years of History</StatLabel>
-          </StatItem>
-          <StatItem>
-            <StatNumber index={2}>1000+</StatNumber>
-            <StatLabel index={2}>Monthly Visitors</StatLabel>
-          </StatItem>
-        </StatsContainer>
-      </HomeContainer>
-    </>
+        <ChroniclesBanner to="/chronicles">
+          <ChroniclesContent>
+            <ChroniclesIcon>✧</ChroniclesIcon>
+            <ChroniclesTitle>CHRONICLES</ChroniclesTitle>
+            <ChroniclesIcon>✧</ChroniclesIcon>
+          </ChroniclesContent>
+        </ChroniclesBanner>
+      </ContentWrapper>
+    </HomeContainer>
   );
 };
 
-export default Home;
+export default HomeWeb;
