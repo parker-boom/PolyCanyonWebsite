@@ -53,6 +53,7 @@ import Story from './chronicles/Story/cStory.js';
 import Land from './chronicles/Land/cLand.js';
 import People from './chronicles/People/cPeople.js';
 import Projects from './chronicles/Projects/cProjects.js';
+import ChroniclesHomeMobile from './chronicles/Home/cHome.mobile.js';
 
 // Utils
 import { loadGoogleMapsScript } from './utils/googleMaps.js';
@@ -164,8 +165,14 @@ function App() {
           />
 
           {/* Chronicles routes */}
-          <Route path="/chronicles" element={<ChroniclesHome />} />
-          <Route path="/chronicles/2" element={<ChroniclesHome />} />
+          <Route
+            path="/chronicles"
+            element={isMobile ? <ChroniclesHomeMobile /> : <ChroniclesHome />}
+          />
+          <Route
+            path="/chronicles/2"
+            element={isMobile ? <ChroniclesHomeMobile /> : <ChroniclesHome />}
+          />
           <Route path="/chronicles/story" element={<Story />} />
           <Route path="/chronicles/land" element={<Land />} />
           <Route path="/chronicles/people" element={<People />} />
