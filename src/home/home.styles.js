@@ -14,35 +14,51 @@ const shimmer = keyframes`
   100% { background-position: 200% center; }
 `;
 
+const pulseOutline = keyframes`
+  0% { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), 0 0 0 2px rgba(189, 139, 19, 0.3); }
+  50% { box-shadow: 0 4px 20px rgba(189, 139, 19, 0.2), 0 0 0 3px rgba(189, 139, 19, 0.5); }
+  100% { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08), 0 0 0 2px rgba(189, 139, 19, 0.3); }
+`;
+
 export const HomeContainer = styled.div`
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   background: white;
+  padding: 20px 0;
 `;
 
 export const ContentWrapper = styled.div`
   position: relative;
   width: 100%;
   max-width: 1200px;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px 40px;
-  gap: 18px;
+  padding: 0 40px;
+  gap: 24px;
 `;
 
 export const GlassNav = styled.nav`
-  background-color: #e8efe8;
+  background: linear-gradient(
+    to bottom,
+    rgba(232, 239, 232, 0.95),
+    rgba(232, 239, 232, 0.85)
+  );
   width: 100%;
   border-radius: 25px;
   padding: 12px 40px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.08),
+    0 2px 6px rgba(55, 109, 49, 0.1),
+    inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(55, 109, 49, 0.15);
+  backdrop-filter: blur(8px);
 `;
 
 export const NavContent = styled.div`
@@ -485,14 +501,22 @@ export const ActionButtons = styled.div`
 `;
 
 export const ButtonsSection = styled.div`
-  background: #e8efe8;
-  border-radius: 24px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  height: 100%;
+  gap: 24px;
+  background: linear-gradient(
+    to bottom,
+    rgba(232, 239, 232, 0.95),
+    rgba(232, 239, 232, 0.85)
+  );
+  border-radius: 24px;
+  padding: 20px;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.08),
+    0 2px 6px rgba(55, 109, 49, 0.1),
+    inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(55, 109, 49, 0.15);
+  backdrop-filter: blur(8px);
 `;
 
 export const ActionButton = styled(Link)`
@@ -610,14 +634,22 @@ export const MainLayout = styled.div`
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 24px;
-  height: 530px;
   min-height: 530px;
 `;
 
 export const StructuresSection = styled.div`
-  background: #e8efe8;
+  background: linear-gradient(
+    to bottom,
+    rgba(232, 239, 232, 0.95),
+    rgba(232, 239, 232, 0.85)
+  );
   border-radius: 24px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.08),
+    0 2px 6px rgba(55, 109, 49, 0.1),
+    inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(55, 109, 49, 0.15);
+  backdrop-filter: blur(8px);
   padding: 20px;
   display: grid;
   grid-template-columns: 56% 41%;
@@ -723,40 +755,38 @@ export const ChroniclesContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
-  transition: all 0.3s ease;
+  gap: 8px;
   z-index: 1;
 `;
 
 export const ChroniclesTitleGroup = styled.div`
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
 `;
 
 export const ChroniclesBanner = styled(Link)`
   width: 100%;
-  padding: 20px;
   background: linear-gradient(
-    100deg,
-    rgba(189, 139, 19, 0.43) 0%,
-    rgba(189, 139, 19, 0.23) 15%,
-    rgba(189, 139, 19, 0.23) 85%,
-    rgba(189, 139, 19, 0.43) 100%
+    135deg,
+    rgba(189, 139, 19, 0.55) 0%,
+    #fff7e5 45%,
+    #fff7e5 55%,
+    rgba(189, 139, 19, 0.55) 100%
   );
-  backdrop-filter: blur(8px);
   border-radius: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 32px;
   text-decoration: none;
   position: relative;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(189, 139, 19, 0.2);
-  box-shadow: 0 2px 12px rgba(189, 139, 19, 0.1);
+  animation: ${pulseOutline} 3s ease-in-out infinite;
 
-  &::before {
+  &:before {
     content: '';
     position: absolute;
     inset: 0;
@@ -770,7 +800,7 @@ export const ChroniclesBanner = styled(Link)`
     transition: transform 0.6s ease;
   }
 
-  &::after {
+  &:after {
     content: '';
     position: absolute;
     inset: 0;
@@ -786,53 +816,50 @@ export const ChroniclesBanner = styled(Link)`
   &:hover {
     transform: translateY(-2px);
     background: #e5e5cd;
-    box-shadow:
-      0 4px 20px rgba(189, 139, 19, 0.15),
-      inset 0 0 30px rgba(189, 139, 19, 0.1);
 
-    &::before {
+    &:before {
       transform: translateX(100%);
     }
 
-    &::after {
+    &:after {
       opacity: 1;
     }
   }
 `;
 
-export const ChroniclesTitle = styled.span`
-  font-size: 28px;
+export const ChroniclesTitle = styled.h2`
+  font-size: 32px;
   font-weight: 800;
   color: rgba(189, 139, 19, 0.9);
-  letter-spacing: 2px;
+  margin: 0;
+  letter-spacing: 4px;
+  text-shadow: 0 2px 4px rgba(189, 139, 19, 0.1);
   transition: all 0.3s ease;
-  text-shadow: 0 0 10px rgba(189, 139, 19, 0.2);
 
   ${ChroniclesBanner}:hover & {
-    color: #bd8b13;
-    letter-spacing: 3px;
-    text-shadow: 0 0 15px rgba(189, 139, 19, 0.4);
+    color: rgb(189, 139, 19);
+    text-shadow: 0 2px 8px rgba(189, 139, 19, 0.2);
   }
 `;
 
-export const ChroniclesSubtitle = styled.span`
-  font-size: 15px;
-  color: rgba(189, 139, 19, 0.7);
+export const ChroniclesSubtitle = styled.div`
+  font-size: 16px;
+  color: #666;
+  letter-spacing: 2px;
   font-weight: 500;
-  letter-spacing: 1px;
   transition: all 0.3s ease;
 
   strong {
-    color: rgba(189, 139, 19, 0.85);
+    color: rgba(1, 1, 1, 0.7);
     font-weight: 700;
+    transition: all 0.3s ease;
   }
 
   ${ChroniclesBanner}:hover & {
-    color: rgba(189, 139, 19, 0.8);
-    letter-spacing: 1.5px;
+    color: #555;
 
     strong {
-      color: #bd8b13;
+      color: rgb(189, 139, 19);
     }
   }
 `;
@@ -840,11 +867,249 @@ export const ChroniclesSubtitle = styled.span`
 export const ChroniclesIcon = styled.span`
   font-size: 24px;
   color: rgba(189, 139, 19, 0.9);
-  text-shadow: 0 0 10px rgba(189, 139, 19, 0.3);
+  opacity: 0.9;
+  text-shadow: 0 2px 4px rgba(189, 139, 19, 0.1);
   transition: all 0.3s ease;
 
   ${ChroniclesBanner}:hover & {
-    color: #bd8b13;
-    text-shadow: 0 0 15px rgba(189, 139, 19, 0.5);
+    color: rgb(189, 139, 19);
+    text-shadow: 0 2px 8px rgba(189, 139, 19, 0.2);
+    transform: scale(1.1) rotate(180deg);
+  }
+`;
+
+export const WelcomeRow = styled.div`
+  width: 100%;
+  height: 150px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 24px;
+`;
+
+export const RandomStructureSection = styled.div`
+  background: linear-gradient(
+    135deg,
+    rgba(55, 109, 49, 0.12),
+    rgba(55, 109, 49, 0.08)
+  );
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.08),
+    0 2px 6px rgba(55, 109, 49, 0.1),
+    inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(55, 109, 49, 0.15);
+  backdrop-filter: blur(8px);
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: rgba(55, 109, 49, 0.3);
+    background: linear-gradient(
+      135deg,
+      rgba(55, 109, 49, 0.15),
+      rgba(55, 109, 49, 0.1)
+    );
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.12),
+      0 4px 8px rgba(55, 109, 49, 0.15),
+      inset 0 1px 1px rgba(255, 255, 255, 0.6);
+  }
+`;
+
+export const DiceIcon = styled.div`
+  font-size: 42px;
+  color: #376d31;
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+
+  ${RandomStructureSection}:hover & {
+    transform: rotate(180deg) scale(1.1);
+    color: rgba(189, 139, 19, 0.9);
+  }
+`;
+
+export const RandomStructureText = styled.div`
+  font-size: 20px;
+  font-weight: 700;
+  color: #376d31;
+  text-align: center;
+  transition: all 0.3s ease;
+
+  ${RandomStructureSection}:hover & {
+    color: rgba(189, 139, 19, 0.9);
+  }
+`;
+
+export const WelcomeSection = styled.div`
+  background: linear-gradient(
+    135deg,
+    rgba(255, 248, 230, 0.9),
+    rgba(255, 245, 222, 0.85)
+  );
+  border-radius: 24px;
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.08),
+    0 2px 6px rgba(189, 139, 19, 0.1),
+    inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(189, 139, 19, 0.15);
+  backdrop-filter: blur(8px);
+`;
+
+export const WelcomeText = styled.div`
+  flex: 1;
+`;
+
+export const WelcomeTitle = styled.h1`
+  font-size: 36px;
+  font-weight: 800;
+  color: #376d31;
+  margin: 0 0 8px 0;
+  line-height: 1.1;
+`;
+
+export const WelcomeSubtitle = styled.div`
+  font-size: 24px;
+  color: rgba(189, 139, 19, 0.9);
+  font-weight: 600;
+`;
+
+export const WelcomeLogo = styled.img`
+  height: 100px;
+  width: 100px;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow:
+    0 4px 12px rgba(55, 109, 49, 0.2),
+    0 2px 4px rgba(189, 139, 19, 0.1);
+  border: 2px solid rgba(189, 139, 19, 0.1);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow:
+      0 8px 24px rgba(55, 109, 49, 0.25),
+      0 4px 8px rgba(189, 139, 19, 0.15);
+  }
+`;
+
+export const QuoteRow = styled.div`
+  width: 100%;
+  height: 150px;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  gap: 24px;
+`;
+
+export const QuoteContainer = styled.div`
+  background: linear-gradient(
+    135deg,
+    rgba(255, 248, 230, 0.9),
+    rgba(255, 245, 222, 0.85)
+  );
+  border-radius: 24px;
+  padding: 32px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.08),
+    0 2px 6px rgba(189, 139, 19, 0.1),
+    inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(189, 139, 19, 0.15);
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+
+  &::before,
+  &::after {
+    content: '✧';
+    position: absolute;
+    font-size: 24px;
+    color: rgba(55, 109, 49, 0.6);
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+  }
+
+  &::before {
+    left: 24px;
+  }
+
+  &::after {
+    right: 24px;
+  }
+
+  &:hover {
+    &::before,
+    &::after {
+      color: rgba(55, 109, 49, 0.8);
+    }
+  }
+`;
+
+export const QuoteText = styled.div`
+  font-size: 28px;
+  font-weight: 800;
+  background: linear-gradient(
+    135deg,
+    rgba(55, 109, 49, 0.9),
+    rgba(55, 109, 49, 0.7)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  line-height: 1.4;
+  letter-spacing: -0.3px;
+  padding: 0 40px;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+`;
+
+export const QuoteAuthor = styled.div`
+  position: absolute;
+  bottom: 16px;
+  right: 40px;
+  font-size: 18px;
+  font-weight: 700;
+  color: rgba(189, 139, 19, 0.9);
+  opacity: 0.9;
+`;
+
+export const ImageContainer2 = styled.div`
+  background: linear-gradient(
+    135deg,
+    rgba(55, 109, 49, 0.12),
+    rgba(55, 109, 49, 0.08)
+  );
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.08),
+    0 2px 6px rgba(55, 109, 49, 0.1),
+    inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(55, 109, 49, 0.15);
+  backdrop-filter: blur(8px);
+  padding: 24px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 `;

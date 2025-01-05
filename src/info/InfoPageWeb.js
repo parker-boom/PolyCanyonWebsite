@@ -132,7 +132,6 @@ const InfoPage = () => {
 
       <PageContainer>
         <GlobalStyle />
-
         {/* Title Section */}
 
         <TitleSection>

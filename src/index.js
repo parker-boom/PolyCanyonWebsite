@@ -58,6 +58,17 @@ import ChroniclesHomeMobile from './chronicles/Home/cHome.mobile.js';
 // Utils
 import { loadGoogleMapsScript } from './utils/googleMaps.js';
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    // Any time the route changes, scroll to the top
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -209,6 +220,7 @@ root.render(
     <Router>
       <HelmetProvider>
         <GlobalStyle />
+        <ScrollToTop />
         <App />
       </HelmetProvider>
     </Router>

@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { FaDownload, FaInfo, FaBuilding, FaChevronRight } from 'react-icons/fa';
+import {
+  FaDownload,
+  FaInfo,
+  FaBuilding,
+  FaChevronRight,
+  FaDice,
+} from 'react-icons/fa';
 import { mainImages } from '../structures/images/structureImages.js';
 import structuresList from '../structures/data/structuresList.json';
 import {
@@ -42,8 +48,23 @@ import {
   ChroniclesTitle,
   ChroniclesSubtitle,
   ChroniclesTitleGroup,
+  WelcomeRow,
+  RandomStructureSection,
+  DiceIcon,
+  RandomStructureText,
+  WelcomeSection,
+  WelcomeText,
+  WelcomeTitle,
+  WelcomeSubtitle,
+  WelcomeLogo,
+  QuoteRow,
+  QuoteContainer,
+  QuoteText,
+  QuoteAuthor,
+  ImageContainer2,
 } from './home.styles.js';
 import app360 from '../assets/app360.jpg';
+import CAEDLogo from '../assets/CAEDLogo.png';
 
 // Filter out ghost structures, accessory structures, and long titles
 const activeStructures = structuresList.filter(
@@ -82,6 +103,14 @@ const HomeWeb = () => {
   const structure = activeStructures[currentStructure];
   const imageKey = structure?.image_key;
   const imageUrl = mainImages[imageKey];
+
+  const getRandomStructure = () => {
+    const activeStructures = structuresList.filter(
+      (structure) => structure.status === 'Active' && structure.number > 0
+    );
+    const randomIndex = Math.floor(Math.random() * activeStructures.length);
+    return activeStructures[randomIndex];
+  };
 
   return (
     <>
@@ -126,6 +155,31 @@ const HomeWeb = () => {
             </NavContent>
           </GlassNav>
 
+          <WelcomeRow>
+            <RandomStructureSection
+              onClick={() =>
+                navigate(`/structures/${getRandomStructure().url}`)
+              }
+            >
+              <DiceIcon>
+                <FaDice />
+              </DiceIcon>
+              <RandomStructureText>
+                Explore a Random Structure
+              </RandomStructureText>
+            </RandomStructureSection>
+
+            <WelcomeSection>
+              <WelcomeText>
+                <WelcomeTitle>Welcome to the Canyon!</WelcomeTitle>
+                <WelcomeSubtitle>
+                  What are you waiting for? Get started.
+                </WelcomeSubtitle>
+              </WelcomeText>
+              <WelcomeLogo src={app360} alt="Poly Canyon Logo" />
+            </WelcomeSection>
+          </WelcomeRow>
+
           <MainLayout>
             <StructuresSection>
               <StructureImageArea>
@@ -150,7 +204,7 @@ const HomeWeb = () => {
                 </InfoIcon>
                 <InfoSubtitle>Research Structures</InfoSubtitle>
                 <InfoDescription>
-                  Explore all the amazing creations in depth
+                  Must have details on all the best creations
                 </InfoDescription>
                 <CornerChevron />
               </StructureInfoArea>
@@ -162,7 +216,7 @@ const HomeWeb = () => {
                 <ButtonContent>
                   <ButtonTitle $type="info">Get Information</ButtonTitle>
                   <ButtonSubtitle>
-                    Everything you need to know before your first visit
+                    The essentials before your first canyon visit
                   </ButtonSubtitle>
                 </ButtonContent>
               </ActionButton>
@@ -172,7 +226,7 @@ const HomeWeb = () => {
                 <ButtonContent>
                   <ButtonTitle $type="app">Checkout the App</ButtonTitle>
                   <ButtonSubtitle>
-                    The must have interactive exploration guide is here
+                    A much needed travel guide for the canyon
                   </ButtonSubtitle>
                 </ButtonContent>
               </ActionButton>
@@ -183,14 +237,28 @@ const HomeWeb = () => {
             <ChroniclesContent>
               <ChroniclesTitleGroup>
                 <ChroniclesIcon>✧</ChroniclesIcon>
-                <ChroniclesTitle>CHRONICLES</ChroniclesTitle>
+                <ChroniclesTitle>ENTER THE CHRONICLES</ChroniclesTitle>
                 <ChroniclesIcon>✧</ChroniclesIcon>
               </ChroniclesTitleGroup>
               <ChroniclesSubtitle>
-                EXPLORE THE <strong>INTERACTIVE EXPERIENCE</strong>
+                AN <strong>INTERACTIVE EXPERIENCE</strong> LIKE NO OTHER
               </ChroniclesSubtitle>
             </ChroniclesContent>
           </ChroniclesBanner>
+
+          <QuoteRow>
+            <QuoteContainer>
+              <QuoteText>
+                &ldquo;We must remember what has been,
+                <br />
+                to dream about what can be&rdquo;
+              </QuoteText>
+              <QuoteAuthor>- Parker Jones</QuoteAuthor>
+            </QuoteContainer>
+            <ImageContainer2>
+              <img src={CAEDLogo} alt="CAED Logo" />
+            </ImageContainer2>
+          </QuoteRow>
         </ContentWrapper>
       </HomeContainer>
     </>
