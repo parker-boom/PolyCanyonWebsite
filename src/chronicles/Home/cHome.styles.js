@@ -37,20 +37,20 @@ const fadeScale = keyframes`
 const zoomIn = keyframes`
   0% {
     opacity: 0;
-    transform: translate(-50%, calc(-50% - 50px - 10vh + 50px)) scale(1.4);
+    transform: translateY(30vh) scale(1.4);
   }
   100% {
     opacity: 1;
-    transform: translate(-50%, calc(-50% - 50px - 10vh + 50px)) scale(1);
+    transform: translateY(0) scale(1);
   }
 `;
 
 const slideUpAndScale = keyframes`
   0% {
-    transform: translate(-50%, calc(-50% - 50px - 10vh + 50px)) scale(1);
+    transform: translateY(0) scale(1);
   }
   100% {
-    transform: translate(-50%, calc(-100% + 20px - 10vh + 50px)) scale(0.9);
+    transform: translateY(-40%) scale(0.9);
   }
 `;
 
@@ -71,6 +71,9 @@ export const Container = styled.div`
   background: black;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   transition: all 0.5s ease;
   transition: opacity 0.6s ease-out;
 
@@ -89,14 +92,15 @@ export const Container = styled.div`
 `;
 
 export const TitleContainer = styled.div`
+  flex: 1;
   width: 100%;
-  height: 100%;
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: ${(props) => (props.$stage === 2 ? '0' : '0')};
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  justify-content: center;
+  padding: 40px 20px;
+  position: relative;
+  overflow: visible;
 `;
 
 export const LogoTitleGroup = styled.div`
@@ -105,10 +109,9 @@ export const LogoTitleGroup = styled.div`
   align-items: center;
   gap: 5px;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform-origin: center center;
+  top: 20%;
   opacity: 0;
+  transform-origin: center center;
   animation:
     ${zoomIn} ${TIMING.ZOOM_DURATION}s cubic-bezier(0.16, 1, 0.3, 1) forwards
       ${TIMING.ZOOM_DELAY}s,
@@ -136,7 +139,7 @@ export const ChroniclesLogo = styled.img`
 `;
 
 export const ExitBar = styled.div`
-  position: fixed;
+  position: absolute;
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
@@ -163,21 +166,19 @@ export const ExitLink = styled(Link)`
 `;
 
 export const ActionLine = styled.div`
-  font-size: 32px;
+  font-size: clamp(24px, 4vw, 32px);
   font-weight: 800;
   text-align: center;
-  position: absolute;
   width: 100%;
   max-width: 800px;
-  margin-top: 15px;
-  top: calc(10px + 250px + 5px + 72px + 50px);
-  left: 50%;
-  transform: translateX(-50%);
+  position: absolute;
+  margin-top: 10px;
   opacity: 0;
   animation: ${fadeIn} ${TIMING.ACTION_DURATION}s ease-out forwards
     ${TIMING.ACTION_DELAY}s;
   letter-spacing: 0.5px;
   line-height: 1.3;
+  padding: 0 20px;
 
   background: linear-gradient(135deg, #b7611f 0%, #bd6117 50%, #913d0c 100%);
   -webkit-background-clip: text;
@@ -191,9 +192,7 @@ export const ActionLine = styled.div`
 
 export const StageButton = styled.button`
   position: absolute;
-  top: calc(10px + 250px + 5px + 72px + 32px + 130px + 90px);
-  left: 50%;
-  transform: translateX(-50%) translateY(0);
+  margin-top: 400px;
   padding: 14px 28px;
   border-radius: 30px;
   border: none;
@@ -204,7 +203,6 @@ export const StageButton = styled.button`
   animation: ${fadeIn} ${TIMING.BUTTON_DURATION}s ease-out forwards
     ${TIMING.BUTTON_DELAY}s;
 
-  // Subtle float effect with centered shadow
   box-shadow:
     0 0 8px rgba(255, 255, 255, 0.1),
     0 0 14px rgba(255, 255, 255, 0.05);
@@ -219,7 +217,7 @@ export const StageButton = styled.button`
     display: flex;
     align-items: center;
     gap: 16px;
-    font-size: 26px;
+    font-size: clamp(20px, 3vw, 26px);
     font-weight: 800;
     letter-spacing: 3px;
     color: white;
@@ -238,8 +236,8 @@ export const ExploreTitle = styled.h1`
   font-weight: 800;
   color: #db8b1c;
   text-align: center;
-  margin-top: 80px;
-  margin-bottom: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   opacity: 0;
   animation: ${fadeScale} 0.6s ease-out forwards;
   text-shadow:
