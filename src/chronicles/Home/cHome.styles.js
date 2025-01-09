@@ -103,6 +103,18 @@ export const TitleContainer = styled.div`
   overflow: visible;
 `;
 
+export const Title2Container = styled.div`
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  padding: 40px 20px;
+  position: relative;
+  overflow: visible;
+`;
+
 export const LogoTitleGroup = styled.div`
   display: flex;
   flex-direction: column;
@@ -153,6 +165,9 @@ export const ExitBar = styled.div`
           ${fadeIn} ${TIMING.EXIT_DURATION}s ease-out forwards ${TIMING.EXIT_DELAY}s
         `
       : 'none'};
+  display: flex;
+  gap: 20px;
+  align-items: center;
 `;
 
 export const ExitLink = styled(Link)`
@@ -163,6 +178,33 @@ export const ExitLink = styled(Link)`
   display: flex;
   align-items: center;
   gap: 12px;
+`;
+
+export const CopyrightButton = styled.button`
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+
+  &:hover::after {
+    content: 'Copyright Disclaimer';
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.9);
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 14px;
+    white-space: nowrap;
+    animation: ${fadeIn} 0.2s ease-out forwards;
+  }
 `;
 
 export const ActionLine = styled.div`

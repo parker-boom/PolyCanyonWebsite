@@ -10,7 +10,7 @@ Imports
 */
 
 // Libraries
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import {
   BrowserRouter as Router,
@@ -23,6 +23,7 @@ import { useMediaQuery } from 'react-responsive';
 import { HelmetProvider } from 'react-helmet-async';
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
+import { FaTimes } from 'react-icons/fa';
 
 // Styles
 import './index.css';
@@ -31,6 +32,12 @@ import {
   Footer,
   FooterText,
   FooterDivider,
+  CopyrightLink,
+  DisclaimerPopup,
+  DisclaimerContent,
+  DisclaimerTitle,
+  DisclaimerSection,
+  CloseButton,
 } from './layout/Navigation.styles.js';
 
 // Pages
@@ -113,6 +120,7 @@ const GlobalStyle = createGlobalStyle`
 function App() {
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
   const location = useLocation();
+  const [isDisclaimerOpen, setDisclaimerOpen] = useState(false);
 
   useEffect(() => {
     // Load Google Maps when app initializes
@@ -208,8 +216,85 @@ function App() {
               <a href="tel:425-577-9664">425-577-9664</a>
             </FooterText>
             <FooterText>Cal Poly, San Luis Obispo</FooterText>
+            <CopyrightLink onClick={() => setDisclaimerOpen(true)}>
+              Copyright Disclaimer
+            </CopyrightLink>
           </Footer>
         )}
+
+      {isDisclaimerOpen && (
+        <DisclaimerPopup onClick={() => setDisclaimerOpen(false)}>
+          <DisclaimerContent onClick={(e) => e.stopPropagation()}>
+            <CloseButton onClick={() => setDisclaimerOpen(false)}>
+              <FaTimes />
+            </CloseButton>
+            <DisclaimerTitle>Copyright Disclaimer</DisclaimerTitle>
+            <DisclaimerSection>
+              <p>
+                The content featured on this site, including images and
+                information, is curated solely for educational, archival, and
+                non-commercial purposes to document and preserve the history and
+                cultural significance of Poly Canyon. We aim to present this
+                information as part of a larger interactive experience that
+                provides value to the community while respecting intellectual
+                property rights.
+              </p>
+            </DisclaimerSection>
+
+            <DisclaimerSection>
+              <h3>Our Approach to Content:</h3>
+              <p>
+                Wherever possible, we attribute sources and highlight the
+                origins of the materials used. Content such as photos and
+                resources has been integrated into broader educational
+                experiences, offering context and additional insights. Some
+                images and materials originate from contributors and archives
+                who have explicitly or implicitly supported their use for
+                research and documentation.
+              </p>
+            </DisclaimerSection>
+
+            <DisclaimerSection>
+              <h3>Respect for Copyright Holders:</h3>
+              <p>
+                If you are the copyright owner of any material featured here and
+                have concerns about its use, or if you prefer your content not
+                be included, we are happy to address this. Please fill out our{' '}
+                <a
+                  href="https://forms.office.com/r/yL2REum2cj"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Opt-Out Form
+                </a>{' '}
+                or email at{' '}
+                <a href="mailto:pjones15@calpoly.edu">pjones15@calpoly.edu</a>.
+                We are committed to resolving such requests promptly and
+                respectfully.
+              </p>
+            </DisclaimerSection>
+
+            <DisclaimerSection>
+              <h3>Good Faith Use:</h3>
+              <p>
+                This site operates under a good-faith belief that its use of
+                copyrighted materials falls under fair use principles, as it is
+                educational, transformative, and non-commercial in nature.
+                However, we value collaboration and respect intellectual
+                property rights above all else.
+              </p>
+            </DisclaimerSection>
+
+            <DisclaimerSection>
+              <p>
+                By engaging with this site, users agree that all content is
+                provided for informational and educational purposes only, with
+                no intent to infringe on the rights of copyright holders.
+              </p>
+            </DisclaimerSection>
+          </DisclaimerContent>
+        </DisclaimerPopup>
+      )}
     </AppContainer>
   );
 }

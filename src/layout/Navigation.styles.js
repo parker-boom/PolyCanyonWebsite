@@ -523,3 +523,117 @@ export const ChroniclesButton = styled(Link)`
     transform: translateY(0);
   }
 `;
+
+// Copyright Disclaimer Styles
+export const CopyrightLink = styled.button`
+  background: none;
+  border: none;
+  color: rgba(189, 139, 19, 0.7);
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 2px 4px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: rgba(189, 139, 19, 1);
+  }
+`;
+
+export const DisclaimerPopup = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: ${fadeIn} 0.2s ease-out;
+`;
+
+export const DisclaimerContent = styled.div`
+  background-color: #ffffff;
+  border-radius: 25px;
+  padding: 40px;
+  max-width: 800px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow:
+    0 4px 20px rgba(189, 139, 19, 0.25),
+    0 2px 8px rgba(55, 109, 49, 0.1);
+  border: 1px solid rgba(189, 139, 19, 0.1);
+
+  @media (max-width: 768px) {
+    padding: 25px;
+    width: 95%;
+  }
+`;
+
+export const DisclaimerTitle = styled.h2`
+  color: #376d31;
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 20px;
+`;
+
+export const DisclaimerSection = styled.div`
+  margin-bottom: 25px;
+
+  h3 {
+    color: #376d31;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  p {
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+
+  a {
+    color: rgba(189, 139, 19, 0.9);
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: rgba(189, 139, 19, 1);
+      text-decoration: underline;
+    }
+  }
+`;
+
+export const CloseButton = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #376d31;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: rgba(55, 109, 49, 0.1);
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+`;
