@@ -19,7 +19,6 @@ import { Helmet } from 'react-helmet-async';
 import {
   PageContainer,
   RoundedContainer,
-  WebDescription,
   LearnMoreButton,
   GifContainer,
   DownloadButton,
@@ -28,7 +27,6 @@ import {
   Header,
   Subtitle,
   MainTitle,
-  TitleTagline,
   Divider,
 } from './DownloadPage.styles.js';
 
@@ -90,53 +88,49 @@ const DownloadPageMobile = () => {
       </Helmet>
 
       <PageContainer>
-        {/* Download Description Widget */}
         <RoundedContainer>
           <Header>
-            <Subtitle>Ready to</Subtitle>
-            <MainTitle>Download</MainTitle>
-            <TitleTagline>Your Canyon Guide Awaits</TitleTagline>
+            <Subtitle>The Poly Canyon</Subtitle>
+            <MainTitle>Mobile App</MainTitle>
           </Header>
 
           <Divider />
 
-          <WebDescription>
-            Explore, learn, and track your journey
-          </WebDescription>
-          <LearnMoreButton to="/info">
-            Learn More <FaArrowRight />
-          </LearnMoreButton>
+          <DownloadButton
+            ref={downloadButtonRef}
+            href={getStoreLink()}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Download button for ${deviceType === 'ios' ? 'iOS' : 'Android'}`}
+          >
+            {getStoreIcon()} Download for{' '}
+            {deviceType === 'ios' ? 'iOS' : 'Android'}
+          </DownloadButton>
+
+          {/* Moved device switch inside RoundedContainer */}
+          <DeviceSwitchContainer>
+            <SwitchText
+              onClick={toggleDevice}
+              onKeyPress={(e) => e.key === 'Enter' && toggleDevice()}
+              tabIndex={0}
+              role="button"
+              aria-label={`Switch the download button to ${deviceType === 'ios' ? 'Android' : 'iOS'}`}
+            >
+              Switch to {deviceType === 'ios' ? 'Android' : 'iOS'}
+            </SwitchText>
+          </DeviceSwitchContainer>
         </RoundedContainer>
 
-        {/* GIF */}
         <Suspense fallback={<div>Loading preview...</div>}>
           <GifContainer>
             <LazyGif deviceType={deviceType} />
           </GifContainer>
         </Suspense>
 
-        {/* Download Button */}
-        <DownloadButton
-          ref={downloadButtonRef}
-          href={getStoreLink()}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`Download button for ${deviceType === 'ios' ? 'iOS' : 'Android'}`}
-        >
-          {getStoreIcon()} Download for{' '}
-          {deviceType === 'ios' ? 'iOS' : 'Android'}
-        </DownloadButton>
-        <DeviceSwitchContainer>
-          <SwitchText
-            onClick={toggleDevice}
-            onKeyPress={(e) => e.key === 'Enter' && toggleDevice()}
-            tabIndex={0}
-            role="button"
-            aria-label={`Switch the download button to ${deviceType === 'ios' ? 'Android' : 'iOS'}`}
-          >
-            Switch to {deviceType === 'ios' ? 'Android' : 'iOS'}
-          </SwitchText>
-        </DeviceSwitchContainer>
+        {/* Removed margin-top from LearnMoreButton */}
+        <LearnMoreButton to="/info" style={{ marginTop: '0px' }}>
+          Learn More First <FaArrowRight />
+        </LearnMoreButton>
       </PageContainer>
     </>
   );

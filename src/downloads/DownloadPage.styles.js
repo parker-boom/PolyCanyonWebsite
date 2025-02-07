@@ -46,7 +46,7 @@ export const RoundedContainer = styled.div`
   box-shadow:
     0 4px 20px rgba(189, 139, 19, 0.25),
     0 2px 8px rgba(55, 109, 49, 0.1);
-  padding: 20px;
+  padding: 15px;
   margin: 10px auto;
   width: 100%;
   max-width: 1024px;
@@ -97,7 +97,8 @@ export const LearnMoreButton = styled(Link)`
   box-shadow: 0 4px 6px rgba(55, 109, 49, 0.2);
   overflow: hidden;
   position: relative;
-  margin-top: 20px;
+  margin-top: 0px;
+  margin-bottom: 20px;
 
   &:hover {
     background-color: #2c5a28;
@@ -205,7 +206,7 @@ Mobile
 export const DeviceSwitchContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   animation: ${fadeIn} 0.5s ease-out;
 `;
 
@@ -214,8 +215,7 @@ export const SwitchText = styled.span`
   text-decoration: underline;
   cursor: pointer;
   font-size: 16px;
-  margin-bottom: 20px;
-  margin-top: 10px;
+  margin-top: 0px;
 
   transition:
     color 0.3s ease,
