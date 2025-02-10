@@ -56,6 +56,17 @@ export const RoundedContainer = styled.div`
   box-sizing: border-box;
 `;
 
+export const RoundedContainerBlank = styled.div`
+  padding: 15px;
+  margin: 10px auto;
+  width: 100%;
+  max-width: 1024px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+`;
+
 export const Title = styled.h1`
   font-size: 48px;
   font-weight: 1000;
@@ -80,6 +91,7 @@ export const WebDescription = styled(Description)`
   font-size: 1.65em;
   text-align: center;
   max-width: 90%;
+  margin-bottom: 10px;
 `;
 
 export const LearnMoreButton = styled(Link)`

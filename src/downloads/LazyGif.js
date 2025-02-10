@@ -25,7 +25,7 @@ const GifWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 5px;
   box-sizing: border-box;
 `;
 
@@ -34,12 +34,7 @@ const GifImage = styled.img`
   width: auto;
   object-fit: contain;
   border-radius: 15px;
-  filter: drop-shadow(0 6px 16px rgba(189, 139, 19, 0.4));
   transition: filter 0.3s ease;
-
-  &:hover {
-    filter: drop-shadow(0 8px 20px rgba(189, 139, 19, 0.5));
-  }
 `;
 
 /*

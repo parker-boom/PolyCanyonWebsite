@@ -19,6 +19,7 @@ import { Helmet } from 'react-helmet-async';
 import {
   PageContainer,
   RoundedContainer,
+  RoundedContainerBlank,
   Header,
   Subtitle,
   MainTitle,
@@ -82,7 +83,7 @@ const DownloadPageWeb = () => {
         </RoundedContainer>
 
         {/* Download Split Section */}
-        <RoundedContainer>
+        <RoundedContainerBlank>
           <SplitContainer>
             {/* iOS Column */}
             <Column>
@@ -128,13 +129,7 @@ const DownloadPageWeb = () => {
               </DownloadButtonWrapper>
             </Column>
           </SplitContainer>
-
-          {/* Bottom Section */}
-          <WebDescription>
-            If you are interested in detailed information on structures or more
-            information on the physical area, please navigate to those pages.
-          </WebDescription>
-        </RoundedContainer>
+        </RoundedContainerBlank>
       </PageContainer>
     </>
   );
