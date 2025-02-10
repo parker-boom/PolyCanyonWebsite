@@ -61,6 +61,7 @@ import Land from './chronicles/Land/cLand.js';
 import People from './chronicles/People/cPeople.js';
 import Projects from './chronicles/Projects/cProjects.js';
 import ChroniclesHomeMobile from './chronicles/Home/cHome.mobile.js';
+import PrivacyPolicy from './utils/privacyPolicy.js';
 
 // Utils
 import { loadGoogleMapsScript } from './utils/googleMaps.js';
@@ -139,6 +140,7 @@ function App() {
   return (
     <AppContainer>
       {!location.pathname.startsWith('/chronicles') &&
+        !location.pathname.startsWith('/privacy') &&
         (location.pathname !== '/' || isMobile) && <Navigation />}
       <Content path={location.pathname}>
         <Routes>
@@ -198,13 +200,17 @@ function App() {
           <Route path="/chronicles/people/:type" element={<People />} />
           <Route path="/chronicles/projects" element={<Projects />} />
 
+          {/* Privacy Policy route */}
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+
           {/* Redirect any unmatched route to home */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Content>
 
       {location.pathname !== '/' &&
-        !location.pathname.startsWith('/chronicles') && (
+        !location.pathname.startsWith('/chronicles') &&
+        !location.pathname.startsWith('/privacy') && (
           <Footer>
             <FooterText $primary>© 2024 Poly Canyon App</FooterText>
             <FooterText $primary $developer>

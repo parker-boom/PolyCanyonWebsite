@@ -9,6 +9,7 @@ http://www.polycanyon.com/* https://www.polycanyon.com/:splat 301!
 /download    /index.html   200
 /structures  /index.html   200
 /map         /index.html   200
+/privacy     /index.html   200
 
 # Catch-all for SPA
 /*    /index.html   200
