@@ -47,8 +47,6 @@ import DownloadPageMobile from './downloads/DownloadPageMobile.js';
 import DownloadPageWeb from './downloads/DownloadPageWeb.js';
 import InfoPageMobile from './info/InfoPageMobile.js';
 import InfoPageWeb from './info/InfoPageWeb.js';
-import MapPageWeb from './map/MapPageWeb.js';
-import MapPageMobile from './map/MapPageMobile.js';
 import StructureList from './structures/list/StructureList.js';
 import StructureListMobile from './structures/list/StructureListMobile.js';
 import StructureInfo from './structures/info/StructureInfo.js';
@@ -177,12 +175,6 @@ function App() {
           <Route
             path="/download"
             element={isMobile ? <DownloadPageMobile /> : <DownloadPageWeb />}
-          />
-
-          {/* Map route */}
-          <Route
-            path="/map"
-            element={isMobile ? <MapPageMobile /> : <MapPageWeb />}
           />
 
           {/* Chronicles routes */}
