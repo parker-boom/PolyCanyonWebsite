@@ -74,7 +74,7 @@ import PhotoGridMobile from './PhotoGridMobile.js';
 import GoogleMapsRoute from './GoogleMapsRoute.js';
 
 // App screenshot
-import appPreview from '../assets/appPreview.png';
+import appPreview from '../assets/appPreview.webp';
 
 // Rendered component
 const InfoPage = () => {

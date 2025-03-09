@@ -48,7 +48,7 @@ import {
 } from './Navigation.styles.js';
 
 // Logo
-import app360 from '../assets/app360.jpg';
+import app360 from '../assets/app360.webp';
 
 /*
 Components & Render

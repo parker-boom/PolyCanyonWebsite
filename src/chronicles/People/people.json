@@ -2,21 +2,21 @@
   "faculty": {
     "phases": [
       {
-        "image": "faculty-a.png",
+        "image": "faculty-a.webp",
         "blurbs": [
           "Throughout Poly Canyon's history, faculty have worn many hats - from technical advisors and safety inspectors to creative catalysts pushing students beyond conventional thinking.",
           "Their guidance shaped countless projects, offering both practical wisdom and the academic freedom for students to experiment and grow."
         ]
       },
       {
-        "image": "faculty-b.png",
+        "image": "faculty-b.webp",
         "blurbs": [
           "George Hasslein was the spark that started it all. As founding dean, he transformed an empty canyon into a playground for architectural innovation.",
           "His greatest gift was ensuring this spirit would outlast him - establishing the caretaker program and nurturing a culture where ideas could take physical form."
         ]
       },
       {
-        "image": "faculty-c.png",
+        "image": "faculty-c.webp",
         "blurbs": [
           "Modern faculty continue this hands-on tradition, reviewing structural calculations and ensuring new projects meet safety standards.",
           "They challenge students to think deeper about their designs while helping navigate the practical realities of building in the canyon."
@@ -27,21 +27,21 @@
   "caretakers": {
     "phases": [
       {
-        "image": "caretaker-a.png",
+        "image": "caretaker-a.webp",
         "blurbs": [
           "Living in Poly Canyon wasn't just a job - it was a 24/7 commitment to be the canyon's constant guardian, maintaining everything from historic structures to daily operations.",
           "Caretakers were the canyon's lifeline, their presence ensuring this experimental ground could keep pushing boundaries while staying functional and safe."
         ]
       },
       {
-        "image": "caretaker-b.png",
+        "image": "caretaker-b.webp",
         "blurbs": [
           "Glen Jackson, the first caretaker, transformed the canyon from raw potential into a working laboratory after George Hasslein championed his position.",
           "His legacy lives on in the infrastructure he built - from restrooms and bridges to the electrical and water systems that made the canyon truly habitable."
         ]
       },
       {
-        "image": "caretaker-c.png",
+        "image": "caretaker-c.webp",
         "blurbs": [
           "When caretakers moved out in 2011, the canyon lost its daily guardians, and the impact was immediate and stark.",
           "Today's challenge: how do we safely return residents to the canyon, rekindling the living experiment that made this place thrive?"
@@ -52,21 +52,21 @@
   "builders": {
     "phases": [
       {
-        "image": "builders-a.png",
+        "image": "builders-a.webp",
         "blurbs": [
           "Every structure in Poly Canyon tells a story of student determination - from initial concept to final bolt, these projects were entirely student-driven.",
           "They secured materials, navigated approvals, and transformed their designs into reality through pure grit and innovation."
         ]
       },
       {
-        "image": "builders-b.png",
+        "image": "builders-b.webp",
         "blurbs": [
           "In 2024, four students embodied this spirit by creating the Moment Monument - a structure that's both a teaching tool and a work of art.",
           "Their design elegantly reveals the engineering behind steel moment connections, turning structural principles into visible, tangible lessons."
         ]
       },
       {
-        "image": "builders-c.png",
+        "image": "builders-c.webp",
         "blurbs": [
           "Today's students continue pushing boundaries, taking on both new construction and restoration projects.",
           "Each generation adds their own mark while preserving the canyon's core purpose: being the ultimate hands-on classroom."

@@ -1,55 +1,55 @@
 // Era A (6 photos)
-import A1 from './A/A1.jpg';
-import A2 from './A/A2.jpg';
-import A3 from './A/A3.jpg';
-import A4 from './A/A4.jpg';
-import A5 from './A/A5.jpg';
-import A6 from './A/A6.jpg';
+import A1 from './A/A1.webp';
+import A2 from './A/A2.webp';
+import A3 from './A/A3.webp';
+import A4 from './A/A4.webp';
+import A5 from './A/A5.webp';
+import A6 from './A/A6.webp';
 
 // Era B (6 photos)
-import B1 from './B/B1.jpg';
-import B2 from './B/B2.jpg';
-import B3 from './B/B3.jpg';
-import B4 from './B/B4.jpg';
-import B5 from './B/B5.jpg';
-import B6 from './B/B6.jpg';
+import B1 from './B/B1.webp';
+import B2 from './B/B2.webp';
+import B3 from './B/B3.webp';
+import B4 from './B/B4.webp';
+import B5 from './B/B5.webp';
+import B6 from './B/B6.webp';
 
 // Era C (7 photos)
-import C1 from './C/C1.jpg';
-import C2 from './C/C2.jpg';
-import C3 from './C/C3.jpg';
-import C4 from './C/C4.jpg';
-import C5 from './C/C5.jpg';
-import C6 from './C/C6.jpg';
+import C1 from './C/C1.webp';
+import C2 from './C/C2.webp';
+import C3 from './C/C3.webp';
+import C4 from './C/C4.webp';
+import C5 from './C/C5.webp';
+import C6 from './C/C6.webp';
 
 // Era D (8 photos)
-import D1 from './D/D1.jpg';
-import D2 from './D/D2.jpg';
-import D3 from './D/D3.jpg';
-import D4 from './D/D4.jpg';
-import D5 from './D/D5.jpg';
-import D6 from './D/D6.jpg';
-import D7 from './D/D7.jpg';
-import D8 from './D/D8.jpg';
+import D1 from './D/D1.webp';
+import D2 from './D/D2.webp';
+import D3 from './D/D3.webp';
+import D4 from './D/D4.webp';
+import D5 from './D/D5.webp';
+import D6 from './D/D6.webp';
+import D7 from './D/D7.webp';
+import D8 from './D/D8.webp';
 
 // Era E (8 photos)
-import E1 from './E/E1.jpg';
-import E2 from './E/E2.jpg';
-import E3 from './E/E3.jpg';
-import E4 from './E/E4.jpg';
-import E5 from './E/E5.jpg';
-import E6 from './E/E6.jpg';
-import E7 from './E/E7.jpg';
-import E8 from './E/E8.jpg';
+import E1 from './E/E1.webp';
+import E2 from './E/E2.webp';
+import E3 from './E/E3.webp';
+import E4 from './E/E4.webp';
+import E5 from './E/E5.webp';
+import E6 from './E/E6.webp';
+import E7 from './E/E7.webp';
+import E8 from './E/E8.webp';
 
 // Era F (7 photos)
-import F1 from './F/F1.jpg';
-import F2 from './F/F2.jpg';
-import F3 from './F/F3.jpg';
-import F4 from './F/F4.jpg';
-import F5 from './F/F5.jpg';
-import F6 from './F/F6.jpg';
-import F7 from './F/F7.jpg';
+import F1 from './F/F1.webp';
+import F2 from './F/F2.webp';
+import F3 from './F/F3.webp';
+import F4 from './F/F4.webp';
+import F5 from './F/F5.webp';
+import F6 from './F/F6.webp';
+import F7 from './F/F7.webp';
 
 export const eraPhotos = {
   A: [A1, A2, A3, A4, A5, A6],

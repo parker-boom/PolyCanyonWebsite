@@ -87,7 +87,7 @@ import PhotoGrid from './PhotoGrid.js';
 import GoogleMapsRoute from './GoogleMapsRoute.js';
 
 // App screenshot
-import appPreview from '../assets/appPreview.png';
+import appPreview from '../assets/appPreview.webp';
 
 /*
 CONSTANTS

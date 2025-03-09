@@ -7,12 +7,12 @@ import React, { useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 
 // Import your horizontal structure images
-import struct1 from '../assets/structures/a1.jpg';
-import struct2 from '../assets/structures/a2.jpg';
-import struct3 from '../assets/structures/a3.jpg';
-import struct4 from '../assets/structures/a4.jpg';
-import struct5 from '../assets/structures/a5.jpg';
-import struct6 from '../assets/structures/a6.jpg';
+import struct1 from '../assets/structures/a1.webp';
+import struct2 from '../assets/structures/a2.webp';
+import struct3 from '../assets/structures/a3.webp';
+import struct4 from '../assets/structures/a4.webp';
+import struct5 from '../assets/structures/a5.webp';
+import struct6 from '../assets/structures/a6.webp';
 
 const GridContainer = styled.div`
   width: calc(100% - 32px);

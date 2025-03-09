@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import ChroniclesIcon from './bubbleimgs/chroniclesIcon.png';
+import ChroniclesIcon from './bubbleimgs/chroniclesIcon.webp';
 
 const Container = styled.div`
   width: 100vw;

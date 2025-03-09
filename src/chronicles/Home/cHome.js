@@ -29,11 +29,11 @@ import {
   DisclaimerSection,
   CloseButton,
 } from '../../layout/Navigation.styles.js';
-import StoryImg from './bubbleimgs/story.jpg';
-import NaturalImg from './bubbleimgs/land.jpg';
-import PeopleImg from './bubbleimgs/people.jpg';
-import ProjectsImg from './bubbleimgs/projects.jpg';
-import ChroniclesIcon from './bubbleimgs/chroniclesIcon.png';
+import StoryImg from './bubbleimgs/story.webp';
+import NaturalImg from './bubbleimgs/land.webp';
+import PeopleImg from './bubbleimgs/people.webp';
+import ProjectsImg from './bubbleimgs/projects.webp';
+import ChroniclesIcon from './bubbleimgs/chroniclesIcon.webp';
 
 const HomeContent = () => {
   const location = useLocation();

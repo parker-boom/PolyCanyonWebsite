@@ -63,8 +63,8 @@ import {
   QuoteAuthor,
   ImageContainer2,
 } from './home.styles.js';
-import app360 from '../assets/app360.jpg';
-import CAEDLogo from '../assets/CAEDLogo.png';
+import app360 from '../assets/app360.webp';
+import CAEDLogo from '../assets/CAEDLogo.webp';
 
 // Filter out ghost structures, accessory structures, and long titles
 const activeStructures = structuresList.filter(

@@ -13,27 +13,27 @@ Imports
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 
 // Horizontal images (a1-a12)
-import a1 from '../assets/structures/a1.jpg';
-import a2 from '../assets/structures/a2.jpg';
-import a3 from '../assets/structures/a3.jpg';
-import a4 from '../assets/structures/a4.jpg';
-import a5 from '../assets/structures/a5.jpg';
-import a6 from '../assets/structures/a6.jpg';
-import a7 from '../assets/structures/a7.jpg';
-import a8 from '../assets/structures/a8.jpg';
-import a9 from '../assets/structures/a9.jpg';
-import a10 from '../assets/structures/a10.jpg';
-import a11 from '../assets/structures/a11.jpg';
-import a12 from '../assets/structures/a12.jpg';
+import a1 from '../assets/structures/a1.webp';
+import a2 from '../assets/structures/a2.webp';
+import a3 from '../assets/structures/a3.webp';
+import a4 from '../assets/structures/a4.webp';
+import a5 from '../assets/structures/a5.webp';
+import a6 from '../assets/structures/a6.webp';
+import a7 from '../assets/structures/a7.webp';
+import a8 from '../assets/structures/a8.webp';
+import a9 from '../assets/structures/a9.webp';
+import a10 from '../assets/structures/a10.webp';
+import a11 from '../assets/structures/a11.webp';
+import a12 from '../assets/structures/a12.webp';
 
 // Vertical images (b1-b7)
-import b1 from '../assets/structures/b1.jpg';
-import b2 from '../assets/structures/b2.jpg';
-import b3 from '../assets/structures/b3.jpg';
-import b4 from '../assets/structures/b4.jpg';
-import b5 from '../assets/structures/b5.jpg';
-import b6 from '../assets/structures/b6.jpg';
-import b7 from '../assets/structures/b7.jpg';
+import b1 from '../assets/structures/b1.webp';
+import b2 from '../assets/structures/b2.webp';
+import b3 from '../assets/structures/b3.webp';
+import b4 from '../assets/structures/b4.webp';
+import b5 from '../assets/structures/b5.webp';
+import b6 from '../assets/structures/b6.webp';
+import b7 from '../assets/structures/b7.webp';
 
 // Styles
 import {

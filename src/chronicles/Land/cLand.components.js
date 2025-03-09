@@ -21,21 +21,21 @@ import {
 import { timeStates } from './landData.js';
 
 // Import plant images
-import toyonImg from './plantImages/toyon.jpg';
-import yuccaImg from './plantImages/yucca.jpg';
-import monkeyflowerImg from './plantImages/monkeyflower.jpg';
+import toyonImg from './plantImages/toyon.webp';
+import yuccaImg from './plantImages/yucca.webp';
+import monkeyflowerImg from './plantImages/monkeyflower.webp';
 
 // Import wildlife images
-import horseImg from './animalImages/horse.png';
-import lizardImg from './animalImages/lizard.png';
-import rattlesnakeImg from './animalImages/rattlesnake.png';
-import tarantulaImg from './animalImages/tarantula.png';
+import horseImg from './animalImages/horse.webp';
+import lizardImg from './animalImages/lizard.webp';
+import rattlesnakeImg from './animalImages/rattlesnake.webp';
+import tarantulaImg from './animalImages/tarantula.webp';
 
 // Import geology images
-import cantileverImg from './geologyImages/deck.jpg';
+import cantileverImg from './geologyImages/deck.webp';
 
 // Import hydrology image
-import hydroMapImg from './hydroImages/hydroMap.png';
+import hydroMapImg from './hydroImages/hydroMap.webp';
 
 // CLIMATE STYLES
 const Container = styled.div`

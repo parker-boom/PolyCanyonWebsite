@@ -3,7 +3,7 @@ import { FaDice, FaArrowLeft } from 'react-icons/fa';
 import { Helmet } from 'react-helmet-async';
 import { projectImages } from './images/projectImgs.js';
 import projectData from './images/projectImgs.json';
-import projectsBg from '../Home/bubbleimgs/projects.jpg';
+import projectsBg from '../Home/bubbleimgs/projects.webp';
 import {
   Container,
   ImageSection,

@@ -1,27 +1,27 @@
-import caretakerA from './caretakerA.png';
-import caretakerB from './caretakerB.png';
-import caretakerC from './caretakerC.png';
-import builderA from './builderA.png';
-import builderB from './builderB.png';
-import builderC from './builderC.png';
-import facultyA from './facultyA.png';
-import facultyB from './facultyB.png';
-import facultyC from './facultyC.png';
+import caretakerA from './caretakerA.webp';
+import caretakerB from './caretakerB.webp';
+import caretakerC from './caretakerC.webp';
+import builderA from './builderA.webp';
+import builderB from './builderB.webp';
+import builderC from './builderC.webp';
+import facultyA from './facultyA.webp';
+import facultyB from './facultyB.webp';
+import facultyC from './facultyC.webp';
 
 export const caretakerImages = {
-  'caretaker-a.png': caretakerA,
-  'caretaker-b.png': caretakerB,
-  'caretaker-c.png': caretakerC,
+  'caretaker-a.webp': caretakerA,
+  'caretaker-b.webp': caretakerB,
+  'caretaker-c.webp': caretakerC,
 };
 
 export const builderImages = {
-  'builders-a.png': builderA,
-  'builders-b.png': builderB,
-  'builders-c.png': builderC,
+  'builders-a.webp': builderA,
+  'builders-b.webp': builderB,
+  'builders-c.webp': builderC,
 };
 
 export const facultyImages = {
-  'faculty-a.png': facultyA,
-  'faculty-b.png': facultyB,
-  'faculty-c.png': facultyC,
+  'faculty-a.webp': facultyA,
+  'faculty-b.webp': facultyB,
+  'faculty-c.webp': facultyC,
 };
