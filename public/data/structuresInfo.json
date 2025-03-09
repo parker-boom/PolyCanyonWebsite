@@ -1,7 +1,10 @@
 {
   "structures": [
     {
-      "names": ["Entry Arch", "Entrance Pathway"],
+      "names": [
+        "Entry Arch",
+        "Entrance Pathway"
+      ],
       "number": 1,
       "url": "entryArch",
       "status": "Active",
@@ -13,27 +16,39 @@
       "advisor_builders": [
         {
           "name": "Nelse Greene",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Paul Miller (ARCH)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Lynn Noah (ARCH)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Greg Lomax (ARCH)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Andrew Low (ARCH)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Gwin Stumbaugh (ARCH)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -101,7 +116,9 @@
       "year": "1976"
     },
     {
-      "names": ["Techite Bridge"],
+      "names": [
+        "Techite Bridge"
+      ],
       "number": 2,
       "url": "techiteBridge",
       "status": "Active",
@@ -113,47 +130,69 @@
       "advisor_builders": [
         {
           "name": "Al Mager",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Albert Draves",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Robert Purdy (CE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Merrilee Amy (CE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Robert Mac Ewan (CE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Glen Jackson",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Richard Anatablin (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Sara Engmyr (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Michelle Griffith (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jora Leigh (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jesse Rainsdon (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -217,7 +256,11 @@
       "year": "1973"
     },
     {
-      "names": ["Blade", "The Petal Structure", "The Concrete Flower"],
+      "names": [
+        "Blade",
+        "The Petal Structure",
+        "The Concrete Flower"
+      ],
       "number": 3,
       "url": "blade",
       "status": "Active",
@@ -229,55 +272,81 @@
       "advisor_builders": [
         {
           "name": "Wesley Ward",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Kevin Dong",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Brent Nuttall",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Peter Lausen",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Steve Gilmore (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Mark Haselton (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Dan McMann (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ken Minor (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Susan Smilanich (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jon Voorhies (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ben Green (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Mike McDonnell (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Robert Pacheo (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -335,7 +404,9 @@
       "year": "1963 / 2003"
     },
     {
-      "names": ["Spire Array"],
+      "names": [
+        "Spire Array"
+      ],
       "number": 4,
       "url": "spireArray",
       "status": "Active",
@@ -347,11 +418,15 @@
       "advisor_builders": [
         {
           "name": "Dale Clifford",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Design Build Team",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -402,7 +477,9 @@
       "year": "2020"
     },
     {
-      "names": ["Palm Tree"],
+      "names": [
+        "Palm Tree"
+      ],
       "number": 5,
       "url": "palmTree",
       "status": "Active",
@@ -414,11 +491,15 @@
       "advisor_builders": [
         {
           "name": "Cristina Alcala",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jaime Mora",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -447,7 +528,10 @@
       "year": "1993"
     },
     {
-      "names": ["Tensile", "Tensile Fabric Pavilion"],
+      "names": [
+        "Tensile",
+        "Tensile Fabric Pavilion"
+      ],
       "number": 6,
       "url": "tensile",
       "status": "Active",
@@ -459,31 +543,45 @@
       "advisor_builders": [
         {
           "name": "Kiren Kelly-Sneed",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Theresa Zaro",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Royce Chow",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Abe Lynn",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Michael Lucas",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Walt Tryon",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Richard Zweifel",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         }
       ],
       "images": [
@@ -549,7 +647,9 @@
       "year": "2002"
     },
     {
-      "names": ["Geodesic Dome"],
+      "names": [
+        "Geodesic Dome"
+      ],
       "number": 7,
       "url": "geodesicDome",
       "status": "Active",
@@ -561,35 +661,51 @@
       "advisor_builders": [
         {
           "name": "George Hasslein",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "M.P. Taylor",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Richard Neill (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "William Roth (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Donald Mills (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Samuel Peterson (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Don Trunklage (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "James Winter (MECH-E)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -655,7 +771,10 @@
       "year": "1963"
     },
     {
-      "names": ["Cantilever Deck", "Master Builders"],
+      "names": [
+        "Cantilever Deck",
+        "Master Builders"
+      ],
       "number": 8,
       "url": "cantileverDeck",
       "status": "Active",
@@ -667,63 +786,93 @@
       "advisor_builders": [
         {
           "name": "Ken Brown",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Abby Lentz",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Michael Brennan",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Liz Adams",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "John Lawson",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "John Norrena",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jeff Gilman",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Paco Perez",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Joseph P. Meyer",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Roger Biddle",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Calvin Vigeant",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Calvin Morgan",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Kimberley Throndson",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Rowan Hernandez",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Anahid Behrouzi",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         }
       ],
       "images": [
@@ -790,7 +939,11 @@
       "year": "1990 / 2024"
     },
     {
-      "names": ["Restrooms", "Earth-Formed Restrooms", "Concrete Bathrooms"],
+      "names": [
+        "Restrooms",
+        "Earth-Formed Restrooms",
+        "Concrete Bathrooms"
+      ],
       "number": 9,
       "url": "restrooms",
       "status": "Active",
@@ -802,31 +955,45 @@
       "advisor_builders": [
         {
           "name": "Albert Draves",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Robert Del Biano (ARCH)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Raymond Howard (ARCH)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Glen Jackson (ARCH)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Harold Meier (ARCH)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ralph Nafzgar (ARCH)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "John Sturla (ARCH)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -886,7 +1053,11 @@
       "year": "1972"
     },
     {
-      "names": ["Underground House", "Earth Shelter", "Earth House"],
+      "names": [
+        "Underground House",
+        "Earth Shelter",
+        "Earth House"
+      ],
       "number": 10,
       "url": "undergroundHouse",
       "status": "Active",
@@ -898,99 +1069,147 @@
       "advisor_builders": [
         {
           "name": "Wesley Ward",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Jim Rodger",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "James Rodger",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "John L. Hughes",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Wing K. Low",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Michael Chambers",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Dan Veyna",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Patricia Kutzmann",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "David Ewell",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "John Crowhurst",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Art Rack",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Steve Dunn",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Carl Barrett (CN)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Robert Cocores (CN)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Allyn McFarlin (CN)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "John Provato (CN)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jesse Wedemeyer (CN)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Pat Dennis (CN)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Fred Kozono (CN)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Mark McIntire (CN)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Chris Sterios (CN)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Craig Wilson (CN)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Wayne Christian (CN)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Mark V. Zeolla (CN)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -1046,7 +1265,10 @@
       "year": "1982"
     },
     {
-      "names": ["Sun Dial", "Project 70 "],
+      "names": [
+        "Sun Dial",
+        "Project 70 "
+      ],
       "number": 11,
       "url": "sunDial",
       "status": "Active",
@@ -1058,119 +1280,177 @@
       "advisor_builders": [
         {
           "name": "John Stuart",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Dean Archambeau (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Michael Cheung (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ross Downey (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ty Fiscus (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Bradley Gilton (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Lee Haney (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ken Hill (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Minoru Ikeda",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jim Kaping",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Prayad Katanyutanon",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Darrel Kleinhesselink",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Allen Lane",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ron Larson",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Boom Manoburachailert",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Bill McEvoy",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Russ Michealsen",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Yuen Chung Pi",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Clayton Pharaoh",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Bob Predmore",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ernie Reamer",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Edgar Rodriguez",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Nick Romanzov",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Richard Tamae",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Phil Thorson",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Bob Tinney",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Allen Tom",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Aziz Turki",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ron Whitney",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -1221,7 +1501,11 @@
       "year": "1971"
     },
     {
-      "names": ["Gunite Bridge", "Free Form Bridge"],
+      "names": [
+        "Gunite Bridge",
+        "Gunited Concrete Footbridge",
+        "Free Form Bridge"
+      ],
       "number": 12,
       "url": "guniteBridge",
       "status": "Active",
@@ -1229,31 +1513,55 @@
         "latitude": 35.3162,
         "longitude": -120.65377
       },
-      "extended_description": "The bridge represents a pioneering approach to resource-efficient design. The structure’s core is a reinforced steel skeleton covered in metal lath, which was coated with gunite—a pneumatically applied concrete that forms a thin yet highly durable shell. This method allowed the bridge to achieve a lightweight form while maintaining exceptional strength. The design features two central posts supporting \"wings\" held in place by tension cables during construction. Once the gunite layer cured, the cables were cut, shifting the structure into compression—a deliberate engineering decision that maximized stability with minimal material use.\n\nTo enhance its visual appeal, a veneer of white sand and cement was applied, lending the bridge a smooth, sculptural quality that mirrors its structural elegance. This thin-shell design not only minimized material waste but also demonstrated how innovative techniques could transform utilitarian structures into works of art.\n\nSixty years later, the Gunite Bridge remains profoundly relevant. Its emphasis on sustainability—through material efficiency and lightweight design—foreshadowed modern concerns about minimizing environmental impact in construction. The techniques it pioneered have become foundational in experimental architecture, influencing everything from bridges to lightweight pavilions. Beyond its engineering achievements, the bridge serves as a reminder of the value of experimentation, proving that bold ideas and minimal resources can produce lasting innovation.",
+      "extended_description": "This bridge wasn’t just about engineering—it was about proving an idea. The team wanted to challenge traditional bridge-building techniques by using as little material as possible without sacrificing strength. Their solution? A thin-shell concrete structure that used pre-tensioned cables to hold its form during construction, only to have those cables cut after curing, allowing the structure to settle into pure compression. At the time, this was a largely untested approach, and the team later discovered that only one other similar structure existed in the world, in Brazil.\n\nBut the project wasn’t just about technical challenges. The students had to fund it themselves, securing $1,500 in donations and convincing companies to contribute steel, concrete, and specialized equipment. They worked with a prototype gunite machine, developed precision construction methods, and performed all calculations manually with slide rules, long before structural analysis could be done with computers. Even the bridge’s formwork was unconventional—early design models were shaped around women’s nylons and stockings, stretched over frames to visualize how the thin shell might behave.\n\nThe bridge was originally designed with mounts for railings, as they were required, but the team saw them as unnecessary. The railings were never installed, and on graduation day, Gordon Boles personally went out and cut off the mounts to maintain the bridge’s clean, uninterrupted form.\n\nNearly 60 years later, the Gunite Bridge remains one of the longest-standing experimental structures in the canyon, proving that efficiency and precision can outlast even the strongest traditional designs.",
       "advisor_builders": [
         {
           "name": "Wesley Ward",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Gordon Boles (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Roy Leland Bostrom (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Kokpo Ng (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Richard Saylor (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "John Ulloa (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
+        },
+        {
+          "name": "Hans Mager",
+          "role": [
+            "Advisor"
+          ]
+        },
+        {
+          "name": "Hubert Bromma (ARCE)",
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -1295,11 +1603,13 @@
         }
       ],
       "_id": "6722b48799b26f2c000bb48f",
-      "description": "The Gunite Bridge, built in 1965, showcases innovation in thin-shell design and material efficiency. Using gunite—a sprayed concrete known for its strength and flexibility—the structure’s reinforced steel skeleton was shaped into flowing, minimalist forms. By balancing tension and compression, this bridge combines structural ingenuity with artistic elegance, standing as a testament to timeless architectural experimentation.",
+      "description": "The Gunite Bridge, built in 1965, is one of the most ambitious experiments in Poly Canyon. Using only a thin shell of pneumatically sprayed concrete over a lightweight steel frame, it was designed to stand with the absolute minimum material possible. To achieve this, the builders first shaped the structure using tension cables, then sprayed on the gunite shell. Once hardened, the cables were cut, shifting the entire bridge into compression—a bold and nearly untested technique at the time. Every calculation was done by hand, using slide rules, and the entire project relied on custom fabrication, experimental engineering, and an obsessive focus on efficiency. Nearly 60 years later, the bridge still stands, unchanged and unreinforced, proving that good design isn’t about how much you use—it’s about how well you use it.",
       "year": "1965"
     },
     {
-      "names": ["Timber Truss"],
+      "names": [
+        "Timber Truss"
+      ],
       "number": 13,
       "url": "timberTruss",
       "status": "Active",
@@ -1311,19 +1621,27 @@
       "advisor_builders": [
         {
           "name": "Derek Bonsper",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Josh Randall",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Fred Sobottka",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Mike Willis",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -1374,55 +1692,81 @@
       "advisor_builders": [
         {
           "name": "Jake Feldman",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Abe Lynn",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Cole McDaniel",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "William P. Marin (ARCH)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Brian Gottlieb (ARCH)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Bill Martin (ARCH)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Don Morita (ARCH)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Michelle Pettit (ARCH)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Chase Helgenberger (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Alex Barnes (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Katie Blaesser (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Blake Roskelley (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Justin Porter (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -1483,7 +1827,9 @@
       "year": "1976 / 2009"
     },
     {
-      "names": ["Pyramid"],
+      "names": [
+        "Pyramid"
+      ],
       "number": 15,
       "url": "pyramid",
       "status": "Active",
@@ -1495,11 +1841,15 @@
       "advisor_builders": [
         {
           "name": "Jens Pohl",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "H. William Sievers (ARCH)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -1528,7 +1878,9 @@
       "year": "1976"
     },
     {
-      "names": ["Bridge House"],
+      "names": [
+        "Bridge House"
+      ],
       "number": 16,
       "url": "bridgeHouse",
       "status": "Active",
@@ -1540,131 +1892,195 @@
       "advisor_builders": [
         {
           "name": "Paul Neel",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Vicky May",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Peter Lausen",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Kevin Dong",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Thomas Kommer",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Ronald Davena (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Joel Dean (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Robert Garlow (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Hilken Raymind (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Lui Horstmeyer (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "James January (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Lloyd Suehiro (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Thomas Wiggin (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Thomas Palmer (ARCH)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Larry P. Stricker (ARCH)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jim Lewis (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Glenn Bruno (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Marc Fidler (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ken Morrison (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ren Muratore (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "David Richey (CM)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Kevin P. Bresnahan (Civil)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jennifer Ingel (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jean Metzinger (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "William Rosenblatt (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Josh Raney (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Alec Zavala (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Samantha Solow (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Adam Pruitt (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Chris Levy (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Severin B. Elste (CM)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ben Sykes (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -1735,7 +2151,11 @@
       "year": "1968 / 2019"
     },
     {
-      "names": ["Water Infra-Structure", "Water Tanks", "Water Systems"],
+      "names": [
+        "Water Infra-Structure",
+        "Water Tanks",
+        "Water Systems"
+      ],
       "number": 17,
       "url": "water",
       "status": "Active",
@@ -1747,47 +2167,69 @@
       "advisor_builders": [
         {
           "name": "Paul Fratessa",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Charlie Coe",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "George Cattey (MECH-E)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Glenn Dang (MECH-E)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Gordon Bassett (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Rick Cox (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Mike Machado (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jerry McMurry (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Craig Pedego (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Mathew Bittleston (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ian Johnson (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -1863,7 +2305,9 @@
       "year": "1965 / 1998"
     },
     {
-      "names": ["Observation Deck"],
+      "names": [
+        "Observation Deck"
+      ],
       "number": 18,
       "url": "observationDeck",
       "status": "Active",
@@ -1875,35 +2319,51 @@
       "advisor_builders": [
         {
           "name": "Philip Barlow",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Kevin Dong",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Daniel Knight",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Jordan H. Morofsky (CM)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Emir Kuljancic (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Sitora Vaxidova (ARCH)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Tony Pellegrini (CM)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Harrison J. Woods (CM)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -1958,7 +2418,10 @@
       "year": "2019"
     },
     {
-      "names": ["Poly Pavilion", "The Structure"],
+      "names": [
+        "Poly Pavilion",
+        "The Structure"
+      ],
       "number": 19,
       "url": "polyPavilion",
       "status": "Active",
@@ -1970,87 +2433,129 @@
       "advisor_builders": [
         {
           "name": "Jake Feldman",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Alfredo Alcaraz",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Armando Paez",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Blanca Guerra",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Bob Green",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Brad Bishop",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Brett Beeman",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Chi Pham",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Cindy Smith",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Dave Hernandez",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Frank Maskiewicz",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jim Low",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Joe Michale",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "John Smith",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ken Brehmer",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ken Schumann",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ku Divita",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Pete Chavez",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Randal Brunson",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ricardo Arevalo",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Stan Smith",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -2111,7 +2616,9 @@
       "year": "1985"
     },
     {
-      "names": ["Serenity Wall"],
+      "names": [
+        "Serenity Wall"
+      ],
       "number": 20,
       "url": "serenityWall",
       "status": "Active",
@@ -2123,11 +2630,15 @@
       "advisor_builders": [
         {
           "name": "Jonathan Reich",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Brian Milton (ARCH)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -2167,7 +2678,10 @@
       "year": "2004"
     },
     {
-      "names": ["Hay Bale Arch", "Straw Bale Arch"],
+      "names": [
+        "Hay Bale Arch",
+        "Straw Bale Arch"
+      ],
       "number": 21,
       "url": "hayBale",
       "status": "Active",
@@ -2179,23 +2693,33 @@
       "advisor_builders": [
         {
           "name": "Abe Lynn",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Adam Bradley (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Philip Greene (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jason Hughey (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Matthew Vorhees (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -2231,7 +2755,9 @@
       "year": "2004"
     },
     {
-      "names": ["Fratessa Tower"],
+      "names": [
+        "Fratessa Tower"
+      ],
       "number": 22,
       "url": "fratessaTower",
       "status": "Active",
@@ -2243,31 +2769,45 @@
       "advisor_builders": [
         {
           "name": "Abe Lynn",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Rachel Martin",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Justin Wei",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Michael Braund",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Eric Mcdonnell",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Tanya Worotko",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Adam Stagnaro",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -2312,7 +2852,10 @@
       "year": "2004"
     },
     {
-      "names": ["Tensegrity", "Tensegrity Pavilion"],
+      "names": [
+        "Tensegrity",
+        "Tensegrity Pavilion"
+      ],
       "number": 23,
       "url": "tensegrity",
       "status": "Active",
@@ -2324,27 +2867,39 @@
       "advisor_builders": [
         {
           "name": "Kevin Dong",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Will Adam (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ivan Cruz (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jose Hernandez (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Kasey Tatis (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Truman Waller (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -2425,71 +2980,105 @@
       "advisor_builders": [
         {
           "name": "Wesley Ward",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Rodney Kief",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Nelson Greene",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Edward Boucher",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Larry D. Gangwisch",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ronald W. James",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Raymond W. Ketzel",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Roger G. Marshall",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "David A. Wright",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "James J. Zimmerman",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Kenneth M. Kohlen",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Mike B. Ostrow",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Neil G. Rains",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ory Gruber",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Maureen McFadden",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Michael Bauer (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Cameron Tilmont (CN)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -2565,7 +3154,9 @@
       "year": "1964 / 1975"
     },
     {
-      "names": ["Green House"],
+      "names": [
+        "Green House"
+      ],
       "number": 25,
       "url": "greenHouse",
       "status": "Active",
@@ -2577,99 +3168,147 @@
       "advisor_builders": [
         {
           "name": "Dr. Roger Keep",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Philip Niles",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Ted Ritter",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "David R. Pierce",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Rodney Keif",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Dale Sutliff",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Wesley Ward",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Brian Kesner",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Jacob Feldman",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "S. Moustafa",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Rolf E. Rogers",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Dr. Jens Pohl",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Bradley B. Owens (IT)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ronald M. Radziner (Civil)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jason Yung (CN)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Daniel E. Duke (CM)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Steven L. Eggemeyer (ENV)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Douglas P. Herbert (ENV)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Robert D. Flory (CM)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Eugene G. Mancebo (ENG)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Julianne Patterson (LARCH)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Rebecca Gurr (LARCH)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Marc Jenefsky",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Margaret V. Selig (MECH-E)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -2724,7 +3363,10 @@
       "year": "1983 - 1989"
     },
     {
-      "names": ["Modular House", "The Space Module"],
+      "names": [
+        "Modular House",
+        "The Space Module"
+      ],
       "number": 26,
       "url": "modularHouse",
       "status": "Active",
@@ -2736,163 +3378,243 @@
       "advisor_builders": [
         {
           "name": "Kiley Koberg",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "J.W. Edmiston",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Ken Haggard",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Don Kahn",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Dr. Abraham Lynn",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Kevin Dong",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Philip Barlow",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Paul Thoryk",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Wayne Richards",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Wayne Onomura",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Farhad Nosseyri",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "John Edmiten",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Don Berggren",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "David Henrichsen",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Mark Kluver",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Tom M. Bylund",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "James B. Jones",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Richard P. Pata",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Lorin H. Smith",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jerry W. Tucker",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Dennis D. Turner",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Richard Lee",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Bruce Renfrew",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Delbert Starret",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Richard D. Connett",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Robert S. Harding",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Thomas J. Reilley",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Aaron James Steele",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Katherine Fitts Kwiatkowski",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Kevin Chiang",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Spencer Dilley",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Sarah Dothwaite",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Trevor Daniel Houghton",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ryan Lefebvre",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Michele Leung",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Cameron Lober",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Chris Martinez",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Katie Mayer",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Abby M. Lentz",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Michael L. Blanchard",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -2972,7 +3694,9 @@
       "year": "1965 / 1973 / 2018"
     },
     {
-      "names": ["Centering for Center"],
+      "names": [
+        "Centering for Center"
+      ],
       "number": 27,
       "url": "centeringCenter",
       "status": "Active",
@@ -2984,95 +3708,141 @@
       "advisor_builders": [
         {
           "name": "Tom Fowler",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Kevin Dong",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Julie Herndon",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Jonathan Oberempt (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Faith Sharp (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Sam Buckman (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Bryan Garcia",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Saksham Tikekar",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Elijah Williams",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Nishat Subah Peau",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Nicole Svilich",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Eric Jeschelnik",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Deniz Karadee",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Laetitia Heyra Wallimann",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Lucas J. Brown (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ryan Scharf (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Olek Piechazeck (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Adam Albanese (ARCH)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Joseph Galicinao (COMPE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Eddie Sanchez-Pascua (BA/CM)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Anita Shanbhogue (ARCH)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Drew Thomas (EE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Sloan Woodward (ARCH)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -3138,7 +3908,10 @@
       "year": "2022"
     },
     {
-      "names": ["Pole House", "Heavy Timber Demonstration Structure"],
+      "names": [
+        "Pole House",
+        "Heavy Timber Demonstration Structure"
+      ],
       "number": 28,
       "url": "poleHouse",
       "status": "Active",
@@ -3150,27 +3923,39 @@
       "advisor_builders": [
         {
           "name": "Randy Detmer",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Davis Hatcher",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "John Kubasak",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "EDES Class Project",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Richard Mancuso (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Anything Breslin (CN)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -3210,7 +3995,9 @@
       "year": "1989"
     },
     {
-      "names": ["Electric Infra-Structure"],
+      "names": [
+        "Electric Infra-Structure"
+      ],
       "number": 29,
       "url": "electric",
       "status": "Active",
@@ -3222,27 +4009,39 @@
       "advisor_builders": [
         {
           "name": "Britton P. Grim (EE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Michael B. Fricke (ARCH)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Lyndon Sobel (CM)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Warren Anderson",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Nelson Greene",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Jim Borland",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         }
       ],
       "images": [
@@ -3301,7 +4100,9 @@
       "year": "1965 / 1977"
     },
     {
-      "names": ["BBQ Pit"],
+      "names": [
+        "BBQ Pit"
+      ],
       "number": 30,
       "url": "bbqPit",
       "status": "Active",
@@ -3313,27 +4114,39 @@
       "advisor_builders": [
         {
           "name": "Allan Cooper",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "A. Helman",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Richard Brians (ARCH)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Tom Covellone (ARCH)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Roger Krohn (ARCH)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Vince Leifer (ARCH)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -3383,7 +4196,9 @@
       "year": "1976"
     },
     {
-      "names": ["Moment Monument"],
+      "names": [
+        "Moment Monument"
+      ],
       "number": 31,
       "url": "momentMonument",
       "status": "Active",
@@ -3395,23 +4210,33 @@
       "advisor_builders": [
         {
           "name": "Kevin Dong",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Carsten Huber (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Gaspar Solorio (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jared Schieferle (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Brayden Martinez (ARCE)",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -3466,7 +4291,10 @@
       "year": "2024"
     },
     {
-      "names": ["Botanical Garden", "Work Shed"],
+      "names": [
+        "Botanical Garden",
+        "Work Shed"
+      ],
       "number": 32,
       "url": "botanicalGarden",
       "status": "Ghost",
@@ -3474,12 +4302,13 @@
         "latitude": 35.31346,
         "longitude": -120.65027
       },
-      "description": "The Botanical Garden, once a key feature of the area, was situated south of the canyon across the creek, separate from the main canyon itself. Established in 1955 by the Botany Department, the garden was designed to preserve native California plant species. While the garden is no longer extant, its historical significance and contribution to environmental education at Cal Poly are notable.",
       "extended_description": "The botanical garden was a dedicated space for cultivating and studying native California flora, with species such as incense cedar, foothill pine, and California bay laurel among its collection. The garden was originally accessible via a suspension bridge built in 1961, and later a more robust timber truss bridge in the 1970s, which improved access for visitors.\n\nThough the garden was located across the creek from Poly Canyon and not directly within it, its role in the environmental and academic history of the region was significant. Over time, however, the garden faced environmental and accessibility challenges, leading to its eventual abandonment. Today, it remains a ghost structure, remembered for its educational contributions, but the site that once hosted it is now a relic of the past.",
       "advisor_builders": [
         {
           "name": "Unknown",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -3515,10 +4344,14 @@
         "sustainable landscaping",
         "interpretive trail",
         "ecological education"
-      ]
+      ],
+      "description": "The Botanical Garden, once a key feature of the area, was situated south of the canyon across the creek, separate from the main canyon itself. Established in 1955 by the Botany Department, the garden was designed to preserve native California plant species. While the garden is no longer extant, its historical significance and contribution to environmental education at Cal Poly are notable.",
+      "year": "Unknown"
     },
     {
-      "names": ["Suspension Bridge"],
+      "names": [
+        "Suspension Bridge"
+      ],
       "number": 33,
       "url": "suspensionBridge",
       "status": "Ghost",
@@ -3526,28 +4359,37 @@
         "latitude": 35.31321,
         "longitude": -120.65132
       },
-      "description": "The Suspension Bridge, an experimental senior project from 1961, was a bold attempt at combining innovative lightweight concrete techniques with practical architectural design. Located just south of the canyon boundaries, it spans a creek near the Botanical Garden. Predating the canyon and still standing today, the bridge is aged and no longer serves its original purpose, existing as a quiet relic of student ingenuity.",
       "extended_description": "Constructed by five architectural engineering students, the Suspension Bridge served both as a practical crossing and an architectural experiment. The bridge’s intersecting 86-foot arches, leaning at 20 degrees, were fabricated in prefabricated segments, each weighing 125 pounds. These segments were assembled using steel pin connections and minimal mechanical support, demonstrating both precision and teamwork. While its construction took only eight hours, the planning and design spanned six months, during which the team documented every challenge and solution. Today, the bridge still stands south of the canyon boundaries, crossing a small creek. Though weathered and unused, it remains a testament to student innovation and the boldness of mid-century architectural experimentation.",
       "advisor_builders": [
         {
           "name": "Jere Anderson",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Kenneth Bennett",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Donald Roster",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Fred Hallock",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Harold Rueb",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -3578,7 +4420,9 @@
         "senior project",
         "experimental design",
         "architectural history"
-      ]
+      ],
+      "description": "The Suspension Bridge, an experimental senior project from 1961, was a bold attempt at combining innovative lightweight concrete techniques with practical architectural design. Located just south of the canyon boundaries, it spans a creek near the Botanical Garden. Predating the canyon and still standing today, the bridge is aged and no longer serves its original purpose, existing as a quiet relic of student ingenuity.",
+      "year": "1961"
     },
     {
       "names": [
@@ -3593,84 +4437,121 @@
         "latitude": 35.31578,
         "longitude": -120.65435
       },
-      "description": "The Hydraulic House was a highly innovative architectural experiment conceived in the early 1970s. Centered around a 23-foot tall steel column filled with pressurized water, the structure explored the use of hydraulic forces as a primary load-bearing system. This pioneering design sought to combine ecological sustainability, prefabrication, and structural flexibility. Though the project also aimed to incorporate solar energy solutions, these elements were ultimately unsuccessful. Despite setbacks in construction and the inability to fully realize its environmental ambitions, the building’s experimental approach to architectural design remains a striking example of innovation in engineering and architecture.",
       "extended_description": "Fully completed in the late 1970s, the Hydraulic House, also known as the Hydrostatic Structure, was an experimental architectural endeavor that aimed to push the limits of building technology. Its core feature was a 23-foot steel column filled with pressurized water, which functioned as the primary support structure for the building, intended to demonstrate how hydraulic forces could replace traditional load-bearing systems. In conjunction with this, the building used a suspended roof system supported by a central hub and radial trusses, reflecting the project’s dedication to both structural simplicity and strength.\n\nWhile the design also sought to incorporate solar technologies, these efforts were ultimately unsuccessful, and no further attempts were made to integrate them. The building’s ambition extended beyond its structural innovation, with the multi-story design featuring flexible, modular spaces that aimed to serve as a multi-use facility within Poly Canyon. Although the project faced challenges, including structural misalignment and limited success with environmental features, the building remains an important part of architectural history for its vision, daring experimentation, and integration of unconventional materials and techniques.\n\nThis structure’s attempt to use water as a structural element represented a leap into uncharted territory for architectural engineering, merging the principles of ecological building and technological advancement in a way that was ahead of its time. While the project never fully materialized as intended, it paved the way for future explorations in innovative and adaptive architectural practices.",
       "advisor_builders": [
         {
           "name": "William Brown",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Dr. Jens Pohl",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "John Hickman",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Kris Reiswig",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Windell Reynolds",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Greg Warner",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "James Adams",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Sergio Alvarez",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Charles Cauthon",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "David Quattrone",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Eric Farmer",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Dan Smith",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Mike Carson",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jerry White",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Bruce Elster",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Keith Foiles",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Barney Mintz",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Peter Van Matre",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Raul Ojeda",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -3696,10 +4577,14 @@
         "water-based support",
         "sustainable architecture",
         "architectural experimentation"
-      ]
+      ],
+      "description": "The Hydraulic House was a highly innovative architectural experiment conceived in the early 1970s. Centered around a 23-foot tall steel column filled with pressurized water, the structure explored the use of hydraulic forces as a primary load-bearing system. This pioneering design sought to combine ecological sustainability, prefabrication, and structural flexibility. Though the project also aimed to incorporate solar energy solutions, these elements were ultimately unsuccessful. Despite setbacks in construction and the inability to fully realize its environmental ambitions, the building’s experimental approach to architectural design remains a striking example of innovation in engineering and architecture.",
+      "year": "1970s"
     },
     {
-      "names": ["Tree House"],
+      "names": [
+        "Tree House"
+      ],
       "number": 35,
       "url": "treeHouse",
       "status": "Ghost",
@@ -3707,12 +4592,13 @@
         "latitude": 35.31354,
         "longitude": -120.65187
       },
-      "description": "Built in 1967 by a Poly Royal crew, the tree house and accompanying gate were once situated near the entrance of the canyon, predating the stone archway. Originally designed as a playful, elevated platform among the sycamores, the structure’s charm faded over time. A 1982 repair list noted it needed preservative treatment, hinting at its gradual decay. By 1987, the tree house was missing its ladder, and a rare photograph captured its final years. Now vanished without a trace, it lingers in memory as a curious remnant of a bygone era, shrouded in mystery despite its once-prominent location.",
-      "extended_description": "",
+      "extended_description": " ",
       "advisor_builders": [
         {
           "name": "Poly Royal Crew",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -3733,10 +4619,14 @@
         "poly royal",
         "sycamore platform",
         "lost structure"
-      ]
+      ],
+      "description": "Built in 1967 by a Poly Royal crew, the tree house and accompanying gate were once situated near the entrance of the canyon, predating the stone archway. Originally designed as a playful, elevated platform among the sycamores, the structure’s charm faded over time. A 1982 repair list noted it needed preservative treatment, hinting at its gradual decay. By 1987, the tree house was missing its ladder, and a rare photograph captured its final years. Now vanished without a trace, it lingers in memory as a curious remnant of a bygone era, shrouded in mystery despite its once-prominent location.",
+      "year": "1967"
     },
     {
-      "names": ["Exercise Structure"],
+      "names": [
+        "Exercise Structure"
+      ],
       "number": 36,
       "url": "exercise",
       "status": "Ghost",
@@ -3744,28 +4634,37 @@
         "latitude": 0,
         "longitude": 0
       },
-      "description": "The Exercise Station structures were developed as part of a broader vision to integrate physical fitness with the natural environment. Conceptualized in 1973 and refined in 1974, these stations featured equipment for exercises like pull-ups and sit-ups, blending recreation with fitness. However, the structures are now considered ghost projects—their exact locations are unknown, and no physical remains have been identified. They serve as a fascinating glimpse into experimental outdoor fitness design.",
       "extended_description": "The project evolved over two years, beginning with a 1973 thesis that focused heavily on the conceptual aspects of integrating jogging routes with structured exercise stops. This initial plan outlined a European-inspired fitness circuit but tailored it to the canyon's terrain and the needs of Cal Poly’s community. The 1974 thesis expanded on this foundation, shifting focus to the design and imagined construction of specific exercise structures. Featuring whimsical sketches and practical insights, the work emphasized accessibility and functionality. Though the stations were never fully documented in the field and their exact locations remain unknown, they stand as a testament to the creative experimentation of student-led fitness and design projects. An old photograph confirms at one point, at least one of the structures was built.",
       "advisor_builders": [
         {
           "name": "Dr. Jim Webb",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Rob Bateman",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Mike Roanhaus",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Ken Snelling",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Dale Horton",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -3791,10 +4690,14 @@
         "outdoor fitness",
         "student design",
         "ghost structure"
-      ]
+      ],
+      "description": "The Exercise Station structures were developed as part of a broader vision to integrate physical fitness with the natural environment. Conceptualized in 1973 and refined in 1974, these stations featured equipment for exercises like pull-ups and sit-ups, blending recreation with fitness. However, the structures are now considered ghost projects—their exact locations are unknown, and no physical remains have been identified. They serve as a fascinating glimpse into experimental outdoor fitness design.",
+      "year": "1974"
     },
     {
-      "names": ["Tensegrity Mast"],
+      "names": [
+        "Tensegrity Mast"
+      ],
       "number": 37,
       "url": "tensegrityMast",
       "status": "Ghost",
@@ -3802,16 +4705,19 @@
         "latitude": 35.31585,
         "longitude": -120.65374
       },
-      "description": "The Tensegrity Mast, constructed in 1975 by students under Jack Peterson’s guidance, was a striking structural experiment placed prominently on a knoll in the canyon. The mast’s history is marked by cycles of vandalism and repair, with wires cut and turnbuckles loosened during its early years, causing repeated collapses. Photographs show it lying horizontal before briefly being reassembled upright in 1978. By 1982, plans were made to rewire and move it back to its original location, but it was never fully restored. While the mast itself is long gone, its original foundations remain visible near the site of the Tensegrity structure, serving as a tangible reminder of its ambitious legacy.",
-      "extended_description": "",
+      "extended_description": " ",
       "advisor_builders": [
         {
           "name": "Jack Peterson",
-          "role": ["Advisor"]
+          "role": [
+            "Advisor"
+          ]
         },
         {
           "name": "Unknown",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -3837,10 +4743,14 @@
         "architectural vandalism history",
         "poly royal design",
         "foundation remains structure"
-      ]
+      ],
+      "description": "The Tensegrity Mast, constructed in 1975 by students under Jack Peterson’s guidance, was a striking structural experiment placed prominently on a knoll in the canyon. The mast’s history is marked by cycles of vandalism and repair, with wires cut and turnbuckles loosened during its early years, causing repeated collapses. Photographs show it lying horizontal before briefly being reassembled upright in 1978. By 1982, plans were made to rewire and move it back to its original location, but it was never fully restored. While the mast itself is long gone, its original foundations remain visible near the site of the Tensegrity structure, serving as a tangible reminder of its ambitious legacy.",
+      "year": "1975"
     },
     {
-      "names": ["Cor X"],
+      "names": [
+        "Cor X"
+      ],
       "number": 38,
       "url": "corX",
       "status": "Ghost",
@@ -3848,16 +4758,19 @@
         "latitude": 35.315787,
         "longitude": -120.654243
       },
-      "description": "The Cor-X house, built in 1982, was a lightweight plastic structure with aluminum framing constructed by a Crop Sciences major and an Architecture major. Designed as a low-cost, portable housing experiment, the structure featured polystyrene insulation, an RV-style toilet, and a unique greenhouse-style front door. Its purpose was to promote sustainable housing solutions for disaster relief and developing countries. Though functional during its time, the house has since vanished, leaving its foundations near the modern-day Fratessa Tower as the only trace of its existence.",
-      "extended_description": "",
+      "extended_description": " ",
       "advisor_builders": [
         {
           "name": "Nathan Duddles",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jim Theiss",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -3887,10 +4800,14 @@
         "portable housing experiment",
         "lightweight plastic structure",
         "sustainable disaster housing"
-      ]
+      ],
+      "description": "The Cor-X house, built in 1982, was a lightweight plastic structure with aluminum framing constructed by a Crop Sciences major and an Architecture major. Designed as a low-cost, portable housing experiment, the structure featured polystyrene insulation, an RV-style toilet, and a unique greenhouse-style front door. Its purpose was to promote sustainable housing solutions for disaster relief and developing countries. Though functional during its time, the house has since vanished, leaving its foundations near the modern-day Fratessa Tower as the only trace of its existence.",
+      "year": "1982"
     },
     {
-      "names": ["Accessory Shed"],
+      "names": [
+        "Accessory Shed"
+      ],
       "number": 39,
       "url": "accessoryShed",
       "status": "Ghost",
@@ -3898,40 +4815,55 @@
         "latitude": 35.31694,
         "longitude": -120.65474
       },
-      "description": "The Accessory Shed, completed in 2022, was an asymmetrical wooden shed designed to explore the undervalued architectural style of California’s Central Valley. Built with CDX plywood and featuring a pitched roof, raised heel truss, and overhanging eaves, the structure deliberately lacked windows or doors, drawing focus to its external design. Its imbalanced form and exaggerated proportions challenged traditional perceptions of utility buildings while providing shade and scenic views. Positioned near the top of the canyon, the structure had no accessible interior and no functional purpose, and it has since been removed.",
-      "extended_description": "",
+      "extended_description": " ",
       "advisor_builders": [
         {
           "name": "Dylan Krueger",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Vera Alekseyeva Gabriel",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Cobain Galen",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Anping Fong",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Dara Lin",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Will McCullough",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Edgar Rivera",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Jacqueline Velasquez",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -3956,10 +4888,14 @@
         "california central valley architecture",
         "inaccessible design architecture",
         "removed architectural installations"
-      ]
+      ],
+      "description": "The Accessory Shed, completed in 2022, was an asymmetrical wooden shed designed to explore the undervalued architectural style of California’s Central Valley. Built with CDX plywood and featuring a pitched roof, raised heel truss, and overhanging eaves, the structure deliberately lacked windows or doors, drawing focus to its external design. Its imbalanced form and exaggerated proportions challenged traditional perceptions of utility buildings while providing shade and scenic views. Positioned near the top of the canyon, the structure had no accessible interior and no functional purpose, and it has since been removed.",
+      "year": "2022"
     },
     {
-      "names": ["Cow Fence"],
+      "names": [
+        "Cow Fence"
+      ],
       "number": 40,
       "url": "cowFence",
       "status": "Ghost",
@@ -3967,12 +4903,13 @@
         "latitude": 35.31361,
         "longitude": -120.65202
       },
-      "description": "The Cow Fence, estimated to have been built in 1965, was an early structure designed to keep cows out of the area designated for projects at the time. Crafted from an array of vertical wooden posts, the gate combined functionality with a whimsical aesthetic. It's believed to have been near the current entrance to the canyon, slightly north of its current location. Intended to allow people to pass freely while serving as a barrier for livestock, little is known about the structure beyond a photograph found in George Hasslein’s scrapbook, which depicts him walking through the gate.",
-      "extended_description": "",
+      "extended_description": " ",
       "advisor_builders": [
         {
           "name": "Unknown",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -3988,10 +4925,14 @@
         "george hasslein project",
         "wooden post gate",
         "entrance"
-      ]
+      ],
+      "description": "The Cow Fence, estimated to have been built in 1965, was an early structure designed to keep cows out of the area designated for projects at the time. Crafted from an array of vertical wooden posts, the gate combined functionality with a whimsical aesthetic. It's believed to have been near the current entrance to the canyon, slightly north of its current location. Intended to allow people to pass freely while serving as a barrier for livestock, little is known about the structure beyond a photograph found in George Hasslein’s scrapbook, which depicts him walking through the gate.",
+      "year": "1965"
     },
     {
-      "names": ["Compressed Earth Blocks"],
+      "names": [
+        "Compressed Earth Blocks"
+      ],
       "number": 41,
       "url": "earthBlocks",
       "status": "Ghost",
@@ -3999,28 +4940,37 @@
         "latitude": 0,
         "longitude": 0
       },
-      "description": "The Compressed Earth Blocks project, developed in 1965, was an effort by five architectural engineering students to explore sustainable construction methods using locally sourced materials. The team designed and tested dozens of compressed earth blocks (CEBs) for durability, load-bearing capacity, and fire resistance. Though initially part of a more ambitious plan, the focus on CEBs demonstrated the potential of low-cost, eco-friendly materials for future canyon projects.",
       "extended_description": "Originally envisioned as a large-scale \"Experimental Design Laboratory,\" the project aimed to create a dedicated space for architectural innovation and education within the canyon. The proposed lab included workspaces for sixteen students, offices for instructors, and shared areas for seminars and discussions, all framed by the natural landscape. However, the ambitious scope, coupled with resource and time constraints, led the team to pivot toward the more attainable goal of developing compressed earth blocks (CEBs).\n\nUsing soil from the surrounding area, the students crafted and tested CEBs, highlighting their strength, fire resistance, and cost-effectiveness compared to traditional masonry. Treated with waterproofing agents and optimized for earthquake resilience, the blocks showcased the viability of sustainable, locally sourced materials in construction. While the Experimental Design Laboratory itself was never realized, the CEB research stands as a testament to the team's adaptability and innovative spirit, offering valuable insights into resource-efficient building practices.",
       "advisor_builders": [
         {
           "name": "John Barton",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Daniel Beauchamp",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "David Cartnal",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Rudolph Espinoza",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         },
         {
           "name": "Marvin Guillermo",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -4046,10 +4996,14 @@
         "sustainable materials",
         "architectural engineering",
         "local construction resources"
-      ]
+      ],
+      "description": "The Compressed Earth Blocks project, developed in 1965, was an effort by five architectural engineering students to explore sustainable construction methods using locally sourced materials. The team designed and tested dozens of compressed earth blocks (CEBs) for durability, load-bearing capacity, and fire resistance. Though initially part of a more ambitious plan, the focus on CEBs demonstrated the potential of low-cost, eco-friendly materials for future canyon projects.",
+      "year": "1965"
     },
     {
-      "names": ["Sculptural Windmill"],
+      "names": [
+        "Sculptural Windmill"
+      ],
       "number": 42,
       "url": "sculpturalWindmill",
       "status": "Ghost",
@@ -4057,12 +5011,13 @@
         "latitude": 35.316381,
         "longitude": -120.654399
       },
-      "description": "The Windmill, a ghost structure documented through a single photograph, remains an enigma. Believed to have responded to changes in wind direction, its precise purpose and construction details are unknown, although its location has been deciphered from the photo. In 1982, there was a mention of possibly rebuilding or designing a new windmill, but no further information has surfaced. Its fleeting presence adds a layer of intrigue to the sculpture.",
-      "extended_description": "",
+      "extended_description": " ",
       "advisor_builders": [
         {
           "name": "Unknown",
-          "role": ["Builder"]
+          "role": [
+            "Builder"
+          ]
         }
       ],
       "images": [
@@ -4078,7 +5033,9 @@
         "experimental engineering",
         "mystery structure",
         "ghost windmill"
-      ]
+      ],
+      "description": "The Windmill, a ghost structure documented through a single photograph, remains an enigma. Believed to have responded to changes in wind direction, its precise purpose and construction details are unknown, although its location has been deciphered from the photo. In 1982, there was a mention of possibly rebuilding or designing a new windmill, but no further information has surfaced. Its fleeting presence adds a layer of intrigue to the sculpture.",
+      "year": "1980s"
     }
   ]
 }
