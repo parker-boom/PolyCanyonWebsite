@@ -4110,14 +4110,8 @@
         "latitude": 35.31473,
         "longitude": -120.6528
       },
-      "extended_description": "The BBQ Pit served as a practical centerpiece for the canyon’s social events, offering a durable and functional design. Its central location made it a natural hub for shared meals and conversations, though the larger plans for the area were never realized. Over time, nearby informal additions such as small benches and stone features emerged, suggesting a gradual and improvised development of the space. ",
+      "extended_description": "While only the BBQ itself was realized, the structure has endured as a functional and social landmark in Poly Canyon. Its brick-and-stone construction supported decades of informal use and became a gathering point during events such as Design Village. Early versions included a corten steel hood, which was later removed due to material issues; over time, the fire pit was also filled in. Despite these changes, the BBQ remains a point of legacy for its builders—many of whom have returned with their children and grandchildren to visit the site—illustrating how student-built projects can outlive their original academic context and take on long-term cultural meaning.",
       "advisor_builders": [
-        {
-          "name": "Allan Cooper",
-          "role": [
-            "Builder"
-          ]
-        },
         {
           "name": "A. Helman",
           "role": [
@@ -4125,25 +4119,25 @@
           ]
         },
         {
-          "name": "Richard Brians (ARCH)",
+          "name": "Michael Pratt (ARCH)",
           "role": [
             "Builder"
           ]
         },
         {
-          "name": "Tom Covellone (ARCH)",
+          "name": "Thomas Blake (ARCH)",
           "role": [
             "Builder"
           ]
         },
         {
-          "name": "Roger Krohn (ARCH)",
+          "name": "Tim McNevin (Conservation)",
           "role": [
             "Builder"
           ]
         },
         {
-          "name": "Vince Leifer (ARCH)",
+          "name": "Tom Ryan (ARCH)",
           "role": [
             "Builder"
           ]
@@ -4192,7 +4186,7 @@
         }
       ],
       "_id": "6722b48799b26f2c000bb4a0",
-      "description": "Built in 1976 as a senior project, the BBQ Pit was part of a larger plan that envisioned picnic tables, benches, and a water fountain for communal use. While only the pit itself was completed, its brick-and-stone construction became a gathering spot during events like Design Village. Initially equipped with a corten steel hood, the pit underwent changes over time—the hood was removed due to material issues, and the fire pit was eventually filled in.",
+      "description": "Built in 1976 as an Architecture senior project, the BBQ Pit was designed and constructed by Thomas Blake, Michael Pratt, and Tom Ryan (ARCH ’76), with assistance from Conservation major Tim McNevin (’75). The project was framed as part of a broader “master plan” for the picnic area—envisioning tables, benches, and other amenities—but ultimately focused on constructing a single durable BBQ structure. Materials were scavenged from around campus, and the grill components were assembled with help from a friend working part-time as a welder.",
       "year": "1976"
     },
     {
