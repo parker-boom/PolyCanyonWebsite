@@ -24,6 +24,14 @@ const MapLink = styled.a`
   font-size: 14px;
   text-underline-offset: 3px;
 `;
+const MapNote = styled.p`
+  margin: 0;
+  padding: 12px 20px;
+  color: #354133;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+`;
 const Cover = styled.div`
   min-height: ${({ $height }) => $height}px;
   display: flex;
@@ -66,9 +74,15 @@ export default function MapEmbed({
     : `https://www.google.com/maps/search/?api=1&query=${point}`;
   return (
     <Frame $height={height}>
+      {directions && (
+        <MapNote>
+          This map marks the destination. Open Google Maps for the walking route
+          from campus.
+        </MapNote>
+      )}
       {loaded ? (
         <iframe
-          title={title}
+          title={directions ? `${title} — destination map` : title}
           src={`https://maps.google.com/maps?q=${encodeURIComponent(point)}&z=${directions ? 14 : 18}&output=embed`}
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"

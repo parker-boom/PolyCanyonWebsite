@@ -289,9 +289,9 @@ const InfoPage = () => {
         <Section>
           <SectionTitle>How do I get there?</SectionTitle>
           <Text>
-            Access the area by walking along Poly Canyon Road on campus. The
-            interactive map below shows the route, or use AllTrails and Google
-            Maps for detailed directions.
+            Access the area by walking along Poly Canyon Road on campus. The map
+            below marks the Entry Arch. Open Google Maps for walking directions,
+            or follow the steps below.
           </Text>
           <MapContainer>
             {/* Google Maps - Separate Component */}
