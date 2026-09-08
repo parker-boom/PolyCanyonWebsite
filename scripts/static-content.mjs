@@ -81,8 +81,8 @@ export async function createStaticContent(structures, manifest) {
       if (record.names.length > 1)
         body += paragraph(`Also known as ${record.names.slice(1).join(', ')}.`);
       body += `<p>No. ${escapeHTML(record.number)} · ${escapeHTML(record.year)} · ${escapeHTML(record.status)}</p>`;
-      body +=
-        paragraph(record.description) + paragraph(record.extended_description);
+      const fullResearch = record.extended_description?.trim();
+      body += paragraph(fullResearch || record.description);
       if (record.advisor_builders?.length)
         body += `<section><h2>Builders and advisors</h2><ul>${record.advisor_builders.map((person) => `<li>${escapeHTML(person.name)}${person.role?.length ? ` — ${escapeHTML(person.role.join(', '))}` : ''}</li>`).join('')}</ul></section>`;
       if (record.tags?.length)
@@ -92,6 +92,8 @@ export async function createStaticContent(structures, manifest) {
       const resources = resourceLinks(record.links);
       if (resources.length)
         body += `<section><h2>Resources</h2><ul>${resources.map((item) => `<li>${link(item.URL, item.title || item.linkType || item.URL)}</li>`).join('')}</ul></section>`;
+      if (fullResearch)
+        body += `<details><summary>Research &amp; credits</summary>${paragraph(record.description)}</details>`;
       if (record.images?.length)
         body += `<section><h2>Photographs</h2>${sortImages(record.images)
           .map((image) => {

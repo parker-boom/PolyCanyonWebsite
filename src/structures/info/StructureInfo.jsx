@@ -66,6 +66,7 @@ export default function StructureInfo() {
       </S.Page>
     );
   const current = structure.images[index];
+  const fullResearch = structure.extended_description?.trim();
   const advisors = structure.advisor_builders
     ?.filter((p) => p.role.includes('Advisor'))
     .map((p) => p.name)
@@ -209,9 +210,8 @@ export default function StructureInfo() {
               </S.Identity>
             )}
             <S.Story>
-              <p>{structure.description}</p>
-              {structure.extended_description
-                ?.split(/\n\s*\n/)
+              {(fullResearch || structure.description)
+                .split(/\n\s*\n/)
                 .filter(Boolean)
                 .map((paragraph, i) => (
                   <p key={i}>{paragraph.trim()}</p>
@@ -254,6 +254,7 @@ export default function StructureInfo() {
             )}
             <S.Credits>
               <summary>Research & credits</summary>
+              {fullResearch && <p>{structure.description}</p>}
               <p>
                 The research comes from historical records and archives,
                 including original theses, historical images, articles and

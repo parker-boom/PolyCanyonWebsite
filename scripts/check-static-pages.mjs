@@ -24,6 +24,21 @@ try {
   for (const record of records) {
     await page.goto(`${base}/structures/${record.url}`);
     assert.equal(await page.getByRole('heading', { level: 1 }).count(), 1);
+    if (record.extended_description?.trim()) {
+      const disclosure = page.locator('main details');
+      assert.equal(await disclosure.count(), 1);
+      assert.ok(
+        normalize(await page.locator('main').innerText()).includes(
+          normalize(record.extended_description)
+        )
+      );
+      assert.ok(
+        normalize(await disclosure.textContent()).includes(
+          normalize(record.description)
+        )
+      );
+      await disclosure.locator('summary').click();
+    }
     const text = normalize(await page.locator('main').innerText());
     for (const value of [
       record.description,
