@@ -2,354 +2,272 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import {
-  mainImages,
+  thumbnailImages,
   getResponsiveImage,
 } from '../structures/images/structureImages.js';
-import structures from '../structures/data/structuresList.json';
+import shell from '../assets/generated/home/M-24-1600.webp';
+import shellSmall from '../assets/generated/home/M-24-800.webp';
+import dome from '../assets/generated/home/M-7-1600.webp';
+import domeSmall from '../assets/generated/home/M-7-800.webp';
+import bridge from '../assets/generated/home/M-16-1600.webp';
+import bridgeSmall from '../assets/generated/home/M-16-800.webp';
+export const features = [
+  {
+    number: 24,
+    name: 'Shell House',
+    url: 'shellHouse',
+    large: shell,
+    small: shellSmall,
+    text: 'A cantilevered concrete shell resting on three points, conceived as a senior project in 1964.',
+  },
+  {
+    number: 7,
+    name: 'Geodesic Dome',
+    url: 'geodesicDome',
+    large: dome,
+    small: domeSmall,
+    text: 'Built by students in 1957, the dome was moved piece by piece to the canyon in 1963.',
+  },
+  {
+    number: 16,
+    name: 'Bridge House',
+    url: 'bridgeHouse',
+    large: bridge,
+    small: bridgeSmall,
+    text: 'An experiment in Cor-ten steel that spans the terrain, restored as a bridge in 2019.',
+  },
+];
 const Page = styled.div`
   width: min(1240px, calc(100% - 80px));
   margin: 0 auto;
-  padding: 44px 0 64px;
-  @media (max-width: 600px) {
-    width: calc(100% - 36px);
-    padding: 28px 0 40px;
+  padding: 28px 0 40px;
+  header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 22px;
   }
-`;
-const Hero = styled.section`
-  display: grid;
-  grid-template-columns: 0.78fr 1.22fr;
-  gap: 64px;
-  align-items: center;
-  @media (max-width: 800px) {
-    gap: 32px;
-    grid-template-columns: 0.8fr 1.2fr;
-  }
-  @media (max-width: 600px) {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-`;
-const Intro = styled.div`
   h1 {
-    font-size: clamp(46px, 5.1vw, 68px);
-    line-height: 0.98;
-    letter-spacing: -0.055em;
-    font-weight: 650;
-    margin: 0 0 24px;
+    margin: 0;
     color: var(--green);
-  }
-  p {
-    font-size: 18px;
-    line-height: 1.65;
-    max-width: 310px;
-    margin: 0 0 30px;
-    color: var(--muted);
-  }
-  a {
-    display: inline-flex;
-    align-items: center;
-    gap: 28px;
-    text-decoration: none;
-    border-bottom: 1px solid var(--gold);
-    padding: 10px 0;
-    color: var(--green);
+    font-size: clamp(30px, 4vw, 48px);
     font-weight: 600;
+    letter-spacing: -0.045em;
   }
-  a:hover {
-    gap: 36px;
+  header a {
+    padding: 12px 0;
+    font-size: 14px;
+    text-underline-offset: 5px;
   }
-  @media (max-width: 600px) {
-    h1 {
-      font-size: 48px;
-      letter-spacing: -2px;
-      margin-bottom: 14px;
-    }
-    h1 br {
-      display: none;
-    }
-    p {
-      font-size: 16px;
-      max-width: 340px;
-      margin-bottom: 12px;
-    }
-    a {
-      min-height: 44px;
-    }
-  }
-`;
-const Feature = styled.figure`
-  margin: 0;
-  min-width: 0;
-  .photo {
+  .hero {
     display: block;
+    position: relative;
+    isolation: isolate;
+    aspect-ratio: 2.1;
+    color: white;
     overflow: hidden;
-    background: #e8ede5;
-    aspect-ratio: 1.5;
+    background: #233c32;
+    box-shadow: 0 12px 24px -20px #183326;
   }
-  img {
-    display: block;
+  .hero img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s;
-  }
-  .photo:hover img {
-    transform: scale(1.025);
-  }
-  figcaption {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 14px 0;
-    gap: 12px;
-  }
-  figcaption a {
-    text-decoration: none;
-    display: flex;
-    align-items: baseline;
-    gap: 14px;
-    font-size: 15px;
-    font-weight: 600;
-  }
-  .number {
-    color: #8b702d;
-    font-weight: 400;
-    font-variant-numeric: tabular-nums;
-  }
-  .controls {
-    display: flex;
-    gap: 6px;
-  }
-  button {
-    border: 0;
-    background: transparent;
-    color: var(--green);
-    width: 40px;
-    height: 40px;
-    font-size: 21px;
-    cursor: pointer;
-  }
-  button:hover {
-    background: #edf1e9;
-  }
-  @media (max-width: 600px) {
-    .photo {
-      aspect-ratio: 1.15;
-    }
-    figcaption {
-      padding: 5px 0;
-    }
-  }
-`;
-const Collection = styled.section`
-  margin-top: 36px;
-  padding-top: 24px;
-  border-top: 1px solid var(--line);
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    gap: 16px;
-  }
-  h2 {
-    font-weight: 600;
-    font-size: 20px;
-    letter-spacing: -0.5px;
-    margin: 0;
-  }
-  header a {
-    font-size: 14px;
-    text-decoration: none;
-    padding: 10px 0;
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-  }
-  .item {
-    text-decoration: none;
-    min-width: 0;
-  }
-  .item img {
     display: block;
-    width: 100%;
-    aspect-ratio: 1.6;
-    object-fit: cover;
-    background: #e8ede5;
-    transition: filter 0.2s;
+    animation: reveal 0.35s ease-out;
   }
-  .item:hover img {
-    filter: brightness(1.06);
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 30% 0 0;
+    background: linear-gradient(transparent, rgba(10, 25, 16, 0.9));
+    z-index: 1;
+    pointer-events: none;
   }
   .caption {
-    display: flex;
-    gap: 12px;
-    align-items: baseline;
-    padding-top: 13px;
-    font-size: 15px;
+    position: absolute;
+    left: 32px;
+    right: 32px;
+    bottom: 26px;
+    z-index: 2;
   }
   .caption span {
-    color: #8b702d;
-    font-variant-numeric: tabular-nums;
-  }
-  .caption strong {
-    font-weight: 550;
-  }
-  .caption i {
-    font-style: normal;
-    margin-left: auto;
-  }
-  @media (max-width: 600px) {
-    margin-top: 30px;
-    .grid {
-      gap: 16px;
-      grid-template-columns: 1fr 1fr;
-    }
-    .item:last-child {
-      display: none;
-    }
-    .caption {
-      font-size: 14px;
-      gap: 8px;
-    }
-    .caption i {
-      display: none;
-    }
-    h2 {
-      font-size: 18px;
-    }
-  }
-`;
-const Below = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  margin-top: 44px;
-  padding-top: 28px;
-  border-top: 1px solid var(--line);
-  a {
-    text-decoration: none;
-    display: block;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: #e4e9dc;
   }
   h2 {
-    font-size: 18px;
-    font-weight: 600;
-    margin: 0 0 10px;
-    display: flex;
-    justify-content: space-between;
+    margin: 7px 0 10px;
+    font-size: clamp(27px, 3.3vw, 44px);
+    letter-spacing: -0.035em;
+    font-weight: 550;
   }
-  p {
-    color: var(--muted);
-    font-size: 15px;
-    line-height: 1.65;
-    max-width: 420px;
+  .caption p {
     margin: 0;
+    max-width: 570px;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  .choices {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    padding: 20px 0 26px;
+  }
+  button {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background: none;
+    color: var(--muted);
+    border: 0;
+    border-bottom: 2px solid transparent;
+    padding: 0 0 10px;
+    cursor: pointer;
+    text-align: left;
+    font: inherit;
+  }
+  button img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 10px;
+  }
+  button[aria-pressed='true'] {
+    border-color: var(--gold);
+    color: var(--green);
+  }
+  button:hover img {
+    filter: brightness(1.08);
+  }
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 5px;
+  }
+  .links {
+    border-top: 1px solid var(--line);
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    padding-top: 16px;
+  }
+  .links a {
+    padding: 12px 0;
+    text-underline-offset: 5px;
+  }
+  @keyframes reveal {
+    from {
+      opacity: 0.5;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero img {
+      animation: none;
+    }
   }
   @media (max-width: 600px) {
-    grid-template-columns: 1fr;
-    gap: 28px;
-    margin-top: 32px;
+    width: calc(100% - 36px);
+    padding-top: 20px;
+    header {
+      display: block;
+      margin-bottom: 16px;
+    }
+    header a {
+      display: inline-block;
+    }
+    .hero {
+      aspect-ratio: 0.95;
+    }
+    .caption {
+      left: 20px;
+      right: 20px;
+      bottom: 22px;
+    }
+    .caption p {
+      font-size: 14px;
+    }
+    .choices {
+      gap: 12px;
+      padding-top: 14px;
+    }
+    button {
+      font-size: 12px;
+      line-height: 1.4;
+    }
+    button img {
+      height: 72px;
+    }
+    .links {
+      gap: 6px 26px;
+      font-size: 14px;
+    }
   }
 `;
-const featured = [1, 16, 7, 24, 31, 23].map((n) =>
-  structures.find((s) => s.number === n)
-);
-const picks = [8, 26, 20].map((n) => structures.find((s) => s.number === n));
 export default function Home() {
-  const [index, setIndex] = useState(0);
-  const current = featured[index];
+  const [active, setActive] = useState(0);
+  const current = features[active];
   return (
     <Page>
-      <Hero>
-        <Intro>
-          <h1>
-            Poly
-            <br /> Canyon
-          </h1>
-          <p>Student-built architecture in the hills of Cal Poly.</p>
-          <Link to="/structures">Explore the structures</Link>
-        </Intro>
-        <Feature>
-          <Link className="photo" to={`/structures/${current.url}`}>
+      <header>
+        <h1>Built to explore.</h1>
+        <Link to="/structures">Explore the structures</Link>
+      </header>
+      <Link
+        className="hero"
+        to={`/structures/${current.url}`}
+        aria-label={`Read about ${current.name}`}
+      >
+        <img
+          key={current.number}
+          src={current.small}
+          srcSet={`${current.small} 800w, ${current.large} 1600w`}
+          sizes="(max-width:600px) calc(100vw - 36px), (max-width:1320px) calc(100vw - 80px), 1240px"
+          width="1600"
+          height={current.number === 7 ? 1200 : 1067}
+          alt={current.name}
+          fetchPriority="high"
+        />
+        <div className="caption" aria-live="polite">
+          <span>No. {current.number}</span>
+          <h2>{current.name}</h2>
+          <p>{current.text}</p>
+        </div>
+      </Link>
+      <div
+        className="choices"
+        role="group"
+        aria-label="Choose a featured structure"
+      >
+        {features.map((feature, i) => (
+          <button
+            key={feature.number}
+            aria-label={`Show ${feature.name}`}
+            aria-pressed={active === i}
+            onClick={() => setActive(i)}
+          >
             <img
               {...getResponsiveImage(
-                mainImages[current.image_key],
-                '(max-width:600px) calc(100vw - 36px), (max-width:1320px) 55vw, 690px'
+                thumbnailImages[`M-${feature.number}`],
+                '(max-width:600px) 30vw, 390px'
               )}
-              alt={current.title}
-              decoding="async"
-              fetchPriority="high"
+              alt=""
+              width="480"
+              height="320"
             />
-          </Link>
-          <figcaption>
-            <Link to={`/structures/${current.url}`}>
-              <span className="number">
-                {String(current.number).padStart(2, '0')}
-              </span>
-              <span aria-live="polite">{current.title}</span>
-            </Link>
-            <div className="controls">
-              <button
-                aria-label="Previous featured structure"
-                onClick={() =>
-                  setIndex((index + featured.length - 1) % featured.length)
-                }
-              >
-                ←
-              </button>
-              <button
-                aria-label="Next featured structure"
-                onClick={() => setIndex((index + 1) % featured.length)}
-              >
-                →
-              </button>
-            </div>
-          </figcaption>
-        </Feature>
-      </Hero>
-      <Collection>
-        <header>
-          <h2>Around the canyon</h2>
-          <Link to="/structures">View all</Link>
-        </header>
-        <div className="grid">
-          {picks.map((s) => (
-            <Link className="item" to={`/structures/${s.url}`} key={s.number}>
-              <img
-                {...getResponsiveImage(
-                  mainImages[s.image_key],
-                  '(max-width:600px) 45vw, 33vw'
-                )}
-                alt={s.title}
-                loading="lazy"
-                decoding="async"
-              />
-              <div className="caption">
-                <span>{String(s.number).padStart(2, '0')}</span>
-                <strong>{s.title}</strong>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </Collection>
-      <Below>
-        <Link to="/about">
-          <h2>About the canyon</h2>
-          <p>
-            An outdoor laboratory shaped by generations of students. Its
-            history, landscape, and the walk from campus.
-          </p>
-        </Link>
-        <Link to="/app">
-          <h2>Take the guide along</h2>
-          <p>
-            Find the structures and their stories with the Poly Canyon app for
-            iPhone.
-          </p>
-        </Link>
-      </Below>
+            {feature.name}
+          </button>
+        ))}
+      </div>
+      <div className="links">
+        <Link to="/about">Learn about the canyon</Link>
+        <Link to="/app">Download the app</Link>
+      </div>
     </Page>
   );
 }

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 export const Page = styled.div`
   width: min(1120px, calc(100% - 80px));
   margin: 0 auto;
-  padding: 48px 0 64px;
+  padding: 28px 0 64px;
   @media (max-width: 600px) {
     width: calc(100% - 36px);
     padding: 24px 0 40px;
@@ -25,10 +25,10 @@ export const Heading = styled.div`
     border: 0;
     background: none;
     color: var(--muted);
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    font-size: 13px;
-    padding: 12px 0;
+    font-size: 16px;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 10px;
     cursor: pointer;
   }
   @media (max-width: 400px) {
@@ -78,60 +78,26 @@ export const Tools = styled.div`
     color: var(--muted);
   }
   .random {
-    position: relative;
     flex-shrink: 0;
-  }
-  summary {
-    list-style: none;
     width: 48px;
     height: 48px;
     display: grid;
     place-items: center;
-    cursor: pointer;
+    border: 0;
+    background: none;
     color: var(--green);
-    border: 1px solid var(--line);
-    border-radius: 3px;
+    cursor: pointer;
   }
-  summary::-webkit-details-marker {
-    display: none;
-  }
-  summary svg {
+  .random svg {
     width: 22px;
     height: 22px;
   }
-  summary:hover,
-  details[open] summary {
+  .random:hover {
     background: #e9eee5;
   }
-  summary:focus-visible {
+  .random:focus-visible {
     outline: 2px solid var(--gold);
     outline-offset: 3px;
-  }
-  .random-options {
-    position: absolute;
-    z-index: 10;
-    right: 0;
-    top: 56px;
-    width: 140px;
-    padding: 5px;
-    background: var(--background, #fafbf8);
-    border: 1px solid #aebdb2;
-    border-radius: 3px;
-  }
-  button {
-    display: block;
-    width: 100%;
-    background: none;
-    border: 0;
-    padding: 12px;
-    text-align: left;
-    cursor: pointer;
-    font-size: 14px;
-    color: var(--green);
-  }
-  button:hover,
-  button:focus-visible {
-    background: #e9eee5;
   }
   @media (max-width: 600px) {
     gap: 12px;
@@ -174,6 +140,12 @@ export const SortBar = styled.div`
     background: #eff2ec;
   }
   .count {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
     font-size: 13px;
     color: var(--muted);
     font-variant-numeric: tabular-nums;
@@ -258,7 +230,7 @@ export const Item = styled.div`
   img {
     display: block;
     width: 142px;
-    height: 104px;
+    height: 118px;
     object-fit: cover;
     background: #e9eee5;
     transition: filter 0.2s;
@@ -270,9 +242,11 @@ export const Item = styled.div`
     min-width: 0;
   }
   .title {
-    display: flex;
-    gap: 10px;
-    align-items: baseline;
+    display: block;
+  }
+  .number {
+    display: block;
+    margin-bottom: 7px;
   }
   .number {
     color: #876b2b;
@@ -315,7 +289,7 @@ export const Item = styled.div`
     padding: 14px 0;
     img {
       width: 96px;
-      height: 86px;
+      height: 104px;
     }
     h3 {
       font-size: 15px;

@@ -15,8 +15,6 @@ import {
   Screens,
   ScreenControls,
   Phone,
-  Notes,
-  Footnote,
 } from './DownloadPage.styles.js';
 const screenshots = [
   {
@@ -86,6 +84,9 @@ export default function DownloadPage() {
             <span>Get it on the App Store</span>
             <span aria-hidden="true">↗</span>
           </DownloadButton>
+          <p style={{ fontSize: 13, marginTop: 14 }}>
+            <Link to="/support">App support</Link>
+          </p>
         </div>
       </Introduction>
       <Screens
@@ -137,20 +138,6 @@ export default function DownloadPage() {
           <FaArrowRight aria-hidden="true" />
         </button>
       </ScreenControls>
-      <Notes>
-        <p>Visits are optional and use location only while the app is open.</p>
-        <Link to="/about#visit">Walking directions</Link>
-      </Notes>
-      <Footnote>
-        <span>
-          Original reports and further research are in the{' '}
-          <Link to="/structures">web archive</Link>.
-        </span>
-        <span>
-          <Link to="/support">App support</Link>
-          <Link to="/privacy">Privacy</Link>
-        </span>
-      </Footnote>
     </PageContainer>
   );
 }

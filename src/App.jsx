@@ -37,7 +37,7 @@ const Content = styled.main`
 const Loading = styled.div`
   padding: 60px 24px;
   /* Keep the footer below the viewport while a route chunk loads. */
-  min-height: calc(100dvh - 104px);
+  min-height: calc(100dvh - 88px);
   text-align: center;
   color: #376d31;
 `;

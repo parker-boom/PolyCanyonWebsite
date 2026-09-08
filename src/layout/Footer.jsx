@@ -26,60 +26,48 @@ const Container = styled.footer`
 const Inner = styled.div`
   max-width: 1240px;
   margin: 0 auto;
-  padding: 32px 40px 20px;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  @media (max-width: 600px) {
+    padding: 20px 18px;
+    flex-wrap: wrap;
+  }
 `;
 const Main = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 28px;
-  padding-bottom: 24px;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px 14px;
   p {
-    margin: 5px 0 0;
-  }
-  @media (max-width: 600px) {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 16px;
+    margin: 0;
+    font-size: 12px;
   }
 `;
 const Brand = styled(Link)`
-  && {
-    color: var(--green);
-  }
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: -0.4px;
-`;
-const Links = styled.nav`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 24px;
-  a {
-    display: inline-block;
-    padding: 8px 0;
-  }
+  font-weight: 650;
+  color: var(--green);
 `;
 const Bottom = styled.div`
-  border-top: 1px solid #dce3d7;
-  padding-top: 14px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
   align-items: center;
-  gap: 8px 24px;
+  flex-wrap: wrap;
+  gap: 8px 20px;
   font-size: 12px;
   p {
     margin: 0;
   }
   div {
     display: flex;
-    align-items: center;
     gap: 20px;
   }
   a,
   button {
-    padding: 6px 0;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
   }
 `;
 const CopyrightLink = styled.button`
@@ -96,16 +84,8 @@ export default function Footer() {
       <Container>
         <Inner>
           <Main>
-            <div>
-              <Brand to="/">Poly Canyon</Brand>
-              <p>By Parker Jones</p>
-            </div>
-            <Links aria-label="Footer navigation">
-              <Link to="/structures">Structures</Link>
-              <Link to="/about#visit">Visit</Link>
-              <Link to="/app">App</Link>
-              <ContactLink>Contact</ContactLink>
-            </Links>
+            <Brand to="/">Poly Canyon</Brand>
+            <p>Built by Parker Jones</p>
           </Main>
           <Bottom>
             <p>© {new Date().getFullYear()} Poly Canyon</p>

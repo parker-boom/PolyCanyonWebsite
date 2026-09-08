@@ -56,8 +56,11 @@ for (const number of [4, 7, 12, 14, 19, 24, 27]) {
 jobs.push({
   source: path.join(root, 'src/assets/structures/a1.webp'),
   target: path.join(outputRoot, 'info/a1.webp'),
-  width: 600,
+  width: 1600,
+  quality: 86,
 });
+jobs.push({source: path.join(root, 'src/assets/structures/a1.webp'), target: path.join(outputRoot, 'info/a1-800.webp'), width:800, quality:82});
+for (const number of [24,7,16]) for (const width of [800,1600]) jobs.push({source:path.join(sourceRoot, 'main', `M-${number}.webp`), target:path.join(outputRoot, 'home', `M-${number}-${width}.webp`), width, quality:82});
 jobs.push({
   source: path.join(root, 'src/assets/appPreview.webp'),
   target: path.join(outputRoot, 'app/overview.webp'),

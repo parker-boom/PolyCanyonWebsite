@@ -10,7 +10,7 @@ const Header = styled.header`
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  min-height: 104px;
+  min-height: 88px;
   @media (max-width: 600px) {
     width: calc(100% - 36px);
     min-height: 0;

@@ -1,12 +1,4 @@
-import ContactLink from '../../components/ContactLink.jsx';
-import React, {
-  lazy,
-  Suspense,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from 'react';
+import React, { lazy, Suspense, useLayoutEffect, useState } from 'react';
 import {
   Link,
   useNavigate,
@@ -27,15 +19,6 @@ const ResearchInfo = lazy(() => import('../extraComponents/ResearchInfo.jsx'));
 
 export default function StructureList({ mobile = false }) {
   const navigate = useNavigate();
-  const randomRef = useRef(null);
-  useEffect(() => {
-    const close = (event) => {
-      if (!randomRef.current?.contains(event.target))
-        randomRef.current?.removeAttribute('open');
-    };
-    document.addEventListener('pointerdown', close);
-    return () => document.removeEventListener('pointerdown', close);
-  }, []);
   const location = useLocation();
   const returnState = {
     returnTo: location.pathname + location.search,
@@ -70,24 +53,23 @@ export default function StructureList({ mobile = false }) {
     );
   }
   const [research, setResearch] = useState(false);
-  function surprise(image = false) {
-    const choices = image
-      ? structures.filter((s) => s.imageCount > 0)
-      : structures;
-    const choice = choices[Math.floor(Math.random() * choices.length)];
-    if (!choice) return;
-    const index = image ? Math.floor(Math.random() * choice.imageCount) : 0;
-    navigate(
-      `/structures/${choice.url}${image ? `?fullscreen=true&imageIndex=${index}` : ''}`,
-      { state: returnState }
-    );
+  function surprise() {
+    const choice = structures[Math.floor(Math.random() * structures.length)];
+    if (choice) navigate(`/structures/${choice.url}`, { state: returnState });
   }
   const count = sortStructures(structures, { query }).length;
   return (
     <C.Page>
       <C.Heading>
         <h1>Structures</h1>
-        <button onClick={() => setResearch(true)}>Research</button>
+        <button
+          aria-label="About the research and sources"
+          title="Research and sources"
+          aria-haspopup="dialog"
+          onClick={() => setResearch(true)}
+        >
+          ?
+        </button>
       </C.Heading>
       <C.Tools>
         <div className="search">
@@ -103,35 +85,17 @@ export default function StructureList({ mobile = false }) {
             }}
           />
         </div>
-        <details
+        <button
           className="random"
-          ref={randomRef}
-          onKeyDown={(event) => {
-            if (event.key === 'Escape') {
-              event.currentTarget.removeAttribute('open');
-              event.currentTarget.querySelector('summary').focus();
-            }
-          }}
+          aria-label="Open a random structure"
+          title="Random structure"
+          onClick={surprise}
         >
-          <summary aria-label="Explore at random" title="Explore at random">
-            <FaDiceFive aria-hidden="true" />
-          </summary>
-          <div className="random-options">
-            <button aria-label="Random structure" onClick={() => surprise()}>
-              Structure
-            </button>
-            <button
-              aria-label="Random photograph"
-              onClick={() => surprise(true)}
-            >
-              Photo
-            </button>
-          </div>
-        </details>
+          <FaDiceFive aria-hidden="true" />
+        </button>
       </C.Tools>
       <C.SortBar>
         <div className="sorting">
-          <span className="label">Sort by</span>
           {['Number', 'Year', 'Location'].map((name) => (
             <button
               key={name}
@@ -156,7 +120,7 @@ export default function StructureList({ mobile = false }) {
           role="status"
           aria-label={`${count} structures`}
         >
-          {count}
+          {count} structures
         </span>
       </C.SortBar>
       {count === 0 ? (
@@ -233,9 +197,6 @@ export default function StructureList({ mobile = false }) {
           );
         })
       )}
-      <C.Contact>
-        Something to add? <ContactLink>Get in touch</ContactLink>.
-      </C.Contact>
       {research && (
         <Suspense fallback={null}>
           <ResearchInfo isMobile={mobile} onClose={() => setResearch(false)} />
