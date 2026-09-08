@@ -2,163 +2,199 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import {
+  mainImages,
   thumbnailImages,
   getResponsiveImage,
 } from '../structures/images/structureImages.js';
-import shell from '../assets/generated/home/M-24-1600.webp';
-import shellSmall from '../assets/generated/home/M-24-800.webp';
-import dome from '../assets/generated/home/M-7-1600.webp';
-import domeSmall from '../assets/generated/home/M-7-800.webp';
-import bridge from '../assets/generated/home/M-16-1600.webp';
-import bridgeSmall from '../assets/generated/home/M-16-800.webp';
-export const features = [
+const features = [
+  {
+    number: 6,
+    name: 'Tensile',
+    url: 'tensile',
+    text: 'Fabric panels and tensioned cables form an open-air shade structure.',
+  },
+  {
+    number: 10,
+    name: 'Underground House',
+    url: 'undergroundHouse',
+    text: 'An experiment in ferrocement construction and passive solar design.',
+  },
   {
     number: 24,
     name: 'Shell House',
     url: 'shellHouse',
-    large: shell,
-    small: shellSmall,
-    text: 'A cantilevered concrete shell resting on three points, conceived as a senior project in 1964.',
+    text: 'A cantilevered concrete shell resting on three points.',
   },
   {
-    number: 7,
-    name: 'Geodesic Dome',
-    url: 'geodesicDome',
-    large: dome,
-    small: domeSmall,
-    text: 'Built by students in 1957, the dome was moved piece by piece to the canyon in 1963.',
-  },
-  {
-    number: 16,
-    name: 'Bridge House',
-    url: 'bridgeHouse',
-    large: bridge,
-    small: bridgeSmall,
-    text: 'An experiment in Cor-ten steel that spans the terrain, restored as a bridge in 2019.',
+    number: 31,
+    name: 'Moment Monument',
+    url: 'momentMonument',
+    text: 'Six steel frames demonstrate different seismic moment connections.',
   },
 ];
 const Page = styled.div`
   width: min(1240px, calc(100% - 80px));
   margin: 0 auto;
-  padding: 28px 0 40px;
-  header {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 20px;
-    margin-bottom: 22px;
+  padding: 40px 0 48px;
+  .opening {
+    display: grid;
+    grid-template-columns: minmax(240px, 0.65fr) minmax(0, 1.35fr);
+    gap: 58px;
+    align-items: center;
+  }
+  .intro {
+    padding-bottom: 60px;
+  }
+  .place {
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin: 0 0 18px;
   }
   h1 {
-    margin: 0;
+    font-size: clamp(42px, 5vw, 66px);
+    line-height: 1.04;
+    letter-spacing: -0.05em;
+    font-weight: 550;
     color: var(--green);
-    font-size: clamp(26px, 3vw, 38px);
-    font-weight: 600;
-    letter-spacing: -0.045em;
+    margin: 0 0 24px;
   }
-  header a {
-    padding: 12px 0;
-    font-size: 14px;
-    text-underline-offset: 5px;
+  .intro p:not(.place) {
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--muted);
+    max-width: 330px;
+    margin: 0 0 28px;
+  }
+  .explore {
+    display: inline-flex;
+    align-items: center;
+    gap: 26px;
+    min-height: 48px;
+    padding: 12px 18px;
+    background: var(--green);
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+  }
+  .explore:hover {
+    background: #285c46;
   }
   .hero {
     display: block;
     position: relative;
-    isolation: isolate;
-    aspect-ratio: 2.1;
-    color: white;
     overflow: hidden;
-    background: #233c32;
-    box-shadow: 0 12px 24px -20px #183326;
+    isolation: isolate;
+    aspect-ratio: 1.65;
+    background: #dce2da;
+    color: white;
+    text-decoration: none;
   }
   .hero img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
-    animation: reveal 0.35s ease-out;
+    animation: appear 0.3s ease;
   }
   .hero::after {
     content: '';
     position: absolute;
-    inset: 30% 0 0;
-    background: linear-gradient(transparent, rgba(10, 25, 16, 0.9));
-    z-index: 1;
+    inset: 40% 0 0;
+    background: linear-gradient(transparent, #102c20e8);
     pointer-events: none;
   }
   .caption {
     position: absolute;
-    left: 32px;
-    right: 32px;
-    bottom: 26px;
-    z-index: 2;
+    left: 24px;
+    right: 24px;
+    bottom: 24px;
+    z-index: 1;
   }
-  .caption span {
-    font-size: 12px;
-    letter-spacing: 0.06em;
-    color: #e4e9dc;
-  }
-  h2 {
-    margin: 7px 0 10px;
-    font-size: clamp(27px, 3.3vw, 44px);
-    letter-spacing: -0.035em;
+  .caption h2 {
+    margin: 0 0 8px;
+    font-size: 28px;
+    letter-spacing: -0.025em;
     font-weight: 550;
   }
   .caption p {
     margin: 0;
-    max-width: 570px;
-    font-size: 15px;
+    max-width: 460px;
+    font-size: 14px;
     line-height: 1.55;
+  }
+  .hero:hover h2 {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 1px;
   }
   .choices {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
-    padding: 20px 0 26px;
+    gap: 14px;
+    margin-top: 14px;
   }
-  button {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    background: none;
-    color: var(--muted);
+  .choices button {
+    padding: 0;
     border: 0;
-    border-bottom: 2px solid transparent;
-    padding: 0 0 10px;
-    cursor: pointer;
+    background: none;
+    color: var(--green);
     text-align: left;
+    cursor: pointer;
     font: inherit;
   }
-  button img {
+  .choices img {
     width: 100%;
-    height: 110px;
+    height: 92px;
     object-fit: cover;
     display: block;
-    margin-bottom: 10px;
+    transition: filter 0.2s;
   }
-  button[aria-pressed='true'] {
-    border-color: var(--gold);
-    color: var(--green);
+  .choices span {
+    display: block;
+    font-size: 12px;
+    margin-top: 8px;
+    line-height: 1.4;
   }
-  button:hover img {
-    filter: brightness(1.08);
+  .choices button:hover img {
+    filter: brightness(1.12);
+  }
+  .entrances {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 44px;
+    padding-top: 26px;
+    border-top: 1px solid var(--line);
+  }
+  .entrances a {
+    display: block;
+    text-decoration: none;
+    padding: 8px 0;
+  }
+  .entrances h2 {
+    font-size: 21px;
+    font-weight: 550;
+    letter-spacing: -0.025em;
+    margin: 0 0 8px;
+  }
+  .entrances p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 390px;
+  }
+  .entrances a:hover h2 {
+    text-decoration: underline;
+    text-underline-offset: 5px;
   }
   a:focus-visible,
   button:focus-visible {
     outline: 2px solid var(--gold);
     outline-offset: 5px;
   }
-  .links {
-    border-top: 1px solid var(--line);
-    display: flex;
-    gap: 32px;
-    flex-wrap: wrap;
-    padding-top: 16px;
-  }
-  .links a {
-    padding: 12px 0;
-    text-underline-offset: 5px;
-  }
-  @keyframes reveal {
+  @keyframes appear {
     from {
       opacity: 0.5;
     }
@@ -170,103 +206,161 @@ const Page = styled.div`
     .hero img {
       animation: none;
     }
+    .choices img {
+      transition: none;
+    }
+  }
+  @media (max-width: 800px) {
+    .opening {
+      gap: 28px;
+      grid-template-columns: 0.7fr 1.3fr;
+    }
+    h1 {
+      font-size: 42px;
+    }
+    .intro p:not(.place) {
+      font-size: 15px;
+    }
+    .caption {
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+    }
+    .caption h2 {
+      font-size: 24px;
+    }
+    .choices img {
+      height: 74px;
+    }
   }
   @media (max-width: 600px) {
     width: calc(100% - 36px);
-    padding-top: 20px;
-    header {
+    padding: 26px 0 34px;
+    .opening {
       display: block;
+    }
+    .intro {
+      padding: 0 0 28px;
+    }
+    .place {
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: 44px;
       margin-bottom: 16px;
     }
-    header a {
-      display: inline-block;
+    .intro p:not(.place) {
+      max-width: 100%;
+      margin-bottom: 20px;
     }
     .hero {
-      aspect-ratio: 0.95;
-    }
-    .caption {
-      left: 20px;
-      right: 20px;
-      bottom: 22px;
-    }
-    .caption p {
-      font-size: 14px;
+      aspect-ratio: 1.18;
     }
     .choices {
-      gap: 12px;
-      padding-top: 14px;
+      gap: 10px;
     }
-    button {
-      font-size: 12px;
-      line-height: 1.4;
+    .choices img {
+      height: 70px;
     }
-    button img {
-      height: 72px;
+    .entrances {
+      gap: 22px;
+      grid-template-columns: 1fr;
+      margin-top: 30px;
+      padding-top: 18px;
     }
-    .links {
-      gap: 6px 26px;
-      font-size: 14px;
+    .entrances a {
+      padding: 8px 0;
     }
   }
 `;
 export default function Home() {
-  const [active, setActive] = useState(0);
-  const current = features[active];
+  const [selection, setSelection] = useState({
+    active: 0,
+    alternatives: [1, 2, 3],
+  });
+  const feature = features[selection.active];
+  const swap = (slot) =>
+    setSelection((s) => ({
+      active: s.alternatives[slot],
+      alternatives: s.alternatives.map((n, i) => (i === slot ? s.active : n)),
+    }));
   return (
     <Page>
-      <header>
-        <h1>Student-built architecture at Cal Poly.</h1>
-        <Link to="/structures">Explore the structures</Link>
-      </header>
-      <Link
-        className="hero"
-        to={`/structures/${current.url}`}
-        aria-label={`Read about ${current.name}`}
-      >
-        <img
-          key={current.number}
-          src={current.small}
-          srcSet={`${current.small} 800w, ${current.large} 1600w`}
-          sizes="(max-width:600px) calc(100vw - 36px), (max-width:1320px) calc(100vw - 80px), 1240px"
-          width="1600"
-          height={current.number === 7 ? 1200 : 1067}
-          alt={current.name}
-          fetchPriority="high"
-        />
-        <div className="caption" aria-live="polite">
-          <span>No. {current.number}</span>
-          <h2>{current.name}</h2>
-          <p>{current.text}</p>
+      <div className="opening">
+        <div className="intro">
+          <p className="place">Cal Poly · San Luis Obispo</p>
+          <h1>Poly Canyon</h1>
+          <p>
+            A hillside of student-built structures. Explore the designs, the
+            people who built them, and the paths between.
+          </p>
+          <Link className="explore" to="/structures">
+            Explore the structures <span aria-hidden="true">→</span>
+          </Link>
         </div>
-      </Link>
-      <div
-        className="choices"
-        role="group"
-        aria-label="Choose a featured structure"
-      >
-        {features.map((feature, i) => (
-          <button
-            key={feature.number}
-            aria-label={`Show ${feature.name}`}
-            aria-pressed={active === i}
-            onClick={() => setActive(i)}
+        <div>
+          <Link
+            className="hero"
+            to={`/structures/${feature.url}`}
+            aria-label={`Read about ${feature.name}`}
           >
             <img
+              key={feature.number}
               {...getResponsiveImage(
-                thumbnailImages[`M-${feature.number}`],
-                '(max-width:600px) 30vw, 390px'
+                mainImages[`M-${feature.number}`],
+                '(max-width:600px) calc(100vw - 36px), (max-width:1320px) 60vw, 800px'
               )}
-              alt=""
-              width="480"
-              height="320"
+              width="1080"
+              height="720"
+              alt={feature.name}
+              fetchPriority="high"
             />
-            {feature.name}
-          </button>
-        ))}
+            <div className="caption" aria-live="polite">
+              <h2>{feature.name}</h2>
+              <p>{feature.text}</p>
+            </div>
+          </Link>
+          <div
+            className="choices"
+            role="group"
+            aria-label="More structures to explore"
+          >
+            {selection.alternatives.map((n, slot) => (
+              <button
+                key={slot}
+                onClick={() => swap(slot)}
+                aria-label={`Feature ${features[n].name}`}
+              >
+                <img
+                  {...getResponsiveImage(
+                    thumbnailImages[`M-${features[n].number}`],
+                    '(max-width:600px) 30vw, 240px'
+                  )}
+                  width="480"
+                  height="320"
+                  alt=""
+                />
+                <span>{features[n].name}</span>
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
-      <div className="links">
-        <Link to="/about">Learn about the canyon</Link>
-        <Link to="/app">Download the app</Link>
+      <div className="entrances">
+        <Link to="/about">
+          <h2>The canyon, then and now</h2>
+          <p>
+            How an outdoor laboratory grew—and what to know before walking up
+            from campus.
+          </p>
+        </Link>
+        <Link to="/app">
+          <h2>A guide for your own visit</h2>
+          <p>
+            Find your way with the illustrated map, or explore the photo Tour
+            from wherever you are.
+          </p>
+        </Link>
       </div>
     </Page>
   );

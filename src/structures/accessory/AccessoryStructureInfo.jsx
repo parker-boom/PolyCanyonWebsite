@@ -10,7 +10,8 @@ import GoogleMapLandmark from '../extraComponents/GoogleMapLandmark.jsx';
 export default function AccessoryStructureInfo() {
   const {
     currentStructure: structure,
-    previousStructure, nextStructure,
+    previousStructure,
+    nextStructure,
     handleNext,
     handlePrev,
     backToList,
@@ -33,7 +34,8 @@ export default function AccessoryStructureInfo() {
         <span>Accessory</span>
       </S.Topline>
       <S.Header>
-        <h1>Smaller structures</h1><span>{structure.name}</span>
+        <h1>{structure.name}</h1>
+        <span>Smaller structures & connections</span>
       </S.Header>
       <S.Figure>
         <S.PhotoButton as="div" style={{ cursor: 'default' }}>
@@ -51,8 +53,12 @@ export default function AccessoryStructureInfo() {
         <S.Facts aria-label="Structure details">
           <dl>
             <div>
-              <dt>Year</dt>
-              <dd>{structure.year}</dd>
+              <dt>Dates</dt>
+              <dd>
+                {structure.name.toLowerCase().includes('metal entrance')
+                  ? 'Date not confirmed'
+                  : structure.year}
+              </dd>
             </div>
             <div>
               <dt>Status</dt>
@@ -74,8 +80,26 @@ export default function AccessoryStructureInfo() {
         </S.Facts>
       </S.Columns>
       <S.BottomNav aria-label="Adjacent accessory structures">
-        {previousStructure ? <S.Button aria-label={`Previous: ${previousStructure.name}`} onClick={handlePrev}><FaArrowLeft /> {previousStructure.name}</S.Button> : <span />}
-        {nextStructure ? <S.Button aria-label={`Next: ${nextStructure.name}`} onClick={handleNext}>{nextStructure.name} <FaArrowRight /></S.Button> : <S.Button onClick={backToList}>Back to collection</S.Button>}
+        {previousStructure ? (
+          <S.Button
+            aria-label={`Previous: ${previousStructure.name}`}
+            onClick={handlePrev}
+          >
+            <FaArrowLeft /> {previousStructure.name}
+          </S.Button>
+        ) : (
+          <span />
+        )}
+        {nextStructure ? (
+          <S.Button
+            aria-label={`Next: ${nextStructure.name}`}
+            onClick={handleNext}
+          >
+            {nextStructure.name} <FaArrowRight />
+          </S.Button>
+        ) : (
+          <S.Button onClick={backToList}>Back to collection</S.Button>
+        )}
       </S.BottomNav>
     </S.Page>
   );

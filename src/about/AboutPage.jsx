@@ -1,64 +1,70 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import MapEmbed from '../components/MapEmbed.jsx';
-import dome from '../assets/generated/info/a1.webp';
-import domeSmall from '../assets/generated/info/a1-800.webp';
-import researchArchive from './researchArchive.html?raw';
+import {
+  mainImages,
+  getResponsiveImage,
+} from '../structures/images/structureImages.js';
 import { intro, visit, history, project } from './articleContent.js';
 const Page = styled.article`
-  width: min(1040px, calc(100% - 80px));
+  width: min(1120px, calc(100% - 80px));
   margin: 0 auto;
-  padding: 28px 0 56px;
-  color: var(--ink);
+  padding: 40px 0 56px;
+  .opening {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 64px;
+    align-items: center;
+    padding-bottom: 36px;
+    border-bottom: 1px solid var(--line);
+  }
+  h1 {
+    font-size: clamp(32px, 3.6vw, 44px);
+    line-height: 1.15;
+    letter-spacing: -0.04em;
+    font-weight: 550;
+    margin: 0 0 24px;
+    color: var(--green);
+  }
   figure {
-    margin: 0 0 32px;
+    margin: 0;
   }
   figure img {
-    display: block;
     width: 100%;
-    height: auto;
-    aspect-ratio: 1.9;
+    aspect-ratio: 1.25;
     object-fit: cover;
+    display: block;
   }
   figcaption {
     font-size: 12px;
     color: var(--muted);
     margin-top: 10px;
   }
-  .reading {
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  h1 {
-    color: var(--green);
-    font-size: clamp(34px, 4.2vw, 50px);
-    line-height: 1.1;
-    font-weight: 600;
-    letter-spacing: -0.045em;
-    margin: 0 0 24px;
-  }
-  h2 {
-    color: var(--green);
-    font-size: 27px;
-    line-height: 1.25;
-    font-weight: 550;
-    letter-spacing: -0.03em;
-    margin: 36px 0 18px;
-  }
   p,
   li {
     font-size: 16px;
-    line-height: 1.85;
-  }
-  p {
+    line-height: 1.8;
     margin: 0 0 20px;
-  }
-  li {
-    padding-bottom: 10px;
   }
   a {
     color: var(--green);
     text-underline-offset: 4px;
+  }
+  a:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 4px;
+  }
+  .reading {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  h2 {
+    font-size: 25px;
+    letter-spacing: -0.025em;
+    font-weight: 550;
+    line-height: 1.3;
+    margin: 36px 0 18px;
+    color: var(--green);
   }
   .sources {
     font-size: 13px;
@@ -67,35 +73,40 @@ const Page = styled.article`
   section {
     scroll-margin-top: 24px;
   }
-  details {
-    margin: 24px 0;
-    border-top: 1px solid var(--line);
+  #visit {
+    padding-bottom: 12px;
     border-bottom: 1px solid var(--line);
   }
-  summary {
-    padding: 16px 0;
-    cursor: pointer;
-    color: var(--green);
-    font-size: 14px;
-    line-height: 1.5;
+  #project {
+    margin-top: 36px;
+    padding-top: 4px;
+    border-top: 1px solid var(--line);
   }
-  details[open] {
-    padding-bottom: 16px;
-  }
-  details h1 {
-    font-size: 28px;
-    margin-top: 20px;
-  }
-  a:focus-visible,
-  summary:focus-visible {
-    outline: 2px solid var(--gold);
-    outline-offset: 4px;
+  @media (max-width: 760px) {
+    .opening {
+      gap: 28px;
+    }
+    .opening p {
+      font-size: 15px;
+    }
   }
   @media (max-width: 600px) {
     width: calc(100% - 36px);
-    padding-top: 20px;
+    padding-top: 26px;
+    .opening {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 24px;
+    }
+    h1 {
+      font-size: 32px;
+    }
     figure img {
-      aspect-ratio: 1.4;
+      aspect-ratio: 1.6;
+    }
+    .opening p:last-child {
+      margin-bottom: 0;
     }
     p,
     li {
@@ -106,41 +117,34 @@ const Page = styled.article`
 export default function AboutPage() {
   return (
     <Page>
-      <figure>
-        <img
-          src={domeSmall}
-          srcSet={`${domeSmall} 800w, ${dome} 1600w`}
-          sizes="(max-width:600px) calc(100vw - 36px), (max-width:1120px) calc(100vw - 80px), 1040px"
-          width="1600"
-          height="1067"
-          alt="The Geodesic Dome’s open framework on a grassy slope in Poly Canyon"
-          fetchPriority="high"
-        />
-        <figcaption>
-          The Geodesic Dome, moved to Poly Canyon in 1963.
-        </figcaption>
-      </figure>
+      <header className="opening">
+        <div>
+          <h1>About Poly Canyon</h1>
+          <div dangerouslySetInnerHTML={{ __html: intro }} />
+          <a href="#visit">Plan a walk from campus</a>
+        </div>
+        <figure>
+          <Link
+            to="/structures/cantileverDeck"
+            aria-label="Read about Cantilever Deck"
+          >
+            <img
+              {...getResponsiveImage(
+                mainImages['M-8'],
+                '(max-width:600px) calc(100vw - 36px), 460px'
+              )}
+              width="1080"
+              height="720"
+              alt="Cantilever Deck among the canyon’s grassy hills"
+            />
+          </Link>
+          <figcaption>Cantilever Deck and the landscape around it.</figcaption>
+        </figure>
+      </header>
       <div className="reading">
-        <h1>An outdoor construction laboratory</h1>
-        <div dangerouslySetInnerHTML={{ __html: intro }} />
         <div dangerouslySetInnerHTML={{ __html: visit }} />
-        <MapEmbed
-          latitude={35.31344}
-          longitude={-120.65192}
-          title="Entry Arch destination map"
-          height={300}
-          directions
-        />
         <div dangerouslySetInnerHTML={{ __html: history }} />
         <div dangerouslySetInnerHTML={{ __html: project }} />
-        <details>
-          <summary>Background notes &amp; original research</summary>
-          <p>
-            Preserved background from the earlier About article, including
-            historical stewardship and regional climate notes.
-          </p>
-          <div dangerouslySetInnerHTML={{ __html: researchArchive }} />
-        </details>
       </div>
     </Page>
   );

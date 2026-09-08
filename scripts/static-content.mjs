@@ -110,10 +110,6 @@ export async function createStaticContent(structures, manifest) {
       throw new Error(`Missing app screenshot: ${name}`);
     return `<figure><img src="/${escapeHTML(small.file)}" srcset="/${escapeHTML(small.file)} 360w, /${escapeHTML(large.file)} 720w" sizes="(max-width:360px) 76vw, (max-width:760px) 280px, 296px" width="1320" height="2868" alt="${escapeHTML(caption)}" loading="lazy" decoding="async"><figcaption>${escapeHTML(caption)}</figcaption></figure>`;
   };
-  const researchArchive = await readFile(
-    new URL('../src/about/researchArchive.html', import.meta.url),
-    'utf8'
-  );
   const recordByRoute = new Map(
     structures.map((record) => [`/structures/${record.url}`, record])
   );
@@ -198,7 +194,7 @@ export async function createStaticContent(structures, manifest) {
     } else if (route === '/support') {
       body += `<p>${link(`mailto:${contactEmail}`, 'Contact Parker')} · ${escapeHTML(contactEmail)}</p>`;
     } else if (route === '/about') {
-      body = `<h1>An outdoor construction laboratory</h1>${photo('src/assets/generated/info/a1.webp', 'The Geodesic Dome in Poly Canyon', '(max-width:600px) calc(100vw - 36px), (max-width:1120px) calc(100vw - 80px), 1040px', true)}${intro}${visit}${history}${project}<details><summary>Background notes &amp; original research</summary><p>Preserved background from the earlier About article, including historical stewardship and regional climate notes.</p>${researchArchive}</details>`;
+      body = `<h1>About Poly Canyon</h1>${photo(images.mainImages['M-8'], 'Cantilever Deck in Poly Canyon')}${intro}${visit}${history}${project}`;
     } else if (route === '/app') {
       body =
         '<h1>Poly Canyon for iPhone</h1><p>Take the canyon’s illustrated map, photographs, and stories with you, even offline.</p><p>Visits are optional and use location only while the app is open.</p>';

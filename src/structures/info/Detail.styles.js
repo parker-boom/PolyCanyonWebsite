@@ -59,9 +59,8 @@ export const Topline = styled.div`
 `;
 export const Header = styled.header`
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
+  align-items: center;
+  gap: 16px;
   margin-bottom: 26px;
   h1 {
     margin: 0;
@@ -76,6 +75,10 @@ export const Header = styled.header`
     color: #826322;
     font-size: 12px;
     font-variant-numeric: tabular-nums;
+    padding: 6px 8px;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    flex-shrink: 0;
   }
   @media (max-width: 640px) {
     gap: 12px;
@@ -94,6 +97,8 @@ export const PhotoButton = styled.button`
   border: 0;
   padding: 0;
   background: transparent;
+  aspect-ratio: ${(p) => p.$ratio || 'auto'};
+  max-height: 560px;
   cursor: zoom-in !important;
   img {
     display: block;
@@ -164,8 +169,8 @@ export const Thumbnails = styled.div`
 `;
 export const DetailGrid = styled.div`
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(240px, 1fr);
-  grid-template-areas: 'gallery facts' 'research facts';
+  grid-template-columns: ${(p) => (p.$portrait ? 'minmax(0, 420px) minmax(280px, 1fr)' : 'minmax(0, 2fr) minmax(240px, 1fr)')};
+  grid-template-areas: ${(p) => (p.$portrait ? "'gallery facts' 'research research'" : "'gallery facts' 'research facts'")};
   gap: 26px 48px;
   > .gallery {
     grid-area: gallery;
@@ -173,6 +178,7 @@ export const DetailGrid = styled.div`
   }
   > aside {
     grid-area: facts;
+    max-width: 420px;
   }
   > div:not(.gallery) {
     grid-area: research;
@@ -201,6 +207,7 @@ export const Columns = styled.div`
   }
 `;
 export const Research = styled.div`
+  max-width: 70ch;
   font-size: 17px;
   line-height: 1.75;
   overflow-wrap: anywhere;

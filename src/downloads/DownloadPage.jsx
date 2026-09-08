@@ -1,151 +1,301 @@
 import React, { useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { FaApple, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import structures360 from '../assets/generated/app/second-pass/collection-360.webp';
-import structures720 from '../assets/generated/app/second-pass/collection-720.webp';
-import tour360 from '../assets/generated/app/second-pass/tour-360.webp';
-import tour720 from '../assets/generated/app/second-pass/tour-720.webp';
+import styled from 'styled-components';
+import { Phone, DownloadButton } from './DownloadPage.styles.js';
 import map360 from '../assets/generated/app/second-pass/map-360.webp';
 import map720 from '../assets/generated/app/second-pass/map-720.webp';
-import {
-  PageContainer,
-  Introduction,
-  Copy,
-  DownloadButton,
-  Screens,
-  ScreenControls,
-  Phone,
-} from './DownloadPage.styles.js';
-const screenshots = [
+import collection360 from '../assets/generated/app/second-pass/collection-360.webp';
+import collection720 from '../assets/generated/app/second-pass/collection-720.webp';
+import tour360 from '../assets/generated/app/second-pass/tour-360.webp';
+import tour720 from '../assets/generated/app/second-pass/tour-720.webp';
+const features = [
   {
-    title: 'Walk with the map',
-    caption:
-      'Find the structures along the canyon’s paths with the illustrated map.',
+    name: 'On foot',
+    title: 'Find your way through the canyon.',
+    text: 'Follow the illustrated paths and locate the structures as you explore.',
     small: map360,
     large: map720,
-    alt: 'The app’s illustrated canyon map with numbered structures and Map selected',
+    alt: 'The app’s illustrated map of Poly Canyon and its numbered structures',
   },
   {
-    title: 'Discover the structures',
-    caption: 'Browse the photographs, open a structure, and read its story.',
-    small: structures360,
-    large: structures720,
-    alt: 'The app’s collection of structure photographs, names, and numbers',
+    name: 'Structures',
+    title: 'Look closer at what you find.',
+    text: 'Open a structure’s photographs and story, and connect a design with the people who built it.',
+    small: collection360,
+    large: collection720,
+    alt: 'The photographic structure collection in the Poly Canyon app',
   },
   {
-    title: 'Tour from anywhere',
-    caption:
-      'Move through the canyon in photographs and see each stop on the map.',
+    name: 'Tour',
+    title: 'Explore from wherever you are.',
+    text: 'Move through the structures in photographs. Each stop connects back to its place on the canyon map.',
     small: tour360,
     large: tour720,
-    alt: 'The photo-led Tour showing Palm Tree, previous and next controls, and its canyon map location',
+    alt: 'The photo-led Tour showing Palm Tree and its location on the map',
   },
 ];
+const Page = styled.article`
+  width: min(1040px, calc(100% - 80px));
+  margin: 0 auto;
+  padding: 38px 0 44px;
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 120px;
+    align-items: center;
+  }
+  h1 {
+    font-size: clamp(36px, 4vw, 48px);
+    font-weight: 550;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    margin: 0 0 22px;
+    color: var(--green);
+  }
+  .intro {
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--muted);
+    margin: 0 0 26px;
+    max-width: 430px;
+  }
+  .choices {
+    display: flex;
+    gap: 8px;
+    margin: 36px 0 22px;
+    border-bottom: 1px solid var(--line);
+  }
+  .choices button {
+    font: inherit;
+    font-size: 14px;
+    padding: 12px 14px;
+    min-height: 44px;
+    color: var(--muted);
+    border: 0;
+    border-bottom: 2px solid transparent;
+    background: none;
+    cursor: pointer;
+  }
+  .choices button[aria-pressed='true'] {
+    color: var(--green);
+    border-bottom-color: var(--gold);
+  }
+  .choices button:hover {
+    background: #edf1e9;
+  }
+  h2 {
+    font-size: 24px;
+    line-height: 1.25;
+    font-weight: 550;
+    letter-spacing: -0.025em;
+    margin: 0 0 12px;
+    color: var(--green);
+  }
+  .feature-copy {
+    min-height: 138px;
+  }
+  .feature-copy p {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.75;
+    margin: 0;
+    max-width: 380px;
+  }
+  .device {
+    width: 300px;
+    margin: 0 auto;
+  }
+  .screen-window {
+    overflow: hidden;
+  }
+  .strip {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .strip::-webkit-scrollbar {
+    display: none;
+  }
+  .strip img {
+    width: 100%;
+    height: auto;
+    display: block;
+    flex: 0 0 100%;
+    min-width: 0;
+    scroll-snap-align: start;
+  }
+  .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    margin-top: 20px;
+  }
+  .controls button {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--line);
+    background: none;
+    border-radius: 50%;
+    color: var(--green);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+  }
+  .controls button:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+  .controls span {
+    font-size: 12px;
+    color: var(--muted);
+  }
+  button:focus-visible,
+  a:focus-visible,
+  .strip:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 4px;
+  }
+  @media (max-width: 900px) {
+    .layout {
+      gap: 50px;
+      grid-template-columns: 1fr 300px;
+    }
+    .device {
+      width: 280px;
+    }
+  }
+  @media (max-width: 650px) {
+    width: calc(100% - 36px);
+    padding-top: 28px;
+    .layout {
+      display: block;
+    }
+    h1 {
+      font-size: 36px;
+    }
+    .intro {
+      font-size: 16px;
+    }
+    .choices {
+      margin-top: 28px;
+    }
+    .feature-copy {
+      min-height: 108px;
+    }
+    h2 {
+      font-size: 22px;
+    }
+    .device {
+      width: min(280px, calc(100vw - 72px));
+      margin-top: 24px;
+    }
+  }
+`;
 export default function DownloadPage() {
-  const screensRef = useRef(null);
   const [active, setActive] = useState(0);
-  const moveTo = (index) => {
-    const strip = screensRef.current;
-    const target = strip.children[index];
-    strip.scrollTo({
-      left: target.offsetLeft - strip.children[0].offsetLeft,
+  const ref = useRef(null);
+  const move = (index) => {
+    if (index < 0 || index >= features.length) return;
+    ref.current.scrollTo({
+      left: ref.current.clientWidth * index,
       behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
         ? 'instant'
         : 'smooth',
     });
   };
-  const trackScreen = () => {
-    const strip = screensRef.current;
-    const start =
-      strip.getBoundingClientRect().left +
-      parseFloat(getComputedStyle(strip).paddingLeft);
-    const distances = [...strip.children].map((child) =>
-      Math.abs(child.getBoundingClientRect().left - start)
-    );
-    setActive(distances.indexOf(Math.min(...distances)));
-  };
   return (
-    <PageContainer>
-      <Introduction>
-        <Copy>
+    <Page>
+      <div className="layout">
+        <div>
           <h1>
             Poly Canyon
             <br />
             for iPhone
           </h1>
-        </Copy>
-        <div>
-          <p>
-            Take the canyon’s illustrated map, photographs, and stories with
-            you, even offline.
+          <p className="intro">
+            An illustrated map for exploring in person, with photographs and
+            stories to bring the structures into view. Away from the canyon?
+            Take the photo Tour.
           </p>
           <DownloadButton
             href="https://apps.apple.com/us/app/poly-canyon/id6499063781"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Get Poly Canyon on the App Store (opens in a new tab)"
           >
             <FaApple aria-hidden="true" />
-            <span>Get it on the App Store</span>
-            <span aria-hidden="true">↗</span>
+            Download on the App Store
           </DownloadButton>
-          <p style={{ fontSize: 13, marginTop: 14 }}>
-            <Link to="/support">App support</Link>
-          </p>
+          <div
+            className="choices"
+            role="group"
+            aria-label="Explore app features"
+          >
+            {features.map((f, i) => (
+              <button
+                key={f.name}
+                aria-pressed={active === i}
+                onClick={() => move(i)}
+              >
+                {f.name}
+              </button>
+            ))}
+          </div>
+          <div className="feature-copy" aria-live="polite">
+            <h2>{features[active].title}</h2>
+            <p>{features[active].text}</p>
+          </div>
         </div>
-      </Introduction>
-      <Screens
-        ref={screensRef}
-        onScroll={trackScreen}
-        id="app-screens"
-        role="region"
-        aria-label="Poly Canyon app screenshots"
-        tabIndex={0}
-      >
-        {screenshots.map((screen, i) => (
-          <figure key={screen.small}>
-            <Phone>
-              <div className="display">
-                <img
-                  src={screen.small}
-                  srcSet={`${screen.small} 360w, ${screen.large} 720w`}
-                  sizes="(max-width:360px) 76vw, (max-width:760px) 280px, (max-width:900px) 28vw, 296px"
-                  width="1320"
-                  height="2868"
-                  alt={screen.alt}
-                  loading={i === 0 ? 'eager' : 'lazy'}
-                  decoding="async"
-                />
+        <div className="device">
+          <Phone>
+            <div className="display screen-window">
+              <div
+                className="strip"
+                ref={ref}
+                role="region"
+                aria-label="App screens"
+                tabIndex={0}
+                onScroll={() =>
+                  setActive(
+                    Math.round(ref.current.scrollLeft / ref.current.clientWidth)
+                  )
+                }
+              >
+                {features.map((f, i) => (
+                  <img
+                    key={f.name}
+                    src={f.small}
+                    srcSet={`${f.small} 360w, ${f.large} 720w`}
+                    sizes="300px"
+                    width="1320"
+                    height="2868"
+                    alt={f.alt}
+                    loading={i === 0 ? 'eager' : 'lazy'}
+                  />
+                ))}
               </div>
-            </Phone>
-            <figcaption>
-              <h2>{screen.title}</h2>
-              <p>{screen.caption}</p>
-            </figcaption>
-          </figure>
-        ))}
-      </Screens>
-      <ScreenControls aria-label="App screenshot navigation">
-        <button
-          aria-label="Previous app screenshot"
-          aria-controls="app-screens"
-          disabled={active === 0}
-          onClick={() => moveTo(active - 1)}
-        >
-          <FaArrowLeft aria-hidden="true" />
-        </button>
-        <span aria-live="polite">
-          {active + 1} / {screenshots.length}
-        </span>
-        <button
-          aria-label="Next app screenshot"
-          aria-controls="app-screens"
-          disabled={active === screenshots.length - 1}
-          onClick={() => moveTo(active + 1)}
-        >
-          <FaArrowRight aria-hidden="true" />
-        </button>
-      </ScreenControls>
-    </PageContainer>
+            </div>
+          </Phone>
+          <div className="controls">
+            <button
+              aria-label="Previous app screen"
+              disabled={active === 0}
+              onClick={() => move(active - 1)}
+            >
+              <FaArrowLeft />
+            </button>
+            <span>{active + 1} / 3</span>
+            <button
+              aria-label="Next app screen"
+              disabled={active === 2}
+              onClick={() => move(active + 1)}
+            >
+              <FaArrowRight />
+            </button>
+          </div>
+        </div>
+      </div>
+    </Page>
   );
 }

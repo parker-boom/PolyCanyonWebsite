@@ -3,6 +3,7 @@ export const Page = styled.div`
   width: min(1240px, calc(100% - 80px));
   margin: 0 auto;
   padding: 28px 0 64px;
+  .sr-only {position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;}
   @media (max-width: 600px) {
     width: calc(100% - 36px);
     padding: 24px 0 40px;
@@ -41,66 +42,13 @@ export const Heading = styled.div`
   }
 `;
 export const Tools = styled.div`
-  display: flex;
-  gap: 24px;
-  align-items: center;
-  margin-bottom: 12px;
-  .search {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 0 16px;
-    border: 1px solid #aebdb2;
-    background: #fff;
-    flex: 1;
-    min-width: 0;
-  }
-  .search:focus-within {
-    outline: 2px solid var(--gold);
-    outline-offset: 2px;
-  }
-  .search svg {
-    color: var(--muted);
-    width: 16px;
-    flex-shrink: 0;
-  }
-  input {
-    background: none;
-    border: 0;
-    color: var(--ink);
-    width: 100%;
-    min-width: 0;
-    height: 48px;
-    outline: none;
-  }
-  input::placeholder {
-    color: var(--muted);
-  }
-  .random {
-    flex-shrink: 0;
-    width: 48px;
-    height: 48px;
-    display: grid;
-    place-items: center;
-    border: 0;
-    background: none;
-    color: var(--green);
-    cursor: pointer;
-  }
-  .random svg {
-    width: 22px;
-    height: 22px;
-  }
-  .random:hover {
-    background: #e9eee5;
-  }
-  .random:focus-visible {
-    outline: 2px solid var(--gold);
-    outline-offset: 3px;
-  }
-  @media (max-width: 600px) {
-    gap: 12px;
-  }
+ display:flex;align-items:center;gap:0;border:1px solid #b8c4b9;background:#fff;margin-bottom:26px;
+ .search{display:flex;align-items:center;gap:12px;padding:0 16px;flex:1;min-width:0;}.search svg{color:var(--muted);width:14px;flex-shrink:0;}
+ input{width:100%;min-width:0;height:50px;border:0;background:none;color:var(--green);outline:none;font-size:15px;}
+ &:focus-within{outline:2px solid var(--gold);outline-offset:3px;}
+ .random{width:48px;height:48px;flex-shrink:0;border:0;background:none;color:var(--green);display:grid;place-items:center;cursor:pointer;}.random svg{width:20px;height:20px;}.random:hover{background:#edf1e9;}
+ .sort{border-left:1px solid var(--line);padding:0 10px;}select{height:48px;border:0;background:none;color:var(--green);font-size:13px;max-width:125px;cursor:pointer;}
+ @media(max-width:420px){.search{padding:0 10px;gap:8px;}input{font-size:14px;}.random{width:40px;}.sort{padding:0 4px;}select{max-width:94px;font-size:12px;}}
 `;
 export const SortBar = styled.div`
   display: flex;

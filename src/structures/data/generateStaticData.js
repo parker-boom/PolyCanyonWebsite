@@ -1,4 +1,5 @@
 import fs from 'fs/promises';
+import sharp from 'sharp';
 import path from 'path';
 import { fileURLToPath } from 'node:url';
 import { readStructures } from '../../../scripts/structure-data.mjs';
@@ -23,6 +24,7 @@ async function generateStaticData() {
         imageCount: images?.length || 0,
         url,
         title: names[0],
+        aliases: names.slice(1),
         image_key: `M-${number}`,
         status: status || 'Active', // Providing a default value in case status is missing
       })
@@ -37,6 +39,21 @@ async function generateStaticData() {
       status: 'Active',
     });
 
+    const ratios = {};
+    for (const group of ['main', 'other', 'close']) {
+      const dir = path.join(root, 'src/structures/images', group);
+      for (const file of await fs.readdir(dir)) {
+        if (!file.endsWith('.webp')) continue;
+        const info = await sharp(path.join(dir, file)).metadata();
+        ratios[file.replace('.webp', '')] = Number(
+          (info.width / info.height).toFixed(4)
+        );
+      }
+    }
+    await fs.writeFile(
+      path.join(dataDir, 'photoRatios.json'),
+      JSON.stringify(ratios)
+    );
     // Save files
     await Promise.all([
       fs.writeFile(

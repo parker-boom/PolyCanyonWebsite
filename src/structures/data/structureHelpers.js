@@ -15,7 +15,7 @@ export function sortStructures(
       (s) =>
         (!status || s.status.toLowerCase() === status.toLowerCase()) &&
         (!search ||
-          [s.number, s.title, s.description].some((v) =>
+          [s.number, s.title, s.description, ...(s.aliases || [])].some((v) =>
             String(v ?? '')
               .toLowerCase()
               .includes(search)

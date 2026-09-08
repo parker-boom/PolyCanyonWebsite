@@ -10,6 +10,7 @@ import * as S from './Detail.styles.js';
 import { useMediaQuery } from 'react-responsive';
 import useStructureDetail from '../hooks/useStructureDetail.js';
 import useDialog from '../hooks/useDialog.js';
+import photoRatios from '../data/photoRatios.json';
 import GoogleMapLandmark from '../extraComponents/GoogleMapLandmark.jsx';
 
 export default function StructureInfo() {
@@ -60,6 +61,11 @@ export default function StructureInfo() {
       </S.Page>
     );
   const current = structure.images[index];
+  const ratio =
+    photoRatios[current?.path.split('/').pop().replace('.webp', '')] || 1.5;
+  const caption = /^main image of\b/i.test(current?.description || '')
+    ? ''
+    : current?.description;
   const fullResearch = structure.extended_description?.trim();
   const advisors = structure.advisor_builders
     ?.filter((p) => p.role.includes('Advisor'))
@@ -70,11 +76,10 @@ export default function StructureInfo() {
     .map((p) => p.name)
     .join(', ');
   const facts = [
-    ['Year', structure.year],
+    ['Dates', structure.year],
     ['Also known as', structure.names.slice(1).join(', ')],
     ['Builders', builders],
     ['Advisors', advisors],
-    ['Status', structure.status],
   ];
   const photo =
     current && !failed[index] ? (
@@ -109,13 +114,16 @@ export default function StructureInfo() {
         {d.shareStatus && <p role="status">{d.shareStatus}</p>}
         <S.Header>
           <h1>{structure.names[0]}</h1>
-          <span>Structure {String(structure.number).padStart(2, '0')}</span>
+          <span aria-label={`Structure ${structure.number}`}>
+            {String(structure.number).padStart(2, '0')}
+          </span>
         </S.Header>
-        <S.DetailGrid>
+        <S.DetailGrid $portrait={ratio < 1}>
           <div className="gallery">
             <S.Figure>
               {current ? (
                 <S.PhotoButton
+                  $ratio={ratio}
                   aria-label="Toggle fullscreen mode"
                   onClick={() => {
                     d.toggleFullscreen();
@@ -149,7 +157,7 @@ export default function StructureInfo() {
             )}
             {current && (
               <S.Caption>
-                <span>{current.description}</span>
+                <span>{caption}</span>
                 <S.Button
                   aria-label="Expand photograph"
                   onClick={d.toggleFullscreen}
@@ -165,7 +173,12 @@ export default function StructureInfo() {
               <S.Identity>
                 <div>
                   <span>
-                    {[structure.year, structure.status]
+                    {[
+                      structure.year,
+                      structure.status === 'Ghost'
+                        ? 'Historical structure'
+                        : '',
+                    ]
                       .filter(Boolean)
                       .join(' · ')}
                   </span>
@@ -315,7 +328,7 @@ export default function StructureInfo() {
             {photo}
           </S.ViewerPhoto>
           <S.ViewerBar>
-            <p>{current?.description}</p>
+            <p>{caption}</p>
             <div>
               <S.Button
                 aria-label="Previous photograph"
