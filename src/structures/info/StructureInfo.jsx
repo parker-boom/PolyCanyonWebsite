@@ -8,6 +8,7 @@ import {
   FaPlus,
 } from 'react-icons/fa';
 import * as S from './Detail.styles.js';
+import { useMediaQuery } from 'react-responsive';
 import useStructureDetail from '../hooks/useStructureDetail.js';
 import useDialog from '../hooks/useDialog.js';
 import GoogleMapLandmark from '../extraComponents/GoogleMapLandmark.jsx';
@@ -15,6 +16,7 @@ import ContactLink from '../../components/ContactLink.jsx';
 
 export default function StructureInfo() {
   const d = useStructureDetail();
+  const compact = useMediaQuery({ maxWidth: 700 });
   const { structure, currentImageIndex: index, fullscreen } = d;
   const [zoom, setZoom] = useState(false);
   const [failed, setFailed] = useState({});
@@ -187,39 +189,51 @@ export default function StructureInfo() {
               </S.Thumbnails>
             )}
           </div>
-          <S.Facts aria-label="Structure details">
-            <dl>
-              {facts
-                .filter(([, value]) => value)
-                .map(([label, value]) => (
-                  <div key={label}>
-                    <dt>{label}</dt>
-                    <dd>{value}</dd>
-                  </div>
-                ))}
-            </dl>
-            {structure.location && (
-              <div>
-                {structure.location.latitude === 0 ? (
-                  <p>Location unknown</p>
-                ) : (
-                  <GoogleMapLandmark
-                    {...structure.location}
-                    structureName={structure.names[0]}
-                  />
-                )}
-              </div>
-            )}
-          </S.Facts>
 
           <S.Research>
-            <p>{structure.description}</p>
-            {structure.extended_description
-              ?.split(/\n\s*\n/)
-              .filter(Boolean)
-              .map((paragraph, i) => (
-                <p key={i}>{paragraph.trim()}</p>
-              ))}
+            {compact && (
+              <S.Identity>
+                <div>
+                  <span>
+                    {[structure.year, structure.status]
+                      .filter(Boolean)
+                      .join(' · ')}
+                  </span>
+                  {structure.location?.latitude !== 0 && structure.location && (
+                    <a href="#structure-location">Location ↓</a>
+                  )}
+                </div>
+                {structure.names.length > 1 && (
+                  <p>Also known as {structure.names.slice(1).join(', ')}</p>
+                )}
+              </S.Identity>
+            )}
+            <S.Story>
+              <p>{structure.description}</p>
+              {structure.extended_description
+                ?.split(/\n\s*\n/)
+                .filter(Boolean)
+                .map((paragraph, i) => (
+                  <p key={i}>{paragraph.trim()}</p>
+                ))}
+            </S.Story>
+            {compact && (builders || advisors) && (
+              <S.SupportingPeople>
+                <dl>
+                  {[
+                    ['Builders', builders],
+                    ['Advisors', advisors],
+                  ]
+                    .filter(([, value]) => value)
+                    .map(([label, value]) => (
+                      <div key={label}>
+                        <dt>{label}</dt>
+                        <dd>{value}</dd>
+                      </div>
+                    ))}
+                </dl>
+              </S.SupportingPeople>
+            )}
             {d.getValidLinks().length > 0 && (
               <>
                 <h2>Sources & further reading</h2>
@@ -261,7 +275,45 @@ export default function StructureInfo() {
                 <ContactLink>contact us</ContactLink>.
               </p>
             </S.Credits>
+            {compact && structure.location && (
+              <S.Location id="structure-location">
+                {structure.location.latitude === 0 ? (
+                  <p>Location unknown</p>
+                ) : (
+                  <GoogleMapLandmark
+                    {...structure.location}
+                    structureName={structure.names[0]}
+                  />
+                )}
+              </S.Location>
+            )}
           </S.Research>
+          {!compact && (
+            <S.Facts aria-label="Structure details">
+              <dl>
+                {facts
+                  .filter(([, value]) => value)
+                  .map(([label, value]) => (
+                    <div key={label}>
+                      <dt>{label}</dt>
+                      <dd>{value}</dd>
+                    </div>
+                  ))}
+              </dl>
+              {structure.location && (
+                <div id="structure-location">
+                  {structure.location.latitude === 0 ? (
+                    <p>Location unknown</p>
+                  ) : (
+                    <GoogleMapLandmark
+                      {...structure.location}
+                      structureName={structure.names[0]}
+                    />
+                  )}
+                </div>
+              )}
+            </S.Facts>
+          )}
         </S.DetailGrid>
 
         <S.BottomNav aria-label="Adjacent structures">

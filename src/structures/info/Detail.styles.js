@@ -178,7 +178,7 @@ export const DetailGrid = styled.div`
   }
   @media (max-width: 700px) {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: 'gallery' 'facts' 'research';
+    grid-template-areas: 'gallery' 'research';
     gap: 28px;
   }
 `;
@@ -198,15 +198,10 @@ export const Columns = styled.div`
 `;
 export const Research = styled.div`
   font-size: 17px;
-  line-height: 1.85;
+  line-height: 1.75;
   overflow-wrap: anywhere;
   p {
     margin: 0 0 24px;
-  }
-  > p:first-child {
-    font-size: 20px;
-    line-height: 1.7;
-    color: #164b3b;
   }
   h2 {
     font-size: 22px;
@@ -220,9 +215,6 @@ export const Research = styled.div`
   }
   @media (max-width: 640px) {
     font-size: 16px;
-    > p:first-child {
-      font-size: 18px;
-    }
   }
 `;
 export const Facts = styled.aside`
@@ -354,4 +346,67 @@ export const ViewerPhoto = styled.div`
     object-fit: contain;
     cursor: ${(p) => (p.$zoom ? 'zoom-out' : 'zoom-in')};
   }
+`;
+
+export const Identity = styled.div`
+  margin-bottom: 24px;
+  color: #536258;
+  font-size: 14px;
+  line-height: 1.6;
+  > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: baseline;
+  }
+  a {
+    white-space: nowrap;
+    font-size: 13px;
+  }
+  p {
+    margin: 6px 0 0;
+    font-size: 13px;
+  }
+`;
+export const Story = styled.div`
+  max-width: 68ch;
+  > p {
+    margin: 0 0 24px;
+  }
+  > p:first-child {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #213b32;
+  }
+  @media (max-width: 700px) {
+    > p:first-child {
+      font-size: 17px;
+      line-height: 1.75;
+    }
+  }
+`;
+export const SupportingPeople = styled.div`
+  border-top: 1px solid #dce2da;
+  margin-top: 36px;
+  padding-top: 20px;
+  dl {
+    margin: 0;
+  }
+  dl > div + div {
+    margin-top: 16px;
+  }
+  dt {
+    font-size: 13px;
+    color: #66756b;
+    margin-bottom: 5px;
+  }
+  dd {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+`;
+export const Location = styled.div`
+  margin-top: 32px;
+  scroll-margin-top: 24px;
 `;
