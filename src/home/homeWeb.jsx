@@ -276,17 +276,17 @@ export default function Home() {
       </Hero>
       <Links>
         <Link to="/about#visiting">
-          <h2>Into the canyon</h2>
+          <h2>Visit the canyon</h2>
           <p>Walking directions & visiting information</p>
           <span aria-hidden="true">↗</span>
         </Link>
         <Link to="/about#history">
-          <h2>A place to experiment</h2>
+          <h2>History & research</h2>
           <p>The history of Poly Canyon</p>
           <span aria-hidden="true">↗</span>
         </Link>
         <Link to="/app">
-          <h2>The pocket companion</h2>
+          <h2>The iPhone app</h2>
           <p>Maps & structures on your iPhone</p>
           <span aria-hidden="true">↗</span>
         </Link>
