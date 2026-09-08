@@ -145,8 +145,6 @@ export async function createStaticContent(structures, manifest) {
       const resources = resourceLinks(record.links);
       if (resources.length)
         body += `<section><h2>Resources</h2><ul>${resources.map((item) => `<li>${link(item.URL, item.title || item.linkType || item.URL)}</li>`).join('')}</ul></section>`;
-      if (fullResearch)
-        body += `<details><summary>Research &amp; credits</summary>${paragraph(record.description)}</details>`;
       if (record.images?.length)
         body += `<section><h2>Photographs</h2>${sortImages(record.images)
           .map((image) => {
@@ -160,8 +158,20 @@ export async function createStaticContent(structures, manifest) {
           .join('')}</section>`;
     } else if (route === '/') {
       body = `<h1>Student-built architecture at Cal Poly.</h1><p>${link('/structures', 'Explore the structures')}</p>${photo('src/assets/generated/home/M-24-1600.webp', 'Shell House', '(max-width:600px) calc(100vw - 36px), (max-width:1320px) calc(100vw - 80px), 1240px', true)}<h2>Shell House</h2><p>No. 24 · A cantilevered concrete shell resting on three points, conceived as a senior project in 1964.</p><p>${link('/structures/shellHouse', 'Read about Shell House')} · ${link('/structures/geodesicDome', 'Geodesic Dome')} · ${link('/structures/bridgeHouse', 'Bridge House')}</p><p>${link('/about', 'Learn about the canyon')} · ${link('/app', 'Download the app')}</p>`;
-    } else if (route === '/structures') {
-      body += `<ul>${structures.map((s) => `<li>${link(`/structures/${s.url}`, `${s.number}. ${s.names[0]}`)} — ${escapeHTML(s.description)}</li>`).join('')}<li>${link('/structures/accessory', 'Accessory structures')}</li></ul>`;
+    } else if (route === '/structures' || route === '/structures/history') {
+      body += `<ul>${structures
+        .filter((s) =>
+          route === '/structures/history'
+            ? s.status === 'Ghost'
+            : s.status === 'Active'
+        )
+        .map(
+          (s) =>
+            `<li>${link(`/structures/${s.url}`, `${s.number}. ${s.names[0]}`)} — ${escapeHTML(s.description)}</li>`
+        )
+        .join(
+          ''
+        )}<li>${link('/structures/accessory', 'Accessory structures')}</li></ul>`;
     } else if (route === '/structures/accessory') {
       body += accessories
         .map(

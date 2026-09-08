@@ -63,9 +63,10 @@ export default function App() {
                 element={<Navigate to="/about#visit" replace />}
               />
               <Route path="/about" element={<About />} />
+              <Route path="/structures" element={<Structures />} />
               <Route
-                path="/structures"
-                element={<Structures mobile={mobile} />}
+                path="/structures/history"
+                element={<Structures historical />}
               />
               <Route
                 path="/structures/accessory"

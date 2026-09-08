@@ -10,6 +10,7 @@ import GoogleMapLandmark from '../extraComponents/GoogleMapLandmark.jsx';
 export default function AccessoryStructureInfo() {
   const {
     currentStructure: structure,
+    previousStructure, nextStructure,
     handleNext,
     handlePrev,
     backToList,
@@ -32,7 +33,7 @@ export default function AccessoryStructureInfo() {
         <span>Accessory</span>
       </S.Topline>
       <S.Header>
-        <h1>{structure.name}</h1>
+        <h1>Smaller structures</h1><span>{structure.name}</span>
       </S.Header>
       <S.Figure>
         <S.PhotoButton as="div" style={{ cursor: 'default' }}>
@@ -73,12 +74,8 @@ export default function AccessoryStructureInfo() {
         </S.Facts>
       </S.Columns>
       <S.BottomNav aria-label="Adjacent accessory structures">
-        <S.Button aria-label="Previous structure" onClick={handlePrev}>
-          <FaArrowLeft /> Previous
-        </S.Button>
-        <S.Button aria-label="Next structure" onClick={handleNext}>
-          Next <FaArrowRight />
-        </S.Button>
+        {previousStructure ? <S.Button aria-label={`Previous: ${previousStructure.name}`} onClick={handlePrev}><FaArrowLeft /> {previousStructure.name}</S.Button> : <span />}
+        {nextStructure ? <S.Button aria-label={`Next: ${nextStructure.name}`} onClick={handleNext}>{nextStructure.name} <FaArrowRight /></S.Button> : <S.Button onClick={backToList}>Back to collection</S.Button>}
       </S.BottomNav>
     </S.Page>
   );

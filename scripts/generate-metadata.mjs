@@ -22,6 +22,11 @@ const pages = {
     description:
       'Browse active and historic student-built structures in Poly Canyon. Explore photographs, project details, and original research resources.',
   },
+  '/structures/history': {
+    title: 'Past Structures — Poly Canyon',
+    description:
+      'Photographs and research documenting Poly Canyon projects that are no longer standing.',
+  },
   '/structures/accessory': {
     title: 'Accessory Structures — Poly Canyon',
     description:

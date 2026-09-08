@@ -50,3 +50,16 @@ export function galleryQuery(search, count) {
     fullscreen: count > 0 && params.get('fullscreen') === 'true',
   };
 }
+
+// Keep real records within their present/historical collection; sentinels are not neighbors.
+export function adjacentStructures(records, url) {
+  const current = records.find((s) => s.url === url);
+  const group = records
+    .filter((s) => s.number > 0 && s.status === current?.status)
+    .sort((a, b) => a.number - b.number);
+  const index = group.findIndex((s) => s.url === url);
+  return {
+    previous: index > 0 ? group[index - 1] : null,
+    next: index >= 0 ? group[index + 1] || null : null,
+  };
+}

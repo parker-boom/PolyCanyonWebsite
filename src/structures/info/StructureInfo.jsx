@@ -4,24 +4,20 @@ import {
   FaArrowRight,
   FaTimes,
   FaExpand,
-  FaMinus,
-  FaPlus,
+  FaShareAlt,
 } from 'react-icons/fa';
 import * as S from './Detail.styles.js';
 import { useMediaQuery } from 'react-responsive';
 import useStructureDetail from '../hooks/useStructureDetail.js';
 import useDialog from '../hooks/useDialog.js';
 import GoogleMapLandmark from '../extraComponents/GoogleMapLandmark.jsx';
-import ContactLink from '../../components/ContactLink.jsx';
 
 export default function StructureInfo() {
   const d = useStructureDetail();
   const compact = useMediaQuery({ maxWidth: 700 });
   const { structure, currentImageIndex: index, fullscreen } = d;
-  const [zoom, setZoom] = useState(false);
   const [failed, setFailed] = useState({});
   const touch = useRef(null);
-  useEffect(() => setZoom(false), [index]);
   const dialogRef = useDialog(fullscreen, () => d.setFullscreen(false));
   useEffect(() => {
     if (!fullscreen) return undefined;
@@ -39,10 +35,8 @@ export default function StructureInfo() {
       i++
     )
       d.handleNextImage();
-    setZoom(false);
   };
   const move = (next) => {
-    setZoom(false);
     next ? d.handleNextImage() : d.handlePrevImage();
   };
   const onTouchStart = (event) => {
@@ -52,7 +46,7 @@ export default function StructureInfo() {
         : null;
   };
   const onTouchEnd = (event) => {
-    if (!touch.current || zoom) return;
+    if (!touch.current) return;
     const dx = event.changedTouches[0].clientX - touch.current.x;
     const dy = event.changedTouches[0].clientY - touch.current.y;
     if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) move(dx < 0);
@@ -109,13 +103,13 @@ export default function StructureInfo() {
             <FaArrowLeft /> Structures
           </S.Button>
           <S.Button onClick={d.handleShare} aria-label="Share structure">
-            Share
+            <FaShareAlt aria-hidden="true" /> Share
           </S.Button>
         </S.Topline>
         {d.shareStatus && <p role="status">{d.shareStatus}</p>}
         <S.Header>
-          <span>{String(structure.number).padStart(2, '0')}</span>
           <h1>{structure.names[0]}</h1>
+          <span>Structure {String(structure.number).padStart(2, '0')}</span>
         </S.Header>
         <S.DetailGrid>
           <div className="gallery">
@@ -124,7 +118,6 @@ export default function StructureInfo() {
                 <S.PhotoButton
                   aria-label="Toggle fullscreen mode"
                   onClick={() => {
-                    setZoom(false);
                     d.toggleFullscreen();
                   }}
                 >
@@ -132,41 +125,6 @@ export default function StructureInfo() {
                 </S.PhotoButton>
               ) : (
                 <p>No photographs are available for this structure.</p>
-              )}
-              {current && (
-                <S.Caption>
-                  <span>{current.description}</span>
-                  <div>
-                    <span>
-                      {index + 1} / {structure.images.length}
-                    </span>
-                    {structure.images.length > 1 && (
-                      <>
-                        <S.Button
-                          aria-label="Previous photograph"
-                          onClick={() => move(false)}
-                        >
-                          <FaArrowLeft />
-                        </S.Button>
-                        <S.Button
-                          aria-label="Next photograph"
-                          onClick={() => move(true)}
-                        >
-                          <FaArrowRight />
-                        </S.Button>
-                      </>
-                    )}
-                    <S.Button
-                      aria-label="Expand photograph"
-                      onClick={() => {
-                        setZoom(false);
-                        d.toggleFullscreen();
-                      }}
-                    >
-                      <FaExpand />
-                    </S.Button>
-                  </div>
-                </S.Caption>
               )}
             </S.Figure>
             {structure.images.length > 1 && (
@@ -188,6 +146,17 @@ export default function StructureInfo() {
                   </button>
                 ))}
               </S.Thumbnails>
+            )}
+            {current && (
+              <S.Caption>
+                <span>{current.description}</span>
+                <S.Button
+                  aria-label="Expand photograph"
+                  onClick={d.toggleFullscreen}
+                >
+                  <FaExpand aria-hidden="true" /> View photo
+                </S.Button>
+              </S.Caption>
             )}
           </div>
 
@@ -245,37 +214,13 @@ export default function StructureInfo() {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        {link.title} ↗
+                        {link.title}
                       </a>
                     </li>
                   ))}
                 </S.Sources>
               </>
             )}
-            <S.Credits>
-              <summary>Research & credits</summary>
-              {fullResearch && <p>{structure.description}</p>}
-              <p>
-                The research comes from historical records and archives,
-                including original theses, historical images, articles and
-                official documentation. Available sources are linked above.
-              </p>
-              <p>
-                Special thanks to Danny Wills and his 4th Year Architecture
-                Studio for their comprehensive compilation of historical
-                resources; Jesse Vestermark for creating the Poly Canyon
-                Research Guide and preserving access to original theses; and the
-                CAED Department for their collective knowledge and ongoing
-                contributions.
-              </p>
-              <p>
-                Some details may be incomplete or subject to interpretation.
-                This compilation is a best effort representation of the
-                structures’ history, and should not be considered definitive. To
-                offer corrections or additional information,{' '}
-                <ContactLink>contact us</ContactLink>.
-              </p>
-            </S.Credits>
             {compact && structure.location && (
               <S.Location id="structure-location">
                 {structure.location.latitude === 0 ? (
@@ -318,17 +263,34 @@ export default function StructureInfo() {
         </S.DetailGrid>
 
         <S.BottomNav aria-label="Adjacent structures">
-          <S.Button
-            aria-label="Previous structure"
-            onClick={d.handlePrevStructure}
-          >
-            <FaArrowLeft />{' '}
-            {String(d.getPrevStructureNumber()).padStart(2, '0')} Previous
-          </S.Button>
-          <S.Button aria-label="Next structure" onClick={d.handleNextStructure}>
-            Next {String(d.getNextStructureNumber()).padStart(2, '0')}{' '}
-            <FaArrowRight />
-          </S.Button>
+          {d.previousStructure ? (
+            <S.Button
+              onClick={d.handlePrevStructure}
+              aria-label={`Previous: ${d.previousStructure.title}`}
+            >
+              <FaArrowLeft aria-hidden="true" />
+              <span>
+                <small>Previous</small>
+                {d.previousStructure.title}
+              </span>
+            </S.Button>
+          ) : (
+            <span />
+          )}
+          {d.nextStructure ? (
+            <S.Button
+              onClick={d.handleNextStructure}
+              aria-label={`Next: ${d.nextStructure.title}`}
+            >
+              <span>
+                <small>Next</small>
+                {d.nextStructure.title}
+              </span>
+              <FaArrowRight aria-hidden="true" />
+            </S.Button>
+          ) : (
+            <S.Button onClick={d.backToList}>Back to collection</S.Button>
+          )}
         </S.BottomNav>
       </S.Page>
       {fullscreen && (
@@ -342,12 +304,6 @@ export default function StructureInfo() {
             <span>{structure.names[0]}</span>
             <div>
               <S.Button
-                aria-label={zoom ? 'Zoom out' : 'Zoom in'}
-                onClick={() => setZoom((v) => !v)}
-              >
-                {zoom ? <FaMinus /> : <FaPlus />}
-              </S.Button>
-              <S.Button
                 aria-label="Exit fullscreen mode"
                 onClick={() => d.setFullscreen(false)}
               >
@@ -355,12 +311,7 @@ export default function StructureInfo() {
               </S.Button>
             </div>
           </S.ViewerBar>
-          <S.ViewerPhoto
-            $zoom={zoom}
-            onTouchStart={onTouchStart}
-            onTouchEnd={onTouchEnd}
-            onDoubleClick={() => setZoom((v) => !v)}
-          >
+          <S.ViewerPhoto onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
             {photo}
           </S.ViewerPhoto>
           <S.ViewerBar>

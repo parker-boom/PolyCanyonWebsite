@@ -1,7 +1,11 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { getStructuresList, getStructureInfo } from '../data/structuresData.js';
-import { sortImages, galleryQuery } from '../data/structureHelpers.js';
+import {
+  sortImages,
+  galleryQuery,
+  adjacentStructures,
+} from '../data/structureHelpers.js';
 import {
   mainImages,
   closeUpImages,
@@ -23,9 +27,13 @@ export default function useStructureDetail() {
   const { structureUrl } = useParams();
   const { search, state } = useLocation();
   const backToList = () =>
-    navigate(state?.returnTo || '/structures', {
-      state: { restoreScrollKey: state?.returnKey },
-    });
+    navigate(
+      state?.returnTo ||
+        (structure?.status === 'Ghost' ? '/structures/history' : '/structures'),
+      {
+        state: { restoreScrollKey: state?.returnKey },
+      }
+    );
   const structure = useMemo(() => {
     const entry = structures.find((s) => s.url === structureUrl);
     const data = entry && getStructureInfo(entry.number);
@@ -63,13 +71,15 @@ export default function useStructureDetail() {
   );
   const handlePrevImage = useCallback(() => moveImage(-1), [moveImage]);
   const handleNextImage = useCallback(() => moveImage(1), [moveImage]);
-  const position = structures.findIndex((s) => s.url === structureUrl);
-  const adjacent = (delta) =>
-    structures[(position + delta + structures.length) % structures.length];
-  const handlePrevStructure = () =>
-    navigate(`/structures/${adjacent(-1).url}`, { state });
-  const handleNextStructure = () =>
-    navigate(`/structures/${adjacent(1).url}`, { state });
+  const neighbors = adjacentStructures(structures, structureUrl);
+  const handlePrevStructure = () => {
+    if (neighbors.previous)
+      navigate(`/structures/${neighbors.previous.url}`, { state });
+  };
+  const handleNextStructure = () => {
+    if (neighbors.next)
+      navigate(`/structures/${neighbors.next.url}`, { state });
+  };
   useEffect(() => {
     if (!fullscreen) return;
     const onKey = (event) => {
@@ -124,8 +134,8 @@ export default function useStructureDetail() {
     handleNextImage,
     handlePrevStructure,
     handleNextStructure,
-    getPrevStructureNumber: () => adjacent(-1).number,
-    getNextStructureNumber: () => adjacent(1).number,
+    previousStructure: neighbors.previous,
+    nextStructure: neighbors.next,
     getValidLinks: () => links,
     handleShare,
     shareStatus,

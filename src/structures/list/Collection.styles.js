@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 export const Page = styled.div`
-  width: min(1120px, calc(100% - 80px));
+  width: min(1240px, calc(100% - 80px));
   margin: 0 auto;
   padding: 28px 0 64px;
   @media (max-width: 600px) {
@@ -11,33 +11,32 @@ export const Page = styled.div`
 export const Heading = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: end;
   gap: 24px;
-  margin-bottom: 22px;
+  margin-bottom: 28px;
   h1 {
-    font-size: clamp(36px, 4vw, 48px);
-    font-weight: 600;
-    letter-spacing: -1.8px;
+    margin: 0 0 12px;
+    font-size: clamp(34px, 4vw, 48px);
+    letter-spacing: -0.045em;
+    font-weight: 550;
+  }
+  p {
     margin: 0;
-    color: var(--green);
-  }
-  button {
-    border: 0;
-    background: none;
     color: var(--muted);
-    font-size: 16px;
-    min-width: 44px;
-    min-height: 44px;
-    padding: 10px;
-    cursor: pointer;
+    font-size: 15px;
+    line-height: 1.6;
   }
-  @media (max-width: 400px) {
-    align-items: flex-start;
-    gap: 12px;
-    button {
-      max-width: 90px;
-      text-align: right;
-      padding-top: 8px;
+  a {
+    font-size: 14px;
+    white-space: nowrap;
+    text-underline-offset: 5px;
+    padding: 12px 0;
+  }
+  @media (max-width: 600px) {
+    display: block;
+    a {
+      display: inline-block;
+      margin-top: 8px;
     }
   }
 `;
@@ -211,108 +210,102 @@ export const Section = styled.section`
 `;
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: 40px;
-  @media (max-width: 740px) {
-    grid-template-columns: 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 34px 26px;
+  @media (max-width: 1000px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 20px;
+  }
+  @media (max-width: 600px) {
+    gap: 26px 14px;
   }
 `;
 export const Item = styled.div`
-  display: grid;
-  grid-template-columns: 142px 1fr;
-  align-items: center;
-  gap: 20px;
-  border-top: 1px solid var(--line);
-  padding: 18px 0;
-  text-decoration: none;
   color: var(--green);
+  text-decoration: none;
   min-width: 0;
+  .photograph {
+    position: relative;
+    overflow: hidden;
+    background: #e9eee5;
+  }
   img {
     display: block;
-    width: 142px;
-    height: 118px;
+    width: 100%;
+    aspect-ratio: 1.3;
     object-fit: cover;
-    background: #e9eee5;
-    transition: filter 0.2s;
+    transition: transform 0.35s ease;
   }
-  &:hover img {
-    filter: brightness(1.06);
+  .number {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    font-size: 12px;
+    color: white;
+    background: #173d2bd9;
+    border-radius: 20px;
+    padding: 5px 8px;
+    font-variant-numeric: tabular-nums;
   }
   .info {
-    min-width: 0;
-  }
-  .title {
-    display: block;
-  }
-  .number {
-    display: block;
-    margin-bottom: 7px;
-  }
-  .number {
-    color: #876b2b;
-    font-size: 13px;
-    font-variant-numeric: tabular-nums;
-    flex-shrink: 0;
+    padding-top: 13px;
   }
   h3 {
-    font-size: 17px;
+    font-size: 20px;
+    line-height: 1.25;
+    margin: 0 0 6px;
     font-weight: 550;
-    letter-spacing: -0.3px;
-    line-height: 1.4;
-    margin: 0;
-    overflow-wrap: anywhere;
+    letter-spacing: -0.025em;
   }
   .year {
-    display: block;
+    font-size: 12px;
     color: var(--muted);
-    font-size: 13px;
-    margin-top: 8px;
   }
-  @media (max-width: 1000px) and (min-width: 741px) {
-    grid-template-columns: 100px 1fr;
-    gap: 14px;
-    img {
-      width: 100px;
-      height: 88px;
-    }
-    .title {
-      display: block;
+  &:hover img {
+    transform: scale(1.035);
+  }
+  &:hover h3 {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  &:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 6px;
+  }
+  @media (max-width: 600px) {
+    h3 {
+      font-size: 17px;
     }
     .number {
-      display: block;
-      margin-bottom: 4px;
+      left: 8px;
+      top: 8px;
+      font-size: 10px;
+      padding: 4px 6px;
     }
   }
-  @media (max-width: 420px) {
-    grid-template-columns: 96px 1fr;
-    gap: 12px;
-    padding: 14px 0;
+  @media (prefers-reduced-motion: reduce) {
     img {
-      width: 96px;
-      height: 104px;
+      transition: none;
     }
-    h3 {
-      font-size: 15px;
-    }
-    .title {
-      gap: 8px;
-    }
-    .year {
-      font-size: 12px;
-      margin-top: 5px;
+    &:hover img {
+      transform: none;
     }
   }
 `;
-export const Contact = styled.p`
-  border-top: 1px solid var(--line);
+export const Tail = styled.div`
+  margin-top: 40px;
   padding-top: 24px;
-  margin: 36px 0 0;
-  color: var(--muted);
+  border-top: 1px solid var(--line);
   font-size: 14px;
-  line-height: 1.7;
-  a,
-  button {
-    color: var(--green);
+  line-height: 1.6;
+  a {
+    display: inline-block;
+    padding: 8px 0;
+    text-underline-offset: 4px;
+  }
+  p {
+    color: var(--muted);
+    margin: 8px 0 0;
   }
 `;
 

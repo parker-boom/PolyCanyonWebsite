@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 export const Page = styled.article`
-  max-width: 1240px;
+  width: min(1240px, calc(100% - 80px));
   margin: 0 auto;
-  padding: 28px 40px 80px;
+  padding: 24px 0 64px;
   color: #213b32;
   button,
   a {
@@ -17,7 +17,8 @@ export const Page = styled.article`
     outline-offset: 4px;
   }
   @media (max-width: 640px) {
-    padding: 20px 20px 48px;
+    width: calc(100% - 36px);
+    padding: 20px 0 40px;
   }
 `;
 export const Button = styled.button`
@@ -45,10 +46,9 @@ export const Topline = styled.div`
   align-items: center;
   gap: 12px;
   margin-bottom: 24px;
-  > button {
+  > button:first-child {
     border-color: transparent;
     padding-left: 0;
-    padding-right: 0;
   }
   > button:hover {
     background: transparent;
@@ -59,9 +59,10 @@ export const Topline = styled.div`
 `;
 export const Header = styled.header`
   display: flex;
-  align-items: baseline;
-  gap: 20px;
-  margin-bottom: 30px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 26px;
   h1 {
     margin: 0;
     font-size: clamp(32px, 4.7vw, 58px);
@@ -73,7 +74,7 @@ export const Header = styled.header`
   }
   > span {
     color: #826322;
-    font-size: 19px;
+    font-size: 12px;
     font-variant-numeric: tabular-nums;
   }
   @media (max-width: 640px) {
@@ -86,24 +87,26 @@ export const Figure = styled.figure`
   min-width: 0;
 `;
 export const PhotoButton = styled.button`
-  display: block;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   width: 100%;
-  aspect-ratio: 4/3;
-  max-height: 480px;
   border: 0;
   padding: 0;
-  background: #e9ede5;
+  background: transparent;
   cursor: zoom-in !important;
-  overflow: hidden;
   img {
     display: block;
-    width: 100%;
-    height: 100%;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 560px;
     object-fit: contain;
   }
-  @media (max-width: 640px) {
-    aspect-ratio: auto;
-    height: 330px;
+  @media (max-width: 700px) {
+    img {
+      max-height: 480px;
+    }
   }
 `;
 export const Caption = styled.figcaption`
@@ -139,6 +142,7 @@ export const Thumbnails = styled.div`
   gap: 8px;
   overflow-x: auto;
   padding: 4px 0 12px;
+  margin-top: 14px;
   margin-bottom: 0;
   scrollbar-width: thin;
   button {
@@ -162,7 +166,7 @@ export const DetailGrid = styled.div`
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(240px, 1fr);
   grid-template-areas: 'gallery facts' 'research facts';
-  gap: 34px 56px;
+  gap: 26px 48px;
   > .gallery {
     grid-area: gallery;
     min-width: 0;
@@ -284,6 +288,18 @@ export const BottomNav = styled.nav`
   margin-top: 55px;
   padding-top: 22px;
   border-top: 1px solid #dce2da;
+  button {
+    max-width: 48%;
+    text-align: left;
+    gap: 14px;
+    line-height: 1.4;
+  }
+  small {
+    display: block;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
 `;
 export const Viewer = styled.div`
   position: fixed;
@@ -335,16 +351,16 @@ export const ViewerPhoto = styled.div`
   min-height: 0;
   overflow: auto;
   display: flex;
-  align-items: ${(p) => (p.$zoom ? 'flex-start' : 'center')};
+  align-items: center;
   touch-action: pan-x pan-y pinch-zoom;
   img {
     display: block;
-    width: ${(p) => (p.$zoom ? '180%' : '100%')};
-    height: ${(p) => (p.$zoom ? 'auto' : '100%')};
+    width: 100%;
+    height: 100%;
     flex-shrink: 0;
     max-width: none;
     object-fit: contain;
-    cursor: ${(p) => (p.$zoom ? 'zoom-out' : 'zoom-in')};
+    cursor: default;
   }
 `;
 
