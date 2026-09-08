@@ -1,7 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaApple } from 'react-icons/fa';
-import iosPreview from '../assets/generated/app/ios.webp';
+import structures from '../assets/generated/app/structures-600.webp';
+import structuresLarge from '../assets/generated/app/structures-900.webp';
+import map from '../assets/generated/app/map-600.webp';
+import mapLarge from '../assets/generated/app/map-900.webp';
+import entryArch from '../assets/generated/app/entry-arch-600.webp';
+import entryArchLarge from '../assets/generated/app/entry-arch-900.webp';
 import {
   PageContainer,
   Introduction,
@@ -9,7 +14,18 @@ import {
   DownloadButton,
   Details,
   UtilityLinks,
+  ScreenStory,
 } from './DownloadPage.styles.js';
+
+const screenProps = (src, large, alt) => ({
+  src,
+  srcSet: `${src} 600w, ${large} 900w`,
+  sizes: '(max-width: 700px) 260px, 280px',
+  width: 1206,
+  height: 2622,
+  alt,
+  decoding: 'async',
+});
 
 export default function DownloadPage() {
   return (
@@ -22,8 +38,8 @@ export default function DownloadPage() {
             for iPhone
           </h1>
           <p>
-            A map of the paths and structures, with photographs and the history
-            behind what you find.
+            The canyon’s structures, photographs, and stories. Ready to explore,
+            on the trail or from home.
           </p>
           <DownloadButton
             href="https://apps.apple.com/us/app/poly-canyon/id6499063781"
@@ -41,37 +57,56 @@ export default function DownloadPage() {
         </div>
         <figure>
           <Preview
-            src={iosPreview}
-            alt="Poly Canyon iPhone app showing its map of the canyon’s structures and trails"
-            width="540"
-            height="960"
-            decoding="async"
+            {...screenProps(
+              structures,
+              structuresLarge,
+              'The iPhone app’s photographic Structures collection, showing Entry Arch, Techite Bridge, Blade, and Spire Array'
+            )}
           />
+          <figcaption>
+            Find a structure by photograph, name, or map number.
+          </figcaption>
         </figure>
       </Introduction>
       <Details>
-        <section>
-          <h2>On the trail</h2>
-          <p>
-            Find your location on the canyon map, identify nearby structures,
-            and keep track of those you’ve visited. Historical photographs and
-            structure descriptions give context to the work around you.
-          </p>
-          <p>
-            Download the app before your visit; cell service can be spotty in
-            the canyon.
-          </p>
+        <ScreenStory>
+          <div>
+            <h2>Find your way</h2>
+            <p>
+              An illustrated canyon map connects the structures and paths. Turn
+              on location to see where you are and optionally mark visits while
+              the app is open.
+            </p>
+          </div>
+          <Preview
+            {...screenProps(
+              map,
+              mapLarge,
+              'The app’s illustrated map with numbered structures along the canyon paths'
+            )}
+            loading="lazy"
+          />
           <Link to="/about#visiting">Walking directions →</Link>
-        </section>
-        <section>
-          <h2>From wherever you are</h2>
-          <p>
-            Explore the map remotely, find favorite structures, and read their
-            histories. The website’s archive includes longer research,
-            historical photographs, and links to original project reports.
-          </p>
-          <Link to="/structures">Browse the structures →</Link>
-        </section>
+        </ScreenStory>
+        <ScreenStory>
+          <div>
+            <h2>Look a little closer</h2>
+            <p>
+              Photographs and stories bring each structure into focus. They’re
+              stored in the app for offline reading—download it before heading
+              into the canyon.
+            </p>
+          </div>
+          <Preview
+            {...screenProps(
+              entryArch,
+              entryArchLarge,
+              'Entry Arch in the app, with a large photograph and the story of its stonework'
+            )}
+            loading="lazy"
+          />
+          <Link to="/structures">Explore the full research archive →</Link>
+        </ScreenStory>
       </Details>
     </PageContainer>
   );

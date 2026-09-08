@@ -38,10 +38,10 @@ export const PageContainer = styled.article`
 `;
 export const Introduction = styled.header`
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
   align-items: center;
   gap: 70px;
-  padding-bottom: 54px;
+  padding-bottom: 72px;
   > div > p {
     max-width: 420px;
     font-size: 20px;
@@ -49,30 +49,31 @@ export const Introduction = styled.header`
   }
   figure {
     margin: 0;
-    background: #e9eddf;
-    padding: 30px 24px;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    justify-items: center;
+    gap: 20px;
+    figcaption {
+      max-width: 280px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
   }
   @media (max-width: 700px) {
     grid-template-columns: 1fr;
     gap: 28px;
     padding-bottom: 34px;
-    figure {
-      padding: 28px;
-    }
   }
 `;
 export const Preview = styled.img`
   display: block;
-  width: auto;
+  width: 280px;
   height: auto;
-  max-height: 520px;
   max-width: 100%;
-  object-fit: contain;
-  mix-blend-mode: multiply;
+  border: 1px solid var(--rule);
+  border-radius: 24px;
   @media (max-width: 700px) {
-    max-height: 440px;
+    width: 260px;
   }
 `;
 export const DownloadButton = styled.a`
@@ -114,10 +115,10 @@ export const UtilityLinks = styled.nav`
 `;
 export const Details = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 64px;
   border-top: 1px solid #c9cbbc;
-  padding-top: 38px;
+  padding-top: 54px;
   a {
     display: inline-flex;
     align-items: center;
@@ -129,5 +130,29 @@ export const Details = styled.div`
   @media (max-width: 700px) {
     grid-template-columns: 1fr;
     gap: 30px;
+  }
+`;
+
+export const ScreenStory = styled.section`
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  align-items: start;
+  justify-items: center;
+  gap: 28px;
+  > div {
+    width: 100%;
+  }
+  p {
+    margin-bottom: 0;
+  }
+  > a {
+    justify-self: start;
+  }
+  @media (max-width: 700px) {
+    gap: 24px;
+    &:not(:first-child) {
+      border-top: 1px solid var(--rule);
+      padding-top: 36px;
+    }
   }
 `;

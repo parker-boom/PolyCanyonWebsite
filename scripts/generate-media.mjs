@@ -73,6 +73,15 @@ for (const [platform, filename] of [
     width: 540,
   });
 }
+for (const screen of ['structures', 'map', 'entry-arch']) {
+  for (const width of [600, 900])
+    jobs.push({
+      source: path.join(root, 'archive/media/app-redesign', `${screen}.png`),
+      target: path.join(outputRoot, 'app', `${screen}-${width}.webp`),
+      width,
+      quality: 84,
+    });
+}
 // Hash sources, outputs and the recipe so a normal check never re-encodes photos.
 async function inventory() {
   const files = new Set(jobs.flatMap(({ source, target }) => [source, target]));

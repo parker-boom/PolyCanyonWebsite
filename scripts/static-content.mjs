@@ -136,6 +136,9 @@ export async function createStaticContent(structures, manifest) {
     } else if (route === '/about') {
       body += `<h2 id="visiting">Walking directions</h2><ol>${steps.map((step) => `<li>${escapeHTML(step)}</li>`).join('')}</ol>`;
     } else if (route === '/app') {
+      body +=
+        '<p>Explore an illustrated canyon map, photographs, and offline stories. With location enabled, optionally mark visits while the app is open.</p>';
+
       body += `<p>${link('https://apps.apple.com/us/app/poly-canyon/id6499063781', 'Get Poly Canyon for iPhone on the App Store')}</p>`;
     }
     return `<div class="static-page" data-static-page><nav aria-label="Main navigation">${[
