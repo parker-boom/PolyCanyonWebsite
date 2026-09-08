@@ -1,5 +1,7 @@
 import { resourceLinks } from '../src/structures/data/resourceLinks.js';
 import { readFile } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+import sharp from 'sharp';
 import {
   policyDate,
   policyIntroduction,
@@ -53,13 +55,42 @@ export async function createStaticContent(structures, manifest) {
         })
     );
   }
+  // Static photos need the same responsive choices and intrinsic dimensions as
+  // the interactive gallery; otherwise the preload scanner requests full-size
+  // files before React mounts and cannot reserve their place on the page.
+  const imageSizes = new Map(
+    await Promise.all(
+      Object.keys(manifest)
+        .filter(
+          (file) =>
+            file.startsWith('src/assets/generated/') && file.endsWith('.webp')
+        )
+        .map(async (file) => {
+          const { width, height } = await sharp(
+            fileURLToPath(new URL('../' + file, import.meta.url))
+          ).metadata();
+          return [file, { width, height }];
+        })
+    )
+  );
   const photo = (file, caption) => {
     const asset = manifest[file];
     if (!asset?.file)
       throw new Error(
         `Static page image is missing from the build manifest: ${file}`
       );
-    return `<figure><img src="/${escapeHTML(asset.file)}" alt="${escapeHTML(caption)}" loading="lazy" decoding="async"><figcaption>${escapeHTML(caption)}</figcaption></figure>`;
+    const smallerFile = file.replace('/structures/', '/structures/mobile/');
+    const smaller = smallerFile !== file ? manifest[smallerFile] : null;
+    const size = imageSizes.get(file);
+    const smallSize = imageSizes.get(smallerFile);
+    const responsive =
+      smaller?.file && smallSize
+        ? ` srcset="/${escapeHTML(smaller.file)} ${smallSize.width}w, /${escapeHTML(asset.file)} ${size.width}w" sizes="(max-width:700px) 100vw, 750px"`
+        : '';
+    const dimensions = size
+      ? ` width="${size.width}" height="${size.height}"`
+      : '';
+    return `<figure><img src="/${escapeHTML(smaller?.file || asset.file)}"${responsive}${dimensions} alt="${escapeHTML(caption)}" loading="lazy" decoding="async"><figcaption>${escapeHTML(caption)}</figcaption></figure>`;
   };
   const appPhoto = (name, caption) => {
     const small = manifest[`src/assets/generated/app/current/${name}-360.webp`];

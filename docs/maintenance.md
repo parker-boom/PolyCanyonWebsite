@@ -101,3 +101,7 @@ Run `node scripts/check-map-directions.mjs` with the same Playwright setup to ve
 ### App screenshots
 
 Approved native screenshots are preserved as PNG originals in `src/assets/app-captures/`. The media generator creates uncropped 360px and 720px WebP variants under `src/assets/generated/app/current/`; the App page selects a size for the screen density. Keep new media tied to the app actually being released. Current copy describes the illustrated map, photographs, offline stories, and optional foreground visits. The screenshots sit in slim CSS phone frames, with short capability captions. Desktop shows all three; below 760px the native scroll strip keeps a next-screen peek and adds manual previous/next controls. Touch and keyboard scrolling update the current screen. Reduced motion disables animated button scrolling. There is no automatic rotation.
+
+### Loading stability
+
+The route-loading placeholder reserves the viewport so the footer does not flash above the fold while a route chunk loads. Static photo HTML uses the same responsive variants as the gallery and includes intrinsic width/height from the existing generated files. Keep those attributes: otherwise the preload scanner can request full-size photos before React mounts, and the browser cannot reserve their layout space. Static-page regression checks cover the image dimensions and responsive source selection.

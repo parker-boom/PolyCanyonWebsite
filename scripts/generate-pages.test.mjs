@@ -64,6 +64,23 @@ test('two generation passes preserve every research body and resource link', asy
         for (const link of resourceLinks(record.links))
           assert.ok(body.includes(`href="${escapeHTML(link.URL)}"`));
         assert.ok(!body.includes('href="https://google.com"'));
+        for (const [photo] of body.matchAll(/<img\b[^>]*>/g)) {
+          assert.match(
+            photo,
+            /width="[1-9]\d*" height="[1-9]\d*"/,
+            `${record.url}: photo needs intrinsic dimensions`
+          );
+          assert.match(
+            photo,
+            /src="\/assets\/structures\/mobile\//,
+            `${record.url}: avoid a full-size preload before React mounts`
+          );
+          assert.match(
+            photo,
+            /srcset="[^"]+" sizes="[^"]+"/,
+            `${record.url}: preserve responsive photo choices`
+          );
+        }
         assert.equal((html.match(/<title>/g) || []).length, 1);
         assert.equal((html.match(/rel="canonical"/g) || []).length, 1);
         if (pass === 0) first.set(record.url, body);
