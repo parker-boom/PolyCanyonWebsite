@@ -40,6 +40,18 @@ try {
     await viewer
       .getByRole('button', { name: 'Zoom in', exact: true })
       .waitFor();
+    await viewer.locator('img').evaluate((image) => image.decode());
+    const portraitFits = await viewer.locator('img').evaluate((image) => {
+      const frame = image.parentElement.getBoundingClientRect();
+      const bounds = image.getBoundingClientRect();
+      return (
+        bounds.width <= frame.width + 1 && bounds.height <= frame.height + 1
+      );
+    });
+    assert.ok(
+      portraitFits,
+      `${width}px: unzoomed portrait exceeds viewer frame`
+    );
     await page.keyboard.press('Escape');
     await page.getByRole('button', { name: open, exact: true }).waitFor();
     assert.equal(await page.locator(':focus').getAttribute('aria-label'), open);
