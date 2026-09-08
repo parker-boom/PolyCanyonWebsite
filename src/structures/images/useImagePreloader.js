@@ -1,92 +1,37 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
+import { getResponsiveImage } from './structureImages.js';
 
-const useImagePreloader = ({ currentPaths, adjacentPaths = {} }) => {
-  const [imagesLoaded, setImagesLoaded] = useState(false);
-  const [loadedImages, setLoadedImages] = useState([]);
-  const [adjacentLoadedImages, setAdjacentLoadedImages] = useState({
-    prev: [],
-    next: [],
-  });
+/** Images never block text or controls. Only warm the next gallery photograph. */
+const useImagePreloader = ({ currentPaths = [], currentIndex = 0 }) => {
+  const loadedImages = useMemo(
+    () =>
+      currentPaths.map((src) => {
+        const image = getResponsiveImage(src);
+        return { background: image, foreground: image };
+      }),
+    [currentPaths]
+  );
+  const nextPath =
+    currentPaths.length > 1
+      ? currentPaths[(currentIndex + 1) % currentPaths.length]
+      : null;
 
   useEffect(() => {
-    if (!currentPaths?.length) return;
+    if (!nextPath) return undefined;
+    const nextImage = new Image();
+    nextImage.decoding = 'async';
+    nextImage.fetchPriority = 'low';
+    const next = getResponsiveImage(nextPath);
+    nextImage.sizes = next.sizes;
+    if (next.srcSet) nextImage.srcset = next.srcSet;
+    nextImage.src = next.src;
+    return () => {
+      nextImage.onload = null;
+      nextImage.onerror = null;
+    };
+  }, [nextPath]);
 
-    const imagePromises = [];
-    const loadedImagePairs = [];
-
-    // Load current structure images
-    currentPaths.forEach((imagePath) => {
-      const pair = {
-        background: new Image(),
-        foreground: new Image(),
-      };
-
-      const backgroundPromise = new Promise((resolve, reject) => {
-        pair.background.onload = resolve;
-        pair.background.onerror = reject;
-        pair.background.src = imagePath;
-      });
-
-      const foregroundPromise = new Promise((resolve, reject) => {
-        pair.foreground.onload = resolve;
-        pair.foreground.onerror = reject;
-        pair.foreground.src = imagePath;
-      });
-
-      imagePromises.push(backgroundPromise, foregroundPromise);
-      loadedImagePairs.push(pair);
-    });
-
-    // Load adjacent structures' images in the background
-    const adjacentPromises = [];
-    const adjacentImages = { prev: [], next: [] };
-
-    ['prev', 'next'].forEach((direction) => {
-      if (adjacentPaths[direction]?.length) {
-        adjacentPaths[direction].forEach((imagePath) => {
-          const pair = {
-            background: new Image(),
-            foreground: new Image(),
-          };
-
-          adjacentPromises.push(
-            new Promise((resolve) => {
-              pair.background.onload = resolve;
-              pair.background.src = imagePath;
-            }),
-            new Promise((resolve) => {
-              pair.foreground.onload = resolve;
-              pair.foreground.src = imagePath;
-            })
-          );
-
-          adjacentImages[direction].push(pair);
-        });
-      }
-    });
-
-    // Handle current structure images loading
-    Promise.all(imagePromises)
-      .then(() => {
-        setLoadedImages(loadedImagePairs);
-        setImagesLoaded(true);
-      })
-      .catch((error) => {
-        console.error('Error preloading current images:', error);
-        setImagesLoaded(true);
-      });
-
-    // Handle adjacent structures images loading
-    Promise.all(adjacentPromises)
-      .then(() => {
-        setAdjacentLoadedImages(adjacentImages);
-      })
-      .catch((error) => {
-        console.error('Error preloading adjacent images:', error);
-      });
-  }, [currentPaths, adjacentPaths]);
-
-  return { imagesLoaded, loadedImages, adjacentLoadedImages };
+  return { imagesLoaded: true, loadedImages };
 };
 
 export default useImagePreloader;

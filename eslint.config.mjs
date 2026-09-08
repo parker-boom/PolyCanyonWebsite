@@ -1,24 +1,15 @@
 import globals from 'globals';
-import pluginJs from '@eslint/js';
-import pluginReact from 'eslint-plugin-react';
-import prettierConfig from 'eslint-config-prettier';
-import prettierPlugin from 'eslint-plugin-prettier';
+import js from '@eslint/js';
+import react from 'eslint-plugin-react';
 
 export default [
-  { files: ['**/*.{js,mjs,cjs,jsx}'] },
-  { languageOptions: { globals: { ...globals.browser, process: 'readonly' } } },
-  pluginJs.configs.recommended,
-  pluginReact.configs.flat.recommended,
-  prettierConfig,
+  { ignores: ['build/**', 'archive/**', 'node_modules/**'] },
+  js.configs.recommended,
   {
-    plugins: { prettier: prettierPlugin, react: pluginReact },
-    rules: {
-      'prettier/prettier': ['error', { endOfLine: 'auto' }],
-    },
-    settings: {
-      react: {
-        version: 'detect',
-      },
-    },
+    files: ['**/*.{js,jsx,mjs}'],
+    languageOptions: { globals: { ...globals.browser, ...globals.node }, parserOptions: { ecmaFeatures: { jsx: true } } },
+    plugins: { react },
+    settings: { react: { version: 'detect' } },
+    rules: { ...react.configs.recommended.rules, 'react/prop-types': 'off', 'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }] },
   },
 ];

@@ -1,32 +1,32 @@
 import fs from 'fs/promises';
 import path from 'path';
+import { fileURLToPath } from 'node:url';
+import { readStructures } from '../../../scripts/structure-data.mjs';
+const root = fileURLToPath(new URL('../../../', import.meta.url));
 
 async function generateStaticData() {
   try {
-    // Read the structuresInfo.json file
-    const data = JSON.parse(
-      await fs.readFile(
-        path.join(process.cwd(), 'public', 'data', 'structuresInfo.json'),
-        'utf-8'
-      )
+    const structuresInfo = (await readStructures()).sort(
+      (a, b) => a.number - b.number
     );
 
-    // Extract and sort structures by number
-    const structuresInfo = data.structures.sort((a, b) => a.number - b.number);
-
     // Create data directory
-    const dataDir = path.join(process.cwd(), 'src', 'structures', 'data');
+    const dataDir = path.join(root, 'src', 'structures', 'data');
     await fs.mkdir(dataDir, { recursive: true });
 
     // Create simplified list for navigation
     // Now including the status field
-    const basicList = structuresInfo.map(({ number, url, names, status }) => ({
-      number,
-      url,
-      title: names[0],
-      image_key: `M-${number}`,
-      status: status || 'Active', // Providing a default value in case status is missing
-    }));
+    const basicList = structuresInfo.map(
+      ({ number, url, names, status, year, images }) => ({
+        number,
+        year,
+        imageCount: images?.length || 0,
+        url,
+        title: names[0],
+        image_key: `M-${number}`,
+        status: status || 'Active', // Providing a default value in case status is missing
+      })
+    );
 
     // Add the accessory structures entry
     basicList.push({

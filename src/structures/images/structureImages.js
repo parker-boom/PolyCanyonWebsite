@@ -3,198 +3,198 @@ IMPORTS
 */
 
 // Main images
-import M1 from './main/M-1.webp';
-import M2 from './main/M-2.webp';
-import M3 from './main/M-3.webp';
-import M4 from './main/M-4.webp';
-import M5 from './main/M-5.webp';
-import M6 from './main/M-6.webp';
-import M7 from './main/M-7.webp';
-import M8 from './main/M-8.webp';
-import M9 from './main/M-9.webp';
-import M10 from './main/M-10.webp';
-import M11 from './main/M-11.webp';
-import M12 from './main/M-12.webp';
-import M13 from './main/M-13.webp';
-import M14 from './main/M-14.webp';
-import M15 from './main/M-15.webp';
-import M16 from './main/M-16.webp';
-import M17 from './main/M-17.webp';
-import M18 from './main/M-18.webp';
-import M19 from './main/M-19.webp';
-import M20 from './main/M-20.webp';
-import M21 from './main/M-21.webp';
-import M22 from './main/M-22.webp';
-import M23 from './main/M-23.webp';
-import M24 from './main/M-24.webp';
-import M25 from './main/M-25.webp';
-import M26 from './main/M-26.webp';
-import M27 from './main/M-27.webp';
-import M28 from './main/M-28.webp';
-import M29 from './main/M-29.webp';
-import M30 from './main/M-30.webp';
-import M31 from './main/M-31.webp';
-import M32 from './main/M-32.webp';
-import M33 from './main/M-33.webp';
-import M34 from './main/M-34.webp';
-import M35 from './main/M-35.webp';
-import M36 from './main/M-36.webp';
-import M37 from './main/M-37.webp';
-import M38 from './main/M-38.webp';
-import M39 from './main/M-39.webp';
-import M40 from './main/M-40.webp';
-import M41 from './main/M-41.webp';
-import M42 from './main/M-42.webp';
+import M1 from '../../assets/generated/structures/main/M-1.webp';
+import M2 from '../../assets/generated/structures/main/M-2.webp';
+import M3 from '../../assets/generated/structures/main/M-3.webp';
+import M4 from '../../assets/generated/structures/main/M-4.webp';
+import M5 from '../../assets/generated/structures/main/M-5.webp';
+import M6 from '../../assets/generated/structures/main/M-6.webp';
+import M7 from '../../assets/generated/structures/main/M-7.webp';
+import M8 from '../../assets/generated/structures/main/M-8.webp';
+import M9 from '../../assets/generated/structures/main/M-9.webp';
+import M10 from '../../assets/generated/structures/main/M-10.webp';
+import M11 from '../../assets/generated/structures/main/M-11.webp';
+import M12 from '../../assets/generated/structures/main/M-12.webp';
+import M13 from '../../assets/generated/structures/main/M-13.webp';
+import M14 from '../../assets/generated/structures/main/M-14.webp';
+import M15 from '../../assets/generated/structures/main/M-15.webp';
+import M16 from '../../assets/generated/structures/main/M-16.webp';
+import M17 from '../../assets/generated/structures/main/M-17.webp';
+import M18 from '../../assets/generated/structures/main/M-18.webp';
+import M19 from '../../assets/generated/structures/main/M-19.webp';
+import M20 from '../../assets/generated/structures/main/M-20.webp';
+import M21 from '../../assets/generated/structures/main/M-21.webp';
+import M22 from '../../assets/generated/structures/main/M-22.webp';
+import M23 from '../../assets/generated/structures/main/M-23.webp';
+import M24 from '../../assets/generated/structures/main/M-24.webp';
+import M25 from '../../assets/generated/structures/main/M-25.webp';
+import M26 from '../../assets/generated/structures/main/M-26.webp';
+import M27 from '../../assets/generated/structures/main/M-27.webp';
+import M28 from '../../assets/generated/structures/main/M-28.webp';
+import M29 from '../../assets/generated/structures/main/M-29.webp';
+import M30 from '../../assets/generated/structures/main/M-30.webp';
+import M31 from '../../assets/generated/structures/main/M-31.webp';
+import M32 from '../../assets/generated/structures/main/M-32.webp';
+import M33 from '../../assets/generated/structures/main/M-33.webp';
+import M34 from '../../assets/generated/structures/main/M-34.webp';
+import M35 from '../../assets/generated/structures/main/M-35.webp';
+import M36 from '../../assets/generated/structures/main/M-36.webp';
+import M37 from '../../assets/generated/structures/main/M-37.webp';
+import M38 from '../../assets/generated/structures/main/M-38.webp';
+import M39 from '../../assets/generated/structures/main/M-39.webp';
+import M40 from '../../assets/generated/structures/main/M-40.webp';
+import M41 from '../../assets/generated/structures/main/M-41.webp';
+import M42 from '../../assets/generated/structures/main/M-42.webp';
 
 // Closeup images
-import C1 from './close/C-1.webp';
-import C2 from './close/C-2.webp';
-import C3 from './close/C-3.webp';
-import C4 from './close/C-4.webp';
-import C5 from './close/C-5.webp';
-import C6 from './close/C-6.webp';
-import C7 from './close/C-7.webp';
-import C8 from './close/C-8.webp';
-import C9 from './close/C-9.webp';
-import C10 from './close/C-10.webp';
-import C11 from './close/C-11.webp';
-import C12 from './close/C-12.webp';
-import C13 from './close/C-13.webp';
-import C14 from './close/C-14.webp';
-import C15 from './close/C-15.webp';
-import C16 from './close/C-16.webp';
-import C17 from './close/C-17.webp';
-import C18 from './close/C-18.webp';
-import C19 from './close/C-19.webp';
-import C20 from './close/C-20.webp';
-import C21 from './close/C-21.webp';
-import C22 from './close/C-22.webp';
-import C23 from './close/C-23.webp';
-import C24 from './close/C-24.webp';
-import C25 from './close/C-25.webp';
-import C26 from './close/C-26.webp';
-import C27 from './close/C-27.webp';
-import C28 from './close/C-28.webp';
-import C30 from './close/C-30.webp';
-import C31 from './close/C-31.webp';
+import C1 from '../../assets/generated/structures/close/C-1.webp';
+import C2 from '../../assets/generated/structures/close/C-2.webp';
+import C3 from '../../assets/generated/structures/close/C-3.webp';
+import C4 from '../../assets/generated/structures/close/C-4.webp';
+import C5 from '../../assets/generated/structures/close/C-5.webp';
+import C6 from '../../assets/generated/structures/close/C-6.webp';
+import C7 from '../../assets/generated/structures/close/C-7.webp';
+import C8 from '../../assets/generated/structures/close/C-8.webp';
+import C9 from '../../assets/generated/structures/close/C-9.webp';
+import C10 from '../../assets/generated/structures/close/C-10.webp';
+import C11 from '../../assets/generated/structures/close/C-11.webp';
+import C12 from '../../assets/generated/structures/close/C-12.webp';
+import C13 from '../../assets/generated/structures/close/C-13.webp';
+import C14 from '../../assets/generated/structures/close/C-14.webp';
+import C15 from '../../assets/generated/structures/close/C-15.webp';
+import C16 from '../../assets/generated/structures/close/C-16.webp';
+import C17 from '../../assets/generated/structures/close/C-17.webp';
+import C18 from '../../assets/generated/structures/close/C-18.webp';
+import C19 from '../../assets/generated/structures/close/C-19.webp';
+import C20 from '../../assets/generated/structures/close/C-20.webp';
+import C21 from '../../assets/generated/structures/close/C-21.webp';
+import C22 from '../../assets/generated/structures/close/C-22.webp';
+import C23 from '../../assets/generated/structures/close/C-23.webp';
+import C24 from '../../assets/generated/structures/close/C-24.webp';
+import C25 from '../../assets/generated/structures/close/C-25.webp';
+import C26 from '../../assets/generated/structures/close/C-26.webp';
+import C27 from '../../assets/generated/structures/close/C-27.webp';
+import C28 from '../../assets/generated/structures/close/C-28.webp';
+import C30 from '../../assets/generated/structures/close/C-30.webp';
+import C31 from '../../assets/generated/structures/close/C-31.webp';
 
 // Other images
-import bbqPit1 from './other/BBQPit1.webp';
-import bbqPit2 from './other/BBQPit2.webp';
-import blade1 from './other/blade1.webp';
-import blade2 from './other/blade2.webp';
-import botanical1 from './other/Botanical1.webp';
-import botanical2 from './other/Botanical2.webp';
-import botanical3 from './other/Botanical3.webp';
-import botanical4 from './other/Botanical4.webp';
-import bridgeHouse1 from './other/bridgeHouse1.webp';
-import bridgeHouse2 from './other/bridgeHouse2.webp';
-import bridgeHouse3 from './other/bridgeHouse3.webp';
-import bridgeHouse4 from './other/bridgeHouse4.webp';
-import bridgeHouse5 from './other/bridgeHouse5.webp';
-import cantileverDeck1 from './other/cantileverDeck1.webp';
-import cantileverDeck2 from './other/cantileverDeck2.webp';
-import cantileverDeck3 from './other/cantileverDeck3.webp';
-import cantileverDeck4 from './other/cantileverDeck4.webp';
-import cantileverDeck5 from './other/cantileverDeck5.webp';
-import centeringCenter1 from './other/centeringCenter1.webp';
-import centeringCenter2 from './other/centeringCenter2.webp';
-import centeringCenter3 from './other/centeringCenter3.webp';
-import centeringCenter4 from './other/centeringCenter4.webp';
-import corX1 from './other/CorX1.webp';
-import corX2 from './other/CorX2.webp';
-import corX3 from './other/CorX3.webp';
-import earthBlocks1 from './other/EarthBlocks1.webp';
-import earthBlocks2 from './other/EarthBlocks2.webp';
-import electric1 from './other/Electric1.webp';
-import electric2 from './other/Electric2.webp';
-import electric3 from './other/Electric3.webp';
-import electric4 from './other/Electric4.webp';
-import electric5 from './other/Electric5.webp';
-import entryArch1 from './other/entryArch1.webp';
-import entryArch2 from './other/entryArch2.webp';
-import entryArch3 from './other/entryArch3.webp';
-import entryArch4 from './other/entryArch4.webp';
-import entryArch5 from './other/entryArch5.webp';
-import exercise1 from './other/Exercise1.webp';
-import exercise2 from './other/Exercise2.webp';
-import fratessaTower1 from './other/fratessaTower1.webp';
-import geodesicDome1 from './other/geodesicDome1.webp';
-import geodesicDome2 from './other/geodesicDome2.webp';
-import geodesicDome3 from './other/geodesicDome3.webp';
-import geodesicDome4 from './other/geodesicDome4.webp';
-import geodesicDome5 from './other/geodesicDome5.webp';
-import greenHouse1 from './other/greenHouse1.webp';
-import greenHouse2 from './other/greenHouse2.webp';
-import greenHouse3 from './other/greenHouse3.webp';
-import guniteBridge1 from './other/guniteBridge1.webp';
-import hydraulic1 from './other/Hydraulic1.webp';
-import hydraulic2 from './other/Hydraulic2.webp';
-import modularHouse1 from './other/modularHouse1.webp';
-import modularHouse2 from './other/modularHouse2.webp';
-import modularHouse3 from './other/modularHouse3.webp';
-import modularHouse4 from './other/modularHouse4.webp';
-import modularHouse5 from './other/modularHouse5.webp';
-import modularHouse6 from './other/modularHouse6.webp';
-import momentMonument1 from './other/momentMonument1.webp';
-import momentMonument2 from './other/momentMonument2.webp';
-import momentMonument3 from './other/momentMonument3.webp';
-import momentMonument4 from './other/momentMonument4.webp';
-import observationDeck1 from './other/observationDeck1.webp';
-import polyPavilion1 from './other/polyPavilion1.webp';
-import polyPavilion2 from './other/polyPavilion2.webp';
-import restrooms1 from './other/restrooms1.webp';
-import restrooms2 from './other/restrooms2.webp';
-import restrooms3 from './other/restrooms3.webp';
-import restrooms4 from './other/restrooms4.webp';
-import serenityWall1 from './other/serenityWall1.webp';
-import shed1 from './other/Shed1.webp';
-import shed2 from './other/Shed2.webp';
-import shellHouse1 from './other/shellHouse1.webp';
-import shellHouse2 from './other/shellHouse2.webp';
-import shellHouse3 from './other/shellHouse3.webp';
-import shellHouse4 from './other/shellHouse4.webp';
-import spireArray1 from './other/spireArray1.webp';
-import spireArray2 from './other/spireArray2.webp';
-import suspension1 from './other/Suspension1.webp';
-import suspension2 from './other/Suspension2.webp';
-import suspension3 from './other/Suspension3.webp';
-import stickStructure1 from './other/stickStructure1.webp';
-import stickStructure2 from './other/stickStructure2.webp';
-import stickStructure3 from './other/stickStructure3.webp';
-import stickStructure4 from './other/stickStructure4.webp';
-import sunDial1 from './other/sunDial1.webp';
-import sunDial2 from './other/sunDial2.webp';
-import techiteBridge1 from './other/techiteBridge1.webp';
-import techiteBridge2 from './other/techiteBridge2.webp';
-import techiteBridge3 from './other/techiteBridge3.webp';
-import tensegrity1 from './other/tensegrity1.webp';
-import tensegrity2 from './other/tensegrity2.webp';
-import tensegrity3 from './other/tensegrity3.webp';
-import tensegrityMast1 from './other/TensegrityMast1.webp';
-import tensegrityMast2 from './other/TensegrityMast2.webp';
-import tensile1 from './other/tensile1.webp';
-import tensile2 from './other/tensile2.webp';
-import tensile3 from './other/tensile3.webp';
-import tensile4 from './other/tensile4.webp';
-import treeHouse1 from './other/TreeHouse1.webp';
-import undergroundHouse1 from './other/undergroundHouse1.webp';
-import undergroundHouse2 from './other/undergroundHouse2.webp';
-import waterTanks1 from './other/waterTanks1.webp';
-import waterTanks2 from './other/waterTanks2.webp';
-import waterTanks3 from './other/waterTanks3.webp';
-import waterTanks4 from './other/waterTanks4.webp';
-import waterTanks5 from './other/waterTanks5.webp';
-import waterTanks6 from './other/waterTanks6.webp';
-import waterTanks7 from './other/waterTanks7.webp';
+import bbqPit1 from '../../assets/generated/structures/other/BBQPit1.webp';
+import bbqPit2 from '../../assets/generated/structures/other/BBQPit2.webp';
+import blade1 from '../../assets/generated/structures/other/blade1.webp';
+import blade2 from '../../assets/generated/structures/other/blade2.webp';
+import botanical1 from '../../assets/generated/structures/other/Botanical1.webp';
+import botanical2 from '../../assets/generated/structures/other/Botanical2.webp';
+import botanical3 from '../../assets/generated/structures/other/Botanical3.webp';
+import botanical4 from '../../assets/generated/structures/other/Botanical4.webp';
+import bridgeHouse1 from '../../assets/generated/structures/other/bridgeHouse1.webp';
+import bridgeHouse2 from '../../assets/generated/structures/other/bridgeHouse2.webp';
+import bridgeHouse3 from '../../assets/generated/structures/other/bridgeHouse3.webp';
+import bridgeHouse4 from '../../assets/generated/structures/other/bridgeHouse4.webp';
+import bridgeHouse5 from '../../assets/generated/structures/other/bridgeHouse5.webp';
+import cantileverDeck1 from '../../assets/generated/structures/other/cantileverDeck1.webp';
+import cantileverDeck2 from '../../assets/generated/structures/other/cantileverDeck2.webp';
+import cantileverDeck3 from '../../assets/generated/structures/other/cantileverDeck3.webp';
+import cantileverDeck4 from '../../assets/generated/structures/other/cantileverDeck4.webp';
+import cantileverDeck5 from '../../assets/generated/structures/other/cantileverDeck5.webp';
+import centeringCenter1 from '../../assets/generated/structures/other/centeringCenter1.webp';
+import centeringCenter2 from '../../assets/generated/structures/other/centeringCenter2.webp';
+import centeringCenter3 from '../../assets/generated/structures/other/centeringCenter3.webp';
+import centeringCenter4 from '../../assets/generated/structures/other/centeringCenter4.webp';
+import corX1 from '../../assets/generated/structures/other/CorX1.webp';
+import corX2 from '../../assets/generated/structures/other/CorX2.webp';
+import corX3 from '../../assets/generated/structures/other/CorX3.webp';
+import earthBlocks1 from '../../assets/generated/structures/other/EarthBlocks1.webp';
+import earthBlocks2 from '../../assets/generated/structures/other/EarthBlocks2.webp';
+import electric1 from '../../assets/generated/structures/other/Electric1.webp';
+import electric2 from '../../assets/generated/structures/other/Electric2.webp';
+import electric3 from '../../assets/generated/structures/other/Electric3.webp';
+import electric4 from '../../assets/generated/structures/other/Electric4.webp';
+import electric5 from '../../assets/generated/structures/other/Electric5.webp';
+import entryArch1 from '../../assets/generated/structures/other/entryArch1.webp';
+import entryArch2 from '../../assets/generated/structures/other/entryArch2.webp';
+import entryArch3 from '../../assets/generated/structures/other/entryArch3.webp';
+import entryArch4 from '../../assets/generated/structures/other/entryArch4.webp';
+import entryArch5 from '../../assets/generated/structures/other/entryArch5.webp';
+import exercise1 from '../../assets/generated/structures/other/Exercise1.webp';
+import exercise2 from '../../assets/generated/structures/other/Exercise2.webp';
+import fratessaTower1 from '../../assets/generated/structures/other/fratessaTower1.webp';
+import geodesicDome1 from '../../assets/generated/structures/other/geodesicDome1.webp';
+import geodesicDome2 from '../../assets/generated/structures/other/geodesicDome2.webp';
+import geodesicDome3 from '../../assets/generated/structures/other/geodesicDome3.webp';
+import geodesicDome4 from '../../assets/generated/structures/other/geodesicDome4.webp';
+import geodesicDome5 from '../../assets/generated/structures/other/geodesicDome5.webp';
+import greenHouse1 from '../../assets/generated/structures/other/greenHouse1.webp';
+import greenHouse2 from '../../assets/generated/structures/other/greenHouse2.webp';
+import greenHouse3 from '../../assets/generated/structures/other/greenHouse3.webp';
+import guniteBridge1 from '../../assets/generated/structures/other/guniteBridge1.webp';
+import hydraulic1 from '../../assets/generated/structures/other/Hydraulic1.webp';
+import hydraulic2 from '../../assets/generated/structures/other/Hydraulic2.webp';
+import modularHouse1 from '../../assets/generated/structures/other/modularHouse1.webp';
+import modularHouse2 from '../../assets/generated/structures/other/modularHouse2.webp';
+import modularHouse3 from '../../assets/generated/structures/other/modularHouse3.webp';
+import modularHouse4 from '../../assets/generated/structures/other/modularHouse4.webp';
+import modularHouse5 from '../../assets/generated/structures/other/modularHouse5.webp';
+import modularHouse6 from '../../assets/generated/structures/other/modularHouse6.webp';
+import momentMonument1 from '../../assets/generated/structures/other/momentMonument1.webp';
+import momentMonument2 from '../../assets/generated/structures/other/momentMonument2.webp';
+import momentMonument3 from '../../assets/generated/structures/other/momentMonument3.webp';
+import momentMonument4 from '../../assets/generated/structures/other/momentMonument4.webp';
+import observationDeck1 from '../../assets/generated/structures/other/observationDeck1.webp';
+import polyPavilion1 from '../../assets/generated/structures/other/polyPavilion1.webp';
+import polyPavilion2 from '../../assets/generated/structures/other/polyPavilion2.webp';
+import restrooms1 from '../../assets/generated/structures/other/restrooms1.webp';
+import restrooms2 from '../../assets/generated/structures/other/restrooms2.webp';
+import restrooms3 from '../../assets/generated/structures/other/restrooms3.webp';
+import restrooms4 from '../../assets/generated/structures/other/restrooms4.webp';
+import serenityWall1 from '../../assets/generated/structures/other/serenityWall1.webp';
+import shed1 from '../../assets/generated/structures/other/Shed1.webp';
+import shed2 from '../../assets/generated/structures/other/Shed2.webp';
+import shellHouse1 from '../../assets/generated/structures/other/shellHouse1.webp';
+import shellHouse2 from '../../assets/generated/structures/other/shellHouse2.webp';
+import shellHouse3 from '../../assets/generated/structures/other/shellHouse3.webp';
+import shellHouse4 from '../../assets/generated/structures/other/shellHouse4.webp';
+import spireArray1 from '../../assets/generated/structures/other/spireArray1.webp';
+import spireArray2 from '../../assets/generated/structures/other/spireArray2.webp';
+import suspension1 from '../../assets/generated/structures/other/Suspension1.webp';
+import suspension2 from '../../assets/generated/structures/other/Suspension2.webp';
+import suspension3 from '../../assets/generated/structures/other/Suspension3.webp';
+import stickStructure1 from '../../assets/generated/structures/other/stickStructure1.webp';
+import stickStructure2 from '../../assets/generated/structures/other/stickStructure2.webp';
+import stickStructure3 from '../../assets/generated/structures/other/stickStructure3.webp';
+import stickStructure4 from '../../assets/generated/structures/other/stickStructure4.webp';
+import sunDial1 from '../../assets/generated/structures/other/sunDial1.webp';
+import sunDial2 from '../../assets/generated/structures/other/sunDial2.webp';
+import techiteBridge1 from '../../assets/generated/structures/other/techiteBridge1.webp';
+import techiteBridge2 from '../../assets/generated/structures/other/techiteBridge2.webp';
+import techiteBridge3 from '../../assets/generated/structures/other/techiteBridge3.webp';
+import tensegrity1 from '../../assets/generated/structures/other/tensegrity1.webp';
+import tensegrity2 from '../../assets/generated/structures/other/tensegrity2.webp';
+import tensegrity3 from '../../assets/generated/structures/other/tensegrity3.webp';
+import tensegrityMast1 from '../../assets/generated/structures/other/TensegrityMast1.webp';
+import tensegrityMast2 from '../../assets/generated/structures/other/TensegrityMast2.webp';
+import tensile1 from '../../assets/generated/structures/other/tensile1.webp';
+import tensile2 from '../../assets/generated/structures/other/tensile2.webp';
+import tensile3 from '../../assets/generated/structures/other/tensile3.webp';
+import tensile4 from '../../assets/generated/structures/other/tensile4.webp';
+import treeHouse1 from '../../assets/generated/structures/other/TreeHouse1.webp';
+import undergroundHouse1 from '../../assets/generated/structures/other/undergroundHouse1.webp';
+import undergroundHouse2 from '../../assets/generated/structures/other/undergroundHouse2.webp';
+import waterTanks1 from '../../assets/generated/structures/other/waterTanks1.webp';
+import waterTanks2 from '../../assets/generated/structures/other/waterTanks2.webp';
+import waterTanks3 from '../../assets/generated/structures/other/waterTanks3.webp';
+import waterTanks4 from '../../assets/generated/structures/other/waterTanks4.webp';
+import waterTanks5 from '../../assets/generated/structures/other/waterTanks5.webp';
+import waterTanks6 from '../../assets/generated/structures/other/waterTanks6.webp';
+import waterTanks7 from '../../assets/generated/structures/other/waterTanks7.webp';
 
 // Accessory images
-import Billboard from './accessory/Billboard.webp';
-import CardinalDirection from './accessory/CardinalDirection.webp';
-import Crossroads from './accessory/Crossroads.webp';
-import Entrance from './accessory/Entrance.webp';
-import StoneBridge from './accessory/StoneBridge.webp';
-import WoodenBridge from './accessory/WoodenBridge.webp';
+import Billboard from '../../assets/generated/structures/accessory/Billboard.webp';
+import CardinalDirection from '../../assets/generated/structures/accessory/CardinalDirection.webp';
+import Crossroads from '../../assets/generated/structures/accessory/Crossroads.webp';
+import Entrance from '../../assets/generated/structures/accessory/Entrance.webp';
+import StoneBridge from '../../assets/generated/structures/accessory/StoneBridge.webp';
+import WoodenBridge from '../../assets/generated/structures/accessory/WoodenBridge.webp';
 
 /*
 EXPORTS
@@ -401,3 +401,108 @@ export const accessoryImages = {
   StoneBridge,
   WoodenBridge,
 };
+
+// Compact photographs for archive cards; originals remain in images/main.
+import T1 from '../../assets/generated/structures/thumbnails/M-1.webp';
+import T2 from '../../assets/generated/structures/thumbnails/M-2.webp';
+import T3 from '../../assets/generated/structures/thumbnails/M-3.webp';
+import T4 from '../../assets/generated/structures/thumbnails/M-4.webp';
+import T5 from '../../assets/generated/structures/thumbnails/M-5.webp';
+import T6 from '../../assets/generated/structures/thumbnails/M-6.webp';
+import T7 from '../../assets/generated/structures/thumbnails/M-7.webp';
+import T8 from '../../assets/generated/structures/thumbnails/M-8.webp';
+import T9 from '../../assets/generated/structures/thumbnails/M-9.webp';
+import T10 from '../../assets/generated/structures/thumbnails/M-10.webp';
+import T11 from '../../assets/generated/structures/thumbnails/M-11.webp';
+import T12 from '../../assets/generated/structures/thumbnails/M-12.webp';
+import T13 from '../../assets/generated/structures/thumbnails/M-13.webp';
+import T14 from '../../assets/generated/structures/thumbnails/M-14.webp';
+import T15 from '../../assets/generated/structures/thumbnails/M-15.webp';
+import T16 from '../../assets/generated/structures/thumbnails/M-16.webp';
+import T17 from '../../assets/generated/structures/thumbnails/M-17.webp';
+import T18 from '../../assets/generated/structures/thumbnails/M-18.webp';
+import T19 from '../../assets/generated/structures/thumbnails/M-19.webp';
+import T20 from '../../assets/generated/structures/thumbnails/M-20.webp';
+import T21 from '../../assets/generated/structures/thumbnails/M-21.webp';
+import T22 from '../../assets/generated/structures/thumbnails/M-22.webp';
+import T23 from '../../assets/generated/structures/thumbnails/M-23.webp';
+import T24 from '../../assets/generated/structures/thumbnails/M-24.webp';
+import T25 from '../../assets/generated/structures/thumbnails/M-25.webp';
+import T26 from '../../assets/generated/structures/thumbnails/M-26.webp';
+import T27 from '../../assets/generated/structures/thumbnails/M-27.webp';
+import T28 from '../../assets/generated/structures/thumbnails/M-28.webp';
+import T29 from '../../assets/generated/structures/thumbnails/M-29.webp';
+import T30 from '../../assets/generated/structures/thumbnails/M-30.webp';
+import T31 from '../../assets/generated/structures/thumbnails/M-31.webp';
+import T32 from '../../assets/generated/structures/thumbnails/M-32.webp';
+import T33 from '../../assets/generated/structures/thumbnails/M-33.webp';
+import T34 from '../../assets/generated/structures/thumbnails/M-34.webp';
+import T35 from '../../assets/generated/structures/thumbnails/M-35.webp';
+import T36 from '../../assets/generated/structures/thumbnails/M-36.webp';
+import T37 from '../../assets/generated/structures/thumbnails/M-37.webp';
+import T38 from '../../assets/generated/structures/thumbnails/M-38.webp';
+import T39 from '../../assets/generated/structures/thumbnails/M-39.webp';
+import T40 from '../../assets/generated/structures/thumbnails/M-40.webp';
+import T41 from '../../assets/generated/structures/thumbnails/M-41.webp';
+import T42 from '../../assets/generated/structures/thumbnails/M-42.webp';
+
+export const thumbnailImages = {
+  'M-1': T1,
+  'M-2': T2,
+  'M-3': T3,
+  'M-4': T4,
+  'M-5': T5,
+  'M-6': T6,
+  'M-7': T7,
+  'M-8': T8,
+  'M-9': T9,
+  'M-10': T10,
+  'M-11': T11,
+  'M-12': T12,
+  'M-13': T13,
+  'M-14': T14,
+  'M-15': T15,
+  'M-16': T16,
+  'M-17': T17,
+  'M-18': T18,
+  'M-19': T19,
+  'M-20': T20,
+  'M-21': T21,
+  'M-22': T22,
+  'M-23': T23,
+  'M-24': T24,
+  'M-25': T25,
+  'M-26': T26,
+  'M-27': T27,
+  'M-28': T28,
+  'M-29': T29,
+  'M-30': T30,
+  'M-31': T31,
+  'M-32': T32,
+  'M-33': T33,
+  'M-34': T34,
+  'M-35': T35,
+  'M-36': T36,
+  'M-37': T37,
+  'M-38': T38,
+  'M-39': T39,
+  'M-40': T40,
+  'M-41': T41,
+  'M-42': T42,
+};
+
+// Widths and URLs are paired during media generation, not rebuilt in the browser.
+import responsiveImages from '../../assets/generated/responsiveImages.js';
+const responsiveSources = new Map(
+  responsiveImages.map(([src, smallerSrc, width, smallerWidth]) => [
+    src,
+    `${smallerSrc} ${smallerWidth}w, ${src} ${width}w`,
+  ])
+);
+
+export function getResponsiveImage(
+  src,
+  sizes = '(max-width: 768px) 100vw, 800px'
+) {
+  return { src, srcSet: responsiveSources.get(src), sizes };
+}

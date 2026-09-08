@@ -25,3 +25,5 @@ yarn-error.log*
 /src/structures/data/structuresInfo.local.json
 /src/structures/data/structuresList.json
 
+
+/src/app/metadata.generated.json

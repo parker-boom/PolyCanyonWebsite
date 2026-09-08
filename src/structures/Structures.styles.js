@@ -1,7 +1,3 @@
-/**
- * Work in progress...
- */
-
 /*
 Imports
 */
@@ -255,255 +251,12 @@ export const SearchIcon = styled.div`
   }
 `;
 
-export const FilterSortContainer = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 16px;
-  margin: 8px 0;
-  padding: 0 24px;
-`;
-
 export const ControlGroup = styled.div`
   position: relative;
   display: flex;
   align-items: center;
   height: 100%;
   isolation: isolate;
-`;
-
-const BaseButton = styled.button`
-  background: rgba(255, 255, 255, 0.8);
-  border: 2px solid rgba(55, 109, 49, 0.15);
-  border-radius: 14px;
-  padding: 12px 24px;
-  font-size: 16px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  transition: all 0.3s ease;
-  color: #333;
-  font-weight: 500;
-  backdrop-filter: blur(8px);
-
-  svg {
-    font-size: 18px;
-    color: #376d31;
-    transition: all 0.3s ease;
-  }
-
-  &:hover {
-    background: #ffffff;
-    border-color: #376d31;
-    box-shadow:
-      0 8px 24px rgba(55, 109, 49, 0.12),
-      0 0 0 2px rgba(55, 109, 49, 0.05);
-    transform: translateY(-2px);
-
-    svg {
-      transform: scale(1.1);
-    }
-  }
-
-  &:active {
-    transform: translateY(0);
-  }
-`;
-
-export const FilterButton = styled(BaseButton)`
-  background: linear-gradient(135deg, #376d31, #2c5526);
-  border: 2px solid rgba(189, 139, 19, 0.3);
-  color: white;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 2px 4px rgba(55, 109, 49, 0.15);
-
-  svg {
-    color: rgba(255, 255, 255, 0.9);
-  }
-
-  &:hover {
-    background: linear-gradient(135deg, #2c5526, #1e3a1a);
-    transform: translateY(-2px);
-    border-color: rgba(189, 139, 19, 0.5);
-    box-shadow:
-      0 8px 24px rgba(55, 109, 49, 0.2),
-      0 4px 8px rgba(55, 109, 49, 0.15);
-
-    svg {
-      color: white;
-      transform: scale(1.1);
-    }
-  }
-
-  &:active {
-    transform: translateY(0);
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(135deg, rgba(189, 139, 19, 0.3), transparent);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    border-radius: inherit;
-    z-index: -1;
-  }
-
-  &:hover::after {
-    opacity: 1;
-  }
-`;
-
-export const SortButton = styled(BaseButton)`
-  padding: 8px 20px 8px 12px;
-  background: linear-gradient(135deg, #376d31, #2c5526);
-  border: 2px solid rgba(189, 139, 19, 0.3);
-  font-size: 15px;
-  color: white;
-  min-width: 180px;
-  height: 48px;
-  backdrop-filter: blur(8px);
-  gap: 8px;
-  margin: auto 0;
-  position: relative;
-  z-index: 2;
-  isolation: isolate;
-  class: 'sort-button';
-
-  svg {
-    color: white !important;
-    opacity: 0.9;
-    transition: all 0.3s ease;
-  }
-
-  &:hover {
-    background: linear-gradient(135deg, #2c5526, #1e3a1a);
-    border-color: rgba(189, 139, 19, 0.5);
-    transform: translateY(-2px);
-    box-shadow:
-      0 8px 24px rgba(55, 109, 49, 0.2),
-      0 4px 8px rgba(55, 109, 49, 0.15);
-
-    svg {
-      opacity: 1;
-      transform: scale(1.1);
-    }
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(135deg, rgba(189, 139, 19, 0.3), transparent);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    border-radius: inherit;
-    z-index: -1;
-  }
-
-  &:hover::after {
-    opacity: 1;
-  }
-`;
-
-export const SortLabel = styled.span`
-  font-size: 16px;
-  font-weight: 600;
-  color: #376d31;
-`;
-
-export const DropdownMenu = styled.div`
-  position: absolute;
-  top: calc(100% + 8px);
-  left: 0;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  min-width: 200px;
-  z-index: 10;
-  overflow: hidden;
-  animation: dropdownFadeIn 0.2s ease-out;
-
-  @keyframes dropdownFadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-`;
-
-export const EnhancedDropdownMenu = styled(DropdownMenu)`
-  position: absolute; // Change back to absolute
-  top: calc(100% + 8px); // Position below button
-  right: 0; // Align with right edge of button
-  background: white;
-  border-radius: 12px;
-  box-shadow:
-    0 12px 24px rgba(55, 109, 49, 0.12),
-    0 4px 8px rgba(55, 109, 49, 0.08);
-  border: 1px solid rgba(189, 139, 19, 0.2);
-  min-width: 200px;
-  padding: 8px;
-  z-index: 999999; // Very high z-index
-  transform-origin: top right;
-  animation: dropdownAppear 0.2s ease-out;
-
-  // Add these new styles
-  margin-top: 0;
-  pointer-events: auto;
-`;
-
-export const DropdownItem = styled.button`
-  width: 100%;
-  padding: 12px 16px;
-  border: none;
-  background: ${(props) =>
-    props.selected ? 'rgba(189, 139, 19, 0.15)' : 'transparent'};
-  border-radius: 8px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: ${(props) => (props.selected ? '#376d31' : '#555')};
-  font-weight: ${(props) => (props.selected ? '600' : '500')};
-  font-size: 15px;
-  transition: all 0.2s ease;
-
-  svg {
-    font-size: 16px;
-    color: ${(props) => (props.selected ? '#376d31' : '#666')};
-    opacity: ${(props) => (props.selected ? 1 : 0.8)};
-    transition: all 0.2s ease;
-  }
-
-  &:hover {
-    background: rgba(189, 139, 19, 0.1);
-    color: #376d31;
-
-    svg {
-      color: #376d31;
-      opacity: 1;
-      transform: scale(1.1);
-    }
-  }
-`;
-
-export const ItemIcon = styled.span`
-  font-size: 18px;
-  opacity: 0.8;
 `;
 
 export const SectionContainer = styled.div`
@@ -559,17 +312,6 @@ export const SectionToggle = styled.div`
     transition: transform 0.3s ease;
   }
 `;
-
-export const EmptySection = styled.div`
-  text-align: center;
-  padding: 48px;
-  background: #f5f5f5;
-  border-radius: 12px;
-  color: #666;
-  font-size: 18px;
-`;
-
-// Update these specific card-related styles
 
 export const StructuresGrid = styled.div`
   display: grid;
@@ -729,39 +471,6 @@ export const ChevronIcon = styled.div`
   }
 `;
 
-export const SortDirectionToggle = styled.button`
-  width: 100%;
-  padding: 12px 16px;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 8px;
-  border-top: 1px solid rgba(189, 139, 19, 0.2);
-  transition: all 0.2s ease;
-  color: #555;
-  font-size: 15px;
-  font-weight: 500;
-
-  svg {
-    font-size: 16px;
-    color: #376d31;
-    transition: transform 0.3s ease;
-  }
-
-  &:hover {
-    background: rgba(189, 139, 19, 0.1);
-    color: #376d31;
-
-    svg {
-      transform: rotate(180deg);
-    }
-  }
-`;
-
-// First, add the base RoundedContainer style
 export const RoundedContainer = styled.div`
   background-color: #e8efe8;
   border-radius: 20px;
@@ -775,7 +484,6 @@ export const RoundedContainer = styled.div`
   box-sizing: border-box;
 `;
 
-// Create new containers for the search section and structures section
 export const SearchContainer = styled(RoundedContainer)`
   margin-top: 5px;
   margin-bottom: 24px;
@@ -796,7 +504,6 @@ export const StructuresContainer = styled(RoundedContainer)`
 `;
 
 /* Structure Info page styles */
-// New styles for StructureInfo component
 
 export const SectionTitleInfo = styled.h3`
   font-size: 24px;
@@ -834,7 +541,6 @@ export const InfoPageWrapper = styled.div`
   overflow: hidden;
 `;
 
-// Single wrapper for all content - add box-sizing
 export const CenteredWrapper = styled.div`
   width: 100%;
   max-width: 1200px;
@@ -844,7 +550,6 @@ export const CenteredWrapper = styled.div`
   box-sizing: border-box;
 `;
 
-// Add subtle texture
 export const BackgroundImage = styled.img`
   position: absolute;
   top: 0;
@@ -858,7 +563,6 @@ export const BackgroundImage = styled.img`
   transition: all 0.3s ease;
 `;
 
-// Update StyledImage for foreground with 1.25x scaling
 export const StyledImage = styled.img`
   position: absolute;
   top: 50%;
@@ -873,7 +577,6 @@ export const StyledImage = styled.img`
   transition: all 0.3s ease;
 `;
 
-// Update ImageControls to position arrows over the image
 export const ImageDescription = styled.div`
   background: rgba(255, 248, 230, 0.95);
   padding: 16px 64px;
@@ -1015,36 +718,6 @@ export const LinkButton = styled.a`
   }
 `;
 
-export const NavigationButton = styled.button`
-  background: none;
-  border: none;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  color: #376d31;
-  font-size: 24px;
-  font-weight: 700;
-
-  &:hover {
-    background: rgba(55, 109, 49, 0.15);
-    color: #2c5526;
-  }
-
-  svg {
-    font-size: 20px;
-    transition: opacity 0.2s ease;
-  }
-
-  &:hover svg {
-    opacity: 0;
-  }
-`;
-
 export const TitleWrapper = styled.div`
   position: relative;
   flex-grow: 1;
@@ -1074,6 +747,9 @@ export const TitleWrapper = styled.div`
 `;
 
 export const NavigationOverlay = styled.div`
+  border: 0;
+  padding: 0;
+  font: inherit;
   position: absolute;
   top: 0;
   ${(props) => props.side}: 0;
@@ -1164,56 +840,6 @@ export const StructureListView = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
-`;
-
-export const StructuresListGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 330px));
-  gap: 20px;
-  justify-content: center;
-  width: 100%;
-`;
-
-export const StructureListCard = styled.div`
-  display: flex;
-  background: white;
-  border-radius: 16px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: 2px solid ${(props) => (props.isSelected ? '#376d31' : 'transparent')};
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(55, 109, 49, 0.15);
-  }
-
-  img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    flex-shrink: 0;
-  }
-`;
-
-export const StructureListInfo = styled.div`
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
-
-export const StructureListNumber = styled.div`
-  font-size: 24px;
-  font-weight: 700;
-  color: #376d31;
-`;
-
-export const StructureListTitle = styled.div`
-  font-size: 18px;
-  color: #333;
-  margin-top: 4px;
 `;
 
 export const MainContent = styled.div`
@@ -1485,7 +1111,8 @@ export const StructureNumberBubble = styled.div`
   }
 `;
 
-export const StructureTitleInfo = styled.div`
+export const StructureTitleInfo = styled.h1`
+  margin: 0;
   font-size: 42px;
   font-weight: 800;
   text-align: center;
@@ -1614,6 +1241,16 @@ export const MobilePageContainer = styled(PageContainer)`
 `;
 
 export const MobileSearchContainer = styled(SearchContainer)`
+  ${TitleContainer} {
+    width: 100%;
+  }
+  ${TitleBottom} {
+    font-size: clamp(42px, 16vw, 64px);
+    padding: 0;
+  }
+  ${TitleBottom}::before {
+    display: none;
+  }
   padding: 15px;
   margin-bottom: 15px;
 `;
@@ -1664,6 +1301,9 @@ export const MobileStructuresGrid = styled(StructuresGrid)`
 `;
 
 export const MobileStructureCard = styled(StructureCard)`
+  @media (max-width: 360px) {
+    height: 140px;
+  }
   height: 120px;
 
   ${(props) =>
@@ -1687,11 +1327,16 @@ export const MobileStructureCard = styled(StructureCard)`
 `;
 
 export const MobileStructureImage = styled(StructureImage)`
+  @media (max-width: 360px) {
+    width: 90px;
+    height: 140px;
+  }
   width: 120px;
   height: 120px;
 `;
 
 export const MobileStructureInfo = styled(StructureInfo)`
+  min-width: 0;
   padding: 12px;
 `;
 
@@ -1700,6 +1345,10 @@ export const MobileStructureNumber = styled(StructureNumber)`
 `;
 
 export const MobileStructureTitle = styled(StructureTitle)`
+  overflow-wrap: anywhere;
+  @media (max-width: 360px) {
+    font-size: 18px;
+  }
   font-size: 20px;
 `;
 
@@ -2072,16 +1721,6 @@ export const FullscreenCloseButton = styled.button`
   }
 `;
 
-export const StructureImagePlaceholder = styled.div`
-  width: 200px;
-  height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(189, 139, 19, 0.1);
-  flex-shrink: 0;
-`;
-
 export const SurpriseButtonsContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -2167,197 +1806,6 @@ export const SurpriseIconButton = styled.button`
     transform: scale(0.95);
   }
 `;
-
-// Update Tooltip styles for bottom position
-export const Tooltip = styled.span`
-  position: absolute;
-  top: 50%;
-  background: linear-gradient(
-    135deg,
-    rgba(55, 109, 49, 0.98),
-    rgba(44, 85, 38, 0.95)
-  );
-  color: rgba(255, 255, 255, 0.95);
-  padding: 8px 14px;
-  border-radius: 8px;
-  font-size: 14px;
-  white-space: pre-line;
-  text-align: center;
-  line-height: 1.4;
-  min-width: 160px;
-  max-width: 200px;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  pointer-events: none;
-  box-shadow:
-    0 4px 12px rgba(55, 109, 49, 0.25),
-    0 2px 4px rgba(55, 109, 49, 0.15),
-    inset 0 1px 1px rgba(255, 255, 255, 0.1);
-  z-index: 100;
-  border: 1px solid rgba(189, 139, 19, 0.3);
-  font-weight: 500;
-  letter-spacing: 0.2px;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-  transform: translate(8px, -50%) scale(0.95);
-
-  ${(props) =>
-    props.position === 'right' &&
-    `
-    left: calc(100% + 10px);
-    
-    &::before {
-      content: '';
-      position: absolute;
-      left: -6px;
-      top: 50%;
-      transform: translateY(-50%);
-      border-top: 6px solid transparent;
-      border-bottom: 6px solid transparent;
-      border-right: 6px solid rgba(55, 109, 49, 0.98);
-    }
-  `}
-
-  ${(props) =>
-    props.position === 'left' &&
-    `
-    right: calc(100% + 10px);
-    
-    &::before {
-      content: '';
-      position: absolute;
-      right: -6px;
-      top: 50%;
-      transform: translateY(-50%);
-      border-top: 6px solid transparent;
-      border-bottom: 6px solid transparent;
-      border-left: 6px solid rgba(55, 109, 49, 0.98);
-    }
-  `}
-
-  ${(props) =>
-    props.position === 'bottom' &&
-    `
-    top: calc(100% + 15px);
-    left: 50%;
-    transform: translateX(-50%) scale(0.95);
-    white-space: nowrap;
-    min-width: auto;
-    
-    &::before {
-      content: '';
-      position: absolute;
-      left: 50%;
-      top: -6px;
-      transform: translateX(-50%);
-      border-left: 6px solid transparent;
-      border-right: 6px solid transparent;
-      border-bottom: 6px solid rgba(55, 109, 49, 0.98);
-    }
-
-    ${IntegratedSurpriseButton}:hover & {
-      transform: translateX(-50%) scale(1);
-    }
-  `}
-`;
-
-export const MobileSurpriseButton = styled.button`
-  width: 200px;
-  height: 52px;
-  margin: -12px auto 20px;
-  display: flex;
-  align-items: center;
-  background: linear-gradient(135deg, #376d31, #2c5526);
-  border: 2px solid rgba(189, 139, 19, 0.3);
-  border-radius: 16px;
-  padding: 0;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(55, 109, 49, 0.2);
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-      135deg,
-      rgba(189, 139, 19, 0.15),
-      transparent 60%
-    );
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  &:active {
-    transform: scale(0.98);
-  }
-
-  &:hover {
-    transform: translateY(-2px);
-    border-color: rgba(189, 139, 19, 0.5);
-    background: linear-gradient(135deg, #2c5526, #1e3a1a);
-    box-shadow:
-      0 8px 24px rgba(55, 109, 49, 0.2),
-      0 4px 8px rgba(55, 109, 49, 0.15);
-
-    &::before {
-      opacity: 1;
-    }
-  }
-`;
-
-export const MobileSurpriseIcon = styled.div`
-  width: 52px;
-  height: 52px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(189, 139, 19, 0.15);
-  border-right: 2px solid rgba(189, 139, 19, 0.2);
-  transition: all 0.3s ease;
-
-  svg {
-    font-size: 24px;
-    color: rgba(255, 255, 255, 0.95);
-    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
-    transition: all 0.3s ease;
-  }
-
-  ${MobileSurpriseButton}:hover & {
-    background: rgba(189, 139, 19, 0.25);
-    border-right-color: rgba(189, 139, 19, 0.3);
-
-    svg {
-      transform: rotate(-15deg) scale(1.1);
-      color: rgba(189, 139, 19, 0.95);
-    }
-  }
-`;
-
-export const MobileSurpriseText = styled.span`
-  flex: 1;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.95);
-  font-size: 18px;
-  font-weight: 600;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-  padding-right: 10px;
-
-  ${MobileSurpriseButton}:hover & {
-    color: rgba(189, 139, 19, 0.95);
-    text-shadow:
-      0 1px 2px rgba(0, 0, 0, 0.3),
-      0 0 8px rgba(189, 139, 19, 0.3);
-  }
-`;
-
-// Add these new styled components after SearchIcon
 
 export const SearchAndInfoContainer = styled.div`
   display: flex;
@@ -2528,7 +1976,6 @@ export const ShareButton = styled.button`
   }
 `;
 
-// Add this new container
 export const TitleAndShareContainer = styled.div`
   position: relative;
   display: flex;
@@ -2537,29 +1984,6 @@ export const TitleAndShareContainer = styled.div`
   flex-grow: 1;
   gap: 10px;
   padding: 0 80px;
-`;
-
-// Add this mobile-specific variant of the share button
-export const MobileDescriptionContainer = styled(DescriptionContainer)`
-  border-radius: 24px;
-  margin-top: 10px;
-  margin-bottom: 5px;
-  margin-left: 10px;
-  width: 95%;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 248, 230, 0.9),
-    rgba(255, 245, 222, 0.85)
-  );
-  border: 1px solid rgba(189, 139, 19, 0.15);
-  box-shadow:
-    0 4px 16px rgba(55, 109, 49, 0.15),
-    0 2px 4px rgba(55, 109, 49, 0.1);
-  position: relative; // Added this
-
-  &:hover {
-    transform: none;
-  }
 `;
 
 export const SortButtonGroup = styled.div`
@@ -2693,28 +2117,6 @@ export const DirectionToggle = styled.button`
   }
 `;
 
-export const MobileSortContainer = styled.div`
-  display: flex;
-  align-items: center;
-  width: 100%;
-  background: rgba(189, 139, 19, 0.15); // Match the header background
-  padding: 8px;
-  border-radius: 12px;
-  border: 2px solid rgba(55, 109, 49, 0.3); // Match the green border
-  margin: 5px 0 16px 0;
-  box-shadow: 0 2px 4px rgba(189, 139, 19, 0.2);
-  backdrop-filter: blur(5px);
-  transition: all 0.3s ease;
-
-  &:hover {
-    background: rgba(189, 139, 19, 0.18);
-    border-color: rgba(55, 109, 49, 0.4);
-    box-shadow:
-      0 4px 8px rgba(189, 139, 19, 0.25),
-      0 2px 4px rgba(55, 109, 49, 0.15);
-  }
-`;
-
 export const MobileSortOption = styled.button`
   position: relative;
   display: flex;
@@ -2789,9 +2191,19 @@ export const MobileDirectionToggle = styled.button`
   }
 `;
 
-export const MobileSortOptions = styled.div`
-  display: flex;
-  align-items: center;
-  flex: 1;
-  gap: 6px;
+// Feedback stays visible when a share button is far down the detail page.
+export const ShareStatus = styled.div`
+  position: fixed;
+  z-index: 1100;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: calc(100vw - 40px);
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: #376d31;
+  color: white;
+  box-shadow: 0 3px 12px #0003;
+  pointer-events: none;
 `;
