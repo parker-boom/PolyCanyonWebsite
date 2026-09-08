@@ -23,6 +23,8 @@ try {
   for (const record of records) {
     await page.goto(`${base}/structures/${record.url}`);
     assert.equal(await page.getByRole('heading', { level: 1 }).count(), 1);
+    const overview = page.getByText('Short overview', { exact: true });
+    if (await overview.count()) await overview.click();
     const text = normalize(await page.locator('main').innerText());
     for (const value of [
       record.description,

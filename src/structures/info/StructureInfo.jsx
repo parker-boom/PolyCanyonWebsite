@@ -169,13 +169,23 @@ export default function StructureInfo() {
         </div>
         <div className="detail-content">
           <div className="detail-research">
-            <p className="detail-intro">{structure.description}</p>
-            {structure.extended_description
-              ?.split(/\n\s*\n/)
-              .filter(Boolean)
+            {(structure.extended_description?.trim() || structure.description)
+              .split(/\n\s*\n/)
+              .filter((paragraph) => paragraph.trim())
               .map((paragraph, index) => (
-                <p key={index}>{paragraph.trim()}</p>
+                <p
+                  key={index}
+                  className={index === 0 ? 'detail-intro' : undefined}
+                >
+                  {paragraph.trim()}
+                </p>
               ))}
+            {structure.extended_description?.trim() && (
+              <details className="detail-credits">
+                <summary>Short overview</summary>
+                <p>{structure.description}</p>
+              </details>
+            )}
             <details className="detail-credits">
               <summary>Research & credits</summary>
               <p>

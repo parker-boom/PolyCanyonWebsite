@@ -81,8 +81,11 @@ export async function createStaticContent(structures, manifest) {
       if (record.names.length > 1)
         body += paragraph(`Also known as ${record.names.slice(1).join(', ')}.`);
       body += `<p>No. ${escapeHTML(record.number)} · ${escapeHTML(record.year)} · ${escapeHTML(record.status)}</p>`;
-      body +=
-        paragraph(record.description) + paragraph(record.extended_description);
+      body += paragraph(
+        record.extended_description?.trim() || record.description
+      );
+      if (record.extended_description?.trim())
+        body += `<details><summary>Short overview</summary>${paragraph(record.description)}</details>`;
       if (record.advisor_builders?.length)
         body += `<section><h2>Builders and advisors</h2><ul>${record.advisor_builders.map((person) => `<li>${escapeHTML(person.name)}${person.role?.length ? ` — ${escapeHTML(person.role.join(', '))}` : ''}</li>`).join('')}</ul></section>`;
       if (record.tags?.length)
