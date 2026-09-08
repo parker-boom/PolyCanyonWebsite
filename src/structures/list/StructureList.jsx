@@ -7,20 +7,8 @@ import {
   useLocation,
   useNavigationType,
 } from 'react-router-dom';
-import {
-  FaSearch,
-  FaChevronDown,
-  FaArrowRight,
-  FaDice,
-  FaImage,
-  FaQuestion,
-  FaHashtag,
-  FaCalendarAlt,
-  FaMapMarkerAlt,
-  FaSortAmountUp,
-  FaSortAmountDown,
-} from 'react-icons/fa';
-import * as S from '../Structures.styles.js';
+import { FaSearch, FaChevronDown } from 'react-icons/fa';
+import * as C from './Collection.styles.js';
 import {
   thumbnailImages,
   accessoryImages,
@@ -66,19 +54,6 @@ export default function StructureList({ mobile = false }) {
     );
   }
   const [research, setResearch] = useState(false);
-  const Page = mobile ? S.MobilePageContainer : S.PageContainer;
-  const SearchContainer = mobile ? S.MobileSearchContainer : S.SearchContainer;
-  const Search = mobile ? S.MobileSearchSection : S.SearchSection;
-  const SearchIcon = mobile ? S.MobileSearchIcon : S.SearchIcon;
-  const Input = mobile ? S.MobileSearchInput : S.SearchInput;
-  const Grid = mobile ? S.MobileStructuresGrid : S.StructuresGrid;
-  const Card = mobile ? S.MobileStructureCard : S.StructureCard;
-  const Photo = mobile ? S.MobileStructureImage : S.StructureImage;
-  const Info = mobile ? S.MobileStructureInfo : S.StructureInfo;
-  const NumberBadge = mobile ? S.MobileStructureNumber : S.StructureNumber;
-  const Title = mobile ? S.MobileStructureTitle : S.StructureTitle;
-  const Sort = mobile ? S.MobileSortOption : S.SortOption;
-  const Direction = mobile ? S.MobileDirectionToggle : S.DirectionToggle;
   function surprise(image = false) {
     const choices = image
       ? structures.filter((s) => s.imageCount > 0)
@@ -91,97 +66,77 @@ export default function StructureList({ mobile = false }) {
       { state: returnState }
     );
   }
+  const count = sortStructures(structures, { query }).length;
   return (
-    <Page>
-      <SearchContainer>
-        <S.TitleContainer>
-          <S.TitleTop>The Stories of</S.TitleTop>
-          <S.TitleBottom>
-            {mobile ? 'Structures' : 'The Structures'}
-          </S.TitleBottom>
-          <S.TitleTagline>A Legacy of Student Innovation</S.TitleTagline>
-        </S.TitleContainer>
-        <S.SearchAndInfoContainer>
-          <Search>
-            <SearchIcon>
-              <FaSearch />
-            </SearchIcon>
-            <Input
-              aria-label="Search structures"
-              type="search"
-              placeholder={
-                mobile
-                  ? 'Name or number…'
-                  : 'Search structures by name or number...'
+    <C.Page>
+      <C.Heading>
+        <h1>Structures</h1>
+        <button onClick={() => setResearch(true)}>About the research</button>
+      </C.Heading>
+      <C.Tools>
+        <div className="search">
+          <FaSearch aria-hidden="true" />
+          <input
+            aria-label="Search structures"
+            type="search"
+            placeholder="Search by name or number"
+            value={query}
+            onChange={(e) => {
+              setQuery(e.target.value);
+              updateFilter('q', e.target.value);
+            }}
+          />
+        </div>
+        <div className="random">
+          <button aria-label="Random structure" onClick={() => surprise()}>
+            Random structure ↗
+          </button>
+          <button aria-label="Random photograph" onClick={() => surprise(true)}>
+            Random photo ↗
+          </button>
+        </div>
+      </C.Tools>
+      <C.SortBar>
+        <div className="sorting">
+          <span className="label">Sort by</span>
+          {['Number', 'Year', 'Location'].map((name) => (
+            <button
+              key={name}
+              aria-label={`Sort by ${name.toLowerCase()}`}
+              aria-pressed={sort === name}
+              onClick={() =>
+                updateFilter('sort', name === 'Number' ? '' : name)
               }
-              value={query}
-              onChange={(e) => {
-                setQuery(e.target.value);
-                updateFilter('q', e.target.value);
-              }}
-            />
-          </Search>
-          <S.InfoButton
-            aria-label="About the research"
-            onClick={() => setResearch(true)}
+            >
+              {name}
+            </button>
+          ))}
+          <button
+            aria-label={ascending ? 'Sort descending' : 'Sort ascending'}
+            onClick={() => updateFilter('direction', ascending ? 'desc' : '')}
           >
-            <FaQuestion />
-          </S.InfoButton>
-        </S.SearchAndInfoContainer>
-        <S.SurpriseButtonsContainer>
-          <S.IntegratedSurpriseButton>
-            <S.SurpriseText>Surprise me</S.SurpriseText>
-            <S.SurpriseIconButton
-              aria-label="Random structure"
-              onClick={() => surprise()}
-            >
-              <FaDice />
-            </S.SurpriseIconButton>
-            <S.SurpriseIconButton
-              aria-label="Random photograph"
-              onClick={() => surprise(true)}
-            >
-              <FaImage />
-            </S.SurpriseIconButton>
-          </S.IntegratedSurpriseButton>
-        </S.SurpriseButtonsContainer>
-      </SearchContainer>
-      <S.StructuresContainer>
-        <S.ControlGroup
-          style={{
-            justifyContent: 'center',
-            marginBottom: 24,
-            flexWrap: 'wrap',
-          }}
-        >
-          <S.SortButtonGroup>
-            {[
-              ['Number', FaHashtag],
-              ['Year', FaCalendarAlt],
-              ['Location', FaMapMarkerAlt],
-            ].map(([name, Icon]) => (
-              <Sort
-                key={name}
-                aria-label={`Sort by ${name.toLowerCase()}`}
-                selected={sort === name}
-                aria-pressed={sort === name}
-                onClick={() =>
-                  updateFilter('sort', name === 'Number' ? '' : name)
-                }
-              >
-                <Icon />
-                <span>{name}</span>
-              </Sort>
-            ))}
-            <Direction
-              aria-label={ascending ? 'Sort descending' : 'Sort ascending'}
-              onClick={() => updateFilter('direction', ascending ? 'desc' : '')}
-            >
-              {ascending ? <FaSortAmountUp /> : <FaSortAmountDown />}
-            </Direction>
-          </S.SortButtonGroup>
-        </S.ControlGroup>
-        {['active', 'ghost'].map((status) => {
+            {ascending ? '↑' : '↓'}
+          </button>
+        </div>
+        <span className="count" role="status">
+          {count} entries
+        </span>
+      </C.SortBar>
+      {count === 0 ? (
+        <C.Empty>
+          <h2>No structures found</h2>
+          <p>Try a different name or number.</p>
+          <button
+            onClick={() => {
+              setQuery('');
+              updateFilter('q', '');
+            }}
+          >
+            Clear search
+          </button>
+        </C.Empty>
+      ) : (
+        ['active', 'ghost'].map((status) => {
           const entries = sortStructures(structures, {
             status,
             sort,
@@ -189,82 +144,76 @@ export default function StructureList({ mobile = false }) {
             query,
           });
           return (
-            <S.SectionContainer key={status}>
-              <S.SectionHeader>
-                <S.SectionTitleContainer
-                  as="button"
-                  type="button"
+            <C.Section key={status}>
+              <h2>
+                <button
+                  className="section-heading"
                   aria-expanded={open[status]}
                   onClick={() =>
                     updateFilter(status, open[status] ? 'closed' : '')
                   }
-                  style={{
-                    border: 0,
-                    background: 'transparent',
-                    textAlign: 'left',
-                    font: 'inherit',
-                  }}
                 >
-                  <S.SectionTitle>
-                    {status === 'active' ? 'Active' : 'Ghost'} Structures
-                  </S.SectionTitle>
-                  <S.SectionToggle isOpen={open[status]}>
-                    <FaChevronDown />
-                  </S.SectionToggle>
-                </S.SectionTitleContainer>
-              </S.SectionHeader>
+                  {status === 'active' ? 'Active' : 'Ghost'} Structures
+                  <FaChevronDown aria-hidden="true" />
+                </button>
+              </h2>
               {open[status] &&
                 (entries.length ? (
-                  <Grid>
+                  <C.Grid>
                     {entries.map((s) => (
-                      <Card
+                      <C.Item
                         as={Link}
                         to={`/structures/${s.url}`}
                         state={returnState}
                         key={s.number}
-                        style={{ textDecoration: 'none', color: 'inherit' }}
                       >
-                        <Photo
+                        <img
                           {...getResponsiveImage(
                             s.number === -1
                               ? Object.values(accessoryImages)[0]
                               : thumbnailImages[s.image_key],
-                            '(max-width: 360px) 90px, (max-width: 768px) 120px, 200px'
+                            '(max-width:420px) 96px, (max-width:740px) 142px, (max-width:1000px) 100px, 142px'
                           )}
                           alt={s.title}
                           loading="lazy"
                           decoding="async"
                         />
-                        <Info>
-                          <NumberBadge>
-                            {s.number === -1 ? '★' : s.number}
-                          </NumberBadge>
-                          <Title>{s.title}</Title>
-                        </Info>
-                        <S.ChevronIcon className="chevron-icon">
-                          <FaArrowRight />
-                        </S.ChevronIcon>
-                      </Card>
+                        <div className="info">
+                          <div className="title">
+                            <span className="number">
+                              {s.number === -1
+                                ? '—'
+                                : String(s.number).padStart(2, '0')}
+                            </span>
+                            <h3>{s.title}</h3>
+                          </div>
+                          {s.year && <span className="year">{s.year}</span>}
+                        </div>
+                        <span className="arrow" aria-hidden="true">
+                          ↗
+                        </span>
+                      </C.Item>
                     ))}
-                  </Grid>
+                  </C.Grid>
                 ) : (
-                  <p role="status">No {status} structures match your search.</p>
+                  <p className="empty" role="status">
+                    No {status} structures match “{query}”. Try a different name
+                    or number.
+                  </p>
                 ))}
-            </S.SectionContainer>
+            </C.Section>
           );
-        })}
-      </S.StructuresContainer>
-      <S.ContactContainer>
-        <S.ContactTitle>Have information on structures?</S.ContactTitle>
-        <S.ContactText>
-          <ContactLink>Contact</ContactLink>
-        </S.ContactText>
-      </S.ContactContainer>
+        })
+      )}
+      <C.Contact>
+        Have a photograph or something to add?{' '}
+        <ContactLink>Get in touch</ContactLink>.
+      </C.Contact>
       {research && (
         <Suspense fallback={null}>
           <ResearchInfo isMobile={mobile} onClose={() => setResearch(false)} />
         </Suspense>
       )}
-    </Page>
+    </C.Page>
   );
 }

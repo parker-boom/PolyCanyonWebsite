@@ -1,12 +1,14 @@
 # Preserve incoming links to the retired Chronicles experience.
 /chronicles/projects /structures 301
-/chronicles/land /info 301
+/chronicles/land /about#visit 301
 /chronicles/people/* /about#stewardship 301
 /chronicles/people /about#stewardship 301
 /chronicles/story /about#history 301
 /chronicles/* /about 301
 /chronicles /about 301
-/map /info 301
+/map /about#visit 301
+/info /about#visit 301
+/download /app 301
 
 # Generated route HTML is served directly. Unknown URLs have a real 404 status.
 /* /404.html 404

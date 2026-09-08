@@ -4,23 +4,24 @@ import styled from 'styled-components';
 import ContactLink from '../components/ContactLink.jsx';
 
 const Page = styled.article`
-  max-width: 1040px;
+  max-width: 880px;
   margin: 0 auto;
-  padding: 36px 28px 60px;
+  padding: 48px 28px 64px;
   color: #354133;
   font-size: 17px;
   line-height: 1.8;
   h1 {
     margin: 0 0 24px;
-    color: #376d31;
+    color: var(--green);
     font-size: clamp(34px, 4.5vw, 48px);
     line-height: 1.15;
+    font-weight: 600;
   }
   p {
     margin: 0 0 20px;
   }
   a {
-    color: #376d31;
+    color: var(--green);
     text-underline-offset: 3px;
   }
   @media (max-width: 600px) {

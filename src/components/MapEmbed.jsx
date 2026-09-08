@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { FaMapMarkerAlt } from 'react-icons/fa';
 
 const Frame = styled.div`
   min-height: ${({ $height }) => $height}px;
   position: relative;
   background: #e8efe8;
   border: 1px solid #d5dfd0;
-  border-radius: 15px;
+  border-radius: 0;
   overflow: hidden;
   iframe {
     width: 100%;
@@ -20,7 +19,7 @@ const MapLink = styled.a`
   display: block;
   padding: 12px 20px;
   text-align: center;
-  color: #376d31;
+  color: var(--green);
   font-size: 14px;
   text-underline-offset: 3px;
 `;
@@ -33,18 +32,16 @@ const Cover = styled.div`
   gap: 14px;
   padding: 24px;
   text-align: center;
-  background:
-    radial-gradient(ellipse at 20% 15%, #d9e5ce, transparent 65%),
-    linear-gradient(135deg, #e8efe8, #f8f1d9);
-  color: #376d31;
+  background: #edf1e9;
+  color: var(--green);
   button {
     cursor: pointer;
-    background: #376d31;
+    background: var(--green);
     color: white;
     border: 0;
-    border-radius: 12px;
+    border-radius: 2px;
     padding: 12px 20px;
-    font-weight: 700;
+    font-weight: 500;
   }
   a {
     font-size: 14px;
@@ -76,8 +73,6 @@ export default function MapEmbed({
         />
       ) : (
         <Cover $height={height}>
-          <FaMapMarkerAlt size={26} aria-hidden="true" />
-          <strong>{title}</strong>
           <button onClick={() => setLoaded(true)}>Show map</button>
           <a href={url} target="_blank" rel="noopener noreferrer">
             {directions

@@ -9,9 +9,6 @@ import RoutePosition from './app/RoutePosition.jsx';
 import PageErrorBoundary from './app/PageErrorBoundary.jsx';
 
 const HomeWeb = lazy(() => import('./home/homeWeb.jsx'));
-const HomeMobile = lazy(() => import('./home/homeMobile.jsx'));
-const InfoWeb = lazy(() => import('./info/InfoPageWeb.jsx'));
-const InfoMobile = lazy(() => import('./info/InfoPageMobile.jsx'));
 const Structures = lazy(() => import('./structures/list/StructureList.jsx'));
 const StructureWeb = lazy(() => import('./structures/info/StructureInfo.jsx'));
 const StructureMobile = lazy(
@@ -35,7 +32,7 @@ const Shell = styled.div`
 const Content = styled.main`
   flex: 1;
   min-width: 0;
-  margin-top: ${({ $home }) => ($home ? '0' : '80px')};
+  margin-top: 0;
 `;
 const Loading = styled.div`
   padding: 60px 24px;
@@ -47,7 +44,6 @@ const Loading = styled.div`
 export default function App() {
   const mobile = useMediaQuery({ maxWidth: 768 });
   const { pathname, search } = useLocation();
-  const detail = /^\/structures\/[^/]+\/?$/.test(pathname);
   return (
     <Shell>
       <PageMetadata />
@@ -55,19 +51,15 @@ export default function App() {
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
-      {!detail && (pathname !== '/' || mobile) && <Navigation />}
-      <Content
-        id="main-content"
-        $home={pathname === '/' || detail}
-        tabIndex={-1}
-      >
+      <Navigation />
+      <Content id="main-content" $home={pathname === '/'} tabIndex={-1}>
         <PageErrorBoundary key={pathname}>
           <Suspense fallback={<Loading role="status">Loading…</Loading>}>
             <Routes>
-              <Route path="/" element={mobile ? <HomeMobile /> : <HomeWeb />} />
+              <Route path="/" element={<HomeWeb />} />
               <Route
                 path="/info"
-                element={mobile ? <InfoMobile /> : <InfoWeb />}
+                element={<Navigate to="/about#visit" replace />}
               />
               <Route path="/about" element={<About />} />
               <Route
@@ -88,7 +80,11 @@ export default function App() {
                   )
                 }
               />
-              <Route path="/download" element={<Download />} />
+              <Route path="/app" element={<Download />} />
+              <Route
+                path="/download"
+                element={<Navigate to="/app" replace />}
+              />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/support" element={<Support />} />
               <Route
@@ -97,7 +93,7 @@ export default function App() {
               />
               <Route
                 path="/chronicles/land"
-                element={<Navigate to="/info" replace />}
+                element={<Navigate to="/about#visit" replace />}
               />
               <Route
                 path="/chronicles/people/*"
@@ -111,7 +107,10 @@ export default function App() {
                 path="/chronicles/*"
                 element={<Navigate to="/about" replace />}
               />
-              <Route path="/map" element={<Navigate to="/info" replace />} />
+              <Route
+                path="/map"
+                element={<Navigate to="/about#visit" replace />}
+              />
               <Route
                 path="*"
                 element={
@@ -126,7 +125,7 @@ export default function App() {
           </Suspense>
         </PageErrorBoundary>
       </Content>
-      {pathname !== '/' && !detail && <Footer />}
+      <Footer />
     </Shell>
   );
 }

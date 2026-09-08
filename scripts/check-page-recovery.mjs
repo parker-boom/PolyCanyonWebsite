@@ -80,66 +80,45 @@ try {
       await page.locator(':focus').getAttribute('id'),
       'main-content'
     );
-    if (width <= 768) {
-      const trigger = page.getByRole('button', {
-        name: 'Open navigation',
-        exact: true,
-      });
-      await trigger.focus();
-      await page.keyboard.press('Enter');
-      const dialog = page.getByRole('dialog');
-      await dialog.waitFor();
-      assert.equal(
-        await dialog
-          .getByRole('link', { name: 'About', exact: true })
-          .getAttribute('aria-current'),
-        'page'
-      );
-      for (let tab = 0; tab < 12; tab++) {
-        await page.keyboard.press('Tab');
-        assert.ok(
-          await dialog.evaluate(
-            (node) =>
-              node.contains(document.activeElement) ||
-              document.activeElement === document.body
-          )
-        );
-      }
-      await page.keyboard.press('Escape');
-      assert.equal(
-        await page.locator(':focus').getAttribute('aria-label'),
-        'Open navigation'
-      );
-      assert.notEqual(
-        await page.evaluate(() => document.body.style.overflow),
-        'hidden'
-      );
-      await trigger.click();
-      await dialog
-        .getByRole('link', { name: 'Structures', exact: true })
-        .click();
-      await page.getByRole('searchbox').waitFor();
-      assert.equal(await page.getByRole('dialog').count(), 0);
-    } else {
-      assert.equal(
-        await page
-          .getByRole('navigation', { name: 'Main navigation' })
-          .getByRole('link', { name: 'About', exact: true })
-          .getAttribute('aria-current'),
-        'page'
-      );
+    const navigation = page.getByRole('navigation', {
+      name: 'Main navigation',
+    });
+    assert.deepEqual(await navigation.getByRole('link').allTextContents(), [
+      'Home',
+      'Structures',
+      'About',
+      'App',
+    ]);
+    assert.equal(
+      await navigation
+        .getByRole('link', { name: 'About', exact: true })
+        .getAttribute('aria-current'),
+      'page'
+    );
+    for (const name of ['Home', 'Structures', 'About', 'App']) {
+      const item = navigation.getByRole('link', { name, exact: true });
+      assert.ok(await item.isVisible(), `${width}px: ${name} is visible`);
+      await item.focus();
+      assert.equal(await page.locator(':focus').textContent(), name);
     }
+    await navigation
+      .getByRole('link', { name: 'Structures', exact: true })
+      .click();
+    await page.getByRole('searchbox').waitFor();
     for (const route of [
       '/about',
-      '/info',
-      '/download',
+      '/about#visit',
+      '/app',
       '/structures',
       '/structures/accessory',
       '/not-a-page',
     ]) {
       await page.goto(`${base}${route}`);
       await page.waitForFunction(
-        () => !document.querySelector('[role="status"]')
+        () =>
+          ![...document.querySelectorAll('[role="status"]')].some(
+            (el) => el.textContent.trim() === 'Loading…'
+          )
       );
       assert.equal(
         await page.evaluate(
@@ -162,7 +141,7 @@ try {
     await page.getByRole('searchbox').waitFor();
     assert.deepEqual(errors, []);
     console.log(
-      `${width}px: keyboard, dialogs, route recovery and responsive layout passed`
+      `${width}px: keyboard, navigation, route recovery and responsive layout passed`
     );
     await page.close();
   }

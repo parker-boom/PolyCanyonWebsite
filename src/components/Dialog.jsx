@@ -5,14 +5,14 @@ import { FaTimes } from 'react-icons/fa';
 
 const Surface = styled.dialog`
   border: 1px solid #d4dfd2;
-  border-radius: 24px;
+  border-radius: 4px;
   padding: 0;
   margin: auto;
   width: min(680px, calc(100vw - 32px));
   max-height: calc(100dvh - 40px);
   color: #29362b;
   background: #fff;
-  box-shadow: 0 20px 80px #18331f44;
+  box-shadow: none;
   &::backdrop {
     background: #142c1b77;
   }
@@ -22,14 +22,14 @@ const Body = styled.div`
   line-height: 1.65;
   h2,
   h3 {
-    color: #376d31;
+    color: var(--green);
     margin: 0 40px 16px 0;
   }
   p {
     margin: 0 0 16px;
   }
   a {
-    color: #376d31;
+    color: var(--green);
   }
 `;
 const Close = styled.button`
@@ -40,9 +40,9 @@ const Close = styled.button`
   width: 44px;
   height: 44px;
   border: 0;
-  border-radius: 50%;
+  border-radius: 2px;
   background: #e8efe8;
-  color: #376d31;
+  color: var(--green);
   cursor: pointer;
   z-index: 1;
 `;

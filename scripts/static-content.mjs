@@ -130,17 +130,42 @@ export async function createStaticContent(structures, manifest) {
         .join('');
     } else if (route === '/support') {
       body += `<p>${link(`mailto:${contactEmail}`, 'Contact Parker')} · ${escapeHTML(contactEmail)}</p>`;
-    } else if (route === '/info') {
-      body += `<h2>Walking directions</h2><ol>${steps.map((step) => `<li>${escapeHTML(step)}</li>`).join('')}</ol>`;
-    } else if (route === '/download') {
+    } else if (route === '/about') {
+      body = `<h1>About Poly Canyon</h1>
+        <p>Poly Canyon is an area of hills and trails northeast of Cal Poly’s campus. Within it, a ${link('https://caed.calpoly.edu/content/facilities/poly-canyon', 'nine-acre outdoor construction laboratory')} contains bridges, towers, houses, and other structures designed and built by students.</p>
+        <p>Known today as the Architecture Graveyard, the canyon took shape as a place for students to try new ideas. Beginning in the 1960s, they brought designs out of the classroom and built them here at full scale, experimenting with materials, forms, and ways of building.</p>
+        <section id="history"><h2>An outdoor construction laboratory</h2>
+        <p>George Hasslein, the first dean of Cal Poly’s College of Architecture and Environmental Design, supported the canyon as a place for large experimental projects. Students could take a design through calculations, fabrication, and construction, leaving a full-size example for later classes to study.</p>
+        <p>The ${link('/structures/blade', 'Blade Structure')} shows how that work has developed over time. First built in 1963 to test a method of strengthening concrete with tensioned steel, it was reconstructed by another student team in 2003 after the original deteriorated. More recent projects include the ${link('/structures/momentMonument', 'Moment Monument')}, whose exposed steel connections help students study earthquake-resistant framing.</p>
+        <p id="stewardship">An outdoor site also needs ongoing care. Resident student caretakers historically maintained the grounds, and the student-led Canyon Days Committee formed in 2014 to address deterioration and vandalism. The canyon also hosts Design Village, a competition in which students build temporary shelters and inhabit them for a weekend.</p>
+        <p>Read more: ${link('https://polycanyon.calpoly.edu/history', 'Cal Poly’s structure history')}, ${link('https://polycanyon.calpoly.edu/history/blade-structure', 'the Blade reconstruction')}, ${link('https://digitalcommons.calpoly.edu/arcesp/208/', 'the Moment Monument project report')}, and ${link('https://caed.calpoly.edu/about-canyon-days-committee', 'Canyon Days')}.</p></section>
+        <section id="landscape"><h2>The landscape around the structures</h2>
+        <p>The construction site occupies only a small part of the wider canyon. Brizzolara Creek runs through the valley, with grasslands, oak-covered slopes, and streamside vegetation around it. Rocky ridges support different plant communities from the wetter ground below.</p>
+        <p>Those differences have a geological basis. Cal Poly’s ${link('https://polyland.net/overview/Archives/derome/geology.html', 'Poly Land field guide')} describes serpentinite along the ridge east of Poly Canyon Road, sandstone and shale elsewhere in the valley, and the changes in vegetation across them. The exposed rock, creek, and seasonal weather are part of the setting in which the structures were built and have aged.</p>
+        <h3>Weather through the year</h3>
+        <p><strong>May to early October.</strong> Rain is uncommon during the dry season. Pacific air moderates temperatures, and coastal fog can reach San Luis Obispo overnight and into the morning. Clear afternoons can feel quite different from the start of the day.</p>
+        <p><strong>Late October through April.</strong> Most rain arrives with Pacific storms, especially in winter. Rainfall varies considerably from year to year. Wet ground and runoff change conditions along the paths and creek, even when the weather has cleared.</p>
+        <p>Typical regional patterns for San Luis Obispo. Sources: ${link('https://www.weather.gov/media/wrh/online_publications/TMs/TM-223.pdf', 'National Weather Service climate study')} and ${link('https://afd.calpoly.edu/sustainability/campus-action/water/water-sources', 'Cal Poly’s water resources overview')}.</p></section>
+        <section id="visit"><h2>Visiting the canyon</h2>
+        <p>Access the area by walking along Poly Canyon Road on campus.</p>
+        <h3>Walking directions</h3><ol>${steps.map((step) => `<li>${escapeHTML(step)}</li>`).join('')}</ol>
+        <p>${link('https://www.alltrails.com/trail/us/california/architecture-graveyard-hike-private-property?sh=rvw6ps', 'AllTrails')} · ${link('https://maps.app.goo.gl/H8Dq6Y5x1E6pQJzk9', 'Google Maps')}</p>
+        <p>Visit during daylight hours. Bring water and wear hiking shoes; the ground around the structures can be uneven. Keep your distance from wildlife and horses. Check the weather before you go: summer afternoons can be hot, and paths can be muddy after rain. Cell service can be spotty, so download the ${link('/app', 'app')} before your visit.</p></section>
+        <section id="project"><h2>About the archive</h2>
+        <p>This project began with a map. After visiting Poly Canyon as a Cal Poly student, Parker Jones found that existing maps had misplaced labels and poorly scaled paths. He traced paths and structures from aerial photography, then ${link('https://caed.calpoly.edu/student-developed-app-revolutionizes-poly-canyon-experience', 'developed the app')} to make that map available to other visitors.</p>
+        <p>Research into the structures followed, with help from Kennedy Library and students in the College of Architecture and Environmental Design. The website brings together structure descriptions, historical photographs, and links to original project reports. The app provides a map for exploring on foot; the website offers more room to read through the research and compare past projects.</p>
+        <p>The archive draws on original theses, photographs, and university records, including resources compiled by Danny Wills’s architecture studio and Jesse Vestermark’s library research guide. Source documents are linked in the Resources section of individual structure pages where available. Records are uneven, and a photograph or project report may describe an earlier condition of the site.</p></section>`;
+    } else if (route === '/app') {
+      body +=
+        '<p>Find your way around with an interactive map, read the stories behind the structures, and track the places you visit. You can also explore photographs and structure histories from home.</p>';
+
       body += `<p>${link('https://apps.apple.com/us/app/poly-canyon/id6499063781', 'Get Poly Canyon for iPhone on the App Store')}</p>`;
     }
     return `<div class="static-page" data-static-page><nav aria-label="Main navigation">${[
-      ['/', 'Poly Canyon'],
+      ['/', 'Home'],
       ['/structures', 'Structures'],
       ['/about', 'About'],
-      ['/info', 'Visit'],
-      ['/download', 'App'],
+      ['/app', 'App'],
     ]
       .map(([url, name]) => link(url, name))
       .join(

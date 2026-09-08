@@ -2,39 +2,59 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import dome from '../assets/generated/info/a1.webp';
-
+import { steps } from '../info/directions.js';
 const Page = styled.article`
-  max-width: 1040px;
+  width: min(1120px, 100%);
   margin: 0 auto;
-  padding: 36px 28px 60px;
-  color: #354133;
+  padding: 52px 32px 88px;
+  box-sizing: border-box;
+  color: #354139;
+  h1,
+  h2,
+  h3 {
+    color: #164b3b;
+    font-weight: 600;
+    letter-spacing: -0.035em;
+  }
   h1 {
-    margin: 0 0 20px;
-    color: #376d31;
-    font-size: clamp(34px, 4.5vw, 48px);
+    margin: 0 0 24px;
+    font-size: clamp(32px, 4vw, 46px);
     line-height: 1.12;
-    letter-spacing: -1px;
   }
   h2 {
-    margin: 0 0 20px;
-    color: #376d31;
+    margin: 0 0 22px;
     font-size: 28px;
-    line-height: 1.25;
+    line-height: 1.2;
+  }
+  h3 {
+    margin: 0 0 12px;
+    font-size: 17px;
+    letter-spacing: -0.015em;
   }
   p {
-    margin: 0 0 20px;
-    font-size: 17px;
-    line-height: 1.8;
+    margin: 0 0 22px;
+    font-size: 16px;
+    line-height: 1.85;
   }
   a {
-    color: #376d31;
-    text-underline-offset: 3px;
+    color: #164b3b;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
   }
-  section {
+  a:hover {
+    text-decoration-thickness: 2px;
+  }
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid #926b1c;
+    outline-offset: 5px;
+  }
+  section,
+  [id] {
     scroll-margin-top: 100px;
   }
   @media (max-width: 600px) {
-    padding: 26px 20px 40px;
+    padding: 30px 20px 56px;
     h2 {
       font-size: 25px;
     }
@@ -42,11 +62,11 @@ const Page = styled.article`
 `;
 const Introduction = styled.header`
   display: grid;
-  grid-template-columns: 1.05fr 1fr;
-  gap: 40px;
+  grid-template-columns: 1fr 1fr;
+  gap: 52px;
   align-items: center;
-  padding-bottom: 32px;
-  border-bottom: 1px solid #dbe1d5;
+  padding-bottom: 48px;
+  border-bottom: 1px solid #dce2da;
   figure {
     margin: 0;
   }
@@ -54,202 +74,212 @@ const Introduction = styled.header`
     display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 1.12;
+    aspect-ratio: 1.08;
     object-fit: cover;
-    border-radius: 18px;
   }
   figcaption {
-    margin-top: 10px;
-    color: #5d6959;
-    font-size: 13px;
-    line-height: 1.5;
+    margin-top: 12px;
+    color: #667267;
+    font-size: 12px;
+    line-height: 1.6;
   }
   @media (max-width: 760px) {
     grid-template-columns: 1fr;
-    gap: 8px;
+    gap: 24px;
+    padding-bottom: 32px;
     img {
-      aspect-ratio: 1.65;
+      aspect-ratio: 1.5;
     }
   }
 `;
 const Location = styled.a`
   display: inline-block;
   font-size: 13px;
-  margin-bottom: 16px;
+  padding: 6px 0;
+`;
+const Body = styled.div`
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 64px;
+  @media (max-width: 760px) {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+`;
+const Contents = styled.nav`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  position: sticky;
+  top: 112px;
+  align-self: start;
+  padding-top: 44px;
+  a {
+    display: inline-flex;
+    min-height: 32px;
+    align-items: center;
+    font-size: 13px;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  @media (max-width: 760px) {
+    position: static;
+    padding-top: 20px;
+    flex-direction: row;
+    gap: 4px 20px;
+    flex-wrap: wrap;
+  }
 `;
 const Text = styled.div`
+  min-width: 0;
   section {
     padding-top: 44px;
   }
 `;
 const Reference = styled.p`
   && {
-    font-size: 13px;
-    line-height: 1.65;
-    color: #606b5d;
-    margin-top: -6px;
+    font-size: 12px;
+    line-height: 1.75;
+    color: #667267;
   }
 `;
 const ClimateFigure = styled.figure`
-  margin: 28px 0 6px;
+  margin: 30px 0 0;
   figcaption {
-    margin-top: 12px;
+    margin-top: 16px;
+    color: #667267;
     font-size: 12px;
-    line-height: 1.6;
-    color: #606b5d;
+    line-height: 1.75;
   }
 `;
 const Climate = styled.div`
-  padding: 24px;
-  border: 1px solid #dce4d4;
-  border-radius: 18px;
-  background: #f4f7ef;
-  h3 {
-    color: #376d31;
-    font-size: 18px;
-    margin: 0 0 16px;
-  }
-  @media (max-width: 450px) {
-    padding: 20px 14px;
-  }
-`;
-const SeasonButtons = styled.div`
-  display: flex;
-  gap: 8px;
-  margin-bottom: 22px;
-  button {
-    flex: 1;
-    padding: 10px 12px;
-    border: 1px solid #c9d4bd;
-    border-radius: 10px;
-    background: white;
-    color: #376d31;
-    cursor: pointer;
-    font: inherit;
-    font-size: 14px;
-    font-weight: 600;
-    transition:
-      background-color 120ms ease,
-      color 120ms ease;
-  }
-  button[aria-pressed='true'] {
-    color: white;
-    background: #376d31;
-    border-color: #376d31;
-  }
-`;
-const Months = styled.div`
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 3px;
-  margin: 0 0 20px;
-  span {
-    font-size: 10px;
-    text-align: center;
-    color: #54604f;
-  }
-  i {
-    display: block;
-    height: 12px;
-    margin-bottom: 7px;
-    border-radius: 2px;
-    background: #dce2d5;
-  }
-  i[data-season='wet'] {
-    background: #75936b;
-  }
-  i[data-season='dry'] {
-    background: #d7b669;
-  }
-  i[data-season='transition'] {
-    background: linear-gradient(90deg, #d7b669 50%, #75936b 50%);
-  }
-`;
-const SeasonText = styled.div`
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  border-top: 1px solid #dce2da;
+  border-bottom: 1px solid #dce2da;
+  padding: 24px 0;
   p {
-    font-size: 15px;
-    line-height: 1.7;
+    font-size: 14px;
+    line-height: 1.8;
     margin: 0;
+  }
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 22px;
   }
 `;
 const Project = styled.section`
   margin-top: 40px;
-  border-top: 1px solid #dbe1d5;
+  border-top: 1px solid #dce2da;
 `;
-const months = [
-  'Jan',
-  'Feb',
-  'Mar',
-  'Apr',
-  'May',
-  'Jun',
-  'Jul',
-  'Aug',
-  'Sep',
-  'Oct',
-  'Nov',
-  'Dec',
-];
+const Directions = styled.ol`
+  margin: 24px 0;
+  padding-left: 24px;
+  li {
+    padding: 0 0 12px 8px;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  li::marker {
+    color: #926b1c;
+    font-variant-numeric: tabular-nums;
+  }
+`;
+const Map = styled.div`
+  border: 1px solid #dce2da;
+  margin: 12px 0 28px;
+  background: #eef1e9;
+  iframe {
+    display: block;
+    width: 100%;
+    height: 300px;
+    border: 0;
+  }
+  > div {
+    display: flex;
+    min-height: 150px;
+    padding: 28px;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+  }
+  button {
+    background: #164b3b;
+    color: #fff;
+    border: 1px solid #164b3b;
+    padding: 12px 22px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  button:hover {
+    background: #0e382b;
+  }
+  > a {
+    display: block;
+    border-top: 1px solid #dce2da;
+    padding: 15px 20px;
+    font-size: 13px;
+    text-align: center;
+    background: #fafbf8;
+  }
+`;
+function VisitMap() {
+  const [loaded, setLoaded] = useState(false);
+  return (
+    <Map>
+      {loaded ? (
+        <iframe
+          title="Entry Arch destination map"
+          src="https://maps.google.com/maps?q=35.31344%2C-120.65192&z=14&output=embed"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          allowFullScreen
+        />
+      ) : (
+        <div>
+          <button type="button" onClick={() => setLoaded(true)}>
+            Show map
+          </button>
+        </div>
+      )}
+      <a
+        href="https://www.google.com/maps/dir/?api=1&origin=35.30302,-120.65913&destination=35.31344,-120.65192&travelmode=walking"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Walking directions in Google Maps ↗
+      </a>
+    </Map>
+  );
+}
 function SeasonalClimate() {
-  const [season, setSeason] = useState('dry');
   return (
     <ClimateFigure>
       <Climate>
-        <h3>Weather through the year</h3>
-        <SeasonButtons aria-label="Explore the seasonal climate">
-          <button
-            type="button"
-            aria-pressed={season === 'dry'}
-            onClick={() => setSeason('dry')}
-          >
-            Dry season
-          </button>
-          <button
-            type="button"
-            aria-pressed={season === 'wet'}
-            onClick={() => setSeason('wet')}
-          >
-            Wet season
-          </button>
-        </SeasonButtons>
-        <Months aria-label="Typical dry season: May to early October. Typical wet season: late October through April.">
-          {months.map((month, index) => {
-            const kind =
-              index === 9
-                ? 'transition'
-                : index >= 4 && index <= 8
-                  ? 'dry'
-                  : 'wet';
-            return (
-              <span key={month} aria-hidden="true">
-                <i
-                  data-season={
-                    kind === season || kind === 'transition' ? kind : undefined
-                  }
-                />
-                {month}
-              </span>
-            );
-          })}
-        </Months>
-        <SeasonText aria-live="polite">
-          {season === 'dry' ? (
-            <p>
-              <strong>May to early October.</strong> Rain is uncommon during the
-              dry season. Pacific air moderates temperatures, and coastal fog
-              can reach San Luis Obispo overnight and into the morning. Clear
-              afternoons can feel quite different from the start of the day.
-            </p>
-          ) : (
-            <p>
-              <strong>Late October through April.</strong> Most rain arrives
-              with Pacific storms, especially in winter. Rainfall varies
-              considerably from year to year. Wet ground and runoff change
-              conditions along the paths and creek, even when the weather has
-              cleared.
-            </p>
-          )}
-        </SeasonText>
+        <div>
+          <h3>May – early October</h3>
+          <p>
+            Rain is uncommon during the dry season. Pacific air moderates
+            temperatures, and coastal fog can reach San Luis Obispo overnight
+            and into the morning. Clear afternoons can feel quite different from
+            the start of the day.
+          </p>
+        </div>
+        <div>
+          <h3>Late October – April</h3>
+          <p>
+            Most rain arrives with Pacific storms, especially in winter.
+            Rainfall varies considerably from year to year. Wet ground and
+            runoff change conditions along the paths and creek, even when the
+            weather has cleared.
+          </p>
+        </div>
       </Climate>
       <figcaption>
         Typical regional patterns for San Luis Obispo. Sources:{' '}
@@ -265,7 +295,6 @@ function SeasonalClimate() {
     </ClimateFigure>
   );
 }
-
 export default function AboutPage() {
   return (
     <Page>
@@ -298,7 +327,7 @@ export default function AboutPage() {
         <figure>
           <img
             src={dome}
-            alt="The open steel framework of the Geodesic Dome on a grassy slope in Poly Canyon"
+            alt="The open framework of the Geodesic Dome on a grassy slope in Poly Canyon"
             width="600"
             height="400"
             decoding="async"
@@ -309,107 +338,149 @@ export default function AboutPage() {
           </figcaption>
         </figure>
       </Introduction>
-      <Text>
-        <section id="history">
-          <h2>An outdoor construction laboratory</h2>
-          <p>
-            George Hasslein, the first dean of Cal Poly’s College of
-            Architecture and Environmental Design, supported the canyon as a
-            place for large experimental projects. Students could take a design
-            through calculations, fabrication, and construction, leaving a
-            full-size example for later classes to study.
-          </p>
-          <p>
-            The <Link to="/structures/blade">Blade Structure</Link> shows how
-            that work has developed over time. First built in 1963 to test a
-            method of strengthening concrete with tensioned steel, it was
-            reconstructed by another student team in 2003 after the original
-            deteriorated. More recent projects include the{' '}
-            <Link to="/structures/momentMonument">Moment Monument</Link>, whose
-            exposed steel connections help students study earthquake-resistant
-            framing.
-          </p>
-          <p id="stewardship">
-            An outdoor site also needs ongoing care. Resident student caretakers
-            historically maintained the grounds, and the student-led Canyon Days
-            Committee formed in 2014 to address deterioration and vandalism. The
-            canyon also hosts Design Village, a competition in which students
-            build temporary shelters and inhabit them for a weekend.
-          </p>
-          <Reference>
-            Read more:{' '}
-            <a href="https://polycanyon.calpoly.edu/history">
-              Cal Poly’s structure history
-            </a>
-            ,{' '}
-            <a href="https://polycanyon.calpoly.edu/history/blade-structure">
-              the Blade reconstruction
-            </a>
-            ,{' '}
-            <a href="https://digitalcommons.calpoly.edu/arcesp/208/">
-              the Moment Monument project report
-            </a>
-            , and{' '}
-            <a href="https://caed.calpoly.edu/about-canyon-days-committee">
-              Canyon Days
-            </a>
-            .
-          </Reference>
-        </section>
-        <section id="landscape">
-          <h2>The landscape around the structures</h2>
-          <p>
-            The construction site occupies only a small part of the wider
-            canyon. Brizzolara Creek runs through the valley, with grasslands,
-            oak-covered slopes, and streamside vegetation around it. Rocky
-            ridges support different plant communities from the wetter ground
-            below.
-          </p>
-          <p>
-            Those differences have a geological basis. Cal Poly’s{' '}
-            <a href="https://polyland.net/overview/Archives/derome/geology.html">
-              Poly Land field guide
-            </a>{' '}
-            describes serpentinite along the ridge east of Poly Canyon Road,
-            sandstone and shale elsewhere in the valley, and the changes in
-            vegetation across them. The exposed rock, creek, and seasonal
-            weather are part of the setting in which the structures were built
-            and have aged.
-          </p>
-          <SeasonalClimate />
-        </section>
-        <Project id="project">
-          <h2>About the app and website</h2>
-          <p>
-            This project began with a map. After visiting Poly Canyon as a Cal
-            Poly student, Parker Jones found that existing maps had misplaced
-            labels and poorly scaled paths. He traced paths and structures from
-            aerial photography, then{' '}
-            <a href="https://caed.calpoly.edu/student-developed-app-revolutionizes-poly-canyon-experience">
-              developed the app
-            </a>{' '}
-            to make that map available to other visitors.
-          </p>
-          <p>
-            Research into the structures followed, with help from Kennedy
-            Library and students in the College of Architecture and
-            Environmental Design. The website brings together structure
-            descriptions, historical photographs, and links to original project
-            reports. The app provides a map for exploring on foot; the website
-            offers more room to read through the research and compare past
-            projects.
-          </p>
-          <p>
-            The archive draws on original theses, photographs, and university
-            records, including resources compiled by Danny Wills’s architecture
-            studio and Jesse Vestermark’s library research guide. Source
-            documents are linked in the Resources section of individual
-            structure pages where available. Records are uneven, and a
-            photograph or project report may describe an earlier condition of
-            the site.
-          </p>
-        </Project>
-      </Text>
+      <Body>
+        <Contents aria-label="On this page">
+          <a href="#history">History</a>
+          <a href="#landscape">Landscape</a>
+          <a href="#visit">Visiting</a>
+          <a href="#project">The archive</a>
+        </Contents>
+        <Text>
+          <section id="history">
+            <h2>An outdoor construction laboratory</h2>
+            <p>
+              George Hasslein, the first dean of Cal Poly’s College of
+              Architecture and Environmental Design, supported the canyon as a
+              place for large experimental projects. Students could take a
+              design through calculations, fabrication, and construction,
+              leaving a full-size example for later classes to study.
+            </p>
+            <p>
+              The <Link to="/structures/blade">Blade Structure</Link> shows how
+              that work has developed over time. First built in 1963 to test a
+              method of strengthening concrete with tensioned steel, it was
+              reconstructed by another student team in 2003 after the original
+              deteriorated. More recent projects include the{' '}
+              <Link to="/structures/momentMonument">Moment Monument</Link>,
+              whose exposed steel connections help students study
+              earthquake-resistant framing.
+            </p>
+            <p id="stewardship">
+              An outdoor site also needs ongoing care. Resident student
+              caretakers historically maintained the grounds, and the
+              student-led Canyon Days Committee formed in 2014 to address
+              deterioration and vandalism. The canyon also hosts Design Village,
+              a competition in which students build temporary shelters and
+              inhabit them for a weekend.
+            </p>
+            <Reference>
+              Read more:{' '}
+              <a href="https://polycanyon.calpoly.edu/history">
+                Cal Poly’s structure history
+              </a>
+              ,{' '}
+              <a href="https://polycanyon.calpoly.edu/history/blade-structure">
+                the Blade reconstruction
+              </a>
+              ,{' '}
+              <a href="https://digitalcommons.calpoly.edu/arcesp/208/">
+                the Moment Monument project report
+              </a>
+              , and{' '}
+              <a href="https://caed.calpoly.edu/about-canyon-days-committee">
+                Canyon Days
+              </a>
+              .
+            </Reference>
+          </section>
+          <section id="landscape">
+            <h2>The landscape around the structures</h2>
+            <p>
+              The construction site occupies only a small part of the wider
+              canyon. Brizzolara Creek runs through the valley, with grasslands,
+              oak-covered slopes, and streamside vegetation around it. Rocky
+              ridges support different plant communities from the wetter ground
+              below.
+            </p>
+            <p>
+              Those differences have a geological basis. Cal Poly’s{' '}
+              <a href="https://polyland.net/overview/Archives/derome/geology.html">
+                Poly Land field guide
+              </a>{' '}
+              describes serpentinite along the ridge east of Poly Canyon Road,
+              sandstone and shale elsewhere in the valley, and the changes in
+              vegetation across them. The exposed rock, creek, and seasonal
+              weather are part of the setting in which the structures were built
+              and have aged.
+            </p>
+            <SeasonalClimate />
+          </section>
+          <section id="visit">
+            <h2>Visiting the canyon</h2>
+            <p>
+              Walk along Poly Canyon Road from campus. The route to the
+              structures takes about 20 minutes, with uneven ground around the
+              projects.
+            </p>
+            <Directions>
+              {steps.map((step) => (
+                <li key={step}>{step}</li>
+              ))}
+            </Directions>
+            <VisitMap />
+            <p>
+              Bring water and wear hiking shoes. Visit in daylight, watch for
+              wildlife and horses, and give them space. Summer afternoons can be
+              hot; paths can be muddy after rain. Cell service can be spotty, so
+              download the <Link to="/app">app</Link> before your visit.
+            </p>
+            <Reference>
+              <a
+                href="https://www.alltrails.com/trail/us/california/architecture-graveyard-hike-private-property?sh=rvw6ps"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Trail information on AllTrails ↗
+              </a>
+            </Reference>
+          </section>
+          <Project id="project">
+            <h2>About this archive</h2>
+            <p>
+              This project began with a map. After visiting Poly Canyon as a Cal
+              Poly student, Parker Jones found that existing maps had misplaced
+              labels and poorly scaled paths. He traced paths and structures
+              from aerial photography, then{' '}
+              <a href="https://caed.calpoly.edu/student-developed-app-revolutionizes-poly-canyon-experience">
+                developed the app
+              </a>{' '}
+              to make that map available to other visitors.
+            </p>
+            <p>
+              Research into the structures followed, with help from Kennedy
+              Library and students in the College of Architecture and
+              Environmental Design. The website brings together structure
+              descriptions, historical photographs, and links to original
+              project reports. The app provides a map for exploring on foot; the
+              website offers more room to read through the research and compare
+              past projects.
+            </p>
+            <p>
+              The archive draws on original theses, photographs, and university
+              records, including resources compiled by Danny Wills’s
+              architecture studio and Jesse Vestermark’s library research guide.
+              Source documents are linked in the Resources section of individual
+              structure pages where available. Records are uneven, and a
+              photograph or project report may describe an earlier condition of
+              the site.
+            </p>
+            <p>
+              <Link to="/support">Contact &amp; corrections</Link> ·{' '}
+              <Link to="/privacy">Privacy</Link>
+            </p>
+          </Project>
+        </Text>
+      </Body>
     </Page>
   );
 }

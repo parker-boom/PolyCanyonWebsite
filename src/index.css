@@ -1,12 +1,14 @@
 :root {
-  --green: #376d31;
-  --gold: #bd8b13;
+  --green: #164b3b;
+  --gold: #b58a32;
+  --line: #dce2da;
+  --muted: #64716b;
   --surface: #e8efe8;
-  --ink: #29362b;
+  --ink: #233c32;
   font-family:
     -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: var(--ink);
-  background: #fff;
+  background: #fafbf8;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

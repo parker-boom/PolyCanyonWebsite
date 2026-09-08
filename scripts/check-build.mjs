@@ -9,8 +9,16 @@ const pages = JSON.parse(
 const data = JSON.parse(
   await readFile(path.join(root, 'public/data/structuresInfo.json'), 'utf8')
 );
-assert.equal(Object.keys(pages).length, data.structures.length + 8);
-assert.ok(pages['/support'], 'The published app support URL must remain available');
+assert.equal(Object.keys(pages).length, data.structures.length + 7);
+assert.ok(pages['/app'], 'The app has a canonical public route');
+assert.ok(
+  !pages['/info'] && !pages['/download'],
+  'Retired routes must redirect rather than compete in the sitemap'
+);
+assert.ok(
+  pages['/support'],
+  'The published app support URL must remain available'
+);
 const sitemap = await readFile(path.join(root, 'build/sitemap.xml'), 'utf8');
 for (const route of Object.keys(pages)) {
   const html = await readFile(
@@ -43,16 +51,27 @@ for (const route of Object.keys(pages)) {
 }
 assert.equal((sitemap.match(/<loc>/g) || []).length, Object.keys(pages).length);
 assert.ok(!sitemap.includes('/chronicles'));
-for (const asset of [
-  'sharePNG/OGDefault.png',
-  'sharePNG/TwitDefault.png',
-])
+for (const asset of ['sharePNG/OGDefault.png', 'sharePNG/TwitDefault.png'])
   await access(path.join(root, 'build', asset));
 const redirects = await readFile(path.join(root, 'build/_redirects'), 'utf8');
 assert.equal(
   redirects,
   await readFile(path.join(root, 'public/_redirects'), 'utf8')
 );
+for (const [source, target] of [
+  ['/info', '/about#visit'],
+  ['/map', '/about#visit'],
+  ['/download', '/app'],
+  ['/chronicles/land', '/about#visit'],
+]) {
+  assert.ok(
+    redirects.split('\n').some((line) => {
+      const [from, to, status] = line.trim().split(/\s+/);
+      return from === source && to === target && status === '301';
+    }),
+    `${source}: permanent redirect to ${target}`
+  );
+}
 assert.match(redirects, /^\/\*\s+\/404\.html\s+404$/m);
 assert.ok(
   !/^\/\*\s+\/index\.html\s+200/m.test(redirects),
@@ -76,4 +95,6 @@ console.log(
   `Validated metadata and sitemap for ${Object.keys(pages).length} pages, linked bundles, redirect targets, social assets and the 404 page.`
 );
 
-await assert.rejects(access(path.join(root, 'build/admin')), { code: 'ENOENT' });
+await assert.rejects(access(path.join(root, 'build/admin')), {
+  code: 'ENOENT',
+});

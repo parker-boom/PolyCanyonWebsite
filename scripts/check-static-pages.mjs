@@ -1,3 +1,4 @@
+import { steps } from '../src/info/directions.js';
 import { resourceLinks } from '../src/structures/data/resourceLinks.js';
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
@@ -63,6 +64,28 @@ try {
   await page
     .getByRole('heading', { name: 'Entry Arch', exact: true })
     .waitFor();
+  await page.goto(`${base}/about#visit`);
+  const about = normalize(await page.locator('main').innerText());
+  for (const step of steps)
+    assert.ok(about.includes(step), `Missing walking step: ${step}`);
+  for (const anchor of ['history', 'stewardship', 'visit'])
+    assert.equal(await page.locator(`#${anchor}`).count(), 1);
+  assert.deepEqual(
+    await page
+      .getByRole('navigation', { name: 'Main navigation' })
+      .getByRole('link')
+      .allTextContents(),
+    ['Home', 'Structures', 'About', 'App']
+  );
+  await page.goto(`${base}/app`);
+  assert.equal(
+    await page
+      .locator(
+        'main a[href="https://apps.apple.com/us/app/poly-canyon/id6499063781"]'
+      )
+      .count(),
+    1
+  );
   await page.goto(`${base}/privacy`);
   const policy = normalize(await page.locator('main').innerText());
   assert.ok(policy.includes(policyIntroduction));
@@ -95,14 +118,16 @@ try {
       '/structures/entryArch',
       '/structures/accessory',
       '/privacy',
-      '/info',
+      '/about',
       '/support',
     ]) {
       await live.goto(base + route);
       await live.waitForFunction(
         () =>
           !document.querySelector('[data-static-page]') &&
-          !document.querySelector('[role="status"]')
+          ![...document.querySelectorAll('[role="status"]')].some(
+            (el) => el.textContent.trim() === 'Loading…'
+          )
       );
       assert.equal(
         await live.locator('main').count(),
@@ -117,7 +142,7 @@ try {
         `${width}: ${route} overflow`
       );
     }
-    await live.goto(`${base}/info`);
+    await live.goto(`${base}/about#visit`);
     await live.waitForFunction(
       () =>
         !document.querySelector('[data-static-page]') &&
@@ -132,7 +157,7 @@ try {
         .locator('main img')
         .evaluateAll((images) => images.map((img) => img.getAttribute('src'))),
       before,
-      'Info photos must stay fixed'
+      'About photos must stay fixed'
     );
     await live.goto(`${base}/admin/`);
     await live

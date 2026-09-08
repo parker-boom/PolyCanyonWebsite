@@ -20,12 +20,11 @@ try {
     await page
       .getByRole('button', { name: 'Previous photograph', exact: true })
       .click();
-    const open =
-      width < 769 ? 'Open photograph full screen' : 'Toggle fullscreen mode';
+    const open = 'Toggle fullscreen mode';
     await page.getByRole('button', { name: open, exact: true }).click();
-    if (width < 769)
-      await page.getByRole('dialog', { name: 'Photograph viewer' }).waitFor();
-    else await page.getByText('7 / 7', { exact: true }).waitFor();
+    const viewer = page.getByRole('dialog', { name: 'Photograph viewer' });
+    await viewer.waitFor();
+    await viewer.getByText('7 / 7', { exact: true }).waitFor();
     await page.goBack();
     await page.waitForURL('**/structures/techiteBridge');
     await page

@@ -1,149 +1,103 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { useMediaQuery } from 'react-responsive';
-import {
-  FaBars,
-  FaDownload,
-  FaInfo,
-  FaBuilding,
-  FaBookOpen,
-} from 'react-icons/fa';
+import React from 'react';
+import { NavLink, Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Dialog from '../components/Dialog.jsx';
-import {
-  BannerMobile,
-  MenuIcon,
-  PolyCanyonTitle,
-  Logo,
-  Banner,
-  BannerContent,
-  BannerIcon,
-  BannerText,
-  NavLinks,
-  NavLink,
-} from './Navigation.styles.js';
-import app360 from '../assets/app360.webp';
-
-const Brand = styled(Link)`
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  text-decoration: none;
-  flex-shrink: 0;
-`;
-const Row = styled.div`
+import logo from '../assets/app360.webp';
+const Header = styled.header`
+  width: min(1240px, calc(100% - 80px));
+  margin: 0 auto;
+  border-bottom: 1px solid var(--line);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 28px;
-  width: 100%;
+  gap: 24px;
+  min-height: 104px;
+  @media (max-width: 600px) {
+    width: calc(100% - 36px);
+    min-height: 0;
+    padding: 20px 0 0;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
 `;
-const Menu = styled.nav`
-  display: grid;
-  gap: 8px;
-  margin-top: 18px;
+const Brand = styled(Link)`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--green);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.7px;
+  img {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+  }
+  @media (max-width: 600px) {
+    font-size: 21px;
+    img {
+      width: 36px;
+      height: 36px;
+    }
+  }
+`;
+const Nav = styled.nav`
+  display: flex;
+  gap: 32px;
+  align-self: stretch;
+  align-items: stretch;
   a {
     display: flex;
     align-items: center;
-    gap: 12px;
-    border-radius: 12px;
-    padding: 14px 16px;
+    position: relative;
     text-decoration: none;
-    background: #e8efe8;
-    color: #376d31;
-    font-weight: 700;
+    font-size: 14px;
+    color: var(--muted);
+    min-height: 48px;
+  }
+  a:hover {
+    color: var(--green);
+  }
+  a[aria-current='page'] {
+    color: var(--green);
+  }
+  a[aria-current='page']::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gold);
+  }
+  @media (max-width: 600px) {
+    width: 100%;
+    justify-content: space-between;
+    gap: 20px;
+    a {
+      min-height: 44px;
+    }
   }
 `;
-const links = [
-  { to: '/download', text: 'App', Icon: FaDownload },
-  { to: '/info', text: 'Info', Icon: FaInfo },
-  { to: '/structures', text: 'Structures', Icon: FaBuilding },
-  { to: '/about', text: 'About', Icon: FaBookOpen },
-];
-
 export default function Navigation() {
-  const mobile = useMediaQuery({ maxWidth: 768 });
-  const { pathname } = useLocation();
-  const [open, setOpen] = useState(false);
-  useEffect(() => setOpen(false), [pathname]);
-  const currentPath = pathname.replace(/\/$/, '') || '/';
-  const active = (to) =>
-    currentPath === to ||
-    (to === '/structures' && pathname.startsWith('/structures/'));
-  if (mobile)
-    return (
-      <>
-        <BannerMobile as="header">
-          <MenuIcon
-            as="button"
-            style={{ border: 0 }}
-            aria-label="Open navigation"
-            aria-expanded={open}
-            aria-haspopup="dialog"
-            onClick={() => setOpen(true)}
-          >
-            <FaBars />
-          </MenuIcon>
-          <Brand to="/" aria-label="Poly Canyon home">
-            <PolyCanyonTitle
-              as="span"
-              style={{ fontSize: 'clamp(26px, 8vw, 34px)' }}
-            >
-              Poly Canyon
-            </PolyCanyonTitle>
-          </Brand>
-          <Link to="/" aria-label="Poly Canyon home">
-            <Logo src={app360} alt="" width="40" height="40" />
-          </Link>
-        </BannerMobile>
-        <Dialog
-          open={open}
-          onClose={() => setOpen(false)}
-          titleId="navigation-title"
-        >
-          <h2 id="navigation-title">Explore Poly Canyon</h2>
-          <Menu aria-label="Main navigation">
-            <Link to="/" onClick={() => setOpen(false)}>
-              Home
-            </Link>
-            {links.map(({ to, text, Icon }) => (
-              <Link
-                to={to}
-                key={to}
-                aria-current={active(to) ? 'page' : undefined}
-                onClick={() => setOpen(false)}
-              >
-                <Icon aria-hidden="true" />
-                {text}
-              </Link>
-            ))}
-          </Menu>
-        </Dialog>
-      </>
-    );
   return (
-    <Banner as="header" $isAtTop $isVisible>
-      <BannerContent>
-        <Row>
-          <Brand to="/" aria-label="Poly Canyon home">
-            <BannerIcon src={app360} alt="" width="40" height="40" />
-            <BannerText as="span">Poly Canyon</BannerText>
-          </Brand>
-          <NavLinks as="nav" aria-label="Main navigation">
-            {links.map(({ to, text, Icon }) => (
-              <NavLink
-                key={to}
-                to={to}
-                $isActive={active(to)}
-                aria-current={active(to) ? 'page' : undefined}
-              >
-                <Icon aria-hidden="true" />
-                {text}
-              </NavLink>
-            ))}
-          </NavLinks>
-        </Row>
-      </BannerContent>
-    </Banner>
+    <Header>
+      <Brand to="/" aria-label="Poly Canyon home">
+        <img src={logo} alt="" width="44" height="44" />
+        Poly Canyon
+      </Brand>
+      <Nav aria-label="Main navigation">
+        {[
+          ['/', 'Home'],
+          ['/structures', 'Structures'],
+          ['/about', 'About'],
+          ['/app', 'App'],
+        ].map(([to, label]) => (
+          <NavLink key={to} to={to} end={to === '/'}>
+            {label}
+          </NavLink>
+        ))}
+      </Nav>
+    </Header>
   );
 }

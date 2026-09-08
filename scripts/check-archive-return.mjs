@@ -15,9 +15,23 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
     await p.goto(
       `${process.env.BASE_URL || 'http://127.0.0.1:4173'}/structures/`
     );
-    await p.getByRole('button', { name: 'Open navigation' }).click();
-    await p.getByRole('dialog').waitFor();
-    await p.keyboard.press('Escape');
+    const navigation = p.getByRole('navigation', { name: 'Main navigation' });
+    assert.deepEqual(await navigation.getByRole('link').allTextContents(), [
+      'Home',
+      'Structures',
+      'About',
+      'App',
+    ]);
+    assert.equal(
+      await navigation
+        .getByRole('link', { name: 'Structures', exact: true })
+        .getAttribute('aria-current'),
+      'page'
+    );
+    assert.equal(
+      await p.evaluate(() => document.documentElement.scrollWidth > innerWidth),
+      false
+    );
     const search = p.getByRole('searchbox');
     await search.focus();
     await search.pressSequentially('bridge');
@@ -60,14 +74,16 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
     await p.waitForTimeout(300);
     assert.equal(p.url(), url);
     assert.ok(Math.abs((await p.evaluate(() => scrollY)) - y) < 3);
-    await p.getByRole('button', { name: 'Open navigation' }).tap();
-    await p.getByRole('dialog').waitFor();
+    await navigation.getByRole('link', { name: 'About', exact: true }).tap();
+    await p
+      .getByRole('heading', { name: 'About Poly Canyon', exact: true })
+      .waitFor();
     assert.deepEqual(errors, []);
     console.log({
       trailingSlashNavigation: true,
       backAndCloseRestore: true,
       scroll: y,
-      touchMenu: true,
+      touchNavigation: true,
       errors,
     });
     await p.close();
