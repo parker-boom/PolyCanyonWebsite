@@ -51,7 +51,7 @@ const Page = styled.div`
   h1 {
     margin: 0;
     color: var(--green);
-    font-size: clamp(30px, 4vw, 48px);
+    font-size: clamp(26px, 3vw, 38px);
     font-weight: 600;
     letter-spacing: -0.045em;
   }
@@ -215,7 +215,7 @@ export default function Home() {
   return (
     <Page>
       <header>
-        <h1>Built to explore.</h1>
+        <h1>Student-built architecture at Cal Poly.</h1>
         <Link to="/structures">Explore the structures</Link>
       </header>
       <Link

@@ -19,3 +19,11 @@ Captures: output/playwright/review-september-8/ (desktop/mobile Home, Structures
 ## Deferred
 
 App’s duplicate utility strips are removed and App support remains by the download action; privacy remains in the footer. Existing approved 6.0 stills are retained. The proposed map/walking, discovery, and remote-exploration showcase waits for approved app UI/media. Nothing was pushed, merged, or published.
+
+## Copy correction and full-page evidence
+
+Home now identifies the place directly: “Student-built architecture at Cal Poly.” The heading is 26–38 pixels, subordinate to the featured structure title. Static Home uses the same wording. Lint, production build, and all 49 static-route checks passed after this correction.
+
+Full-page captures now cover Home, Structures, and About at 1440-pixel desktop and 390-pixel mobile widths, with no horizontal overflow. Files in `output/playwright/review-september-8/`: `home-desktop-full.png`, `home-mobile-full.png`, `structures-desktop-full.png`, `structures-mobile-full.png`, `about-desktop-full.png`, `about-mobile-full.png`. User-facing copies are in `/Users/parkerjones/Documents/Codex/2026-09-08/you-are-the-designer-and-engineer-2/outputs/website-review/`.
+
+The browser’s automatic full-page capture duplicated content, so these are assembled from overlapping viewport captures at measured scroll positions, retaining the browser’s native capture scale. About was recaptured after its destination map loaded. No new video.
