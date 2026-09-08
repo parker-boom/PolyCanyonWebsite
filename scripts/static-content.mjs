@@ -130,17 +130,16 @@ export async function createStaticContent(structures, manifest) {
         .join('');
     } else if (route === '/support') {
       body += `<p>${link(`mailto:${contactEmail}`, 'Contact Parker')} · ${escapeHTML(contactEmail)}</p>`;
-    } else if (route === '/info') {
-      body += `<h2>Walking directions</h2><ol>${steps.map((step) => `<li>${escapeHTML(step)}</li>`).join('')}</ol>`;
-    } else if (route === '/download') {
+    } else if (route === '/about') {
+      body += `<h2 id="visiting">Walking directions</h2><ol>${steps.map((step) => `<li>${escapeHTML(step)}</li>`).join('')}</ol>`;
+    } else if (route === '/app') {
       body += `<p>${link('https://apps.apple.com/us/app/poly-canyon/id6499063781', 'Get Poly Canyon for iPhone on the App Store')}</p>`;
     }
     return `<div class="static-page" data-static-page><nav aria-label="Main navigation">${[
-      ['/', 'Poly Canyon'],
+      ['/', 'Home'],
       ['/structures', 'Structures'],
       ['/about', 'About'],
-      ['/info', 'Visit'],
-      ['/download', 'App'],
+      ['/app', 'App'],
     ]
       .map(([url, name]) => link(url, name))
       .join(

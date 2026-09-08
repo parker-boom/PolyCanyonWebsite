@@ -494,9 +494,16 @@ export const thumbnailImages = {
 // Widths and URLs are paired during media generation, not rebuilt in the browser.
 import responsiveImages from '../../assets/generated/responsiveImages.js';
 const responsiveSources = new Map(
-  responsiveImages.map(([src, smallerSrc, width, smallerWidth]) => [
+  responsiveImages.map(([src, smallerSrc, width, smallerWidth, height]) => [
     src,
-    `${smallerSrc} ${smallerWidth}w, ${src} ${width}w`,
+    {
+      srcSet:
+        smallerWidth < width
+          ? `${smallerSrc} ${smallerWidth}w, ${src} ${width}w`
+          : undefined,
+      width,
+      height,
+    },
   ])
 );
 
@@ -504,5 +511,5 @@ export function getResponsiveImage(
   src,
   sizes = '(max-width: 768px) 100vw, 800px'
 ) {
-  return { src, srcSet: responsiveSources.get(src), sizes };
+  return { src, ...responsiveSources.get(src), sizes };
 }

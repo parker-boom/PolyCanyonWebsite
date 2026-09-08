@@ -1,52 +1,71 @@
-import React, { useState } from 'react';
+import React from 'react';
+import MapEmbed from '../components/MapEmbed.jsx';
+import { steps } from '../info/directions.js';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import dome from '../assets/generated/info/a1.webp';
 
 const Page = styled.article`
-  max-width: 1040px;
+  max-width: 1180px;
   margin: 0 auto;
-  padding: 36px 28px 60px;
-  color: #354133;
+  padding: 58px 40px 80px;
+  color: #243f32;
+  h1,
+  h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 400;
+  }
   h1 {
-    margin: 0 0 20px;
-    color: #376d31;
-    font-size: clamp(34px, 4.5vw, 48px);
-    line-height: 1.12;
-    letter-spacing: -1px;
+    margin: 0 0 24px;
+    font-size: clamp(36px, 4.8vw, 60px);
+    line-height: 1.08;
+    letter-spacing: -1.5px;
   }
   h2 {
-    margin: 0 0 20px;
-    color: #376d31;
-    font-size: 28px;
-    line-height: 1.25;
+    margin: 0 0 24px;
+    font-size: clamp(27px, 3vw, 36px);
+    line-height: 1.2;
+    letter-spacing: -0.5px;
   }
-  p {
-    margin: 0 0 20px;
+  h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 10px;
+  }
+  p,
+  li {
     font-size: 17px;
     line-height: 1.8;
   }
-  a {
-    color: #376d31;
-    text-underline-offset: 3px;
+  p {
+    margin: 0 0 22px;
   }
-  section {
-    scroll-margin-top: 100px;
+  a {
+    color: inherit;
+    text-decoration-color: #a17629;
+    text-underline-offset: 4px;
+  }
+  a:hover {
+    text-decoration-thickness: 2px;
+  }
+  section,
+  [id] {
+    scroll-margin-top: 110px;
   }
   @media (max-width: 600px) {
-    padding: 26px 20px 40px;
-    h2 {
-      font-size: 25px;
+    padding: 30px 20px 54px;
+    p,
+    li {
+      font-size: 16px;
     }
   }
 `;
 const Introduction = styled.header`
   display: grid;
-  grid-template-columns: 1.05fr 1fr;
-  gap: 40px;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
   align-items: center;
-  padding-bottom: 32px;
-  border-bottom: 1px solid #dbe1d5;
+  padding-bottom: 52px;
   figure {
     margin: 0;
   }
@@ -54,202 +73,160 @@ const Introduction = styled.header`
     display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 1.12;
+    aspect-ratio: 3 / 2;
     object-fit: cover;
-    border-radius: 18px;
   }
   figcaption {
-    margin-top: 10px;
-    color: #5d6959;
-    font-size: 13px;
-    line-height: 1.5;
+    margin-top: 12px;
+    color: #626959;
+    font-size: 12px;
+    line-height: 1.6;
   }
   @media (max-width: 760px) {
     grid-template-columns: 1fr;
-    gap: 8px;
+    gap: 20px;
+    padding-bottom: 30px;
     img {
-      aspect-ratio: 1.65;
+      aspect-ratio: 3 / 2;
     }
   }
 `;
+const JumpLinks = styled.nav`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 22px;
+  margin: -10px 0 20px;
+  a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 13px;
+  }
+`;
 const Location = styled.a`
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   font-size: 13px;
-  margin-bottom: 16px;
 `;
 const Text = styled.div`
   section {
-    padding-top: 44px;
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr);
+    column-gap: 60px;
+    border-top: 1px solid #c9cbbc;
+    padding: 42px 0 24px;
+  }
+  section h2 {
+    grid-column: 1;
+    grid-row: 1 / span 8;
+  }
+  section > :not(h2) {
+    grid-column: 2;
+  }
+  @media (max-width: 850px) {
+    section {
+      grid-template-columns: 190px minmax(0, 1fr);
+      column-gap: 32px;
+    }
+  }
+  @media (max-width: 640px) {
+    section {
+      display: block;
+      padding-top: 30px;
+    }
   }
 `;
 const Reference = styled.p`
   && {
     font-size: 13px;
-    line-height: 1.65;
-    color: #606b5d;
-    margin-top: -6px;
+    line-height: 1.7;
+    color: #626959;
   }
 `;
 const ClimateFigure = styled.figure`
-  margin: 28px 0 6px;
+  margin: 8px 0 22px;
+  padding-top: 22px;
+  border-top: 1px solid #c9cbbc;
   figcaption {
-    margin-top: 12px;
+    margin-top: 14px;
     font-size: 12px;
-    line-height: 1.6;
-    color: #606b5d;
+    line-height: 1.7;
+    color: #626959;
   }
 `;
 const Climate = styled.div`
-  padding: 24px;
-  border: 1px solid #dce4d4;
-  border-radius: 18px;
-  background: #f4f7ef;
-  h3 {
-    color: #376d31;
-    font-size: 18px;
-    margin: 0 0 16px;
-  }
-  @media (max-width: 450px) {
-    padding: 20px 14px;
-  }
-`;
-const SeasonButtons = styled.div`
-  display: flex;
-  gap: 8px;
-  margin-bottom: 22px;
-  button {
-    flex: 1;
-    padding: 10px 12px;
-    border: 1px solid #c9d4bd;
-    border-radius: 10px;
-    background: white;
-    color: #376d31;
-    cursor: pointer;
-    font: inherit;
-    font-size: 14px;
-    font-weight: 600;
-    transition:
-      background-color 120ms ease,
-      color 120ms ease;
-  }
-  button[aria-pressed='true'] {
-    color: white;
-    background: #376d31;
-    border-color: #376d31;
-  }
-`;
-const Months = styled.div`
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 3px;
-  margin: 0 0 20px;
-  span {
-    font-size: 10px;
-    text-align: center;
-    color: #54604f;
-  }
-  i {
-    display: block;
-    height: 12px;
-    margin-bottom: 7px;
-    border-radius: 2px;
-    background: #dce2d5;
-  }
-  i[data-season='wet'] {
-    background: #75936b;
-  }
-  i[data-season='dry'] {
-    background: #d7b669;
-  }
-  i[data-season='transition'] {
-    background: linear-gradient(90deg, #d7b669 50%, #75936b 50%);
-  }
-`;
-const SeasonText = styled.div`
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
   p {
     font-size: 15px;
     line-height: 1.7;
     margin: 0;
   }
+  @media (max-width: 460px) {
+    grid-template-columns: 1fr;
+  }
 `;
-const Project = styled.section`
-  margin-top: 40px;
-  border-top: 1px solid #dbe1d5;
+const Project = styled.section``;
+const VisitDetails = styled.div`
+  ol {
+    padding-left: 24px;
+    margin: 0 0 28px;
+  }
+  li {
+    padding-left: 6px;
+    margin-bottom: 12px;
+  }
+  li::marker {
+    color: #a17629;
+    font-family: Georgia, serif;
+  }
+  > div {
+    border-radius: 0;
+  }
+  > div > div {
+    background: #eceee3;
+  }
+  button {
+    border-radius: 0;
+    font: inherit;
+  }
+  .visit-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 28px;
+    margin: 14px 0 24px;
+  }
+  .visit-links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 14px;
+  }
 `;
-const months = [
-  'Jan',
-  'Feb',
-  'Mar',
-  'Apr',
-  'May',
-  'Jun',
-  'Jul',
-  'Aug',
-  'Sep',
-  'Oct',
-  'Nov',
-  'Dec',
-];
 function SeasonalClimate() {
-  const [season, setSeason] = useState('dry');
   return (
     <ClimateFigure>
       <Climate>
-        <h3>Weather through the year</h3>
-        <SeasonButtons aria-label="Explore the seasonal climate">
-          <button
-            type="button"
-            aria-pressed={season === 'dry'}
-            onClick={() => setSeason('dry')}
-          >
-            Dry season
-          </button>
-          <button
-            type="button"
-            aria-pressed={season === 'wet'}
-            onClick={() => setSeason('wet')}
-          >
-            Wet season
-          </button>
-        </SeasonButtons>
-        <Months aria-label="Typical dry season: May to early October. Typical wet season: late October through April.">
-          {months.map((month, index) => {
-            const kind =
-              index === 9
-                ? 'transition'
-                : index >= 4 && index <= 8
-                  ? 'dry'
-                  : 'wet';
-            return (
-              <span key={month} aria-hidden="true">
-                <i
-                  data-season={
-                    kind === season || kind === 'transition' ? kind : undefined
-                  }
-                />
-                {month}
-              </span>
-            );
-          })}
-        </Months>
-        <SeasonText aria-live="polite">
-          {season === 'dry' ? (
-            <p>
-              <strong>May to early October.</strong> Rain is uncommon during the
-              dry season. Pacific air moderates temperatures, and coastal fog
-              can reach San Luis Obispo overnight and into the morning. Clear
-              afternoons can feel quite different from the start of the day.
-            </p>
-          ) : (
-            <p>
-              <strong>Late October through April.</strong> Most rain arrives
-              with Pacific storms, especially in winter. Rainfall varies
-              considerably from year to year. Wet ground and runoff change
-              conditions along the paths and creek, even when the weather has
-              cleared.
-            </p>
-          )}
-        </SeasonText>
+        <div>
+          <h3>May to early October</h3>
+          <p>
+            Rain is uncommon during the dry season. Pacific air moderates
+            temperatures, and coastal fog can reach San Luis Obispo overnight
+            and into the morning. Clear afternoons can feel quite different from
+            the start of the day.
+          </p>
+        </div>
+        <div>
+          <h3>Late October through April</h3>
+          <p>
+            Most rain arrives with Pacific storms, especially in winter.
+            Rainfall varies considerably from year to year. Wet ground and
+            runoff change conditions along the paths and creek, even when the
+            weather has cleared.
+          </p>
+        </div>
       </Climate>
       <figcaption>
         Typical regional patterns for San Luis Obispo. Sources:{' '}
@@ -272,6 +249,12 @@ export default function AboutPage() {
       <Introduction>
         <div>
           <h1>About Poly Canyon</h1>
+          <JumpLinks aria-label="About sections">
+            <a href="#visiting">Visiting</a>
+            <a href="#history">History</a>
+            <a href="#landscape">Landscape</a>
+            <a href="#project">This archive</a>
+          </JumpLinks>
           <p>
             Poly Canyon is an area of hills and trails northeast of Cal Poly’s
             campus. Within it, a{' '}
@@ -281,12 +264,7 @@ export default function AboutPage() {
             contains bridges, towers, houses, and other structures designed and
             built by students.
           </p>
-          <p>
-            Known today as the Architecture Graveyard, the canyon took shape as
-            a place for students to try new ideas. Beginning in the 1960s, they
-            brought designs out of the classroom and built them here at full
-            scale, experimenting with materials, forms, and ways of building.
-          </p>
+
           <Location
             href="https://www.google.com/maps/search/?api=1&query=Poly+Canyon+Architecture+Graveyard+San+Luis+Obispo"
             target="_blank"
@@ -310,8 +288,52 @@ export default function AboutPage() {
         </figure>
       </Introduction>
       <Text>
+        <section id="visiting">
+          <h2>Walking to the canyon</h2>
+          <VisitDetails>
+            <p>
+              Follow Poly Canyon Road from campus. The walk takes about 20
+              minutes, with a gentle incline along the road and uneven ground
+              around the structures.
+            </p>
+            <ol>
+              {steps.map((step) => (
+                <li key={step}>{step}</li>
+              ))}
+            </ol>
+            <MapEmbed
+              latitude={35.31344}
+              longitude={-120.65192}
+              title="Find the canyon"
+              height={260}
+              directions
+            />
+            <div className="visit-links">
+              <a
+                href="https://www.alltrails.com/trail/us/california/architecture-graveyard-hike-private-property?sh=rvw6ps"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Trail on AllTrails ↗
+              </a>
+              <Link to="/app">The iPhone map →</Link>
+            </div>
+            <p>
+              Visit during daylight. Bring water, wear shoes suited to uneven
+              terrain, and give wildlife and horses space. Summer afternoons can
+              be hot; paths can be muddy after rain. Download the app before
+              walking out, as cell service can be spotty.
+            </p>
+          </VisitDetails>
+        </section>
         <section id="history">
           <h2>An outdoor construction laboratory</h2>
+          <p>
+            Known today as the Architecture Graveyard, the canyon took shape as
+            a place for students to try new ideas. Beginning in the 1960s, they
+            brought designs out of the classroom and built them here at full
+            scale, experimenting with materials, forms, and ways of building.
+          </p>
           <p>
             George Hasslein, the first dean of Cal Poly’s College of
             Architecture and Environmental Design, supported the canyon as a
@@ -379,7 +401,7 @@ export default function AboutPage() {
           <SeasonalClimate />
         </section>
         <Project id="project">
-          <h2>About the app and website</h2>
+          <h2>About this archive</h2>
           <p>
             This project began with a map. After visiting Poly Canyon as a Cal
             Poly student, Parker Jones found that existing maps had misplaced

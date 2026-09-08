@@ -10,15 +10,10 @@ const pages = {
   '/about': {
     title: 'About Poly Canyon',
     description:
-      'An introduction to Poly Canyon’s experimental structures, history, landscape and seasonal climate, with background on the app and research archive.',
+      'The history of Cal Poly’s experimental architecture, with walking directions, visiting information, landscape and research sources.',
   },
-  '/info': {
-    title: 'Visit Poly Canyon — Directions & Information',
-    description:
-      'Plan a visit to Poly Canyon at Cal Poly, San Luis Obispo. Find walking directions, visitor information, and a guide to the Poly Canyon app.',
-  },
-  '/download': {
-    title: 'Get the Poly Canyon App',
+  '/app': {
+    title: 'Poly Canyon for iPhone',
     description:
       'Take the canyon with you. Explore student-built structures with the free Poly Canyon guide for iPhone.',
   },

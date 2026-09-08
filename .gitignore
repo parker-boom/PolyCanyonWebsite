@@ -27,3 +27,7 @@ yarn-error.log*
 
 
 /src/app/metadata.generated.json
+
+# Local review screenshots and walkthroughs
+/output/
+/.playwright-cli/

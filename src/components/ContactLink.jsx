@@ -7,7 +7,7 @@ const Trigger = styled.button`
   background: none;
   border: 0;
   padding: 0;
-  color: #376d31;
+  color: var(--green);
   font: inherit;
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -24,16 +24,16 @@ const Actions = styled.div`
     align-items: center;
     justify-content: center;
     padding: 10px 16px;
-    border: 1px solid #376d31;
-    border-radius: 10px;
+    border: 1px solid var(--green);
+    border-radius: 2px;
     background: white;
-    color: #376d31;
+    color: var(--green);
     font: inherit;
     text-decoration: none;
     cursor: pointer;
   }
   a {
-    background: #376d31;
+    background: var(--green);
     color: white;
   }
 `;

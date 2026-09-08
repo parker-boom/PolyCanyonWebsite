@@ -3,647 +3,686 @@ import full0 from './structures/accessory/Billboard.webp';
 import small0 from './structures/mobile/accessory/Billboard.webp';
 import full1 from './structures/accessory/CardinalDirection.webp';
 import small1 from './structures/mobile/accessory/CardinalDirection.webp';
-import full2 from './structures/accessory/Entrance.webp';
-import small2 from './structures/mobile/accessory/Entrance.webp';
-import full3 from './structures/close/C-1.webp';
-import small3 from './structures/mobile/close/C-1.webp';
-import full4 from './structures/close/C-10.webp';
-import small4 from './structures/mobile/close/C-10.webp';
-import full5 from './structures/close/C-11.webp';
-import small5 from './structures/mobile/close/C-11.webp';
-import full6 from './structures/close/C-12.webp';
-import small6 from './structures/mobile/close/C-12.webp';
-import full7 from './structures/close/C-13.webp';
-import small7 from './structures/mobile/close/C-13.webp';
-import full8 from './structures/close/C-14.webp';
-import small8 from './structures/mobile/close/C-14.webp';
-import full9 from './structures/close/C-15.webp';
-import small9 from './structures/mobile/close/C-15.webp';
-import full10 from './structures/close/C-16.webp';
-import small10 from './structures/mobile/close/C-16.webp';
-import full11 from './structures/close/C-17.webp';
-import small11 from './structures/mobile/close/C-17.webp';
-import full12 from './structures/close/C-18.webp';
-import small12 from './structures/mobile/close/C-18.webp';
-import full13 from './structures/close/C-19.webp';
-import small13 from './structures/mobile/close/C-19.webp';
-import full14 from './structures/close/C-2.webp';
-import small14 from './structures/mobile/close/C-2.webp';
-import full15 from './structures/close/C-20.webp';
-import small15 from './structures/mobile/close/C-20.webp';
-import full16 from './structures/close/C-21.webp';
-import small16 from './structures/mobile/close/C-21.webp';
-import full17 from './structures/close/C-22.webp';
-import small17 from './structures/mobile/close/C-22.webp';
-import full18 from './structures/close/C-23.webp';
-import small18 from './structures/mobile/close/C-23.webp';
-import full19 from './structures/close/C-24.webp';
-import small19 from './structures/mobile/close/C-24.webp';
-import full20 from './structures/close/C-25.webp';
-import small20 from './structures/mobile/close/C-25.webp';
-import full21 from './structures/close/C-26.webp';
-import small21 from './structures/mobile/close/C-26.webp';
-import full22 from './structures/close/C-27.webp';
-import small22 from './structures/mobile/close/C-27.webp';
-import full23 from './structures/close/C-28.webp';
-import small23 from './structures/mobile/close/C-28.webp';
-import full24 from './structures/close/C-3.webp';
-import small24 from './structures/mobile/close/C-3.webp';
-import full25 from './structures/close/C-30.webp';
-import small25 from './structures/mobile/close/C-30.webp';
-import full26 from './structures/close/C-31.webp';
-import small26 from './structures/mobile/close/C-31.webp';
-import full27 from './structures/close/C-4.webp';
-import small27 from './structures/mobile/close/C-4.webp';
-import full28 from './structures/close/C-5.webp';
-import small28 from './structures/mobile/close/C-5.webp';
-import full29 from './structures/close/C-6.webp';
-import small29 from './structures/mobile/close/C-6.webp';
-import full30 from './structures/close/C-7.webp';
-import small30 from './structures/mobile/close/C-7.webp';
-import full31 from './structures/close/C-8.webp';
-import small31 from './structures/mobile/close/C-8.webp';
-import full32 from './structures/close/C-9.webp';
-import small32 from './structures/mobile/close/C-9.webp';
-import full33 from './structures/main/M-1.webp';
-import small33 from './structures/mobile/main/M-1.webp';
-import full34 from './structures/main/M-10.webp';
-import small34 from './structures/mobile/main/M-10.webp';
-import full35 from './structures/main/M-11.webp';
-import small35 from './structures/mobile/main/M-11.webp';
-import full36 from './structures/main/M-12.webp';
-import small36 from './structures/mobile/main/M-12.webp';
-import full37 from './structures/main/M-13.webp';
-import small37 from './structures/mobile/main/M-13.webp';
-import full38 from './structures/main/M-14.webp';
-import small38 from './structures/mobile/main/M-14.webp';
-import full39 from './structures/main/M-15.webp';
-import small39 from './structures/mobile/main/M-15.webp';
-import full40 from './structures/main/M-16.webp';
-import small40 from './structures/mobile/main/M-16.webp';
-import full41 from './structures/main/M-17.webp';
-import small41 from './structures/mobile/main/M-17.webp';
-import full42 from './structures/main/M-18.webp';
-import small42 from './structures/mobile/main/M-18.webp';
-import full43 from './structures/main/M-19.webp';
-import small43 from './structures/mobile/main/M-19.webp';
-import full44 from './structures/main/M-2.webp';
-import small44 from './structures/mobile/main/M-2.webp';
-import full45 from './structures/main/M-20.webp';
-import small45 from './structures/mobile/main/M-20.webp';
-import full46 from './structures/main/M-21.webp';
-import small46 from './structures/mobile/main/M-21.webp';
-import full47 from './structures/main/M-22.webp';
-import small47 from './structures/mobile/main/M-22.webp';
-import full48 from './structures/main/M-23.webp';
-import small48 from './structures/mobile/main/M-23.webp';
-import full49 from './structures/main/M-24.webp';
-import small49 from './structures/mobile/main/M-24.webp';
-import full50 from './structures/main/M-25.webp';
-import small50 from './structures/mobile/main/M-25.webp';
-import full51 from './structures/main/M-26.webp';
-import small51 from './structures/mobile/main/M-26.webp';
-import full52 from './structures/main/M-27.webp';
-import small52 from './structures/mobile/main/M-27.webp';
-import full53 from './structures/main/M-28.webp';
-import small53 from './structures/mobile/main/M-28.webp';
-import full54 from './structures/main/M-29.webp';
-import small54 from './structures/mobile/main/M-29.webp';
-import full55 from './structures/main/M-3.webp';
-import small55 from './structures/mobile/main/M-3.webp';
-import full56 from './structures/main/M-30.webp';
-import small56 from './structures/mobile/main/M-30.webp';
-import full57 from './structures/main/M-31.webp';
-import small57 from './structures/mobile/main/M-31.webp';
-import full58 from './structures/main/M-32.webp';
-import small58 from './structures/mobile/main/M-32.webp';
-import full59 from './structures/main/M-33.webp';
-import small59 from './structures/mobile/main/M-33.webp';
-import full60 from './structures/main/M-36.webp';
-import small60 from './structures/mobile/main/M-36.webp';
-import full61 from './structures/main/M-38.webp';
-import small61 from './structures/mobile/main/M-38.webp';
-import full62 from './structures/main/M-39.webp';
-import small62 from './structures/mobile/main/M-39.webp';
-import full63 from './structures/main/M-4.webp';
-import small63 from './structures/mobile/main/M-4.webp';
-import full64 from './structures/main/M-40.webp';
-import small64 from './structures/mobile/main/M-40.webp';
-import full65 from './structures/main/M-41.webp';
-import small65 from './structures/mobile/main/M-41.webp';
-import full66 from './structures/main/M-5.webp';
-import small66 from './structures/mobile/main/M-5.webp';
-import full67 from './structures/main/M-6.webp';
-import small67 from './structures/mobile/main/M-6.webp';
-import full68 from './structures/main/M-7.webp';
-import small68 from './structures/mobile/main/M-7.webp';
-import full69 from './structures/main/M-8.webp';
-import small69 from './structures/mobile/main/M-8.webp';
-import full70 from './structures/main/M-9.webp';
-import small70 from './structures/mobile/main/M-9.webp';
-import full71 from './structures/other/BBQPit1.webp';
-import small71 from './structures/mobile/other/BBQPit1.webp';
-import full72 from './structures/other/BBQPit2.webp';
-import small72 from './structures/mobile/other/BBQPit2.webp';
-import full73 from './structures/other/blade1.webp';
-import small73 from './structures/mobile/other/blade1.webp';
-import full74 from './structures/other/blade2.webp';
-import small74 from './structures/mobile/other/blade2.webp';
-import full75 from './structures/other/Botanical2.webp';
-import small75 from './structures/mobile/other/Botanical2.webp';
-import full76 from './structures/other/Botanical3.webp';
-import small76 from './structures/mobile/other/Botanical3.webp';
-import full77 from './structures/other/Botanical4.webp';
-import small77 from './structures/mobile/other/Botanical4.webp';
-import full78 from './structures/other/bridgeHouse1.webp';
-import small78 from './structures/mobile/other/bridgeHouse1.webp';
-import full79 from './structures/other/bridgeHouse2.webp';
-import small79 from './structures/mobile/other/bridgeHouse2.webp';
-import full80 from './structures/other/bridgeHouse3.webp';
-import small80 from './structures/mobile/other/bridgeHouse3.webp';
-import full81 from './structures/other/bridgeHouse4.webp';
-import small81 from './structures/mobile/other/bridgeHouse4.webp';
-import full82 from './structures/other/bridgeHouse5.webp';
-import small82 from './structures/mobile/other/bridgeHouse5.webp';
-import full83 from './structures/other/cantileverDeck1.webp';
-import small83 from './structures/mobile/other/cantileverDeck1.webp';
-import full84 from './structures/other/cantileverDeck2.webp';
-import small84 from './structures/mobile/other/cantileverDeck2.webp';
-import full85 from './structures/other/cantileverDeck3.webp';
-import small85 from './structures/mobile/other/cantileverDeck3.webp';
-import full86 from './structures/other/cantileverDeck4.webp';
-import small86 from './structures/mobile/other/cantileverDeck4.webp';
-import full87 from './structures/other/cantileverDeck5.webp';
-import small87 from './structures/mobile/other/cantileverDeck5.webp';
-import full88 from './structures/other/centeringCenter1.webp';
-import small88 from './structures/mobile/other/centeringCenter1.webp';
-import full89 from './structures/other/centeringCenter2.webp';
-import small89 from './structures/mobile/other/centeringCenter2.webp';
-import full90 from './structures/other/centeringCenter3.webp';
-import small90 from './structures/mobile/other/centeringCenter3.webp';
-import full91 from './structures/other/centeringCenter4.webp';
-import small91 from './structures/mobile/other/centeringCenter4.webp';
-import full92 from './structures/other/CorX1.webp';
-import small92 from './structures/mobile/other/CorX1.webp';
-import full93 from './structures/other/CorX3.webp';
-import small93 from './structures/mobile/other/CorX3.webp';
-import full94 from './structures/other/EarthBlocks1.webp';
-import small94 from './structures/mobile/other/EarthBlocks1.webp';
-import full95 from './structures/other/EarthBlocks2.webp';
-import small95 from './structures/mobile/other/EarthBlocks2.webp';
-import full96 from './structures/other/Electric1.webp';
-import small96 from './structures/mobile/other/Electric1.webp';
-import full97 from './structures/other/Electric2.webp';
-import small97 from './structures/mobile/other/Electric2.webp';
-import full98 from './structures/other/Electric3.webp';
-import small98 from './structures/mobile/other/Electric3.webp';
-import full99 from './structures/other/Electric4.webp';
-import small99 from './structures/mobile/other/Electric4.webp';
-import full100 from './structures/other/Electric5.webp';
-import small100 from './structures/mobile/other/Electric5.webp';
-import full101 from './structures/other/entryArch1.webp';
-import small101 from './structures/mobile/other/entryArch1.webp';
-import full102 from './structures/other/entryArch2.webp';
-import small102 from './structures/mobile/other/entryArch2.webp';
-import full103 from './structures/other/entryArch3.webp';
-import small103 from './structures/mobile/other/entryArch3.webp';
-import full104 from './structures/other/entryArch4.webp';
-import small104 from './structures/mobile/other/entryArch4.webp';
-import full105 from './structures/other/entryArch5.webp';
-import small105 from './structures/mobile/other/entryArch5.webp';
-import full106 from './structures/other/Exercise1.webp';
-import small106 from './structures/mobile/other/Exercise1.webp';
-import full107 from './structures/other/Exercise2.webp';
-import small107 from './structures/mobile/other/Exercise2.webp';
-import full108 from './structures/other/fratessaTower1.webp';
-import small108 from './structures/mobile/other/fratessaTower1.webp';
-import full109 from './structures/other/geodesicDome1.webp';
-import small109 from './structures/mobile/other/geodesicDome1.webp';
-import full110 from './structures/other/geodesicDome2.webp';
-import small110 from './structures/mobile/other/geodesicDome2.webp';
-import full111 from './structures/other/geodesicDome3.webp';
-import small111 from './structures/mobile/other/geodesicDome3.webp';
-import full112 from './structures/other/geodesicDome4.webp';
-import small112 from './structures/mobile/other/geodesicDome4.webp';
-import full113 from './structures/other/geodesicDome5.webp';
-import small113 from './structures/mobile/other/geodesicDome5.webp';
-import full114 from './structures/other/greenHouse1.webp';
-import small114 from './structures/mobile/other/greenHouse1.webp';
-import full115 from './structures/other/greenHouse2.webp';
-import small115 from './structures/mobile/other/greenHouse2.webp';
-import full116 from './structures/other/greenHouse3.webp';
-import small116 from './structures/mobile/other/greenHouse3.webp';
-import full117 from './structures/other/guniteBridge1.webp';
-import small117 from './structures/mobile/other/guniteBridge1.webp';
-import full118 from './structures/other/Hydraulic1.webp';
-import small118 from './structures/mobile/other/Hydraulic1.webp';
-import full119 from './structures/other/Hydraulic2.webp';
-import small119 from './structures/mobile/other/Hydraulic2.webp';
-import full120 from './structures/other/modularHouse1.webp';
-import small120 from './structures/mobile/other/modularHouse1.webp';
-import full121 from './structures/other/modularHouse2.webp';
-import small121 from './structures/mobile/other/modularHouse2.webp';
-import full122 from './structures/other/modularHouse3.webp';
-import small122 from './structures/mobile/other/modularHouse3.webp';
-import full123 from './structures/other/modularHouse4.webp';
-import small123 from './structures/mobile/other/modularHouse4.webp';
-import full124 from './structures/other/modularHouse5.webp';
-import small124 from './structures/mobile/other/modularHouse5.webp';
-import full125 from './structures/other/modularHouse6.webp';
-import small125 from './structures/mobile/other/modularHouse6.webp';
-import full126 from './structures/other/momentMonument1.webp';
-import small126 from './structures/mobile/other/momentMonument1.webp';
-import full127 from './structures/other/momentMonument2.webp';
-import small127 from './structures/mobile/other/momentMonument2.webp';
-import full128 from './structures/other/momentMonument3.webp';
-import small128 from './structures/mobile/other/momentMonument3.webp';
-import full129 from './structures/other/momentMonument4.webp';
-import small129 from './structures/mobile/other/momentMonument4.webp';
-import full130 from './structures/other/observationDeck1.webp';
-import small130 from './structures/mobile/other/observationDeck1.webp';
-import full131 from './structures/other/polyPavilion1.webp';
-import small131 from './structures/mobile/other/polyPavilion1.webp';
-import full132 from './structures/other/polyPavilion2.webp';
-import small132 from './structures/mobile/other/polyPavilion2.webp';
-import full133 from './structures/other/restrooms1.webp';
-import small133 from './structures/mobile/other/restrooms1.webp';
-import full134 from './structures/other/restrooms2.webp';
-import small134 from './structures/mobile/other/restrooms2.webp';
-import full135 from './structures/other/restrooms3.webp';
-import small135 from './structures/mobile/other/restrooms3.webp';
-import full136 from './structures/other/restrooms4.webp';
-import small136 from './structures/mobile/other/restrooms4.webp';
-import full137 from './structures/other/serenityWall1.webp';
-import small137 from './structures/mobile/other/serenityWall1.webp';
-import full138 from './structures/other/Shed1.webp';
-import small138 from './structures/mobile/other/Shed1.webp';
-import full139 from './structures/other/shellHouse1.webp';
-import small139 from './structures/mobile/other/shellHouse1.webp';
-import full140 from './structures/other/shellHouse2.webp';
-import small140 from './structures/mobile/other/shellHouse2.webp';
-import full141 from './structures/other/shellHouse3.webp';
-import small141 from './structures/mobile/other/shellHouse3.webp';
-import full142 from './structures/other/shellHouse4.webp';
-import small142 from './structures/mobile/other/shellHouse4.webp';
-import full143 from './structures/other/spireArray1.webp';
-import small143 from './structures/mobile/other/spireArray1.webp';
-import full144 from './structures/other/spireArray2.webp';
-import small144 from './structures/mobile/other/spireArray2.webp';
-import full145 from './structures/other/stickStructure1.webp';
-import small145 from './structures/mobile/other/stickStructure1.webp';
-import full146 from './structures/other/stickStructure2.webp';
-import small146 from './structures/mobile/other/stickStructure2.webp';
-import full147 from './structures/other/stickStructure3.webp';
-import small147 from './structures/mobile/other/stickStructure3.webp';
-import full148 from './structures/other/stickStructure4.webp';
-import small148 from './structures/mobile/other/stickStructure4.webp';
-import full149 from './structures/other/sunDial1.webp';
-import small149 from './structures/mobile/other/sunDial1.webp';
-import full150 from './structures/other/sunDial2.webp';
-import small150 from './structures/mobile/other/sunDial2.webp';
-import full151 from './structures/other/Suspension1.webp';
-import small151 from './structures/mobile/other/Suspension1.webp';
-import full152 from './structures/other/Suspension2.webp';
-import small152 from './structures/mobile/other/Suspension2.webp';
-import full153 from './structures/other/Suspension3.webp';
-import small153 from './structures/mobile/other/Suspension3.webp';
-import full154 from './structures/other/techiteBridge1.webp';
-import small154 from './structures/mobile/other/techiteBridge1.webp';
-import full155 from './structures/other/techiteBridge2.webp';
-import small155 from './structures/mobile/other/techiteBridge2.webp';
-import full156 from './structures/other/techiteBridge3.webp';
-import small156 from './structures/mobile/other/techiteBridge3.webp';
-import full157 from './structures/other/tensegrity1.webp';
-import small157 from './structures/mobile/other/tensegrity1.webp';
-import full158 from './structures/other/tensegrity2.webp';
-import small158 from './structures/mobile/other/tensegrity2.webp';
-import full159 from './structures/other/tensegrity3.webp';
-import small159 from './structures/mobile/other/tensegrity3.webp';
-import full160 from './structures/other/TensegrityMast1.webp';
-import small160 from './structures/mobile/other/TensegrityMast1.webp';
-import full161 from './structures/other/TensegrityMast2.webp';
-import small161 from './structures/mobile/other/TensegrityMast2.webp';
-import full162 from './structures/other/tensile1.webp';
-import small162 from './structures/mobile/other/tensile1.webp';
-import full163 from './structures/other/tensile2.webp';
-import small163 from './structures/mobile/other/tensile2.webp';
-import full164 from './structures/other/tensile3.webp';
-import small164 from './structures/mobile/other/tensile3.webp';
-import full165 from './structures/other/tensile4.webp';
-import small165 from './structures/mobile/other/tensile4.webp';
-import full166 from './structures/other/undergroundHouse1.webp';
-import small166 from './structures/mobile/other/undergroundHouse1.webp';
-import full167 from './structures/other/undergroundHouse2.webp';
-import small167 from './structures/mobile/other/undergroundHouse2.webp';
-import full168 from './structures/other/waterTanks1.webp';
-import small168 from './structures/mobile/other/waterTanks1.webp';
-import full169 from './structures/other/waterTanks2.webp';
-import small169 from './structures/mobile/other/waterTanks2.webp';
-import full170 from './structures/other/waterTanks3.webp';
-import small170 from './structures/mobile/other/waterTanks3.webp';
-import full171 from './structures/other/waterTanks4.webp';
-import small171 from './structures/mobile/other/waterTanks4.webp';
-import full172 from './structures/other/waterTanks5.webp';
-import small172 from './structures/mobile/other/waterTanks5.webp';
-import full173 from './structures/thumbnails/M-1.webp';
-import small173 from './structures/small-thumbnails/M-1.webp';
-import full174 from './structures/thumbnails/M-10.webp';
-import small174 from './structures/small-thumbnails/M-10.webp';
-import full175 from './structures/thumbnails/M-11.webp';
-import small175 from './structures/small-thumbnails/M-11.webp';
-import full176 from './structures/thumbnails/M-12.webp';
-import small176 from './structures/small-thumbnails/M-12.webp';
-import full177 from './structures/thumbnails/M-13.webp';
-import small177 from './structures/small-thumbnails/M-13.webp';
-import full178 from './structures/thumbnails/M-14.webp';
-import small178 from './structures/small-thumbnails/M-14.webp';
-import full179 from './structures/thumbnails/M-15.webp';
-import small179 from './structures/small-thumbnails/M-15.webp';
-import full180 from './structures/thumbnails/M-16.webp';
-import small180 from './structures/small-thumbnails/M-16.webp';
-import full181 from './structures/thumbnails/M-17.webp';
-import small181 from './structures/small-thumbnails/M-17.webp';
-import full182 from './structures/thumbnails/M-18.webp';
-import small182 from './structures/small-thumbnails/M-18.webp';
-import full183 from './structures/thumbnails/M-19.webp';
-import small183 from './structures/small-thumbnails/M-19.webp';
-import full184 from './structures/thumbnails/M-2.webp';
-import small184 from './structures/small-thumbnails/M-2.webp';
-import full185 from './structures/thumbnails/M-20.webp';
-import small185 from './structures/small-thumbnails/M-20.webp';
-import full186 from './structures/thumbnails/M-21.webp';
-import small186 from './structures/small-thumbnails/M-21.webp';
-import full187 from './structures/thumbnails/M-22.webp';
-import small187 from './structures/small-thumbnails/M-22.webp';
-import full188 from './structures/thumbnails/M-23.webp';
-import small188 from './structures/small-thumbnails/M-23.webp';
-import full189 from './structures/thumbnails/M-24.webp';
-import small189 from './structures/small-thumbnails/M-24.webp';
-import full190 from './structures/thumbnails/M-25.webp';
-import small190 from './structures/small-thumbnails/M-25.webp';
-import full191 from './structures/thumbnails/M-26.webp';
-import small191 from './structures/small-thumbnails/M-26.webp';
-import full192 from './structures/thumbnails/M-27.webp';
-import small192 from './structures/small-thumbnails/M-27.webp';
-import full193 from './structures/thumbnails/M-28.webp';
-import small193 from './structures/small-thumbnails/M-28.webp';
-import full194 from './structures/thumbnails/M-29.webp';
-import small194 from './structures/small-thumbnails/M-29.webp';
-import full195 from './structures/thumbnails/M-3.webp';
-import small195 from './structures/small-thumbnails/M-3.webp';
-import full196 from './structures/thumbnails/M-30.webp';
-import small196 from './structures/small-thumbnails/M-30.webp';
-import full197 from './structures/thumbnails/M-31.webp';
-import small197 from './structures/small-thumbnails/M-31.webp';
-import full198 from './structures/thumbnails/M-32.webp';
-import small198 from './structures/small-thumbnails/M-32.webp';
-import full199 from './structures/thumbnails/M-33.webp';
-import small199 from './structures/small-thumbnails/M-33.webp';
-import full200 from './structures/thumbnails/M-34.webp';
-import small200 from './structures/small-thumbnails/M-34.webp';
-import full201 from './structures/thumbnails/M-35.webp';
-import small201 from './structures/small-thumbnails/M-35.webp';
-import full202 from './structures/thumbnails/M-36.webp';
-import small202 from './structures/small-thumbnails/M-36.webp';
-import full203 from './structures/thumbnails/M-37.webp';
-import small203 from './structures/small-thumbnails/M-37.webp';
-import full204 from './structures/thumbnails/M-38.webp';
-import small204 from './structures/small-thumbnails/M-38.webp';
-import full205 from './structures/thumbnails/M-39.webp';
-import small205 from './structures/small-thumbnails/M-39.webp';
-import full206 from './structures/thumbnails/M-4.webp';
-import small206 from './structures/small-thumbnails/M-4.webp';
-import full207 from './structures/thumbnails/M-40.webp';
-import small207 from './structures/small-thumbnails/M-40.webp';
-import full208 from './structures/thumbnails/M-41.webp';
-import small208 from './structures/small-thumbnails/M-41.webp';
-import full209 from './structures/thumbnails/M-42.webp';
-import small209 from './structures/small-thumbnails/M-42.webp';
-import full210 from './structures/thumbnails/M-5.webp';
-import small210 from './structures/small-thumbnails/M-5.webp';
-import full211 from './structures/thumbnails/M-6.webp';
-import small211 from './structures/small-thumbnails/M-6.webp';
-import full212 from './structures/thumbnails/M-7.webp';
-import small212 from './structures/small-thumbnails/M-7.webp';
-import full213 from './structures/thumbnails/M-8.webp';
-import small213 from './structures/small-thumbnails/M-8.webp';
-import full214 from './structures/thumbnails/M-9.webp';
-import small214 from './structures/small-thumbnails/M-9.webp';
+import full2 from './structures/accessory/Crossroads.webp';
+import small2 from './structures/mobile/accessory/Crossroads.webp';
+import full3 from './structures/accessory/Entrance.webp';
+import small3 from './structures/mobile/accessory/Entrance.webp';
+import full4 from './structures/accessory/StoneBridge.webp';
+import small4 from './structures/mobile/accessory/StoneBridge.webp';
+import full5 from './structures/accessory/WoodenBridge.webp';
+import small5 from './structures/mobile/accessory/WoodenBridge.webp';
+import full6 from './structures/close/C-1.webp';
+import small6 from './structures/mobile/close/C-1.webp';
+import full7 from './structures/close/C-10.webp';
+import small7 from './structures/mobile/close/C-10.webp';
+import full8 from './structures/close/C-11.webp';
+import small8 from './structures/mobile/close/C-11.webp';
+import full9 from './structures/close/C-12.webp';
+import small9 from './structures/mobile/close/C-12.webp';
+import full10 from './structures/close/C-13.webp';
+import small10 from './structures/mobile/close/C-13.webp';
+import full11 from './structures/close/C-14.webp';
+import small11 from './structures/mobile/close/C-14.webp';
+import full12 from './structures/close/C-15.webp';
+import small12 from './structures/mobile/close/C-15.webp';
+import full13 from './structures/close/C-16.webp';
+import small13 from './structures/mobile/close/C-16.webp';
+import full14 from './structures/close/C-17.webp';
+import small14 from './structures/mobile/close/C-17.webp';
+import full15 from './structures/close/C-18.webp';
+import small15 from './structures/mobile/close/C-18.webp';
+import full16 from './structures/close/C-19.webp';
+import small16 from './structures/mobile/close/C-19.webp';
+import full17 from './structures/close/C-2.webp';
+import small17 from './structures/mobile/close/C-2.webp';
+import full18 from './structures/close/C-20.webp';
+import small18 from './structures/mobile/close/C-20.webp';
+import full19 from './structures/close/C-21.webp';
+import small19 from './structures/mobile/close/C-21.webp';
+import full20 from './structures/close/C-22.webp';
+import small20 from './structures/mobile/close/C-22.webp';
+import full21 from './structures/close/C-23.webp';
+import small21 from './structures/mobile/close/C-23.webp';
+import full22 from './structures/close/C-24.webp';
+import small22 from './structures/mobile/close/C-24.webp';
+import full23 from './structures/close/C-25.webp';
+import small23 from './structures/mobile/close/C-25.webp';
+import full24 from './structures/close/C-26.webp';
+import small24 from './structures/mobile/close/C-26.webp';
+import full25 from './structures/close/C-27.webp';
+import small25 from './structures/mobile/close/C-27.webp';
+import full26 from './structures/close/C-28.webp';
+import small26 from './structures/mobile/close/C-28.webp';
+import full27 from './structures/close/C-3.webp';
+import small27 from './structures/mobile/close/C-3.webp';
+import full28 from './structures/close/C-30.webp';
+import small28 from './structures/mobile/close/C-30.webp';
+import full29 from './structures/close/C-31.webp';
+import small29 from './structures/mobile/close/C-31.webp';
+import full30 from './structures/close/C-4.webp';
+import small30 from './structures/mobile/close/C-4.webp';
+import full31 from './structures/close/C-5.webp';
+import small31 from './structures/mobile/close/C-5.webp';
+import full32 from './structures/close/C-6.webp';
+import small32 from './structures/mobile/close/C-6.webp';
+import full33 from './structures/close/C-7.webp';
+import small33 from './structures/mobile/close/C-7.webp';
+import full34 from './structures/close/C-8.webp';
+import small34 from './structures/mobile/close/C-8.webp';
+import full35 from './structures/close/C-9.webp';
+import small35 from './structures/mobile/close/C-9.webp';
+import full36 from './structures/main/M-1.webp';
+import small36 from './structures/mobile/main/M-1.webp';
+import full37 from './structures/main/M-10.webp';
+import small37 from './structures/mobile/main/M-10.webp';
+import full38 from './structures/main/M-11.webp';
+import small38 from './structures/mobile/main/M-11.webp';
+import full39 from './structures/main/M-12.webp';
+import small39 from './structures/mobile/main/M-12.webp';
+import full40 from './structures/main/M-13.webp';
+import small40 from './structures/mobile/main/M-13.webp';
+import full41 from './structures/main/M-14.webp';
+import small41 from './structures/mobile/main/M-14.webp';
+import full42 from './structures/main/M-15.webp';
+import small42 from './structures/mobile/main/M-15.webp';
+import full43 from './structures/main/M-16.webp';
+import small43 from './structures/mobile/main/M-16.webp';
+import full44 from './structures/main/M-17.webp';
+import small44 from './structures/mobile/main/M-17.webp';
+import full45 from './structures/main/M-18.webp';
+import small45 from './structures/mobile/main/M-18.webp';
+import full46 from './structures/main/M-19.webp';
+import small46 from './structures/mobile/main/M-19.webp';
+import full47 from './structures/main/M-2.webp';
+import small47 from './structures/mobile/main/M-2.webp';
+import full48 from './structures/main/M-20.webp';
+import small48 from './structures/mobile/main/M-20.webp';
+import full49 from './structures/main/M-21.webp';
+import small49 from './structures/mobile/main/M-21.webp';
+import full50 from './structures/main/M-22.webp';
+import small50 from './structures/mobile/main/M-22.webp';
+import full51 from './structures/main/M-23.webp';
+import small51 from './structures/mobile/main/M-23.webp';
+import full52 from './structures/main/M-24.webp';
+import small52 from './structures/mobile/main/M-24.webp';
+import full53 from './structures/main/M-25.webp';
+import small53 from './structures/mobile/main/M-25.webp';
+import full54 from './structures/main/M-26.webp';
+import small54 from './structures/mobile/main/M-26.webp';
+import full55 from './structures/main/M-27.webp';
+import small55 from './structures/mobile/main/M-27.webp';
+import full56 from './structures/main/M-28.webp';
+import small56 from './structures/mobile/main/M-28.webp';
+import full57 from './structures/main/M-29.webp';
+import small57 from './structures/mobile/main/M-29.webp';
+import full58 from './structures/main/M-3.webp';
+import small58 from './structures/mobile/main/M-3.webp';
+import full59 from './structures/main/M-30.webp';
+import small59 from './structures/mobile/main/M-30.webp';
+import full60 from './structures/main/M-31.webp';
+import small60 from './structures/mobile/main/M-31.webp';
+import full61 from './structures/main/M-32.webp';
+import small61 from './structures/mobile/main/M-32.webp';
+import full62 from './structures/main/M-33.webp';
+import small62 from './structures/mobile/main/M-33.webp';
+import full63 from './structures/main/M-34.webp';
+import small63 from './structures/mobile/main/M-34.webp';
+import full64 from './structures/main/M-35.webp';
+import small64 from './structures/mobile/main/M-35.webp';
+import full65 from './structures/main/M-36.webp';
+import small65 from './structures/mobile/main/M-36.webp';
+import full66 from './structures/main/M-37.webp';
+import small66 from './structures/mobile/main/M-37.webp';
+import full67 from './structures/main/M-38.webp';
+import small67 from './structures/mobile/main/M-38.webp';
+import full68 from './structures/main/M-39.webp';
+import small68 from './structures/mobile/main/M-39.webp';
+import full69 from './structures/main/M-4.webp';
+import small69 from './structures/mobile/main/M-4.webp';
+import full70 from './structures/main/M-40.webp';
+import small70 from './structures/mobile/main/M-40.webp';
+import full71 from './structures/main/M-41.webp';
+import small71 from './structures/mobile/main/M-41.webp';
+import full72 from './structures/main/M-42.webp';
+import small72 from './structures/mobile/main/M-42.webp';
+import full73 from './structures/main/M-5.webp';
+import small73 from './structures/mobile/main/M-5.webp';
+import full74 from './structures/main/M-6.webp';
+import small74 from './structures/mobile/main/M-6.webp';
+import full75 from './structures/main/M-7.webp';
+import small75 from './structures/mobile/main/M-7.webp';
+import full76 from './structures/main/M-8.webp';
+import small76 from './structures/mobile/main/M-8.webp';
+import full77 from './structures/main/M-9.webp';
+import small77 from './structures/mobile/main/M-9.webp';
+import full78 from './structures/other/BBQPit1.webp';
+import small78 from './structures/mobile/other/BBQPit1.webp';
+import full79 from './structures/other/BBQPit2.webp';
+import small79 from './structures/mobile/other/BBQPit2.webp';
+import full80 from './structures/other/blade1.webp';
+import small80 from './structures/mobile/other/blade1.webp';
+import full81 from './structures/other/blade2.webp';
+import small81 from './structures/mobile/other/blade2.webp';
+import full82 from './structures/other/Botanical1.webp';
+import small82 from './structures/mobile/other/Botanical1.webp';
+import full83 from './structures/other/Botanical2.webp';
+import small83 from './structures/mobile/other/Botanical2.webp';
+import full84 from './structures/other/Botanical3.webp';
+import small84 from './structures/mobile/other/Botanical3.webp';
+import full85 from './structures/other/Botanical4.webp';
+import small85 from './structures/mobile/other/Botanical4.webp';
+import full86 from './structures/other/bridgeHouse1.webp';
+import small86 from './structures/mobile/other/bridgeHouse1.webp';
+import full87 from './structures/other/bridgeHouse2.webp';
+import small87 from './structures/mobile/other/bridgeHouse2.webp';
+import full88 from './structures/other/bridgeHouse3.webp';
+import small88 from './structures/mobile/other/bridgeHouse3.webp';
+import full89 from './structures/other/bridgeHouse4.webp';
+import small89 from './structures/mobile/other/bridgeHouse4.webp';
+import full90 from './structures/other/bridgeHouse5.webp';
+import small90 from './structures/mobile/other/bridgeHouse5.webp';
+import full91 from './structures/other/cantileverDeck1.webp';
+import small91 from './structures/mobile/other/cantileverDeck1.webp';
+import full92 from './structures/other/cantileverDeck2.webp';
+import small92 from './structures/mobile/other/cantileverDeck2.webp';
+import full93 from './structures/other/cantileverDeck3.webp';
+import small93 from './structures/mobile/other/cantileverDeck3.webp';
+import full94 from './structures/other/cantileverDeck4.webp';
+import small94 from './structures/mobile/other/cantileverDeck4.webp';
+import full95 from './structures/other/cantileverDeck5.webp';
+import small95 from './structures/mobile/other/cantileverDeck5.webp';
+import full96 from './structures/other/centeringCenter1.webp';
+import small96 from './structures/mobile/other/centeringCenter1.webp';
+import full97 from './structures/other/centeringCenter2.webp';
+import small97 from './structures/mobile/other/centeringCenter2.webp';
+import full98 from './structures/other/centeringCenter3.webp';
+import small98 from './structures/mobile/other/centeringCenter3.webp';
+import full99 from './structures/other/centeringCenter4.webp';
+import small99 from './structures/mobile/other/centeringCenter4.webp';
+import full100 from './structures/other/CorX1.webp';
+import small100 from './structures/mobile/other/CorX1.webp';
+import full101 from './structures/other/CorX2.webp';
+import small101 from './structures/mobile/other/CorX2.webp';
+import full102 from './structures/other/CorX3.webp';
+import small102 from './structures/mobile/other/CorX3.webp';
+import full103 from './structures/other/EarthBlocks1.webp';
+import small103 from './structures/mobile/other/EarthBlocks1.webp';
+import full104 from './structures/other/EarthBlocks2.webp';
+import small104 from './structures/mobile/other/EarthBlocks2.webp';
+import full105 from './structures/other/Electric1.webp';
+import small105 from './structures/mobile/other/Electric1.webp';
+import full106 from './structures/other/Electric2.webp';
+import small106 from './structures/mobile/other/Electric2.webp';
+import full107 from './structures/other/Electric3.webp';
+import small107 from './structures/mobile/other/Electric3.webp';
+import full108 from './structures/other/Electric4.webp';
+import small108 from './structures/mobile/other/Electric4.webp';
+import full109 from './structures/other/Electric5.webp';
+import small109 from './structures/mobile/other/Electric5.webp';
+import full110 from './structures/other/entryArch1.webp';
+import small110 from './structures/mobile/other/entryArch1.webp';
+import full111 from './structures/other/entryArch2.webp';
+import small111 from './structures/mobile/other/entryArch2.webp';
+import full112 from './structures/other/entryArch3.webp';
+import small112 from './structures/mobile/other/entryArch3.webp';
+import full113 from './structures/other/entryArch4.webp';
+import small113 from './structures/mobile/other/entryArch4.webp';
+import full114 from './structures/other/entryArch5.webp';
+import small114 from './structures/mobile/other/entryArch5.webp';
+import full115 from './structures/other/Exercise1.webp';
+import small115 from './structures/mobile/other/Exercise1.webp';
+import full116 from './structures/other/Exercise2.webp';
+import small116 from './structures/mobile/other/Exercise2.webp';
+import full117 from './structures/other/fratessaTower1.webp';
+import small117 from './structures/mobile/other/fratessaTower1.webp';
+import full118 from './structures/other/geodesicDome1.webp';
+import small118 from './structures/mobile/other/geodesicDome1.webp';
+import full119 from './structures/other/geodesicDome2.webp';
+import small119 from './structures/mobile/other/geodesicDome2.webp';
+import full120 from './structures/other/geodesicDome3.webp';
+import small120 from './structures/mobile/other/geodesicDome3.webp';
+import full121 from './structures/other/geodesicDome4.webp';
+import small121 from './structures/mobile/other/geodesicDome4.webp';
+import full122 from './structures/other/geodesicDome5.webp';
+import small122 from './structures/mobile/other/geodesicDome5.webp';
+import full123 from './structures/other/greenHouse1.webp';
+import small123 from './structures/mobile/other/greenHouse1.webp';
+import full124 from './structures/other/greenHouse2.webp';
+import small124 from './structures/mobile/other/greenHouse2.webp';
+import full125 from './structures/other/greenHouse3.webp';
+import small125 from './structures/mobile/other/greenHouse3.webp';
+import full126 from './structures/other/guniteBridge1.webp';
+import small126 from './structures/mobile/other/guniteBridge1.webp';
+import full127 from './structures/other/Hydraulic1.webp';
+import small127 from './structures/mobile/other/Hydraulic1.webp';
+import full128 from './structures/other/Hydraulic2.webp';
+import small128 from './structures/mobile/other/Hydraulic2.webp';
+import full129 from './structures/other/modularHouse1.webp';
+import small129 from './structures/mobile/other/modularHouse1.webp';
+import full130 from './structures/other/modularHouse2.webp';
+import small130 from './structures/mobile/other/modularHouse2.webp';
+import full131 from './structures/other/modularHouse3.webp';
+import small131 from './structures/mobile/other/modularHouse3.webp';
+import full132 from './structures/other/modularHouse4.webp';
+import small132 from './structures/mobile/other/modularHouse4.webp';
+import full133 from './structures/other/modularHouse5.webp';
+import small133 from './structures/mobile/other/modularHouse5.webp';
+import full134 from './structures/other/modularHouse6.webp';
+import small134 from './structures/mobile/other/modularHouse6.webp';
+import full135 from './structures/other/momentMonument1.webp';
+import small135 from './structures/mobile/other/momentMonument1.webp';
+import full136 from './structures/other/momentMonument2.webp';
+import small136 from './structures/mobile/other/momentMonument2.webp';
+import full137 from './structures/other/momentMonument3.webp';
+import small137 from './structures/mobile/other/momentMonument3.webp';
+import full138 from './structures/other/momentMonument4.webp';
+import small138 from './structures/mobile/other/momentMonument4.webp';
+import full139 from './structures/other/observationDeck1.webp';
+import small139 from './structures/mobile/other/observationDeck1.webp';
+import full140 from './structures/other/polyPavilion1.webp';
+import small140 from './structures/mobile/other/polyPavilion1.webp';
+import full141 from './structures/other/polyPavilion2.webp';
+import small141 from './structures/mobile/other/polyPavilion2.webp';
+import full142 from './structures/other/restrooms1.webp';
+import small142 from './structures/mobile/other/restrooms1.webp';
+import full143 from './structures/other/restrooms2.webp';
+import small143 from './structures/mobile/other/restrooms2.webp';
+import full144 from './structures/other/restrooms3.webp';
+import small144 from './structures/mobile/other/restrooms3.webp';
+import full145 from './structures/other/restrooms4.webp';
+import small145 from './structures/mobile/other/restrooms4.webp';
+import full146 from './structures/other/serenityWall1.webp';
+import small146 from './structures/mobile/other/serenityWall1.webp';
+import full147 from './structures/other/Shed1.webp';
+import small147 from './structures/mobile/other/Shed1.webp';
+import full148 from './structures/other/Shed2.webp';
+import small148 from './structures/mobile/other/Shed2.webp';
+import full149 from './structures/other/shellHouse1.webp';
+import small149 from './structures/mobile/other/shellHouse1.webp';
+import full150 from './structures/other/shellHouse2.webp';
+import small150 from './structures/mobile/other/shellHouse2.webp';
+import full151 from './structures/other/shellHouse3.webp';
+import small151 from './structures/mobile/other/shellHouse3.webp';
+import full152 from './structures/other/shellHouse4.webp';
+import small152 from './structures/mobile/other/shellHouse4.webp';
+import full153 from './structures/other/spireArray1.webp';
+import small153 from './structures/mobile/other/spireArray1.webp';
+import full154 from './structures/other/spireArray2.webp';
+import small154 from './structures/mobile/other/spireArray2.webp';
+import full155 from './structures/other/stickStructure1.webp';
+import small155 from './structures/mobile/other/stickStructure1.webp';
+import full156 from './structures/other/stickStructure2.webp';
+import small156 from './structures/mobile/other/stickStructure2.webp';
+import full157 from './structures/other/stickStructure3.webp';
+import small157 from './structures/mobile/other/stickStructure3.webp';
+import full158 from './structures/other/stickStructure4.webp';
+import small158 from './structures/mobile/other/stickStructure4.webp';
+import full159 from './structures/other/sunDial1.webp';
+import small159 from './structures/mobile/other/sunDial1.webp';
+import full160 from './structures/other/sunDial2.webp';
+import small160 from './structures/mobile/other/sunDial2.webp';
+import full161 from './structures/other/Suspension1.webp';
+import small161 from './structures/mobile/other/Suspension1.webp';
+import full162 from './structures/other/Suspension2.webp';
+import small162 from './structures/mobile/other/Suspension2.webp';
+import full163 from './structures/other/Suspension3.webp';
+import small163 from './structures/mobile/other/Suspension3.webp';
+import full164 from './structures/other/techiteBridge1.webp';
+import small164 from './structures/mobile/other/techiteBridge1.webp';
+import full165 from './structures/other/techiteBridge2.webp';
+import small165 from './structures/mobile/other/techiteBridge2.webp';
+import full166 from './structures/other/techiteBridge3.webp';
+import small166 from './structures/mobile/other/techiteBridge3.webp';
+import full167 from './structures/other/tensegrity1.webp';
+import small167 from './structures/mobile/other/tensegrity1.webp';
+import full168 from './structures/other/tensegrity2.webp';
+import small168 from './structures/mobile/other/tensegrity2.webp';
+import full169 from './structures/other/tensegrity3.webp';
+import small169 from './structures/mobile/other/tensegrity3.webp';
+import full170 from './structures/other/TensegrityMast1.webp';
+import small170 from './structures/mobile/other/TensegrityMast1.webp';
+import full171 from './structures/other/TensegrityMast2.webp';
+import small171 from './structures/mobile/other/TensegrityMast2.webp';
+import full172 from './structures/other/tensile1.webp';
+import small172 from './structures/mobile/other/tensile1.webp';
+import full173 from './structures/other/tensile2.webp';
+import small173 from './structures/mobile/other/tensile2.webp';
+import full174 from './structures/other/tensile3.webp';
+import small174 from './structures/mobile/other/tensile3.webp';
+import full175 from './structures/other/tensile4.webp';
+import small175 from './structures/mobile/other/tensile4.webp';
+import full176 from './structures/other/TreeHouse1.webp';
+import small176 from './structures/mobile/other/TreeHouse1.webp';
+import full177 from './structures/other/undergroundHouse1.webp';
+import small177 from './structures/mobile/other/undergroundHouse1.webp';
+import full178 from './structures/other/undergroundHouse2.webp';
+import small178 from './structures/mobile/other/undergroundHouse2.webp';
+import full179 from './structures/other/waterTanks1.webp';
+import small179 from './structures/mobile/other/waterTanks1.webp';
+import full180 from './structures/other/waterTanks2.webp';
+import small180 from './structures/mobile/other/waterTanks2.webp';
+import full181 from './structures/other/waterTanks3.webp';
+import small181 from './structures/mobile/other/waterTanks3.webp';
+import full182 from './structures/other/waterTanks4.webp';
+import small182 from './structures/mobile/other/waterTanks4.webp';
+import full183 from './structures/other/waterTanks5.webp';
+import small183 from './structures/mobile/other/waterTanks5.webp';
+import full184 from './structures/other/waterTanks6.webp';
+import small184 from './structures/mobile/other/waterTanks6.webp';
+import full185 from './structures/other/waterTanks7.webp';
+import small185 from './structures/mobile/other/waterTanks7.webp';
+import full186 from './structures/thumbnails/M-1.webp';
+import small186 from './structures/small-thumbnails/M-1.webp';
+import full187 from './structures/thumbnails/M-10.webp';
+import small187 from './structures/small-thumbnails/M-10.webp';
+import full188 from './structures/thumbnails/M-11.webp';
+import small188 from './structures/small-thumbnails/M-11.webp';
+import full189 from './structures/thumbnails/M-12.webp';
+import small189 from './structures/small-thumbnails/M-12.webp';
+import full190 from './structures/thumbnails/M-13.webp';
+import small190 from './structures/small-thumbnails/M-13.webp';
+import full191 from './structures/thumbnails/M-14.webp';
+import small191 from './structures/small-thumbnails/M-14.webp';
+import full192 from './structures/thumbnails/M-15.webp';
+import small192 from './structures/small-thumbnails/M-15.webp';
+import full193 from './structures/thumbnails/M-16.webp';
+import small193 from './structures/small-thumbnails/M-16.webp';
+import full194 from './structures/thumbnails/M-17.webp';
+import small194 from './structures/small-thumbnails/M-17.webp';
+import full195 from './structures/thumbnails/M-18.webp';
+import small195 from './structures/small-thumbnails/M-18.webp';
+import full196 from './structures/thumbnails/M-19.webp';
+import small196 from './structures/small-thumbnails/M-19.webp';
+import full197 from './structures/thumbnails/M-2.webp';
+import small197 from './structures/small-thumbnails/M-2.webp';
+import full198 from './structures/thumbnails/M-20.webp';
+import small198 from './structures/small-thumbnails/M-20.webp';
+import full199 from './structures/thumbnails/M-21.webp';
+import small199 from './structures/small-thumbnails/M-21.webp';
+import full200 from './structures/thumbnails/M-22.webp';
+import small200 from './structures/small-thumbnails/M-22.webp';
+import full201 from './structures/thumbnails/M-23.webp';
+import small201 from './structures/small-thumbnails/M-23.webp';
+import full202 from './structures/thumbnails/M-24.webp';
+import small202 from './structures/small-thumbnails/M-24.webp';
+import full203 from './structures/thumbnails/M-25.webp';
+import small203 from './structures/small-thumbnails/M-25.webp';
+import full204 from './structures/thumbnails/M-26.webp';
+import small204 from './structures/small-thumbnails/M-26.webp';
+import full205 from './structures/thumbnails/M-27.webp';
+import small205 from './structures/small-thumbnails/M-27.webp';
+import full206 from './structures/thumbnails/M-28.webp';
+import small206 from './structures/small-thumbnails/M-28.webp';
+import full207 from './structures/thumbnails/M-29.webp';
+import small207 from './structures/small-thumbnails/M-29.webp';
+import full208 from './structures/thumbnails/M-3.webp';
+import small208 from './structures/small-thumbnails/M-3.webp';
+import full209 from './structures/thumbnails/M-30.webp';
+import small209 from './structures/small-thumbnails/M-30.webp';
+import full210 from './structures/thumbnails/M-31.webp';
+import small210 from './structures/small-thumbnails/M-31.webp';
+import full211 from './structures/thumbnails/M-32.webp';
+import small211 from './structures/small-thumbnails/M-32.webp';
+import full212 from './structures/thumbnails/M-33.webp';
+import small212 from './structures/small-thumbnails/M-33.webp';
+import full213 from './structures/thumbnails/M-34.webp';
+import small213 from './structures/small-thumbnails/M-34.webp';
+import full214 from './structures/thumbnails/M-35.webp';
+import small214 from './structures/small-thumbnails/M-35.webp';
+import full215 from './structures/thumbnails/M-36.webp';
+import small215 from './structures/small-thumbnails/M-36.webp';
+import full216 from './structures/thumbnails/M-37.webp';
+import small216 from './structures/small-thumbnails/M-37.webp';
+import full217 from './structures/thumbnails/M-38.webp';
+import small217 from './structures/small-thumbnails/M-38.webp';
+import full218 from './structures/thumbnails/M-39.webp';
+import small218 from './structures/small-thumbnails/M-39.webp';
+import full219 from './structures/thumbnails/M-4.webp';
+import small219 from './structures/small-thumbnails/M-4.webp';
+import full220 from './structures/thumbnails/M-40.webp';
+import small220 from './structures/small-thumbnails/M-40.webp';
+import full221 from './structures/thumbnails/M-41.webp';
+import small221 from './structures/small-thumbnails/M-41.webp';
+import full222 from './structures/thumbnails/M-42.webp';
+import small222 from './structures/small-thumbnails/M-42.webp';
+import full223 from './structures/thumbnails/M-5.webp';
+import small223 from './structures/small-thumbnails/M-5.webp';
+import full224 from './structures/thumbnails/M-6.webp';
+import small224 from './structures/small-thumbnails/M-6.webp';
+import full225 from './structures/thumbnails/M-7.webp';
+import small225 from './structures/small-thumbnails/M-7.webp';
+import full226 from './structures/thumbnails/M-8.webp';
+import small226 from './structures/small-thumbnails/M-8.webp';
+import full227 from './structures/thumbnails/M-9.webp';
+import small227 from './structures/small-thumbnails/M-9.webp';
 
 export default [
-  [full0, small0, 1250, 800],
-  [full1, small1, 1250, 800],
-  [full2, small2, 1440, 800],
-  [full3, small3, 1440, 800],
-  [full4, small4, 1440, 800],
-  [full5, small5, 1440, 800],
-  [full6, small6, 1440, 800],
-  [full7, small7, 1440, 800],
-  [full8, small8, 1440, 800],
-  [full9, small9, 1440, 800],
-  [full10, small10, 1440, 800],
-  [full11, small11, 1440, 800],
-  [full12, small12, 1440, 800],
-  [full13, small13, 1440, 800],
-  [full14, small14, 1440, 800],
-  [full15, small15, 1440, 800],
-  [full16, small16, 1440, 800],
-  [full17, small17, 1440, 800],
-  [full18, small18, 1440, 800],
-  [full19, small19, 1440, 800],
-  [full20, small20, 1440, 800],
-  [full21, small21, 1440, 800],
-  [full22, small22, 1440, 800],
-  [full23, small23, 1440, 800],
-  [full24, small24, 1440, 800],
-  [full25, small25, 1440, 800],
-  [full26, small26, 1440, 800],
-  [full27, small27, 1440, 800],
-  [full28, small28, 1440, 800],
-  [full29, small29, 1440, 800],
-  [full30, small30, 1440, 800],
-  [full31, small31, 1440, 800],
-  [full32, small32, 1440, 800],
-  [full33, small33, 1080, 800],
-  [full34, small34, 1080, 800],
-  [full35, small35, 1080, 800],
-  [full36, small36, 1080, 800],
-  [full37, small37, 1080, 800],
-  [full38, small38, 1080, 800],
-  [full39, small39, 1080, 800],
-  [full40, small40, 1080, 800],
-  [full41, small41, 1080, 800],
-  [full42, small42, 1080, 800],
-  [full43, small43, 1080, 800],
-  [full44, small44, 1080, 800],
-  [full45, small45, 1080, 800],
-  [full46, small46, 1080, 800],
-  [full47, small47, 1080, 800],
-  [full48, small48, 1080, 800],
-  [full49, small49, 1080, 800],
-  [full50, small50, 1080, 800],
-  [full51, small51, 1080, 800],
-  [full52, small52, 1080, 800],
-  [full53, small53, 1080, 800],
-  [full54, small54, 1080, 800],
-  [full55, small55, 1080, 800],
-  [full56, small56, 1080, 800],
-  [full57, small57, 1080, 800],
-  [full58, small58, 1080, 800],
-  [full59, small59, 1080, 800],
-  [full60, small60, 1080, 800],
-  [full61, small61, 1039, 800],
-  [full62, small62, 834, 800],
-  [full63, small63, 1080, 800],
-  [full64, small64, 1080, 800],
-  [full65, small65, 1080, 800],
-  [full66, small66, 1080, 800],
-  [full67, small67, 1080, 800],
-  [full68, small68, 1080, 800],
-  [full69, small69, 1080, 800],
-  [full70, small70, 1080, 800],
-  [full71, small71, 1250, 800],
-  [full72, small72, 1250, 800],
-  [full73, small73, 1250, 800],
-  [full74, small74, 1143, 800],
-  [full75, small75, 1250, 800],
-  [full76, small76, 1250, 800],
-  [full77, small77, 1250, 800],
-  [full78, small78, 1250, 800],
-  [full79, small79, 1250, 800],
-  [full80, small80, 1250, 800],
-  [full81, small81, 1250, 800],
-  [full82, small82, 1250, 800],
-  [full83, small83, 1250, 800],
-  [full84, small84, 1250, 800],
-  [full85, small85, 989, 800],
-  [full86, small86, 1250, 800],
-  [full87, small87, 1250, 800],
-  [full88, small88, 934, 800],
-  [full89, small89, 1250, 800],
-  [full90, small90, 1250, 800],
-  [full91, small91, 904, 800],
-  [full92, small92, 1250, 800],
-  [full93, small93, 995, 800],
-  [full94, small94, 1250, 800],
-  [full95, small95, 949, 800],
-  [full96, small96, 1250, 800],
-  [full97, small97, 1250, 800],
-  [full98, small98, 1250, 800],
-  [full99, small99, 1250, 800],
-  [full100, small100, 1250, 800],
-  [full101, small101, 1250, 800],
-  [full102, small102, 1250, 800],
-  [full103, small103, 1250, 800],
-  [full104, small104, 1250, 800],
-  [full105, small105, 1250, 800],
-  [full106, small106, 1250, 800],
-  [full107, small107, 1250, 800],
-  [full108, small108, 1250, 800],
-  [full109, small109, 1250, 800],
-  [full110, small110, 1250, 800],
-  [full111, small111, 1250, 800],
-  [full112, small112, 1250, 800],
-  [full113, small113, 1250, 800],
-  [full114, small114, 1250, 800],
-  [full115, small115, 1250, 800],
-  [full116, small116, 1250, 800],
-  [full117, small117, 1250, 800],
-  [full118, small118, 829, 800],
-  [full119, small119, 1440, 800],
-  [full120, small120, 1250, 800],
-  [full121, small121, 1250, 800],
-  [full122, small122, 1250, 800],
-  [full123, small123, 1250, 800],
-  [full124, small124, 996, 800],
-  [full125, small125, 879, 800],
-  [full126, small126, 1250, 800],
-  [full127, small127, 1250, 800],
-  [full128, small128, 1250, 800],
-  [full129, small129, 1250, 800],
-  [full130, small130, 1250, 800],
-  [full131, small131, 1250, 800],
-  [full132, small132, 1250, 800],
-  [full133, small133, 1250, 800],
-  [full134, small134, 1250, 800],
-  [full135, small135, 1250, 800],
-  [full136, small136, 1250, 800],
-  [full137, small137, 1250, 800],
-  [full138, small138, 1250, 800],
-  [full139, small139, 1250, 800],
-  [full140, small140, 892, 800],
-  [full141, small141, 1250, 800],
-  [full142, small142, 1250, 800],
-  [full143, small143, 1250, 800],
-  [full144, small144, 1250, 800],
-  [full145, small145, 1250, 800],
-  [full146, small146, 964, 800],
-  [full147, small147, 1250, 800],
-  [full148, small148, 1250, 800],
-  [full149, small149, 1250, 800],
-  [full150, small150, 1250, 800],
-  [full151, small151, 879, 800],
-  [full152, small152, 1250, 800],
-  [full153, small153, 1250, 800],
-  [full154, small154, 1250, 800],
-  [full155, small155, 1250, 800],
-  [full156, small156, 1250, 800],
-  [full157, small157, 1250, 800],
-  [full158, small158, 1250, 800],
-  [full159, small159, 1250, 800],
-  [full160, small160, 1250, 800],
-  [full161, small161, 1250, 800],
-  [full162, small162, 1250, 800],
-  [full163, small163, 1250, 800],
-  [full164, small164, 1250, 800],
-  [full165, small165, 1250, 800],
-  [full166, small166, 1250, 800],
-  [full167, small167, 1250, 800],
-  [full168, small168, 1250, 800],
-  [full169, small169, 1250, 800],
-  [full170, small170, 1250, 800],
-  [full171, small171, 1250, 800],
-  [full172, small172, 1250, 800],
-  [full173, small173, 480, 320],
-  [full174, small174, 480, 320],
-  [full175, small175, 480, 320],
-  [full176, small176, 480, 320],
-  [full177, small177, 480, 320],
-  [full178, small178, 480, 320],
-  [full179, small179, 480, 320],
-  [full180, small180, 480, 320],
-  [full181, small181, 480, 320],
-  [full182, small182, 480, 320],
-  [full183, small183, 480, 320],
-  [full184, small184, 480, 320],
-  [full185, small185, 480, 320],
-  [full186, small186, 480, 320],
-  [full187, small187, 480, 320],
-  [full188, small188, 480, 320],
-  [full189, small189, 480, 320],
-  [full190, small190, 480, 320],
-  [full191, small191, 480, 320],
-  [full192, small192, 480, 320],
-  [full193, small193, 480, 320],
-  [full194, small194, 480, 320],
-  [full195, small195, 480, 320],
-  [full196, small196, 480, 320],
-  [full197, small197, 480, 320],
-  [full198, small198, 480, 320],
-  [full199, small199, 480, 320],
-  [full200, small200, 480, 320],
-  [full201, small201, 480, 320],
-  [full202, small202, 480, 320],
-  [full203, small203, 480, 320],
-  [full204, small204, 480, 320],
-  [full205, small205, 480, 320],
-  [full206, small206, 480, 320],
-  [full207, small207, 480, 320],
-  [full208, small208, 480, 320],
-  [full209, small209, 480, 320],
-  [full210, small210, 480, 320],
-  [full211, small211, 480, 320],
-  [full212, small212, 480, 320],
-  [full213, small213, 480, 320],
-  [full214, small214, 480, 320],
+  [full0, small0, 1250, 800, 703],
+  [full1, small1, 1250, 800, 703],
+  [full2, small2, 703, 703, 1070],
+  [full3, small3, 1440, 800, 810],
+  [full4, small4, 703, 703, 1250],
+  [full5, small5, 703, 703, 729],
+  [full6, small6, 1440, 800, 960],
+  [full7, small7, 1440, 800, 960],
+  [full8, small8, 1440, 800, 960],
+  [full9, small9, 1440, 800, 960],
+  [full10, small10, 1440, 800, 960],
+  [full11, small11, 1440, 800, 2160],
+  [full12, small12, 1440, 800, 960],
+  [full13, small13, 1440, 800, 960],
+  [full14, small14, 1440, 800, 960],
+  [full15, small15, 1440, 800, 2160],
+  [full16, small16, 1440, 800, 2160],
+  [full17, small17, 1440, 800, 960],
+  [full18, small18, 1440, 800, 2160],
+  [full19, small19, 1440, 800, 960],
+  [full20, small20, 1440, 800, 960],
+  [full21, small21, 1440, 800, 2160],
+  [full22, small22, 1440, 800, 2160],
+  [full23, small23, 1440, 800, 2160],
+  [full24, small24, 1440, 800, 960],
+  [full25, small25, 1440, 800, 2160],
+  [full26, small26, 1440, 800, 2160],
+  [full27, small27, 1440, 800, 2159],
+  [full28, small28, 1440, 800, 960],
+  [full29, small29, 1440, 800, 2160],
+  [full30, small30, 1440, 800, 960],
+  [full31, small31, 1440, 800, 2160],
+  [full32, small32, 1440, 800, 2160],
+  [full33, small33, 1440, 800, 960],
+  [full34, small34, 1440, 800, 960],
+  [full35, small35, 1440, 800, 960],
+  [full36, small36, 1080, 800, 1620],
+  [full37, small37, 1080, 800, 720],
+  [full38, small38, 1080, 800, 810],
+  [full39, small39, 1080, 800, 810],
+  [full40, small40, 1080, 800, 720],
+  [full41, small41, 1080, 800, 720],
+  [full42, small42, 1080, 800, 720],
+  [full43, small43, 1080, 800, 720],
+  [full44, small44, 1080, 800, 720],
+  [full45, small45, 1080, 800, 810],
+  [full46, small46, 1080, 800, 810],
+  [full47, small47, 1080, 800, 1620],
+  [full48, small48, 1080, 800, 810],
+  [full49, small49, 1080, 800, 1619],
+  [full50, small50, 1080, 800, 1620],
+  [full51, small51, 1080, 800, 720],
+  [full52, small52, 1080, 800, 720],
+  [full53, small53, 1080, 800, 720],
+  [full54, small54, 1080, 800, 810],
+  [full55, small55, 1080, 800, 810],
+  [full56, small56, 1080, 800, 720],
+  [full57, small57, 1080, 800, 607],
+  [full58, small58, 1080, 800, 1620],
+  [full59, small59, 1080, 800, 810],
+  [full60, small60, 1080, 800, 810],
+  [full61, small61, 1080, 800, 607],
+  [full62, small62, 1080, 800, 607],
+  [full63, small63, 673, 673, 632],
+  [full64, small64, 678, 678, 511],
+  [full65, small65, 1080, 800, 1062],
+  [full66, small66, 746, 746, 763],
+  [full67, small67, 1039, 800, 640],
+  [full68, small68, 834, 800, 1052],
+  [full69, small69, 1080, 800, 720],
+  [full70, small70, 1080, 800, 760],
+  [full71, small71, 1080, 800, 816],
+  [full72, small72, 775, 775, 1020],
+  [full73, small73, 1080, 800, 1619],
+  [full74, small74, 1080, 800, 720],
+  [full75, small75, 1080, 800, 810],
+  [full76, small76, 1080, 800, 720],
+  [full77, small77, 1080, 800, 720],
+  [full78, small78, 1250, 800, 1101],
+  [full79, small79, 1250, 800, 703],
+  [full80, small80, 1250, 800, 834],
+  [full81, small81, 1143, 800, 1250],
+  [full82, small82, 577, 577, 1250],
+  [full83, small83, 1250, 800, 703],
+  [full84, small84, 1250, 800, 703],
+  [full85, small85, 1250, 800, 703],
+  [full86, small86, 1250, 800, 934],
+  [full87, small87, 1250, 800, 1171],
+  [full88, small88, 1250, 800, 928],
+  [full89, small89, 1250, 800, 814],
+  [full90, small90, 1250, 800, 805],
+  [full91, small91, 1250, 800, 839],
+  [full92, small92, 1250, 800, 920],
+  [full93, small93, 989, 800, 1250],
+  [full94, small94, 1250, 800, 853],
+  [full95, small95, 1250, 800, 831],
+  [full96, small96, 934, 800, 1250],
+  [full97, small97, 1250, 800, 1141],
+  [full98, small98, 1250, 800, 1114],
+  [full99, small99, 904, 800, 1250],
+  [full100, small100, 1250, 800, 791],
+  [full101, small101, 769, 769, 1250],
+  [full102, small102, 995, 800, 1250],
+  [full103, small103, 1250, 800, 1211],
+  [full104, small104, 949, 800, 1250],
+  [full105, small105, 1250, 800, 703],
+  [full106, small106, 1250, 800, 703],
+  [full107, small107, 1250, 800, 810],
+  [full108, small108, 1250, 800, 810],
+  [full109, small109, 1250, 800, 703],
+  [full110, small110, 1250, 800, 865],
+  [full111, small111, 1250, 800, 828],
+  [full112, small112, 1250, 800, 833],
+  [full113, small113, 1250, 800, 836],
+  [full114, small114, 1250, 800, 826],
+  [full115, small115, 1250, 800, 1222],
+  [full116, small116, 1250, 800, 438],
+  [full117, small117, 1250, 800, 833],
+  [full118, small118, 1250, 800, 1076],
+  [full119, small119, 1250, 800, 846],
+  [full120, small120, 1250, 800, 1004],
+  [full121, small121, 1250, 800, 854],
+  [full122, small122, 1250, 800, 1020],
+  [full123, small123, 1250, 800, 695],
+  [full124, small124, 1250, 800, 962],
+  [full125, small125, 1250, 800, 926],
+  [full126, small126, 1250, 800, 543],
+  [full127, small127, 829, 800, 1250],
+  [full128, small128, 1440, 800, 933],
+  [full129, small129, 1250, 800, 810],
+  [full130, small130, 1250, 800, 810],
+  [full131, small131, 1250, 800, 810],
+  [full132, small132, 1250, 800, 810],
+  [full133, small133, 996, 800, 1250],
+  [full134, small134, 879, 800, 1250],
+  [full135, small135, 1250, 800, 916],
+  [full136, small136, 1250, 800, 910],
+  [full137, small137, 1250, 800, 920],
+  [full138, small138, 1250, 800, 794],
+  [full139, small139, 1250, 800, 833],
+  [full140, small140, 1250, 800, 826],
+  [full141, small141, 1250, 800, 788],
+  [full142, small142, 1250, 800, 810],
+  [full143, small143, 1250, 800, 810],
+  [full144, small144, 1250, 800, 810],
+  [full145, small145, 1250, 800, 810],
+  [full146, small146, 1250, 800, 833],
+  [full147, small147, 1250, 800, 703],
+  [full148, small148, 703, 703, 1250],
+  [full149, small149, 1250, 800, 866],
+  [full150, small150, 892, 800, 1250],
+  [full151, small151, 1250, 800, 1113],
+  [full152, small152, 1250, 800, 1189],
+  [full153, small153, 1250, 800, 821],
+  [full154, small154, 1250, 800, 845],
+  [full155, small155, 1250, 800, 833],
+  [full156, small156, 964, 800, 1250],
+  [full157, small157, 1250, 800, 933],
+  [full158, small158, 1250, 800, 938],
+  [full159, small159, 1250, 800, 833],
+  [full160, small160, 1250, 800, 810],
+  [full161, small161, 879, 800, 1250],
+  [full162, small162, 1250, 800, 962],
+  [full163, small163, 1250, 800, 394],
+  [full164, small164, 1250, 800, 810],
+  [full165, small165, 1250, 800, 810],
+  [full166, small166, 1250, 800, 810],
+  [full167, small167, 1250, 800, 1238],
+  [full168, small168, 1250, 800, 1101],
+  [full169, small169, 1250, 800, 938],
+  [full170, small170, 1250, 800, 874],
+  [full171, small171, 1250, 800, 703],
+  [full172, small172, 1250, 800, 1006],
+  [full173, small173, 1250, 800, 934],
+  [full174, small174, 1250, 800, 945],
+  [full175, small175, 1250, 800, 829],
+  [full176, small176, 703, 703, 1250],
+  [full177, small177, 1250, 800, 836],
+  [full178, small178, 1250, 800, 850],
+  [full179, small179, 1250, 800, 810],
+  [full180, small180, 1250, 800, 810],
+  [full181, small181, 1250, 800, 810],
+  [full182, small182, 1250, 800, 887],
+  [full183, small183, 1250, 800, 734],
+  [full184, small184, 703, 703, 1250],
+  [full185, small185, 703, 703, 1250],
+  [full186, small186, 480, 320, 720],
+  [full187, small187, 480, 320, 320],
+  [full188, small188, 480, 320, 360],
+  [full189, small189, 480, 320, 360],
+  [full190, small190, 480, 320, 320],
+  [full191, small191, 480, 320, 320],
+  [full192, small192, 480, 320, 320],
+  [full193, small193, 480, 320, 320],
+  [full194, small194, 480, 320, 320],
+  [full195, small195, 480, 320, 360],
+  [full196, small196, 480, 320, 360],
+  [full197, small197, 480, 320, 720],
+  [full198, small198, 480, 320, 360],
+  [full199, small199, 480, 320, 720],
+  [full200, small200, 480, 320, 720],
+  [full201, small201, 480, 320, 320],
+  [full202, small202, 480, 320, 320],
+  [full203, small203, 480, 320, 320],
+  [full204, small204, 480, 320, 360],
+  [full205, small205, 480, 320, 360],
+  [full206, small206, 480, 320, 320],
+  [full207, small207, 480, 320, 270],
+  [full208, small208, 480, 320, 720],
+  [full209, small209, 480, 320, 360],
+  [full210, small210, 480, 320, 360],
+  [full211, small211, 480, 320, 270],
+  [full212, small212, 480, 320, 270],
+  [full213, small213, 480, 320, 451],
+  [full214, small214, 480, 320, 362],
+  [full215, small215, 480, 320, 472],
+  [full216, small216, 480, 320, 491],
+  [full217, small217, 480, 320, 296],
+  [full218, small218, 480, 320, 605],
+  [full219, small219, 480, 320, 320],
+  [full220, small220, 480, 320, 338],
+  [full221, small221, 480, 320, 363],
+  [full222, small222, 480, 320, 632],
+  [full223, small223, 480, 320, 720],
+  [full224, small224, 480, 320, 320],
+  [full225, small225, 480, 320, 360],
+  [full226, small226, 480, 320, 320],
+  [full227, small227, 480, 320, 320],
 ];

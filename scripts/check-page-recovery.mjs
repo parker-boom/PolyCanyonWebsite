@@ -80,59 +80,48 @@ try {
       await page.locator(':focus').getAttribute('id'),
       'main-content'
     );
-    if (width <= 768) {
-      const trigger = page.getByRole('button', {
-        name: 'Open navigation',
-        exact: true,
-      });
-      await trigger.focus();
-      await page.keyboard.press('Enter');
-      const dialog = page.getByRole('dialog');
-      await dialog.waitFor();
-      assert.equal(
-        await dialog
-          .getByRole('link', { name: 'About', exact: true })
-          .getAttribute('aria-current'),
-        'page'
-      );
-      for (let tab = 0; tab < 12; tab++) {
-        await page.keyboard.press('Tab');
-        assert.ok(
-          await dialog.evaluate(
-            (node) =>
-              node.contains(document.activeElement) ||
-              document.activeElement === document.body
-          )
-        );
-      }
-      await page.keyboard.press('Escape');
-      assert.equal(
-        await page.locator(':focus').getAttribute('aria-label'),
-        'Open navigation'
-      );
-      assert.notEqual(
-        await page.evaluate(() => document.body.style.overflow),
-        'hidden'
-      );
-      await trigger.click();
-      await dialog
-        .getByRole('link', { name: 'Structures', exact: true })
-        .click();
-      await page.getByRole('searchbox').waitFor();
-      assert.equal(await page.getByRole('dialog').count(), 0);
-    } else {
-      assert.equal(
-        await page
-          .getByRole('navigation', { name: 'Main navigation' })
-          .getByRole('link', { name: 'About', exact: true })
-          .getAttribute('aria-current'),
-        'page'
+    const navigation = page.getByRole('navigation', {
+      name: 'Main navigation',
+    });
+    assert.equal(
+      await navigation
+        .getByRole('link', { name: 'About', exact: true })
+        .getAttribute('aria-current'),
+      'page'
+    );
+    const trigger = page.getByRole('button', { name: 'Contact', exact: true });
+    await trigger.focus();
+    await page.keyboard.press('Enter');
+    const dialog = page.getByRole('dialog', { name: 'Contact Parker' });
+    await dialog.waitFor();
+    for (let tab = 0; tab < 12; tab++) {
+      await page.keyboard.press('Tab');
+      assert.ok(
+        await dialog.evaluate(
+          (node) =>
+            node.contains(document.activeElement) ||
+            document.activeElement === document.body
+        )
       );
     }
+    await page.keyboard.press('Escape');
+    assert.equal(await page.locator(':focus').innerText(), 'Contact');
+    assert.notEqual(
+      await page.evaluate(() => document.body.style.overflow),
+      'hidden'
+    );
+    await navigation
+      .getByRole('link', { name: 'Structures', exact: true })
+      .click();
+    await page.getByRole('searchbox').waitFor();
     for (const route of [
+      '/',
       '/about',
       '/info',
       '/download',
+      '/app',
+      '/support',
+      '/privacy',
       '/structures',
       '/structures/accessory',
       '/not-a-page',

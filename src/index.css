@@ -1,12 +1,16 @@
 :root {
-  --green: #376d31;
-  --gold: #bd8b13;
-  --surface: #e8efe8;
-  --ink: #29362b;
+  --green: #243f32;
+  --gold: #876222;
+  --surface: #eeece2;
+  --paper: #f7f5ec;
+  --rule: #cacbbd;
+  --muted: #62695e;
+  --serif: Georgia, 'Times New Roman', serif;
+  --ink: #283a30;
   font-family:
     -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: var(--ink);
-  background: #fff;
+  background: var(--paper);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -17,7 +21,7 @@
 html {
   margin: 0;
   padding: 0;
-  scroll-padding-top: 90px;
+  scroll-padding-top: 24px;
 }
 body {
   margin: 0;
@@ -56,7 +60,7 @@ img {
   z-index: 10000;
   background: white;
   color: var(--green);
-  border-radius: 12px;
+  border-radius: 2px;
   transform: translateY(-160%);
 }
 .skip-link:focus {
@@ -75,15 +79,94 @@ img {
 
 /* The built HTML remains readable before React mounts or without JavaScript.
    These rules are scoped to the static root that React replaces, not hydrated. */
-.static-page { max-width: 1040px; margin: 0 auto; padding: 24px 28px; color: #354133; line-height: 1.8; }
-.static-page nav { display: flex; flex-wrap: wrap; gap: 12px 24px; padding-bottom: 24px; border-bottom: 1px solid #dbe1d5; }
-.static-page a, .static-page h1, .static-page h2 { color: #376d31; }
-.static-page h1 { font-size: clamp(34px, 4.5vw, 48px); line-height: 1.15; }
-.static-page h2 { margin-top: 32px; }
-.static-page p { white-space: pre-line; }
-.static-page li { margin-bottom: 12px; }
-.static-page figure { margin: 28px 0; }
-.static-page img { display: block; width: auto; max-width: 100%; max-height: 640px; border-radius: 15px; }
-.static-page figcaption { color: #606b5d; font-size: 14px; }
-.static-page footer { border-top: 1px solid #dbe1d5; margin-top: 36px; padding-top: 20px; }
-@media (max-width: 600px) { .static-page { padding: 20px; } }
+.static-page {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 24px 28px;
+  color: #354133;
+  line-height: 1.8;
+}
+.static-page nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #dbe1d5;
+}
+.static-page a,
+.static-page h1,
+.static-page h2 {
+  color: #376d31;
+}
+.static-page h1 {
+  font-size: clamp(34px, 4.5vw, 48px);
+  line-height: 1.15;
+}
+.static-page h2 {
+  margin-top: 32px;
+}
+.static-page p {
+  white-space: pre-line;
+}
+.static-page li {
+  margin-bottom: 12px;
+}
+.static-page figure {
+  margin: 28px 0;
+}
+.static-page img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: 640px;
+  border-radius: 0;
+}
+.static-page figcaption {
+  color: #606b5d;
+  font-size: 14px;
+}
+.static-page footer {
+  border-top: 1px solid #dbe1d5;
+  margin-top: 36px;
+  padding-top: 20px;
+}
+@media (max-width: 600px) {
+  .static-page {
+    padding: 20px;
+  }
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+}
+a {
+  text-underline-offset: 5px;
+}
+button:disabled {
+  cursor: wait;
+  opacity: 0.55;
+}
+::selection {
+  background: #d9ddb9;
+  color: #203b2d;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+h1,
+h2,
+h3 {
+  overflow-wrap: anywhere;
+}

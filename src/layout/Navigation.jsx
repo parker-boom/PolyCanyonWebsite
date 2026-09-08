@@ -1,149 +1,96 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { useMediaQuery } from 'react-responsive';
-import {
-  FaBars,
-  FaDownload,
-  FaInfo,
-  FaBuilding,
-  FaBookOpen,
-} from 'react-icons/fa';
+import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import Dialog from '../components/Dialog.jsx';
-import {
-  BannerMobile,
-  MenuIcon,
-  PolyCanyonTitle,
-  Logo,
-  Banner,
-  BannerContent,
-  BannerIcon,
-  BannerText,
-  NavLinks,
-  NavLink,
-} from './Navigation.styles.js';
-import app360 from '../assets/app360.webp';
+import logo from '../assets/app360.webp';
 
-const Brand = styled(Link)`
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  text-decoration: none;
-  flex-shrink: 0;
-`;
-const Row = styled.div`
+const Header = styled.header`
+  width: min(1200px, calc(100% - 80px));
+  margin: 0 auto;
+  border-bottom: 1px solid var(--rule);
+  padding: 24px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 28px;
-  width: 100%;
-`;
-const Menu = styled.nav`
-  display: grid;
-  gap: 8px;
-  margin-top: 18px;
-  a {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    border-radius: 12px;
-    padding: 14px 16px;
-    text-decoration: none;
-    background: #e8efe8;
-    color: #376d31;
-    font-weight: 700;
+  gap: 24px;
+  @media (max-width: 700px) {
+    width: calc(100% - 40px);
+    padding: 18px 0 0;
+    flex-wrap: wrap;
+    gap: 16px;
   }
 `;
-const links = [
-  { to: '/download', text: 'App', Icon: FaDownload },
-  { to: '/info', text: 'Info', Icon: FaInfo },
-  { to: '/structures', text: 'Structures', Icon: FaBuilding },
-  { to: '/about', text: 'About', Icon: FaBookOpen },
-];
-
+const Brand = styled(Link)`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--green);
+  text-decoration: none;
+  font: 26px var(--serif);
+  min-width: 0;
+  img {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+  }
+  @media (max-width: 700px) {
+    font-size: 24px;
+    img {
+      width: 36px;
+      height: 36px;
+    }
+  }
+`;
+const Nav = styled.nav`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 32px;
+  a {
+    position: relative;
+    padding: 12px 0;
+    text-decoration: none;
+    font-size: 15px;
+  }
+  a:hover {
+    color: var(--gold);
+  }
+  a[aria-current='page']::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: var(--green);
+  }
+  @media (max-width: 700px) {
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px;
+    a {
+      padding: 0 0 14px;
+      min-height: 40px;
+    }
+  }
+`;
 export default function Navigation() {
-  const mobile = useMediaQuery({ maxWidth: 768 });
-  const { pathname } = useLocation();
-  const [open, setOpen] = useState(false);
-  useEffect(() => setOpen(false), [pathname]);
-  const currentPath = pathname.replace(/\/$/, '') || '/';
-  const active = (to) =>
-    currentPath === to ||
-    (to === '/structures' && pathname.startsWith('/structures/'));
-  if (mobile)
-    return (
-      <>
-        <BannerMobile as="header">
-          <MenuIcon
-            as="button"
-            style={{ border: 0 }}
-            aria-label="Open navigation"
-            aria-expanded={open}
-            aria-haspopup="dialog"
-            onClick={() => setOpen(true)}
-          >
-            <FaBars />
-          </MenuIcon>
-          <Brand to="/" aria-label="Poly Canyon home">
-            <PolyCanyonTitle
-              as="span"
-              style={{ fontSize: 'clamp(26px, 8vw, 34px)' }}
-            >
-              Poly Canyon
-            </PolyCanyonTitle>
-          </Brand>
-          <Link to="/" aria-label="Poly Canyon home">
-            <Logo src={app360} alt="" width="40" height="40" />
-          </Link>
-        </BannerMobile>
-        <Dialog
-          open={open}
-          onClose={() => setOpen(false)}
-          titleId="navigation-title"
-        >
-          <h2 id="navigation-title">Explore Poly Canyon</h2>
-          <Menu aria-label="Main navigation">
-            <Link to="/" onClick={() => setOpen(false)}>
-              Home
-            </Link>
-            {links.map(({ to, text, Icon }) => (
-              <Link
-                to={to}
-                key={to}
-                aria-current={active(to) ? 'page' : undefined}
-                onClick={() => setOpen(false)}
-              >
-                <Icon aria-hidden="true" />
-                {text}
-              </Link>
-            ))}
-          </Menu>
-        </Dialog>
-      </>
-    );
   return (
-    <Banner as="header" $isAtTop $isVisible>
-      <BannerContent>
-        <Row>
-          <Brand to="/" aria-label="Poly Canyon home">
-            <BannerIcon src={app360} alt="" width="40" height="40" />
-            <BannerText as="span">Poly Canyon</BannerText>
-          </Brand>
-          <NavLinks as="nav" aria-label="Main navigation">
-            {links.map(({ to, text, Icon }) => (
-              <NavLink
-                key={to}
-                to={to}
-                $isActive={active(to)}
-                aria-current={active(to) ? 'page' : undefined}
-              >
-                <Icon aria-hidden="true" />
-                {text}
-              </NavLink>
-            ))}
-          </NavLinks>
-        </Row>
-      </BannerContent>
-    </Banner>
+    <Header>
+      <Brand to="/" aria-label="Poly Canyon home">
+        <img src={logo} alt="" width="42" height="42" />
+        Poly Canyon
+      </Brand>
+      <Nav aria-label="Main navigation">
+        {[
+          ['/', 'Home'],
+          ['/structures', 'Structures'],
+          ['/about', 'About'],
+          ['/app', 'App'],
+        ].map(([to, label]) => (
+          <NavLink key={to} to={to} end={to === '/'}>
+            {label}
+          </NavLink>
+        ))}
+      </Nav>
+    </Header>
   );
 }

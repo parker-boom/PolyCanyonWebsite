@@ -8,21 +8,21 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Page = styled.article`
-  max-width: 1040px;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 36px 28px 60px;
+  padding: 56px 28px 80px;
   color: #354133;
   line-height: 1.8;
   h1 {
     margin: 0 0 8px;
-    color: #376d31;
+    color: var(--green);
     font-size: clamp(34px, 4.5vw, 48px);
     line-height: 1.15;
     letter-spacing: -1px;
   }
   h2 {
     margin: 32px 0 12px;
-    color: #376d31;
+    color: var(--green);
     font-size: 23px;
     line-height: 1.3;
   }
@@ -31,7 +31,7 @@ const Page = styled.article`
     font-size: 17px;
   }
   a {
-    color: #376d31;
+    color: var(--green);
     text-underline-offset: 3px;
   }
   @media (max-width: 600px) {

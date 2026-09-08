@@ -15,9 +15,10 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
     await p.goto(
       `${process.env.BASE_URL || 'http://127.0.0.1:4173'}/structures/`
     );
-    await p.getByRole('button', { name: 'Open navigation' }).click();
-    await p.getByRole('dialog').waitFor();
-    await p.keyboard.press('Escape');
+    const navigation = p.getByRole('navigation', { name: 'Main navigation' });
+    await navigation
+      .getByRole('link', { name: 'Structures', exact: true })
+      .waitFor();
     const search = p.getByRole('searchbox');
     await search.focus();
     await search.pressSequentially('bridge');
@@ -25,9 +26,7 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
     assert.equal(await p.locator(':focus').getAttribute('type'), 'search');
     await search.fill('');
     await p.getByRole('button', { name: 'Sort by year', exact: true }).click();
-    await p
-      .getByRole('button', { name: 'Ghost Structures', exact: true })
-      .click();
+    await p.getByRole('button', { name: /^Ghost Structures/ }).click();
     await p.evaluate(() => scrollTo(0, 600));
     await p.waitForTimeout(200);
     const url = p.url(),
@@ -60,14 +59,18 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
     await p.waitForTimeout(300);
     assert.equal(p.url(), url);
     assert.ok(Math.abs((await p.evaluate(() => scrollY)) - y) < 3);
-    await p.getByRole('button', { name: 'Open navigation' }).tap();
-    await p.getByRole('dialog').waitFor();
+    await navigation.getByRole('link', { name: 'About', exact: true }).tap();
+    await p.waitForURL('**/about');
+    await navigation
+      .getByRole('link', { name: 'Structures', exact: true })
+      .tap();
+    await p.getByRole('searchbox').waitFor();
     assert.deepEqual(errors, []);
     console.log({
       trailingSlashNavigation: true,
       backAndCloseRestore: true,
       scroll: y,
-      touchMenu: true,
+      touchNavigation: true,
       errors,
     });
     await p.close();

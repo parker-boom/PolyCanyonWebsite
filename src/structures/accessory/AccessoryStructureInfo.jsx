@@ -1,184 +1,109 @@
-import React from 'react';
-import { FaTimes, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import styled from 'styled-components';
-import * as S from '../Structures.styles.js';
+import React, { useState } from 'react';
 import useAccessoryDetail from '../hooks/useAccessoryDetail.js';
-import { accessoryImages } from '../images/structureImages.js';
-import GoogleMapLandmark from '../extraComponents/GoogleMapLandmark.jsx';
+import {
+  accessoryImages,
+  getResponsiveImage,
+} from '../images/structureImages.js';
+import DetailLocation from '../info/DetailLocation.jsx';
+import '../info/Detail.css';
 
-// Styled components modifications
-const AccessoryNumber = styled(S.StructureNumberBubble)`
-  font-size: 42px;
-`;
-
-const ImageOnlyContainer = styled(S.ImageSectionContainer)`
-  margin-bottom: 0;
-  padding: 0;
-  overflow: hidden;
-  position: relative;
-  height: 400px;
-`;
-
-const AccessoryImage = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`;
-
-const FullWidthDescription = styled(S.DescriptionContainer)`
-  width: 99%;
-  margin-top: 5px;
-  margin-left: 5px;
-  margin-right: 5px;
-`;
-
-const AccessoryInfoCards = styled(S.InfoCardsSection)`
-  height: 400px;
-  min-height: unset;
-  overflow-y: auto;
-`;
-
-const NavigationOverlay = styled(S.NavigationOverlay)`
-  span {
-    display: none;
-  }
-`;
-
-const ColumnsContainer = styled(S.ColumnsContainer)`
-  margin-bottom: 10px;
-`;
-
-const AccessoryStructureInfo = () => {
-  const { currentStructure, handleNext, handlePrev, backToList } =
-    useAccessoryDetail();
-  if (!currentStructure)
-    return (
-      <S.InfoPageWrapper>
-        <S.CenteredWrapper>
-          <h1>Accessory structures are unavailable</h1>
-          <button onClick={backToList}>Back to structures</button>
-        </S.CenteredWrapper>
-      </S.InfoPageWrapper>
-    );
-
+function AccessoryImage({ structure }) {
+  const [failed, setFailed] = useState(false);
+  const key = structure.image.split('/accessory/').pop().split('.')[0];
   return (
-    <S.InfoPageWrapper>
-      <S.CenteredWrapper>
-        {/* Header */}
-        <S.HeaderContainer>
-          <AccessoryNumber>★</AccessoryNumber>
-
-          <S.TitleWrapper>
-            <NavigationOverlay
-              side="left"
-              as="button"
-              type="button"
-              onClick={handlePrev}
-              aria-label="Previous structure"
-            >
-              <FaArrowLeft />
-            </NavigationOverlay>
-
-            <S.TitleAndShareContainer>
-              <S.StructureTitleInfo as="h1">
-                {currentStructure.name}
-              </S.StructureTitleInfo>
-            </S.TitleAndShareContainer>
-
-            <NavigationOverlay
-              side="right"
-              as="button"
-              type="button"
-              onClick={handleNext}
-              aria-label="Next structure"
-            >
-              <FaArrowRight />
-            </NavigationOverlay>
-          </S.TitleWrapper>
-
-          <S.CloseButton aria-label="Back to structures" onClick={backToList}>
-            <FaTimes />
-          </S.CloseButton>
-        </S.HeaderContainer>
-
-        {/* Content */}
-        <S.ContentContainer>
-          <S.MainContent>
-            <ColumnsContainer>
-              {/* Left Section - Image */}
-              <S.LeftSection>
-                <ImageOnlyContainer>
-                  <AccessoryImage
-                    loading="lazy"
-                    decoding="async"
-                    src={
-                      accessoryImages[
-                        currentStructure.image
-                          .split('/accessory/')
-                          .pop()
-                          .split('.')[0]
-                      ]
-                    }
-                    alt={currentStructure.name}
-                  />
-                </ImageOnlyContainer>
-              </S.LeftSection>
-
-              {/* Right Section - Info Cards */}
-              <AccessoryInfoCards>
-                <S.SectionTitleInfo>Quick Facts</S.SectionTitleInfo>
-
-                {/* Year Card */}
-                <S.InfoCard>
-                  <S.InfoCardHeader>
-                    <S.InfoCardEmoji>📅</S.InfoCardEmoji>
-                    <S.InfoCardTitle>Year</S.InfoCardTitle>
-                  </S.InfoCardHeader>
-                  <S.InfoCardContent>{currentStructure.year}</S.InfoCardContent>
-                </S.InfoCard>
-
-                {/* Location Card */}
-                <S.InfoCard>
-                  <S.InfoCardHeader>
-                    <S.InfoCardEmoji>📍</S.InfoCardEmoji>
-                    <S.InfoCardTitle>Location</S.InfoCardTitle>
-                  </S.InfoCardHeader>
-                  <S.InfoCardContent>
-                    {currentStructure.location.latitude === 0 ? (
-                      'Unknown'
-                    ) : (
-                      <GoogleMapLandmark
-                        latitude={currentStructure.location.latitude}
-                        longitude={currentStructure.location.longitude}
-                        structureName={currentStructure.name}
-                      />
-                    )}
-                  </S.InfoCardContent>
-                </S.InfoCard>
-
-                {/* Status Card */}
-                <S.InfoCard>
-                  <S.InfoCardHeader>
-                    <S.InfoCardEmoji>🔄</S.InfoCardEmoji>
-                    <S.InfoCardTitle>Status</S.InfoCardTitle>
-                  </S.InfoCardHeader>
-                  <S.InfoCardContent>Accessory</S.InfoCardContent>
-                </S.InfoCard>
-              </AccessoryInfoCards>
-            </ColumnsContainer>
-
-            {/* Description */}
-            <FullWidthDescription>
-              <S.SectionTitleInfo>Description</S.SectionTitleInfo>
-              <S.DescriptionText>
-                <p>{currentStructure.description}</p>
-              </S.DescriptionText>
-            </FullWidthDescription>
-          </S.MainContent>
-        </S.ContentContainer>
-      </S.CenteredWrapper>
-    </S.InfoPageWrapper>
+    <div className="detail-accessory-image">
+      {failed ? (
+        <p>This photograph could not load.</p>
+      ) : (
+        <img
+          {...getResponsiveImage(
+            accessoryImages[key],
+            '(max-width: 700px) calc(100vw - 40px), (max-width: 1280px) calc(100vw - 96px), 1184px'
+          )}
+          alt={structure.name}
+          decoding="async"
+          onError={() => setFailed(true)}
+        />
+      )}
+    </div>
   );
-};
-
-export default AccessoryStructureInfo;
+}
+export default function AccessoryStructureInfo() {
+  const {
+    currentStructure: structure,
+    handleNext,
+    handlePrev,
+    backToList,
+  } = useAccessoryDetail();
+  if (!structure)
+    return (
+      <article className="detail-page">
+        <button className="detail-return" onClick={backToList}>
+          ← Structures
+        </button>
+        <h1>Accessory structures are unavailable</h1>
+      </article>
+    );
+  return (
+    <article className="detail-page">
+      <button
+        className="detail-return"
+        aria-label="Back to structures"
+        onClick={backToList}
+      >
+        ← Structures
+      </button>
+      <header className="detail-heading">
+        <h1>{structure.name}</h1>
+      </header>
+      <AccessoryImage key={structure.name} structure={structure} />
+      <dl className="detail-facts">
+        {structure.year && (
+          <div>
+            <dt>Year</dt>
+            <dd>{structure.year}</dd>
+          </div>
+        )}
+        <div>
+          <dt>Status</dt>
+          <dd>Accessory</dd>
+        </div>
+      </dl>
+      <div className="detail-content">
+        <div className="detail-research">
+          <p className="detail-intro">{structure.description}</p>
+        </div>
+        <aside className="detail-side">
+          <section>
+            <h2>Location</h2>
+            <DetailLocation
+              key={structure.name}
+              location={structure.location}
+              name={structure.name}
+            />
+          </section>
+        </aside>
+      </div>
+      <nav className="detail-nav" aria-label="Accessory structures">
+        <button
+          onClick={() => {
+            handlePrev();
+            window.scrollTo(0, 0);
+          }}
+          aria-label="Previous structure"
+        >
+          ← Previous
+        </button>
+        <button
+          onClick={() => {
+            handleNext();
+            window.scrollTo(0, 0);
+          }}
+          aria-label="Next structure"
+        >
+          Next →
+        </button>
+      </nav>
+    </article>
+  );
+}

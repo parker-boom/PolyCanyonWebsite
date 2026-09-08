@@ -9,8 +9,11 @@ const pages = JSON.parse(
 const data = JSON.parse(
   await readFile(path.join(root, 'public/data/structuresInfo.json'), 'utf8')
 );
-assert.equal(Object.keys(pages).length, data.structures.length + 8);
-assert.ok(pages['/support'], 'The published app support URL must remain available');
+assert.equal(Object.keys(pages).length, data.structures.length + 7);
+assert.ok(
+  pages['/support'],
+  'The published app support URL must remain available'
+);
 const sitemap = await readFile(path.join(root, 'build/sitemap.xml'), 'utf8');
 for (const route of Object.keys(pages)) {
   const html = await readFile(
@@ -43,10 +46,7 @@ for (const route of Object.keys(pages)) {
 }
 assert.equal((sitemap.match(/<loc>/g) || []).length, Object.keys(pages).length);
 assert.ok(!sitemap.includes('/chronicles'));
-for (const asset of [
-  'sharePNG/OGDefault.png',
-  'sharePNG/TwitDefault.png',
-])
+for (const asset of ['sharePNG/OGDefault.png', 'sharePNG/TwitDefault.png'])
   await access(path.join(root, 'build', asset));
 const redirects = await readFile(path.join(root, 'build/_redirects'), 'utf8');
 assert.equal(
@@ -76,4 +76,6 @@ console.log(
   `Validated metadata and sitemap for ${Object.keys(pages).length} pages, linked bundles, redirect targets, social assets and the 404 page.`
 );
 
-await assert.rejects(access(path.join(root, 'build/admin')), { code: 'ENOENT' });
+await assert.rejects(access(path.join(root, 'build/admin')), {
+  code: 'ENOENT',
+});

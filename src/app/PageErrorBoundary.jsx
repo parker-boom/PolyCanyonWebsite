@@ -8,14 +8,14 @@ const Message = styled.section`
   padding: 24px;
   line-height: 1.65;
   h1 {
-    color: #376d31;
+    color: var(--green);
   }
   button {
     border: 0;
-    border-radius: 10px;
+    border-radius: 2px;
     padding: 12px 20px;
     margin: 0 20px 12px 0;
-    background: #376d31;
+    background: var(--green);
     color: white;
     cursor: pointer;
   }

@@ -6,8 +6,8 @@ import styled from 'styled-components';
 
 const Container = styled.footer`
   margin-top: auto;
-  border-top: 1px solid #dce3d7;
-  background: #f5f7f2;
+  border-top: 1px solid var(--rule);
+  background: var(--paper);
   color: #53604f;
   font-size: 14px;
   line-height: 1.5;
@@ -19,12 +19,12 @@ const Container = styled.footer`
   }
   a:hover,
   button:hover {
-    color: #376d31;
+    color: var(--green);
     text-decoration: underline;
   }
 `;
 const Inner = styled.div`
-  max-width: 1040px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 32px 28px 20px;
 `;
@@ -45,7 +45,7 @@ const Main = styled.div`
 `;
 const Brand = styled(Link)`
   && {
-    color: #376d31;
+    color: var(--green);
   }
   font-size: 20px;
   font-weight: 700;
@@ -61,7 +61,7 @@ const Links = styled.nav`
   }
 `;
 const Bottom = styled.div`
-  border-top: 1px solid #dce3d7;
+  border-top: 1px solid var(--rule);
   padding-top: 14px;
   display: flex;
   flex-wrap: wrap;
@@ -102,8 +102,8 @@ export default function Footer() {
             </div>
             <Links aria-label="Footer navigation">
               <Link to="/structures">Structures</Link>
-              <Link to="/info">Visit</Link>
-              <Link to="/download">Get the app</Link>
+              <Link to="/about#visiting">Visit</Link>
+              <Link to="/app">App</Link>
               <ContactLink>Contact</ContactLink>
             </Links>
           </Main>

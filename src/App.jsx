@@ -1,6 +1,5 @@
 import React, { lazy, Suspense } from 'react';
 import { Routes, Route, Navigate, Link, useLocation } from 'react-router-dom';
-import { useMediaQuery } from 'react-responsive';
 import styled from 'styled-components';
 import Navigation from './layout/Navigation.jsx';
 import Footer from './layout/Footer.jsx';
@@ -9,19 +8,10 @@ import RoutePosition from './app/RoutePosition.jsx';
 import PageErrorBoundary from './app/PageErrorBoundary.jsx';
 
 const HomeWeb = lazy(() => import('./home/homeWeb.jsx'));
-const HomeMobile = lazy(() => import('./home/homeMobile.jsx'));
-const InfoWeb = lazy(() => import('./info/InfoPageWeb.jsx'));
-const InfoMobile = lazy(() => import('./info/InfoPageMobile.jsx'));
 const Structures = lazy(() => import('./structures/list/StructureList.jsx'));
 const StructureWeb = lazy(() => import('./structures/info/StructureInfo.jsx'));
-const StructureMobile = lazy(
-  () => import('./structures/info/StructureInfoMobile.jsx')
-);
 const AccessoryWeb = lazy(
   () => import('./structures/accessory/AccessoryStructureInfo.jsx')
-);
-const AccessoryMobile = lazy(
-  () => import('./structures/accessory/AccessoryStructureInfoMobile.jsx')
 );
 const Download = lazy(() => import('./downloads/DownloadPage.jsx'));
 const About = lazy(() => import('./about/AboutPage.jsx'));
@@ -35,19 +25,17 @@ const Shell = styled.div`
 const Content = styled.main`
   flex: 1;
   min-width: 0;
-  margin-top: ${({ $home }) => ($home ? '0' : '80px')};
 `;
 const Loading = styled.div`
   padding: 60px 24px;
   min-height: 40vh;
   text-align: center;
-  color: #376d31;
+  color: var(--green);
 `;
 
 export default function App() {
-  const mobile = useMediaQuery({ maxWidth: 768 });
   const { pathname, search } = useLocation();
-  const detail = /^\/structures\/[^/]+\/?$/.test(pathname);
+
   return (
     <Shell>
       <PageMetadata />
@@ -55,40 +43,28 @@ export default function App() {
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
-      {!detail && (pathname !== '/' || mobile) && <Navigation />}
-      <Content
-        id="main-content"
-        $home={pathname === '/' || detail}
-        tabIndex={-1}
-      >
+      <Navigation />
+      <Content id="main-content" tabIndex={-1}>
         <PageErrorBoundary key={pathname}>
           <Suspense fallback={<Loading role="status">Loading…</Loading>}>
             <Routes>
-              <Route path="/" element={mobile ? <HomeMobile /> : <HomeWeb />} />
+              <Route path="/" element={<HomeWeb />} />
               <Route
                 path="/info"
-                element={mobile ? <InfoMobile /> : <InfoWeb />}
+                element={<Navigate to="/about#visiting" replace />}
               />
               <Route path="/about" element={<About />} />
-              <Route
-                path="/structures"
-                element={<Structures mobile={mobile} />}
-              />
-              <Route
-                path="/structures/accessory"
-                element={mobile ? <AccessoryMobile /> : <AccessoryWeb />}
-              />
+              <Route path="/structures" element={<Structures />} />
+              <Route path="/structures/accessory" element={<AccessoryWeb />} />
               <Route
                 path="/structures/:structureUrl"
-                element={
-                  mobile ? (
-                    <StructureMobile key={pathname + search} />
-                  ) : (
-                    <StructureWeb key={pathname + search} />
-                  )
-                }
+                element={<StructureWeb key={pathname + search} />}
               />
-              <Route path="/download" element={<Download />} />
+              <Route path="/app" element={<Download />} />
+              <Route
+                path="/download"
+                element={<Navigate to="/app" replace />}
+              />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/support" element={<Support />} />
               <Route
@@ -97,7 +73,7 @@ export default function App() {
               />
               <Route
                 path="/chronicles/land"
-                element={<Navigate to="/info" replace />}
+                element={<Navigate to="/about#visiting" replace />}
               />
               <Route
                 path="/chronicles/people/*"
@@ -111,13 +87,16 @@ export default function App() {
                 path="/chronicles/*"
                 element={<Navigate to="/about" replace />}
               />
-              <Route path="/map" element={<Navigate to="/info" replace />} />
+              <Route
+                path="/map"
+                element={<Navigate to="/about#visiting" replace />}
+              />
               <Route
                 path="*"
                 element={
                   <Loading>
                     <h1>Page not found</h1>
-                    <p>There’s more to explore in the canyon.</p>
+                    <p>This address doesn’t match a page in the archive.</p>
                     <Link to="/structures">Browse the structures</Link>
                   </Loading>
                 }
@@ -126,7 +105,7 @@ export default function App() {
           </Suspense>
         </PageErrorBoundary>
       </Content>
-      {pathname !== '/' && !detail && <Footer />}
+      <Footer />
     </Shell>
   );
 }
