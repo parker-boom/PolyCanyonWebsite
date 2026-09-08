@@ -57,15 +57,45 @@ test('empty and missing photo records cannot request a fullscreen gallery', () =
 });
 
 test('malformed photo entries can be normalized without a sorting crash', () => {
-  assert.doesNotThrow(() => sortImages([null, {type:'main'}, undefined]));
+  assert.doesNotThrow(() => sortImages([null, { type: 'main' }, undefined]));
 });
 
-
 test('adjacency stays within a collection and excludes accessory sentinels', async () => {
- const { adjacentStructures } = await import('./structureHelpers.js');
- const records = [{number:1,url:'first',status:'Active'},{number:2,url:'last',status:'Active'},{number:3,url:'past',status:'Ghost'},{number:-1,url:'accessory',status:'Active'}];
- assert.deepEqual(adjacentStructures(records,'first'),{previous:null,next:records[1]});
- assert.deepEqual(adjacentStructures(records,'last'),{previous:records[0],next:null});
- assert.deepEqual(adjacentStructures(records,'past'),{previous:null,next:null});
- assert.deepEqual(adjacentStructures(records,'accessory'),{previous:null,next:null});
+  const { adjacentStructures } = await import('./structureHelpers.js');
+  const records = [
+    { number: 1, url: 'first', status: 'Active' },
+    { number: 2, url: 'last', status: 'Active' },
+    { number: 3, url: 'past', status: 'Ghost' },
+    { number: -1, url: 'accessory', status: 'Active' },
+  ];
+  assert.deepEqual(adjacentStructures(records, 'first'), {
+    previous: null,
+    next: records[1],
+  });
+  assert.deepEqual(adjacentStructures(records, 'last'), {
+    previous: records[0],
+    next: null,
+  });
+  assert.deepEqual(adjacentStructures(records, 'past'), {
+    previous: null,
+    next: null,
+  });
+  assert.deepEqual(adjacentStructures(records, 'accessory'), {
+    previous: null,
+    next: null,
+  });
+});
+
+test('search finds structures by their archived alternative names', () => {
+  for (const [query] of [
+    ['Water Tanks', 'waterStorage'],
+    ['Earth House', 'undergroundHouse'],
+    ['The Concrete Flower', 'blade'],
+  ]) {
+    const record = list.find((s) => s.aliases?.includes(query));
+    assert.ok(record, `Missing archived alias: ${query}`);
+    assert.ok(
+      sortStructures(list, { query }).some((s) => s.url === record.url)
+    );
+  }
 });

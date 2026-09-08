@@ -7,14 +7,14 @@ import {
 } from '../structures/images/structureImages.js';
 import { intro, visit, history, project } from './articleContent.js';
 const Page = styled.article`
-  width: min(1120px, calc(100% - 80px));
+  width: min(1240px, calc(100% - 80px));
   margin: 0 auto;
   padding: 40px 0 56px;
   .opening {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-columns: minmax(0, 1fr) 380px;
     gap: 64px;
-    align-items: center;
+    align-items: start;
     padding-bottom: 36px;
     border-bottom: 1px solid var(--line);
   }
@@ -31,8 +31,10 @@ const Page = styled.article`
   }
   figure img {
     width: 100%;
-    aspect-ratio: 1.25;
+    height: auto;
+    aspect-ratio: 1.6;
     object-fit: cover;
+    object-position: center;
     display: block;
   }
   figcaption {

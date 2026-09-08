@@ -63,11 +63,13 @@ export default function StructureList({ historical = false }) {
       <C.Heading>
         <div>
           <h1>{historical ? 'Historical structures' : 'Structures'}</h1>
-          <p>
-            {historical
-              ? 'Projects that are no longer standing, preserved in photographs and research.'
-              : ''}
-          </p>
+          {historical && (
+            <p>
+              {historical
+                ? 'Projects that are no longer standing, preserved in photographs and research.'
+                : ''}
+            </p>
+          )}
         </div>
         <Link to={historical ? '/structures' : '/structures/history'}>
           {historical ? 'Back to the canyon' : 'Historical structures'}
@@ -87,17 +89,50 @@ export default function StructureList({ historical = false }) {
             }}
           />
         </div>
-        <button
-          className="random"
-          aria-label="Open a random structure"
-          title="Random structure"
-          onClick={surprise}
-        >
-          <FaDiceFive aria-hidden="true" />
-        </button>
-        <label className="sort"><span className="sr-only">Sort structures</span><select value={sort === 'Year' ? (ascending ? 'oldest' : 'newest') : 'number'} onChange={e=>setParams(current=>{const next=new URLSearchParams(current);if(e.target.value==='number'){next.delete('sort');next.delete('direction');}else{next.set('sort','Year');if(e.target.value==='newest')next.set('direction','desc');else next.delete('direction');}return next;},{replace:true})}><option value="number">Number</option><option value="oldest">Oldest first</option><option value="newest">Newest first</option></select></label>
+        {!historical && (
+          <button
+            className="random"
+            aria-label="Open a random structure"
+            title="Random structure"
+            onClick={surprise}
+          >
+            <FaDiceFive aria-hidden="true" />
+          </button>
+        )}
+        <label className="sort">
+          <span className="sr-only">Sort structures</span>
+          <select
+            value={
+              sort === 'Year' ? (ascending ? 'oldest' : 'newest') : 'number'
+            }
+            onChange={(e) =>
+              setParams(
+                (current) => {
+                  const next = new URLSearchParams(current);
+                  if (e.target.value === 'number') {
+                    next.delete('sort');
+                    next.delete('direction');
+                  } else {
+                    next.set('sort', 'Year');
+                    if (e.target.value === 'newest')
+                      next.set('direction', 'desc');
+                    else next.delete('direction');
+                  }
+                  return next;
+                },
+                { replace: true }
+              )
+            }
+          >
+            <option value="number">Number</option>
+            <option value="oldest">Oldest first</option>
+            <option value="newest">Newest first</option>
+          </select>
+        </label>
       </C.Tools>
-      <span className="sr-only" role="status">{count} structures</span>
+      <span className="sr-only" role="status">
+        {count} {count === 1 ? "structure" : "structures"}
+      </span>
       {count === 0 ? (
         <C.Empty>
           <h2>No matches</h2>
@@ -146,7 +181,7 @@ export default function StructureList({ historical = false }) {
           <Link to="/structures/accessory">
             Smaller structures & connections
           </Link>
-          <p>Original reports and sources are linked where available.</p>
+
         </C.Tail>
       )}
     </C.Page>

@@ -60,6 +60,9 @@ export default function StructureInfo() {
         <h1>Structure not found</h1>
       </S.Page>
     );
+  const historical = structure.status === 'Ghost';
+  const meaningful = (value) =>
+    value && !/^(unknown|n\/a)$/i.test(value.trim());
   const current = structure.images[index];
   const ratio =
     photoRatios[current?.path.split('/').pop().replace('.webp', '')] || 1.5;
@@ -104,8 +107,16 @@ export default function StructureInfo() {
         inert={fullscreen ? '' : undefined}
       >
         <S.Topline>
-          <S.Button aria-label="Back to structures" onClick={d.backToList}>
-            <FaArrowLeft /> Structures
+          <S.Button
+            aria-label={
+              historical
+                ? 'Back to historical structures'
+                : 'Back to structures'
+            }
+            onClick={d.backToList}
+          >
+            <FaArrowLeft />{' '}
+            {historical ? 'Historical structures' : 'Structures'}
           </S.Button>
           <S.Button onClick={d.handleShare} aria-label="Share structure">
             <FaShareAlt aria-hidden="true" /> Share
@@ -174,7 +185,7 @@ export default function StructureInfo() {
                 <div>
                   <span>
                     {[
-                      structure.year,
+                      meaningful(structure.year) ? structure.year : '',
                       structure.status === 'Ghost'
                         ? 'Historical structure'
                         : '',
@@ -183,7 +194,9 @@ export default function StructureInfo() {
                       .join(' · ')}
                   </span>
                   {structure.location?.latitude !== 0 && structure.location && (
-                    <a href="#structure-location">Location ↓</a>
+                    <a href="#structure-location">
+                      {historical ? 'Former location' : 'Location'}
+                    </a>
                   )}
                 </div>
                 {structure.names.length > 1 && (
@@ -206,7 +219,7 @@ export default function StructureInfo() {
                     ['Builders', builders],
                     ['Advisors', advisors],
                   ]
-                    .filter(([, value]) => value)
+                    .filter(([, value]) => meaningful(value))
                     .map(([label, value]) => (
                       <div key={label}>
                         <dt>{label}</dt>
@@ -242,6 +255,7 @@ export default function StructureInfo() {
                   <GoogleMapLandmark
                     {...structure.location}
                     structureName={structure.names[0]}
+                    historical={historical}
                   />
                 )}
               </S.Location>
@@ -251,7 +265,7 @@ export default function StructureInfo() {
             <S.Facts aria-label="Structure details">
               <dl>
                 {facts
-                  .filter(([, value]) => value)
+                  .filter(([, value]) => meaningful(value))
                   .map(([label, value]) => (
                     <div key={label}>
                       <dt>{label}</dt>
@@ -267,6 +281,7 @@ export default function StructureInfo() {
                     <GoogleMapLandmark
                       {...structure.location}
                       structureName={structure.names[0]}
+                      historical={historical}
                     />
                   )}
                 </div>
@@ -327,7 +342,7 @@ export default function StructureInfo() {
           <S.ViewerPhoto onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
             {photo}
           </S.ViewerPhoto>
-          <S.ViewerBar>
+          <S.ViewerFooter>
             <p>{caption}</p>
             <div>
               <S.Button
@@ -343,7 +358,7 @@ export default function StructureInfo() {
                 <FaArrowRight />
               </S.Button>
             </div>
-          </S.ViewerBar>
+          </S.ViewerFooter>
         </S.Viewer>
       )}
     </>

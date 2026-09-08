@@ -31,11 +31,12 @@ export default function AccessoryStructureInfo() {
         <S.Button aria-label="Back to structures" onClick={backToList}>
           <FaArrowLeft /> Structures
         </S.Button>
-        <span>Accessory</span>
       </S.Topline>
+      <p style={{ fontSize: 13, color: 'var(--muted)', margin: '0 0 12px' }}>
+        Smaller structures &amp; connections
+      </p>
       <S.Header>
         <h1>{structure.name}</h1>
-        <span>Smaller structures & connections</span>
       </S.Header>
       <S.Figure>
         <S.PhotoButton as="div" style={{ cursor: 'default' }}>
@@ -59,10 +60,6 @@ export default function AccessoryStructureInfo() {
                   ? 'Date not confirmed'
                   : structure.year}
               </dd>
-            </div>
-            <div>
-              <dt>Status</dt>
-              <dd>Accessory</dd>
             </div>
           </dl>
           {structure.location && (

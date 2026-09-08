@@ -1,37 +1,27 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import {
-  mainImages,
-  thumbnailImages,
-  getResponsiveImage,
-} from '../structures/images/structureImages.js';
-const features = [
-  {
-    number: 6,
-    name: 'Tensile',
-    url: 'tensile',
-    text: 'Fabric panels and tensioned cables form an open-air shade structure.',
-  },
-  {
-    number: 10,
-    name: 'Underground House',
-    url: 'undergroundHouse',
-    text: 'An experiment in ferrocement construction and passive solar design.',
-  },
-  {
-    number: 24,
-    name: 'Shell House',
-    url: 'shellHouse',
-    text: 'A cantilevered concrete shell resting on three points.',
-  },
-  {
-    number: 31,
-    name: 'Moment Monument',
-    url: 'momentMonument',
-    text: 'Six steel frames demonstrate different seismic moment connections.',
-  },
-];
+import { features } from './features.js';
+import hero6Small from '../assets/generated/home/M-6-800.webp';
+import hero6Large from '../assets/generated/home/M-6-1600.webp';
+import hero10Small from '../assets/generated/home/M-10-800.webp';
+import hero10Large from '../assets/generated/home/M-10-1600.webp';
+import hero24Small from '../assets/generated/home/M-24-800.webp';
+import hero24Large from '../assets/generated/home/M-24-1600.webp';
+import hero31Small from '../assets/generated/home/M-31-800.webp';
+import hero31Large from '../assets/generated/home/M-31-1600.webp';
+const heroImages = {
+  6: [hero6Small, hero6Large],
+  10: [hero10Small, hero10Large],
+  24: [hero24Small, hero24Large],
+  31: [hero31Small, hero31Large],
+};
+// A page visit gets one choice; route changes and Back retain subsequent swaps.
+const initialFeature = Math.floor(Math.random() * features.length);
+let visitSelection = {
+  active: initialFeature,
+  alternatives: features.map((_, i) => i).filter((i) => i !== initialFeature),
+};
 const Page = styled.div`
   width: min(1240px, calc(100% - 80px));
   margin: 0 auto;
@@ -95,6 +85,8 @@ const Page = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+  .hero.changed img {
     animation: appear 0.3s ease;
   }
   .hero::after {
@@ -203,7 +195,7 @@ const Page = styled.div`
     }
   }
   @media (prefers-reduced-motion: reduce) {
-    .hero img {
+    .hero.changed img {
       animation: none;
     }
     .choices img {
@@ -274,16 +266,19 @@ const Page = styled.div`
   }
 `;
 export default function Home() {
-  const [selection, setSelection] = useState({
-    active: 0,
-    alternatives: [1, 2, 3],
-  });
+  const [selection, setSelection] = useState(visitSelection);
+  const [changed, setChanged] = useState(false);
   const feature = features[selection.active];
-  const swap = (slot) =>
-    setSelection((s) => ({
-      active: s.alternatives[slot],
-      alternatives: s.alternatives.map((n, i) => (i === slot ? s.active : n)),
-    }));
+  const swap = (slot) => {
+    visitSelection = {
+      active: selection.alternatives[slot],
+      alternatives: selection.alternatives.map((n, i) =>
+        i === slot ? selection.active : n
+      ),
+    };
+    setChanged(true);
+    setSelection(visitSelection);
+  };
   return (
     <Page>
       <div className="opening">
@@ -300,16 +295,15 @@ export default function Home() {
         </div>
         <div>
           <Link
-            className="hero"
+            className={`hero${changed ? ' changed' : ''}`}
             to={`/structures/${feature.url}`}
             aria-label={`Read about ${feature.name}`}
           >
             <img
               key={feature.number}
-              {...getResponsiveImage(
-                mainImages[`M-${feature.number}`],
-                '(max-width:600px) calc(100vw - 36px), (max-width:1320px) 60vw, 800px'
-              )}
+              src={heroImages[feature.number][1]}
+              srcSet={`${heroImages[feature.number][0]} 800w, ${heroImages[feature.number][1]} 1600w`}
+              sizes="(max-width:600px) calc(100vw - 36px), (max-width:1320px) 60vw, 800px"
               width="1080"
               height="720"
               alt={feature.name}
@@ -332,10 +326,7 @@ export default function Home() {
                 aria-label={`Feature ${features[n].name}`}
               >
                 <img
-                  {...getResponsiveImage(
-                    thumbnailImages[`M-${features[n].number}`],
-                    '(max-width:600px) 30vw, 240px'
-                  )}
+                  src={heroImages[features[n].number][0]}
                   width="480"
                   height="320"
                   alt=""
@@ -348,14 +339,14 @@ export default function Home() {
       </div>
       <div className="entrances">
         <Link to="/about">
-          <h2>The canyon, then and now</h2>
+          <h2>About the canyon</h2>
           <p>
-            How an outdoor laboratory grew—and what to know before walking up
-            from campus.
+            The history of the outdoor construction laboratory, and how to
+            visit.
           </p>
         </Link>
         <Link to="/app">
-          <h2>A guide for your own visit</h2>
+          <h2>Poly Canyon for iPhone</h2>
           <p>
             Find your way with the illustrated map, or explore the photo Tour
             from wherever you are.

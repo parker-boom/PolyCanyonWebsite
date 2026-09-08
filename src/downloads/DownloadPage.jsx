@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react';
-import { FaApple, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import React, { useEffect, useRef, useState } from 'react';
+import { FaApple } from 'react-icons/fa';
 import styled from 'styled-components';
 import { Phone, DownloadButton } from './DownloadPage.styles.js';
 import map360 from '../assets/generated/app/second-pass/map-360.webp';
@@ -125,32 +125,6 @@ const Page = styled.article`
     min-width: 0;
     scroll-snap-align: start;
   }
-  .controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 24px;
-    margin-top: 20px;
-  }
-  .controls button {
-    width: 44px;
-    height: 44px;
-    border: 1px solid var(--line);
-    background: none;
-    border-radius: 50%;
-    color: var(--green);
-    display: grid;
-    place-items: center;
-    cursor: pointer;
-  }
-  .controls button:disabled {
-    opacity: 0.3;
-    cursor: default;
-  }
-  .controls span {
-    font-size: 12px;
-    color: var(--muted);
-  }
   button:focus-visible,
   a:focus-visible,
   .strip:focus-visible {
@@ -182,10 +156,17 @@ const Page = styled.article`
       margin-top: 28px;
     }
     .feature-copy {
-      min-height: 108px;
+      min-height: 0;
     }
     h2 {
       font-size: 22px;
+    }
+    .feature-copy h2 {
+      display: none;
+    }
+    .feature-copy p {
+      font-size: 14px;
+      line-height: 1.6;
     }
     .device {
       width: min(280px, calc(100vw - 72px));
@@ -196,8 +177,12 @@ const Page = styled.article`
 export default function DownloadPage() {
   const [active, setActive] = useState(0);
   const ref = useRef(null);
+  const scrollTimer = useRef(null);
+  useEffect(() => () => clearTimeout(scrollTimer.current), []);
   const move = (index) => {
     if (index < 0 || index >= features.length) return;
+    clearTimeout(scrollTimer.current);
+    setActive(index);
     ref.current.scrollTo({
       left: ref.current.clientWidth * index,
       behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -215,9 +200,7 @@ export default function DownloadPage() {
             for iPhone
           </h1>
           <p className="intro">
-            An illustrated map for exploring in person, with photographs and
-            stories to bring the structures into view. Away from the canyon?
-            Take the photo Tour.
+            Explore the canyon on foot, or take a photo tour from anywhere.
           </p>
           <DownloadButton
             href="https://apps.apple.com/us/app/poly-canyon/id6499063781"
@@ -256,11 +239,31 @@ export default function DownloadPage() {
                 role="region"
                 aria-label="App screens"
                 tabIndex={0}
-                onScroll={() =>
-                  setActive(
-                    Math.round(ref.current.scrollLeft / ref.current.clientWidth)
-                  )
-                }
+                onKeyDown={(event) => {
+                  if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+                    event.preventDefault();
+                    move(active + (event.key === 'ArrowRight' ? 1 : -1));
+                  }
+                }}
+                onScroll={() => {
+                  clearTimeout(scrollTimer.current);
+                  // Keep the chosen caption steady while the phone travels.
+                  // A manual swipe updates the caption after settling as well.
+                  scrollTimer.current = setTimeout(() => {
+                    if (!ref.current) return;
+                    setActive(
+                      Math.min(
+                        features.length - 1,
+                        Math.max(
+                          0,
+                          Math.round(
+                            ref.current.scrollLeft / ref.current.clientWidth
+                          )
+                        )
+                      )
+                    );
+                  }, 160);
+                }}
               >
                 {features.map((f, i) => (
                   <img
@@ -277,23 +280,6 @@ export default function DownloadPage() {
               </div>
             </div>
           </Phone>
-          <div className="controls">
-            <button
-              aria-label="Previous app screen"
-              disabled={active === 0}
-              onClick={() => move(active - 1)}
-            >
-              <FaArrowLeft />
-            </button>
-            <span>{active + 1} / 3</span>
-            <button
-              aria-label="Next app screen"
-              disabled={active === 2}
-              onClick={() => move(active + 1)}
-            >
-              <FaArrowRight />
-            </button>
-          </div>
         </div>
       </div>
     </Page>

@@ -1,3 +1,4 @@
+import { features } from '../src/home/features.js';
 import { intro, visit, history, project } from '../src/about/articleContent.js';
 import { resourceLinks } from '../src/structures/data/resourceLinks.js';
 import { readFile } from 'node:fs/promises';
@@ -129,7 +130,7 @@ export async function createStaticContent(structures, manifest) {
       body = `<h1>${escapeHTML(record.names[0])}</h1>`;
       if (record.names.length > 1)
         body += paragraph(`Also known as ${record.names.slice(1).join(', ')}.`);
-      body += `<p>No. ${escapeHTML(record.number)} · ${escapeHTML(record.year)} · ${escapeHTML(record.status)}</p>`;
+      body += `<p>No. ${escapeHTML(record.number)} · ${escapeHTML(record.year)}${record.status === 'Ghost' ? ' · Historical structure' : ''}</p>`;
       const fullResearch = record.extended_description?.trim();
       body += paragraph(fullResearch || record.description);
       if (record.advisor_builders?.length)
@@ -140,7 +141,7 @@ export async function createStaticContent(structures, manifest) {
         body += `<section><h2>Location</h2><p>${link(`https://www.google.com/maps/search/?api=1&query=${record.location.latitude},${record.location.longitude}`, 'Open in Google Maps')}</p></section>`;
       const resources = resourceLinks(record.links);
       if (resources.length)
-        body += `<section><h2>Resources</h2><ul>${resources.map((item) => `<li>${link(item.URL, item.title || item.linkType || item.URL)}</li>`).join('')}</ul></section>`;
+        body += `<section><h2>Sources &amp; further reading</h2><ul>${resources.map((item) => `<li>${link(item.URL, item.title || item.linkType || item.URL)}</li>`).join('')}</ul></section>`;
       if (record.images?.length)
         body += `<section><h2>Photographs</h2>${sortImages(record.images)
           .map((image) => {
@@ -153,7 +154,7 @@ export async function createStaticContent(structures, manifest) {
           })
           .join('')}</section>`;
     } else if (route === '/') {
-      body = `<h1>Student-built architecture at Cal Poly.</h1><p>${link('/structures', 'Explore the structures')}</p>${photo('src/assets/generated/home/M-24-1600.webp', 'Shell House', '(max-width:600px) calc(100vw - 36px), (max-width:1320px) calc(100vw - 80px), 1240px', true)}<h2>Shell House</h2><p>No. 24 · A cantilevered concrete shell resting on three points, conceived as a senior project in 1964.</p><p>${link('/structures/shellHouse', 'Read about Shell House')} · ${link('/structures/geodesicDome', 'Geodesic Dome')} · ${link('/structures/bridgeHouse', 'Bridge House')}</p><p>${link('/about', 'Learn about the canyon')} · ${link('/app', 'Download the app')}</p>`;
+      body = `<h1>Poly Canyon</h1><p>A hillside of student-built structures. Explore the designs, the people who built them, and the paths between.</p><p>${link('/structures', 'Explore the structures')}</p>${features.map((f) => `${photo(`src/assets/generated/home/M-${f.number}-1600.webp`, f.name)}<p>${escapeHTML(f.text)} ${link(`/structures/${f.url}`, `Read about ${f.name}`)}</p>`).join('')}<p>${link('/about', 'About the canyon')} · ${link('/app', 'Poly Canyon for iPhone')}</p>`;
     } else if (route === '/structures' || route === '/structures/history') {
       body += `<ul>${structures
         .filter((s) =>
@@ -197,9 +198,9 @@ export async function createStaticContent(structures, manifest) {
       body = `<h1>About Poly Canyon</h1>${photo(images.mainImages['M-8'], 'Cantilever Deck in Poly Canyon')}${intro}${visit}${history}${project}`;
     } else if (route === '/app') {
       body =
-        '<h1>Poly Canyon for iPhone</h1><p>Take the canyon’s illustrated map, photographs, and stories with you, even offline.</p><p>Visits are optional and use location only while the app is open.</p>';
+        '<h1>Poly Canyon for iPhone</h1><p>Explore the canyon on foot, or take a photo tour from anywhere.</p>';
 
-      body += `<p>${link('https://apps.apple.com/us/app/poly-canyon/id6499063781', 'Get Poly Canyon for iPhone on the App Store')}</p>`;
+      body += `<p>${link('https://apps.apple.com/us/app/poly-canyon/id6499063781', 'Download on the App Store')}</p>`;
       for (const [name, caption] of [
         [
           'map',
@@ -215,7 +216,7 @@ export async function createStaticContent(structures, manifest) {
         ],
       ])
         body += appPhoto(name, caption);
-      body += `<p>${link('/about#visit', 'Walking directions')} · ${link('/support', 'App support')} · ${link('/privacy', 'Privacy')}</p>`;
+      body += `<p>${link('/about#visit', 'Walking directions')} · ${link('/privacy', 'Privacy')}</p>`;
     }
     return `<div class="static-page" data-static-page><nav aria-label="Main navigation">${[
       ['/', 'Home'],

@@ -109,6 +109,7 @@ export const PhotoButton = styled.button`
     object-fit: contain;
   }
   @media (max-width: 700px) {
+    max-height: 480px;
     img {
       max-height: 480px;
     }
@@ -351,6 +352,18 @@ export const ViewerBar = styled.div`
   @media (max-width: 540px) {
     padding: 12px;
     flex-wrap: wrap;
+  }
+`;
+export const ViewerFooter = styled(ViewerBar)`
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  padding-bottom: max(14px, env(safe-area-inset-bottom));
+  > div { justify-self: end; }
+  p { max-height: 25vh; overflow: auto; }
+  @media (max-width: 540px) {
+    grid-template-columns: minmax(0, 1fr);
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
   }
 `;
 export const ViewerPhoto = styled.div`

@@ -23,7 +23,7 @@ export const policySections = [
         ', processes technical request data, such as IP addresses, to deliver and protect the website. These operational logs are separate from the app’s locally stored data.',
       ],
       [
-        'Website maps load from Google automatically as you approach them on the page. Google may then process connection information and cookies under its ',
+        'Map links open Google Maps. When you follow one, Google may process connection information and cookies under its ',
         { text: 'privacy policy', href: 'https://policies.google.com/privacy' },
         '. App stores and other external links are also governed by the respective service’s privacy policy.',
       ],
