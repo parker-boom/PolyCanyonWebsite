@@ -166,13 +166,13 @@ export async function createStaticContent(structures, manifest) {
         <p>The archive draws on original theses, photographs, and university records, including resources compiled by Danny Wills’s architecture studio and Jesse Vestermark’s library research guide. Source documents are linked in the Resources section of individual structure pages where available. Records are uneven, and a photograph or project report may describe an earlier condition of the site.</p></section>`;
     } else if (route === '/app') {
       body =
-        '<h1>Poly Canyon for iPhone</h1><p>Take the canyon’s illustrated map, photographs, and stories with you, even offline.</p><p>Find structures by their map number, or browse the photographs before you go. Visits are optional and use location only while the app is open.</p>';
+        '<h1>Poly Canyon for iPhone</h1><p>Take the canyon’s illustrated map, photographs, and stories with you, even offline.</p><p>Visits are optional and use location only while the app is open.</p>';
 
       body += `<p>${link('https://apps.apple.com/us/app/poly-canyon/id6499063781', 'Get Poly Canyon for iPhone on the App Store')}</p>`;
       for (const [name, caption] of [
-        ['structures', 'The app’s photographic structure collection'],
-        ['entry-arch', 'Entry Arch and its offline story'],
-        ['map', 'The illustrated canyon map'],
+        ['structures', 'Browse by name or number.'],
+        ['entry-arch', 'Read stories offline.'],
+        ['map', 'Follow the illustrated map.'],
       ])
         body += appPhoto(name, caption);
       body += `<p>${link('/about#visit', 'Walking directions')} · ${link('/support', 'App support')} · ${link('/privacy', 'Privacy')}</p>`;

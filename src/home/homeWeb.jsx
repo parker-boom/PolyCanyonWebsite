@@ -269,9 +269,7 @@ export default function Home() {
             <br /> Canyon
           </h1>
           <p>Student-built architecture in the hills of Cal Poly.</p>
-          <Link to="/structures">
-            Explore the structures <span aria-hidden="true">↗</span>
-          </Link>
+          <Link to="/structures">Explore the structures</Link>
         </Intro>
         <Feature>
           <Link className="photo" to={`/structures/${current.url}`}>
@@ -314,9 +312,7 @@ export default function Home() {
       <Collection>
         <header>
           <h2>Around the canyon</h2>
-          <Link to="/structures">
-            View all <span aria-hidden="true">↗</span>
-          </Link>
+          <Link to="/structures">View all</Link>
         </header>
         <div className="grid">
           {picks.map((s) => (
@@ -333,7 +329,6 @@ export default function Home() {
               <div className="caption">
                 <span>{String(s.number).padStart(2, '0')}</span>
                 <strong>{s.title}</strong>
-                <i aria-hidden="true">↗</i>
               </div>
             </Link>
           ))}
@@ -341,18 +336,14 @@ export default function Home() {
       </Collection>
       <Below>
         <Link to="/about">
-          <h2>
-            About the canyon <span aria-hidden="true">↗</span>
-          </h2>
+          <h2>About the canyon</h2>
           <p>
             An outdoor laboratory shaped by generations of students. Its
             history, landscape, and the walk from campus.
           </p>
         </Link>
         <Link to="/app">
-          <h2>
-            Take the guide along <span aria-hidden="true">↗</span>
-          </h2>
+          <h2>Take the guide along</h2>
           <p>
             Find the structures and their stories with the Poly Canyon app for
             iPhone.

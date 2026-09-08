@@ -1,5 +1,12 @@
 import ContactLink from '../../components/ContactLink.jsx';
-import React, { lazy, Suspense, useLayoutEffect, useState } from 'react';
+import React, {
+  lazy,
+  Suspense,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
 import {
   Link,
   useNavigate,
@@ -7,7 +14,7 @@ import {
   useLocation,
   useNavigationType,
 } from 'react-router-dom';
-import { FaSearch, FaChevronDown } from 'react-icons/fa';
+import { FaSearch, FaChevronDown, FaDiceFive } from 'react-icons/fa';
 import * as C from './Collection.styles.js';
 import {
   thumbnailImages,
@@ -20,6 +27,15 @@ const ResearchInfo = lazy(() => import('../extraComponents/ResearchInfo.jsx'));
 
 export default function StructureList({ mobile = false }) {
   const navigate = useNavigate();
+  const randomRef = useRef(null);
+  useEffect(() => {
+    const close = (event) => {
+      if (!randomRef.current?.contains(event.target))
+        randomRef.current?.removeAttribute('open');
+    };
+    document.addEventListener('pointerdown', close);
+    return () => document.removeEventListener('pointerdown', close);
+  }, []);
   const location = useLocation();
   const returnState = {
     returnTo: location.pathname + location.search,
@@ -71,7 +87,7 @@ export default function StructureList({ mobile = false }) {
     <C.Page>
       <C.Heading>
         <h1>Structures</h1>
-        <button onClick={() => setResearch(true)}>About the research</button>
+        <button onClick={() => setResearch(true)}>Research</button>
       </C.Heading>
       <C.Tools>
         <div className="search">
@@ -79,7 +95,7 @@ export default function StructureList({ mobile = false }) {
           <input
             aria-label="Search structures"
             type="search"
-            placeholder="Search by name or number"
+            placeholder="Name or number"
             value={query}
             onChange={(e) => {
               setQuery(e.target.value);
@@ -87,14 +103,31 @@ export default function StructureList({ mobile = false }) {
             }}
           />
         </div>
-        <div className="random">
-          <button aria-label="Random structure" onClick={() => surprise()}>
-            Random structure ↗
-          </button>
-          <button aria-label="Random photograph" onClick={() => surprise(true)}>
-            Random photo ↗
-          </button>
-        </div>
+        <details
+          className="random"
+          ref={randomRef}
+          onKeyDown={(event) => {
+            if (event.key === 'Escape') {
+              event.currentTarget.removeAttribute('open');
+              event.currentTarget.querySelector('summary').focus();
+            }
+          }}
+        >
+          <summary aria-label="Explore at random" title="Explore at random">
+            <FaDiceFive aria-hidden="true" />
+          </summary>
+          <div className="random-options">
+            <button aria-label="Random structure" onClick={() => surprise()}>
+              Structure
+            </button>
+            <button
+              aria-label="Random photograph"
+              onClick={() => surprise(true)}
+            >
+              Photo
+            </button>
+          </div>
+        </details>
       </C.Tools>
       <C.SortBar>
         <div className="sorting">
@@ -118,14 +151,17 @@ export default function StructureList({ mobile = false }) {
             {ascending ? '↑' : '↓'}
           </button>
         </div>
-        <span className="count" role="status">
-          {count} entries
+        <span
+          className="count"
+          role="status"
+          aria-label={`${count} structures`}
+        >
+          {count}
         </span>
       </C.SortBar>
       {count === 0 ? (
         <C.Empty>
-          <h2>No structures found</h2>
-          <p>Try a different name or number.</p>
+          <h2>No matches</h2>
           <button
             onClick={() => {
               setQuery('');
@@ -143,6 +179,7 @@ export default function StructureList({ mobile = false }) {
             ascending,
             query,
           });
+          if (!entries.length) return null;
           return (
             <C.Section key={status}>
               <h2>
@@ -153,61 +190,51 @@ export default function StructureList({ mobile = false }) {
                     updateFilter(status, open[status] ? 'closed' : '')
                   }
                 >
-                  {status === 'active' ? 'Active' : 'Ghost'} Structures
+                  {status === 'active' ? 'Standing' : 'No longer standing'}
                   <FaChevronDown aria-hidden="true" />
                 </button>
               </h2>
-              {open[status] &&
-                (entries.length ? (
-                  <C.Grid>
-                    {entries.map((s) => (
-                      <C.Item
-                        as={Link}
-                        to={`/structures/${s.url}`}
-                        state={returnState}
-                        key={s.number}
-                      >
-                        <img
-                          {...getResponsiveImage(
-                            s.number === -1
-                              ? Object.values(accessoryImages)[0]
-                              : thumbnailImages[s.image_key],
-                            '(max-width:420px) 96px, (max-width:740px) 142px, (max-width:1000px) 100px, 142px'
-                          )}
-                          alt={s.title}
-                          loading="lazy"
-                          decoding="async"
-                        />
-                        <div className="info">
-                          <div className="title">
-                            <span className="number">
-                              {s.number === -1
-                                ? '—'
-                                : String(s.number).padStart(2, '0')}
-                            </span>
-                            <h3>{s.title}</h3>
-                          </div>
-                          {s.year && <span className="year">{s.year}</span>}
+              {open[status] && (
+                <C.Grid>
+                  {entries.map((s) => (
+                    <C.Item
+                      as={Link}
+                      to={`/structures/${s.url}`}
+                      state={returnState}
+                      key={s.number}
+                    >
+                      <img
+                        {...getResponsiveImage(
+                          s.number === -1
+                            ? Object.values(accessoryImages)[0]
+                            : thumbnailImages[s.image_key],
+                          '(max-width:420px) 96px, (max-width:740px) 142px, (max-width:1000px) 100px, 142px'
+                        )}
+                        alt={s.title}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <div className="info">
+                        <div className="title">
+                          <span className="number">
+                            {s.number === -1
+                              ? '—'
+                              : String(s.number).padStart(2, '0')}
+                          </span>
+                          <h3>{s.title}</h3>
                         </div>
-                        <span className="arrow" aria-hidden="true">
-                          ↗
-                        </span>
-                      </C.Item>
-                    ))}
-                  </C.Grid>
-                ) : (
-                  <p className="empty" role="status">
-                    No {status} structures match “{query}”. Try a different name
-                    or number.
-                  </p>
-                ))}
+                        {s.year && <span className="year">{s.year}</span>}
+                      </div>
+                    </C.Item>
+                  ))}
+                </C.Grid>
+              )}
             </C.Section>
           );
         })
       )}
       <C.Contact>
-        Have a photograph or something to add?{' '}
-        <ContactLink>Get in touch</ContactLink>.
+        Something to add? <ContactLink>Get in touch</ContactLink>.
       </C.Contact>
       {research && (
         <Suspense fallback={null}>

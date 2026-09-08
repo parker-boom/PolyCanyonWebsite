@@ -78,31 +78,63 @@ export const Tools = styled.div`
     color: var(--muted);
   }
   .random {
-    display: flex;
-    gap: 18px;
+    position: relative;
+    flex-shrink: 0;
+  }
+  summary {
+    list-style: none;
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    color: var(--green);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  summary svg {
+    width: 22px;
+    height: 22px;
+  }
+  summary:hover,
+  details[open] summary {
+    background: #e9eee5;
+  }
+  summary:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+  .random-options {
+    position: absolute;
+    z-index: 10;
+    right: 0;
+    top: 56px;
+    width: 140px;
+    padding: 5px;
+    background: var(--background, #fafbf8);
+    border: 1px solid #aebdb2;
+    border-radius: 3px;
   }
   button {
+    display: block;
+    width: 100%;
     background: none;
     border: 0;
-    padding: 12px 0;
+    padding: 12px;
+    text-align: left;
     cursor: pointer;
-    font-size: 13px;
+    font-size: 14px;
     color: var(--green);
-    white-space: nowrap;
   }
-  button:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
+  button:hover,
+  button:focus-visible {
+    background: #e9eee5;
   }
-  @media (max-width: 700px) {
-    flex-wrap: wrap;
-    gap: 4px;
-    .search {
-      flex-basis: 100%;
-    }
-    .random {
-      gap: 24px;
-    }
+  @media (max-width: 600px) {
+    gap: 12px;
   }
 `;
 export const SortBar = styled.div`
@@ -215,7 +247,7 @@ export const Grid = styled.div`
 `;
 export const Item = styled.div`
   display: grid;
-  grid-template-columns: 142px 1fr 16px;
+  grid-template-columns: 142px 1fr;
   align-items: center;
   gap: 20px;
   border-top: 1px solid var(--line);
@@ -233,13 +265,6 @@ export const Item = styled.div`
   }
   &:hover img {
     filter: brightness(1.06);
-  }
-  &:hover .arrow {
-    transform: translateX(3px);
-  }
-  .arrow {
-    transition: transform 0.2s;
-    font-size: 16px;
   }
   .info {
     min-width: 0;
@@ -276,9 +301,6 @@ export const Item = styled.div`
       width: 100px;
       height: 88px;
     }
-    .arrow {
-      display: none;
-    }
     .title {
       display: block;
     }
@@ -288,7 +310,7 @@ export const Item = styled.div`
     }
   }
   @media (max-width: 420px) {
-    grid-template-columns: 96px 1fr 12px;
+    grid-template-columns: 96px 1fr;
     gap: 12px;
     padding: 14px 0;
     img {

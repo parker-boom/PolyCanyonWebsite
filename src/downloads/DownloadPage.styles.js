@@ -95,8 +95,12 @@ export const Screens = styled.div`
     width: 100%;
     height: auto;
     background: #f7f5ec;
-    border: 1px solid #dce2da;
-    border-radius: 20px;
+  }
+  figcaption {
+    margin: 20px 0 0;
+    font-size: 15px;
+    line-height: 1.5;
+    text-align: center;
   }
   @media (max-width: 760px) {
     display: flex;
@@ -108,13 +112,11 @@ export const Screens = styled.div`
     scrollbar-color: #aab8ad transparent;
     margin: 32px -20px 0;
     padding: 0 20px 16px;
+    padding-right: max(20px, calc(100% - min(76vw, 280px)));
     scroll-padding: 20px;
     figure {
       flex: 0 0 min(76vw, 280px);
       scroll-snap-align: start;
-    }
-    img {
-      border-radius: 18px;
     }
   }
 `;
@@ -160,5 +162,71 @@ export const Footnote = styled.div`
   @media (max-width: 600px) {
     flex-direction: column;
     gap: 12px;
+  }
+`;
+
+export const Phone = styled.div`
+  position: relative;
+  padding: 7px;
+  background: #181b1a;
+  border: 1px solid #68706b;
+  border-radius: 42px;
+  box-shadow: inset 0 0 0 2px #343b37;
+  .display {
+    overflow: hidden;
+    border-radius: 34px;
+  }
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    background: #454c47;
+    border-radius: 2px;
+    width: 3px;
+  }
+  &::before {
+    left: -3px;
+    top: 100px;
+    height: 44px;
+    box-shadow: 0 54px #454c47;
+  }
+  &::after {
+    right: -3px;
+    top: 150px;
+    height: 66px;
+  }
+`;
+export const ScreenControls = styled.nav`
+  display: none;
+  @media (max-width: 760px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+    margin-top: 6px;
+    span {
+      font-size: 13px;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+    button {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      background: none;
+      color: var(--green);
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    button:hover:not(:disabled) {
+      background: #e9eee5;
+    }
+    button:disabled {
+      opacity: 0.3;
+      cursor: default;
+    }
   }
 `;

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import MapEmbed from '../components/MapEmbed.jsx';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import dome from '../assets/generated/info/a1.webp';
@@ -190,71 +191,18 @@ const Directions = styled.ol`
   }
 `;
 const Map = styled.div`
-  border: 1px solid #dce2da;
   margin: 12px 0 28px;
-  background: #eef1e9;
-  iframe {
-    display: block;
-    width: 100%;
-    height: 300px;
-    border: 0;
-  }
-  > div {
-    display: flex;
-    min-height: 150px;
-    padding: 28px;
-    box-sizing: border-box;
-    align-items: center;
-    justify-content: center;
-  }
-  button {
-    background: #164b3b;
-    color: #fff;
-    border: 1px solid #164b3b;
-    padding: 12px 22px;
-    font: inherit;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 3px;
-  }
-  button:hover {
-    background: #0e382b;
-  }
-  > a {
-    display: block;
-    border-top: 1px solid #dce2da;
-    padding: 15px 20px;
-    font-size: 13px;
-    text-align: center;
-    background: #fafbf8;
-  }
 `;
 function VisitMap() {
-  const [loaded, setLoaded] = useState(false);
   return (
     <Map>
-      {loaded ? (
-        <iframe
-          title="Entry Arch destination map"
-          src="https://maps.google.com/maps?q=35.31344%2C-120.65192&z=14&output=embed"
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          allowFullScreen
-        />
-      ) : (
-        <div>
-          <button type="button" onClick={() => setLoaded(true)}>
-            Show map
-          </button>
-        </div>
-      )}
-      <a
-        href="https://www.google.com/maps/dir/?api=1&origin=35.30302,-120.65913&destination=35.31344,-120.65192&travelmode=walking"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Walking directions in Google Maps ↗
-      </a>
+      <MapEmbed
+        latitude={35.31344}
+        longitude={-120.65192}
+        title="Entry Arch destination map"
+        height={300}
+        directions
+      />
     </Map>
   );
 }

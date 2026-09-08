@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 const Frame = styled.div`
@@ -23,32 +23,6 @@ const MapLink = styled.a`
   font-size: 14px;
   text-underline-offset: 3px;
 `;
-const Cover = styled.div`
-  min-height: ${({ $height }) => $height}px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 14px;
-  padding: 24px;
-  text-align: center;
-  background: #edf1e9;
-  color: var(--green);
-  button {
-    cursor: pointer;
-    background: var(--green);
-    color: white;
-    border: 0;
-    border-radius: 2px;
-    padding: 12px 20px;
-    font-weight: 500;
-  }
-  a {
-    font-size: 14px;
-    text-underline-offset: 3px;
-  }
-`;
-
 export default function MapEmbed({
   latitude,
   longitude,
@@ -57,12 +31,30 @@ export default function MapEmbed({
   directions = false,
 }) {
   const [loaded, setLoaded] = useState(false);
+  const frameRef = useRef(null);
+  useEffect(() => {
+    if (!('IntersectionObserver' in window)) {
+      setLoaded(true);
+      return undefined;
+    }
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setLoaded(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '240px' }
+    );
+    observer.observe(frameRef.current);
+    return () => observer.disconnect();
+  }, []);
   const point = `${latitude},${longitude}`;
   const url = directions
     ? `https://www.google.com/maps/dir/?api=1&origin=35.30302,-120.65913&destination=${point}&travelmode=walking`
     : `https://www.google.com/maps/search/?api=1&query=${point}`;
   return (
-    <Frame $height={height}>
+    <Frame ref={frameRef} $height={height}>
       {loaded ? (
         <iframe
           title={title}
@@ -72,22 +64,13 @@ export default function MapEmbed({
           allowFullScreen
         />
       ) : (
-        <Cover $height={height}>
-          <button onClick={() => setLoaded(true)}>Show map</button>
-          <a href={url} target="_blank" rel="noopener noreferrer">
-            {directions
-              ? 'Walking directions in Google Maps'
-              : 'Open in Google Maps'}
-          </a>
-        </Cover>
+        <div style={{ height }} aria-hidden="true" />
       )}
-      {loaded && (
-        <MapLink href={url} target="_blank" rel="noopener noreferrer">
-          {directions
-            ? 'Walking directions in Google Maps'
-            : 'Open in Google Maps'}
-        </MapLink>
-      )}
+      <MapLink href={url} target="_blank" rel="noopener noreferrer">
+        {directions
+          ? 'Walking directions in Google Maps'
+          : 'Open in Google Maps'}
+      </MapLink>
     </Frame>
   );
 }

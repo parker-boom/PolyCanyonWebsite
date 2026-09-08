@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaApple } from 'react-icons/fa';
+import { FaApple, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import structures360 from '../assets/generated/app/current/structures-360.webp';
 import structures720 from '../assets/generated/app/current/structures-720.webp';
 import entry360 from '../assets/generated/app/current/entry-arch-360.webp';
@@ -13,27 +13,54 @@ import {
   Copy,
   DownloadButton,
   Screens,
+  ScreenControls,
+  Phone,
   Notes,
   Footnote,
 } from './DownloadPage.styles.js';
 const screenshots = [
   {
+    caption: 'Browse by name or number.',
     small: structures360,
     large: structures720,
     alt: 'The Poly Canyon app’s photographic collection of numbered structures',
   },
   {
+    caption: 'Read stories offline.',
     small: entry360,
     large: entry720,
     alt: 'Entry Arch in the app, with its photograph, year, and offline story',
   },
   {
+    caption: 'Follow the illustrated map.',
     small: map360,
     large: map720,
     alt: 'The app’s illustrated canyon map connecting numbered structures along the trails',
   },
 ];
 export default function DownloadPage() {
+  const screensRef = useRef(null);
+  const [active, setActive] = useState(0);
+  const moveTo = (index) => {
+    const strip = screensRef.current;
+    const target = strip.children[index];
+    strip.scrollTo({
+      left: target.offsetLeft - strip.children[0].offsetLeft,
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        ? 'instant'
+        : 'smooth',
+    });
+  };
+  const trackScreen = () => {
+    const strip = screensRef.current;
+    const start =
+      strip.getBoundingClientRect().left +
+      parseFloat(getComputedStyle(strip).paddingLeft);
+    const distances = [...strip.children].map((child) =>
+      Math.abs(child.getBoundingClientRect().left - start)
+    );
+    setActive(distances.indexOf(Math.min(...distances)));
+  };
   return (
     <PageContainer>
       <Introduction>
@@ -62,32 +89,57 @@ export default function DownloadPage() {
         </div>
       </Introduction>
       <Screens
+        ref={screensRef}
+        onScroll={trackScreen}
+        id="app-screens"
         role="region"
         aria-label="Poly Canyon app screenshots"
         tabIndex={0}
       >
         {screenshots.map((screen, i) => (
           <figure key={screen.small}>
-            <img
-              src={screen.small}
-              srcSet={`${screen.small} 360w, ${screen.large} 720w`}
-              sizes="(max-width:360px) 76vw, (max-width:760px) 280px, (max-width:900px) 28vw, 296px"
-              width="1206"
-              height="2622"
-              alt={screen.alt}
-              loading={i === 0 ? 'eager' : 'lazy'}
-              decoding="async"
-            />
+            <Phone>
+              <div className="display">
+                <img
+                  src={screen.small}
+                  srcSet={`${screen.small} 360w, ${screen.large} 720w`}
+                  sizes="(max-width:360px) 76vw, (max-width:760px) 280px, (max-width:900px) 28vw, 296px"
+                  width="1206"
+                  height="2622"
+                  alt={screen.alt}
+                  loading={i === 0 ? 'eager' : 'lazy'}
+                  decoding="async"
+                />
+              </div>
+            </Phone>
+            <figcaption>{screen.caption}</figcaption>
           </figure>
         ))}
       </Screens>
+      <ScreenControls aria-label="App screenshot navigation">
+        <button
+          aria-label="Previous app screenshot"
+          aria-controls="app-screens"
+          disabled={active === 0}
+          onClick={() => moveTo(active - 1)}
+        >
+          <FaArrowLeft aria-hidden="true" />
+        </button>
+        <span aria-live="polite">
+          {active + 1} / {screenshots.length}
+        </span>
+        <button
+          aria-label="Next app screenshot"
+          aria-controls="app-screens"
+          disabled={active === screenshots.length - 1}
+          onClick={() => moveTo(active + 1)}
+        >
+          <FaArrowRight aria-hidden="true" />
+        </button>
+      </ScreenControls>
       <Notes>
-        <p>
-          Find structures by their map number, or browse the photographs before
-          you go. Visits are optional and use location only while the app is
-          open.
-        </p>
-        <Link to="/about#visit">Walking directions ↗</Link>
+        <p>Visits are optional and use location only while the app is open.</p>
+        <Link to="/about#visit">Walking directions</Link>
       </Notes>
       <Footnote>
         <span>
