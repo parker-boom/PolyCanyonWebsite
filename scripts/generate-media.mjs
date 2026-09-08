@@ -98,6 +98,13 @@ for (const name of ['structures', 'shell-house', 'map']) {
     });
   }
 }
+for (const name of ['map', 'collection', 'tour']) {
+  for (const width of [360, 720]) jobs.push({
+    source: path.join(root, 'src/assets/app-captures/second-pass', `${name}.png`),
+    target: path.join(outputRoot, 'app/second-pass', `${name}-${width}.webp`),
+    width, quality: 84,
+  });
+}
 // Hash sources, outputs and the recipe so a normal check never re-encodes photos.
 async function inventory() {
   const files = new Set(jobs.flatMap(({ source, target }) => [source, target]));

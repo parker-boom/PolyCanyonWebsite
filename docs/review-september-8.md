@@ -27,3 +27,13 @@ Home now identifies the place directly: “Student-built architecture at Cal Pol
 Full-page captures now cover Home, Structures, and About at 1440-pixel desktop and 390-pixel mobile widths, with no horizontal overflow. Files in `output/playwright/review-september-8/`: `home-desktop-full.png`, `home-mobile-full.png`, `structures-desktop-full.png`, `structures-mobile-full.png`, `about-desktop-full.png`, `about-mobile-full.png`. User-facing copies are in `/Users/parkerjones/Documents/Codex/2026-09-08/you-are-the-designer-and-engineer-2/outputs/website-review/`.
 
 The browser’s automatic full-page capture duplicated content, so these are assembled from overlapping viewport captures at measured scroll positions, retaining the browser’s native capture scale. About was recaptured after its destination map loaded. No new video.
+
+## Completed App showcase
+
+The deferred App showcase is now implemented with the coordinator-approved current screenshots: illustrated Map, photographic Collection, and Palm Tree in the photo-led Tour. Full original screenshots are preserved under `src/assets/app-captures/second-pass/`; that folder’s README records source paths and app commit provenance. The app source settled at `8b2f9eb415ddccaa67f3d2bf424a108b8b939f1b` after the supplied captures. No Your Visit screenshot or former tab layout appears in the showcase.
+
+Feature captions describe verified source behavior: walk with the map, discover structures through photographs and stories, and Tour from anywhere with each stop located on the map. The existing phone frames, manual carousel, 44-pixel arrow controls, live counter, and reduced-motion scroll branch remain. Static HTML includes the same three features and responsive images.
+
+Reviewed at 1440, 390, 320, and 760 pixels with no horizontal page overflow. Enter on Next reached 2/3; clicking Next reached Tour at 3/3 and disabled the forward button. All screenshot assets loaded. Full-page evidence is `app-desktop-full.png` and `app-mobile-full.png`; `app-mobile-tour.png` shows the final carousel view. These files are beside the preceding Home/About/Structures captures in both evidence folders above.
+
+`npm run check` passed: 18 tests, lint, 492 generated media assets, production build, and all 49 static routes. Small app derivatives total about 85 KiB; large variants about 294 KiB. No video, publication, push, or merge.

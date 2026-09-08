@@ -103,9 +103,9 @@ export async function createStaticContent(structures, manifest) {
   };
   const appPhoto = (name, caption) => {
     const small =
-      manifest[`src/assets/generated/app/release-6/${name}-360.webp`];
+      manifest[`src/assets/generated/app/second-pass/${name}-360.webp`];
     const large =
-      manifest[`src/assets/generated/app/release-6/${name}-720.webp`];
+      manifest[`src/assets/generated/app/second-pass/${name}-720.webp`];
     if (!small?.file || !large?.file)
       throw new Error(`Missing app screenshot: ${name}`);
     return `<figure><img src="/${escapeHTML(small.file)}" srcset="/${escapeHTML(small.file)} 360w, /${escapeHTML(large.file)} 720w" sizes="(max-width:360px) 76vw, (max-width:760px) 280px, 296px" width="1320" height="2868" alt="${escapeHTML(caption)}" loading="lazy" decoding="async"><figcaption>${escapeHTML(caption)}</figcaption></figure>`;
@@ -195,9 +195,18 @@ export async function createStaticContent(structures, manifest) {
 
       body += `<p>${link('https://apps.apple.com/us/app/poly-canyon/id6499063781', 'Get Poly Canyon for iPhone on the App Store')}</p>`;
       for (const [name, caption] of [
-        ['structures', 'Browse by name or number.'],
-        ['shell-house', 'Read stories offline.'],
-        ['map', 'Follow the illustrated map.'],
+        [
+          'map',
+          'Walk with the map. Find the structures along the canyon’s paths with the illustrated map.',
+        ],
+        [
+          'collection',
+          'Discover the structures. Browse the photographs, open a structure, and read its story.',
+        ],
+        [
+          'tour',
+          'Tour from anywhere. Move through the canyon in photographs and see each stop on the map.',
+        ],
       ])
         body += appPhoto(name, caption);
       body += `<p>${link('/about#visit', 'Walking directions')} · ${link('/support', 'App support')} · ${link('/privacy', 'Privacy')}</p>`;

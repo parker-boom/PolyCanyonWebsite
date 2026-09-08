@@ -2,14 +2,14 @@ import styled from 'styled-components';
 export const PageContainer = styled.article`
   width: min(1120px, 100%);
   margin: 0 auto;
-  padding: 48px 32px 64px;
+  padding: 28px 32px 48px;
   color: var(--ink);
   a {
     color: var(--green);
     text-underline-offset: 4px;
   }
   @media (max-width: 600px) {
-    padding: 30px 20px 44px;
+    padding: 22px 20px 40px;
   }
 `;
 export const Introduction = styled.div`
@@ -101,6 +101,20 @@ export const Screens = styled.div`
     font-size: 15px;
     line-height: 1.5;
     text-align: center;
+    h2 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      font-weight: 550;
+      color: var(--green);
+      letter-spacing: -0.02em;
+    }
+    p {
+      margin: 0 auto;
+      max-width: 280px;
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--muted);
+    }
   }
   @media (max-width: 760px) {
     display: flex;

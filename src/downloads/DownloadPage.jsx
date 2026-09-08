@@ -1,12 +1,12 @@
 import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaApple, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import structures360 from '../assets/generated/app/release-6/structures-360.webp';
-import structures720 from '../assets/generated/app/release-6/structures-720.webp';
-import story360 from '../assets/generated/app/release-6/shell-house-360.webp';
-import story720 from '../assets/generated/app/release-6/shell-house-720.webp';
-import map360 from '../assets/generated/app/release-6/map-360.webp';
-import map720 from '../assets/generated/app/release-6/map-720.webp';
+import structures360 from '../assets/generated/app/second-pass/collection-360.webp';
+import structures720 from '../assets/generated/app/second-pass/collection-720.webp';
+import tour360 from '../assets/generated/app/second-pass/tour-360.webp';
+import tour720 from '../assets/generated/app/second-pass/tour-720.webp';
+import map360 from '../assets/generated/app/second-pass/map-360.webp';
+import map720 from '../assets/generated/app/second-pass/map-720.webp';
 import {
   PageContainer,
   Introduction,
@@ -18,22 +18,27 @@ import {
 } from './DownloadPage.styles.js';
 const screenshots = [
   {
-    caption: 'Browse by name or number.',
-    small: structures360,
-    large: structures720,
-    alt: 'The Poly Canyon app’s photographic collection of numbered structures',
-  },
-  {
-    caption: 'Read stories offline.',
-    small: story360,
-    large: story720,
-    alt: 'Shell House in the app, with its photographs, year, and offline story',
-  },
-  {
-    caption: 'Follow the illustrated map.',
+    title: 'Walk with the map',
+    caption:
+      'Find the structures along the canyon’s paths with the illustrated map.',
     small: map360,
     large: map720,
-    alt: 'The app’s illustrated canyon map connecting numbered structures along the trails',
+    alt: 'The app’s illustrated canyon map with numbered structures and Map selected',
+  },
+  {
+    title: 'Discover the structures',
+    caption: 'Browse the photographs, open a structure, and read its story.',
+    small: structures360,
+    large: structures720,
+    alt: 'The app’s collection of structure photographs, names, and numbers',
+  },
+  {
+    title: 'Tour from anywhere',
+    caption:
+      'Move through the canyon in photographs and see each stop on the map.',
+    small: tour360,
+    large: tour720,
+    alt: 'The photo-led Tour showing Palm Tree, previous and next controls, and its canyon map location',
   },
 ];
 export default function DownloadPage() {
@@ -113,7 +118,10 @@ export default function DownloadPage() {
                 />
               </div>
             </Phone>
-            <figcaption>{screen.caption}</figcaption>
+            <figcaption>
+              <h2>{screen.title}</h2>
+              <p>{screen.caption}</p>
+            </figcaption>
           </figure>
         ))}
       </Screens>
