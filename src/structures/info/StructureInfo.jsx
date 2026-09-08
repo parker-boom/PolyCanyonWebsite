@@ -66,6 +66,8 @@ export default function StructureInfo() {
   const current = structure.images[index];
   const ratio =
     photoRatios[current?.path.split('/').pop().replace('.webp', '')] || 1.5;
+  const primaryRatio =
+    photoRatios[structure.images[0]?.path.split("/").pop().replace(".webp", "")] || 1.5;
   const caption = /^main image of\b/i.test(current?.description || '')
     ? ''
     : current?.description;
@@ -129,7 +131,7 @@ export default function StructureInfo() {
             {String(structure.number).padStart(2, '0')}
           </span>
         </S.Header>
-        <S.DetailGrid $portrait={ratio < 1}>
+        <S.DetailGrid $portrait={primaryRatio < 1}>
           <div className="gallery">
             <S.Figure>
               {current ? (
