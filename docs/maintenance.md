@@ -97,3 +97,7 @@ The modern collection uses one shared navigation and responsive detail layout, w
 The existing image originals and generated variants are unchanged. Local design screenshots and recordings belong in ignored `output/playwright/` on the external drive. Start the local review with `npm run preview -- --port 4182` after a production build. The preview does not implement hosting redirects or custom HTTP 404 behavior.
 
 Run `node scripts/check-map-directions.mjs` with the same Playwright setup to verify that destination maps load only on request, the external walking link retains origin/destination/walking parameters, and written steps remain available.
+
+### App screenshots
+
+Approved native screenshots are preserved as PNG originals in `src/assets/app-captures/`. The media generator creates uncropped 360px and 720px WebP variants under `src/assets/generated/app/current/`; the App page selects a size for the screen density. Keep new media tied to the app actually being released. Current copy describes the illustrated map, photographs, offline stories, and optional foreground visits. The screenshots use a three-column desktop layout and a native, keyboard-scrollable mobile strip.

@@ -15,7 +15,7 @@ const pages = {
   '/app': {
     title: 'Get the Poly Canyon App',
     description:
-      'A map and guide to Poly Canyon for iPhone, with structure histories, photographs and location-aware exploration.',
+      'An illustrated canyon map, photographs, and offline structure stories in the Poly Canyon app for iPhone.',
   },
   '/structures': {
     title: 'Poly Canyon Structures — Explore the Archive',

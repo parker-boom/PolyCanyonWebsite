@@ -1,5 +1,11 @@
 {
   "app/android.webp": 540,
+  "app/current/entry-arch-360.webp": 360,
+  "app/current/entry-arch-720.webp": 720,
+  "app/current/map-360.webp": 360,
+  "app/current/map-720.webp": 720,
+  "app/current/structures-360.webp": 360,
+  "app/current/structures-720.webp": 720,
   "app/ios.webp": 540,
   "app/overview.webp": 960,
   "info/a1.webp": 600,

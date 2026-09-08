@@ -73,6 +73,17 @@ for (const [platform, filename] of [
     width: 540,
   });
 }
+// Approved native app captures; keep originals and deliver uncropped variants.
+for (const name of ['structures', 'entry-arch', 'map']) {
+  for (const width of [360, 720]) {
+    jobs.push({
+      source: path.join(root, 'src/assets/app-captures', `${name}.png`),
+      target: path.join(outputRoot, 'app/current', `${name}-${width}.webp`),
+      width,
+      quality: 84,
+    });
+  }
+}
 // Hash sources, outputs and the recipe so a normal check never re-encodes photos.
 async function inventory() {
   const files = new Set(jobs.flatMap(({ source, target }) => [source, target]));

@@ -1,17 +1,38 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaApple } from 'react-icons/fa';
-import iosPreview from '../assets/generated/app/ios.webp';
+import structures360 from '../assets/generated/app/current/structures-360.webp';
+import structures720 from '../assets/generated/app/current/structures-720.webp';
+import entry360 from '../assets/generated/app/current/entry-arch-360.webp';
+import entry720 from '../assets/generated/app/current/entry-arch-720.webp';
+import map360 from '../assets/generated/app/current/map-360.webp';
+import map720 from '../assets/generated/app/current/map-720.webp';
 import {
   PageContainer,
   Introduction,
   Copy,
   DownloadButton,
-  Preview,
-  Features,
+  Screens,
+  Notes,
   Footnote,
 } from './DownloadPage.styles.js';
-
+const screenshots = [
+  {
+    small: structures360,
+    large: structures720,
+    alt: 'The Poly Canyon app’s photographic collection of numbered structures',
+  },
+  {
+    small: entry360,
+    large: entry720,
+    alt: 'Entry Arch in the app, with its photograph, year, and offline story',
+  },
+  {
+    small: map360,
+    large: map720,
+    alt: 'The app’s illustrated canyon map connecting numbered structures along the trails',
+  },
+];
 export default function DownloadPage() {
   return (
     <PageContainer>
@@ -20,11 +41,13 @@ export default function DownloadPage() {
           <h1>
             Poly Canyon
             <br />
-            for iPhone.
+            for iPhone
           </h1>
+        </Copy>
+        <div>
           <p>
-            Find your way among the structures, put a name to what you see, and
-            read the stories behind it.
+            Take the canyon’s illustrated map, photographs, and stories with
+            you, even offline.
           </p>
           <DownloadButton
             href="https://apps.apple.com/us/app/poly-canyon/id6499063781"
@@ -36,42 +59,39 @@ export default function DownloadPage() {
             <span>Get it on the App Store</span>
             <span aria-hidden="true">↗</span>
           </DownloadButton>
-        </Copy>
-        <Preview>
-          <img
-            src={iosPreview}
-            alt="The Poly Canyon iPhone app showing its aerial trail map, numbered structures, and nearby places"
-            width="540"
-            height="960"
-            decoding="async"
-          />
-        </Preview>
-        <div className="app-details">
-          <Features>
-            <section>
-              <h2>On the trail</h2>
-              <p>
-                A detailed map shows the paths, structures, and your location.
-                Keep track of the places you have visited as you explore.
-              </p>
-            </section>
-            <section>
-              <h2>From anywhere</h2>
-              <p>
-                Browse photographs and structure histories, find your favorites,
-                and get to know the canyon before you arrive.
-              </p>
-            </section>
-          </Features>
-          <Footnote>
-            Download before your visit; cell service in the canyon can be
-            spotty. <Link to="/about#visit">Walking directions ↗</Link>
-          </Footnote>
         </div>
       </Introduction>
-      <Footnote $footer>
+      <Screens
+        role="region"
+        aria-label="Poly Canyon app screenshots"
+        tabIndex={0}
+      >
+        {screenshots.map((screen, i) => (
+          <figure key={screen.small}>
+            <img
+              src={screen.small}
+              srcSet={`${screen.small} 360w, ${screen.large} 720w`}
+              sizes="(max-width:360px) 76vw, (max-width:760px) 280px, (max-width:900px) 28vw, 296px"
+              width="1206"
+              height="2622"
+              alt={screen.alt}
+              loading={i === 0 ? 'eager' : 'lazy'}
+              decoding="async"
+            />
+          </figure>
+        ))}
+      </Screens>
+      <Notes>
+        <p>
+          Find structures by their map number, or browse the photographs before
+          you go. Visits are optional and use location only while the app is
+          open.
+        </p>
+        <Link to="/about#visit">Walking directions ↗</Link>
+      </Notes>
+      <Footnote>
         <span>
-          More photographs, original reports, and project research are in the{' '}
+          Original reports and further research are in the{' '}
           <Link to="/structures">web archive</Link>.
         </span>
         <span>
