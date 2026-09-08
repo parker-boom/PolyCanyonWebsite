@@ -93,11 +93,11 @@ export async function createStaticContent(structures, manifest) {
     return `<figure><img src="/${escapeHTML(smaller?.file || asset.file)}"${responsive}${dimensions} alt="${escapeHTML(caption)}" loading="lazy" decoding="async"><figcaption>${escapeHTML(caption)}</figcaption></figure>`;
   };
   const appPhoto = (name, caption) => {
-    const small = manifest[`src/assets/generated/app/current/${name}-360.webp`];
-    const large = manifest[`src/assets/generated/app/current/${name}-720.webp`];
+    const small = manifest[`src/assets/generated/app/release-6/${name}-360.webp`];
+    const large = manifest[`src/assets/generated/app/release-6/${name}-720.webp`];
     if (!small?.file || !large?.file)
       throw new Error(`Missing app screenshot: ${name}`);
-    return `<figure><img src="/${escapeHTML(small.file)}" srcset="/${escapeHTML(small.file)} 360w, /${escapeHTML(large.file)} 720w" sizes="(max-width:360px) 76vw, (max-width:760px) 280px, 296px" width="1206" height="2622" alt="${escapeHTML(caption)}" loading="lazy" decoding="async"><figcaption>${escapeHTML(caption)}</figcaption></figure>`;
+    return `<figure><img src="/${escapeHTML(small.file)}" srcset="/${escapeHTML(small.file)} 360w, /${escapeHTML(large.file)} 720w" sizes="(max-width:360px) 76vw, (max-width:760px) 280px, 296px" width="1320" height="2868" alt="${escapeHTML(caption)}" loading="lazy" decoding="async"><figcaption>${escapeHTML(caption)}</figcaption></figure>`;
   };
   const recordByRoute = new Map(
     structures.map((record) => [`/structures/${record.url}`, record])
@@ -202,7 +202,7 @@ export async function createStaticContent(structures, manifest) {
       body += `<p>${link('https://apps.apple.com/us/app/poly-canyon/id6499063781', 'Get Poly Canyon for iPhone on the App Store')}</p>`;
       for (const [name, caption] of [
         ['structures', 'Browse by name or number.'],
-        ['entry-arch', 'Read stories offline.'],
+        ['shell-house', 'Read stories offline.'],
         ['map', 'Follow the illustrated map.'],
       ])
         body += appPhoto(name, caption);

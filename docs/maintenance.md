@@ -100,7 +100,7 @@ Run `node scripts/check-map-directions.mjs` with the same Playwright setup to ve
 
 ### App screenshots
 
-Approved native screenshots are preserved as PNG originals in `src/assets/app-captures/`. The media generator creates uncropped 360px and 720px WebP variants under `src/assets/generated/app/current/`; the App page selects a size for the screen density. Keep new media tied to the app actually being released. Current copy describes the illustrated map, photographs, offline stories, and optional foreground visits. The screenshots sit in slim CSS phone frames, with short capability captions. Desktop shows all three; below 760px the native scroll strip keeps a next-screen peek and adds manual previous/next controls. Touch and keyboard scrolling update the current screen. Reduced motion disables animated button scrolling. There is no automatic rotation.
+App source captures live under `src/assets/app-captures/`. The current 6.0 screenshots are preserved as supplied JPEGs in `release-6/`; the earlier PNGs remain intact. The media generator creates uncropped 360px and 720px WebP variants under `src/assets/generated/app/release-6/`; the App page selects a size for the screen density. Keep new media tied to the app actually being released. Current copy describes the illustrated map, photographs, offline stories, and optional foreground visits. The screenshots sit in slim CSS phone frames, with short capability captions. Desktop shows all three; below 760px the native scroll strip keeps a next-screen peek and adds manual previous/next controls. Touch and keyboard scrolling update the current screen. Reduced motion disables animated button scrolling. There is no automatic rotation.
 
 ### Loading stability
 

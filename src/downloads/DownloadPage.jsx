@@ -1,12 +1,12 @@
 import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaApple, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import structures360 from '../assets/generated/app/current/structures-360.webp';
-import structures720 from '../assets/generated/app/current/structures-720.webp';
-import entry360 from '../assets/generated/app/current/entry-arch-360.webp';
-import entry720 from '../assets/generated/app/current/entry-arch-720.webp';
-import map360 from '../assets/generated/app/current/map-360.webp';
-import map720 from '../assets/generated/app/current/map-720.webp';
+import structures360 from '../assets/generated/app/release-6/structures-360.webp';
+import structures720 from '../assets/generated/app/release-6/structures-720.webp';
+import story360 from '../assets/generated/app/release-6/shell-house-360.webp';
+import story720 from '../assets/generated/app/release-6/shell-house-720.webp';
+import map360 from '../assets/generated/app/release-6/map-360.webp';
+import map720 from '../assets/generated/app/release-6/map-720.webp';
 import {
   PageContainer,
   Introduction,
@@ -27,9 +27,9 @@ const screenshots = [
   },
   {
     caption: 'Read stories offline.',
-    small: entry360,
-    large: entry720,
-    alt: 'Entry Arch in the app, with its photograph, year, and offline story',
+    small: story360,
+    large: story720,
+    alt: 'Shell House in the app, with its photographs, year, and offline story',
   },
   {
     caption: 'Follow the illustrated map.',
@@ -104,8 +104,8 @@ export default function DownloadPage() {
                   src={screen.small}
                   srcSet={`${screen.small} 360w, ${screen.large} 720w`}
                   sizes="(max-width:360px) 76vw, (max-width:760px) 280px, (max-width:900px) 28vw, 296px"
-                  width="1206"
-                  height="2622"
+                  width="1320"
+                  height="2868"
                   alt={screen.alt}
                   loading={i === 0 ? 'eager' : 'lazy'}
                   decoding="async"

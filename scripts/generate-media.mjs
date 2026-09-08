@@ -84,6 +84,17 @@ for (const name of ['structures', 'entry-arch', 'map']) {
     });
   }
 }
+// Matching 9:41 captures from the reviewed 6.0 app. Earlier captures stay intact.
+for (const name of ['structures', 'shell-house', 'map']) {
+  for (const width of [360, 720]) {
+    jobs.push({
+      source: path.join(root, 'src/assets/app-captures/release-6', `${name}.jpg`),
+      target: path.join(outputRoot, 'app/release-6', `${name}-${width}.webp`),
+      width,
+      quality: 84,
+    });
+  }
+}
 // Hash sources, outputs and the recipe so a normal check never re-encodes photos.
 async function inventory() {
   const files = new Set(jobs.flatMap(({ source, target }) => [source, target]));
