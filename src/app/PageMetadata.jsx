@@ -16,7 +16,11 @@ function setMeta(attribute, name, content) {
 export default function PageMetadata() {
   const { pathname } = useLocation();
   useEffect(() => {
-    const path = pathname.replace(/\/$/, '') || '/';
+    const requestedPath = pathname.replace(/\/$/, '') || '/';
+    const path =
+      Object.keys(pages).find(
+        (route) => route.toLowerCase() === requestedPath.toLowerCase()
+      ) || requestedPath;
     const page = pages[path] || {
       title: 'Page not found — Poly Canyon',
       description: 'Find your way back to the Poly Canyon structure archive.',

@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import {
   sortStructures,
+  findStructureBySlug,
   galleryQuery,
   sortImages,
 } from './structureHelpers.js';
@@ -98,4 +99,12 @@ test('search finds structures by their archived alternative names', () => {
       sortStructures(list, { query }).some((s) => s.url === record.url)
     );
   }
+});
+
+test('host-normalized structure slugs retain the canonical record', () => {
+  for (const entry of list) {
+    assert.equal(findStructureBySlug(list, entry.url.toLowerCase()), entry);
+    assert.equal(findStructureBySlug(list, entry.url.toUpperCase()), entry);
+  }
+  assert.equal(findStructureBySlug(list, 'not-a-structure'), undefined);
 });

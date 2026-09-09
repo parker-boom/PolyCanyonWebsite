@@ -29,3 +29,7 @@ The public domain `https://polycanyon.com` responds over HTTPS with HTTP 200 fro
 4. Merge and confirm Netlify publishes the reviewed commit; then check the production domain. Retain the previous deployment for rollback.
 
 No remote branch, production deployment, domain, or Netlify account setting was changed in this release-preparation pass.
+
+## Hosted preview follow-up
+
+The first hosted preview passed its build but exposed Netlify lowercasing mixed-case structure slugs. Pretty URL rewriting is now disabled in configuration, and record lookup/metadata also accept casing differences while keeping the original canonical URLs. A regression test covers every structure slug. PR #2 carries this correction.

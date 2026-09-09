@@ -63,3 +63,9 @@ export function adjacentStructures(records, url) {
     next: index >= 0 ? group[index + 1] || null : null,
   };
 }
+
+export function findStructureBySlug(structures, slug) {
+  return structures.find(
+    (entry) => entry.url.toLowerCase() === String(slug || '').toLowerCase()
+  );
+}

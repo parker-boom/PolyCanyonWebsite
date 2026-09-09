@@ -5,6 +5,7 @@ import {
   sortImages,
   galleryQuery,
   adjacentStructures,
+  findStructureBySlug,
 } from '../data/structureHelpers.js';
 import {
   mainImages,
@@ -35,7 +36,7 @@ export default function useStructureDetail() {
       }
     );
   const structure = useMemo(() => {
-    const entry = structures.find((s) => s.url === structureUrl);
+    const entry = findStructureBySlug(structures, structureUrl);
     const data = entry && getStructureInfo(entry.number);
     return data
       ? {
@@ -75,7 +76,7 @@ export default function useStructureDetail() {
   const variant = ['article', 'side'].includes(layout)
     ? `?layout=${layout}`
     : '';
-  const neighbors = adjacentStructures(structures, structureUrl);
+  const neighbors = adjacentStructures(structures, structure?.url);
   const handlePrevStructure = () => {
     if (neighbors.previous)
       navigate(`/structures/${neighbors.previous.url}${variant}`, { state });

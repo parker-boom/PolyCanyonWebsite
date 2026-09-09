@@ -4,3 +4,7 @@
 
 [build.environment]
   NODE_VERSION = "22"
+
+# Preserve the archive's established mixed-case slugs.
+[build.processing.html]
+  pretty_urls = false
