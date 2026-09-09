@@ -34,12 +34,12 @@ const features = [
 const Page = styled.article`
   width: min(1040px, calc(100% - 80px));
   margin: 0 auto;
-  padding: 28px 0 24px;
+  padding: 20px 0 24px;
   .layout {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 440px;
     gap: 100px;
-    align-items: start;
+    align-items: center;
   }
   h1 {
     font-size: clamp(36px, 4vw, 48px);
@@ -66,15 +66,15 @@ const Page = styled.article`
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 4px;
-    margin: 0 0 14px;
+    margin: 0 0 10px;
     border-bottom: 1px solid var(--line);
   }
   .choices button {
     font: inherit;
     font-size: 14px;
     line-height: 1.4;
-    padding: 10px 5px;
-    min-height: 60px;
+    padding: 8px 5px;
+    min-height: 54px;
     color: var(--muted);
     border: 0;
     border-bottom: 2px solid transparent;
@@ -90,8 +90,8 @@ const Page = styled.article`
   }
   .feature-copy {
     order: 3;
-    min-height: 54px;
-    margin: 14px auto 0;
+    min-height: 46px;
+    margin: 10px auto 0;
     max-width: 400px;
     text-align: center;
   }
@@ -103,7 +103,7 @@ const Page = styled.article`
   }
   .device {
     order: 1;
-    width: min(300px, calc((100dvh - 270px) * 0.46));
+    width: min(300px, calc((100dvh - 220px) * 0.46));
     margin: 0 auto;
   }
   .screen-window {

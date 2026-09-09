@@ -82,3 +82,8 @@ Evidence is under `output/playwright/followup-review/`, including round 1/2/3 de
 ### App control-placement comparison
 
 Parker rejected the prior tagline. The approved replacement is “Your interactive guide to everything the canyon has to offer.” Implemented and rendered controls below the phone, then above it, at1440×746 and390×844. Below worked on desktop but put mobile switching below the entire phone. Retained above: desktop switcher immediately over the device, explanation below; mobile explanation directly beneath controls and above device. Phone y192.19–649.04 and explanation ending717.04 fit within the746px desktop viewport. Title/tagline/download stay grouped on the left. Exact copy updated in static output. Evidence: `app-controls-above-desktop.png`, `app-controls-below-desktop.png`, and matching mobile full-page images. Earlier App tagline and layout measurements above are superseded.
+
+
+### App vertical balance refinement
+
+Compared top-aligned and vertically centered left title/tagline/CTA groups at1263×742. Retained centering against the full right preview. Increased available phone width by reducing conservative viewport reservations and tightening the controls/explanation gaps. At1263×742 the phone is240.12px wide, y176.19–679.02; explanation ends735.02 within742px. Reviewed settled Tour,1440×746 and390×844 as well. Mobile retains controls and explanation before the phone. Evidence: `app-top-aligned-1263.png`, `app-centered-1263.png`, `app-centered-tour-1263.png`, `app-centered-1440.png`, `app-centered-mobile.png`.
