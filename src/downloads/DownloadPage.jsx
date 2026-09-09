@@ -10,39 +10,48 @@ import tour360 from '../assets/generated/app/second-pass/tour-360.webp';
 import tour720 from '../assets/generated/app/second-pass/tour-720.webp';
 const features = [
   {
-    name: 'Explore on foot',
+    name: 'On foot',
+    label: 'Explore on foot',
     text: 'Use the walking map to find paths and locate the structures.',
     small: map360,
     large: map720,
     alt: 'The app’s illustrated map of Poly Canyon and its numbered structures',
   },
   {
-    name: 'Learn about the structures',
+    name: 'Structures',
+    label: 'Learn about the structures',
     text: 'Read each structure’s history and see photographs of its design and construction.',
     small: collection360,
     large: collection720,
     alt: 'The photographic structure collection in the Poly Canyon app',
   },
   {
-    name: 'Take a virtual tour',
+    name: 'Virtual tour',
+    label: 'Take a virtual tour',
     text: 'Browse the structures in a photo tour and see where each one sits on the map.',
     small: tour360,
     large: tour720,
     alt: 'The photo-led Tour showing Palm Tree and its location on the map',
   },
 ];
+const featureDescriptions = [
+  'Find paths and structures on the illustrated map.',
+  'See who built each structure and how it was made.',
+  'Explore the structures through photographs and the map.',
+];
 const Page = styled.article`
-  width: min(1040px, calc(100% - 80px));
-  margin: 0 auto;
-  padding: 20px 0 24px;
+  width: min(1120px, calc(100% - 80px));
+  margin: 30px auto;
+  padding: 46px;
+  background: #f3ecd9;
   .layout {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 440px;
-    gap: 100px;
+    grid-template-columns: minmax(0, 1fr) 330px;
+    gap: 54px;
     align-items: center;
   }
   h1 {
-    font-size: clamp(36px, 4vw, 48px);
+    font-size: clamp(38px, 4.2vw, 56px);
     font-weight: 550;
     line-height: 1.1;
     letter-spacing: -0.04em;
@@ -57,53 +66,56 @@ const Page = styled.article`
     max-width: 390px;
   }
   .showcase {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
+    background: #d6dfcf;
+    padding: 24px 12px;
+    border-radius: 160px 160px 8px 8px;
   }
   .choices {
-    order: 0;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 4px;
-    margin: 28px 0 14px;
-    border-bottom: 1px solid var(--line);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 32px 0 12px;
   }
   .choices button {
     font: inherit;
     font-size: 14px;
     line-height: 1.4;
-    padding: 8px 5px;
-    min-height: 54px;
-    color: var(--muted);
-    border: 0;
-    border-bottom: 2px solid transparent;
-    background: none;
+    padding: 10px 15px;
+    white-space: nowrap;
+    min-height: 44px;
+    color: var(--green);
+    border: 1px solid #97a78d;
+    border-radius: 24px;
+    background: transparent;
     cursor: pointer;
+    transition:
+      background 160ms ease,
+      color 160ms ease;
   }
   .choices button[aria-pressed='true'] {
-    color: var(--green);
-    border-bottom-color: var(--gold);
+    color: white;
+    background: var(--green);
+    border-color: var(--green);
   }
   .choices button:hover {
-    background: #edf1e9;
+    background: #e3dfcc;
+  }
+  .choices button[aria-pressed='true']:hover {
+    background: #0e382b;
   }
   .feature-copy {
-    order: 3;
-    min-height: 56px;
-    margin: 0;
-    max-width: 400px;
-    text-align: left;
+    min-height: 60px;
+    margin-top: 18px;
+    max-width: 350px;
   }
   .feature-copy p {
-    font-size: 14px;
+    font-size: 16px;
     color: var(--muted);
-    line-height: 1.65;
+    line-height: 1.6;
     margin: 0;
   }
   .device {
-    order: 1;
-    width: min(300px, calc((100dvh - 220px) * 0.46));
+    width: 240px;
     margin: 0 auto;
   }
   .screen-window {
@@ -134,13 +146,14 @@ const Page = styled.article`
   }
   @media (max-width: 1000px) {
     .layout {
-      gap: 44px;
-      grid-template-columns: minmax(0, 1fr) 380px;
+      grid-template-columns: minmax(0, 1fr) 280px;
+      gap: 32px;
     }
   }
   @media (max-width: 760px) {
     width: calc(100% - 36px);
-    padding-top: 28px;
+    padding: 24px 20px;
+    margin: 18px auto;
     .layout {
       display: block;
     }
@@ -150,21 +163,24 @@ const Page = styled.article`
     .intro {
       font-size: 16px;
     }
-    .showcase {
-      margin-top: 32px;
+    .choices {
+      gap: 6px;
     }
     .choices button {
+      padding: 9px 10px;
       font-size: 13px;
-      padding: 10px 3px;
     }
-    .feature-copy {
-      order: 1;
-      margin: 0;
-      min-height: 56px;
+    .showcase {
+      margin-top: 24px;
+      padding: 20px 8px;
     }
     .device {
-      order: 2;
-      width: min(280px, calc(100vw - 72px));
+      width: min(260px, 100%);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .choices button {
+      transition: none;
     }
   }
 `;
@@ -212,6 +228,7 @@ export default function DownloadPage() {
             {features.map((f, i) => (
               <button
                 key={f.name}
+                aria-label={f.label}
                 aria-pressed={active === i}
                 onClick={() => move(i)}
               >
@@ -220,7 +237,7 @@ export default function DownloadPage() {
             ))}
           </div>
           <div className="feature-copy" aria-live="polite">
-            <p>{features[active].text}</p>
+            <p>{featureDescriptions[active]}</p>
           </div>
         </div>
         <div className="showcase">

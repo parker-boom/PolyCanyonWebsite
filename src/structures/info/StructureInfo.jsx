@@ -18,7 +18,10 @@ export default function StructureInfo() {
       ? 'article'
       : 'side';
   const { structure, currentImageIndex: index, fullscreen } = d;
-  const [failed, setFailed] = useState({});
+  const [photoFailure, setPhotoFailure] = useState(null);
+  useEffect(() => {
+    setPhotoFailure(null);
+  }, [structure?.images[index]?.path]);
   const touch = useRef(null);
   const dialogRef = useDialog(fullscreen, () => d.setFullscreen(false));
   useEffect(() => {
@@ -80,19 +83,29 @@ export default function StructureInfo() {
     ['Builders', builders],
     ['Advisors', advisors],
   ];
+  const imageProps = d.loadedImages[index]?.foreground || {};
+  const fallbackSrc = imageProps.srcSet?.split(',')[0].trim().split(/\s+/)[0];
+  const failureStage =
+    photoFailure?.path === current?.path ? photoFailure.stage : 0;
   const photo =
-    current && !failed[index] ? (
+    current && failureStage < 2 ? (
       <img
-        {...d.loadedImages[index]?.foreground}
+        key={`${current.path}:${failureStage}`}
+        {...(failureStage === 1 ? { src: fallbackSrc } : imageProps)}
         sizes={fullscreen ? '100vw' : '(max-width: 700px) 100vw, 750px'}
         alt={current.description || structure.names[0]}
         decoding="async"
-        onError={() => setFailed((v) => ({ ...v, [index]: true }))}
+        onError={() =>
+          setPhotoFailure({
+            path: current.path,
+            stage: failureStage === 0 && fallbackSrc ? 1 : 2,
+          })
+        }
       />
     ) : (
       <span>
         {current
-          ? 'This photograph could not load.'
+          ? 'This photograph could not load. Select to retry.'
           : 'No photographs are available for this structure.'}
       </span>
     );
@@ -103,7 +116,7 @@ export default function StructureInfo() {
         aria-hidden={fullscreen ? true : undefined}
         inert={fullscreen ? '' : undefined}
       >
-        <S.Topline>
+        <S.Topline $variant={variant}>
           <S.Button
             aria-label={
               historical
@@ -115,7 +128,11 @@ export default function StructureInfo() {
             <FaArrowLeft />{' '}
             {historical ? 'Historical structures' : 'Structures'}
           </S.Button>
-          <S.Button onClick={d.handleShare} aria-label="Share structure">
+          <S.Button
+            className="share"
+            onClick={d.handleShare}
+            aria-label="Share structure"
+          >
             <FaShareAlt aria-hidden="true" /> Share
           </S.Button>
         </S.Topline>
@@ -137,9 +154,14 @@ export default function StructureInfo() {
               >
                 {current ? (
                   <S.PhotoButton
-                    aria-label="Toggle fullscreen mode"
+                    aria-label={
+                      failureStage === 2
+                        ? 'Retry photograph'
+                        : 'Toggle fullscreen mode'
+                    }
                     onClick={() => {
-                      d.toggleFullscreen();
+                      if (failureStage === 2) setPhotoFailure(null);
+                      else d.toggleFullscreen();
                     }}
                   >
                     {photo}
@@ -310,6 +332,11 @@ export default function StructureInfo() {
           <S.ViewerBar>
             <span>{structure.names[0]}</span>
             <div>
+              {failureStage === 2 && (
+                <S.Button onClick={() => setPhotoFailure(null)}>
+                  Retry photograph
+                </S.Button>
+              )}
               <S.Button
                 aria-label="Exit fullscreen mode"
                 onClick={() => d.setFullscreen(false)}

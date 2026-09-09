@@ -23,13 +23,13 @@ npm run preview
 
 Keep this checkout and its `node_modules` and `build` directories on the external drive. For installs on this Mac, use `npm ci --cache "/Volumes/SSK Drive/Developer/npm-cache"` so the task cache also stays there.
 
-Vite builds the site into `build/`. Netlify configuration is checked in; publishing is a separate action. React routes load on demand. The green-and-gold interface retains responsive structure galleries, source documents, directions, and app links. The homepage’s featured photographs change only when requested; the collection keeps search, sorting, and collapsed sections in the URL.
+Vite builds the site into `build/`. Netlify runs `npm run check` and publishes `build/` only after the checks succeed; publishing is a separate action. React routes load on demand. The green-and-gold interface retains responsive structure galleries, source documents, directions, and app links. The homepage offers four featured structures with selectable photographs. Current and historical structures have separate collection routes; search and sorting are stored in the URL.
 
 ## Content and photographs
 
 `public/data/structuresInfo.json` is the source of truth for structure research. `npm run data` generates the browsing data and route metadata; it runs before development and production builds. Generation validates names, descriptions, unique numbers, and safe unique URL slugs before writing browsing data or metadata. Fix failures in the source JSON; do not edit generated JSON files. Preserve established `url` values because they are public links.
 
-Original photographs stay in `src/structures/images/`. `npm run media:generate` creates committed display images and thumbnails using Sharp. Run it when adding or changing originals, then include the regenerated assets and dimensions alongside the source changes. Text-only changes do not need image regeneration. The browser selects responsive thumbnails and display photographs by their rendered size and pixel density. Pages load thumbnails lazily and warm only the next gallery image. Google Maps loads automatically within 240px of the viewport; destination links remain available independently of the embed.
+Original photographs stay in `src/structures/images/`. `npm run media:generate` creates committed display images and thumbnails using Sharp. Run it when adding or changing originals, then include the regenerated assets and dimensions alongside the source changes. Text-only changes do not need image regeneration. The browser selects responsive thumbnails and display photographs by their rendered size and pixel density. Pages load thumbnails lazily and warm only the next gallery image. Structure details link out to the destination on Google Maps; visiting directions remain available on About.
 
 The `/about` page brings together the canyon’s history, visiting directions, and research credits. `/app` explains the iPhone guide. Main navigation is Home, Structures, About, App; all four links stay visible on mobile. It replaces the former Chronicles interface. The former `/info` and `/map` routes redirect to `/about#visit`, and `/download` redirects to `/app`. Its historical source pages and the original app recordings are preserved under `archive/`, outside the application bundle. Redirects preserve old links. Adding a regular structure requires a record in the source JSON and photographs in the existing image-key convention.
 
@@ -92,15 +92,19 @@ The public editor has been removed, including its scripts, configuration and inv
 
 ## Redesign review
 
-The modern collection uses one shared navigation and responsive detail layout, with complete research beneath the gallery and metadata beside it on desktop. Photographs keep their original aspect ratio in detail; the homepage and collection use cropped previews. Gallery controls support keyboard arrows, Escape, touch swiping, and an explicit zoom control. Reduced-motion settings suppress transitions. No timed rotation, analytics, backend, or remote fonts are used.
+The modern collection uses one shared navigation and responsive detail layout, with complete research beneath the gallery and metadata beside it on desktop. Photographs keep their original aspect ratio in detail; the homepage and collection use cropped previews. Gallery controls support keyboard arrows, Escape, touch swiping, and fullscreen viewing. Images fit within a consistent frame; there is no zoom control. Reduced-motion settings suppress transitions. No timed rotation, analytics, backend, or remote fonts are used.
 
 The existing image originals and generated variants are unchanged. Local design screenshots and recordings belong in ignored `output/playwright/` on the external drive. Start the local review with `npm run preview -- --port 4182` after a production build. The preview does not implement hosting redirects or custom HTTP 404 behavior.
 
-Run `node scripts/check-map-directions.mjs` with the same Playwright setup to verify that destination maps load only on request, the external walking link retains origin/destination/walking parameters, and written steps remain available.
+Verify that the external walking link retains origin, destination, and walking parameters, and that written steps remain available. Older browser scripts may target retired layouts; use the current route and control names when maintaining them.
 
 ### App screenshots
 
-App source captures live under `src/assets/app-captures/`. The current 6.0 screenshots are preserved as supplied JPEGs in `release-6/`; the earlier PNGs remain intact. The media generator creates uncropped 360px and 720px WebP variants under `src/assets/generated/app/release-6/`; the App page selects a size for the screen density. Keep new media tied to the app actually being released. Current copy describes the illustrated map, photographs, offline stories, and optional foreground visits. The screenshots sit in slim CSS phone frames, with short capability captions. Desktop shows all three; below 760px the native scroll strip keeps a next-screen peek and adds manual previous/next controls. Touch and keyboard scrolling update the current screen. Reduced motion disables animated button scrolling. There is no automatic rotation.
+App source captures live under `src/assets/app-captures/`; the accepted page uses the real `second-pass/` captures and their 360px/720px WebP derivatives under `src/assets/generated/app/second-pass/`. Earlier captures remain preserved. Keep new media tied to the app actually being released.
+
+The App page uses the selected framed layout: pale gold outer panel, muted green phone backdrop, a download action, and three feature controls on the left on desktop. One phone shows the selected screen. On mobile, the content stacks above the phone. Controls, swipes, and keyboard arrows select the screen; reduced motion disables animated scrolling. There is no automatic rotation. Public `?design=` query parameters no longer select experimental layouts.
+
+About uses `src/about/variants/CanyonStory.jsx`, with explanatory text and three linked structure photographs, visiting directions, visual history, archive information, and email/copy actions. Shared history content in `storyContent.js` also feeds the generated HTML. Earlier About design studies remain in source for reference but are not routed or bundled into the release.
 
 ### Loading stability
 

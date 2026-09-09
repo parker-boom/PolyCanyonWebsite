@@ -26,12 +26,18 @@ test('two generation passes preserve every research body and resource link', asy
     await writeFile(
       path.join(out, '.vite/manifest.json'),
       JSON.stringify(
-        Object.fromEntries(
-          Object.keys(dimensions).map((file) => [
+        Object.fromEntries([
+          ...Object.keys(dimensions).map((file) => [
             `src/assets/generated/${file}`,
             { file: `assets/${file}` },
-          ])
-        )
+          ]),
+          ...['A/A6.webp', 'C/C2.webp', 'D/D5.webp', 'F/F1.webp'].map(
+            (file) => [
+              `archive/chronicles/Story/Images/${file}`,
+              { file: `assets/history/${file}` },
+            ]
+          ),
+        ])
       )
     );
     const records = await readStructures();
@@ -41,6 +47,11 @@ test('two generation passes preserve every research body and resource link', asy
         fileURLToPath(new URL('./generate-pages.mjs', import.meta.url)),
         out,
       ]);
+      const about = await readFile(path.join(out, 'about/index.html'), 'utf8');
+      assert.ok(about.includes('How it got here'));
+      assert.ok(about.includes('assets/history/A/A6.webp'));
+      assert.ok(about.includes('href="/structures/stickStructure"'));
+      assert.ok(about.includes('Questions, corrections, or anything else?'));
       for (const record of records) {
         const html = await readFile(
           path.join(out, 'structures', record.url, 'index.html'),

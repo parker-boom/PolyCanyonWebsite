@@ -72,7 +72,9 @@ export default function StructureList({ historical = false }) {
           )}
         </div>
         <Link to={historical ? '/structures' : '/structures/history'}>
-          {historical ? 'Back to the canyon' : 'Historical structures'}
+          {historical
+            ? 'Back to current structures'
+            : 'See historical structures'}
         </Link>
       </C.Heading>
       <C.Tools>
@@ -131,7 +133,7 @@ export default function StructureList({ historical = false }) {
         </label>
       </C.Tools>
       <span className="sr-only" role="status">
-        {count} {count === 1 ? "structure" : "structures"}
+        {count} {count === 1 ? 'structure' : 'structures'}
       </span>
       {count === 0 ? (
         <C.Empty>
@@ -176,11 +178,7 @@ export default function StructureList({ historical = false }) {
           ))}
         </C.Grid>
       )}
-      {!historical && (
-        <C.Tail>
-
-        </C.Tail>
-      )}
+      {!historical && <C.Tail></C.Tail>}
     </C.Page>
   );
 }

@@ -48,6 +48,12 @@ export const Button = styled.button`
   }
 `;
 export const Topline = styled.div`
+  @media (min-width: 701px) {
+    .share {
+      transform: ${(p) => (p.$variant === 'side' ? 'translateY(calc(68px + (64px - clamp(30px, 3.2vw, 44px) * 1.05) / 2))' : 'none')};
+    }
+  }
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -84,9 +90,9 @@ export const Header = styled.header`
     color: #826322;
     font-size: 12px;
     font-variant-numeric: tabular-nums;
-    padding: 6px 8px;
-    border: 1px solid var(--line);
-    border-radius: 20px;
+    padding: 0;
+    border: 0;
+    background: none;
     flex-shrink: 0;
   }
   @media (max-width: 640px) {
@@ -255,6 +261,7 @@ export const Research = styled.div`
 export const Facts = styled.aside`
   [data-fact='Dates'] dd {
     font-size: 26px;
+    font-weight: 600;
     line-height: 1.3;
     color: #164b3b;
   }
@@ -266,7 +273,7 @@ export const Facts = styled.aside`
   [data-fact='Advisors'] dd {
     font-size: 13px;
     line-height: 1.65;
-    color: #536258;
+    color: #000;
   }
   .historical {
     font-size: 13px;
@@ -480,6 +487,9 @@ export const Story = styled.div`
   }
 `;
 export const SupportingPeople = styled.div`
+  dd {
+    color: #000;
+  }
   display: ${(p) => (p.$variant === 'article' ? 'block' : 'none')};
   @media (max-width: 700px) {
     display: block;

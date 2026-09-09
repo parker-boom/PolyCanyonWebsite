@@ -2,7 +2,7 @@
 
 [Poly Canyon](https://polycanyon.com) is an independent guide to Cal Poly’s outdoor architectural laboratory. Explore the history, photographs, and original research behind 42 student-built structures, or find information for a visit.
 
-The archive includes full research pages that can be read without JavaScript. Interactive browsing adds search, filters, and photo galleries. The website also provides background on the canyon and a link to the iPhone app.
+The archive includes full research pages that can be read without JavaScript. Interactive browsing adds search, sorting, and photo galleries. Current and historical structures have separate collections. The website also provides background on the canyon and a link to the iPhone app.
 
 Main navigation is Home, Structures, About, App. About includes history and visiting directions; the App page explains the iPhone guide. Old Info and download links still redirect to their new homes.
 
@@ -29,3 +29,7 @@ npm run preview -- --port 4182
 Structure research lives in `public/data/structuresInfo.json`. Keep existing structure URLs so saved links continue to work. Original photographs live in `src/structures/images/`; after changing photos, run `npm run media:generate` and include the generated files.
 
 See [content, maintenance, and release notes](docs/maintenance.md) for the data layout, browser checks, and hosting details. [Map behavior](docs/maps.md) explains destination previews and walking directions.
+
+## Release
+
+The accepted App design is the framed layout with a pale gold panel. Design comparison query parameters are no longer active. See [release readiness](docs/release.md) for the current verification and Netlify handoff.

@@ -1,5 +1,12 @@
 import { features } from '../src/home/features.js';
-import { intro, visit, history, project } from '../src/about/articleContent.js';
+import {
+  eras,
+  introduction,
+  transition,
+  discoveries,
+  structureLinks,
+  linkedParts,
+} from '../src/about/variants/storyContent.js';
 import { resourceLinks } from '../src/structures/data/resourceLinks.js';
 import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
@@ -147,6 +154,7 @@ export async function createStaticContent(structures, manifest) {
     } else if (route === '/') {
       body = `<h1>Poly Canyon</h1><p>An outdoor architecture lab at Cal Poly, with student-built structures dating back to the 1960s.</p><p>${link('/structures', 'Explore the structures')}</p>${features.map((f) => `${photo(`src/assets/generated/home/M-${f.number}-1600.webp`, f.name)}<p>${escapeHTML(f.text)} ${link(`/structures/${f.url}`, `Read about ${f.name}`)}</p>`).join('')}<h2>${link('/about', 'Learn about the canyon')}</h2><p>Its history and how to visit.</p><h2>${link('/app', 'Download the app')}</h2><p>A walking map and virtual tour for iPhone.</p>`;
     } else if (route === '/structures' || route === '/structures/history') {
+      body += `<p>${route === '/structures/history' ? link('/structures', 'Back to current structures') : link('/structures/history', 'See historical structures')}</p>`;
       body += `<ul>${structures
         .filter((s) =>
           route === '/structures/history'
@@ -169,7 +177,21 @@ export async function createStaticContent(structures, manifest) {
     } else if (route === '/support') {
       body += `<p>${link(`mailto:${contactEmail}`, 'Contact Parker')} · ${escapeHTML(contactEmail)}</p>`;
     } else if (route === '/about') {
-      body = `<h1>What is Poly Canyon?</h1>${intro}<a href="/structures/cantileverDeck">${photo(images.mainImages['M-8'], 'Cantilever Deck in Poly Canyon')}</a><p>${link('/structures/cantileverDeck', 'Cantilever Deck makes its support system visible: cables carry the deck’s load through the upright structure to its base.')}</p>${visit}${history}${project}`;
+      const eraFiles = {
+        beginnings: 'archive/chronicles/Story/Images/A/A6.webp',
+        village: 'archive/chronicles/Story/Images/C/C2.webp',
+        gathering: 'archive/chronicles/Story/Images/D/D5.webp',
+        today: 'archive/chronicles/Story/Images/F/F1.webp',
+      };
+      const linkedStory = (text) =>
+        linkedParts(text)
+          .map((part) =>
+            structureLinks[part]
+              ? link(`/structures/${structureLinks[part]}`, part)
+              : escapeHTML(part)
+          )
+          .join('');
+      body = `<h1>What is Poly Canyon?</h1>${introduction.map((text) => `<p>${escapeHTML(text)}</p>`).join('')}${discoveries.map((item) => `<a href="/structures/${item.slug}">${photo(images.mainImages[`M-${item.number}`], item.name)}</a><p>${link(`/structures/${item.slug}`, item.name)}</p><p>${escapeHTML(item.text)}</p>`).join('')}<section id="visit"><h2>Visiting</h2>${photo(images.mainImages['M-1'], 'The stone Entry Arch beside the canyon path')}<p>The ${link('/structures/entryArch', 'Entry Arch')} marks your arrival.</p><p>Open to the public year-round. Come during daylight and follow any posted closures.</p><p>From the H-4f parking lot at Cal Poly, follow Poly Canyon Road through the yellow gate to the ${link('/structures/entryArch', 'Entry Arch')}. Bring water and shoes for uneven ground; paths can be muddy after rain.</p><p>${link('https://www.google.com/maps/dir/?api=1&origin=35.30302,-120.65913&destination=35.31344,-120.65192&travelmode=walking', 'Walking directions')} · ${link('https://www.alltrails.com/trail/us/california/architecture-graveyard-hike-private-property', 'Trail on AllTrails')}</p></section><section id="history"><h2>How it got here</h2><p>${escapeHTML(transition)}</p>${eras.map((era) => `<h3>${escapeHTML(era.date)} · ${escapeHTML(era.title)}</h3><p>${linkedStory(era.text)}</p>${photo(eraFiles[era.photo], era.alt)}<p>${linkedStory(era.caption)}</p>`).join('')}</section><section id="project"><h2>About this archive</h2><p>Parker Jones assembled this collection of photographs, structure histories, and original project reports with help from Cal Poly’s Kennedy Library and architecture community. ${link('/structures', 'Browse the archive.')}</p></section><section aria-label="Contact Parker"><p>Questions, corrections, or anything else? Reach out.</p><p>${link('mailto:parker.jones@Live.com', 'parker.jones@Live.com')}</p><p>${link('mailto:parker.jones@Live.com', 'Email Parker')}</p></section>`;
     } else if (route === '/app') {
       body =
         '<h1>Poly Canyon for iPhone</h1><p>Your interactive guide to everything the canyon has to offer.</p>';
@@ -178,15 +200,15 @@ export async function createStaticContent(structures, manifest) {
       for (const [name, caption] of [
         [
           'map',
-          'Explore on foot. Use the walking map to find paths and locate the structures.',
+          'Explore on foot. Find paths and structures on the illustrated map.',
         ],
         [
           'collection',
-          'Learn about the structures. Read each structure’s history and see photographs of its design and construction.',
+          'Learn about the structures. See who built each structure and how it was made.',
         ],
         [
           'tour',
-          'Take a virtual tour. Browse the structures in a photo tour and see where each one sits on the map.',
+          'Take a virtual tour. Explore the structures through photographs and the map.',
         ],
       ])
         body += `<p>${escapeHTML(caption)}</p>` + appPhoto(name, caption);

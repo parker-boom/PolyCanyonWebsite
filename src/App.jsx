@@ -15,7 +15,7 @@ const StructureMobile = lazy(
   () => import('./structures/info/StructureInfoMobile.jsx')
 );
 const Download = lazy(() => import('./downloads/DownloadPage.jsx'));
-const About = lazy(() => import('./about/AboutPage.jsx'));
+const About = lazy(() => import('./about/variants/CanyonStory.jsx'));
 const Support = lazy(() => import('./support/SupportPage.jsx'));
 const Privacy = lazy(() => import('./utils/privacyPolicy.jsx'));
 const Shell = styled.div`
