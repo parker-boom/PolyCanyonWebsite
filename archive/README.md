@@ -1,5 +1,7 @@
-# Preserved source material
+# Historical material
 
-The former Chronicles pages and entry point are retained here as a historical snapshot, together with the original app recordings. They are not compiled or published. Their old relative imports are intentionally unchanged.
+This folder preserves the former Chronicles, original app captures, and design-review records. Review notes describe earlier versions and are not current instructions; use the documentation in `docs/` for maintenance.
 
-The active site presents a concise About page; detailed structure research and photographs remain in the archive browser. Old Chronicles URLs redirect to the corresponding active pages. Original structure photography remains under src/structures/images; generated display assets can be rebuilt with npm run media:generate.
+The active About page uses four historical photographs from `chronicles/Story/Images/`. The old page components themselves are not routed or bundled. Original app captures live in `media/app-captures/`; the published phone previews are in `public/media/app-v6/`.
+
+Original structure photography remains in `src/structures/images/`. Keep the source material and attribution even when display assets change.

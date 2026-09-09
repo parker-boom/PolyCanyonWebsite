@@ -10,6 +10,7 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
       isMobile: true,
       hasTouch: true,
     });
+    p.setDefaultTimeout(15000);
     const errors = [];
     p.on('pageerror', (e) => errors.push(e.message));
     await p.goto(
@@ -18,9 +19,9 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
     const navigation = p.getByRole('navigation', { name: 'Main navigation' });
     assert.deepEqual(await navigation.getByRole('link').allTextContents(), [
       'Home',
-      'Structures',
       'About',
       'App',
+      'Structures',
     ]);
     assert.equal(
       await navigation
@@ -38,10 +39,16 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
     assert.equal(await search.inputValue(), 'bridge');
     assert.equal(await p.locator(':focus').getAttribute('type'), 'search');
     await search.fill('');
-    await p.getByRole('button', { name: 'Sort by year', exact: true }).click();
     await p
-      .getByRole('button', { name: 'Ghost Structures', exact: true })
-      .click();
+      .getByRole('combobox', { name: 'Sort structures' })
+      .selectOption('oldest');
+    await p.waitForFunction(
+      () =>
+        document.querySelectorAll('main h3').length > 20 &&
+        document.querySelector('main h3')?.textContent === 'Blade' &&
+        new URL(location.href).searchParams.get('sort') === 'Year' &&
+        !new URL(location.href).searchParams.has('q')
+    );
     await p.evaluate(() => scrollTo(0, 600));
     await p.waitForTimeout(200);
     const url = p.url(),
@@ -62,21 +69,19 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
     await p.getByRole('searchbox').waitFor();
     await p.waitForTimeout(300);
     assert.equal(p.url(), url);
-    assert.ok(Math.abs((await p.evaluate(() => scrollY)) - y) < 3);
+    await p.waitForFunction((expected) => Math.abs(scrollY - expected) < 3, y);
     await cards.nth(visible).click();
-    await p
-      .getByRole('button', { name: 'Next structure', exact: true })
-      .click();
+    await p.getByRole('button', { name: /^Next:/ }).click();
     await p
       .getByRole('button', { name: 'Back to structures', exact: true })
       .click();
     await p.getByRole('searchbox').waitFor();
     await p.waitForTimeout(300);
     assert.equal(p.url(), url);
-    assert.ok(Math.abs((await p.evaluate(() => scrollY)) - y) < 3);
+    await p.waitForFunction((expected) => Math.abs(scrollY - expected) < 3, y);
     await navigation.getByRole('link', { name: 'About', exact: true }).tap();
     await p
-      .getByRole('heading', { name: 'About Poly Canyon', exact: true })
+      .getByRole('heading', { name: 'What is Poly Canyon?', exact: true })
       .waitFor();
     assert.deepEqual(errors, []);
     console.log({

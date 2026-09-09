@@ -8,6 +8,7 @@ try {
   // A missing old chunk should recover without asking the visitor to retry.
   if (!base.includes(':5173')) {
     const page = await browser.newPage();
+    page.setDefaultTimeout(15000);
     let requests = 0;
     await page.route(/\/assets\/AboutPage-[^/]+\.js$/, (route) => {
       requests++;
@@ -17,7 +18,7 @@ try {
     });
     await page.goto(`${base}/about?from=old-tab#project`);
     await page
-      .getByRole('heading', { name: 'About Poly Canyon', exact: true })
+      .getByRole('heading', { name: 'What is Poly Canyon?', exact: true })
       .waitFor();
     assert.equal(requests, 2);
     assert.equal(new URL(page.url()).search, '?from=old-tab');
@@ -29,6 +30,7 @@ try {
     const page = await browser.newPage({
       viewport: { width: 390, height: 844 },
     });
+    page.setDefaultTimeout(15000);
     const pattern =
       /\/(?:assets\/AboutPage-[^/]+\.js|src\/about\/AboutPage\.jsx)(?:\?.*)?$/;
     let failedRequests = 0;
@@ -51,7 +53,7 @@ try {
         .getByRole('button', { name: 'Reload page', exact: true })
         .click();
       await page
-        .getByRole('heading', { name: 'About Poly Canyon', exact: true })
+        .getByRole('heading', { name: 'What is Poly Canyon?', exact: true })
         .waitFor();
     } else {
       await page
@@ -67,11 +69,12 @@ try {
       viewport: { width, height: 900 },
       reducedMotion: 'reduce',
     });
+    page.setDefaultTimeout(15000);
     const errors = [];
     page.on('pageerror', (error) => errors.push(error.message));
     await page.goto(`${base}/about/`);
     await page
-      .getByRole('heading', { name: 'About Poly Canyon', exact: true })
+      .getByRole('heading', { name: 'What is Poly Canyon?', exact: true })
       .waitFor();
     await page.keyboard.press('Tab');
     assert.equal(await page.locator(':focus').innerText(), 'Skip to content');
@@ -85,9 +88,9 @@ try {
     });
     assert.deepEqual(await navigation.getByRole('link').allTextContents(), [
       'Home',
-      'Structures',
       'About',
       'App',
+      'Structures',
     ]);
     assert.equal(
       await navigation

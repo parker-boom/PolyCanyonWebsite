@@ -1,37 +1,23 @@
 # Poly Canyon
 
-[Poly Canyon](https://polycanyon.com) is an independent guide to Cal Poly’s outdoor architectural laboratory. Explore the history, photographs, and original research behind 42 student-built structures, or find information for a visit.
+An independent guide to Cal Poly’s outdoor architecture lab, where students have built experimental houses, bridges, and towers since the 1960s.
 
-The archive includes full research pages that can be read without JavaScript. Interactive browsing adds search, sorting, and photo galleries. Current and historical structures have separate collections. The website also provides background on the canyon and a link to the iPhone app.
+[Visit the website](https://polycanyon.com) · [Explore the structures](https://polycanyon.com/structures) · [iPhone app](https://polycanyon.com/app)
 
-Main navigation is Home, About, App, Structures. About includes history and visiting directions; the App page explains the iPhone guide. Old Info and download links still redirect to their new homes.
+![The Poly Canyon homepage introduces the canyon through photographs and links into the archive.](docs/images/home.webp)
 
-## Run locally
+## About the project
 
-Use Node 22.12 or newer (`.nvmrc` selects Node 22).
+I built this website to make the canyon easier to discover and its history easier to find. It brings photographs, original project reports, and research on 42 current and historical structures into one place, with practical information for anyone planning a visit.
 
-```sh
-npm ci
-npm run dev
-```
+The design starts with the photographs. Visitors can browse the structures, look through a gallery, and follow the research behind a project. The About page connects those individual experiments across six decades; the App page introduces the companion guide for exploring on foot.
 
-## Check and build
+![A structure page pairs a photograph gallery with dates, builders, and the research behind the project.](docs/images/structure.webp)
 
-```sh
-npm run check
-npm run preview -- --port 4182
-```
+## Behind the website
 
-`check` runs tests, lint, photo integrity checks, and the production build. The site is built with React and Vite and outputs static files to `build/`. Netlify configuration is included; these commands do not publish the site.
+Built with React and Vite, published as a static site on Netlify. Structure histories also work without JavaScript. There are no accounts, analytics trackers, or database to maintain.
 
-## Edit content
+For local setup, content changes, and checks, see [maintenance](docs/maintenance.md). [Deployment](docs/release.md) covers publishing and rollback; [app media](docs/app-media.md) covers the phone previews.
 
-Structure research lives in `public/data/structuresInfo.json`. Keep existing structure URLs so saved links continue to work. Original photographs live in `src/structures/images/`; after changing photos, run `npm run media:generate` and include the generated files.
-
-See [content, maintenance, and release notes](docs/maintenance.md) for the data layout, browser checks, and hosting details. [Map behavior](docs/maps.md) explains destination previews and walking directions.
-
-## Release
-
-The accepted App design is the framed layout with a pale gold panel. Design comparison query parameters are no longer active. See [release readiness](docs/release.md) for the current verification and Netlify handoff.
-
-App preview recordings and publication notes are documented in [app media notes](docs/app-media.md).
+Questions or corrections? [Contact Parker](mailto:parker.jones@live.com).

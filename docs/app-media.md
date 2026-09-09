@@ -4,13 +4,17 @@ The three screen recordings in `public/media/app-v6/` were captured from app com
 
 MP4 is the primary format (about 1.7–2.8 MiB each), with matching WebP posters for reduced motion, failed playback and static HTML. The 8–10 MiB GIF exports remain with the source delivery rather than adding unnecessary page weight. Only the selected clip plays; switching resets the previous clip. Visitors can pause playback, and reduced-motion preferences default to a still poster. Background tabs pause playback.
 
-Explore and Learn masters, GIFs, checksums and capture QA: `/Volumes/SSK Drive/Developer/Redesign/FinalRelease/Media-v2`. Tour remains unchanged from `/Volumes/SSK Drive/Developer/Redesign/FinalRelease/Media`.
+Earlier still captures are preserved in `archive/media/app-captures/`. The MP4s and posters committed in `public/media/app-v6/` are the website release assets. Keep capture notes and source masters when preparing replacements.
 
 Explore now reaches Underground House after about 3.7 seconds of a short, unaccelerated approach, then opens its story (10.40 seconds total). Learn visibly opens search, enters Bridge House character by character, then opens and scrolls the story (12.97 seconds).
 
-## Publication
+## Updating the previews
 
-Parker authorized website publication independently of the app release. Publish after the revised Explore and Learn recordings are integrated and reviewed; keep the approved Tour recording. Website publication does not confirm app 6.0 availability.
+Replace the matching MP4 and WebP files in `public/media/app-v6/`. Keep the full native screen at 720 × 1564 (110:239), without a baked-in phone frame: the website supplies that outline. Keep filenames stable or update both interactive and static-page references together.
+
+Watch each clip from start to finish inside the website phone on desktop and mobile. Check the opening action, readable text, tap timing, loop boundary, and poster. Test pause, keyboard switching, reduced motion, and failed video requests before publishing. Do not substitute a large GIF just to preserve the capture’s original format.
+
+The recordings are published. Website updates remain independent of App Store review.
 
 ## Website validation
 

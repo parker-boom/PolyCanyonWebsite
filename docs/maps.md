@@ -1,9 +1,7 @@
-# Maps and walking directions
+# Maps and directions
 
-On About, under Visiting, the embedded map marks the Entry Arch. The walking-directions link opens Google Maps with campus as the origin, the Entry Arch as the destination, and walking selected. Written directions remain on the page even if Google is unavailable. Individual structure pages continue to show a destination pin and a location link.
+About includes written directions from Cal Poly’s H-4f parking lot, through the yellow gate, to the Entry Arch. Its walking link opens Google Maps with the origin, destination, and walking mode already selected. AllTrails is a separate trail reference.
 
-Google documents route embedding through the [Maps Embed API’s directions mode](https://developers.google.com/maps/documentation/embed/embedding-map#directions_mode), with an API key, origin, destination, and `mode=walking`. The existing keyless `maps?q=…&output=embed` preview is a destination map; the documented route parameters belong to the Embed API, not that URL. We have not added an API key or a new hosted service to draw a route inside the page.
+Each structure’s **View on map** link opens its destination in Google Maps. These links do not load Google content until followed. The website has no embedded map, mapping API key, or route-calculation service.
 
-[Google Maps URLs](https://developers.google.com/maps/documentation/urls/get-started#directions-action) support external walking directions without an API key, using `api=1`, `origin`, `destination`, and `travelmode=walking`. Keeping that link makes directions available without adding account configuration to this site. The tradeoff is that visitors open Google Maps to see the walking route. The embedded frame is labeled as a destination map, and the walking-directions link remains visible before and after it loads.
-
-Maps load automatically within 240px of the viewport, reserving their height before loading. Native iframe lazy loading adds a second scheduling hint. The previous click gate was a performance/privacy choice, not a requirement of the existing destination embed. The privacy page describes the automatic Google request. Route availability and the paths suggested by Google remain controlled by Google; the site does not calculate or guarantee a walking route.
+When changing the walking link, preserve `api=1`, `origin`, `destination`, and `travelmode=walking`. Keep the written directions on the page. Route suggestions and availability are controlled by the external services.

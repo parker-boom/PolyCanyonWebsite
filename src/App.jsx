@@ -1,6 +1,5 @@
 import React, { lazy, Suspense } from 'react';
 import { Routes, Route, Navigate, Link, useLocation } from 'react-router-dom';
-import { useMediaQuery } from 'react-responsive';
 import styled from 'styled-components';
 import Navigation from './layout/Navigation.jsx';
 import Footer from './layout/Footer.jsx';
@@ -11,11 +10,8 @@ import PageErrorBoundary from './app/PageErrorBoundary.jsx';
 const HomeWeb = lazy(() => import('./home/homeWeb.jsx'));
 const Structures = lazy(() => import('./structures/list/StructureList.jsx'));
 const StructureWeb = lazy(() => import('./structures/info/StructureInfo.jsx'));
-const StructureMobile = lazy(
-  () => import('./structures/info/StructureInfoMobile.jsx')
-);
 const Download = lazy(() => import('./downloads/DownloadPage.jsx'));
-const About = lazy(() => import('./about/variants/CanyonStory.jsx'));
+const About = lazy(() => import('./about/AboutPage.jsx'));
 const Support = lazy(() => import('./support/SupportPage.jsx'));
 const Privacy = lazy(() => import('./utils/privacyPolicy.jsx'));
 const Shell = styled.div`
@@ -37,7 +33,6 @@ const Loading = styled.div`
 `;
 
 export default function App() {
-  const mobile = useMediaQuery({ maxWidth: 768 });
   const { pathname, search } = useLocation();
   return (
     <Shell>
@@ -64,13 +59,7 @@ export default function App() {
               />
               <Route
                 path="/structures/:structureUrl"
-                element={
-                  mobile ? (
-                    <StructureMobile key={pathname + search} />
-                  ) : (
-                    <StructureWeb key={pathname + search} />
-                  )
-                }
+                element={<StructureWeb key={pathname + search} />}
               />
               <Route path="/app" element={<Download />} />
               <Route

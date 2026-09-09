@@ -1,111 +1,66 @@
-# Maintenance and release notes
+# Maintaining the website
 
-An independent guide to Cal Poly’s outdoor architectural laboratory, with photographs, history, and source material for 42 structures.
+## Run locally
 
-## Development
+Use Node 22.12 or newer; `.nvmrc` selects Node 22.
 
-Use Node 22.12 or newer (the .nvmrc selects Node 22).
-
-```
+```sh
 npm ci
 npm run dev
 ```
 
-Run checks in a second terminal (the development server stays running):
+To check and preview the production build:
 
-```
-npm test
-npm run lint
-npm run build
-npm run check:build
-npm run preview
+```sh
+npm run check
+npm run preview -- --port 4182
 ```
 
-Keep this checkout and its `node_modules` and `build` directories on the external drive. For installs on this Mac, use `npm ci --cache "/Volumes/SSK Drive/Developer/npm-cache"` so the task cache also stays there.
+`check` runs the Node tests, lint, photograph integrity checks, build, and validation of all generated pages. It does not publish. Netlify and GitHub Actions run the same checks when code changes.
 
-Vite builds the site into `build/`. Netlify runs `npm run check` and publishes `build/` only after the checks succeed; publishing is a separate action. React routes load on demand. The green-and-gold interface retains responsive structure galleries, source documents, directions, and app links. The homepage offers four featured structures with selectable photographs. Current and historical structures have separate collection routes; search and sorting are stored in the URL.
+## Where things live
 
-## Content and photographs
+| Area | Location |
+| --- | --- |
+| Structure histories, credits, photo ordering, and source links | `public/data/structuresInfo.json` |
+| Original structure photographs | `src/structures/images/` |
+| Generated display images | `src/assets/generated/` |
+| Home, About, App, and structure pages | `src/home/`, `src/about/`, `src/downloads/`, `src/structures/` |
+| Shared navigation and footer | `src/layout/` |
+| Contact address | `src/app/contact.js` |
+| Shared privacy text | `src/utils/privacyContent.js` |
+| App recordings and posters | `public/media/app-v6/` |
+| Historical source material and design records | `archive/` |
+| Static HTML, metadata, and media generation | `scripts/` |
 
-`public/data/structuresInfo.json` is the source of truth for structure research. `npm run data` generates the browsing data and route metadata; it runs before development and production builds. Generation validates names, descriptions, unique numbers, and safe unique URL slugs before writing browsing data or metadata. Fix failures in the source JSON; do not edit generated JSON files. Preserve established `url` values because they are public links.
+## Change content
 
-Original photographs stay in `src/structures/images/`. `npm run media:generate` creates committed display images and thumbnails using Sharp. Run it when adding or changing originals, then include the regenerated assets and dimensions alongside the source changes. Text-only changes do not need image regeneration. The browser selects responsive thumbnails and display photographs by their rendered size and pixel density. Pages load thumbnails lazily and warm only the next gallery image. Structure details link out to the destination on Google Maps; visiting directions remain available on About.
+Edit the source research JSON. Browsing data and route metadata regenerate before development and builds; do not edit those generated files. Keep established structure URL slugs so saved links continue to work.
 
-The `/about` page brings together the canyon’s history, visiting directions, and research credits. `/app` explains the iPhone guide. Main navigation is Home, Structures, About, App; all four links stay visible on mobile. It replaces the former Chronicles interface. The former `/info` and `/map` routes redirect to `/about#visit`, and `/download` redirects to `/app`. Its historical source pages and the original app recordings are preserved under `archive/`, outside the application bundle. Redirects preserve old links. Adding a regular structure requires a record in the source JSON and photographs in the existing image-key convention.
+Keep the original photographs and their credits. After changing source photos, run `npm run media:generate` and commit the generated images and manifests together. Text-only edits do not need image regeneration. The numbered photo filenames are stable research keys, not disposable export names.
 
-## Search and sharing
+The iPhone app has its own bundled data and release process. Historical corrections may need a matching app change, but this website does not control location tracking, offline maps, or visit progress. Keep `/support` and `/privacy` stable for existing app links. Policy changes must match the released app’s behavior.
 
-The production build generates an HTML entry for each known route with its own title, description, canonical URL and social metadata, plus a sitemap and 404 page. Structure pages include complete research text, credits, resource links and photos; the archive index and full privacy policy also work without JavaScript. Other landing pages provide their summary and navigation, with written walking steps on About. React replaces the static root when it mounts; it does not hydrate it or leave a duplicate hidden article. No server runs to render requests. Production metadata uses https://polycanyon.com (including in local and deploy previews). Routes and metadata derive from the same structure data.
+## Browser review
 
-## Checks
+After building, review the preview at desktop and mobile widths:
 
-Node tests cover browsing order, gallery query behavior, and gesture thresholds/scaling. Archive filters are stored in the URL; history entries preserve scroll position through detail navigation. ESLint checks active source and build scripts. Production checks should include desktop and mobile navigation, search and sorting, direct gallery links, Escape/focus behavior, and static route metadata. Hosting rule changes also need a deployed preview check before production release.
+- Search and sort both structure collections; open a detail page and go Back.
+- Move through photographs, open fullscreen, and close with Escape. Check keyboard focus returns correctly.
+- Switch the About history eras and follow visiting links.
+- Switch all three App previews. Check pause, reduced motion, and the still-image fallback.
+- Open Contact and try copying the email address; the address remains available if clipboard access fails.
 
-The browser regression in `scripts/check-gallery-navigation.mjs` checks going Back from the last fullscreen photograph to a structure with fewer photographs, at mobile and desktop widths. With Playwright available, run it against the production preview:
+The browser regression scripts in `scripts/check-*.mjs` supplement the build checks. Their setup and coverage are described in [browser checks](browser-checks.md).
 
-```
-node scripts/check-gallery-navigation.mjs
-node scripts/check-archive-return.mjs
-node scripts/check-page-recovery.mjs
-```
+## Static pages and external links
 
-The page-recovery check exercises automatic recovery from a missing old page chunk, bounded retries for persistent failures, keyboard/dialog behavior, and overflow at narrow mobile through desktop widths. The archive-return check repeats browser Back and explicit Close after Next, verifying filters, exact scroll position, and mobile navigation.
+The build produces `build/` with a physical HTML page for every public route, plus a sitemap and a real 404 page. Structure research remains readable without JavaScript. React replaces that static body when it loads; there is no runtime rendering server.
 
-Set `PLAYWRIGHT_MODULE` to an existing installation if it is outside this project. To also check missing photographs without changing archive files, use the development server with `BASE_URL=http://127.0.0.1:5173 EMPTY_PHOTO_FIXTURE=1`. That fixture replaces photo records only in the test browser.
+Legacy Chronicles, Info, Map, and Download links redirect to their current pages. Retired `/admin/` URLs return 404. Never replace the final hosting rule with a catch-all 200 response.
 
-## Before a production release
+[Maps and directions](maps.md) use external links, not an embedded map or API key. Preserve written visiting information so the page remains useful if an external service is unavailable.
 
-1. Run `npm ci`, `npm test`, `npm run lint`, `npm run build`, and `npm run check:build`. The build check verifies every generated route, unique metadata, readable generated HTML, sitemap entries, local bundles, sharing images, and redirect targets. `npm run preview` serves that build; restart or rebuild after source changes.
-2. Run the browser regressions above against that preview and visually review desktop/mobile archive, About, App, support/privacy, and photo viewing. Browser automation is an optional developer tool, not a runtime dependency of this site.
-3. When a release is authorized, validate a **Netlify deploy preview** before promoting it. Vite preview does not implement Netlify `_redirects`, its custom HTTP 404 handling, or domain redirects. A successful local page visit cannot verify those behaviors.
+## Leaving it running
 
-On that hosting preview, request `/about`, `/about/`, `/structures/bridgeHouse`, and `/structures/bridgeHouse/` directly. Each should reach the correct page with its route metadata and working assets. Check `/sitemap.xml` is XML; `/chronicles/story` and `/chronicles/people` redirect to About with their history/stewardship anchors; `/chronicles/projects` redirects to Structures; `/map` and `/info` redirect to About’s visiting section, `/download` redirects to App; and an invented URL returns **HTTP 404**, not a 200 response with an error message. Retired `/admin/` and `/admin/config.yml` must return HTTP 404, with navigation back to the public site.
-
-Known public routes have physical `index.html` files. The final, unforced 404 rule lets existing files take precedence and returns the generated `404.html` only for unknown paths. Do not replace it with a catch-all `200` SPA rewrite. Netlify normalizes trailing slashes when matching redirects and may append slashes through its Pretty URLs setting; review that existing account setting and the resulting canonical URLs rather than adding competing slash redirects. See [Netlify routing behavior](https://docs.netlify.com/manage/routing/redirects/redirect-options/).
-
-Privacy policy changes must match the app versions actually being released and their App Store / Google Play privacy declarations. The local Swift implementation has no collection declared; this does not verify already-published iOS or Android binaries. Reconcile those versions before publishing the combined policy. See [Apple privacy requirements](https://developer.apple.com/app-store/review/guidelines/#privacy) and [Google Play user-data requirements](https://support.google.com/googleplay/android-developer/answer/10144311).
-
-## Keeping the site maintainable
-
-`npm run check` runs the same checks as `.github/workflows/checks.yml`: research and interaction unit tests, lint, media integrity, production build and generated-page validation. Run `node scripts/check-static-pages.mjs` with the same Playwright setup to check full research parity with and without JavaScript, source links, fixed photos, and retired editor navigation. CI runs on pushes and pull requests only; it does not publish. For a clean checkout, use `npm ci` followed by `npm run check`. Commit the lockfile and all generated media with any photo change. Generated browsing JSON and route metadata are rebuilt from source; they are intentionally ignored by Git.
-
-`npm run media:check` verifies a content-hash inventory of original photographs, generated variants, the generation recipe, dimensions and responsive imports. Missing, changed or newly added source photos fail clearly until `npm run media:generate` is run. Unit checks also resolve every photo key in the research records to an imported asset. Vite validates imported resources during the build. Original photographs and archived recordings remain in the repository, outside the public payload; do not move them into `public/` to fix a missing import.
-
-Run `node scripts/check-external-fallbacks.mjs` with the same Playwright setup as the other browser checks. It blocks all external requests and denies clipboard writes, then verifies local research/photos, written walking directions, the manually copyable contact fallback, and the privacy route. This is separate from CI's dependency-free Node tests. A failed external paper, map or app-store link must not hide the local description or prevent further browsing. We cannot make an unavailable external document or mail provider work; preserve source titles/citations and local explanatory text when updating links.
-
-The intended public app URLs are `https://polycanyon.com/support` and `https://polycanyon.com/privacy`. Keep both routes stable across redesigns. Support uses the same contact panel as the footer and policy: email-app link, clipboard copy, then selectable address if clipboard permission is denied. The destination is centralized in `src/app/contact.js` and used by `src/components/ContactLink.jsx` and the static support page. The contact destination is Parker’s personal address, `parker.jones@live.com`, rather than a campus account. No mailbox is an availability guarantee; change this centralized destination if ownership or access changes. No form service is required. Confirm the mailbox, domain renewal, hosting access and store links before a release or ownership handoff.
-
-### Content ownership across website and iOS
-
-| Content | Maintained here | Coordination rule |
-| --- | --- | --- |
-| Structure names, numbers, locations, dates and status | Website research JSON; duplicated in iOS bundled structure data | Review corrections in both repositories, preserving existing web slugs and app identifiers. Do not silently overwrite one dataset with the other. |
-| Long descriptions, builders, citations and research links | `public/data/structuresInfo.json` | Website is the full research archive. App may retain shorter offline text; review substantive historical corrections for both. |
-| Photo originals, ordering and captions | Website image sources and research JSON; app has its own asset catalog | Preserve originals and attribution. Generate web variants here; size and package app assets in the app project. |
-| Historical/ghost points | Website research JSON; app ghost/map data | Different browsing/map purposes. Preserve historical structure identities. The separate six-item accessory website section was removed at Parker’s request. |
-| Trails, geofencing, offline location and visit progress | iOS project | App owns behavior and map registration. Website coordinates and written directions are visitor references, not a navigation engine. |
-| About, visitor information, support and combined privacy text | Website pages | Keep app links stable; policy claims must match the actual released apps. |
-
-The current iOS copies are under `Swift/Poly Canyon/Core/Data/` in the sibling PolyCanyon repository (`structuresList.json`, `mapPoints.json`, `ghostStructures.json`), with images in its asset catalog. Older React app data also exists; it is not an automatic source for this website. These are bundled, independently released datasets. A small reviewed correction in each repository is preferable to introducing a shared backend solely to eliminate duplication.
-
-The public editor has been removed, including its scripts, configuration and invitation redirects. Retired `/admin/` URLs fall through to the normal 404 page. No remote hosting account services were changed.
-
-## Redesign review
-
-The modern collection uses one shared navigation and responsive detail layout, with complete research beneath the gallery and metadata beside it on desktop. Photographs keep their original aspect ratio in detail; the homepage and collection use cropped previews. Gallery controls support keyboard arrows, Escape, touch swiping, and fullscreen viewing. Images fit within a consistent frame; there is no zoom control. Reduced-motion settings suppress transitions. No timed rotation, analytics, backend, or remote fonts are used.
-
-The existing image originals and generated variants are unchanged. Local design screenshots and recordings belong in ignored `output/playwright/` on the external drive. Start the local review with `npm run preview -- --port 4182` after a production build. The preview does not implement hosting redirects or custom HTTP 404 behavior.
-
-Verify that the external walking link retains origin, destination, and walking parameters, and that written steps remain available. Older browser scripts may target retired layouts; use the current route and control names when maintaining them.
-
-### App screenshots
-
-App source captures live under `src/assets/app-captures/`; the accepted page uses the real `second-pass/` captures and their 360px/720px WebP derivatives under `src/assets/generated/app/second-pass/`. Earlier captures remain preserved. Keep new media tied to the app actually being released.
-
-The App page uses the selected framed layout: pale gold outer panel, muted green phone backdrop, a download action, and three feature controls on the left on desktop. One phone shows the selected screen. On mobile, the content stacks above the phone. Controls, swipes, and keyboard arrows select the screen; reduced motion disables animated scrolling. There is no automatic rotation. Public `?design=` query parameters no longer select experimental layouts.
-
-About uses `src/about/variants/CanyonStory.jsx`, with explanatory text and three linked structure photographs, visiting directions, visual history, archive information, and email/copy actions. Shared history content in `storyContent.js` also feeds the generated HTML. Earlier About design studies remain in source for reference but are not routed or bundled into the release.
-
-### Loading stability
-
-The route-loading placeholder reserves the viewport so the footer does not flash above the fold while a route chunk loads. Static photo HTML uses the same responsive variants as the gallery and includes intrinsic width/height from the existing generated files. Keep those attributes: otherwise the preload scanner can request full-size photos before React mounts, and the browser cannot reserve their layout space. Static-page regression checks cover the image dimensions and responsive source selection.
+The deployed site needs no scheduled job, database, or application secret. Domain registration and hosting access still need to remain active. Dependabot alerts and recurring CodeQL scans are disabled by owner preference; secret scanning and push protection remain enabled. Run `npm audit` before future dependency updates or releases.

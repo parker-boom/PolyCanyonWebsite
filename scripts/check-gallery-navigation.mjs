@@ -10,17 +10,16 @@ const browser = await chromium.launch({ channel: 'chrome', headless: true });
 try {
   for (const width of [390, 1440]) {
     const page = await browser.newPage({ viewport: { width, height: 844 } });
+    page.setDefaultTimeout(15000);
     const errors = [];
     page.on('pageerror', (error) => errors.push(error.message));
     await page.goto(`${base}/structures/techiteBridge`);
-    await page
-      .getByRole('button', { name: 'Previous structure', exact: true })
-      .click();
+    await page.getByRole('button', { name: /^Previous:/ }).click();
     await page.waitForURL('**/structures/entryArch');
     await page
       .getByRole('button', { name: 'Previous photograph', exact: true })
       .click();
-    const open = 'Toggle fullscreen mode';
+    const open = 'Expand photograph';
     await page.getByRole('button', { name: open, exact: true }).click();
     const viewer = page.getByRole('dialog', { name: 'Photograph viewer' });
     await viewer.waitFor();
@@ -49,6 +48,7 @@ try {
   if (process.env.EMPTY_PHOTO_FIXTURE === '1') {
     for (const width of [390, 1440]) {
       const page = await browser.newPage({ viewport: { width, height: 844 } });
+      page.setDefaultTimeout(15000);
       const errors = [];
       page.on('pageerror', (error) => errors.push(error.message));
       let fixtureApplied = false;
@@ -77,9 +77,7 @@ try {
         'Empty-photo fixture requires the Vite dev server'
       );
       assert.equal(await page.getByRole('dialog').count(), 0);
-      await page
-        .getByRole('button', { name: 'Next structure', exact: true })
-        .click();
+      await page.getByRole('button', { name: /^Next:/ }).click();
       await page.waitForURL('**/structures/techiteBridge');
       await page
         .getByText('No photographs are available for this structure.', {

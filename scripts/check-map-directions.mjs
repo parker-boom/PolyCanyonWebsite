@@ -7,6 +7,7 @@ const browser = await chromium.launch({ channel: 'chrome', headless: true });
 try {
   for (const width of [390, 1440]) {
     const page = await browser.newPage({ viewport: { width, height: 900 } });
+    page.setDefaultTimeout(15000);
     let embeds = 0;
     await page.route('https://maps.google.com/**', (route) => {
       embeds++;
@@ -19,16 +20,18 @@ try {
     await page.waitForFunction(
       () =>
         !document.querySelector('[data-static-page]') &&
-        !document.querySelector('[role="status"]')
+        ![...document.querySelectorAll('[role="status"]')].some(
+          (el) => el.textContent.trim() === 'Loading…'
+        )
     );
-    assert.equal(embeds, 0, 'Google must not load before Show map');
+    assert.equal(embeds, 0, 'Maps must not load automatically');
     assert.ok(
       !(await page.locator('main').innerText()).includes(
         'map below shows the route'
       )
     );
     const directions = page.getByRole('link', {
-      name: /Walking directions in Google Maps/,
+      name: /^Walking directions$/,
     });
     const before = await directions.getAttribute('href');
     const url = new URL(before);
@@ -38,23 +41,10 @@ try {
     assert.equal(url.searchParams.get('destination'), '35.31344,-120.65192');
     assert.equal(url.searchParams.get('travelmode'), 'walking');
     assert.equal(await directions.getAttribute('target'), '_blank');
-    await page.getByRole('button', { name: 'Show map', exact: true }).click();
-    const frame = page.locator('iframe[title="Entry Arch destination map"]');
-    await frame.scrollIntoViewIfNeeded();
-    await page
-      .frameLocator('iframe')
-      .getByText('Destination map fixture')
-      .waitFor();
-    assert.equal(embeds, 1);
-    assert.equal(
-      new URL(await frame.getAttribute('src')).searchParams.get('q'),
-      '35.31344,-120.65192'
-    );
-    assert.equal(await directions.getAttribute('href'), before);
+    assert.equal(await page.locator('iframe').count(), 0);
+    assert.equal(embeds, 0, 'Maps are external links only');
     assert.ok(
-      (await page.locator('main').innerText()).includes(
-        'Follow Poly Canyon Road to the yellow gate.'
-      )
+      (await page.locator('#visit').innerText()).includes('yellow gate')
     );
     assert.equal(
       await page.evaluate(
@@ -66,10 +56,12 @@ try {
     await page.waitForFunction(
       () =>
         !document.querySelector('[data-static-page]') &&
-        !document.querySelector('[role="status"]')
+        ![...document.querySelectorAll('[role="status"]')].some(
+          (el) => el.textContent.trim() === 'Loading…'
+        )
     );
     await page
-      .getByRole('link', { name: 'Open in Google Maps', exact: true })
+      .getByRole('link', { name: 'View on map', exact: true })
       .waitFor();
     assert.equal(
       await page
@@ -80,7 +72,7 @@ try {
     );
     await page.close();
     console.log(
-      `${width}px: destination labeling, opt-in map, supported walking URL, written steps and structure map passed`
+      `${width}px: external map links, walking URL and written directions passed`
     );
   }
 } finally {

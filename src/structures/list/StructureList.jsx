@@ -111,6 +111,10 @@ export default function StructureList({ historical = false }) {
               setParams(
                 (current) => {
                   const next = new URLSearchParams(current);
+                  // A pending URL update may still contain the previous search.
+                  // Sort the query currently shown in the input.
+                  if (query) next.set('q', query);
+                  else next.delete('q');
                   if (e.target.value === 'number') {
                     next.delete('sort');
                     next.delete('direction');

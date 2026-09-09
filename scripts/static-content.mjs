@@ -6,7 +6,7 @@ import {
   discoveries,
   structureLinks,
   linkedParts,
-} from '../src/about/variants/storyContent.js';
+} from '../src/about/storyContent.js';
 import { resourceLinks } from '../src/structures/data/resourceLinks.js';
 import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';

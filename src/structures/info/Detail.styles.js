@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 export const Page = styled.article`
-  width: min(
-    ${(p) => (p.$variant === 'article' ? '760px' : '1240px')},
-    calc(100% - 80px)
-  );
+  width: min(1240px, calc(100% - 80px));
   margin: 0 auto;
   padding: 24px 0 64px;
   color: #213b32;
@@ -50,7 +47,9 @@ export const Button = styled.button`
 export const Topline = styled.div`
   @media (min-width: 701px) {
     .share {
-      transform: ${(p) => (p.$variant === 'side' ? 'translateY(calc(68px + (64px - clamp(30px, 3.2vw, 44px) * 1.05) / 2))' : 'none')};
+      transform: translateY(
+        calc(68px + (64px - clamp(30px, 3.2vw, 44px) * 1.05) / 2)
+      );
     }
   }
 
@@ -189,8 +188,8 @@ export const Thumbnails = styled.div`
 `;
 export const DetailGrid = styled.div`
   display: grid;
-  grid-template-columns: ${(p) => (p.$variant === 'article' ? 'minmax(0, 1fr)' : 'minmax(0, 760px) minmax(220px, 1fr)')};
-  grid-template-areas: ${(p) => (p.$variant === 'article' ? "'gallery' 'facts' 'research'" : "'gallery facts' 'research facts'")};
+  grid-template-columns: minmax(0, 760px) minmax(220px, 1fr);
+  grid-template-areas: 'gallery facts' 'research facts';
   gap: 24px 48px;
   > .gallery {
     grid-area: gallery;
@@ -199,18 +198,11 @@ export const DetailGrid = styled.div`
   > aside {
     grid-area: facts;
     align-self: start;
-    margin-top: ${(p) => (p.$variant === 'article' ? '0' : '80px')};
+    margin-top: 80px;
   }
   > div:not(.gallery) {
     grid-area: research;
   }
-  ${(p) =>
-    p.$variant === 'article' &&
-    `
-    > aside [data-fact='Builders'], > aside [data-fact='Advisors'] { display: none; }
-    > aside dl { display: grid; grid-template-columns: 1fr 1fr; column-gap: 32px; }
-    > aside dl > div { padding: 12px 0; }
-  `}
   @media (max-width: 1000px) {
     gap: 24px 28px;
   }
@@ -228,20 +220,6 @@ export const DetailGrid = styled.div`
     > aside dl {
       display: block;
     }
-  }
-`;
-export const Columns = styled.div`
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 280px;
-  gap: 80px;
-  margin-top: 32px;
-  @media (max-width: 900px) {
-    gap: 35px;
-    grid-template-columns: minmax(0, 1fr) 240px;
-  }
-  @media (max-width: 700px) {
-    grid-template-columns: 1fr;
-    gap: 28px;
   }
 `;
 export const Research = styled.div`
@@ -339,22 +317,6 @@ export const Sources = styled.ul`
     display: block;
     padding: 13px 0;
     font-size: 15px;
-  }
-`;
-export const Credits = styled.details`
-  margin-top: 28px;
-  padding: 18px 0;
-  border-top: 1px solid #dce2da;
-  font-size: 14px;
-  line-height: 1.75;
-  color: #536258;
-  summary {
-    cursor: pointer;
-    color: #164b3b;
-    padding: 4px 0;
-  }
-  p {
-    margin-top: 15px;
   }
 `;
 export const BottomNav = styled.nav`
@@ -457,26 +419,6 @@ export const ViewerPhoto = styled.div`
   }
 `;
 
-export const Identity = styled.div`
-  margin-bottom: 24px;
-  color: #536258;
-  font-size: 14px;
-  line-height: 1.6;
-  > div {
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    align-items: baseline;
-  }
-  a {
-    white-space: nowrap;
-    font-size: 13px;
-  }
-  p {
-    margin: 6px 0 0;
-    font-size: 13px;
-  }
-`;
 export const Story = styled.div`
   max-width: 68ch;
   > p {
@@ -498,7 +440,7 @@ export const SupportingPeople = styled.div`
   dd {
     color: #000;
   }
-  display: ${(p) => (p.$variant === 'article' ? 'block' : 'none')};
+  display: none;
   @media (max-width: 700px) {
     display: block;
   }
@@ -524,8 +466,4 @@ export const SupportingPeople = styled.div`
     font-size: 13px;
     line-height: 1.7;
   }
-`;
-export const Location = styled.div`
-  margin-top: 32px;
-  scroll-margin-top: 24px;
 `;

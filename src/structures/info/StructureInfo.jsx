@@ -7,16 +7,11 @@ import {
   FaShareAlt,
 } from 'react-icons/fa';
 import * as S from './Detail.styles.js';
-import { useLocation } from 'react-router-dom';
 import useStructureDetail from '../hooks/useStructureDetail.js';
 import useDialog from '../hooks/useDialog.js';
 
 export default function StructureInfo() {
   const d = useStructureDetail();
-  const variant =
-    new URLSearchParams(useLocation().search).get('layout') === 'article'
-      ? 'article'
-      : 'side';
   const { structure, currentImageIndex: index, fullscreen } = d;
   const [photoFailure, setPhotoFailure] = useState(null);
   useEffect(() => {
@@ -112,11 +107,10 @@ export default function StructureInfo() {
   return (
     <>
       <S.Page
-        $variant={variant}
         aria-hidden={fullscreen ? true : undefined}
         inert={fullscreen ? '' : undefined}
       >
-        <S.Topline $variant={variant}>
+        <S.Topline>
           <S.Button
             aria-label={
               historical
@@ -137,7 +131,7 @@ export default function StructureInfo() {
           </S.Button>
         </S.Topline>
         {d.shareStatus && <p role="status">{d.shareStatus}</p>}
-        <S.DetailGrid $variant={variant}>
+        <S.DetailGrid>
           <div className="gallery">
             <S.Header>
               <h1>{structure.names[0]}</h1>
@@ -236,7 +230,7 @@ export default function StructureInfo() {
                   <p key={i}>{paragraph.trim()}</p>
                 ))}
             </S.Story>
-            <S.SupportingPeople $variant={variant}>
+            <S.SupportingPeople>
               <dl>
                 {facts
                   .slice(2)

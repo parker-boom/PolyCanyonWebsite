@@ -1,5 +1,4 @@
 import assert from 'node:assert/strict';
-import { steps } from '../src/info/directions.js';
 import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
 const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
@@ -7,6 +6,7 @@ const base = process.env.BASE_URL || 'http://127.0.0.1:4173';
 const browser = await chromium.launch({ channel: 'chrome', headless: true });
 try {
   const page = await browser.newPage();
+  page.setDefaultTimeout(15000);
   const errors = [];
   page.on('pageerror', (error) => errors.push(error.message));
   await page.route('**/*', (route) => {
@@ -36,10 +36,17 @@ try {
       .evaluate((img) => img.complete && img.naturalWidth > 0)
   );
   await page.goto(`${base}/about#visit`);
-  await page.getByRole('button', { name: 'Show map', exact: true }).click();
   const visitText = await page.locator('#visit').innerText();
-  for (const step of steps)
-    assert.ok(visitText.includes(step), `Missing walking step: ${step}`);
+  for (const landmark of [
+    'H-4f',
+    'Poly Canyon Road',
+    'yellow gate',
+    'Entry Arch',
+  ])
+    assert.ok(
+      visitText.includes(landmark),
+      `Missing walking landmark: ${landmark}`
+    );
   await page.goto(`${base}/support`);
   await page.getByRole('button', { name: 'contact us', exact: true }).click();
   await page

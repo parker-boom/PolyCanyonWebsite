@@ -1,4 +1,3 @@
-import { steps } from '../src/info/directions.js';
 import { resourceLinks } from '../src/structures/data/resourceLinks.js';
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
@@ -21,28 +20,13 @@ try {
     javaScriptEnabled: false,
     viewport: { width: 390, height: 844 },
   });
+  page.setDefaultTimeout(15000);
   for (const record of records) {
     await page.goto(`${base}/structures/${record.url}`);
     assert.equal(await page.getByRole('heading', { level: 1 }).count(), 1);
-    if (record.extended_description?.trim()) {
-      const disclosure = page.locator('main details');
-      assert.equal(await disclosure.count(), 1);
-      assert.ok(
-        normalize(await page.locator('main').innerText()).includes(
-          normalize(record.extended_description)
-        )
-      );
-      assert.ok(
-        normalize(await disclosure.textContent()).includes(
-          normalize(record.description)
-        )
-      );
-      await disclosure.locator('summary').click();
-    }
     const text = normalize(await page.locator('main').innerText());
     for (const value of [
-      record.description,
-      record.extended_description,
+      record.extended_description?.trim() || record.description,
       ...record.names,
     ]) {
       if (value)
@@ -81,9 +65,12 @@ try {
     .waitFor();
   await page.goto(`${base}/about#visit`);
   const about = normalize(await page.locator('main').innerText());
-  for (const step of steps)
-    assert.ok(about.includes(step), `Missing walking step: ${step}`);
-  for (const anchor of ['history', 'stewardship', 'visit'])
+  for (const landmark of ['H-4f', 'yellow gate', 'Entry Arch'])
+    assert.ok(
+      about.includes(landmark),
+      `Missing walking landmark: ${landmark}`
+    );
+  for (const anchor of ['history', 'project', 'visit'])
     assert.equal(await page.locator(`#${anchor}`).count(), 1);
   assert.deepEqual(
     await page
@@ -127,6 +114,7 @@ try {
   await page.close();
   for (const width of [390, 1440]) {
     const live = await browser.newPage({ viewport: { width, height: 844 } });
+    live.setDefaultTimeout(15000);
     const errors = [];
     live.on('pageerror', (error) => errors.push(error.message));
     for (const route of [

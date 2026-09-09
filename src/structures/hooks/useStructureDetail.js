@@ -22,7 +22,7 @@ const imagePath = (path) => {
   return mainImages[key] || closeUpImages[key] || otherImages[key];
 };
 
-/** Shared archive navigation and gallery state; each layout owns its presentation. */
+/** Archive navigation, photo selection, and sharing for the structure page. */
 export default function useStructureDetail() {
   const navigate = useNavigate();
   const { structureUrl } = useParams();
@@ -50,8 +50,6 @@ export default function useStructureDetail() {
   const query = galleryQuery(search, structure?.images.length || 0);
   const [currentImageIndex, setCurrentImageIndex] = useState(query.index);
   const [fullscreen, setFullscreen] = useState(query.fullscreen);
-  const [descriptionExpanded, setDescriptionExpanded] = useState(false);
-  const [imageAspectRatio, setImageAspectRatio] = useState(null);
   // App keys this detail by pathname and search, so route state starts together.
   const currentPaths = useMemo(
     () => structure?.images.map((img) => imagePath(img.path)) || [],
@@ -72,18 +70,14 @@ export default function useStructureDetail() {
   );
   const handlePrevImage = useCallback(() => moveImage(-1), [moveImage]);
   const handleNextImage = useCallback(() => moveImage(1), [moveImage]);
-  const layout = new URLSearchParams(search).get('layout');
-  const variant = ['article', 'side'].includes(layout)
-    ? `?layout=${layout}`
-    : '';
   const neighbors = adjacentStructures(structures, structure?.url);
   const handlePrevStructure = () => {
     if (neighbors.previous)
-      navigate(`/structures/${neighbors.previous.url}${variant}`, { state });
+      navigate(`/structures/${neighbors.previous.url}`, { state });
   };
   const handleNextStructure = () => {
     if (neighbors.next)
-      navigate(`/structures/${neighbors.next.url}${variant}`, { state });
+      navigate(`/structures/${neighbors.next.url}`, { state });
   };
   useEffect(() => {
     if (!fullscreen) return;
@@ -121,16 +115,9 @@ export default function useStructureDetail() {
   };
   const links = resourceLinks(structure?.links);
   return {
-    navigate,
     backToList,
     structure,
-    structureNumber: structure?.number,
-    notFound: !structure,
     currentImageIndex,
-    descriptionExpanded,
-    toggleDescription: () => setDescriptionExpanded((v) => !v),
-    imageAspectRatio,
-    setImageAspectRatio,
     loadedImages,
     fullscreen: fullscreen && Boolean(structure?.images[currentImageIndex]),
     setFullscreen,
