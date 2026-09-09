@@ -1,13 +1,91 @@
+:root {
+  --green: #164b3b;
+  --gold: #b58a32;
+  --line: #dce2da;
+  --muted: #64716b;
+  --surface: #e8efe8;
+  --ink: #233c32;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--ink);
+  background: #fafbf8;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  margin: 0;
+  padding: 0;
+  scroll-padding-top: 90px;
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  min-width: 320px;
+}
+#root {
+  min-height: 100dvh;
+}
+button,
+input,
+select {
+  font: inherit;
+}
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  touch-action: manipulation;
+}
+a {
+  color: inherit;
+}
+img {
+  max-width: 100%;
+}
+:focus-visible {
+  outline: 3px solid #866209;
+  outline-offset: 4px;
+}
+.skip-link {
+  position: fixed;
+  top: 10px;
+  left: 12px;
+  padding: 12px 20px;
+  z-index: 10000;
+  background: white;
+  color: var(--green);
+  border-radius: 12px;
+  transform: translateY(-160%);
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+/* The built HTML remains readable before React mounts or without JavaScript.
+   These rules are scoped to the static root that React replaces, not hydrated. */
+.static-page { max-width: 1040px; margin: 0 auto; padding: 24px 28px; color: #354133; line-height: 1.8; }
+.static-page nav { display: flex; flex-wrap: wrap; gap: 12px 24px; padding-bottom: 24px; border-bottom: 1px solid #dbe1d5; }
+.static-page a, .static-page h1, .static-page h2 { color: #376d31; }
+.static-page h1 { font-size: clamp(34px, 4.5vw, 48px); line-height: 1.15; }
+.static-page h2 { margin-top: 32px; }
+.static-page p { white-space: pre-line; }
+.static-page li { margin-bottom: 12px; }
+.static-page figure { margin: 28px 0; }
+.static-page img { display: block; width: auto; max-width: 100%; max-height: 640px; border-radius: 15px; }
+.static-page figcaption { color: #606b5d; font-size: 14px; }
+.static-page footer { border-top: 1px solid #dbe1d5; margin-top: 36px; padding-top: 20px; }
+@media (max-width: 600px) { .static-page { padding: 20px; } }

@@ -894,12 +894,6 @@ export const GridImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition:
-    opacity 1s ease-in-out,
-    transform 1s ease-in-out;
-  opacity: ${(props) => (props.isVisible ? 1 : 0)};
-  transform: ${(props) => (props.isVisible ? 'scale(1)' : 'scale(1.05)')};
-  z-index: ${(props) => (props.isVisible ? 2 : 1)};
 `;
 
 /*
@@ -1247,19 +1241,19 @@ export const NavButton = styled(Link)`
 
   // Different styling for each button type
   background: ${(props) =>
-    props.$type === 'chronicles'
+    props.$type === 'about'
       ? 'linear-gradient(135deg, rgba(189, 139, 19, 0.15) 0%, rgba(189, 139, 19, 0.05) 100%)'
       : 'linear-gradient(135deg, rgba(55, 109, 49, 0.15) 0%, rgba(55, 109, 49, 0.05) 100%)'};
 
   border: 1px solid
     ${(props) =>
-      props.$type === 'chronicles'
+      props.$type === 'about'
         ? 'rgba(189, 139, 19, 0.2)'
         : 'rgba(55, 109, 49, 0.2)'};
 
   box-shadow: 0 4px 15px
     ${(props) =>
-      props.$type === 'chronicles'
+      props.$type === 'about'
         ? 'rgba(189, 139, 19, 0.15)'
         : 'rgba(55, 109, 49, 0.15)'};
 
@@ -1267,7 +1261,7 @@ export const NavButton = styled(Link)`
     transform: translateY(-3px);
     box-shadow: 0 6px 20px
       ${(props) =>
-        props.$type === 'chronicles'
+        props.$type === 'about'
           ? 'rgba(189, 139, 19, 0.25)'
           : 'rgba(55, 109, 49, 0.25)'};
   }
@@ -1276,13 +1270,13 @@ export const NavButton = styled(Link)`
 export const NavButtonIcon = styled.div`
   font-size: 48px;
   margin-bottom: 15px;
-  color: ${(props) => (props.$type === 'chronicles' ? '#BD8B13' : '#376d31')};
+  color: ${(props) => (props.$type === 'about' ? '#BD8B13' : '#376d31')};
 `;
 
 export const NavButtonTitle = styled.h4`
   font-size: 28px;
   font-weight: 700;
-  color: ${(props) => (props.$type === 'chronicles' ? '#BD8B13' : '#376d31')};
+  color: ${(props) => (props.$type === 'about' ? '#BD8B13' : '#376d31')};
   margin: 0 0 10px 0;
   text-align: center;
 `;

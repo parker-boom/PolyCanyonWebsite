@@ -25,3 +25,15 @@ yarn-error.log*
 /src/structures/data/structuresInfo.local.json
 /src/structures/data/structuresList.json
 
+
+/src/app/metadata.generated.json
+
+# Local design review artifacts
+/output/
+/.playwright-cli/
+
+# Local review handoffs (retained on this checkout)
+/capture-handoff.md
+/final-preview-handoff.md
+/follow-up-handoff.md
+/.netlify/
