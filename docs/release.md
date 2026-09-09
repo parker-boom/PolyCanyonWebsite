@@ -2,7 +2,7 @@
 
 ## Selected release
 
-The default App page uses the accepted framed composition with a pale gold outer panel (`#f3ecd9`) and green phone backdrop. Feature controls select the three real app screenshots. The `design` query parameter no longer switches the App or About layout; previously shared comparison URLs reach the selected pages.
+The default App page uses the accepted framed composition with a pale gold outer panel (`#f3ecd9`) and green phone backdrop. Feature controls select the three real app recordings inside the existing phone frame. See [app media notes](app-media.md) for provenance, playback behavior and the app 6.0 release dependency. The `design` query parameter no longer switches the App or About layout; previously shared comparison URLs reach the selected pages.
 
 The release also includes the approved visual-history About page and contact actions, current/historical collection labels, and detail-page photo recovery and typography refinements. Original research and photographs are preserved. Local review handoff files are ignored rather than published.
 

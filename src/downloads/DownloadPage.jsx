@@ -2,42 +2,30 @@ import React, { useEffect, useRef, useState } from 'react';
 import { FaApple } from 'react-icons/fa';
 import styled from 'styled-components';
 import { Phone, DownloadButton } from './DownloadPage.styles.js';
-import map360 from '../assets/generated/app/second-pass/map-360.webp';
-import map720 from '../assets/generated/app/second-pass/map-720.webp';
-import collection360 from '../assets/generated/app/second-pass/collection-360.webp';
-import collection720 from '../assets/generated/app/second-pass/collection-720.webp';
-import tour360 from '../assets/generated/app/second-pass/tour-360.webp';
-import tour720 from '../assets/generated/app/second-pass/tour-720.webp';
 const features = [
   {
-    name: 'On foot',
+    name: 'Explore',
     label: 'Explore on foot',
-    text: 'Use the walking map to find paths and locate the structures.',
-    small: map360,
-    large: map720,
-    alt: 'The app’s illustrated map of Poly Canyon and its numbered structures',
+    file: 'explore',
+    alt: 'Following the satellite map, discovering Techite Bridge, and opening its story',
   },
   {
-    name: 'Structures',
+    name: 'Learn',
     label: 'Learn about the structures',
-    text: 'Read each structure’s history and see photographs of its design and construction.',
-    small: collection360,
-    large: collection720,
-    alt: 'The photographic structure collection in the Poly Canyon app',
+    file: 'learn',
+    alt: 'Searching for Tensile and reading its design and construction story',
   },
   {
-    name: 'Virtual tour',
+    name: 'Tour',
     label: 'Take a virtual tour',
-    text: 'Browse the structures in a photo tour and see where each one sits on the map.',
-    small: tour360,
-    large: tour720,
-    alt: 'The photo-led Tour showing Palm Tree and its location on the map',
+    file: 'tour',
+    alt: 'Swiping through the virtual tour and opening Shell House',
   },
 ];
 const featureDescriptions = [
-  'Find paths and structures on the illustrated map.',
-  'See who built each structure and how it was made.',
-  'Explore the structures through photographs and the map.',
+  'Navigate the canyon, discover its structures, and track your progress as you explore.',
+  'Discover who built each structure, how it was made, and the history behind its design.',
+  'Take a virtual walk through the canyon, exploring its structures and their surroundings.',
 ];
 const Page = styled.article`
   width: min(1120px, calc(100% - 80px));
@@ -48,7 +36,15 @@ const Page = styled.article`
     display: grid;
     grid-template-columns: minmax(0, 1fr) 330px;
     gap: 54px;
-    align-items: center;
+    align-items: stretch;
+  }
+  .copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .download {
+    margin-top: auto;
   }
   h1 {
     font-size: clamp(38px, 4.2vw, 56px);
@@ -57,13 +53,6 @@ const Page = styled.article`
     letter-spacing: -0.04em;
     margin: 0 0 16px;
     color: var(--green);
-  }
-  .intro {
-    font-size: 18px;
-    line-height: 1.65;
-    color: var(--muted);
-    margin: 0 0 24px;
-    max-width: 390px;
   }
   .showcase {
     background: #d6dfcf;
@@ -74,7 +63,7 @@ const Page = styled.article`
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin: 32px 0 12px;
+    margin: 12px 0 0;
   }
   .choices button {
     font: inherit;
@@ -130,13 +119,30 @@ const Page = styled.article`
   .strip::-webkit-scrollbar {
     display: none;
   }
+  .strip video,
   .strip img {
     width: 100%;
     height: auto;
+    aspect-ratio: 110 / 239;
+    object-fit: contain;
     display: block;
     flex: 0 0 100%;
     min-width: 0;
     scroll-snap-align: start;
+  }
+  .playback {
+    display: block;
+    margin: 12px auto 0;
+    padding: 6px 12px;
+    min-height: 36px;
+    border: 0;
+    background: transparent;
+    color: var(--green);
+    font: inherit;
+    font-size: 12px;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
   button:focus-visible,
   a:focus-visible,
@@ -160,8 +166,8 @@ const Page = styled.article`
     h1 {
       font-size: 36px;
     }
-    .intro {
-      font-size: 16px;
+    .download {
+      margin-top: 24px;
     }
     .choices {
       gap: 6px;
@@ -187,6 +193,38 @@ const Page = styled.article`
 export default function DownloadPage() {
   const [active, setActive] = useState(0);
   const ref = useRef(null);
+  const videos = useRef([]);
+  const [paused, setPaused] = useState(
+    () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  );
+  const [failed, setFailed] = useState({});
+  useEffect(() => {
+    const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setPaused(preference.matches);
+    preference.addEventListener('change', update);
+    return () => preference.removeEventListener('change', update);
+  }, []);
+  useEffect(() => {
+    let cancelled = false;
+    const sync = () =>
+      videos.current.forEach((video, index) => {
+        if (!video) return;
+        if (index !== active || paused || document.hidden) {
+          video.pause();
+          if (index !== active) video.currentTime = 0;
+        } else {
+          video.play().catch((error) => {
+            if (!cancelled && error.name !== 'AbortError') setPaused(true);
+          });
+        }
+      });
+    sync();
+    document.addEventListener('visibilitychange', sync);
+    return () => {
+      cancelled = true;
+      document.removeEventListener('visibilitychange', sync);
+    };
+  }, [active, paused]);
   const scrollTimer = useRef(null);
   useEffect(() => () => clearTimeout(scrollTimer.current), []);
   const move = (index) => {
@@ -203,23 +241,12 @@ export default function DownloadPage() {
   return (
     <Page>
       <div className="layout">
-        <div>
+        <div className="copy">
           <h1>
             Poly Canyon
             <br />
             for iPhone
           </h1>
-          <p className="intro">
-            Your interactive guide to everything the canyon has to offer.
-          </p>
-          <DownloadButton
-            href="https://apps.apple.com/us/app/poly-canyon/id6499063781"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaApple aria-hidden="true" />
-            Download on the App Store
-          </DownloadButton>
           <div
             className="choices"
             role="group"
@@ -239,6 +266,15 @@ export default function DownloadPage() {
           <div className="feature-copy" aria-live="polite">
             <p>{featureDescriptions[active]}</p>
           </div>
+          <DownloadButton
+            className="download"
+            href="https://apps.apple.com/us/app/poly-canyon/id6499063781"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaApple aria-hidden="true" />
+            Download on the App Store
+          </DownloadButton>
         </div>
         <div className="showcase">
           <div className="device">
@@ -279,21 +315,53 @@ export default function DownloadPage() {
                     }, 160);
                   }}
                 >
-                  {features.map((f, i) => (
-                    <img
-                      key={f.name}
-                      src={f.small}
-                      srcSet={`${f.small} 360w, ${f.large} 720w`}
-                      sizes="300px"
-                      width="1320"
-                      height="2868"
-                      alt={f.alt}
-                      loading={i === 0 ? 'eager' : 'lazy'}
-                    />
-                  ))}
+                  {features.map((f, i) =>
+                    failed[i] ? (
+                      <img
+                        key={f.name}
+                        src={`/media/app-v6/${f.file}.webp`}
+                        width="720"
+                        height="1564"
+                        alt={f.alt}
+                      />
+                    ) : (
+                      <video
+                        key={f.name}
+                        ref={(video) => {
+                          videos.current[i] = video;
+                        }}
+                        src={
+                          active === i
+                            ? `/media/app-v6/${f.file}.mp4`
+                            : undefined
+                        }
+                        poster={`/media/app-v6/${f.file}.webp`}
+                        width="720"
+                        height="1564"
+                        aria-label={f.alt}
+                        aria-hidden={active !== i}
+                        muted
+                        loop
+                        playsInline
+                        preload="none"
+                        onError={() =>
+                          setFailed((previous) => ({ ...previous, [i]: true }))
+                        }
+                      />
+                    )
+                  )}
                 </div>
               </div>
             </Phone>
+            {!failed[active] && (
+              <button
+                className="playback"
+                onClick={() => setPaused((value) => !value)}
+                aria-label={paused ? 'Play app preview' : 'Pause app preview'}
+              >
+                {paused ? 'Play preview' : 'Pause preview'}
+              </button>
+            )}
           </div>
         </div>
       </div>

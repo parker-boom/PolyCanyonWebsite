@@ -33,3 +33,5 @@ See [content, maintenance, and release notes](docs/maintenance.md) for the data 
 ## Release
 
 The accepted App design is the framed layout with a pale gold panel. Design comparison query parameters are no longer active. See [release readiness](docs/release.md) for the current verification and Netlify handoff.
+
+App preview recordings and their release dependency are documented in [app media notes](docs/app-media.md).
