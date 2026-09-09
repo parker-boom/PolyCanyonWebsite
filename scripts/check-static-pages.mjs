@@ -90,7 +90,7 @@ try {
       .getByRole('navigation', { name: 'Main navigation' })
       .getByRole('link')
       .allTextContents(),
-    ['Home', 'Structures', 'About', 'App']
+    ['Home', 'About', 'App', 'Structures']
   );
   await page.goto(`${base}/app`);
   assert.equal(

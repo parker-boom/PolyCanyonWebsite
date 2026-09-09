@@ -154,6 +154,14 @@ export const FrameControls = styled.div`
     bottom: 8px;
   }
 `;
+export const ExpandControl = styled(FrameControls)`
+  right: auto;
+  left: 12px;
+  @media (max-width: 700px) {
+    right: auto;
+    left: 8px;
+  }
+`;
 export const Thumbnails = styled.div`
   display: flex;
   gap: 8px;

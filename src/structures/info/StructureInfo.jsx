@@ -170,34 +170,38 @@ export default function StructureInfo() {
                   <p>No photographs are available for this structure.</p>
                 )}
                 {current && (
-                  <S.FrameControls>
-                    {structure.images.length > 1 && (
-                      <>
-                        <S.Button
-                          aria-label="Previous photograph"
-                          onClick={() => move(false)}
-                        >
-                          <FaArrowLeft />
-                        </S.Button>
-                        <span aria-live="polite">
-                          {index + 1} / {structure.images.length}
-                        </span>
-                        <S.Button
-                          disabled={structure.images.length < 2}
-                          aria-label="Next photograph"
-                          onClick={() => move(true)}
-                        >
-                          <FaArrowRight />
-                        </S.Button>
-                      </>
-                    )}
-                    <S.Button
-                      aria-label="Expand photograph"
-                      onClick={d.toggleFullscreen}
-                    >
-                      <FaExpand />
-                    </S.Button>
-                  </S.FrameControls>
+                  <>
+                    <S.FrameControls>
+                      {structure.images.length > 1 && (
+                        <>
+                          <S.Button
+                            aria-label="Previous photograph"
+                            onClick={() => move(false)}
+                          >
+                            <FaArrowLeft />
+                          </S.Button>
+                          <span aria-live="polite">
+                            {index + 1} / {structure.images.length}
+                          </span>
+                          <S.Button
+                            disabled={structure.images.length < 2}
+                            aria-label="Next photograph"
+                            onClick={() => move(true)}
+                          >
+                            <FaArrowRight />
+                          </S.Button>
+                        </>
+                      )}
+                    </S.FrameControls>
+                    <S.ExpandControl>
+                      <S.Button
+                        aria-label="Expand photograph"
+                        onClick={d.toggleFullscreen}
+                      >
+                        <FaExpand />
+                      </S.Button>
+                    </S.ExpandControl>
+                  </>
                 )}
               </S.Frame>
             </S.Figure>

@@ -267,20 +267,6 @@ export const Item = styled.div`
     object-fit: cover;
     transition: transform 0.35s ease;
   }
-  .number {
-    position: absolute;
-    left: 12px;
-    top: 12px;
-    font-size: 12px;
-    color: white;
-    background: none;
-    border: 0;
-    padding: 0;
-    text-shadow:
-      0 1px 3px #000d,
-      0 0 1px #000b;
-    font-variant-numeric: tabular-nums;
-  }
   .info {
     padding-top: 13px;
   }
@@ -309,12 +295,6 @@ export const Item = styled.div`
   @media (max-width: 600px) {
     h3 {
       font-size: 17px;
-    }
-    .number {
-      left: 8px;
-      top: 8px;
-      font-size: 12px;
-      padding: 0;
     }
   }
   @media (prefers-reduced-motion: reduce) {

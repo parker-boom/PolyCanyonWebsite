@@ -109,15 +109,8 @@ export async function createStaticContent(structures, manifest) {
       : '';
     return `<figure><img src="/${escapeHTML(smaller?.file || asset.file)}"${responsive}${dimensions} alt="${escapeHTML(caption)}" loading="${eager ? 'eager' : 'lazy'}" decoding="async"></figure>`;
   };
-  const appPhoto = (name, caption) => {
-    const small =
-      manifest[`src/assets/generated/app/second-pass/${name}-360.webp`];
-    const large =
-      manifest[`src/assets/generated/app/second-pass/${name}-720.webp`];
-    if (!small?.file || !large?.file)
-      throw new Error(`Missing app screenshot: ${name}`);
-    return `<figure><img src="/${escapeHTML(small.file)}" srcset="/${escapeHTML(small.file)} 360w, /${escapeHTML(large.file)} 720w" sizes="(max-width:360px) 76vw, (max-width:760px) 280px, 296px" width="1320" height="2868" alt="${escapeHTML(caption)}" loading="lazy" decoding="async"></figure>`;
-  };
+  const appPhoto = (name, caption) =>
+    `<figure><img src="/media/app-v6/${name}.webp" width="720" height="1564" alt="${escapeHTML(caption)}" loading="lazy" decoding="async"></figure>`;
   const recordByRoute = new Map(
     structures.map((record) => [`/structures/${record.url}`, record])
   );
@@ -193,22 +186,21 @@ export async function createStaticContent(structures, manifest) {
           .join('');
       body = `<h1>What is Poly Canyon?</h1>${introduction.map((text) => `<p>${escapeHTML(text)}</p>`).join('')}${discoveries.map((item) => `<a href="/structures/${item.slug}">${photo(images.mainImages[`M-${item.number}`], item.name)}</a><p>${link(`/structures/${item.slug}`, item.name)}</p><p>${escapeHTML(item.text)}</p>`).join('')}<section id="visit"><h2>Visiting</h2>${photo(images.mainImages['M-1'], 'The stone Entry Arch beside the canyon path')}<p>The ${link('/structures/entryArch', 'Entry Arch')} marks your arrival.</p><p>Open to the public year-round. Come during daylight and follow any posted closures.</p><p>From the H-4f parking lot at Cal Poly, follow Poly Canyon Road through the yellow gate to the ${link('/structures/entryArch', 'Entry Arch')}. Bring water and shoes for uneven ground; paths can be muddy after rain.</p><p>${link('https://www.google.com/maps/dir/?api=1&origin=35.30302,-120.65913&destination=35.31344,-120.65192&travelmode=walking', 'Walking directions')} · ${link('https://www.alltrails.com/trail/us/california/architecture-graveyard-hike-private-property', 'Trail on AllTrails')}</p></section><section id="history"><h2>How it got here</h2><p>${escapeHTML(transition)}</p>${eras.map((era) => `<h3>${escapeHTML(era.date)} · ${escapeHTML(era.title)}</h3><p>${linkedStory(era.text)}</p>${photo(eraFiles[era.photo], era.alt)}<p>${linkedStory(era.caption)}</p>`).join('')}</section><section id="project"><h2>About this archive</h2><p>Parker Jones assembled this collection of photographs, structure histories, and original project reports with help from Cal Poly’s Kennedy Library and architecture community. ${link('/structures', 'Browse the archive.')}</p></section><section aria-label="Contact Parker"><p>Questions, corrections, or anything else? Reach out.</p><p>${link('mailto:parker.jones@Live.com', 'parker.jones@Live.com')}</p><p>${link('mailto:parker.jones@Live.com', 'Email Parker')}</p></section>`;
     } else if (route === '/app') {
-      body =
-        '<h1>Poly Canyon for iPhone</h1><p>Your interactive guide to everything the canyon has to offer.</p>';
+      body = '<h1>Poly Canyon for iPhone</h1>';
 
       body += `<p>${link('https://apps.apple.com/us/app/poly-canyon/id6499063781', 'Download on the App Store')}</p>`;
       for (const [name, caption] of [
         [
-          'map',
-          'Explore on foot. Find paths and structures on the illustrated map.',
+          'explore',
+          'Explore. Navigate the canyon, discover its structures, and track your progress as you explore.',
         ],
         [
-          'collection',
-          'Learn about the structures. See who built each structure and how it was made.',
+          'learn',
+          'Learn. Discover who built each structure, how it was made, and the history behind its design.',
         ],
         [
           'tour',
-          'Take a virtual tour. Explore the structures through photographs and the map.',
+          'Tour. Take a virtual walk through the canyon, exploring its structures and their surroundings.',
         ],
       ])
         body += `<p>${escapeHTML(caption)}</p>` + appPhoto(name, caption);
@@ -216,9 +208,9 @@ export async function createStaticContent(structures, manifest) {
     }
     return `<div class="static-page" data-static-page><nav aria-label="Main navigation">${[
       ['/', 'Home'],
-      ['/structures', 'Structures'],
       ['/about', 'About'],
       ['/app', 'App'],
+      ['/structures', 'Structures'],
     ]
       .map(([url, name]) => link(url, name))
       .join(

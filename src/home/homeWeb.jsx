@@ -162,7 +162,7 @@ const Page = styled.div`
   .entrances a {
     display: block;
     text-decoration: none;
-    padding: 8px 0;
+    padding: 16px 18px;
   }
   .entrances h2 {
     font-size: 21px;
@@ -176,6 +176,10 @@ const Page = styled.div`
     line-height: 1.6;
     margin: 0;
     max-width: 390px;
+  }
+  .entrances a:hover,
+  .entrances a:focus-visible {
+    background: #f3ecd9;
   }
   .entrances a:hover h2 {
     text-decoration: underline;
@@ -261,7 +265,7 @@ const Page = styled.div`
       padding-top: 18px;
     }
     .entrances a {
-      padding: 8px 0;
+      padding: 16px 18px;
     }
   }
 `;

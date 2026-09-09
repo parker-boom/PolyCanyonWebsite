@@ -89,9 +89,9 @@ export default function Navigation() {
       <Nav aria-label="Main navigation">
         {[
           ['/', 'Home'],
-          ['/structures', 'Structures'],
           ['/about', 'About'],
           ['/app', 'App'],
+          ['/structures', 'Structures'],
         ].map(([to, label]) => (
           <NavLink key={to} to={to} end={to === '/'}>
             {label}

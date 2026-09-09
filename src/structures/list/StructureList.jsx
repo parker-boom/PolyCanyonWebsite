@@ -166,9 +166,6 @@ export default function StructureList({ historical = false }) {
                   loading="lazy"
                   decoding="async"
                 />
-                <span className="number">
-                  {String(s.number).padStart(2, '0')}
-                </span>
               </div>
               <div className="info">
                 <h3>{s.title}</h3>

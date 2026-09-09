@@ -4,7 +4,7 @@
 
 The archive includes full research pages that can be read without JavaScript. Interactive browsing adds search, sorting, and photo galleries. Current and historical structures have separate collections. The website also provides background on the canyon and a link to the iPhone app.
 
-Main navigation is Home, Structures, About, App. About includes history and visiting directions; the App page explains the iPhone guide. Old Info and download links still redirect to their new homes.
+Main navigation is Home, About, App, Structures. About includes history and visiting directions; the App page explains the iPhone guide. Old Info and download links still redirect to their new homes.
 
 ## Run locally
 
@@ -33,3 +33,5 @@ See [content, maintenance, and release notes](docs/maintenance.md) for the data 
 ## Release
 
 The accepted App design is the framed layout with a pale gold panel. Design comparison query parameters are no longer active. See [release readiness](docs/release.md) for the current verification and Netlify handoff.
+
+App preview recordings and publication notes are documented in [app media notes](docs/app-media.md).
