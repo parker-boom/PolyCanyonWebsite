@@ -87,3 +87,10 @@ Parker rejected the prior tagline. The approved replacement is “Your interacti
 ### App vertical balance refinement
 
 Compared top-aligned and vertically centered left title/tagline/CTA groups at1263×742. Retained centering against the full right preview. Increased available phone width by reducing conservative viewport reservations and tightening the controls/explanation gaps. At1263×742 the phone is240.12px wide, y176.19–679.02; explanation ends735.02 within742px. Reviewed settled Tour,1440×746 and390×844 as well. Mobile retains controls and explanation before the phone. Evidence: `app-top-aligned-1263.png`, `app-centered-1263.png`, `app-centered-tour-1263.png`, `app-centered-1440.png`, `app-centered-mobile.png`.
+
+
+### Final App placement restoration — Parker’s explicit correction
+
+Restored all three feature controls and the selected description to the LEFT column beneath the download CTA. The RIGHT column now contains only the framed phone. Entire left group remains vertically balanced with the phone. Approved tagline unchanged: “Your interactive guide to everything the canyon has to offer.” No other copy or page changes in this correction. All earlier right-column switcher decisions are superseded.
+
+Rebuilt4182 and inspected1440×746 and390×844. Desktop phone ends at614.82px, fully visible; DOM confirms controls and explanation belong to the left column and right contains only the device. Mobile Explore→Tour leaves explanation height56px and phone documenty553.375 unchanged. Evidence: `app-restored-left-desktop.png`, `app-restored-left-mobile.png`, `app-restored-left-mobile-tour.png`. Lint and49-route build validation pass.

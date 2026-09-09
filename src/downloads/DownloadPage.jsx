@@ -66,7 +66,7 @@ const Page = styled.article`
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 4px;
-    margin: 0 0 10px;
+    margin: 28px 0 14px;
     border-bottom: 1px solid var(--line);
   }
   .choices button {
@@ -90,10 +90,10 @@ const Page = styled.article`
   }
   .feature-copy {
     order: 3;
-    min-height: 46px;
-    margin: 10px auto 0;
+    min-height: 56px;
+    margin: 0;
     max-width: 400px;
-    text-align: center;
+    text-align: left;
   }
   .feature-copy p {
     font-size: 14px;
@@ -159,7 +159,7 @@ const Page = styled.article`
     }
     .feature-copy {
       order: 1;
-      margin: 0 0 14px;
+      margin: 0;
       min-height: 56px;
     }
     .device {
@@ -204,8 +204,6 @@ export default function DownloadPage() {
             <FaApple aria-hidden="true" />
             Download on the App Store
           </DownloadButton>
-        </div>
-        <div className="showcase">
           <div
             className="choices"
             role="group"
@@ -221,6 +219,11 @@ export default function DownloadPage() {
               </button>
             ))}
           </div>
+          <div className="feature-copy" aria-live="polite">
+            <p>{features[active].text}</p>
+          </div>
+        </div>
+        <div className="showcase">
           <div className="device">
             <Phone>
               <div className="display screen-window">
@@ -274,9 +277,6 @@ export default function DownloadPage() {
                 </div>
               </div>
             </Phone>
-          </div>
-          <div className="feature-copy" aria-live="polite">
-            <p>{features[active].text}</p>
           </div>
         </div>
       </div>
