@@ -6,47 +6,66 @@ import {
   getResponsiveImage,
 } from '../structures/images/structureImages.js';
 import { intro, visit, history, project } from './articleContent.js';
-const Page = styled.article`
-  width: min(1240px, calc(100% - 80px));
-  margin: 0 auto;
-  padding: 40px 0 56px;
-  .opening {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 380px;
-    gap: 64px;
-    align-items: start;
-    padding-bottom: 36px;
-    border-bottom: 1px solid var(--line);
+const photos = [
+  { number: 8, url: 'cantileverDeck', name: 'Cantilever Deck' },
+  { number: 24, url: 'shellHouse', name: 'Shell House' },
+  { number: 6, url: 'tensile', name: 'Tensile' },
+  { number: 31, url: 'momentMonument', name: 'Moment Monument' },
+];
+const captions = {
+  8: 'Cantilever Deck makes its support system visible: cables carry the deck’s load through the upright structure to its base.',
+  24: 'Shell House began as a thin concrete-shell experiment and later housed student caretakers.',
+  6: 'The Tensile Structure provides shelter with a fabric canopy held by cables, adding a gathering place to the outdoor laboratory.',
+  31: 'Moment Monument, completed in 2024, exposes steel connections so students can study how a frame resists sideways forces.',
+};
+// Pick once per document visit. Returning from a structure keeps the same image.
+function choosePhoto() {
+  let candidates = photos;
+  try {
+    const last = sessionStorage.getItem('about-photo');
+    candidates = photos.filter((p) => String(p.number) !== last);
+  } catch {
+    /* A photo still works when storage is unavailable. */
   }
+  const photo = candidates[Math.floor(Math.random() * candidates.length)];
+  try {
+    sessionStorage.setItem('about-photo', String(photo.number));
+  } catch {
+    /* optional */
+  }
+  return photo;
+}
+const photo = choosePhoto();
+const Page = styled.article`
+  width: min(760px, calc(100% - 80px));
+  margin: 0 auto;
+  padding: 40px 0 64px;
+  color: #213b32;
   h1 {
-    font-size: clamp(32px, 3.6vw, 44px);
+    font-size: clamp(32px, 4vw, 44px);
     line-height: 1.15;
     letter-spacing: -0.04em;
     font-weight: 550;
     margin: 0 0 24px;
     color: var(--green);
   }
-  figure {
-    margin: 0;
+  h2 {
+    font-size: 27px;
+    line-height: 1.25;
+    font-weight: 550;
+    letter-spacing: -0.025em;
+    margin: 0 0 20px;
+    color: var(--green);
   }
-  figure img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1.6;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-  }
-  figcaption {
-    font-size: 12px;
-    color: var(--muted);
-    margin-top: 10px;
-  }
-  p,
-  li {
-    font-size: 16px;
+  p {
+    font-size: 17px;
     line-height: 1.8;
     margin: 0 0 20px;
+  }
+  section {
+    margin-top: 36px;
+    padding-top: 30px;
+    border-top: 1px solid var(--line);
   }
   a {
     color: var(--green);
@@ -56,98 +75,94 @@ const Page = styled.article`
     outline: 2px solid var(--gold);
     outline-offset: 4px;
   }
-  .reading {
-    max-width: 700px;
-    margin: 0 auto;
+  figure {
+    width: 300px;
+    margin: 28px 0 0;
   }
-  h2 {
-    font-size: 25px;
-    letter-spacing: -0.025em;
+  figure img {
+    width: 100%;
+    aspect-ratio: 1.6;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+  figcaption {
+    font-size: 13px;
+    line-height: 1.6;
+    margin-top: 12px;
+    color: var(--muted);
+  }
+  h3 {
+    font-size: 21px;
+    line-height: 1.4;
     font-weight: 550;
-    line-height: 1.3;
-    margin: 36px 0 18px;
+    margin: 30px 0 16px;
     color: var(--green);
+  }
+  .directions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .directions a {
+    min-height: 46px;
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 16px;
+    border: 1px solid #164b3b;
+    text-decoration: none;
+    font-size: 15px;
+  }
+  .directions a:last-child {
+    color: white;
+    background: var(--green);
+  }
+  .directions a:hover {
+    box-shadow: inset 0 0 0 1px var(--green);
   }
   .sources {
     font-size: 13px;
     color: var(--muted);
   }
-  section {
-    scroll-margin-top: 24px;
-  }
-  #visit {
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--line);
-  }
-  #project {
-    margin-top: 36px;
-    padding-top: 4px;
-    border-top: 1px solid var(--line);
-  }
-  @media (max-width: 760px) {
-    .opening {
-      gap: 28px;
-    }
-    .opening p {
-      font-size: 15px;
-    }
-  }
   @media (max-width: 600px) {
     width: calc(100% - 36px);
-    padding-top: 26px;
-    .opening {
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      gap: 24px;
+    padding-top: 28px;
+    p {
+      font-size: 16px;
     }
-    h1 {
-      font-size: 32px;
+    h2 {
+      font-size: 25px;
     }
-    figure img {
-      aspect-ratio: 1.6;
-    }
-    .opening p:last-child {
-      margin-bottom: 0;
-    }
-    p,
-    li {
-      font-size: 15px;
+    figure {
+      width: min(280px, 100%);
     }
   }
 `;
 export default function AboutPage() {
   return (
     <Page>
-      <header className="opening">
-        <div>
-          <h1>About Poly Canyon</h1>
-          <div dangerouslySetInnerHTML={{ __html: intro }} />
-          <a href="#visit">Plan a walk from campus</a>
-        </div>
-        <figure>
-          <Link
-            to="/structures/cantileverDeck"
-            aria-label="Read about Cantilever Deck"
-          >
-            <img
-              {...getResponsiveImage(
-                mainImages['M-8'],
-                '(max-width:600px) calc(100vw - 36px), 460px'
-              )}
-              width="1080"
-              height="720"
-              alt="Cantilever Deck among the canyon’s grassy hills"
-            />
-          </Link>
-          <figcaption>Cantilever Deck and the landscape around it.</figcaption>
-        </figure>
-      </header>
-      <div className="reading">
-        <div dangerouslySetInnerHTML={{ __html: visit }} />
-        <div dangerouslySetInnerHTML={{ __html: history }} />
-        <div dangerouslySetInnerHTML={{ __html: project }} />
-      </div>
+      <h1>What is Poly Canyon?</h1>
+      <div dangerouslySetInnerHTML={{ __html: intro }} />
+      <figure>
+        <Link
+          to={`/structures/${photo.url}`}
+          aria-label={`Read about ${photo.name}`}
+        >
+          <img
+            {...getResponsiveImage(mainImages[`M-${photo.number}`], '300px')}
+            width="480"
+            height="300"
+            alt={photo.name}
+          />
+        </Link>
+        <figcaption>
+          <Link to={`/structures/${photo.url}`}>{captions[photo.number]}</Link>
+        </figcaption>
+      </figure>
+      <div dangerouslySetInnerHTML={{ __html: visit }} />
+      <div dangerouslySetInnerHTML={{ __html: history }} />
+      <div dangerouslySetInnerHTML={{ __html: project }} />
     </Page>
   );
 }

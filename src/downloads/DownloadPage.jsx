@@ -10,25 +10,22 @@ import tour360 from '../assets/generated/app/second-pass/tour-360.webp';
 import tour720 from '../assets/generated/app/second-pass/tour-720.webp';
 const features = [
   {
-    name: 'On foot',
-    title: 'Find your way through the canyon.',
-    text: 'Follow the illustrated paths and locate the structures as you explore.',
+    name: 'Explore on foot',
+    text: 'Use the walking map to find paths and locate the structures.',
     small: map360,
     large: map720,
     alt: 'The app’s illustrated map of Poly Canyon and its numbered structures',
   },
   {
-    name: 'Structures',
-    title: 'Look closer at what you find.',
-    text: 'Open a structure’s photographs and story, and connect a design with the people who built it.',
+    name: 'Learn about the structures',
+    text: 'Read each structure’s history and see photographs of its design and construction.',
     small: collection360,
     large: collection720,
     alt: 'The photographic structure collection in the Poly Canyon app',
   },
   {
-    name: 'Tour',
-    title: 'Explore from wherever you are.',
-    text: 'Move through the structures in photographs. Each stop connects back to its place on the canyon map.',
+    name: 'Take a virtual tour',
+    text: 'Browse the structures in a photo tour and see where each one sits on the map.',
     small: tour360,
     large: tour720,
     alt: 'The photo-led Tour showing Palm Tree and its location on the map',
@@ -37,38 +34,39 @@ const features = [
 const Page = styled.article`
   width: min(1040px, calc(100% - 80px));
   margin: 0 auto;
-  padding: 38px 0 44px;
+  padding: 28px 0 36px;
   .layout {
     display: grid;
     grid-template-columns: 1fr 340px;
     gap: 120px;
-    align-items: center;
+    align-items: start;
   }
   h1 {
     font-size: clamp(36px, 4vw, 48px);
     font-weight: 550;
     line-height: 1.1;
     letter-spacing: -0.04em;
-    margin: 0 0 22px;
+    margin: 0 0 14px;
     color: var(--green);
   }
   .intro {
     font-size: 17px;
     line-height: 1.75;
     color: var(--muted);
-    margin: 0 0 26px;
+    margin: 0 0 20px;
     max-width: 430px;
   }
   .choices {
     display: flex;
-    gap: 8px;
-    margin: 36px 0 22px;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 48px 0 22px;
     border-bottom: 1px solid var(--line);
   }
   .choices button {
     font: inherit;
     font-size: 14px;
-    padding: 12px 14px;
+    padding: 12px 8px;
     min-height: 44px;
     color: var(--muted);
     border: 0;
@@ -92,7 +90,7 @@ const Page = styled.article`
     color: var(--green);
   }
   .feature-copy {
-    min-height: 138px;
+    min-height: 80px;
   }
   .feature-copy p {
     font-size: 15px;
@@ -102,7 +100,7 @@ const Page = styled.article`
     max-width: 380px;
   }
   .device {
-    width: 300px;
+    width: min(300px, calc((100dvh - 160px) * 0.46));
     margin: 0 auto;
   }
   .screen-window {
@@ -137,7 +135,7 @@ const Page = styled.article`
       grid-template-columns: 1fr 300px;
     }
     .device {
-      width: 280px;
+      width: min(280px, calc((100dvh - 160px) * 0.46));
     }
   }
   @media (max-width: 650px) {
@@ -153,10 +151,18 @@ const Page = styled.article`
       font-size: 16px;
     }
     .choices {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       margin-top: 28px;
     }
+    .choices button {
+      padding: 10px 3px;
+      font-size: 13px;
+      line-height: 1.4;
+      min-height: 60px;
+    }
     .feature-copy {
-      min-height: 0;
+      min-height: 68px;
     }
     h2 {
       font-size: 22px;
@@ -200,7 +206,7 @@ export default function DownloadPage() {
             for iPhone
           </h1>
           <p className="intro">
-            Explore the canyon on foot, or take a photo tour from anywhere.
+            Know what you’re looking at.
           </p>
           <DownloadButton
             href="https://apps.apple.com/us/app/poly-canyon/id6499063781"
@@ -226,7 +232,6 @@ export default function DownloadPage() {
             ))}
           </div>
           <div className="feature-copy" aria-live="polite">
-            <h2>{features[active].title}</h2>
             <p>{features[active].text}</p>
           </div>
         </div>

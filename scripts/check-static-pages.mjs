@@ -131,7 +131,6 @@ try {
     live.on('pageerror', (error) => errors.push(error.message));
     for (const route of [
       '/structures/entryArch',
-      '/structures/accessory',
       '/privacy',
       '/about',
       '/support',

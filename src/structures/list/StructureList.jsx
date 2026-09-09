@@ -178,9 +178,6 @@ export default function StructureList({ historical = false }) {
       )}
       {!historical && (
         <C.Tail>
-          <Link to="/structures/accessory">
-            Smaller structures & connections
-          </Link>
 
         </C.Tail>
       )}

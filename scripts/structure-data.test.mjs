@@ -27,11 +27,11 @@ test('duplicate IDs and case-insensitive URLs cannot overwrite generated pages',
     /duplicate or reserved URL/
   );
 });
-test('unsafe paths and reserved accessory URL cannot become output directories', () => {
+test('unsafe paths and reserved history URL cannot become output directories', () => {
   for (const url of [
     '../outside',
     'nested/path',
-    'accessory',
+    'history',
     'thing?query',
     'thing#hash',
   ])

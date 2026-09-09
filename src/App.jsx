@@ -14,12 +14,6 @@ const StructureWeb = lazy(() => import('./structures/info/StructureInfo.jsx'));
 const StructureMobile = lazy(
   () => import('./structures/info/StructureInfoMobile.jsx')
 );
-const AccessoryWeb = lazy(
-  () => import('./structures/accessory/AccessoryStructureInfo.jsx')
-);
-const AccessoryMobile = lazy(
-  () => import('./structures/accessory/AccessoryStructureInfoMobile.jsx')
-);
 const Download = lazy(() => import('./downloads/DownloadPage.jsx'));
 const About = lazy(() => import('./about/AboutPage.jsx'));
 const Support = lazy(() => import('./support/SupportPage.jsx'));
@@ -69,10 +63,6 @@ export default function App() {
                 element={<Structures historical />}
               />
               <Route
-                path="/structures/accessory"
-                element={mobile ? <AccessoryMobile /> : <AccessoryWeb />}
-              />
-              <Route
                 path="/structures/:structureUrl"
                 element={
                   mobile ? (
@@ -99,7 +89,7 @@ export default function App() {
               />
               <Route
                 path="/chronicles/people/*"
-                element={<Navigate to="/about#stewardship" replace />}
+                element={<Navigate to="/about#project" replace />}
               />
               <Route
                 path="/chronicles/story"

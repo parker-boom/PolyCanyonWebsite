@@ -110,7 +110,6 @@ try {
       '/about#visit',
       '/app',
       '/structures',
-      '/structures/accessory',
       '/not-a-page',
     ]) {
       await page.goto(`${base}${route}`);

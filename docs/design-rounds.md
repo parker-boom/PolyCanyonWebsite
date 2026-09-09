@@ -54,3 +54,26 @@ Evidence is in `output/playwright/design-rounds/`: `r3-*-full-desktop.jpg`, `r3-
 ### Final orientation correction after the round-three checkpoint
 
 The coordinator identified a real remaining shift: Entry Arch's facts column moved from x560.5 to x935.16 when its second photograph changed the page from portrait to landscape composition. The layout now uses the record's primary photograph to choose its columns; individual images still fit according to their own ratio. A repeated rendered check of photographs 1, 2 and 3 keeps the facts at x560.5 and gallery width at420 pixels throughout. This preserves the compact portrait composition without forcing every landscape photo into a tall empty frame. Capture: `r3-entry-landscape-stable.jpg`. Lint and the production/static build pass after this correction.
+
+
+## Focused follow-up — 8 September 2026
+
+Parker kept the Home and collection layouts. Home now uses his exact replacement intro and destination copy in React and static output. The separate six-item accessory section, routes, record data, original accessory-only photographs and generated derivatives were explicitly authorized for deletion. All 42 standing/historical research records and their photographs remain unchanged; the historical Accessory Shed is a regular historical record and remains. Earlier accessory notes above document superseded work.
+
+Detail comparison URLs: `/structures/entryArch?layout=side` and `/structures/entryArch?layout=article`. Side keeps facts beside a 760 × 475 desktop gallery; Article centers the same gallery and places dates/aliases below it, with supporting people after the text. Both retain bounded named structure neighbors and preserve the explicit variant parameter through those links. Ordinary URLs do not gain comparison parameters. No variant switch appears in the UI. Mobile shares a single-column order and a 4:3 gallery. Photo arrows and fullscreen live on the frame; captions are hidden in detail and fullscreen but preserved in the research JSON and alternative text. The compact map link remains useful for locating a structure, with Former location for historical records.
+
+### Rendered round 1
+
+Reviewed both desktop layouts at 1440 × 1000, Entry Arch portrait and landscape selection, App/About desktop, and phone layouts at 390 × 844. The gallery preserved dimensions and facts-column position. Critique: the long App labels wrapped as two controls plus one orphan; builder credits delayed the article on mobile. The original short About rewrite lacked the original Chronicles chronology and was rejected.
+
+### Rendered round 2
+
+Changed mobile App controls to three equal columns and reserved a stable explanation height. Moved supporting people below the article on mobile and in the Article variant. Reviewed portrait/landscape Entry Arch, long Electric Infra-Structure title, one-image Cow Fence, first/last historical boundaries, fullscreen photo arrows and exit. Measurements: gallery 760 × 475 and facts x=900.5 at 1440px; 339 × 254.25 at a 390px viewport with native scrollbar. Entry Arch photo 1→3 preserved document y=260, width, height and facts x exactly. About photo survives a detail-and-Back visit and changes on a fresh document visit.
+
+### Additional editorial/App corrections
+
+Read all six original `archive/chronicles/Story/eras.json` eras, the People records, era captions and researchArchive. Proposed substantive About copy and source reconciliation are in root `about-editorial-review.md`, pending coordinator editorial sign-off. Rendered proposal includes the full chronological arc and contextual captions for each varying About photograph; the caption removal applies to detail galleries. Visiting uses year-round public access supported by the indexed 2025 ASEE paper and recommends daylight without inventing opening hours. Original Chronicles files are untouched.
+
+App tagline is Parker’s exact “Know what you’re looking at.” Title, tagline and download button now align with the phone’s top; the feature controls form a separate group. At 1440 × 746, the complete phone runs from y=116 to y=682.77, inside the viewport. The single original framed-phone presentation remains. Final mobile Tour screenshot shows the selected Tour with matching description and screen.
+
+Evidence is under `output/playwright/followup-review/`, including round 1/2/3 desktop/mobile screenshots, gallery metrics and frame-stability measurements. Source-based About remains an editorial proposal for review, not a claim of final approval. No filming, push or publishing in this follow-up.

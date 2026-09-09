@@ -64,6 +64,12 @@ test('two generation passes preserve every research body and resource link', asy
         for (const link of resourceLinks(record.links))
           assert.ok(body.includes(`href="${escapeHTML(link.URL)}"`));
         assert.ok(!body.includes('href="https://google.com"'));
+        assert.ok(
+          !body.includes('<figcaption>'),
+          `${record.url}: captions should stay hidden`
+        );
+        assert.ok(!body.includes('href="/structures/accessory"'));
+
         for (const [photo] of body.matchAll(/<img\b[^>]*>/g)) {
           assert.match(
             photo,

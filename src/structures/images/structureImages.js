@@ -188,13 +188,6 @@ import waterTanks5 from '../../assets/generated/structures/other/waterTanks5.web
 import waterTanks6 from '../../assets/generated/structures/other/waterTanks6.webp';
 import waterTanks7 from '../../assets/generated/structures/other/waterTanks7.webp';
 
-// Accessory images
-import Billboard from '../../assets/generated/structures/accessory/Billboard.webp';
-import CardinalDirection from '../../assets/generated/structures/accessory/CardinalDirection.webp';
-import Crossroads from '../../assets/generated/structures/accessory/Crossroads.webp';
-import Entrance from '../../assets/generated/structures/accessory/Entrance.webp';
-import StoneBridge from '../../assets/generated/structures/accessory/StoneBridge.webp';
-import WoodenBridge from '../../assets/generated/structures/accessory/WoodenBridge.webp';
 
 /*
 EXPORTS
@@ -392,15 +385,7 @@ export const otherImages = {
   waterTanks7,
 };
 
-// Accessory images
-export const accessoryImages = {
-  Billboard,
-  CardinalDirection,
-  Crossroads,
-  Entrance,
-  StoneBridge,
-  WoodenBridge,
-};
+
 
 // Compact photographs for archive cards; originals remain in images/main.
 import T1 from '../../assets/generated/structures/thumbnails/M-1.webp';

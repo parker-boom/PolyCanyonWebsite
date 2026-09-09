@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 export const Page = styled.article`
-  width: min(1240px, calc(100% - 80px));
+  width: min(
+    ${(p) => (p.$variant === 'article' ? '760px' : '1240px')},
+    calc(100% - 80px)
+  );
   margin: 0 auto;
   padding: 24px 0 64px;
   color: #213b32;
@@ -32,6 +35,10 @@ export const Button = styled.button`
   border: 1px solid #dce2da;
   border-radius: 0;
   color: #164b3b;
+  &:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
   &:hover {
     background: #edf1e9;
     border-color: #849b8c;
@@ -60,11 +67,13 @@ export const Topline = styled.div`
 export const Header = styled.header`
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 26px;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 64px;
+  margin-bottom: 16px;
   h1 {
     margin: 0;
-    font-size: clamp(32px, 4.7vw, 58px);
+    font-size: clamp(30px, 3.2vw, 44px);
     line-height: 1.05;
     letter-spacing: -0.045em;
     font-weight: 550;
@@ -82,65 +91,61 @@ export const Header = styled.header`
   }
   @media (max-width: 640px) {
     gap: 12px;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
   }
 `;
 export const Figure = styled.figure`
   margin: 0;
   min-width: 0;
 `;
+export const Frame = styled.div`
+  position: relative;
+  width: 100%;
+  aspect-ratio: 8 / 5;
+  background: #e9ede5;
+  @media (max-width: 700px) {
+    aspect-ratio: 4 / 3;
+  }
+`;
 export const PhotoButton = styled.button`
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
   width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
   border: 0;
   padding: 0;
   background: transparent;
-  aspect-ratio: ${(p) => p.$ratio || 'auto'};
-  max-height: 560px;
   cursor: zoom-in !important;
   img {
     display: block;
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: 560px;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
   }
-  @media (max-width: 700px) {
-    max-height: 480px;
-    img {
-      max-height: 480px;
-    }
-  }
 `;
-export const Caption = styled.figcaption`
+export const FrameControls = styled.div`
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
   display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  padding: 14px 0;
-  font-size: 13px;
-  line-height: 1.6;
-  color: #536258;
-  > span {
-    flex: 1;
-  }
-  > div {
-    display: flex;
-    gap: 6px;
-    align-items: center;
-    flex-shrink: 0;
-  }
+  align-items: center;
+  gap: 2px;
+  background: #fafbf8f5;
+  color: #164b3b;
+  box-shadow: 0 1px 8px #14291d18;
   button {
-    padding: 8px;
+    border: 0;
+    min-width: 44px;
   }
-  @media (max-width: 480px) {
-    flex-direction: column;
-    gap: 8px;
-    > div {
-      align-self: flex-end;
-    }
+  span {
+    font-size: 12px;
+    min-width: 38px;
+    text-align: center;
+  }
+  @media (max-width: 700px) {
+    right: 8px;
+    bottom: 8px;
   }
 `;
 export const Thumbnails = styled.div`
@@ -170,27 +175,45 @@ export const Thumbnails = styled.div`
 `;
 export const DetailGrid = styled.div`
   display: grid;
-  grid-template-columns: ${(p) => (p.$portrait ? 'minmax(0, 420px) minmax(280px, 1fr)' : 'minmax(0, 2fr) minmax(240px, 1fr)')};
-  grid-template-areas: ${(p) => (p.$portrait ? "'gallery facts' 'research research'" : "'gallery facts' 'research facts'")};
-  gap: 26px 48px;
+  grid-template-columns: ${(p) => (p.$variant === 'article' ? 'minmax(0, 1fr)' : 'minmax(0, 760px) minmax(220px, 1fr)')};
+  grid-template-areas: ${(p) => (p.$variant === 'article' ? "'gallery' 'facts' 'research'" : "'gallery facts' 'research facts'")};
+  gap: 24px 48px;
   > .gallery {
     grid-area: gallery;
     min-width: 0;
   }
   > aside {
     grid-area: facts;
-    max-width: 420px;
+    align-self: start;
+    margin-top: ${(p) => (p.$variant === 'article' ? '0' : '80px')};
   }
   > div:not(.gallery) {
     grid-area: research;
   }
-  @media (max-width: 900px) {
-    gap: 30px;
+  ${(p) =>
+    p.$variant === 'article' &&
+    `
+    > aside [data-fact='Builders'], > aside [data-fact='Advisors'] { display: none; }
+    > aside dl { display: grid; grid-template-columns: 1fr 1fr; column-gap: 32px; }
+    > aside dl > div { padding: 12px 0; }
+  `}
+  @media (max-width: 1000px) {
+    gap: 24px 28px;
   }
   @media (max-width: 700px) {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: 'gallery' 'research';
-    gap: 28px;
+    grid-template-areas: 'gallery' 'facts' 'research';
+    gap: 22px;
+    > aside {
+      margin-top: 0;
+    }
+    > aside [data-fact='Builders'],
+    > aside [data-fact='Advisors'] {
+      display: none;
+    }
+    > aside dl {
+      display: block;
+    }
   }
 `;
 export const Columns = styled.div`
@@ -230,6 +253,36 @@ export const Research = styled.div`
   }
 `;
 export const Facts = styled.aside`
+  [data-fact='Dates'] dd {
+    font-size: 26px;
+    line-height: 1.3;
+    color: #164b3b;
+  }
+  [data-fact='Also known as'] dd {
+    font-size: 19px;
+    line-height: 1.45;
+  }
+  [data-fact='Builders'] dd,
+  [data-fact='Advisors'] dd {
+    font-size: 13px;
+    line-height: 1.65;
+    color: #536258;
+  }
+  .historical {
+    font-size: 13px;
+    color: #66756b;
+  }
+  .map-link {
+    display: inline-flex;
+    gap: 18px;
+    align-items: center;
+    min-height: 44px;
+    margin-top: 14px;
+    color: #164b3b;
+    font-size: 14px;
+    text-underline-offset: 4px;
+  }
+
   border-top: 1px solid #dce2da;
   min-width: 0;
   dl {
@@ -356,11 +409,16 @@ export const ViewerBar = styled.div`
 `;
 export const ViewerFooter = styled(ViewerBar)`
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: 1fr;
   align-items: end;
   padding-bottom: max(14px, env(safe-area-inset-bottom));
-  > div { justify-self: end; }
-  p { max-height: 25vh; overflow: auto; }
+  > div {
+    justify-self: center;
+  }
+  p {
+    max-height: 25vh;
+    overflow: auto;
+  }
   @media (max-width: 540px) {
     grid-template-columns: minmax(0, 1fr);
     padding-bottom: max(12px, env(safe-area-inset-bottom));
@@ -422,6 +480,13 @@ export const Story = styled.div`
   }
 `;
 export const SupportingPeople = styled.div`
+  display: ${(p) => (p.$variant === 'article' ? 'block' : 'none')};
+  @media (max-width: 700px) {
+    display: block;
+  }
+  &:has(dl:empty) {
+    display: none;
+  }
   border-top: 1px solid #dce2da;
   margin-top: 36px;
   padding-top: 20px;
@@ -438,7 +503,7 @@ export const SupportingPeople = styled.div`
   }
   dd {
     margin: 0;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1.7;
   }
 `;

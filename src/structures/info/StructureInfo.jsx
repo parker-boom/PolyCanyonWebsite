@@ -7,15 +7,16 @@ import {
   FaShareAlt,
 } from 'react-icons/fa';
 import * as S from './Detail.styles.js';
-import { useMediaQuery } from 'react-responsive';
+import { useLocation } from 'react-router-dom';
 import useStructureDetail from '../hooks/useStructureDetail.js';
 import useDialog from '../hooks/useDialog.js';
-import photoRatios from '../data/photoRatios.json';
-import GoogleMapLandmark from '../extraComponents/GoogleMapLandmark.jsx';
 
 export default function StructureInfo() {
   const d = useStructureDetail();
-  const compact = useMediaQuery({ maxWidth: 700 });
+  const variant =
+    new URLSearchParams(useLocation().search).get('layout') === 'article'
+      ? 'article'
+      : 'side';
   const { structure, currentImageIndex: index, fullscreen } = d;
   const [failed, setFailed] = useState({});
   const touch = useRef(null);
@@ -64,13 +65,6 @@ export default function StructureInfo() {
   const meaningful = (value) =>
     value && !/^(unknown|n\/a)$/i.test(value.trim());
   const current = structure.images[index];
-  const ratio =
-    photoRatios[current?.path.split('/').pop().replace('.webp', '')] || 1.5;
-  const primaryRatio =
-    photoRatios[structure.images[0]?.path.split("/").pop().replace(".webp", "")] || 1.5;
-  const caption = /^main image of\b/i.test(current?.description || '')
-    ? ''
-    : current?.description;
   const fullResearch = structure.extended_description?.trim();
   const advisors = structure.advisor_builders
     ?.filter((p) => p.role.includes('Advisor'))
@@ -105,6 +99,7 @@ export default function StructureInfo() {
   return (
     <>
       <S.Page
+        $variant={variant}
         aria-hidden={fullscreen ? true : undefined}
         inert={fullscreen ? '' : undefined}
       >
@@ -125,28 +120,64 @@ export default function StructureInfo() {
           </S.Button>
         </S.Topline>
         {d.shareStatus && <p role="status">{d.shareStatus}</p>}
-        <S.Header>
-          <h1>{structure.names[0]}</h1>
-          <span aria-label={`Structure ${structure.number}`}>
-            {String(structure.number).padStart(2, '0')}
-          </span>
-        </S.Header>
-        <S.DetailGrid $portrait={primaryRatio < 1}>
+        <S.DetailGrid $variant={variant}>
           <div className="gallery">
+            <S.Header>
+              <h1>{structure.names[0]}</h1>
+              <span aria-label={`Structure ${structure.number}`}>
+                {String(structure.number).padStart(2, '0')}
+              </span>
+            </S.Header>
+
             <S.Figure>
-              {current ? (
-                <S.PhotoButton
-                  $ratio={ratio}
-                  aria-label="Toggle fullscreen mode"
-                  onClick={() => {
-                    d.toggleFullscreen();
-                  }}
-                >
-                  {photo}
-                </S.PhotoButton>
-              ) : (
-                <p>No photographs are available for this structure.</p>
-              )}
+              <S.Frame
+                data-gallery-frame
+                onTouchStart={onTouchStart}
+                onTouchEnd={onTouchEnd}
+              >
+                {current ? (
+                  <S.PhotoButton
+                    aria-label="Toggle fullscreen mode"
+                    onClick={() => {
+                      d.toggleFullscreen();
+                    }}
+                  >
+                    {photo}
+                  </S.PhotoButton>
+                ) : (
+                  <p>No photographs are available for this structure.</p>
+                )}
+                {current && (
+                  <S.FrameControls>
+                    {structure.images.length > 1 && (
+                      <>
+                        <S.Button
+                          aria-label="Previous photograph"
+                          onClick={() => move(false)}
+                        >
+                          <FaArrowLeft />
+                        </S.Button>
+                        <span aria-live="polite">
+                          {index + 1} / {structure.images.length}
+                        </span>
+                        <S.Button
+                          disabled={structure.images.length < 2}
+                          aria-label="Next photograph"
+                          onClick={() => move(true)}
+                        >
+                          <FaArrowRight />
+                        </S.Button>
+                      </>
+                    )}
+                    <S.Button
+                      aria-label="Expand photograph"
+                      onClick={d.toggleFullscreen}
+                    >
+                      <FaExpand />
+                    </S.Button>
+                  </S.FrameControls>
+                )}
+              </S.Frame>
             </S.Figure>
             {structure.images.length > 1 && (
               <S.Thumbnails aria-label="Photographs">
@@ -168,44 +199,9 @@ export default function StructureInfo() {
                 ))}
               </S.Thumbnails>
             )}
-            {current && (
-              <S.Caption>
-                <span>{caption}</span>
-                <S.Button
-                  aria-label="Expand photograph"
-                  onClick={d.toggleFullscreen}
-                >
-                  <FaExpand aria-hidden="true" /> View photo
-                </S.Button>
-              </S.Caption>
-            )}
           </div>
 
           <S.Research>
-            {compact && (
-              <S.Identity>
-                <div>
-                  <span>
-                    {[
-                      meaningful(structure.year) ? structure.year : '',
-                      structure.status === 'Ghost'
-                        ? 'Historical structure'
-                        : '',
-                    ]
-                      .filter(Boolean)
-                      .join(' · ')}
-                  </span>
-                  {structure.location?.latitude !== 0 && structure.location && (
-                    <a href="#structure-location">
-                      {historical ? 'Former location' : 'Location'}
-                    </a>
-                  )}
-                </div>
-                {structure.names.length > 1 && (
-                  <p>Also known as {structure.names.slice(1).join(', ')}</p>
-                )}
-              </S.Identity>
-            )}
             <S.Story>
               {(fullResearch || structure.description)
                 .split(/\n\s*\n/)
@@ -214,23 +210,19 @@ export default function StructureInfo() {
                   <p key={i}>{paragraph.trim()}</p>
                 ))}
             </S.Story>
-            {compact && (builders || advisors) && (
-              <S.SupportingPeople>
-                <dl>
-                  {[
-                    ['Builders', builders],
-                    ['Advisors', advisors],
-                  ]
-                    .filter(([, value]) => meaningful(value))
-                    .map(([label, value]) => (
-                      <div key={label}>
-                        <dt>{label}</dt>
-                        <dd>{value}</dd>
-                      </div>
-                    ))}
-                </dl>
-              </S.SupportingPeople>
-            )}
+            <S.SupportingPeople $variant={variant}>
+              <dl>
+                {facts
+                  .slice(2)
+                  .filter(([, value]) => meaningful(value))
+                  .map(([label, value]) => (
+                    <div key={label}>
+                      <dt>{label}</dt>
+                      <dd>{value}</dd>
+                    </div>
+                  ))}
+              </dl>
+            </S.SupportingPeople>
             {d.getValidLinks().length > 0 && (
               <>
                 <h2>Sources & further reading</h2>
@@ -249,47 +241,32 @@ export default function StructureInfo() {
                 </S.Sources>
               </>
             )}
-            {compact && structure.location && (
-              <S.Location id="structure-location">
-                {structure.location.latitude === 0 ? (
-                  <p>Location unknown</p>
-                ) : (
-                  <GoogleMapLandmark
-                    {...structure.location}
-                    structureName={structure.names[0]}
-                    historical={historical}
-                  />
-                )}
-              </S.Location>
-            )}
           </S.Research>
-          {!compact && (
-            <S.Facts aria-label="Structure details">
-              <dl>
-                {facts
-                  .filter(([, value]) => meaningful(value))
-                  .map(([label, value]) => (
-                    <div key={label}>
-                      <dt>{label}</dt>
-                      <dd>{value}</dd>
-                    </div>
-                  ))}
-              </dl>
-              {structure.location && (
-                <div id="structure-location">
-                  {structure.location.latitude === 0 ? (
-                    <p>Location unknown</p>
-                  ) : (
-                    <GoogleMapLandmark
-                      {...structure.location}
-                      structureName={structure.names[0]}
-                      historical={historical}
-                    />
-                  )}
-                </div>
+          <S.Facts aria-label="Structure details">
+            <dl>
+              {facts
+                .filter(([, value]) => meaningful(value))
+                .map(([label, value]) => (
+                  <div key={label} data-fact={label}>
+                    <dt>{label}</dt>
+                    <dd>{value}</dd>
+                  </div>
+                ))}
+            </dl>
+            {historical && <p className="historical">Historical structure</p>}
+            {structure.location?.latitude !== 0 &&
+              structure.location?.latitude && (
+                <a
+                  className="map-link"
+                  href={`https://www.google.com/maps/search/?api=1&query=${structure.location.latitude},${structure.location.longitude}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {historical ? 'Former location' : 'View on map'}{' '}
+                  <span aria-hidden="true">↗</span>
+                </a>
               )}
-            </S.Facts>
-          )}
+          </S.Facts>
         </S.DetailGrid>
 
         <S.BottomNav aria-label="Adjacent structures">
@@ -345,9 +322,9 @@ export default function StructureInfo() {
             {photo}
           </S.ViewerPhoto>
           <S.ViewerFooter>
-            <p>{caption}</p>
             <div>
               <S.Button
+                disabled={structure.images.length < 2}
                 aria-label="Previous photograph"
                 onClick={() => move(false)}
               >
@@ -356,7 +333,11 @@ export default function StructureInfo() {
               <span>
                 {index + 1} / {structure.images.length}
               </span>
-              <S.Button aria-label="Next photograph" onClick={() => move(true)}>
+              <S.Button
+                disabled={structure.images.length < 2}
+                aria-label="Next photograph"
+                onClick={() => move(true)}
+              >
                 <FaArrowRight />
               </S.Button>
             </div>

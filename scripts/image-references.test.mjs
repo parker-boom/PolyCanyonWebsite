@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFile, access } from 'node:fs/promises';
 import { readStructures } from './structure-data.mjs';
 
-test('every research photo and accessory resolves to a bundled image', async () => {
+test('every research photo resolves to a bundled image', async () => {
   const moduleURL = new URL('../src/structures/images/structureImages.js', import.meta.url);
   const source = await readFile(moduleURL, 'utf8');
   const imports = new Map([...source.matchAll(/import (\w+) from '([^']+\.webp)';/g)]
@@ -23,11 +23,5 @@ test('every research photo and accessory resolves to a bundled image', async () 
       assert.ok(maps.mainImages.get(key) || maps.closeUpImages.get(key) || maps.otherImages.get(key),
         `${record.url}: unregistered image ${image.path}`);
     }
-  }
-  const { accessory_structures: accessories } = JSON.parse(await readFile(
-    new URL('../src/structures/data/accessoryStructures.json', import.meta.url), 'utf8'));
-  for (const item of accessories) {
-    const key = item.image.split('/').pop().replace(/\.webp$/, '');
-    assert.ok(maps.accessoryImages.get(key), `${item.name}: unregistered accessory image`);
   }
 });

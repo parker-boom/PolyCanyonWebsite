@@ -9,7 +9,11 @@ const pages = JSON.parse(
 const data = JSON.parse(
   await readFile(path.join(root, 'public/data/structuresInfo.json'), 'utf8')
 );
-assert.equal(Object.keys(pages).length, data.structures.length + 8);
+assert.equal(Object.keys(pages).length, data.structures.length + 7);
+assert.ok(
+  !pages['/structures/accessory'],
+  'Removed section has no generated route'
+);
 assert.ok(pages['/app'], 'The app has a canonical public route');
 assert.ok(
   !pages['/info'] && !pages['/download'],

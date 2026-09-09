@@ -30,15 +30,6 @@ async function generateStaticData() {
       })
     );
 
-    // Add the accessory structures entry
-    basicList.push({
-      number: -1,
-      url: 'accessory',
-      title: 'Accessory Structures',
-      image_key: 'M-accessory',
-      status: 'Active',
-    });
-
     const ratios = {};
     for (const group of ['main', 'other', 'close']) {
       const dir = path.join(root, 'src/structures/images', group);

@@ -286,8 +286,8 @@ export default function Home() {
           <p className="place">Cal Poly · San Luis Obispo</p>
           <h1>Poly Canyon</h1>
           <p>
-            A hillside of student-built structures. Explore the designs, the
-            people who built them, and the paths between.
+            An outdoor architecture lab at Cal Poly, with student-built
+            structures dating back to the 1960s.
           </p>
           <Link className="explore" to="/structures">
             Explore the structures <span aria-hidden="true">→</span>
@@ -339,18 +339,12 @@ export default function Home() {
       </div>
       <div className="entrances">
         <Link to="/about">
-          <h2>About the canyon</h2>
-          <p>
-            The history of the outdoor construction laboratory, and how to
-            visit.
-          </p>
+          <h2>Learn about the canyon</h2>
+          <p>Its history and how to visit.</p>
         </Link>
         <Link to="/app">
-          <h2>Poly Canyon for iPhone</h2>
-          <p>
-            Find your way with the illustrated map, or explore the photo Tour
-            from wherever you are.
-          </p>
+          <h2>Download the app</h2>
+          <p>A walking map and virtual tour for iPhone.</p>
         </Link>
       </div>
     </Page>

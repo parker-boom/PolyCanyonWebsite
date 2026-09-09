@@ -71,14 +71,18 @@ export default function useStructureDetail() {
   );
   const handlePrevImage = useCallback(() => moveImage(-1), [moveImage]);
   const handleNextImage = useCallback(() => moveImage(1), [moveImage]);
+  const layout = new URLSearchParams(search).get('layout');
+  const variant = ['article', 'side'].includes(layout)
+    ? `?layout=${layout}`
+    : '';
   const neighbors = adjacentStructures(structures, structureUrl);
   const handlePrevStructure = () => {
     if (neighbors.previous)
-      navigate(`/structures/${neighbors.previous.url}`, { state });
+      navigate(`/structures/${neighbors.previous.url}${variant}`, { state });
   };
   const handleNextStructure = () => {
     if (neighbors.next)
-      navigate(`/structures/${neighbors.next.url}`, { state });
+      navigate(`/structures/${neighbors.next.url}${variant}`, { state });
   };
   useEffect(() => {
     if (!fullscreen) return;

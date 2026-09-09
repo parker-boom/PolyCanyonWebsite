@@ -27,11 +27,6 @@ const pages = {
     description:
       'Photographs and research documenting Poly Canyon projects that are no longer standing.',
   },
-  '/structures/accessory': {
-    title: 'Accessory Structures — Poly Canyon',
-    description:
-      'Explore the bridges, signs, and smaller structures that connect Poly Canyon’s outdoor architectural laboratory.',
-  },
   '/support': {
     title: 'Support — Poly Canyon',
     description:

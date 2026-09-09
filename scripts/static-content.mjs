@@ -100,7 +100,7 @@ export async function createStaticContent(structures, manifest) {
     const dimensions = size
       ? ` width="${size.width}" height="${size.height}"`
       : '';
-    return `<figure><img src="/${escapeHTML(smaller?.file || asset.file)}"${responsive}${dimensions} alt="${escapeHTML(caption)}" loading="${eager ? 'eager' : 'lazy'}" decoding="async"><figcaption>${escapeHTML(caption)}</figcaption></figure>`;
+    return `<figure><img src="/${escapeHTML(smaller?.file || asset.file)}"${responsive}${dimensions} alt="${escapeHTML(caption)}" loading="${eager ? 'eager' : 'lazy'}" decoding="async"></figure>`;
   };
   const appPhoto = (name, caption) => {
     const small =
@@ -109,19 +109,10 @@ export async function createStaticContent(structures, manifest) {
       manifest[`src/assets/generated/app/second-pass/${name}-720.webp`];
     if (!small?.file || !large?.file)
       throw new Error(`Missing app screenshot: ${name}`);
-    return `<figure><img src="/${escapeHTML(small.file)}" srcset="/${escapeHTML(small.file)} 360w, /${escapeHTML(large.file)} 720w" sizes="(max-width:360px) 76vw, (max-width:760px) 280px, 296px" width="1320" height="2868" alt="${escapeHTML(caption)}" loading="lazy" decoding="async"><figcaption>${escapeHTML(caption)}</figcaption></figure>`;
+    return `<figure><img src="/${escapeHTML(small.file)}" srcset="/${escapeHTML(small.file)} 360w, /${escapeHTML(large.file)} 720w" sizes="(max-width:360px) 76vw, (max-width:760px) 280px, 296px" width="1320" height="2868" alt="${escapeHTML(caption)}" loading="lazy" decoding="async"></figure>`;
   };
   const recordByRoute = new Map(
     structures.map((record) => [`/structures/${record.url}`, record])
-  );
-  const { accessory_structures: accessories } = JSON.parse(
-    await readFile(
-      new URL(
-        '../src/structures/data/accessoryStructures.json',
-        import.meta.url
-      ),
-      'utf8'
-    )
   );
   return (route, page) => {
     let body = `<h1>${escapeHTML(page.title.replace(/ — Poly Canyon$/, ''))}</h1>${paragraph(page.description)}`;
@@ -154,7 +145,7 @@ export async function createStaticContent(structures, manifest) {
           })
           .join('')}</section>`;
     } else if (route === '/') {
-      body = `<h1>Poly Canyon</h1><p>A hillside of student-built structures. Explore the designs, the people who built them, and the paths between.</p><p>${link('/structures', 'Explore the structures')}</p>${features.map((f) => `${photo(`src/assets/generated/home/M-${f.number}-1600.webp`, f.name)}<p>${escapeHTML(f.text)} ${link(`/structures/${f.url}`, `Read about ${f.name}`)}</p>`).join('')}<p>${link('/about', 'About the canyon')} · ${link('/app', 'Poly Canyon for iPhone')}</p>`;
+      body = `<h1>Poly Canyon</h1><p>An outdoor architecture lab at Cal Poly, with student-built structures dating back to the 1960s.</p><p>${link('/structures', 'Explore the structures')}</p>${features.map((f) => `${photo(`src/assets/generated/home/M-${f.number}-1600.webp`, f.name)}<p>${escapeHTML(f.text)} ${link(`/structures/${f.url}`, `Read about ${f.name}`)}</p>`).join('')}<h2>${link('/about', 'Learn about the canyon')}</h2><p>Its history and how to visit.</p><h2>${link('/app', 'Download the app')}</h2><p>A walking map and virtual tour for iPhone.</p>`;
     } else if (route === '/structures' || route === '/structures/history') {
       body += `<ul>${structures
         .filter((s) =>
@@ -166,24 +157,7 @@ export async function createStaticContent(structures, manifest) {
           (s) =>
             `<li>${link(`/structures/${s.url}`, `${s.number}. ${s.names[0]}`)} — ${escapeHTML(s.description)}</li>`
         )
-        .join(
-          ''
-        )}<li>${link('/structures/accessory', 'Accessory structures')}</li></ul>`;
-    } else if (route === '/structures/accessory') {
-      body += accessories
-        .map(
-          (item) =>
-            `<section><h2>${escapeHTML(item.name)}</h2><p>${escapeHTML(item.year)}</p>${paragraph(item.description)}${photo(
-              images.accessoryImages[
-                item.image
-                  .split('/')
-                  .pop()
-                  .replace(/\.webp$/, '')
-              ],
-              item.name
-            )}</section>`
-        )
-        .join('');
+        .join('')}</ul>`;
     } else if (route === '/privacy') {
       body = `<h1>Privacy Policy</h1><p>Last updated: ${escapeHTML(policyDate)}</p>${paragraph(policyIntroduction)}`;
       body += policySections
@@ -195,27 +169,27 @@ export async function createStaticContent(structures, manifest) {
     } else if (route === '/support') {
       body += `<p>${link(`mailto:${contactEmail}`, 'Contact Parker')} · ${escapeHTML(contactEmail)}</p>`;
     } else if (route === '/about') {
-      body = `<h1>About Poly Canyon</h1>${photo(images.mainImages['M-8'], 'Cantilever Deck in Poly Canyon')}${intro}${visit}${history}${project}`;
+      body = `<h1>What is Poly Canyon?</h1>${intro}<a href="/structures/cantileverDeck">${photo(images.mainImages['M-8'], 'Cantilever Deck in Poly Canyon')}</a><p>${link('/structures/cantileverDeck', 'Cantilever Deck makes its support system visible: cables carry the deck’s load through the upright structure to its base.')}</p>${visit}${history}${project}`;
     } else if (route === '/app') {
       body =
-        '<h1>Poly Canyon for iPhone</h1><p>Explore the canyon on foot, or take a photo tour from anywhere.</p>';
+        '<h1>Poly Canyon for iPhone</h1><p>Know what you’re looking at.</p>';
 
       body += `<p>${link('https://apps.apple.com/us/app/poly-canyon/id6499063781', 'Download on the App Store')}</p>`;
       for (const [name, caption] of [
         [
           'map',
-          'Walk with the map. Find the structures along the canyon’s paths with the illustrated map.',
+          'Explore on foot. Use the walking map to find paths and locate the structures.',
         ],
         [
           'collection',
-          'Discover the structures. Browse the photographs, open a structure, and read its story.',
+          'Learn about the structures. Read each structure’s history and see photographs of its design and construction.',
         ],
         [
           'tour',
-          'Tour from anywhere. Move through the canyon in photographs and see each stop on the map.',
+          'Take a virtual tour. Browse the structures in a photo tour and see where each one sits on the map.',
         ],
       ])
-        body += appPhoto(name, caption);
+        body += `<p>${escapeHTML(caption)}</p>` + appPhoto(name, caption);
       body += `<p>${link('/about#visit', 'Walking directions')} · ${link('/privacy', 'Privacy')}</p>`;
     }
     return `<div class="static-page" data-static-page><nav aria-label="Main navigation">${[

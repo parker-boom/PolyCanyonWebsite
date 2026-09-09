@@ -5,7 +5,7 @@ export function validateStructures(data) {
   if (!Array.isArray(data?.structures) || !data.structures.length)
     throw new Error('Structure data must contain a nonempty structures array.');
   const numbers = new Set();
-  const urls = new Set(['accessory']);
+  const urls = new Set(['history']);
   for (const structure of data.structures) {
     const label = `Structure ${structure?.number ?? '(missing number)'}`;
     if (!Number.isInteger(structure?.number) || structure.number < 1)

@@ -13,7 +13,7 @@ const root = fileURLToPath(new URL('../', import.meta.url));
 const sourceRoot = path.join(root, 'src/structures/images');
 const outputRoot = path.join(root, 'src/assets/generated');
 const jobs = [];
-for (const group of ['main', 'close', 'other', 'accessory']) {
+for (const group of ['main', 'close', 'other']) {
   for (const filename of (await readdir(path.join(sourceRoot, group)))
     .filter((name) => name.endsWith('.webp'))
     .sort()) {
@@ -157,7 +157,7 @@ await writeFile(
 const pairs = Object.entries(dimensions)
   .flatMap(([file, width]) => {
     let smallerFile;
-    if (/^structures\/(main|close|other|accessory)\//.test(file)) {
+    if (/^structures\/(main|close|other)\//.test(file)) {
       smallerFile = file.replace('structures/', 'structures/mobile/');
     } else if (/^structures\/thumbnails\/M-/.test(file)) {
       smallerFile = file.replace('/thumbnails/', '/small-thumbnails/');

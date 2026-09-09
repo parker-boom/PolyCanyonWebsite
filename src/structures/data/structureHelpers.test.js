@@ -60,13 +60,13 @@ test('malformed photo entries can be normalized without a sorting crash', () => 
   assert.doesNotThrow(() => sortImages([null, { type: 'main' }, undefined]));
 });
 
-test('adjacency stays within a collection and excludes accessory sentinels', async () => {
+test('adjacency stays within a collection and excludes invalid records', async () => {
   const { adjacentStructures } = await import('./structureHelpers.js');
   const records = [
     { number: 1, url: 'first', status: 'Active' },
     { number: 2, url: 'last', status: 'Active' },
     { number: 3, url: 'past', status: 'Ghost' },
-    { number: -1, url: 'accessory', status: 'Active' },
+    { number: -1, url: 'invalid', status: 'Active' },
   ];
   assert.deepEqual(adjacentStructures(records, 'first'), {
     previous: null,
@@ -80,7 +80,7 @@ test('adjacency stays within a collection and excludes accessory sentinels', asy
     previous: null,
     next: null,
   });
-  assert.deepEqual(adjacentStructures(records, 'accessory'), {
+  assert.deepEqual(adjacentStructures(records, 'invalid'), {
     previous: null,
     next: null,
   });
