@@ -34,11 +34,11 @@ const features = [
 const Page = styled.article`
   width: min(1040px, calc(100% - 80px));
   margin: 0 auto;
-  padding: 28px 0 36px;
+  padding: 28px 0 24px;
   .layout {
     display: grid;
-    grid-template-columns: 1fr 340px;
-    gap: 120px;
+    grid-template-columns: minmax(0, 1fr) 440px;
+    gap: 100px;
     align-items: start;
   }
   h1 {
@@ -46,28 +46,35 @@ const Page = styled.article`
     font-weight: 550;
     line-height: 1.1;
     letter-spacing: -0.04em;
-    margin: 0 0 14px;
+    margin: 0 0 16px;
     color: var(--green);
   }
   .intro {
-    font-size: 17px;
-    line-height: 1.75;
+    font-size: 18px;
+    line-height: 1.65;
     color: var(--muted);
-    margin: 0 0 20px;
-    max-width: 430px;
+    margin: 0 0 24px;
+    max-width: 390px;
+  }
+  .showcase {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
   }
   .choices {
-    display: flex;
-    flex-wrap: wrap;
+    order: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 4px;
-    margin: 48px 0 22px;
+    margin: 0 0 14px;
     border-bottom: 1px solid var(--line);
   }
   .choices button {
     font: inherit;
     font-size: 14px;
-    padding: 12px 8px;
-    min-height: 44px;
+    line-height: 1.4;
+    padding: 10px 5px;
+    min-height: 60px;
     color: var(--muted);
     border: 0;
     border-bottom: 2px solid transparent;
@@ -81,26 +88,22 @@ const Page = styled.article`
   .choices button:hover {
     background: #edf1e9;
   }
-  h2 {
-    font-size: 24px;
-    line-height: 1.25;
-    font-weight: 550;
-    letter-spacing: -0.025em;
-    margin: 0 0 12px;
-    color: var(--green);
-  }
   .feature-copy {
-    min-height: 80px;
+    order: 3;
+    min-height: 54px;
+    margin: 14px auto 0;
+    max-width: 400px;
+    text-align: center;
   }
   .feature-copy p {
-    font-size: 15px;
+    font-size: 14px;
     color: var(--muted);
-    line-height: 1.75;
+    line-height: 1.65;
     margin: 0;
-    max-width: 380px;
   }
   .device {
-    width: min(300px, calc((100dvh - 160px) * 0.46));
+    order: 1;
+    width: min(300px, calc((100dvh - 270px) * 0.46));
     margin: 0 auto;
   }
   .screen-window {
@@ -129,16 +132,13 @@ const Page = styled.article`
     outline: 2px solid var(--gold);
     outline-offset: 4px;
   }
-  @media (max-width: 900px) {
+  @media (max-width: 1000px) {
     .layout {
-      gap: 50px;
-      grid-template-columns: 1fr 300px;
-    }
-    .device {
-      width: min(280px, calc((100dvh - 160px) * 0.46));
+      gap: 44px;
+      grid-template-columns: minmax(0, 1fr) 380px;
     }
   }
-  @media (max-width: 650px) {
+  @media (max-width: 760px) {
     width: calc(100% - 36px);
     padding-top: 28px;
     .layout {
@@ -150,33 +150,21 @@ const Page = styled.article`
     .intro {
       font-size: 16px;
     }
-    .choices {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      margin-top: 28px;
+    .showcase {
+      margin-top: 32px;
     }
     .choices button {
-      padding: 10px 3px;
       font-size: 13px;
-      line-height: 1.4;
-      min-height: 60px;
+      padding: 10px 3px;
     }
     .feature-copy {
-      min-height: 68px;
-    }
-    h2 {
-      font-size: 22px;
-    }
-    .feature-copy h2 {
-      display: none;
-    }
-    .feature-copy p {
-      font-size: 14px;
-      line-height: 1.6;
+      order: 1;
+      margin: 0 0 14px;
+      min-height: 56px;
     }
     .device {
+      order: 2;
       width: min(280px, calc(100vw - 72px));
-      margin-top: 24px;
     }
   }
 `;
@@ -206,7 +194,7 @@ export default function DownloadPage() {
             for iPhone
           </h1>
           <p className="intro">
-            Know what you’re looking at.
+            Your interactive guide to everything the canyon has to offer.
           </p>
           <DownloadButton
             href="https://apps.apple.com/us/app/poly-canyon/id6499063781"
@@ -216,6 +204,8 @@ export default function DownloadPage() {
             <FaApple aria-hidden="true" />
             Download on the App Store
           </DownloadButton>
+        </div>
+        <div className="showcase">
           <div
             className="choices"
             role="group"
@@ -231,60 +221,63 @@ export default function DownloadPage() {
               </button>
             ))}
           </div>
+          <div className="device">
+            <Phone>
+              <div className="display screen-window">
+                <div
+                  className="strip"
+                  ref={ref}
+                  role="region"
+                  aria-label="App screens"
+                  tabIndex={0}
+                  onKeyDown={(event) => {
+                    if (
+                      event.key === 'ArrowRight' ||
+                      event.key === 'ArrowLeft'
+                    ) {
+                      event.preventDefault();
+                      move(active + (event.key === 'ArrowRight' ? 1 : -1));
+                    }
+                  }}
+                  onScroll={() => {
+                    clearTimeout(scrollTimer.current);
+                    // Keep the chosen caption steady while the phone travels.
+                    // A manual swipe updates the caption after settling as well.
+                    scrollTimer.current = setTimeout(() => {
+                      if (!ref.current) return;
+                      setActive(
+                        Math.min(
+                          features.length - 1,
+                          Math.max(
+                            0,
+                            Math.round(
+                              ref.current.scrollLeft / ref.current.clientWidth
+                            )
+                          )
+                        )
+                      );
+                    }, 160);
+                  }}
+                >
+                  {features.map((f, i) => (
+                    <img
+                      key={f.name}
+                      src={f.small}
+                      srcSet={`${f.small} 360w, ${f.large} 720w`}
+                      sizes="300px"
+                      width="1320"
+                      height="2868"
+                      alt={f.alt}
+                      loading={i === 0 ? 'eager' : 'lazy'}
+                    />
+                  ))}
+                </div>
+              </div>
+            </Phone>
+          </div>
           <div className="feature-copy" aria-live="polite">
             <p>{features[active].text}</p>
           </div>
-        </div>
-        <div className="device">
-          <Phone>
-            <div className="display screen-window">
-              <div
-                className="strip"
-                ref={ref}
-                role="region"
-                aria-label="App screens"
-                tabIndex={0}
-                onKeyDown={(event) => {
-                  if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
-                    event.preventDefault();
-                    move(active + (event.key === 'ArrowRight' ? 1 : -1));
-                  }
-                }}
-                onScroll={() => {
-                  clearTimeout(scrollTimer.current);
-                  // Keep the chosen caption steady while the phone travels.
-                  // A manual swipe updates the caption after settling as well.
-                  scrollTimer.current = setTimeout(() => {
-                    if (!ref.current) return;
-                    setActive(
-                      Math.min(
-                        features.length - 1,
-                        Math.max(
-                          0,
-                          Math.round(
-                            ref.current.scrollLeft / ref.current.clientWidth
-                          )
-                        )
-                      )
-                    );
-                  }, 160);
-                }}
-              >
-                {features.map((f, i) => (
-                  <img
-                    key={f.name}
-                    src={f.small}
-                    srcSet={`${f.small} 360w, ${f.large} 720w`}
-                    sizes="300px"
-                    width="1320"
-                    height="2868"
-                    alt={f.alt}
-                    loading={i === 0 ? 'eager' : 'lazy'}
-                  />
-                ))}
-              </div>
-            </div>
-          </Phone>
         </div>
       </div>
     </Page>

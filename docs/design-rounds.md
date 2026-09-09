@@ -77,3 +77,8 @@ Read all six original `archive/chronicles/Story/eras.json` eras, the People reco
 App tagline is Parker’s exact “Know what you’re looking at.” Title, tagline and download button now align with the phone’s top; the feature controls form a separate group. At 1440 × 746, the complete phone runs from y=116 to y=682.77, inside the viewport. The single original framed-phone presentation remains. Final mobile Tour screenshot shows the selected Tour with matching description and screen.
 
 Evidence is under `output/playwright/followup-review/`, including round 1/2/3 desktop/mobile screenshots, gallery metrics and frame-stability measurements. Source-based About remains an editorial proposal for review, not a claim of final approval. No filming, push or publishing in this follow-up.
+
+
+### App control-placement comparison
+
+Parker rejected the prior tagline. The approved replacement is “Your interactive guide to everything the canyon has to offer.” Implemented and rendered controls below the phone, then above it, at1440×746 and390×844. Below worked on desktop but put mobile switching below the entire phone. Retained above: desktop switcher immediately over the device, explanation below; mobile explanation directly beneath controls and above device. Phone y192.19–649.04 and explanation ending717.04 fit within the746px desktop viewport. Title/tagline/download stay grouped on the left. Exact copy updated in static output. Evidence: `app-controls-above-desktop.png`, `app-controls-below-desktop.png`, and matching mobile full-page images. Earlier App tagline and layout measurements above are superseded.

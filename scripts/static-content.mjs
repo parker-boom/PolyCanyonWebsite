@@ -172,7 +172,7 @@ export async function createStaticContent(structures, manifest) {
       body = `<h1>What is Poly Canyon?</h1>${intro}<a href="/structures/cantileverDeck">${photo(images.mainImages['M-8'], 'Cantilever Deck in Poly Canyon')}</a><p>${link('/structures/cantileverDeck', 'Cantilever Deck makes its support system visible: cables carry the deck’s load through the upright structure to its base.')}</p>${visit}${history}${project}`;
     } else if (route === '/app') {
       body =
-        '<h1>Poly Canyon for iPhone</h1><p>Know what you’re looking at.</p>';
+        '<h1>Poly Canyon for iPhone</h1><p>Your interactive guide to everything the canyon has to offer.</p>';
 
       body += `<p>${link('https://apps.apple.com/us/app/poly-canyon/id6499063781', 'Download on the App Store')}</p>`;
       for (const [name, caption] of [
