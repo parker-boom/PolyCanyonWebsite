@@ -7,13 +7,13 @@ const features = [
     name: 'Explore',
     label: 'Explore on foot',
     file: 'explore',
-    alt: 'Following the satellite map, discovering Techite Bridge, and opening its story',
+    alt: 'Following the satellite map, discovering Underground House, and opening its story',
   },
   {
     name: 'Learn',
     label: 'Learn about the structures',
     file: 'learn',
-    alt: 'Searching for Tensile and reading its design and construction story',
+    alt: 'Searching for Bridge House and reading its design and construction story',
   },
   {
     name: 'Tour',
