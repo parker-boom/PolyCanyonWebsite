@@ -55,27 +55,50 @@ export default function StructureList({ historical = false }) {
   }
   const entries = sortStructures(
     structures.filter((s) => s.number > 0),
-    { query, sort, ascending, status: historical ? 'Ghost' : 'Active' }
+    { query, sort, ascending, status: 'Active' }
   );
+  const historyEntries = sortStructures(
+    structures.filter((s) => s.number > 0),
+    { query, sort, ascending, status: 'Ghost' }
+  );
+  const historyOpen =
+    historical ||
+    params.get('history') === 'open' ||
+    (Boolean(query.trim()) && params.get('history') !== 'closed');
   const count = entries.length;
+  const cards = (items) => (
+    <C.Grid>
+      {items.map((s) => (
+        <C.Item
+          as={Link}
+          to={`/structures/${s.url}`}
+          state={returnState}
+          key={s.number}
+        >
+          <div className="photograph">
+            <img
+              {...getResponsiveImage(
+                thumbnailImages[s.image_key],
+                '(max-width:600px) 46vw, (max-width:1000px) 44vw, 290px'
+              )}
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div className="info">
+            <h3>{s.title}</h3>
+            {s.year && <span className="year">{s.year}</span>}
+          </div>
+        </C.Item>
+      ))}
+    </C.Grid>
+  );
+
   return (
     <C.Page>
       <C.Heading>
-        <div>
-          <h1>{historical ? 'Historical structures' : 'Structures'}</h1>
-          {historical && (
-            <p>
-              {historical
-                ? 'Projects that are no longer standing, preserved in photographs and research.'
-                : ''}
-            </p>
-          )}
-        </div>
-        <Link to={historical ? '/structures' : '/structures/history'}>
-          {historical
-            ? 'Back to current structures'
-            : 'See historical structures'}
-        </Link>
+        <h1>Structures</h1>
       </C.Heading>
       <C.Tools>
         <div className="search">
@@ -91,7 +114,7 @@ export default function StructureList({ historical = false }) {
             }}
           />
         </div>
-        {!historical && (
+        {
           <button
             className="random"
             aria-label="Open a random structure"
@@ -100,7 +123,7 @@ export default function StructureList({ historical = false }) {
           >
             <FaDiceFive aria-hidden="true" />
           </button>
-        )}
+        }
         <label className="sort">
           <span className="sr-only">Sort structures</span>
           <select
@@ -141,7 +164,7 @@ export default function StructureList({ historical = false }) {
       </span>
       {count === 0 ? (
         <C.Empty>
-          <h2>No matches</h2>
+          <h2>{historyEntries.length ? 'No current structures match' : 'No matches'}</h2>
           <button
             onClick={() => {
               setQuery('');
@@ -152,34 +175,45 @@ export default function StructureList({ historical = false }) {
           </button>
         </C.Empty>
       ) : (
-        <C.Grid>
-          {entries.map((s) => (
-            <C.Item
-              as={Link}
-              to={`/structures/${s.url}`}
-              state={returnState}
-              key={s.number}
-            >
-              <div className="photograph">
-                <img
-                  {...getResponsiveImage(
-                    thumbnailImages[s.image_key],
-                    '(max-width:600px) 46vw, (max-width:1000px) 44vw, 390px'
-                  )}
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div className="info">
-                <h3>{s.title}</h3>
-                {s.year && <span className="year">{s.year}</span>}
-              </div>
-            </C.Item>
-          ))}
-        </C.Grid>
+        cards(entries)
       )}
-      {!historical && <C.Tail></C.Tail>}
+      <C.Tail id="historical">
+        <h2>
+          <button
+            type="button"
+            aria-expanded={historyOpen}
+            aria-controls="historical-structures"
+            onClick={() => {
+              const next = new URLSearchParams(params);
+              if (historyOpen) {
+                if (query.trim()) next.set('history', 'closed');
+                else next.delete('history');
+              } else next.set('history', 'open');
+              if (historical)
+                navigate(`/structures${next.size ? `?${next}` : ''}`, {
+                  replace: true,
+                });
+              else setParams(next, { replace: true });
+            }}
+          >
+            Historical structures{' '}
+            <span aria-hidden="true">{historyOpen ? '−' : '+'}</span>
+          </button>
+        </h2>
+        {historyOpen && (
+          <div id="historical-structures">
+            <p>
+              Projects that are no longer standing, preserved in photographs and
+              research.
+            </p>
+            {historyEntries.length ? (
+              cards(historyEntries)
+            ) : (
+              <p>No historical structures match your search.</p>
+            )}
+          </div>
+        )}
+      </C.Tail>
     </C.Page>
   );
 }

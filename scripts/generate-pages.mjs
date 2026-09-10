@@ -11,10 +11,19 @@ const shell = await readFile(path.join(out, 'index.html'), 'utf8');
 const pages = JSON.parse(
   await readFile(path.join(root, 'src/app/metadata.generated.json'), 'utf8')
 );
-const renderBody = await createStaticContent(
-  await readStructures(),
-  JSON.parse(await readFile(path.join(out, '.vite/manifest.json'), 'utf8'))
+const manifest = JSON.parse(
+  await readFile(path.join(out, '.vite/manifest.json'), 'utf8')
 );
+const renderBody = await createStaticContent(await readStructures(), manifest);
+const routeModules = {
+  '/': 'src/home/homeWeb.jsx',
+  '/about': 'src/about/AboutPage.jsx',
+  '/app': 'src/downloads/DownloadPage.jsx',
+  '/structures': 'src/structures/list/StructureList.jsx',
+  '/structures/history': 'src/structures/list/StructureList.jsx',
+  '/support': 'src/support/SupportPage.jsx',
+  '/privacy': 'src/utils/privacyPolicy.jsx',
+};
 const site = 'https://polycanyon.com';
 const escape = (value) =>
   value
@@ -46,8 +55,19 @@ function htmlFor(route, page, robots = 'index,follow') {
       ''
     )
     .replace(/<link\s+rel="canonical"[^>]*>/g, '');
+  const routeModule =
+    manifest[
+      routeModules[route] ||
+        (route.startsWith('/structures/')
+          ? 'src/structures/info/StructureInfo.jsx'
+          : '')
+    ]?.file;
+  const preload = routeModule
+    ? `<link rel="modulepreload" data-route-preload href="/${routeModule}" />`
+    : '';
   const body = clean
-    .replace('</head>', tags + '\n</head>')
+    .replace(/<link[^>]*data-route-preload[^>]*>/g, '')
+    .replace('</head>', tags + preload + '\n</head>')
     .replace(/<noscript\b[^>]*>[\s\S]*?<\/noscript\s*>/, '');
   // These boundaries are emitted after Vite, so nested article divs and a
   // second generation pass cannot turn the homepage into every route's body.

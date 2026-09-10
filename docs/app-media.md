@@ -2,7 +2,7 @@
 
 The three screen recordings in `public/media/app-v6/` were captured from app commit `aa86e4cb4b34f665252c017e71fc409b93738303`. They preserve the entire 720 × 1564 native screen (110:239); the website supplies the phone outline. Explore uses synthetic location movement for the demonstration.
 
-MP4 is the primary format (about 1.7–2.8 MiB each), with matching WebP posters for reduced motion, failed playback and static HTML. The 8–10 MiB GIF exports remain with the source delivery rather than adding unnecessary page weight. Only the selected clip plays; switching resets the previous clip. Visitors can pause playback, and reduced-motion preferences default to a still poster. Background tabs pause playback.
+MP4 is the primary format (about 1.7–2.8 MiB each), with matching WebP posters for reduced motion, failed playback and static HTML. The 8–10 MiB GIF exports remain with the source delivery rather than adding unnecessary page weight. Only the selected clip plays; switching resets the previous clip while retaining its buffer. The active clip preloads automatically; other clips load metadata. Tap the phone screen or press Space/Enter while it is focused to pause or resume playback, and reduced-motion preferences default to a still poster. Background tabs pause playback.
 
 Earlier still captures are preserved in `archive/media/app-captures/`. The MP4s and posters committed in `public/media/app-v6/` are the website release assets. Keep capture notes and source masters when preparing replacements.
 

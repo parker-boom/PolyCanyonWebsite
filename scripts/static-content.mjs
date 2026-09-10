@@ -147,18 +147,15 @@ export async function createStaticContent(structures, manifest) {
     } else if (route === '/') {
       body = `<h1>Poly Canyon</h1><p>An outdoor architecture lab at Cal Poly, with student-built structures dating back to the 1960s.</p><p>${link('/structures', 'Explore the structures')}</p>${features.map((f) => `${photo(`src/assets/generated/home/M-${f.number}-1600.webp`, f.name)}<p>${escapeHTML(f.text)} ${link(`/structures/${f.url}`, `Read about ${f.name}`)}</p>`).join('')}<h2>${link('/about', 'Learn about the canyon')}</h2><p>Its history and how to visit.</p><h2>${link('/app', 'Download the app')}</h2><p>A walking map and virtual tour for iPhone.</p>`;
     } else if (route === '/structures' || route === '/structures/history') {
-      body += `<p>${route === '/structures/history' ? link('/structures', 'Back to current structures') : link('/structures/history', 'See historical structures')}</p>`;
-      body += `<ul>${structures
-        .filter((s) =>
-          route === '/structures/history'
-            ? s.status === 'Ghost'
-            : s.status === 'Active'
-        )
-        .map(
-          (s) =>
-            `<li>${link(`/structures/${s.url}`, `${s.number}. ${s.names[0]}`)} — ${escapeHTML(s.description)}</li>`
-        )
-        .join('')}</ul>`;
+      const collection = (status) =>
+        `<ul>${structures
+          .filter((s) => s.status === status)
+          .map(
+            (s) =>
+              `<li>${link(`/structures/${s.url}`, `${s.number}. ${s.names[0]}`)} — ${escapeHTML(s.description)}</li>`
+          )
+          .join('')}</ul>`;
+      body = `<h1>Structures</h1>${collection('Active')}<details id="historical"${route === '/structures/history' ? ' open' : ''}><summary>Historical structures</summary>${collection('Ghost')}</details>`;
     } else if (route === '/privacy') {
       body = `<h1>Privacy Policy</h1><p>Last updated: ${escapeHTML(policyDate)}</p>${paragraph(policyIntroduction)}`;
       body += policySections
@@ -184,7 +181,7 @@ export async function createStaticContent(structures, manifest) {
               : escapeHTML(part)
           )
           .join('');
-      body = `<h1>What is Poly Canyon?</h1>${introduction.map((text) => `<p>${escapeHTML(text)}</p>`).join('')}${discoveries.map((item) => `<a href="/structures/${item.slug}">${photo(images.mainImages[`M-${item.number}`], item.name)}</a><p>${link(`/structures/${item.slug}`, item.name)}</p><p>${escapeHTML(item.text)}</p>`).join('')}<section id="visit"><h2>Visiting</h2>${photo(images.mainImages['M-1'], 'The stone Entry Arch beside the canyon path')}<p>The ${link('/structures/entryArch', 'Entry Arch')} marks your arrival.</p><p>Open to the public year-round. Come during daylight and follow any posted closures.</p><p>From the H-4f parking lot at Cal Poly, follow Poly Canyon Road through the yellow gate to the ${link('/structures/entryArch', 'Entry Arch')}. Bring water and shoes for uneven ground; paths can be muddy after rain.</p><p>${link('https://www.google.com/maps/dir/?api=1&origin=35.30302,-120.65913&destination=35.31344,-120.65192&travelmode=walking', 'Walking directions')} · ${link('https://www.alltrails.com/trail/us/california/architecture-graveyard-hike-private-property', 'Trail on AllTrails')}</p></section><section id="history"><h2>How it got here</h2><p>${escapeHTML(transition)}</p>${eras.map((era) => `<h3>${escapeHTML(era.date)} · ${escapeHTML(era.title)}</h3><p>${linkedStory(era.text)}</p>${photo(eraFiles[era.photo], era.alt)}<p>${linkedStory(era.caption)}</p>`).join('')}</section><section id="project"><h2>About this archive</h2><p>Parker Jones assembled this collection of photographs, structure histories, and original project reports with help from Cal Poly’s Kennedy Library and architecture community. ${link('/structures', 'Browse the archive.')}</p></section><section aria-label="Contact Parker"><p>Questions, corrections, or anything else? Reach out.</p><p>${link('mailto:parker.jones@Live.com', 'parker.jones@Live.com')}</p><p>${link('mailto:parker.jones@Live.com', 'Email Parker')}</p></section>`;
+      body = `<h1>What is Poly Canyon?</h1>${introduction.map((text) => `<p>${escapeHTML(text)}</p>`).join('')}${discoveries.map((item) => `<a href="/structures/${item.slug}">${photo(images.mainImages[`M-${item.number}`], item.name)}</a><p>${link(`/structures/${item.slug}`, item.name)}</p><p>${escapeHTML(item.text)}</p>`).join('')}<section id="visit"><h2>Visiting</h2>${photo(images.mainImages['M-1'], 'The stone Entry Arch beside the canyon path')}<p>The ${link('/structures/entryArch', 'Entry Arch')} marks your arrival.</p><p>Open to the public year-round. Come during daylight and follow any posted closures.</p><p>From the H-4f parking lot at Cal Poly, follow Poly Canyon Road through the yellow gate to the ${link('/structures/entryArch', 'Entry Arch')}. Bring water and shoes for uneven ground; paths can be muddy after rain.</p><p>${link('https://www.google.com/maps/dir/?api=1&origin=35.30302,-120.65913&destination=35.31344,-120.65192&travelmode=walking', 'Walking directions')} · ${link('https://www.alltrails.com/trail/us/california/architecture-graveyard-hike-private-property', 'Trail on AllTrails')}</p></section><section id="history"><h2>The history of the canyon</h2><p>${escapeHTML(transition)}</p>${eras.map((era) => `<h3>${escapeHTML(era.date)} · ${escapeHTML(era.title)}</h3><p>${linkedStory(era.text)}</p>${photo(eraFiles[era.photo], era.alt)}<p>${linkedStory(era.caption)}</p>`).join('')}</section><section id="project"><h2>About this archive</h2><p>Parker Jones assembled this collection of photographs, structure histories, and original project reports with help from Cal Poly’s Kennedy Library and architecture community. ${link('/structures', 'Browse the archive.')}</p><div aria-label="Contact Parker"><p>Questions, corrections, or anything else? Reach out.</p><p>${link('mailto:parker.jones@Live.com', 'parker.jones@Live.com')}</p><p>${link('mailto:parker.jones@Live.com', 'Email Parker')}</p></div></section>`;
     } else if (route === '/app') {
       body = '<h1>Poly Canyon for iPhone</h1>';
 

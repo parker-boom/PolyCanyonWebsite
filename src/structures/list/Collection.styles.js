@@ -135,7 +135,7 @@ export const Tools = styled.div`
 `;
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 34px 26px;
   @media (max-width: 1000px) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -200,7 +200,37 @@ export const Item = styled.div`
     }
   }
 `;
-export const Tail = styled.div`
+export const Tail = styled.section`
+  scroll-margin-top: 32px;
+  h2 {
+    margin: 0;
+    font-size: 25px;
+    font-weight: 550;
+  }
+  h2 button {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    font: inherit;
+    color: var(--green);
+    background: none;
+    border: 0;
+    padding: 12px 0;
+    cursor: pointer;
+  }
+  h2 button:hover {
+    color: #846019;
+  }
+  h2 button:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 4px;
+  }
+  #historical-structures > p {
+    margin: 6px 0 24px;
+  }
+
   margin-top: 40px;
   padding-top: 24px;
   border-top: 1px solid var(--line);

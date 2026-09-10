@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useLayoutEffect } from 'react';
 import { Routes, Route, Navigate, Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import Navigation from './layout/Navigation.jsx';
@@ -23,6 +23,22 @@ const Content = styled.main`
   flex: 1;
   min-width: 0;
   margin-top: 0;
+  > :not([role='status']) {
+    animation: page-appear 160ms ease-out;
+  }
+  @keyframes page-appear {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    > * {
+      animation: none;
+    }
+  }
 `;
 const Loading = styled.div`
   padding: 60px 24px;
@@ -33,6 +49,9 @@ const Loading = styled.div`
 `;
 
 export default function App() {
+  useLayoutEffect(() => {
+    document.documentElement.classList.remove('app-booting');
+  }, []);
   const { pathname, search } = useLocation();
   return (
     <Shell>

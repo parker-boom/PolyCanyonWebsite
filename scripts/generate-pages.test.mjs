@@ -48,7 +48,7 @@ test('two generation passes preserve every research body and resource link', asy
         out,
       ]);
       const about = await readFile(path.join(out, 'about/index.html'), 'utf8');
-      assert.ok(about.includes('How it got here'));
+      assert.ok(about.includes('The history of the canyon'));
       assert.ok(about.includes('assets/history/A/A6.webp'));
       assert.ok(about.includes('href="/structures/stickStructure"'));
       assert.ok(about.includes('Questions, corrections, or anything else?'));

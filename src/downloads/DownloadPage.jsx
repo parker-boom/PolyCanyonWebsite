@@ -104,6 +104,7 @@ const Page = styled.article`
     margin: 0;
   }
   .device {
+    position: relative;
     width: 240px;
     margin: 0 auto;
   }
@@ -130,22 +131,25 @@ const Page = styled.article`
     min-width: 0;
     scroll-snap-align: start;
   }
-  .playback {
-    display: block;
-    margin: 12px auto 0;
-    padding: 6px 12px;
-    min-height: 36px;
-    border: 0;
-    background: transparent;
+  .buffering {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    padding: 7px 12px;
+    border-radius: 16px;
+    background: #fafbf8ed;
     color: var(--green);
-    font: inherit;
     font-size: 12px;
+    pointer-events: none;
+  }
+  .strip video {
     cursor: pointer;
-    text-decoration: underline;
-    text-underline-offset: 3px;
   }
   button:focus-visible,
   a:focus-visible,
+  video:focus-visible,
   .strip:focus-visible {
     outline: 2px solid var(--gold);
     outline-offset: 4px;
@@ -198,6 +202,7 @@ export default function DownloadPage() {
     () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
   );
   const [failed, setFailed] = useState({});
+  const [buffering, setBuffering] = useState({ 0: true });
   useEffect(() => {
     const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
     const update = () => setPaused(preference.matches);
@@ -330,11 +335,7 @@ export default function DownloadPage() {
                         ref={(video) => {
                           videos.current[i] = video;
                         }}
-                        src={
-                          active === i
-                            ? `/media/app-v6/${f.file}.mp4`
-                            : undefined
-                        }
+                        src={`/media/app-v6/${f.file}.mp4`}
                         poster={`/media/app-v6/${f.file}.webp`}
                         width="720"
                         height="1564"
@@ -343,7 +344,29 @@ export default function DownloadPage() {
                         muted
                         loop
                         playsInline
-                        preload="none"
+                        autoPlay={active === i && !paused}
+                        preload={active === i ? 'auto' : 'metadata'}
+                        tabIndex={active === i ? 0 : -1}
+                        title={paused ? 'Play preview' : 'Pause preview'}
+                        onClick={() => setPaused((value) => !value)}
+                        onKeyDown={(event) => {
+                          if (event.key === ' ' || event.key === 'Enter') {
+                            event.preventDefault();
+                            setPaused((value) => !value);
+                          }
+                        }}
+                        onWaiting={() =>
+                          setBuffering((previous) => ({
+                            ...previous,
+                            [i]: true,
+                          }))
+                        }
+                        onPlaying={() =>
+                          setBuffering((previous) => ({
+                            ...previous,
+                            [i]: false,
+                          }))
+                        }
                         onError={() =>
                           setFailed((previous) => ({ ...previous, [i]: true }))
                         }
@@ -353,14 +376,10 @@ export default function DownloadPage() {
                 </div>
               </div>
             </Phone>
-            {!failed[active] && (
-              <button
-                className="playback"
-                onClick={() => setPaused((value) => !value)}
-                aria-label={paused ? 'Play app preview' : 'Pause app preview'}
-              >
-                {paused ? 'Play preview' : 'Pause preview'}
-              </button>
+            {buffering[active] && !paused && !failed[active] && (
+              <span className="buffering" role="status">
+                Loading preview…
+              </span>
             )}
           </div>
         </div>

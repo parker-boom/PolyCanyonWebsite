@@ -5,6 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#376d31" />
     <link rel="icon" href="/favicon.png" />
+    <script>
+      document.documentElement.classList.add('app-booting');
+      window.addEventListener(
+        'error',
+        (event) => {
+          if (event.target instanceof HTMLScriptElement)
+            document.documentElement.classList.remove('app-booting');
+        },
+        true
+      );
+      window.setTimeout(
+        () => document.documentElement.classList.remove('app-booting'),
+        8000
+      );
+    </script>
+    <style>
+      html {
+        background: #fafbf8;
+      }
+      html.app-booting [data-static-page] {
+        display: none;
+      }
+    </style>
     <!-- page-metadata:start -->
     <title>Poly Canyon — Explore the Structures</title>
     <meta

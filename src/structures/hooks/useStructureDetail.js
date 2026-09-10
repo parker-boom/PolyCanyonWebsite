@@ -30,7 +30,9 @@ export default function useStructureDetail() {
   const backToList = () =>
     navigate(
       state?.returnTo ||
-        (structure?.status === 'Ghost' ? '/structures/history' : '/structures'),
+        (structure?.status === 'Ghost'
+          ? '/structures?history=open#historical'
+          : '/structures'),
       {
         state: { restoreScrollKey: state?.returnKey },
       }

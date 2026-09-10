@@ -272,9 +272,7 @@ const Page = styled.article`
     gap: 50px;
   }
   .contact {
-    margin-top: 28px;
-    padding-top: 22px;
-    border-top: 1px solid #dce3dc;
+    margin-top: 18px;
   }
   .contact .email {
     display: block;
@@ -522,7 +520,7 @@ export default function AboutPage() {
       </section>
       <section id="history" aria-labelledby="story-heading">
         <div className="history-heading">
-          <h2 id="story-heading">How it got here</h2>
+          <h2 id="story-heading">The history of the canyon</h2>
           <Link to="/structures">See the structures</Link>
         </div>
         <p className="transition">{transition}</p>
@@ -577,27 +575,29 @@ export default function AboutPage() {
         aria-labelledby="archive-heading"
       >
         <h2 id="archive-heading">About this archive</h2>
-        <p>
-          Parker Jones assembled this collection of photographs, structure
-          histories, and original project reports with help from Cal Poly’s
-          Kennedy Library and architecture community.{' '}
-          <Link to="/structures">Browse the archive.</Link>
-        </p>
-      </section>
-      <section className="contact" aria-label="Contact Parker">
-        <p>Questions, corrections, or anything else? Reach out.</p>
-        <a className="email" href="mailto:parker.jones@Live.com">
-          parker.jones@Live.com
-        </a>
-        <div className="links">
-          <a href="mailto:parker.jones@Live.com">Email Parker</a>
-          <button type="button" onClick={copyEmail}>
-            Copy email
-          </button>
+        <div>
+          <p>
+            Parker Jones assembled this collection of photographs, structure
+            histories, and original project reports with help from Cal Poly’s
+            Kennedy Library and architecture community.{' '}
+            <Link to="/structures">Browse the archive.</Link>
+          </p>
+          <div className="contact" aria-label="Contact Parker">
+            <p>Questions, corrections, or anything else? Reach out.</p>
+            <a className="email" href="mailto:parker.jones@Live.com">
+              parker.jones@Live.com
+            </a>
+            <div className="links">
+              <a href="mailto:parker.jones@Live.com">Email Parker</a>
+              <button type="button" onClick={copyEmail}>
+                Copy email
+              </button>
+            </div>
+            <p className="copy-status" role="status" aria-live="polite">
+              {copyStatus}
+            </p>
+          </div>
         </div>
-        <p className="copy-status" role="status" aria-live="polite">
-          {copyStatus}
-        </p>
       </section>
     </Page>
   );

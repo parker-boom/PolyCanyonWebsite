@@ -5,6 +5,53 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
 const base = process.env.BASE_URL || 'http://127.0.0.1:4173';
 const browser = await chromium.launch({ channel: 'chrome', headless: true });
 try {
+  // With JS delayed, the plain fallback must never paint as a second design.
+  for (const route of [
+    '/',
+    '/about',
+    '/app',
+    '/structures',
+    '/structures/entryArch',
+  ]) {
+    const page = await browser.newPage();
+    page.setDefaultTimeout(15000);
+    let release;
+    const gate = new Promise((resolve) => {
+      release = resolve;
+    });
+    await page.route(/\/assets\/.*\.js$/, async (request) => {
+      await gate;
+      await request.continue();
+    });
+    await page.goto(base + route, { waitUntil: 'commit' });
+    await page.locator('[data-static-page]').waitFor({ state: 'attached' });
+    assert.equal(
+      await page.locator('[data-static-page]').isVisible(),
+      false,
+      `${route}: fallback flashes before startup`
+    );
+    release();
+    await page.waitForFunction(
+      () =>
+        !document.querySelector('[data-static-page]') &&
+        !document.documentElement.classList.contains('app-booting')
+    );
+    await page.getByRole('heading', { level: 1 }).waitFor();
+    await page.close();
+  }
+  console.log('Slow startup: no fallback-layout flash on five page types');
+  const failedStartup = await browser.newPage();
+  failedStartup.setDefaultTimeout(15000);
+  await failedStartup.route(/\/assets\/.*\.js$/, (request) => request.abort());
+  await failedStartup.goto(base + '/structures/entryArch');
+  await failedStartup
+    .locator('[data-static-page]')
+    .waitFor({ state: 'visible' });
+  assert.ok(
+    (await failedStartup.locator('main').innerText()).includes('Entry Arch')
+  );
+  await failedStartup.close();
+  console.log('Failed startup: readable research fallback remains available');
   // A missing old chunk should recover without asking the visitor to retry.
   if (!base.includes(':5173')) {
     const page = await browser.newPage();

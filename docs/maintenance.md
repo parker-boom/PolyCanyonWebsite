@@ -45,7 +45,7 @@ The iPhone app has its own bundled data and release process. Historical correcti
 
 After building, review the preview at desktop and mobile widths:
 
-- Search and sort both structure collections; open a detail page and go Back.
+- Search and sort the collection, expand Historical structures at the bottom, then open a detail page and go Back. History starts collapsed and expands to show search matches.
 - Move through photographs, open fullscreen, and close with Escape. Check keyboard focus returns correctly.
 - Switch the About history eras and follow visiting links.
 - Switch all three App previews. Check pause, reduced motion, and the still-image fallback.
@@ -55,7 +55,7 @@ The browser regression scripts in `scripts/check-*.mjs` supplement the build che
 
 ## Static pages and external links
 
-The build produces `build/` with a physical HTML page for every public route, plus a sitemap and a real 404 page. Structure research remains readable without JavaScript. React replaces that static body when it loads; there is no runtime rendering server.
+The build produces `build/` with a physical HTML page for every public route, plus a sitemap and a real 404 page. Structure research remains readable without JavaScript. During normal startup the plain HTML fallback stays hidden, and the requested page module is preloaded. React replaces the fallback when it loads. If JavaScript is disabled or fails, the research remains readable. There is no runtime rendering server.
 
 Legacy Chronicles, Info, Map, and Download links redirect to their current pages. Retired `/admin/` URLs return 404. Never replace the final hosting rule with a catch-all 200 response.
 
