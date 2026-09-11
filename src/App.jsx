@@ -24,14 +24,14 @@ const Content = styled.main`
   min-width: 0;
   margin-top: 0;
   > :not([role='status']) {
-    animation: page-appear 160ms ease-out;
+    animation: page-settle 200ms ease-out;
   }
-  @keyframes page-appear {
+  @keyframes page-settle {
     from {
-      opacity: 0;
+      transform: translateY(5px);
     }
     to {
-      opacity: 1;
+      transform: translateY(0);
     }
   }
   @media (prefers-reduced-motion: reduce) {
@@ -62,8 +62,8 @@ export default function App() {
       </a>
       <Navigation />
       <Content id="main-content" $home={pathname === '/'} tabIndex={-1}>
-        <PageErrorBoundary key={pathname}>
-          <Suspense fallback={<Loading role="status">Loading…</Loading>}>
+        <Suspense fallback={<Loading role="status">Loading…</Loading>}>
+          <PageErrorBoundary key={pathname}>
             <Routes>
               <Route path="/" element={<HomeWeb />} />
               <Route
@@ -122,8 +122,8 @@ export default function App() {
                 }
               />
             </Routes>
-          </Suspense>
-        </PageErrorBoundary>
+          </PageErrorBoundary>
+        </Suspense>
       </Content>
       <Footer />
     </Shell>

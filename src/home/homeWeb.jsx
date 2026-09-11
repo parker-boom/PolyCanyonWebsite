@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiChevronRight } from 'react-icons/fi';
 import styled from 'styled-components';
@@ -94,23 +94,43 @@ const Page = styled.div`
   }
   .hero img {
     display: block;
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: 0;
     transition: transform 350ms ease;
+  }
+  .hero img[data-previous='true'] {
+    opacity: 1;
+    z-index: 1;
+  }
+  .hero img[data-active='true'] {
+    opacity: 1;
+    z-index: 2;
+  }
+  .hero.revealing img[data-active='true'] {
+    animation: hero-reveal 240ms ease-out;
+  }
+  @keyframes hero-reveal {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
   @media (hover: hover) and (prefers-reduced-motion: no-preference) {
     .hero:hover img {
       transform: scale(1.018);
     }
   }
-  .hero.changed img {
-    animation: appear 0.3s ease;
-  }
   .hero::after {
     content: '';
     position: absolute;
     inset: 40% 0 0;
+    z-index: 3;
     background: linear-gradient(transparent, #102c20e8);
     pointer-events: none;
   }
@@ -119,7 +139,7 @@ const Page = styled.div`
     left: 24px;
     right: 24px;
     bottom: 24px;
-    z-index: 1;
+    z-index: 4;
   }
   .caption h2 {
     margin: 0 0 8px;
@@ -159,6 +179,15 @@ const Page = styled.div`
     object-fit: cover;
     display: block;
     transition: filter 0.2s;
+  }
+  .choices button[data-pending='true'] {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+  .image-status {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 10px 0 0;
   }
   .choices button:is(:hover, :focus-visible) img {
     filter: brightness(1.12);
@@ -218,20 +247,12 @@ const Page = styled.div`
     outline: 2px solid var(--gold);
     outline-offset: 5px;
   }
-  @keyframes appear {
-    from {
-      opacity: 0.5;
-    }
-    to {
-      opacity: 1;
-    }
-  }
   @media (prefers-reduced-motion: reduce) {
     .explore:is(:hover, :focus-visible) svg,
     .entrances a:is(:hover, :focus-visible) .chevron {
       transform: none;
     }
-    .hero.changed img {
+    .hero.revealing img[data-active='true'] {
       animation: none;
     }
     .choices img,
@@ -298,17 +319,41 @@ const Page = styled.div`
 `;
 export default function Home() {
   const [selection, setSelection] = useState(visitSelection);
-  const [changed, setChanged] = useState(false);
+  const [previous, setPrevious] = useState(null);
+  const [pending, setPending] = useState(null);
+  const [error, setError] = useState('');
+  const images = useRef([]);
+  const request = useRef(0);
+  useEffect(
+    () => () => {
+      request.current += 1;
+    },
+    []
+  );
   const feature = features[selection.active];
-  const swap = (slot) => {
-    visitSelection = {
-      active: selection.alternatives[slot],
-      alternatives: selection.alternatives.map((n, i) =>
-        i === slot ? selection.active : n
-      ),
-    };
-    setChanged(true);
-    setSelection(visitSelection);
+  const swap = async (slot) => {
+    const next = selection.alternatives[slot];
+    const token = ++request.current;
+    setPending(next);
+    setError('');
+    try {
+      // Decode the actual, persistent image node before revealing it.
+      await images.current[next].decode();
+      if (token !== request.current) return;
+      setPrevious(selection.active);
+      visitSelection = {
+        active: next,
+        alternatives: selection.alternatives.map((n, i) =>
+          i === slot ? selection.active : n
+        ),
+      };
+      setSelection(visitSelection);
+    } catch {
+      if (token === request.current)
+        setError('That photograph could not load. Try another or tap again.');
+    } finally {
+      if (token === request.current) setPending(null);
+    }
   };
   return (
     <Page>
@@ -325,20 +370,28 @@ export default function Home() {
         </div>
         <div>
           <Link
-            className={`hero${changed ? ' changed' : ''}`}
+            className={`hero${previous !== null ? ' revealing' : ''}`}
             to={`/structures/${feature.url}`}
             aria-label={`Read about ${feature.name}`}
           >
-            <img
-              key={feature.number}
-              src={heroImages[feature.number][1]}
-              srcSet={`${heroImages[feature.number][0]} 800w, ${heroImages[feature.number][1]} 1600w`}
-              sizes="(max-width:600px) calc(100vw - 36px), (max-width:1320px) 60vw, 800px"
-              width="1080"
-              height="720"
-              alt={feature.name}
-              fetchPriority="high"
-            />
+            {features.map((item, index) => (
+              <img
+                key={item.number}
+                ref={(node) => {
+                  images.current[index] = node;
+                }}
+                src={heroImages[item.number][1]}
+                srcSet={`${heroImages[item.number][0]} 800w, ${heroImages[item.number][1]} 1600w`}
+                sizes="(max-width:600px) calc(100vw - 36px), (max-width:1320px) 60vw, 800px"
+                width="1080"
+                height="720"
+                alt={index === selection.active ? item.name : ''}
+                aria-hidden={index !== selection.active}
+                data-active={index === selection.active}
+                data-previous={index === previous}
+                fetchPriority={index === initialFeature ? 'high' : 'low'}
+              />
+            ))}
             <div className="caption" aria-live="polite">
               <h2>{feature.name}</h2>
               <p>{feature.text}</p>
@@ -348,11 +401,13 @@ export default function Home() {
             className="choices"
             role="group"
             aria-label="More structures to explore"
+            aria-busy={pending !== null}
           >
             {selection.alternatives.map((n, slot) => (
               <button
                 key={slot}
                 onClick={() => swap(slot)}
+                data-pending={pending === n}
                 aria-label={`Feature ${features[n].name}`}
               >
                 <img
@@ -364,6 +419,11 @@ export default function Home() {
               </button>
             ))}
           </div>
+          {error && (
+            <p className="image-status" role="status">
+              {error}
+            </p>
+          )}
         </div>
       </div>
       <div className="entrances">

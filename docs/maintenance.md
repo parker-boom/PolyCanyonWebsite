@@ -68,3 +68,11 @@ The deployed site needs no scheduled job, database, or application secret. Domai
 ## Website icon
 
 The navigation icon and favicon use the approved Shell Sweep Clean Icon Composer export. The website keeps resized copies in `src/assets/shell-sweep.webp` and `public/favicon.png`; the editable master belongs to the iOS project. Use the Clean export when updating these assets, not the earlier raster draft.
+
+## Loading and visual continuity
+
+The homepage keeps four responsive hero images mounted. The initial photograph gets high fetch priority; alternatives load at low priority. A selection waits for the actual image element’s `decode()` promise before changing the photograph, caption, or destination. The previous image remains opaque under the reveal, so a slow or failed request never clears a working image. New clicks supersede pending requests.
+
+Keep the route Suspense boundary outside the keyed error boundary. React Router’s transitions can then preserve the previous page during a lazy route download. Avoid fading entire pages from transparent: it briefly exposes the background even when everything is cached. The small page settling motion and hero reveal respect reduced-motion preferences.
+
+`check-loading-continuity.mjs` tests delayed and failed images, caption/link consistency, and delayed navigation with normal and reduced motion.
