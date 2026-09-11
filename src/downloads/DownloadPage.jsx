@@ -184,9 +184,11 @@ const Page = styled.article`
     }
     h1 {
       font-size: 36px;
+      order: -2;
     }
     .download {
-      margin-top: 24px;
+      order: -1;
+      margin: 8px 0 12px;
     }
     .choices {
       gap: 6px;
