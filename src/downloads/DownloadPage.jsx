@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { FaApple } from 'react-icons/fa';
 import styled from 'styled-components';
+import placeholders from './preview-placeholders.js';
 import { Phone, DownloadButton } from './DownloadPage.styles.js';
 const features = [
   {
@@ -120,16 +121,30 @@ const Page = styled.article`
   .strip::-webkit-scrollbar {
     display: none;
   }
-  .strip video,
-  .strip img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 110 / 239;
-    object-fit: contain;
-    display: block;
+  .screen {
+    position: relative;
     flex: 0 0 100%;
     min-width: 0;
+    aspect-ratio: 110 / 239;
     scroll-snap-align: start;
+    background-size: cover;
+    background-position: center;
+  }
+  .screen video,
+  .screen img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  .screen video {
+    opacity: 0;
+    transition: opacity 120ms ease-out;
+  }
+  .screen video[data-ready='true'] {
+    opacity: 1;
   }
   .buffering {
     position: absolute;
@@ -194,13 +209,15 @@ const Page = styled.article`
     }
   }
 `;
-export default function DownloadPage() {
+export default function DownloadPage({ isActive = true }) {
   const [active, setActive] = useState(0);
   const ref = useRef(null);
   const videos = useRef([]);
+  const scrollTimer = useRef(null);
   const [paused, setPaused] = useState(
     () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
   );
+  const [ready, setReady] = useState({});
   const [failed, setFailed] = useState({});
   const [buffering, setBuffering] = useState({ 0: true });
   useEffect(() => {
@@ -214,7 +231,7 @@ export default function DownloadPage() {
     const sync = () =>
       videos.current.forEach((video, index) => {
         if (!video) return;
-        if (index !== active || paused || document.hidden) {
+        if (!isActive || index !== active || paused || document.hidden) {
           video.pause();
           if (index !== active) video.currentTime = 0;
         } else {
@@ -229,8 +246,12 @@ export default function DownloadPage() {
       cancelled = true;
       document.removeEventListener('visibilitychange', sync);
     };
-  }, [active, paused]);
-  const scrollTimer = useRef(null);
+  }, [active, paused, isActive]);
+  useLayoutEffect(() => {
+    clearTimeout(scrollTimer.current);
+    if (isActive && ref.current)
+      ref.current.scrollLeft = ref.current.clientWidth * active;
+  }, [isActive]);
   useEffect(() => () => clearTimeout(scrollTimer.current), []);
   const move = (index) => {
     if (index < 0 || index >= features.length) return;
@@ -301,11 +322,12 @@ export default function DownloadPage() {
                     }
                   }}
                   onScroll={() => {
+                    if (!isActive || !ref.current?.clientWidth) return;
                     clearTimeout(scrollTimer.current);
                     // Keep the chosen caption steady while the phone travels.
                     // A manual swipe updates the caption after settling as well.
                     scrollTimer.current = setTimeout(() => {
-                      if (!ref.current) return;
+                      if (!ref.current?.clientWidth) return;
                       setActive(
                         Math.min(
                           features.length - 1,
@@ -320,63 +342,86 @@ export default function DownloadPage() {
                     }, 160);
                   }}
                 >
-                  {features.map((f, i) =>
-                    failed[i] ? (
+                  {features.map((f, i) => (
+                    <div
+                      className="screen"
+                      key={f.name}
+                      style={{
+                        backgroundImage: `url(${placeholders[f.file]})`,
+                      }}
+                      aria-hidden={active !== i}
+                    >
                       <img
-                        key={f.name}
-                        src={`/media/app-v6/${f.file}.webp`}
-                        width="720"
-                        height="1564"
+                        src={`/media/app-v6/${f.file}-poster.webp`}
+                        width="480"
+                        height="1043"
                         alt={f.alt}
-                      />
-                    ) : (
-                      <video
-                        key={f.name}
-                        ref={(video) => {
-                          videos.current[i] = video;
+                        aria-hidden={!!ready[i] && !failed[i]}
+                        onError={(event) => {
+                          event.currentTarget.style.visibility = 'hidden';
                         }}
-                        src={`/media/app-v6/${f.file}.mp4`}
-                        poster={`/media/app-v6/${f.file}.webp`}
-                        width="720"
-                        height="1564"
-                        aria-label={f.alt}
-                        aria-hidden={active !== i}
-                        muted
-                        loop
-                        playsInline
-                        autoPlay={active === i && !paused}
-                        preload={active === i ? 'auto' : 'metadata'}
-                        tabIndex={active === i ? 0 : -1}
-                        title={paused ? 'Play preview' : 'Pause preview'}
-                        onClick={() => setPaused((value) => !value)}
-                        onKeyDown={(event) => {
-                          if (event.key === ' ' || event.key === 'Enter') {
-                            event.preventDefault();
-                            setPaused((value) => !value);
+                        fetchPriority={i === 0 ? 'high' : 'low'}
+                      />
+                      {!failed[i] && (
+                        <video
+                          ref={(video) => {
+                            videos.current[i] = video;
+                          }}
+                          src={`/media/app-v6/${f.file}.mp4`}
+                          width="720"
+                          height="1564"
+                          aria-label={f.alt}
+                          muted
+                          loop
+                          playsInline
+                          autoPlay={isActive && active === i && !paused}
+                          preload={active === i ? 'auto' : 'metadata'}
+                          data-ready={!!ready[i]}
+                          tabIndex={isActive && active === i ? 0 : -1}
+                          title={paused ? 'Play preview' : 'Pause preview'}
+                          onClick={() => setPaused((value) => !value)}
+                          onKeyDown={(event) => {
+                            if (event.key === ' ' || event.key === 'Enter') {
+                              event.preventDefault();
+                              setPaused((value) => !value);
+                            }
+                          }}
+                          onWaiting={() =>
+                            setBuffering((previous) => ({
+                              ...previous,
+                              [i]: true,
+                            }))
                           }
-                        }}
-                        onWaiting={() =>
-                          setBuffering((previous) => ({
-                            ...previous,
-                            [i]: true,
-                          }))
-                        }
-                        onPlaying={() =>
-                          setBuffering((previous) => ({
-                            ...previous,
-                            [i]: false,
-                          }))
-                        }
-                        onError={() =>
-                          setFailed((previous) => ({ ...previous, [i]: true }))
-                        }
-                      />
-                    )
-                  )}
+                          onPlaying={(event) => {
+                            const video = event.currentTarget;
+                            const reveal = () => {
+                              setReady((previous) => ({
+                                ...previous,
+                                [i]: true,
+                              }));
+                              setBuffering((previous) => ({
+                                ...previous,
+                                [i]: false,
+                              }));
+                            };
+                            if (video.requestVideoFrameCallback)
+                              video.requestVideoFrameCallback(reveal);
+                            else reveal();
+                          }}
+                          onError={() =>
+                            setFailed((previous) => ({
+                              ...previous,
+                              [i]: true,
+                            }))
+                          }
+                        />
+                      )}
+                    </div>
+                  ))}
                 </div>
               </div>
             </Phone>
-            {buffering[active] && !paused && !failed[active] && (
+            {isActive && buffering[active] && !paused && !failed[active] && (
               <span className="buffering" role="status">
                 Loading preview…
               </span>

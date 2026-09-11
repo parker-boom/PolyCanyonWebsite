@@ -65,9 +65,13 @@ function htmlFor(route, page, robots = 'index,follow') {
   const preload = routeModule
     ? `<link rel="modulepreload" data-route-preload href="/${routeModule}" />`
     : '';
+  const posterPreload =
+    route === '/app'
+      ? '<link rel="preload" data-route-preload as="image" href="/media/app-v6/explore-poster.webp" fetchpriority="high" />'
+      : '';
   const body = clean
     .replace(/<link[^>]*data-route-preload[^>]*>/g, '')
-    .replace('</head>', tags + preload + '\n</head>')
+    .replace('</head>', tags + preload + posterPreload + '\n</head>')
     .replace(/<noscript\b[^>]*>[\s\S]*?<\/noscript\s*>/, '');
   // These boundaries are emitted after Vite, so nested article divs and a
   // second generation pass cannot turn the homepage into every route's body.

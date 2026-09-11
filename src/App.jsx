@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useLayoutEffect } from 'react';
+import React, { lazy, Suspense, useLayoutEffect, useRef } from 'react';
 import { Routes, Route, Navigate, Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import Navigation from './layout/Navigation.jsx';
@@ -53,6 +53,11 @@ export default function App() {
     document.documentElement.classList.remove('app-booting');
   }, []);
   const { pathname, search } = useLocation();
+  const appActive = /^\/app\/?$/i.test(pathname);
+  const appVisited = useRef(false);
+  useLayoutEffect(() => {
+    if (appActive) appVisited.current = true;
+  }, [appActive]);
   return (
     <Shell>
       <PageMetadata />
@@ -63,6 +68,13 @@ export default function App() {
       <Navigation />
       <Content id="main-content" $home={pathname === '/'} tabIndex={-1}>
         <Suspense fallback={<Loading role="status">Loading…</Loading>}>
+          {(appVisited.current || appActive) && (
+            <div hidden={!appActive}>
+              <PageErrorBoundary>
+                <Download isActive={appActive} />
+              </PageErrorBoundary>
+            </div>
+          )}
           <PageErrorBoundary key={pathname}>
             <Routes>
               <Route path="/" element={<HomeWeb />} />
@@ -80,7 +92,7 @@ export default function App() {
                 path="/structures/:structureUrl"
                 element={<StructureWeb key={pathname + search} />}
               />
-              <Route path="/app" element={<Download />} />
+              <Route path="/app" element={null} />
               <Route
                 path="/download"
                 element={<Navigate to="/app" replace />}
