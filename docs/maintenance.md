@@ -29,7 +29,7 @@ npm run preview -- --port 4182
 | Shared navigation and footer | `src/layout/` |
 | Contact address | `src/app/contact.js` |
 | Shared privacy text | `src/utils/privacyContent.js` |
-| App recordings and posters | `public/media/app-v6/` |
+| App recordings and posters | `public/media/app-continuous/` (local candidate); `public/media/app-v6/` (published) |
 | Historical source material and design records | `archive/` |
 | Static HTML, metadata, and media generation | `scripts/` |
 

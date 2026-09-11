@@ -67,7 +67,7 @@ function htmlFor(route, page, robots = 'index,follow') {
     : '';
   const posterPreload =
     route === '/app'
-      ? '<link rel="preload" data-route-preload as="image" href="/media/app-v6/explore-poster.webp" fetchpriority="high" />'
+      ? '<link rel="preload" data-route-preload as="image" href="/media/app-continuous/explore-poster.webp" fetchpriority="high" />'
       : '';
   const body = clean
     .replace(/<link[^>]*data-route-preload[^>]*>/g, '')

@@ -9,7 +9,7 @@ try {
   const gate = new Promise((resolve) => {
     release = resolve;
   });
-  await page.route('**/media/app-v6/*.mp4', async (route) => {
+  await page.route('**/media/app-continuous/*.mp4', async (route) => {
     await gate;
     await route.continue();
   });

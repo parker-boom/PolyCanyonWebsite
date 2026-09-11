@@ -14,13 +14,13 @@ const features = [
     name: 'Learn',
     label: 'Learn about the structures',
     file: 'learn',
-    alt: 'Searching for Bridge House and reading its design and construction story',
+    alt: 'Scrolling the collection, opening Bridge House, reading its story, and swiping to Pyramid',
   },
   {
     name: 'Tour',
     label: 'Take a virtual tour',
     file: 'tour',
-    alt: 'Swiping through the virtual tour and opening Shell House',
+    alt: 'Swiping through the virtual tour, opening Tensegrity, and continuing to browse',
   },
 ];
 const featureDescriptions = [
@@ -354,7 +354,7 @@ export default function DownloadPage({ isActive = true }) {
                       aria-hidden={active !== i}
                     >
                       <img
-                        src={`/media/app-v6/${f.file}-poster.webp`}
+                        src={`/media/app-continuous/${f.file}-poster.webp`}
                         width="480"
                         height="1043"
                         alt={f.alt}
@@ -369,7 +369,7 @@ export default function DownloadPage({ isActive = true }) {
                           ref={(video) => {
                             videos.current[i] = video;
                           }}
-                          src={`/media/app-v6/${f.file}.mp4`}
+                          src={`/media/app-continuous/${f.file}.mp4`}
                           width="720"
                           height="1564"
                           aria-label={f.alt}

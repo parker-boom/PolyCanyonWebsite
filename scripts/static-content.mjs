@@ -110,7 +110,7 @@ export async function createStaticContent(structures, manifest) {
     return `<figure><img src="/${escapeHTML(smaller?.file || asset.file)}"${responsive}${dimensions} alt="${escapeHTML(caption)}" loading="${eager ? 'eager' : 'lazy'}" decoding="async"></figure>`;
   };
   const appPhoto = (name, caption) =>
-    `<figure><img src="/media/app-v6/${name}.webp" width="720" height="1564" alt="${escapeHTML(caption)}" loading="lazy" decoding="async"></figure>`;
+    `<figure><img src="/media/app-continuous/${name}.webp" width="720" height="1564" alt="${escapeHTML(caption)}" loading="lazy" decoding="async"></figure>`;
   const recordByRoute = new Map(
     structures.map((record) => [`/structures/${record.url}`, record])
   );
