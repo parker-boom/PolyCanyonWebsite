@@ -1,8 +1,8 @@
 # App preview media
 
-## Local continuous-demo candidate
+## Continuous demos
 
-The local app page uses `public/media/app-continuous/`. These are fresh, continuous simulator recordings from app commit `a80fad7` on the local `design/discovery-motion` branch. The app change and website candidate are **not published**. The previously published recordings remain in `public/media/app-v6/` during review.
+The app page uses `public/media/app-continuous/`. These are fresh, continuous simulator recordings from app commit `a80fad7` on the local `design/discovery-motion` branch. The website recordings are approved for publication. The native app transition was captured from a local app branch; publishing this website does not release that app change. Earlier recordings remain in `public/media/app-v6/` for reference.
 
 - **Explore:** approach Underground House, receive a Liquid Glass discovery popup, then tap it to expand into the full-screen story. Location movement is simulated; discovery behavior is real.
 - **Learn:** scroll the collection, open Bridge House, scroll its story, then swipe right to the previous structure, Pyramid.
@@ -22,4 +22,4 @@ Opening-frame WebP posters stay visible until the video presents a decoded frame
 
 After replacing MP4s, run `npm run media:app` to regenerate full-size stills, lightweight posters, and inline placeholders. Give a substantially new set fresh URLs; update interactive, static-page, preload, and test references together so an open browser cannot retain the old recordings.
 
-Before publishing, review each complete take and its loop inside the phone at desktop and mobile widths. Check touch timing, text readability, first-frame loading, switching, return navigation, reduced motion, and failed video requests. Run `npm run check` and the app-preview continuity browser check. Local review approval is required before publishing this candidate.
+Before publishing, review each complete take and its loop inside the phone at desktop and mobile widths. Check touch timing, text readability, first-frame loading, switching, return navigation, reduced motion, and failed video requests. Run `npm run check` and the app-preview continuity browser check. Review replacement recordings locally before publishing.
