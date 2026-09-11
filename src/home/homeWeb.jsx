@@ -33,13 +33,7 @@ const Page = styled.div`
     align-items: center;
   }
   .intro {
-    padding-bottom: 60px;
-  }
-  .place {
-    font-size: 12px;
-    letter-spacing: 0.06em;
-    color: var(--muted);
-    margin: 0 0 18px;
+    padding-bottom: 0;
   }
   h1 {
     font-size: clamp(42px, 5vw, 66px);
@@ -49,7 +43,7 @@ const Page = styled.div`
     color: var(--green);
     margin: 0 0 24px;
   }
-  .intro p:not(.place) {
+  .intro p {
     font-size: 17px;
     line-height: 1.75;
     color: var(--muted);
@@ -142,27 +136,34 @@ const Page = styled.div`
     display: block;
     transition: filter 0.2s;
   }
-  .choices span {
-    display: block;
-    font-size: 12px;
-    margin-top: 8px;
-    line-height: 1.4;
-  }
   .choices button:hover img {
     filter: brightness(1.12);
   }
   .entrances {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    margin-top: 44px;
+    gap: 18px;
+    margin-top: 36px;
     padding-top: 26px;
     border-top: 1px solid var(--line);
   }
   .entrances a {
     display: block;
     text-decoration: none;
-    padding: 16px 18px;
+    padding: 18px 48px 18px 20px;
+    position: relative;
+    background: #f0f3ec;
+    border: 1px solid #dce3d7;
+    border-radius: 3px;
+    transition: background 160ms ease, border-color 160ms ease;
+  }
+  .entrances a::after {
+    content: '→';
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 20px;
+    color: var(--green);
   }
   .entrances h2 {
     font-size: 21px;
@@ -180,6 +181,7 @@ const Page = styled.div`
   .entrances a:hover,
   .entrances a:focus-visible {
     background: #f3ecd9;
+    border-color: #bda46a;
   }
   .entrances a:hover h2 {
     text-decoration: underline;
@@ -202,7 +204,8 @@ const Page = styled.div`
     .hero.changed img {
       animation: none;
     }
-    .choices img {
+    .choices img,
+    .entrances a {
       transition: none;
     }
   }
@@ -214,7 +217,7 @@ const Page = styled.div`
     h1 {
       font-size: 42px;
     }
-    .intro p:not(.place) {
+    .intro p {
       font-size: 15px;
     }
     .caption {
@@ -238,14 +241,11 @@ const Page = styled.div`
     .intro {
       padding: 0 0 28px;
     }
-    .place {
-      margin-bottom: 12px;
-    }
     h1 {
       font-size: 44px;
       margin-bottom: 16px;
     }
-    .intro p:not(.place) {
+    .intro p {
       max-width: 100%;
       margin-bottom: 20px;
     }
@@ -264,9 +264,7 @@ const Page = styled.div`
       margin-top: 30px;
       padding-top: 18px;
     }
-    .entrances a {
-      padding: 16px 18px;
-    }
+
   }
 `;
 export default function Home() {
@@ -287,14 +285,13 @@ export default function Home() {
     <Page>
       <div className="opening">
         <div className="intro">
-          <p className="place">Cal Poly · San Luis Obispo</p>
           <h1>Poly Canyon</h1>
           <p>
             An outdoor architecture lab at Cal Poly, with student-built
             structures dating back to the 1960s.
           </p>
           <Link className="explore" to="/structures">
-            Explore the structures <span aria-hidden="true">→</span>
+            Browse the archive <span aria-hidden="true">→</span>
           </Link>
         </div>
         <div>
@@ -335,7 +332,6 @@ export default function Home() {
                   height="320"
                   alt=""
                 />
-                <span>{features[n].name}</span>
               </button>
             ))}
           </div>

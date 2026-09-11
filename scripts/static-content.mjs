@@ -145,7 +145,7 @@ export async function createStaticContent(structures, manifest) {
           })
           .join('')}</section>`;
     } else if (route === '/') {
-      body = `<h1>Poly Canyon</h1><p>An outdoor architecture lab at Cal Poly, with student-built structures dating back to the 1960s.</p><p>${link('/structures', 'Explore the structures')}</p>${features.map((f) => `${photo(`src/assets/generated/home/M-${f.number}-1600.webp`, f.name)}<p>${escapeHTML(f.text)} ${link(`/structures/${f.url}`, `Read about ${f.name}`)}</p>`).join('')}<h2>${link('/about', 'Learn about the canyon')}</h2><p>Its history and how to visit.</p><h2>${link('/app', 'Download the app')}</h2><p>A walking map and virtual tour for iPhone.</p>`;
+      body = `<h1>Poly Canyon</h1><p>An outdoor architecture lab at Cal Poly, with student-built structures dating back to the 1960s.</p><p>${link('/structures', 'Browse the archive')}</p>${features.map((f) => `${photo(`src/assets/generated/home/M-${f.number}-1600.webp`, f.name)}<p>${escapeHTML(f.text)} ${link(`/structures/${f.url}`, `Read about ${f.name}`)}</p>`).join('')}<h2>${link('/about', 'Learn about the canyon')}</h2><p>Its history and how to visit.</p><h2>${link('/app', 'Download the app')}</h2><p>A walking map and virtual tour for iPhone.</p>`;
     } else if (route === '/structures' || route === '/structures/history') {
       const collection = (status) =>
         `<ul>${structures

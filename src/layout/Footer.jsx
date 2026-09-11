@@ -26,13 +26,13 @@ const Container = styled.footer`
 const Inner = styled.div`
   max-width: 1240px;
   margin: 0 auto;
-  padding: 20px 40px;
+  padding: 6px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 18px;
+  gap: 6px 18px;
   @media (max-width: 600px) {
-    padding: 20px 18px;
+    padding: 8px 18px;
     flex-wrap: wrap;
   }
 `;
