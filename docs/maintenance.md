@@ -64,3 +64,7 @@ Legacy Chronicles, Info, Map, and Download links redirect to their current pages
 ## Leaving it running
 
 The deployed site needs no scheduled job, database, or application secret. Domain registration and hosting access still need to remain active. Dependabot alerts and recurring CodeQL scans are disabled by owner preference; secret scanning and push protection remain enabled. Run `npm audit` before future dependency updates or releases.
+
+## Website icon
+
+The navigation icon and favicon use the approved Shell Sweep Clean Icon Composer export. The website keeps resized copies in `src/assets/shell-sweep.webp` and `public/favicon.png`; the editable master belongs to the iOS project. Use the Clean export when updating these assets, not the earlier raster draft.

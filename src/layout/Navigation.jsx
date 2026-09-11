@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import styled from 'styled-components';
-import logo from '../assets/app360.webp';
+import logo from '../assets/shell-sweep.webp';
 const Header = styled.header`
   width: min(1240px, calc(100% - 80px));
   margin: 0 auto;
