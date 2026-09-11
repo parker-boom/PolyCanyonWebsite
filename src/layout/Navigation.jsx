@@ -30,7 +30,7 @@ const Brand = styled(NavLink)`
   letter-spacing: -0.7px;
   align-self: stretch;
   position: relative;
-  &[aria-current='page']::after {
+  &::after {
     content: '';
     position: absolute;
     bottom: -1px;
@@ -38,6 +38,14 @@ const Brand = styled(NavLink)`
     right: 0;
     height: 2px;
     background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 180ms ease;
+  }
+  &:hover::after,
+  &:focus-visible::after,
+  &[aria-current='page']::after {
+    transform: scaleX(1);
   }
   img {
     width: 44px;
@@ -73,7 +81,7 @@ const Nav = styled.nav`
   a[aria-current='page'] {
     color: var(--green);
   }
-  a[aria-current='page']::after {
+  a::after {
     content: '';
     position: absolute;
     bottom: -1px;
@@ -81,6 +89,14 @@ const Nav = styled.nav`
     right: 0;
     height: 2px;
     background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 180ms ease;
+  }
+  a:hover::after,
+  a:focus-visible::after,
+  a[aria-current='page']::after {
+    transform: scaleX(1);
   }
   @media (max-width: 600px) {
     width: 100%;

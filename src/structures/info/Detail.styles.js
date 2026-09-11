@@ -36,7 +36,7 @@ export const Button = styled.button`
     opacity: 0.35;
     cursor: default;
   }
-  &:hover {
+  &:hover:not(:disabled) {
     background: #edf1e9;
     border-color: #849b8c;
   }
@@ -127,6 +127,15 @@ export const PhotoButton = styled.button`
     width: 100%;
     height: 100%;
     object-fit: contain;
+    animation: photo-enter 180ms ease-out;
+  }
+  @keyframes photo-enter {
+    from {
+      opacity: 0.65;
+    }
+    to {
+      opacity: 1;
+    }
   }
 `;
 export const FrameControls = styled.div`
@@ -176,6 +185,10 @@ export const Thumbnails = styled.div`
     border: 2px solid transparent;
     background: #e9ede5;
     padding: 3px;
+  }
+  button:hover:not([aria-current='true']) {
+    border-color: #b58a32;
+    background: #f3ecd9;
   }
   button[aria-current='true'] {
     border-color: #164b3b;
@@ -318,6 +331,9 @@ export const Sources = styled.ul`
     padding: 13px 0;
     font-size: 15px;
   }
+  a:is(:hover, :focus-visible) {
+    background: #f3ecd9;
+  }
 `;
 export const BottomNav = styled.nav`
   display: flex;
@@ -340,6 +356,7 @@ export const BottomNav = styled.nav`
   }
 `;
 export const Viewer = styled.div`
+  animation: detail-enter 160ms ease-out;
   position: fixed;
   inset: 0;
   z-index: 5000;

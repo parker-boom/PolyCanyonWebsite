@@ -13,6 +13,9 @@ const Surface = styled.dialog`
   color: #29362b;
   background: #fff;
   box-shadow: none;
+  &[open] {
+    animation: detail-enter 160ms ease-out;
+  }
   &::backdrop {
     background: #142c1b77;
   }
@@ -45,6 +48,9 @@ const Close = styled.button`
   color: var(--green);
   cursor: pointer;
   z-index: 1;
+  &:hover {
+    background: #dce5d8;
+  }
 `;
 
 export default function Dialog({ open, onClose, titleId, children }) {

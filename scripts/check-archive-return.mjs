@@ -18,7 +18,6 @@ const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
     );
     const navigation = p.getByRole('navigation', { name: 'Main navigation' });
     assert.deepEqual(await navigation.getByRole('link').allTextContents(), [
-      'Home',
       'About',
       'App',
       'Structures',

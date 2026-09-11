@@ -65,6 +65,23 @@ const Page = styled.div`
   .explore:hover {
     background: #285c46;
   }
+  .explore svg,
+  .entrances .chevron {
+    transition: transform 180ms ease;
+  }
+  .explore:is(:hover, :focus-visible) svg,
+  .entrances a:is(:hover, :focus-visible) .chevron {
+    transform: translateX(3px);
+  }
+  .explore:active,
+  .entrances a:active {
+    background: #285c46;
+    color: white;
+  }
+  .entrances a:active p,
+  .entrances a:active .chevron {
+    color: white;
+  }
   .hero {
     display: block;
     position: relative;
@@ -80,6 +97,12 @@ const Page = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 350ms ease;
+  }
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .hero:hover img {
+      transform: scale(1.018);
+    }
   }
   .hero.changed img {
     animation: appear 0.3s ease;
@@ -137,7 +160,7 @@ const Page = styled.div`
     display: block;
     transition: filter 0.2s;
   }
-  .choices button:hover img {
+  .choices button:is(:hover, :focus-visible) img {
     filter: brightness(1.12);
   }
   .entrances {
@@ -156,7 +179,9 @@ const Page = styled.div`
     background: #f0f3ec;
     border: 1px solid #dce3d7;
     border-radius: 3px;
-    transition: background 160ms ease, border-color 160ms ease;
+    transition:
+      background 160ms ease,
+      border-color 160ms ease;
   }
   .entrances .chevron {
     position: absolute;
@@ -202,6 +227,10 @@ const Page = styled.div`
     }
   }
   @media (prefers-reduced-motion: reduce) {
+    .explore:is(:hover, :focus-visible) svg,
+    .entrances a:is(:hover, :focus-visible) .chevron {
+      transform: none;
+    }
     .hero.changed img {
       animation: none;
     }
@@ -265,7 +294,6 @@ const Page = styled.div`
       margin-top: 30px;
       padding-top: 18px;
     }
-
   }
 `;
 export default function Home() {
@@ -288,8 +316,8 @@ export default function Home() {
         <div className="intro">
           <h1>An outdoor architecture lab</h1>
           <p>
-            Student-built structures at Cal Poly, from experiments in the
-            1960s to the projects standing today.
+            Student-built structures at Cal Poly, from experiments in the 1960s
+            to the projects standing today.
           </p>
           <Link className="explore" to="/structures">
             Browse the archive <FiChevronRight aria-hidden="true" />

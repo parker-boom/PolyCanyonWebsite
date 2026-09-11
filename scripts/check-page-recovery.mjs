@@ -134,7 +134,6 @@ try {
       name: 'Main navigation',
     });
     assert.deepEqual(await navigation.getByRole('link').allTextContents(), [
-      'Home',
       'About',
       'App',
       'Structures',
@@ -145,7 +144,24 @@ try {
         .getAttribute('aria-current'),
       'page'
     );
-    for (const name of ['Home', 'Structures', 'About', 'App']) {
+    const home = page.getByRole('link', { name: 'Poly Canyon home' });
+    await home.click();
+    await page.waitForFunction(
+      () =>
+        document
+          .querySelector('a[aria-label="Poly Canyon home"]')
+          ?.getAttribute('aria-current') === 'page'
+    );
+    assert.equal(await home.getAttribute('aria-current'), 'page');
+    await navigation.getByRole('link', { name: 'About', exact: true }).click();
+    await page.waitForFunction(
+      () =>
+        !document
+          .querySelector('a[aria-label="Poly Canyon home"]')
+          ?.hasAttribute('aria-current')
+    );
+    assert.equal(await home.getAttribute('aria-current'), null);
+    for (const name of ['Structures', 'About', 'App']) {
       const item = navigation.getByRole('link', { name, exact: true });
       assert.ok(await item.isVisible(), `${width}px: ${name} is visible`);
       await item.focus();

@@ -90,6 +90,19 @@ const Page = styled.article`
     gap: 24px;
     margin-bottom: 36px;
   }
+  .examples figure > a,
+  .visit-photo > a {
+    display: block;
+    overflow: hidden;
+  }
+  .examples img,
+  .visit-photo img {
+    transition: filter 180ms ease;
+  }
+  .examples a:is(:hover, :focus-visible) img,
+  .visit-photo a:is(:hover, :focus-visible) img {
+    filter: brightness(1.06);
+  }
   .examples img {
     display: block;
     width: 100%;

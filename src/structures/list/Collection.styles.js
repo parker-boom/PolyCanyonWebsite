@@ -96,6 +96,15 @@ export const Tools = styled.div`
   .random svg {
     width: 20px;
     height: 20px;
+    transition: transform 260ms ease;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .random:is(:hover, :focus-visible) svg {
+      transform: rotate(90deg);
+    }
+    .random:active svg {
+      transform: rotate(180deg) scale(0.9);
+    }
   }
   .random:hover {
     background: #edf1e9;
@@ -226,6 +235,9 @@ export const Tail = styled.section`
   h2 button:focus-visible {
     outline: 2px solid var(--gold);
     outline-offset: 4px;
+  }
+  #historical-structures {
+    animation: detail-enter 180ms ease-out;
   }
   #historical-structures > p {
     margin: 6px 0 24px;
