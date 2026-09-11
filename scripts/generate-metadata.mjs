@@ -5,22 +5,22 @@ const pages = {
   '/': {
     title: 'Poly Canyon — Explore the Structures',
     description:
-      'Explore Cal Poly’s student-built architectural laboratory. Discover its structures, history, and the information you need for a visit.',
+      'An outdoor architecture lab at Cal Poly, built by students since the 1960s. Browse the structures, read their histories, and find out how to visit.',
   },
   '/about': {
     title: 'About Poly Canyon',
     description:
-      'Poly Canyon’s experimental structures, history and landscape, with walking directions and information for visiting Cal Poly’s outdoor laboratory.',
+      'What is Poly Canyon? Learn how Cal Poly’s outdoor architecture lab began, what stands there today, and how to get there.',
   },
   '/app': {
     title: 'Get the Poly Canyon App',
     description:
-      'An illustrated map for exploring Poly Canyon in person, with structure stories and a photographic Tour from anywhere.',
+      'Find your way around Poly Canyon, track the structures you visit, and learn how they were built. Available for iPhone, with a virtual tour to explore from home.',
   },
   '/structures': {
     title: 'Poly Canyon Structures — Explore the Archive',
     description:
-      'Browse active and historic student-built structures in Poly Canyon. Explore photographs, project details, and original research resources.',
+      'Browse Poly Canyon’s student-built houses, bridges, towers, and other experiments, with photographs, construction histories, and original project reports.',
   },
   '/structures/history': {
     title: 'Historical structures — Poly Canyon',
