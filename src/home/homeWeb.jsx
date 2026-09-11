@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FiChevronRight } from 'react-icons/fi';
 import styled from 'styled-components';
 import { features } from './features.js';
 import hero6Small from '../assets/generated/home/M-6-800.webp';
@@ -157,12 +158,12 @@ const Page = styled.div`
     border-radius: 3px;
     transition: background 160ms ease, border-color 160ms ease;
   }
-  .entrances a::after {
-    content: '→';
+  .entrances .chevron {
     position: absolute;
     right: 20px;
     top: 20px;
-    font-size: 20px;
+    width: 20px;
+    height: 20px;
     color: var(--green);
   }
   .entrances h2 {
@@ -291,7 +292,7 @@ export default function Home() {
             1960s to the projects standing today.
           </p>
           <Link className="explore" to="/structures">
-            Browse the archive <span aria-hidden="true">→</span>
+            Browse the archive <FiChevronRight aria-hidden="true" />
           </Link>
         </div>
         <div>
@@ -340,10 +341,12 @@ export default function Home() {
       <div className="entrances">
         <Link to="/about">
           <h2>Learn about the canyon</h2>
+          <FiChevronRight className="chevron" aria-hidden="true" />
           <p>Its history and how to visit.</p>
         </Link>
         <Link to="/app">
           <h2>Download the app</h2>
+          <FiChevronRight className="chevron" aria-hidden="true" />
           <p>A walking map and virtual tour for iPhone.</p>
         </Link>
       </div>
