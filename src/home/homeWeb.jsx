@@ -36,7 +36,7 @@ const Page = styled.div`
     padding-bottom: 0;
   }
   h1 {
-    font-size: clamp(42px, 5vw, 66px);
+    font-size: clamp(38px, 4vw, 56px);
     line-height: 1.04;
     letter-spacing: -0.05em;
     font-weight: 550;
@@ -285,10 +285,10 @@ export default function Home() {
     <Page>
       <div className="opening">
         <div className="intro">
-          <h1>Poly Canyon</h1>
+          <h1>An outdoor architecture lab</h1>
           <p>
-            An outdoor architecture lab at Cal Poly, with student-built
-            structures dating back to the 1960s.
+            Student-built structures at Cal Poly, from experiments in the
+            1960s to the projects standing today.
           </p>
           <Link className="explore" to="/structures">
             Browse the archive <span aria-hidden="true">→</span>

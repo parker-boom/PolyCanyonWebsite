@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import logo from '../assets/shell-sweep.webp';
 const Header = styled.header`
@@ -19,22 +19,34 @@ const Header = styled.header`
     gap: 12px;
   }
 `;
-const Brand = styled(Link)`
+const Brand = styled(NavLink)`
   display: flex;
   align-items: center;
   gap: 12px;
   text-decoration: none;
   color: var(--green);
   font-weight: 700;
-  font-size: 22px;
+  font-size: 28px;
   letter-spacing: -0.7px;
+  align-self: stretch;
+  position: relative;
+  &[aria-current='page']::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gold);
+  }
   img {
     width: 44px;
     height: 44px;
     border-radius: 10px;
   }
   @media (max-width: 600px) {
-    font-size: 21px;
+    font-size: 26px;
+    padding-bottom: 12px;
     img {
       width: 36px;
       height: 36px;
@@ -82,13 +94,12 @@ const Nav = styled.nav`
 export default function Navigation() {
   return (
     <Header>
-      <Brand to="/" aria-label="Poly Canyon home">
+      <Brand to="/" end aria-label="Poly Canyon home">
         <img src={logo} alt="" width="44" height="44" />
         Poly Canyon
       </Brand>
       <Nav aria-label="Main navigation">
         {[
-          ['/', 'Home'],
           ['/about', 'About'],
           ['/app', 'App'],
           ['/structures', 'Structures'],
