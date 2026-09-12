@@ -354,7 +354,7 @@ export default function DownloadPage({ isActive = true }) {
                       aria-hidden={active !== i}
                     >
                       <img
-                        src={`/media/app-continuous/${f.file}-poster.webp`}
+                        src={`/media/app-tap-only/${f.file}-poster.webp`}
                         width="480"
                         height="1043"
                         alt={f.alt}
@@ -369,7 +369,7 @@ export default function DownloadPage({ isActive = true }) {
                           ref={(video) => {
                             videos.current[i] = video;
                           }}
-                          src={`/media/app-continuous/${f.file}.mp4`}
+                          src={`/media/app-tap-only/${f.file}.mp4`}
                           width="720"
                           height="1564"
                           aria-label={f.alt}

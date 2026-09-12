@@ -9,6 +9,7 @@ import {
 import * as S from './Detail.styles.js';
 import useStructureDetail from '../hooks/useStructureDetail.js';
 import useDialog from '../hooks/useDialog.js';
+import DecodedPhoto from './DecodedPhoto.jsx';
 
 export default function StructureInfo() {
   const d = useStructureDetail();
@@ -82,14 +83,13 @@ export default function StructureInfo() {
   const fallbackSrc = imageProps.srcSet?.split(',')[0].trim().split(/\s+/)[0];
   const failureStage =
     photoFailure?.path === current?.path ? photoFailure.stage : 0;
-  const photo =
+  const photo = (expanded = false) =>
     current && failureStage < 2 ? (
-      <img
-        key={`${current.path}:${failureStage}`}
+      <DecodedPhoto
+        photoKey={current.path}
         {...(failureStage === 1 ? { src: fallbackSrc } : imageProps)}
-        sizes={fullscreen ? '100vw' : '(max-width: 700px) 100vw, 750px'}
+        sizes={expanded ? '100vw' : '(max-width: 700px) 100vw, 750px'}
         alt={current.description || structure.names[0]}
-        decoding="async"
         onError={() =>
           setPhotoFailure({
             path: current.path,
@@ -158,7 +158,7 @@ export default function StructureInfo() {
                       else d.toggleFullscreen();
                     }}
                   >
-                    {photo}
+                    {photo()}
                   </S.PhotoButton>
                 ) : (
                   <p>No photographs are available for this structure.</p>
@@ -344,7 +344,7 @@ export default function StructureInfo() {
             </div>
           </S.ViewerBar>
           <S.ViewerPhoto onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
-            {photo}
+            {photo(true)}
           </S.ViewerPhoto>
           <S.ViewerFooter>
             <div>

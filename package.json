@@ -25,7 +25,7 @@
     "check:build": "node scripts/check-build.mjs",
     "media:check": "node scripts/generate-media.mjs --check",
     "check": "npm test && npm run lint && npm run media:check && npm run build && npm run check:build",
-    "check:browser": "node scripts/check-archive-return.mjs && node scripts/check-gallery-navigation.mjs && node scripts/check-page-recovery.mjs && node scripts/check-static-pages.mjs && node scripts/check-map-directions.mjs && node scripts/check-external-fallbacks.mjs && node scripts/check-loading-continuity.mjs && node scripts/check-app-preview-continuity.mjs",
+    "check:browser": "node scripts/check-archive-return.mjs && node scripts/check-gallery-navigation.mjs && node scripts/check-gallery-loading.mjs && node scripts/check-page-recovery.mjs && node scripts/check-static-pages.mjs && node scripts/check-map-directions.mjs && node scripts/check-external-fallbacks.mjs && node scripts/check-loading-continuity.mjs && node scripts/check-app-preview-continuity.mjs",
     "media:app": "node scripts/generate-app-posters.mjs"
   },
   "devDependencies": {

@@ -2,17 +2,19 @@
 
 ## Continuous demos
 
-The app page uses `public/media/app-continuous/`. These are fresh, continuous simulator recordings from app commit `a80fad7` on the local `design/discovery-motion` branch. The website recordings are approved for publication. The native app transition was captured from a local app branch; publishing this website does not release that app change. Earlier recordings remain in `public/media/app-v6/` for reference.
+The app page uses `public/media/app-tap-only/`. These are fresh, continuous simulator recordings from app commit `918a285` on the local `design/discovery-motion` branch. This tap-only replacement set passed local review and is approved for website publication. The native app transition was captured from a local app branch; publishing this website does not release that app change. Earlier recordings remain in `public/media/app-v6/` for reference.
 
 - **Explore:** approach Underground House, receive a Liquid Glass discovery popup, then tap it to expand into the full-screen story. Location movement is simulated; discovery behavior is real.
 - **Learn:** scroll the collection, open Bridge House, scroll its story, then swipe right to the previous structure, Pyramid.
 - **Tour:** swipe twice, open Tensegrity, close it, then swipe through more structures.
 
-Touch rings and swipe trails come from actual simulator touch events using an opt-in capture aid. The takes have no internal cuts or speed changes; only recorder setup and shutdown are trimmed. The new discovery transition is an app implementation, not an effect painted onto the footage.
+Brief tap pulses appear after a short touch ends, using an opt-in simulator capture aid. Swipes, drags, multi-touch and cancelled gestures have no visual effects. A separate noninteractive overlay keeps the pulse out of native zoom snapshots. The takes have no internal cuts or speed changes; only recorder setup and shutdown are trimmed. The new discovery transition is an app implementation, not an effect painted onto the footage.
 
 Video masters were recorded first at 1320 × 2868. Website MP4s are 720 × 1564 at 30 fps; GIF exports are 540 × 1173 at 15 fps. All preserve the native screen aspect ratio without a hardware frame. The website supplies the phone outline and plays MP4 for sharper, lighter playback.
 
-Originals, GIF exports, native test logs, and per-take provenance are retained in the app workspace under `swift/.build/WebsiteDemos-continuous/`.
+Originals, GIF exports, native test logs, and per-take provenance are retained in the app workspace under `swift/.build/WebsiteDemos-tap-only/`.
+
+The recorder produced backward timestamp resets. The export preserves forward timestamp deltas, advances by 1/60 second at a reset, then resamples to 30 fps. Trim boundaries refer to that repaired timeline; raw recordings, the exporter and per-take provenance remain available for audit.
 
 ## Playback and replacement
 

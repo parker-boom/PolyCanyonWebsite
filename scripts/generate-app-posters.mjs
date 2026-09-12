@@ -6,7 +6,7 @@ const previews = {};
 try {
   const page = await browser.newPage();
   for (const name of ['explore', 'learn', 'tour']) {
-    const bytes = await readFile(`public/media/app-continuous/${name}.mp4`);
+    const bytes = await readFile(`public/media/app-tap-only/${name}.mp4`);
     const png = await page.evaluate(async (base64) => {
       const binary = atob(base64);
       const data = Uint8Array.from(binary, (c) => c.charCodeAt(0));
@@ -35,11 +35,11 @@ try {
     const source = Buffer.from(png, 'base64');
     await sharp(source)
       .webp({ quality: 84 })
-      .toFile(`public/media/app-continuous/${name}.webp`);
+      .toFile(`public/media/app-tap-only/${name}.webp`);
     await sharp(source)
       .resize({ width: 480 })
       .webp({ quality: 84 })
-      .toFile(`public/media/app-continuous/${name}-poster.webp`);
+      .toFile(`public/media/app-tap-only/${name}-poster.webp`);
     const tiny = await sharp(source)
       .resize({ width: 24 })
       .webp({ quality: 45 })
